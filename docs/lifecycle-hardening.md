@@ -79,11 +79,20 @@ The independent peer still verifies the TLS exporter label including its trailin
 
 ## Native error export and validation boundaries
 
-The internal optional `NativeThrows` annotation maps to `kotlin.Throws` only for Native.
-`pair` declares cancellation, I/O, identity-store and argument failures for NSError export.
-It does not add checked IOException declarations to the existing Java API. Kotlin/Native
-compilation, generated Swift declarations, and a linked Swift failure consumer must be
-validated on the native CI path; JVM compilation alone is not that evidence.
+The initial optional `NativeThrows` annotation experiment was rejected by Kotlin/Native
+2.4.20: an actual typealias to an annotation which affects compilation is forbidden.
+The failed candidate remains in history; no compiler diagnostic is suppressed. The
+expect/actual alias and its usage have been removed. Existing `Kadb.pair` and synchronous
+Kadb declarations retain their original Kotlin/Java and Objective-C entry points.
+
+An additive Apple-only `KadbApple` adapter uses direct `kotlin.Throws(Exception::class)`
+on its high-level delegates and suspending companion `pair`. It maps ordinary failures
+to NSError without adding checked exceptions to Java or changing original selectors.
+Original unannotated Kadb methods are still unsuitable for Swift calls that may fail:
+ordinary synchronous exceptions and non-cancellation pairing failures can terminate
+at that original language boundary. See [the adapter contract](apple-exception-boundary.md).
+Kotlin/Native compilation, generated Swift declarations, and linked Swift failure
+consumers must be validated on native CI; JVM compilation alone is not that evidence.
 
 The portable helper tests hold worker cleanup behind a condition and prove that cancellation
 cannot complete the caller while the worker still owns its state. JVM and Android Host

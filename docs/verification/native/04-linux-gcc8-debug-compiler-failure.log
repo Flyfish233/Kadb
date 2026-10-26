@@ -1,0 +1,137 @@
+-- The C compiler identification is GNU 8.3.0
+-- The CXX compiler identification is GNU 8.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /workspace/scratch/db79b63d76cf/konan-cache/dependencies/x86_64-unknown-linux-gnu-gcc-8.3.0-glibc-2.19-kernel-4.9-2/bin/x86_64-unknown-linux-gnu-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /workspace/scratch/db79b63d76cf/konan-cache/dependencies/x86_64-unknown-linux-gnu-gcc-8.3.0-glibc-2.19-kernel-4.9-2/bin/x86_64-unknown-linux-gnu-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- The ASM compiler identification is GNU
+-- Found assembler: /workspace/scratch/db79b63d76cf/konan-cache/dependencies/x86_64-unknown-linux-gnu-gcc-8.3.0-glibc-2.19-kernel-4.9-2/bin/x86_64-unknown-linux-gnu-gcc
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE
+-- Configuring done (3.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-linux-sysroot
+[  1%] Building CXX object boringssl/CMakeFiles/fipsmodule.dir/crypto/fipsmodule/bcm.cc.o
+[  1%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aes-gcm-avx2-x86_64-apple.S.o
+[  1%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aes-gcm-avx2-x86_64-linux.S.o
+[  1%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aes-gcm-avx512-x86_64-apple.S.o
+[  1%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aes-gcm-avx512-x86_64-linux.S.o
+[  2%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesni-gcm-x86_64-apple.S.o
+[  2%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesni-gcm-x86_64-linux.S.o
+[  2%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesni-x86-apple.S.o
+[  2%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesni-x86-linux.S.o
+[  2%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesni-x86_64-apple.S.o
+[  3%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesni-x86_64-linux.S.o
+[  3%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-armv7-linux.S.o
+[  3%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-armv8-apple.S.o
+[  3%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-armv8-linux.S.o
+[  3%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-armv8-win.S.o
+[  4%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-gcm-armv8-apple.S.o
+[  4%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-gcm-armv8-linux.S.o
+[  4%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/aesv8-gcm-armv8-win.S.o
+[  4%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/armv4-mont-linux.S.o
+[  4%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/armv8-mont-apple.S.o
+[  5%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/armv8-mont-linux.S.o
+[  5%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/armv8-mont-win.S.o
+[  5%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/bn-586-apple.S.o
+[  5%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/bn-586-linux.S.o
+[  5%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/bn-armv8-apple.S.o
+[  6%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/bn-armv8-linux.S.o
+[  6%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/bn-armv8-win.S.o
+[  6%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/bsaes-armv7-linux.S.o
+[  6%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/co-586-apple.S.o
+[  8%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/co-586-linux.S.o
+[  8%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-armv4-linux.S.o
+[  8%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-neon-armv8-apple.S.o
+[  8%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-neon-armv8-linux.S.o
+[  8%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-neon-armv8-win.S.o
+[  9%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-ssse3-x86-apple.S.o
+[  9%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-ssse3-x86-linux.S.o
+[  9%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-ssse3-x86_64-apple.S.o
+[  9%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-ssse3-x86_64-linux.S.o
+[  9%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-x86-apple.S.o
+[ 10%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-x86-linux.S.o
+[ 10%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-x86_64-apple.S.o
+[ 10%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghash-x86_64-linux.S.o
+[ 10%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghashv8-armv7-linux.S.o
+[ 10%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghashv8-armv8-apple.S.o
+[ 11%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghashv8-armv8-linux.S.o
+[ 11%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/ghashv8-armv8-win.S.o
+[ 11%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256-armv8-asm-apple.S.o
+[ 11%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256-armv8-asm-linux.S.o
+[ 11%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256-armv8-asm-win.S.o
+[ 12%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256-x86_64-asm-apple.S.o
+[ 12%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256-x86_64-asm-linux.S.o
+[ 12%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256_beeu-armv8-asm-apple.S.o
+[ 12%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256_beeu-armv8-asm-linux.S.o
+[ 12%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256_beeu-armv8-asm-win.S.o
+[ 13%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256_beeu-x86_64-asm-apple.S.o
+[ 13%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/p256_beeu-x86_64-asm-linux.S.o
+[ 13%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/rdrand-x86_64-apple.S.o
+[ 13%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/rdrand-x86_64-linux.S.o
+[ 14%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/rsaz-avx2-apple.S.o
+[ 14%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/rsaz-avx2-linux.S.o
+[ 14%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-586-apple.S.o
+[ 14%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-586-linux.S.o
+[ 14%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-armv4-large-linux.S.o
+[ 16%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-armv8-apple.S.o
+[ 16%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-armv8-linux.S.o
+[ 16%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-armv8-win.S.o
+[ 16%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-x86_64-apple.S.o
+[ 16%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha1-x86_64-linux.S.o
+[ 17%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-586-apple.S.o
+[ 17%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-586-linux.S.o
+[ 17%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-armv4-linux.S.o
+[ 17%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-armv8-apple.S.o
+[ 17%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-armv8-linux.S.o
+[ 18%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-armv8-win.S.o
+[ 18%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-x86_64-apple.S.o
+[ 18%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha256-x86_64-linux.S.o
+[ 18%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-586-apple.S.o
+[ 18%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-586-linux.S.o
+[ 19%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-armv4-linux.S.o
+[ 19%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-armv8-apple.S.o
+[ 19%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-armv8-linux.S.o
+[ 19%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-armv8-win.S.o
+[ 19%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-x86_64-apple.S.o
+[ 20%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/sha512-x86_64-linux.S.o
+[ 20%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-armv7-linux.S.o
+[ 20%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-armv8-apple.S.o
+[ 20%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-armv8-linux.S.o
+[ 20%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-armv8-win.S.o
+[ 21%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-x86-apple.S.o
+[ 21%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-x86-linux.S.o
+[ 21%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-x86_64-apple.S.o
+[ 21%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/vpaes-x86_64-linux.S.o
+[ 22%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/x86-mont-apple.S.o
+[ 22%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/x86-mont-linux.S.o
+[ 22%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/x86_64-mont-apple.S.o
+[ 22%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/x86_64-mont-linux.S.o
+[ 22%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/x86_64-mont5-apple.S.o
+[ 24%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/gen/bcm/x86_64-mont5-linux.S.o
+[ 24%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/third_party/fiat/asm/fiat_p256_adx_mul.S.o
+[ 24%] Building ASM object boringssl/CMakeFiles/fipsmodule.dir/third_party/fiat/asm/fiat_p256_adx_sqr.S.o
+during RTL pass: expand
+In file included from /workspace/scratch/db79b63d76cf/native-deps/boringssl/crypto/fipsmodule/bcm.cc:102:
+/workspace/scratch/db79b63d76cf/native-deps/boringssl/crypto/fipsmodule/keccak/keccak.cc.inc: In function 'void keccak_f_x4(uint64_t*, uint64_t*, uint64_t*, uint64_t*)':
+/workspace/scratch/db79b63d76cf/native-deps/boringssl/crypto/fipsmodule/keccak/keccak.cc.inc:181:30: internal compiler error: in expand_debug_locations, at cfgexpand.c:5403
+ KECCAK_X4_TARGET static void keccak_f_x4(uint64_t state0[25],
+                              ^~~~~~~~~~~
+Please submit a full bug report,
+with preprocessed source if appropriate.
+See <https://gcc.gnu.org/bugs/> for instructions.
+gmake[3]: *** [boringssl/CMakeFiles/fipsmodule.dir/build.make:79: boringssl/CMakeFiles/fipsmodule.dir/crypto/fipsmodule/bcm.cc.o] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:192: boringssl/CMakeFiles/fipsmodule.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/kadb_transport_test.dir/rule] Error 2
+gmake: *** [Makefile:192: kadb_transport_test] Error 2

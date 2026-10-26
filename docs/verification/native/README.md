@@ -65,3 +65,26 @@ connection terminal. Timeout addition is saturated rather than overflowing for
 prevents a returned address from being published, but does not interrupt the OS
 resolver; the structured caller waits for that worker to exit. Numeric addresses
 avoid this resolver latency. No bounded-DNS-cancellation claim is made.
+
+## Linux compiler and sysroot boundary
+
+K/N 2.4.20 uses the LLVM 21 essentials package and a GCC 8.3/glibc 2.19
+sysroot. The first host-GCC13 archives passed C tests and were embedded by
+Cinterop, but **actual K/N test linking failed** with unresolved
+`__isoc23_strtoull` (`03-linux-host-archive-link-failure.log`). Source compilation
+and KLIB creation therefore did not establish a consumable Linux backend.
+
+A direct GCC 8.3 build then failed inside debug-location generation for BoringSSL
+AVX Keccak (`04-linux-gcc8-debug-compiler-failure.log`). A `-g0` diagnostic trial
+passed that point but failed BoringSSL's error-level enum bitfield diagnostic
+(`05-linux-gcc8-enum-compiler-failure.log`). Neither attempt is a health-test pass.
+
+The final builder uses the exact Clang 21/LLD and sysroot package versions from
+K/N, downloaded from JetBrains with SHA-256 verification. URLs and checksums are
+in `../../experimental-native-backend.md` and the Gradle build script. No crypto
+compiler warning is suppressed. `06-linux-clang-c-transport.log` records a full
+independent CMake build with these compiler/sysroot settings and execution of the
+real transport harness: **1 executed, 0 failed, CTest exit 0**. This confirms the C
+backend with that toolchain; subsequent K/N linking and execution are recorded
+separately. The Gradle download/extraction task chain must also execute in CI;
+this manual C build does not stand in for that task-chain validation.

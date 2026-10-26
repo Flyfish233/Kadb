@@ -1,4 +1,5 @@
 import java.net.URI
+import java.io.IOException
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
@@ -47,16 +48,28 @@ abstract class DownloadVerifiedArchive : DefaultTask() {
                     .connectTimeout(Duration.ofSeconds(30)).build()
                 val request = HttpRequest.newBuilder(URI(sourceUrl.get()))
                     .timeout(Duration.ofMinutes(5)).GET().build()
-                try {
-                    logger.lifecycle("Downloading verified native dependency: ${archive.name}")
-                    val response = client.send(request, HttpResponse.BodyHandlers.ofFile(temporary.toPath(),
-                        StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING))
-                    check(response.statusCode() == 200) { "Download failed with HTTP ${response.statusCode()}: ${sourceUrl.get()}" }
-                    check(checksum(temporary) == sha256.get()) { "SHA-256 mismatch for ${archive.name}" }
-                    Files.move(temporary.toPath(), archive.toPath(), StandardCopyOption.REPLACE_EXISTING,
-                        StandardCopyOption.ATOMIC_MOVE)
-                } finally {
-                    temporary.delete()
+                for (attempt in 1..3) {
+                    try {
+                        logger.lifecycle("Downloading verified native dependency: ${archive.name} (attempt $attempt/3)")
+                        val response = client.send(request, HttpResponse.BodyHandlers.ofFile(temporary.toPath(),
+                            StandardOpenOption.CREATE, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING))
+                        val status = response.statusCode()
+                        if (status == 408 || status == 429 || status in 500..599) {
+                            throw IOException("Temporary HTTP $status while downloading ${archive.name}")
+                        }
+                        check(status == 200) { "Download failed with HTTP $status: ${sourceUrl.get()}" }
+                        // A hash mismatch is not a retryable network error. Never accept other bytes.
+                        check(checksum(temporary) == sha256.get()) { "SHA-256 mismatch for ${archive.name}" }
+                        Files.move(temporary.toPath(), archive.toPath(), StandardCopyOption.REPLACE_EXISTING,
+                            StandardCopyOption.ATOMIC_MOVE)
+                        return
+                    } catch (error: IOException) {
+                        if (attempt == 3) throw error
+                        logger.warn("Native dependency download failed; bounded retry follows: ${error.message}")
+                        Thread.sleep(attempt * 1000L)
+                    } finally {
+                        temporary.delete()
+                    }
                 }
             }
         }
@@ -90,6 +103,10 @@ abstract class BuildPosixNative : DefaultTask() {
     abstract val boringSslDirectory: DirectoryProperty
     @get:InputFile @get:PathSensitive(PathSensitivity.NONE)
     abstract val cmakeExecutable: RegularFileProperty
+    @get:InputDirectory @get:Optional @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val linuxToolchainDirectory: DirectoryProperty
+    @get:InputDirectory @get:Optional @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val linuxLlvmDirectory: DirectoryProperty
     @get:Input abstract val operatingSystem: Property<String>
     @get:Input abstract val sdk: Property<String>
     @get:Input abstract val deploymentTarget: Property<String>
@@ -117,6 +134,21 @@ abstract class BuildPosixNative : DefaultTask() {
                 "-DCMAKE_SYSTEM_NAME=${operatingSystem.get()}", "-DCMAKE_OSX_SYSROOT=${sdk.get()}",
                 "-DCMAKE_OSX_ARCHITECTURES=${architecture.get()}",
                 "-DCMAKE_OSX_DEPLOYMENT_TARGET=${deploymentTarget.get()}", "-DCMAKE_MACOSX_BUNDLE=OFF"))
+            else {
+                // Match the compiler/sysroot used by Kotlin/Native. Host GCC may
+                // import newer glibc symbols (for example __isoc23_strtoull).
+                val gcc = linuxToolchainDirectory.get().asFile
+                val llvm = linuxLlvmDirectory.get().asFile
+                arguments.addAll(listOf(
+                    "-DCMAKE_C_COMPILER=${llvm.resolve("bin/clang")}",
+                    "-DCMAKE_CXX_COMPILER=${llvm.resolve("bin/clang++")}",
+                    "-DCMAKE_C_COMPILER_TARGET=x86_64-unknown-linux-gnu",
+                    "-DCMAKE_CXX_COMPILER_TARGET=x86_64-unknown-linux-gnu",
+                    "-DCMAKE_C_COMPILER_EXTERNAL_TOOLCHAIN=$gcc",
+                    "-DCMAKE_CXX_COMPILER_EXTERNAL_TOOLCHAIN=$gcc",
+                    "-DCMAKE_SYSROOT=${gcc.resolve("x86_64-unknown-linux-gnu/sysroot")}",
+                    "-DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld"))
+            }
             commandLine(arguments)
         }.assertNormalExitValue()
         execOperations.exec {
@@ -143,6 +175,30 @@ val downloadBoringSsl = tasks.register<DownloadVerifiedArchive>("downloadIosBori
 val prepareBoringSsl = tasks.register<ExtractNativeArchive>("prepareIosBoringSsl") {
     archiveFile.set(downloadBoringSsl.flatMap { it.archiveFile })
     destinationDirectory.set(nativeRoot.map { it.dir("boringssl-$boringSslRevision") })
+}
+
+// The pinned K/N 2.4.20 distribution names this exact Linux sysroot. Keep the
+// C archives compatible with it, without relying on internal KGP task APIs.
+val linuxToolchainName = "x86_64-unknown-linux-gnu-gcc-8.3.0-glibc-2.19-kernel-4.9-2"
+val downloadLinuxToolchain = tasks.register<DownloadVerifiedArchive>("downloadNativeLinuxToolchain") {
+    sourceUrl.set("https://download.jetbrains.com/kotlin/native/$linuxToolchainName.tar.gz")
+    sha256.set("a048397d50fb5a2bd6cc0f89d5a30e0b8ff0373ebff9c1d78ce1f1fb7f185a50")
+    archiveFile.set(nativeRoot.map { it.file("downloads/$linuxToolchainName.tar.gz") })
+}
+val prepareLinuxToolchain = tasks.register<ExtractNativeArchive>("prepareNativeLinuxToolchain") {
+    archiveFile.set(downloadLinuxToolchain.flatMap { it.archiveFile })
+    destinationDirectory.set(nativeRoot.map { it.dir(linuxToolchainName) })
+}
+
+val linuxLlvmName = "llvm-21-x86_64-linux-essentials-116"
+val downloadLinuxLlvm = tasks.register<DownloadVerifiedArchive>("downloadNativeLinuxLlvm") {
+    sourceUrl.set("https://download.jetbrains.com/kotlin/native/resources/llvm/21-x86_64-linux/$linuxLlvmName.tar.gz")
+    sha256.set("0b1f290214dd7ec20e2506210967e0ebd735cdefc3a3b4485bbccb439fa78e5b")
+    archiveFile.set(nativeRoot.map { it.file("downloads/$linuxLlvmName.tar.gz") })
+}
+val prepareLinuxLlvm = tasks.register<ExtractNativeArchive>("prepareNativeLinuxLlvm") {
+    archiveFile.set(downloadLinuxLlvm.flatMap { it.archiveFile })
+    destinationDirectory.set(nativeRoot.map { it.dir(linuxLlvmName) })
 }
 
 val cmakeOverride = providers.environmentVariable("CMAKE").orNull?.trim()?.takeIf { it.isNotEmpty() }
@@ -186,6 +242,10 @@ platforms.forEach { (target, platform) ->
         boringSslDirectory.set(prepareBoringSsl.flatMap { it.destinationDirectory })
         cmakeExecutable.set(cmakeBinary)
         operatingSystem.set(platform.system)
+        if (platform.system == "Linux") {
+            linuxToolchainDirectory.set(prepareLinuxToolchain.flatMap { it.destinationDirectory })
+            linuxLlvmDirectory.set(prepareLinuxLlvm.flatMap { it.destinationDirectory })
+        }
         sdk.set(platform.sdk)
         deploymentTarget.set(platform.minimumVersion)
         architecture.set(platform.arch)

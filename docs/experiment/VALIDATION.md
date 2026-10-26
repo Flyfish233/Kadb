@@ -176,3 +176,41 @@ The next configuration check caught Gradle 9.6's locked configuration roles in
 the Java-only reference harness. The harness now clears outgoing archives and
 keeps its JAR task disabled instead of mutating the Java plugin's locked role.
 It is a separate validation process, never a Kadb runtime dependency.
+
+A separate configuration-cache execution check reached both checksum tasks but
+failed to serialize their captured Gradle script objects. They now use explicit
+task classes and typed file properties. The fix is validated with configuration
+cache enabled; disabling the checks or silently changing the upstream hashes is
+not a workaround. Raw pre-fix output is kept in `validation/integration`.
+
+## Integrated Android execution and Native compiler blocker
+
+[Run 40311473755](https://github.com/Flyfish233/Kadb/actions/runs/40311473755)
+at `d298c5c763008258433695f1b268848b80c1bff1` produced actual reports for
+**68 Android Host, 61 JVM and 12 mDNS JVM tests: 141 passed, zero skipped**.
+The job nevertheless failed while storing the configuration cache. Its subsequent
+CI ABI step did not run. The actual AARs were recovered from artifact
+`12644328214`, SHA-256
+`94889e2cf551641c75dff1969f5e7c188a0bf39fb784df99eee99fbf8bc9674d`;
+a separate local comparison of those AARs against the frozen Android
+Kotlin-public inventories found no differences.
+
+Linux and Apple arm64 compilation then exposed a real M1 implementation error:
+KGP 2.4.20 rejects an `actual typealias` to the compiler-sensitive `kotlin.Throws`
+annotation. The unsupported alias is removed, rather than suppressing the
+diagnostic. Original Kadb Java and Objective-C declarations remain unchanged.
+An additive Apple-only `KadbApple` adapter declares `@Throws` directly for Swift
+callers, including the suspending pairing boundary. Existing legacy Swift
+entry points retain their original exception limitations; see
+`docs/apple-exception-boundary.md`.
+
+The Intel macOS job additionally encountered a native archive DNS/connect
+failure. Downloads now retry transient I/O/HTTP failures at most three times;
+hash mismatches and permanent HTTP failures still fail immediately. No TLS or
+checksum validation is relaxed. These failed jobs establish no Native runtime,
+simulator, external pairing or emulator result.
+
+The checksum-task repair executed all four selected tasks with configuration
+cache enabled and successfully stored its entry. Raw output is retained as
+`validation/integration/05-checksum-tasks-configuration-cache-fixed.log`.
+This focused build check does not replace the next full integrated run.

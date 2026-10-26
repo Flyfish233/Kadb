@@ -48,6 +48,11 @@ kotlin {
     applyDefaultHierarchyTemplate()
 
     sourceSets {
+        // Device-dependent tests are absent from the default simulator suite.
+        // Explicit opt-in requires all device parameters and may contact that device.
+        if (providers.gradleProperty("enableIosDeviceSmoke").map(String::toBoolean).orElse(false).get()) {
+            getByName("iosTest").kotlin.srcDir("src/iosDeviceTest/kotlin")
+        }
         commonMain.dependencies {
             implementation(project(":spake2-legacy"))
             implementation(libs.kotlinx.coroutines.core)

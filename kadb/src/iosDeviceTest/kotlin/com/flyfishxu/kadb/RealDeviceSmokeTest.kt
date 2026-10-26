@@ -20,9 +20,8 @@ import kotlin.time.Clock
 class RealDeviceSmokeTest {
     /** Explicitly opted in via KADB_DEVICE_* variables; never discovers or changes unrelated devices. */
     @Test fun pairConnectShellTransferAndReconnect() {
-        val host = environment("KADB_DEVICE_HOST") ?: run {
-            println("SKIP: real Android device smoke test was not requested")
-            return
+        val host = requireNotNull(environment("KADB_DEVICE_HOST")) {
+            "Explicit device smoke test requires KADB_DEVICE_HOST"
         }
         val pairingPort = requireNotNull(environment("KADB_PAIRING_PORT")) { "Missing pairing port" }.toInt()
         val pairingCode = requireNotNull(environment("KADB_PAIRING_CODE")) { "Missing pairing code" }

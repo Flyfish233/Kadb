@@ -2,7 +2,6 @@ package com.flyfishxu.kadb
 
 import com.flyfishxu.kadb.io.platformFileSystem
 
-import com.flyfishxu.kadb.cert.KadbCertException
 import com.flyfishxu.kadb.cert.CertUtils.loadKeyPair
 import com.flyfishxu.kadb.cert.CertUtils.loadKeySet
 import com.flyfishxu.kadb.cert.platform.defaultDeviceName
@@ -11,7 +10,6 @@ import com.flyfishxu.kadb.concurrent.withLock
 import com.flyfishxu.kadb.core.AdbConnection
 import com.flyfishxu.kadb.core.AdbProtocol
 import com.flyfishxu.kadb.exception.AdbStreamClosed
-import com.flyfishxu.kadb.exception.NativeThrows
 import com.flyfishxu.kadb.exception.PlatformInterruptedException
 import com.flyfishxu.kadb.forwarding.TcpForwarder
 import com.flyfishxu.kadb.pair.PairingConnectionCtx
@@ -509,7 +507,6 @@ class Kadb(
         private const val SHELL_TYPE_PTY = "pty"
         private const val DEFAULT_TERM_TYPE = "xterm-256color"
 
-        @NativeThrows(CancellationException::class, IOException::class, KadbCertException::class, IllegalArgumentException::class)
         suspend fun pair(host: String, port: Int, pairingCode: String, name: String = defaultDeviceName()) =
             withContext(Dispatchers.IO) {
                 val password = pairingCode.encodeToByteArray()
