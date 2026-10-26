@@ -42,3 +42,26 @@ Linux Native, macOS Native and iOS Simulator suites. Full-module CI must execute
 those target suites before the focused CLI overlay can be called platform
 validation. `red/manifest.json` records the exact byte hashes, tool commands,
 classpath and exit codes for the captured pre-fix comparison.
+
+## Focused fix validation
+
+Production correction `02bdb55` adds one per-connection `local -> remote` binding
+map in `AdbMessageQueue`. The first nonzero OKAY binds the remote endpoint;
+subsequent WRTE, OKAY and nonzero CLSE must match. A zero-ID CLSE remains accepted
+from this queue's transport. Cancel, abandon and stop remove the binding; remote
+CLSE leaves already queued tail data available until the owning stream drains
+or closes it. Invalid post-close frames do not reopen a stream. No transport I/O
+is added under the queue lock, and unknown late OKAY still triggers reclamation.
+
+The unchanged red test plus the existing OPEN cancellation, queue EOF/close,
+Sync close and stream transfer suites were compiled with **only the corrected
+queue class overlaid** on the same Android AAR. All **22 tests passed**, no
+ignored cases, JUnit exit **0**, in 0.757 seconds. The other production classes
+remain exactly the CI AAR. This is a focused implementation comparison, not a
+full Android module build or a Native-runtime claim. Raw compile/JUnit logs,
+source hashes and commands are in `green/manifest.json` and adjacent files.
+The full current-tree Android/Native CI is still required after integration.
+
+A separate source review confirmed the fast OKAY/WRTE/CLSE handoff retains its
+queued tail and cancellation does not lose late-OKAY reclamation. Source review
+is additional reasoning, not another executed test run.

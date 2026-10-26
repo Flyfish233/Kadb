@@ -1,0 +1,136 @@
+[
+  {
+    "repository": "JetBrains/kotlin",
+    "tag": "v2.4.20",
+    "commit": "890ac1d94fdb80eb85f0eeb5be5e4352df987b2f",
+    "resolution": [
+      {
+        "ref": "refs/tags/v2.4.20",
+        "node_id": "MDM6UmVmMzQzMjI2NjpyZWZzL3RhZ3MvdjIuNC4yMA==",
+        "url": "https://api.github.com/repos/JetBrains/kotlin/git/refs/tags/v2.4.20",
+        "object": {
+          "sha": "890ac1d94fdb80eb85f0eeb5be5e4352df987b2f",
+          "type": "commit",
+          "url": "https://api.github.com/repos/JetBrains/kotlin/git/commits/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f"
+        }
+      }
+    ]
+  },
+  {
+    "repository": "Kotlin/kotlinx.coroutines",
+    "tag": "1.11.0",
+    "commit": "8564f65764d3d05893cec026c6e94250e2b23874",
+    "resolution": [
+      {
+        "ref": "refs/tags/1.11.0",
+        "node_id": "MDM6UmVmNjE3MjI3MzY6cmVmcy90YWdzLzEuMTEuMA==",
+        "url": "https://api.github.com/repos/Kotlin/kotlinx.coroutines/git/refs/tags/1.11.0",
+        "object": {
+          "sha": "8564f65764d3d05893cec026c6e94250e2b23874",
+          "type": "commit",
+          "url": "https://api.github.com/repos/Kotlin/kotlinx.coroutines/git/commits/8564f65764d3d05893cec026c6e94250e2b23874"
+        }
+      }
+    ]
+  },
+  {
+    "repository": "Kotlin/kotlinx-atomicfu",
+    "tag": "0.32.1",
+    "commit": "1d625ed1f6e88173f2737c48afe86544e8738232",
+    "resolution": [
+      {
+        "ref": "refs/tags/0.32.1",
+        "node_id": "MDM6UmVmOTk1NzY4MjA6cmVmcy90YWdzLzAuMzIuMQ==",
+        "url": "https://api.github.com/repos/Kotlin/kotlinx-atomicfu/git/refs/tags/0.32.1",
+        "object": {
+          "sha": "1d625ed1f6e88173f2737c48afe86544e8738232",
+          "type": "commit",
+          "url": "https://api.github.com/repos/Kotlin/kotlinx-atomicfu/git/commits/1d625ed1f6e88173f2737c48afe86544e8738232"
+        }
+      }
+    ]
+  },
+  {
+    "repository": "lysine-dev/okio",
+    "requested_repository": "square/okio",
+    "tag": "parent-3.18.2",
+    "commit": "9403a094ac98d5a6ba8bad4ec3301399796fad67",
+    "resolution": [
+      {
+        "ref": "refs/tags/parent-3.18.2",
+        "node_id": "MDM6UmVmMTc4MTI1MDI6cmVmcy90YWdzL3BhcmVudC0zLjE4LjI=",
+        "url": "https://api.github.com/repos/lysine-dev/okio/git/refs/tags/parent-3.18.2",
+        "object": {
+          "sha": "7d90cac088ebf9c19f0edca93415c11a61fb557c",
+          "type": "tag",
+          "url": "https://api.github.com/repos/lysine-dev/okio/git/tags/7d90cac088ebf9c19f0edca93415c11a61fb557c"
+        }
+      },
+      {
+        "node_id": "TA_kwDOAQ_MFtoAKDdkOTBjYWMwODhlYmY5YzE5ZjBlZGNhOTM0MTVjMTFhNjFmYjU1N2M",
+        "sha": "7d90cac088ebf9c19f0edca93415c11a61fb557c",
+        "url": "https://api.github.com/repos/lysine-dev/okio/git/tags/7d90cac088ebf9c19f0edca93415c11a61fb557c",
+        "tagger": {
+          "name": "Jesse Wilson",
+          "email": "jesse@swank.ca",
+          "date": "2026-09-04T20:05:44Z"
+        },
+        "object": {
+          "sha": "9403a094ac98d5a6ba8bad4ec3301399796fad67",
+          "type": "commit",
+          "url": "https://api.github.com/repos/lysine-dev/okio/git/commits/9403a094ac98d5a6ba8bad4ec3301399796fad67"
+        },
+        "tag": "parent-3.18.2",
+        "message": "Version 3.18.2\n",
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      }
+    ]
+  },
+  {
+    "repository": "google/breakpad",
+    "tag": "v2024.02.16",
+    "commit": "f80f2888031b0570783011476a5e862fb7d848a1",
+    "resolution": [
+      {
+        "ref": "refs/tags/v2024.02.16",
+        "node_id": "MDM6UmVmNTI4MDQ3NTA6cmVmcy90YWdzL3YyMDI0LjAyLjE2",
+        "url": "https://api.github.com/repos/google/breakpad/git/refs/tags/v2024.02.16",
+        "object": {
+          "sha": "0f8fea981d0f09174e2cc6289aad9a58239c1780",
+          "type": "tag",
+          "url": "https://api.github.com/repos/google/breakpad/git/tags/0f8fea981d0f09174e2cc6289aad9a58239c1780"
+        }
+      },
+      {
+        "node_id": "TA_kwDOAyW8jtoAKDBmOGZlYTk4MWQwZjA5MTc0ZTJjYzYyODlhYWQ5YTU4MjM5YzE3ODA",
+        "sha": "0f8fea981d0f09174e2cc6289aad9a58239c1780",
+        "url": "https://api.github.com/repos/google/breakpad/git/tags/0f8fea981d0f09174e2cc6289aad9a58239c1780",
+        "tagger": {
+          "name": "Mike Frysinger",
+          "email": "vapier@chromium.org",
+          "date": "2025-02-25T19:15:33Z"
+        },
+        "object": {
+          "sha": "f80f2888031b0570783011476a5e862fb7d848a1",
+          "type": "commit",
+          "url": "https://api.github.com/repos/google/breakpad/git/commits/f80f2888031b0570783011476a5e862fb7d848a1"
+        },
+        "tag": "v2024.02.16",
+        "message": "v2024.02.16",
+        "verification": {
+          "verified": false,
+          "reason": "unsigned",
+          "signature": null,
+          "payload": null,
+          "verified_at": null
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+test_bundle_round_trip_is_deterministic (test_source_bundle.SourceBundleIntegrityTest.test_bundle_round_trip_is_deterministic) ... ok
+test_changed_or_unlisted_member_is_rejected (test_source_bundle.SourceBundleIntegrityTest.test_changed_or_unlisted_member_is_rejected) ... ok
+test_class_only_jar_is_not_source (test_source_bundle.SourceBundleIntegrityTest.test_class_only_jar_is_not_source) ... ok
+test_corrupt_cache_fails_without_refetch (test_source_bundle.SourceBundleIntegrityTest.test_corrupt_cache_fails_without_refetch) ... ok
+test_kotlin_source_archive_must_include_native_runtime (test_source_bundle.SourceBundleIntegrityTest.test_kotlin_source_archive_must_include_native_runtime) ... ok
+test_missing_required_build_source_is_failure (test_source_bundle.SourceBundleIntegrityTest.test_missing_required_build_source_is_failure) ... ok
+test_native_metadata_owner_requires_published_target_backlink (test_source_bundle.SourceBundleIntegrityTest.test_native_metadata_owner_requires_published_target_backlink) ... ok
+test_offline_cache_miss_is_failure (test_source_bundle.SourceBundleIntegrityTest.test_offline_cache_miss_is_failure) ... ok
+test_path_traversal_and_outer_hash_mismatch_are_rejected (test_source_bundle.SourceBundleIntegrityTest.test_path_traversal_and_outer_hash_mismatch_are_rejected) ... ok
+test_published_source_hash_must_match_lock (test_source_bundle.SourceBundleIntegrityTest.test_published_source_hash_must_match_lock) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.076s
+
+OK

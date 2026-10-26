@@ -133,7 +133,7 @@ def execute(arguments, runner: Runner, report: dict) -> None:
         raise RuntimeError("Fixture APK unexpectedly requests permissions")
     report["adb_version"] = runner.run("adb-version", [arguments.adb, "version"]).stdout.strip()
     if arguments.emulator:
-        report["emulator_version"] = runner.run("emulator-version", [arguments.emulator, "-version"]).stdout.strip()
+        report["emulator_version"] = runner.run("emulator-version", [arguments.emulator, "-no-window", "-no-audio", "-version"]).stdout.strip()
     repo = Path(__file__).resolve().parents[2]
     report["commit"] = runner.run("git-commit", ["git", "-C", repo, "rev-parse", "HEAD"]).stdout.strip()
     report["tracked_worktree_changes"] = runner.run(

@@ -38,6 +38,8 @@ internal class AdbMessageQueue(
     private val queues = mutableMapOf<Int, MutableMap<Int, ArrayDeque<AdbMessage>>>()
     private val openStreams = mutableSetOf<Int>()
     private val openingStreams = mutableMapOf<Int, Int?>()
+    // First OKAY binds the peer for this local ID until the stream is removed.
+    private val remoteIds = mutableMapOf<Int, Int>()
     private var nextLocalId = 1u
     @Volatile private var failure: Throwable? = null
     val isOpen: Boolean get() = failure == null
@@ -65,10 +67,15 @@ internal class AdbMessageQueue(
         @Suppress("UNREACHABLE_CODE") error("Unreachable")
     }
 
-    fun startListening(localId: Int) = lock.withLock {
+    fun startListening(localId: Int) = startListening(localId, remoteId = null)
+
+    /** Used by direct stream fixtures; production OPEN learns its remote ID from OKAY. */
+    fun startListening(localId: Int, remoteId: Int?) = lock.withLock {
+        require(localId != 0 && remoteId != 0) { "ADB stream IDs must be nonzero" }
         failure?.let { throw it }
         openStreams.add(localId)
         queues.getOrPut(localId) { mutableMapOf() }
+        if (remoteId != null) remoteIds[localId] = remoteId
         Unit
     }
 
@@ -91,6 +98,7 @@ internal class AdbMessageQueue(
         if (localId in openingStreams) {
             openStreams.remove(localId)
             queues.remove(localId)
+            remoteIds.remove(localId)
             changed.signalAll()
         }
     }
@@ -107,6 +115,7 @@ internal class AdbMessageQueue(
         val remoteId = openingStreams.remove(localId)
         openStreams.remove(localId)
         queues.remove(localId)
+        remoteIds.remove(localId)
         changed.signalAll()
         remoteId
     }
@@ -114,24 +123,48 @@ internal class AdbMessageQueue(
     fun stopListening(localId: Int) = lock.withLock {
         openStreams.remove(localId)
         queues.remove(localId)
+        remoteIds.remove(localId)
         changed.signalAll()
     }
 
     private fun dispatch(message: AdbMessage) {
         val lateOkay = lock.withLock {
             val localId = message.arg1
+            if (localId == 0) return@withLock false
             val stream = queues[localId]
-            if (message.command == AdbProtocol.CMD_CLSE) {
-                openStreams.remove(localId)
-            } else if (stream != null) {
-                if (message.command == AdbProtocol.CMD_OKAY && localId in openingStreams) {
-                    openingStreams[localId] = message.arg0
+            val remoteId = remoteIds[localId]
+            // Match AOSP handle_packet: OKAY/WRTE require both IDs and established
+            // traffic must belong to the peer selected by the first OKAY.
+            // CLSE(0, local) remains valid for old adbd versions on this same transport.
+            when (message.command) {
+                AdbProtocol.CMD_OKAY -> {
+                    if (message.arg0 == 0) return@withLock false
+                    if (stream == null) return@withLock true
+                    if (localId !in openStreams || remoteId != null && remoteId != message.arg0) {
+                        return@withLock false
+                    }
+                    if (remoteId == null) {
+                        remoteIds[localId] = message.arg0
+                        if (localId in openingStreams) openingStreams[localId] = message.arg0
+                    }
+                    stream.getOrPut(message.command) { ArrayDeque() }.add(message)
                 }
-                stream.getOrPut(message.command) { ArrayDeque() }.add(message)
+                AdbProtocol.CMD_WRTE -> {
+                    if (stream == null || localId !in openStreams || remoteId != message.arg0) {
+                        return@withLock false
+                    }
+                    stream.getOrPut(message.command) { ArrayDeque() }.add(message)
+                }
+                AdbProtocol.CMD_CLSE -> {
+                    if (stream == null || message.arg0 != 0 && remoteId != message.arg0) {
+                        return@withLock false
+                    }
+                    openStreams.remove(localId)
+                }
+                else -> return@withLock false
             }
             changed.signalAll()
-            stream == null && message.command == AdbProtocol.CMD_OKAY &&
-                localId != 0 && message.arg0 != 0
+            false
         }
         // AOSP reclaims the remote service when the local OPEN owner has already gone away.
         // Never perform transport I/O under the queue lock: other streams must still drain.
@@ -152,7 +185,7 @@ internal class AdbMessageQueue(
     override fun close() = terminate(IOException("ADB connection closed"))
 
     fun ensureEmpty() = lock.withLock {
-        check(queues.isEmpty() && openStreams.isEmpty() && openingStreams.isEmpty()) {
+        check(queues.isEmpty() && openStreams.isEmpty() && openingStreams.isEmpty() && remoteIds.isEmpty()) {
             "ADB streams still open: ${queues.keys}; pending OPENs: ${openingStreams.keys}"
         }
     }

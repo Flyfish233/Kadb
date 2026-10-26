@@ -21,7 +21,60 @@ env:
   GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2
 
 jobs:
+  corresponding-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      artifact-url: ${{ steps.upload-source.outputs.artifact-url }}
+      package-sha256: ${{ steps.source-metadata.outputs.package-sha256 }}
+      lock-sha256: ${{ steps.source-metadata.outputs.lock-sha256 }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: ${{ runner.temp }}/kadb-source-cache
+          key: native-library-sources-${{ hashFiles('validation/source-bundle/dependencies.lock.json') }}
+      - name: Verify collector and create the actual pinned source package
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          python3 -m unittest discover -s validation/source-bundle -p 'test_*.py' -v 2>&1 | tee evidence/source-tests.log
+          python3 scripts/source_bundle.py create --repo "$PWD" --ref "$GITHUB_SHA" --output evidence/native-source --cache "$RUNNER_TEMP/kadb-source-cache" 2>&1 | tee evidence/source-create.log
+      - name: Read verified package identity
+        id: source-metadata
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          folder = Path('evidence/native-source')
+          result = json.loads((folder / 'source-bundle-result.json').read_text())
+          manifest = json.loads((folder / 'source-bundle-manifest.json').read_text())
+          assert result['status'] == 'verified'
+          assert result['kadb_commit'] == os.environ['GITHUB_SHA']
+          assert manifest['kadb_commit'] == os.environ['GITHUB_SHA']
+          lock_hash = hashlib.sha256(Path('validation/source-bundle/dependencies.lock.json').read_bytes()).hexdigest()
+          assert manifest['source_lock_sha256'] == lock_hash
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f"package-sha256={result['sha256']}\nlock-sha256={lock_hash}\n")
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        id: upload-source
+        with:
+          name: corresponding-source-${{ github.sha }}
+          path: evidence/
+          compression-level: 0
+          retention-days: 90
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: failure()
+        with:
+          name: source-collection-failure-${{ github.sha }}
+          path: evidence/
+          retention-days: 90
+          if-no-files-found: warn
+
   android-and-protocol:
+    needs: corresponding-source
     runs-on: ubuntu-24.04
     timeout-minutes: 35
     steps:
@@ -42,7 +95,7 @@ jobs:
           set -euo pipefail
           mkdir -p evidence
           git rev-parse HEAD | tee evidence/commit.txt
-          git archive --format=tar.gz --output=evidence/corresponding-source.tar.gz HEAD
+          git archive --format=tar.gz --output=evidence/kadb-source.tar.gz HEAD
           sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 2>&1 | tee evidence/sdk.log
           (cd third-party/spake2 && sha256sum --check SHA256SUMS) | tee evidence/spake-source-check.log
       - name: Real Android AAR and retained host regressions
@@ -63,10 +116,14 @@ jobs:
           # The broader inventory includes implementation internals. Preserve its
           # changes for review; the Kotlin-public comparison above is the gate.
           diff -u validation/baseline/baseline-android.abi evidence/current-android.abi > evidence/android-bytecode.diff || test "$?" = 1
+      - name: Associate actual artifacts with the uploaded source package
+        if: always()
+        run: python3 validation/record-binary-evidence.py --source-url '${{ needs.corresponding-source.outputs.artifact-url }}' --source-sha256 '${{ needs.corresponding-source.outputs.package-sha256 }}' --source-lock-sha256 '${{ needs.corresponding-source.outputs.lock-sha256 }}' --output evidence
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: android-protocol-${{ github.sha }}
+          retention-days: 90
           if-no-files-found: error
           path: |
             evidence/
@@ -76,6 +133,7 @@ jobs:
             validation/android-fixture/build/outputs/apk/debug/
 
   linux-native:
+    needs: corresponding-source
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
@@ -91,7 +149,7 @@ jobs:
           mkdir -p evidence
           cmake --version | tee evidence/cmake.log
           git rev-parse HEAD | tee evidence/commit.txt
-          git archive --format=tar.gz --output=evidence/corresponding-source.tar.gz HEAD
+          git archive --format=tar.gz --output=evidence/kadb-source.tar.gz HEAD
           ./gradlew :kadb:linuxX64Test :kadb-mdns:linuxX64Test :validation-native-adbd:linkDebugExecutableLinuxX64 :validation-native-adbd:linkPairingDebugExecutableLinuxX64 :validation-pairing-peer:writePeerClasspath --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/linux-native.log
       - name: Require actual Native test reports and executable
         if: always()
@@ -110,10 +168,14 @@ jobs:
           set -o pipefail
           python3 validation/spake2/replay_oracle.py --oracle "$PWD/evidence/spake-oracle" --report evidence/spake-oracle.json --reference-source "$PWD/kadb/build/native/boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c" --reference-commit 5b83e5d1abf0ae0033ae52ab579d906b67633b2c --libcrypto "$PWD/kadb/build/native/linuxX64/cmake/lib/libcrypto.a" 2>&1 | tee evidence/spake-oracle.log
           python3 -m unittest discover -s validation/native-adbd -p 'test_*.py' -v 2>&1 | tee evidence/observer-tests.log
+      - name: Associate actual artifacts with the uploaded source package
+        if: always()
+        run: python3 validation/record-binary-evidence.py --source-url '${{ needs.corresponding-source.outputs.artifact-url }}' --source-sha256 '${{ needs.corresponding-source.outputs.package-sha256 }}' --source-lock-sha256 '${{ needs.corresponding-source.outputs.lock-sha256 }}' --output evidence
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: linux-native-${{ github.sha }}
+          retention-days: 90
           if-no-files-found: error
           path: |
             evidence/
@@ -125,6 +187,7 @@ jobs:
             kadb/build/native/linuxX64/cmake/Testing/
 
   darwin-native:
+    needs: corresponding-source
     strategy:
       fail-fast: false
       matrix:
@@ -158,7 +221,7 @@ jobs:
           xcrun --sdk macosx --show-sdk-version | tee evidence/macos-sdk.log
           xcrun --sdk iphoneos --show-sdk-version | tee evidence/ios-sdk.log
           git rev-parse HEAD | tee evidence/commit.txt
-          git archive --format=tar.gz --output=evidence/corresponding-source.tar.gz HEAD
+          git archive --format=tar.gz --output=evidence/kadb-source.tar.gz HEAD
       - name: macOS Native build, execution and framework
         id: macos-build
         run: |
@@ -199,10 +262,14 @@ jobs:
             args+=(--require kadb/build/test-results/iosSimulatorArm64Test --require kadb-mdns/build/test-results/iosSimulatorArm64Test)
           fi
           python3 validation/summarize-tests.py . --output evidence/darwin-summary.json "${args[@]}"
+      - name: Associate actual artifacts with the uploaded source package
+        if: always()
+        run: python3 validation/record-binary-evidence.py --source-url '${{ needs.corresponding-source.outputs.artifact-url }}' --source-sha256 '${{ needs.corresponding-source.outputs.package-sha256 }}' --source-lock-sha256 '${{ needs.corresponding-source.outputs.lock-sha256 }}' --output evidence
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: darwin-${{ matrix.directory }}-${{ github.sha }}
+          retention-days: 90
           if-no-files-found: error
           path: |
             evidence/
@@ -277,5 +344,6 @@ jobs:
         if: always()
         with:
           name: emulator-adbd-${{ github.sha }}
+          retention-days: 90
           if-no-files-found: error
           path: evidence/

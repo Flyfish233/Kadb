@@ -111,7 +111,7 @@ class AdbSyncCloseLifecycleTest {
         private val stream = AdbStream(queue, AdbWriter(output), 4096, 1, 10)
         val sync = AdbSyncStream(stream)
 
-        init { queue.startListening(1) }
+        init { queue.startListening(1, remoteId = 10) }
 
         override fun close() {
             // Also clean up the defective baseline after its assertion has observed the leak.

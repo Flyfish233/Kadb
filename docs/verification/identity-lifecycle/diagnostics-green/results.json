@@ -1,0 +1,13 @@
+{
+  "source_commit": "04a63fd10e44ea64c422f7c5e7f607a7caa3c4de",
+  "counts": {
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gradle_exit": 0,
+  "command": ":kadb:linuxX64Test -x :kadb:buildNativeLinuxX64 --no-daemon --max-workers=2 --no-build-cache --no-configuration-cache -Pkotlin.incremental=false",
+  "native_executable_sha256": "829868fd489e3705a4572cb1f0ad8d97e5317664b1aeca7fd28da5e96bef77ef",
+  "scope": "Full local Native snapshot suite, including both diagnostic regressions. Previously built pinned C archives; later integration changes excluded."
+}

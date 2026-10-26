@@ -1,0 +1,72 @@
+{"binary_associations": 0, "event": "started", "kadb_commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf", "native_targets": ["iosArm64", "iosSimulatorArm64", "macosArm64", "macosX64", "linuxX64"], "python": "3.12.14", "utc": "2026-10-26T11:42:45.725061+00:00"}
+{"bytes": 48784103, "component": "kotlin", "event": "cache_verified", "utc": "2026-10-26T11:42:46.795989+00:00"}
+{"component": "kotlin", "event": "archive_inventory_verified", "notices": 73, "source_files": 69429, "utc": "2026-10-26T11:43:05.639371+00:00"}
+{"bytes": 7289061, "component": "kotlinx.coroutines", "event": "cache_verified", "utc": "2026-10-26T11:43:05.700583+00:00"}
+{"component": "kotlinx.coroutines", "event": "archive_inventory_verified", "notices": 2, "source_files": 1061, "utc": "2026-10-26T11:43:06.226474+00:00"}
+{"bytes": 218568, "component": "kotlinx-atomicfu", "event": "cache_verified", "utc": "2026-10-26T11:43:06.235233+00:00"}
+{"component": "kotlinx-atomicfu", "event": "archive_inventory_verified", "notices": 2, "source_files": 150, "utc": "2026-10-26T11:43:06.462376+00:00"}
+{"bytes": 1162331, "component": "okio", "event": "cache_verified", "utc": "2026-10-26T11:43:06.472300+00:00"}
+{"component": "okio", "event": "archive_inventory_verified", "notices": 2, "source_files": 343, "utc": "2026-10-26T11:43:06.956107+00:00"}
+{"bytes": 74661066, "component": "boringssl", "event": "cache_verified", "utc": "2026-10-26T11:43:07.999271+00:00"}
+{"component": "boringssl", "event": "archive_inventory_verified", "notices": 8, "source_files": 1061, "utc": "2026-10-26T11:43:14.210759+00:00"}
+{"bytes": 5488452, "component": "breakpad", "event": "cache_verified", "utc": "2026-10-26T11:43:14.258521+00:00"}
+{"component": "breakpad", "event": "archive_inventory_verified", "notices": 5, "source_files": 618, "utc": "2026-10-26T11:43:14.811933+00:00"}
+{"bytes": 12431, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20.module", "event": "cache_verified", "utc": "2026-10-26T11:43:14.815162+00:00"}
+{"bytes": 2301, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:14.830039+00:00"}
+{"bytes": 767009, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:14.953505+00:00"}
+{"bytes": 486449, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20-common-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.077402+00:00"}
+{"bytes": 47152, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0:kotlinx-coroutines-core-1.11.0.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.128969+00:00"}
+{"bytes": 2030, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0:kotlinx-coroutines-core-1.11.0.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.132839+00:00"}
+{"bytes": 371185, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0:kotlinx-coroutines-core-1.11.0-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.142221+00:00"}
+{"bytes": 2898, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0:kotlinx-coroutines-core-linuxx64-1.11.0.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.202701+00:00"}
+{"bytes": 1894, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0:kotlinx-coroutines-core-linuxx64-1.11.0.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.214177+00:00"}
+{"bytes": 356223, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0:kotlinx-coroutines-core-linuxx64-1.11.0-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.222514+00:00"}
+{"bytes": 4400, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0:kotlinx-coroutines-core-iosarm64-1.11.0.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.272861+00:00"}
+{"bytes": 1894, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0:kotlinx-coroutines-core-iosarm64-1.11.0.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.276067+00:00"}
+{"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0:kotlinx-coroutines-core-iosarm64-1.11.0-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.282353+00:00"}
+{"bytes": 4511, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0:kotlinx-coroutines-core-iossimulatorarm64-1.11.0.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.310973+00:00"}
+{"bytes": 1912, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0:kotlinx-coroutines-core-iossimulatorarm64-1.11.0.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.312809+00:00"}
+{"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0:kotlinx-coroutines-core-iossimulatorarm64-1.11.0-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.317974+00:00"}
+{"bytes": 4424, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0:kotlinx-coroutines-core-macosarm64-1.11.0.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.355585+00:00"}
+{"bytes": 1898, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0:kotlinx-coroutines-core-macosarm64-1.11.0.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.358508+00:00"}
+{"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0:kotlinx-coroutines-core-macosarm64-1.11.0-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.363168+00:00"}
+{"bytes": 4400, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0:kotlinx-coroutines-core-macosx64-1.11.0.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.404624+00:00"}
+{"bytes": 1894, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0:kotlinx-coroutines-core-macosx64-1.11.0.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.407022+00:00"}
+{"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0:kotlinx-coroutines-core-macosx64-1.11.0-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.413427+00:00"}
+{"bytes": 45316, "component": "org.jetbrains.kotlinx:atomicfu:0.32.1:atomicfu-0.32.1.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.448351+00:00"}
+{"bytes": 1636, "component": "org.jetbrains.kotlinx:atomicfu:0.32.1:atomicfu-0.32.1.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.449955+00:00"}
+{"bytes": 32711, "component": "org.jetbrains.kotlinx:atomicfu:0.32.1:atomicfu-0.32.1-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.451493+00:00"}
+{"bytes": 2993, "component": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1:atomicfu-linuxx64-0.32.1.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.458929+00:00"}
+{"bytes": 1646, "component": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1:atomicfu-linuxx64-0.32.1.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.461464+00:00"}
+{"bytes": 24440, "component": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1:atomicfu-linuxx64-0.32.1-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.464633+00:00"}
+{"bytes": 4134, "component": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1:atomicfu-iosarm64-0.32.1.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.473425+00:00"}
+{"bytes": 1646, "component": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1:atomicfu-iosarm64-0.32.1.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.474676+00:00"}
+{"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1:atomicfu-iosarm64-0.32.1-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.475149+00:00"}
+{"bytes": 4263, "component": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1:atomicfu-iossimulatorarm64-0.32.1.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.480135+00:00"}
+{"bytes": 1655, "component": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1:atomicfu-iossimulatorarm64-0.32.1.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.481809+00:00"}
+{"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1:atomicfu-iossimulatorarm64-0.32.1-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.483099+00:00"}
+{"bytes": 4162, "component": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1:atomicfu-macosarm64-0.32.1.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.486069+00:00"}
+{"bytes": 1648, "component": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1:atomicfu-macosarm64-0.32.1.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.488441+00:00"}
+{"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1:atomicfu-macosarm64-0.32.1-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.489367+00:00"}
+{"bytes": 4134, "component": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1:atomicfu-macosx64-0.32.1.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.493290+00:00"}
+{"bytes": 1646, "component": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1:atomicfu-macosx64-0.32.1.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.494521+00:00"}
+{"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1:atomicfu-macosx64-0.32.1-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.495515+00:00"}
+{"bytes": 37605, "component": "com.squareup.okio:okio:3.18.2:okio-3.18.2.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.512654+00:00"}
+{"bytes": 1703, "component": "com.squareup.okio:okio:3.18.2:okio-3.18.2.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.520299+00:00"}
+{"bytes": 179252, "component": "com.squareup.okio:okio:3.18.2:okio-3.18.2-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.524197+00:00"}
+{"bytes": 3123, "component": "com.squareup.okio:okio-linuxx64:3.18.2:okio-linuxx64-3.18.2.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.546276+00:00"}
+{"bytes": 1750, "component": "com.squareup.okio:okio-linuxx64:3.18.2:okio-linuxx64-3.18.2.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.550282+00:00"}
+{"bytes": 174293, "component": "com.squareup.okio:okio-linuxx64:3.18.2:okio-linuxx64-3.18.2-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.553984+00:00"}
+{"bytes": 3901, "component": "com.squareup.okio:okio-iosarm64:3.18.2:okio-iosarm64-3.18.2.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.570411+00:00"}
+{"bytes": 1750, "component": "com.squareup.okio:okio-iosarm64:3.18.2:okio-iosarm64-3.18.2.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.574043+00:00"}
+{"bytes": 174186, "component": "com.squareup.okio:okio-iosarm64:3.18.2:okio-iosarm64-3.18.2-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.582221+00:00"}
+{"bytes": 4012, "component": "com.squareup.okio:okio-iossimulatorarm64:3.18.2:okio-iossimulatorarm64-3.18.2.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.597837+00:00"}
+{"bytes": 1759, "component": "com.squareup.okio:okio-iossimulatorarm64:3.18.2:okio-iossimulatorarm64-3.18.2.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.599275+00:00"}
+{"bytes": 174186, "component": "com.squareup.okio:okio-iossimulatorarm64:3.18.2:okio-iossimulatorarm64-3.18.2-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.605695+00:00"}
+{"bytes": 3925, "component": "com.squareup.okio:okio-macosarm64:3.18.2:okio-macosarm64-3.18.2.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.622253+00:00"}
+{"bytes": 1752, "component": "com.squareup.okio:okio-macosarm64:3.18.2:okio-macosarm64-3.18.2.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.624890+00:00"}
+{"bytes": 174186, "component": "com.squareup.okio:okio-macosarm64:3.18.2:okio-macosarm64-3.18.2-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.628575+00:00"}
+{"bytes": 3901, "component": "com.squareup.okio:okio-macosx64:3.18.2:okio-macosx64-3.18.2.module", "event": "cache_verified", "utc": "2026-10-26T11:43:15.649814+00:00"}
+{"bytes": 1750, "component": "com.squareup.okio:okio-macosx64:3.18.2:okio-macosx64-3.18.2.pom", "event": "cache_verified", "utc": "2026-10-26T11:43:15.658060+00:00"}
+{"bytes": 174174, "component": "com.squareup.okio:okio-macosx64:3.18.2:okio-macosx64-3.18.2-sources.jar", "event": "cache_verified", "utc": "2026-10-26T11:43:15.661251+00:00"}
+{"binary_associations": 0, "bundle": "native-source-bundle-9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf.tar.gz", "bytes": 142217510, "event": "completed", "files": 168, "kadb_commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf", "legal_certification": false, "published_source_jars": 20, "sha256": "2e78c70b1c49ce729ca20f4d4e4cf07516b1cbb101565a4f17c2f12822d96ea8", "source_archives": 7, "status": "verified", "utc": "2026-10-26T11:43:30.341958+00:00"}

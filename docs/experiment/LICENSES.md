@@ -9,6 +9,9 @@
 | Kadb-owned integration and build adaptation | This experiment's commits | Apache-2.0 at the source-file level; distribution of a combined program remains subject to the AGPL component's requirements |
 | Historical test fixture data | `Flyfish233/spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f`, via pinned SPAKE2 | GPLv3, complete original license under `validation/spake2/`; test-only |
 | Native TLS, RSA/X.509, HKDF and AES provider | Pinned BoringSSL recorded by the Native backend | Its original composite license and third-party notices remain required; see Native provenance |
+| Kotlin stdlib and Native C/C++ runtime | Kotlin 2.4.20, source revision fixed in the source-bundle lock | Apache-2.0 and all vendored runtime notices retained in the full source tree |
+| Coroutines and Native transitive atomicfu | 1.11.0 / 0.32.1, immutable source revisions in the source-bundle lock | Original Apache-2.0 licenses and notices retained |
+| Okio Native runtime | 3.18.2, actual published SCM `lysine-dev/okio` and fixed source revision | Original Apache-2.0 license and source notices retained |
 
 The experiment does not replace the root Apache license or claim a power to
 relicense other authors' original Kadb source as AGPL. The new SPAKE2 dependency
@@ -41,6 +44,25 @@ This repository records an experiment and its source. No Maven Central release,
 formal JitPack version/tag, GitHub Release, final distribution policy or App Store
 delivery is authorized by this work. CI build/test artifacts are experimental and
 must retain source provenance and this licensing context.
+
+## Native source package
+
+The reproducible [source-bundle entry point](SOURCE_BUNDLE.md) supplies the actual
+pinned Native library source bytes, full source/build archives, published KMP
+source classifiers, and notices. A Kadb-only Git archive or a list of external
+URLs/hashes is insufficient to describe the library source incorporated into a
+static framework. The collector records the exact Kadb commit and can associate
+the actual binary files by hash; it does not establish that those binaries were
+built from that commit without the matching CI evidence.
+
+Source and matching binary artifacts need equivalent access and an appropriate
+availability policy for the chosen section-6 method. The experimental collector
+is an engineering inventory, not a certification of all legal obligations: it
+does not cover a downstream application's own code, all Android/JVM external
+dependencies, platform installation information, or certify which OS and C/C++
+libraries qualify for the System Library exception. General-purpose compiler,
+JDK, CMake, Gradle and SDK binary distributions are kept separate from runtime
+library source coverage. Original per-component licenses remain unchanged.
 
 ## Primary texts
 

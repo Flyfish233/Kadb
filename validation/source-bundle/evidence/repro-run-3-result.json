@@ -1,0 +1,12 @@
+{
+  "binary_associations": 0,
+  "bundle": "native-source-bundle-9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf.tar.gz",
+  "bytes": 142216881,
+  "files": 168,
+  "kadb_commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf",
+  "legal_certification": false,
+  "published_source_jars": 20,
+  "sha256": "a88bab1eb6da9c1fc1d206d9f1d692d0e94753fd1b41b2bea3eabffa005193bf",
+  "source_archives": 7,
+  "status": "verified"
+}

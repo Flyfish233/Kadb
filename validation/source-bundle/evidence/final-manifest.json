@@ -1,0 +1,1585 @@
+{
+  "binary_artifacts": [],
+  "binary_association_scope": "source inventory only; no binary association",
+  "files": {
+    "README.md": {
+      "sha256": "dfc943dba6ff30bdab79b5de15086a6fabc67aa53338a41d46ab420ed00c7a98",
+      "size": 7164
+    },
+    "assembly/BUNDLE_README.md": {
+      "sha256": "338afd84bdd870a32570e8895f897f007d26009611274db70ca77b816674db5b",
+      "size": 7137
+    },
+    "assembly/dependencies.lock.json": {
+      "sha256": "b965788741db889b2e924321803470333d00cfae110c22828ff183e25337c785",
+      "size": 43770
+    },
+    "assembly/source_bundle.py": {
+      "sha256": "cbe07932e2c095a119912d10570ff0670faf1da6025b7368dd2641953a5f4641",
+      "size": 23733
+    },
+    "assembly/upstream-ref-resolution.json": {
+      "sha256": "9050b78ff3d08d0e958cdb3c58c8865172f15432459b1829c31bbdb48e4226e2",
+      "size": 4919
+    },
+    "maven/com/squareup/okio/okio-iosarm64/3.18.2/okio-iosarm64-3.18.2-sources.jar": {
+      "sha256": "b905e3f41d9d4bd47b15b86b65b49da9d3f7e805d6e204f9e51d8cb9c52013e6",
+      "size": 174186
+    },
+    "maven/com/squareup/okio/okio-iosarm64/3.18.2/okio-iosarm64-3.18.2.module": {
+      "sha256": "e8428ea4a18e767839f8fc06580ae19f5cbba17d1f73f20c1b70fe3f4156e3f6",
+      "size": 3901
+    },
+    "maven/com/squareup/okio/okio-iosarm64/3.18.2/okio-iosarm64-3.18.2.pom": {
+      "sha256": "bed9f4953718e4f46dff5bab5537234f7adea6bf4de146d7268ce7bb70efb334",
+      "size": 1750
+    },
+    "maven/com/squareup/okio/okio-iossimulatorarm64/3.18.2/okio-iossimulatorarm64-3.18.2-sources.jar": {
+      "sha256": "b905e3f41d9d4bd47b15b86b65b49da9d3f7e805d6e204f9e51d8cb9c52013e6",
+      "size": 174186
+    },
+    "maven/com/squareup/okio/okio-iossimulatorarm64/3.18.2/okio-iossimulatorarm64-3.18.2.module": {
+      "sha256": "6aeebeee08628d022134cc7b335da888294a06dae9745294cbb6b00426e2208a",
+      "size": 4012
+    },
+    "maven/com/squareup/okio/okio-iossimulatorarm64/3.18.2/okio-iossimulatorarm64-3.18.2.pom": {
+      "sha256": "2b39b703faf8570f428ac951ef1f58a57ba2231b9e6e75650c1ac0235f76d205",
+      "size": 1759
+    },
+    "maven/com/squareup/okio/okio-linuxx64/3.18.2/okio-linuxx64-3.18.2-sources.jar": {
+      "sha256": "6da53f72e0d338b0e8d670aeb72850fe1e22b9c6784ffb363645085d3e5bd97c",
+      "size": 174293
+    },
+    "maven/com/squareup/okio/okio-linuxx64/3.18.2/okio-linuxx64-3.18.2.module": {
+      "sha256": "787744d14a4641aad156f43d57269c89ca86a20feb30a001981100b1e89e1d7d",
+      "size": 3123
+    },
+    "maven/com/squareup/okio/okio-linuxx64/3.18.2/okio-linuxx64-3.18.2.pom": {
+      "sha256": "cc599b72bb0eb8e7419cf1deaf303d61f34d92b058a1337522cf4c7a3002d76c",
+      "size": 1750
+    },
+    "maven/com/squareup/okio/okio-macosarm64/3.18.2/okio-macosarm64-3.18.2-sources.jar": {
+      "sha256": "b905e3f41d9d4bd47b15b86b65b49da9d3f7e805d6e204f9e51d8cb9c52013e6",
+      "size": 174186
+    },
+    "maven/com/squareup/okio/okio-macosarm64/3.18.2/okio-macosarm64-3.18.2.module": {
+      "sha256": "a1298d6cae145b8d36ba80f84396ebab4938dd4dc01fe8b5d530fc723fdae6f9",
+      "size": 3925
+    },
+    "maven/com/squareup/okio/okio-macosarm64/3.18.2/okio-macosarm64-3.18.2.pom": {
+      "sha256": "b25352f8dda92f265813988aba10701a65feb8731e76aa3d51a2df34cefeed54",
+      "size": 1752
+    },
+    "maven/com/squareup/okio/okio-macosx64/3.18.2/okio-macosx64-3.18.2-sources.jar": {
+      "sha256": "8c9a5a3f83d10c987fc12ba7c6f1449197f98cd737f42ac722301400d12fd9e2",
+      "size": 174174
+    },
+    "maven/com/squareup/okio/okio-macosx64/3.18.2/okio-macosx64-3.18.2.module": {
+      "sha256": "56e77c022b2123bc1ab5a2aba9e393862cb0902ae42221e92de1cad5dcc8a4ee",
+      "size": 3901
+    },
+    "maven/com/squareup/okio/okio-macosx64/3.18.2/okio-macosx64-3.18.2.pom": {
+      "sha256": "5d51df4afaae35a7a11155440f5fa6ddbfbbbc54d1f26e0ddac781a23d98abf8",
+      "size": 1750
+    },
+    "maven/com/squareup/okio/okio/3.18.2/okio-3.18.2-sources.jar": {
+      "sha256": "51cde92400cf66dd7832bb54971870322d866254e41a9c18195278793b545f35",
+      "size": 179252
+    },
+    "maven/com/squareup/okio/okio/3.18.2/okio-3.18.2.module": {
+      "sha256": "1f56f7f4840cde0ec9e64ca36a98696e3b384e45550eb2d5dc3ae5b12bc625e7",
+      "size": 37605
+    },
+    "maven/com/squareup/okio/okio/3.18.2/okio-3.18.2.pom": {
+      "sha256": "d63868feb53befeae594494d329bfaabd58cd9c6f0818b1a1daab89ed204b786",
+      "size": 1703
+    },
+    "maven/org/jetbrains/kotlin/kotlin-stdlib/2.4.20/kotlin-stdlib-2.4.20-common-sources.jar": {
+      "sha256": "62be1ffec2f32f838e0d90b6fcbfbafe13b388240bdf2f49bc04a378d56640d2",
+      "size": 486449
+    },
+    "maven/org/jetbrains/kotlin/kotlin-stdlib/2.4.20/kotlin-stdlib-2.4.20-sources.jar": {
+      "sha256": "9a2ce1266925b3cb0ff361392b91c3e288d3e78ca0961bb39e33e27aa6d1749a",
+      "size": 767009
+    },
+    "maven/org/jetbrains/kotlin/kotlin-stdlib/2.4.20/kotlin-stdlib-2.4.20.module": {
+      "sha256": "afb28052ac6c3d605c0f661816ea653e073eb039682fed35bfa6cdc704c0911c",
+      "size": 12431
+    },
+    "maven/org/jetbrains/kotlin/kotlin-stdlib/2.4.20/kotlin-stdlib-2.4.20.pom": {
+      "sha256": "bd69b382dba8e2b7ae3846375eb2f1389017eb908987277051ae4e3acec8c938",
+      "size": 2301
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-iosarm64/0.32.1/atomicfu-iosarm64-0.32.1-sources.jar": {
+      "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2",
+      "size": 25320
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-iosarm64/0.32.1/atomicfu-iosarm64-0.32.1.module": {
+      "sha256": "f6ac181b771e1eeaad95c4bf3a5497f1942cf71bd69acfd0310720cb9bd42f42",
+      "size": 4134
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-iosarm64/0.32.1/atomicfu-iosarm64-0.32.1.pom": {
+      "sha256": "7d2d3fbf2f662e4100e8816b4723b5938a65f2a6f259ff4361285dc8d25abdba",
+      "size": 1646
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-iossimulatorarm64/0.32.1/atomicfu-iossimulatorarm64-0.32.1-sources.jar": {
+      "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2",
+      "size": 25320
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-iossimulatorarm64/0.32.1/atomicfu-iossimulatorarm64-0.32.1.module": {
+      "sha256": "5dcb28af84cfc2cc2022d2c95c86bb70bc79309e334e6ef14c31629d7e79cc5a",
+      "size": 4263
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-iossimulatorarm64/0.32.1/atomicfu-iossimulatorarm64-0.32.1.pom": {
+      "sha256": "de47f9e286a00da4fce0a0f7cfbab43f54126942869d6add99e26a9ca1640bec",
+      "size": 1655
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-linuxx64/0.32.1/atomicfu-linuxx64-0.32.1-sources.jar": {
+      "sha256": "50db38ca0e2377bd4221bafc713656730aaac3d6e7a4fbc7cabc98db0092cf51",
+      "size": 24440
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-linuxx64/0.32.1/atomicfu-linuxx64-0.32.1.module": {
+      "sha256": "b7e26be8ca71ac7bca13067d91ab628fb41fc996936f7a7501ca3c318a89496e",
+      "size": 2993
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-linuxx64/0.32.1/atomicfu-linuxx64-0.32.1.pom": {
+      "sha256": "3326bd9761d0748cf5542b76514c1c1c50b613e8e51f2f9eff8f000c21bf5f25",
+      "size": 1646
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-macosarm64/0.32.1/atomicfu-macosarm64-0.32.1-sources.jar": {
+      "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2",
+      "size": 25320
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-macosarm64/0.32.1/atomicfu-macosarm64-0.32.1.module": {
+      "sha256": "650c1dc58d4c9dca48b8bf3d575545e073193d73287ebbee820bec6a7a962728",
+      "size": 4162
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-macosarm64/0.32.1/atomicfu-macosarm64-0.32.1.pom": {
+      "sha256": "392cfe490a7aafa813c33d38656a57735e04987e923b470435e47f9df725e49e",
+      "size": 1648
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-macosx64/0.32.1/atomicfu-macosx64-0.32.1-sources.jar": {
+      "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2",
+      "size": 25320
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-macosx64/0.32.1/atomicfu-macosx64-0.32.1.module": {
+      "sha256": "aff088ec69a52e587dfc4c306a8cfc33ec0bb7c6e9cb49a47c4b67d93eef2b26",
+      "size": 4134
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu-macosx64/0.32.1/atomicfu-macosx64-0.32.1.pom": {
+      "sha256": "4eb10dbeac3f7be47482f9ff2a858f4afe56f492b6a2fa018011dda66910c41f",
+      "size": 1646
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu/0.32.1/atomicfu-0.32.1-sources.jar": {
+      "sha256": "65f4245841d8560b7ecb3f68dd29645154e0515effaff6b20ef3504750b963db",
+      "size": 32711
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu/0.32.1/atomicfu-0.32.1.module": {
+      "sha256": "86d3cedc1bf235d9a7f629344f9dcfe5bbc1da6ea198e4292dae8c5dba698285",
+      "size": 45316
+    },
+    "maven/org/jetbrains/kotlinx/atomicfu/0.32.1/atomicfu-0.32.1.pom": {
+      "sha256": "5f7e55acee8c1a226ae3ff80f9eb4aca0eee02615651cb8a41391893767b7d1b",
+      "size": 1636
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iosarm64/1.11.0/kotlinx-coroutines-core-iosarm64-1.11.0-sources.jar": {
+      "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1",
+      "size": 356836
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iosarm64/1.11.0/kotlinx-coroutines-core-iosarm64-1.11.0.module": {
+      "sha256": "8104231a1d1e4047754fd9c6e52ea1cda713a3c9de7d80f4c7de5963d9b8ee52",
+      "size": 4400
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iosarm64/1.11.0/kotlinx-coroutines-core-iosarm64-1.11.0.pom": {
+      "sha256": "71df08b0acb2ea32daa1488aa164c4d4d5e15f49bd68bd14af38111488ddaf85",
+      "size": 1894
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iossimulatorarm64/1.11.0/kotlinx-coroutines-core-iossimulatorarm64-1.11.0-sources.jar": {
+      "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1",
+      "size": 356836
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iossimulatorarm64/1.11.0/kotlinx-coroutines-core-iossimulatorarm64-1.11.0.module": {
+      "sha256": "1da039308715f4533de87319cda4f1bacf2cb89712a653653dc867d7ca0ef9e4",
+      "size": 4511
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iossimulatorarm64/1.11.0/kotlinx-coroutines-core-iossimulatorarm64-1.11.0.pom": {
+      "sha256": "8c50592e0a02c4a0cc41067fe327ae0f379cc8e5aba176b6a2e53aebc356d4fd",
+      "size": 1912
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-linuxx64/1.11.0/kotlinx-coroutines-core-linuxx64-1.11.0-sources.jar": {
+      "sha256": "da2747041ff6250bec2ebe405188dc92b255092ecb918043579900405530b6e1",
+      "size": 356223
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-linuxx64/1.11.0/kotlinx-coroutines-core-linuxx64-1.11.0.module": {
+      "sha256": "420c6760b617b8ce8384d3751089cabb51c2a4f18dab56d8431715ebfc3d83d7",
+      "size": 2898
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-linuxx64/1.11.0/kotlinx-coroutines-core-linuxx64-1.11.0.pom": {
+      "sha256": "cf6a4b4cbede69b07a76c84e6a904121bc89427604a11edd157ed7528803830b",
+      "size": 1894
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosarm64/1.11.0/kotlinx-coroutines-core-macosarm64-1.11.0-sources.jar": {
+      "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1",
+      "size": 356836
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosarm64/1.11.0/kotlinx-coroutines-core-macosarm64-1.11.0.module": {
+      "sha256": "025c308b9de3726832991c320b92c96351abf137a0b24b01e7f1bf2df7a99c6e",
+      "size": 4424
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosarm64/1.11.0/kotlinx-coroutines-core-macosarm64-1.11.0.pom": {
+      "sha256": "a5918ff5a08b230471751f435c8bdb5be5418263686b2e890c658f34a69c8818",
+      "size": 1898
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosx64/1.11.0/kotlinx-coroutines-core-macosx64-1.11.0-sources.jar": {
+      "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1",
+      "size": 356836
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosx64/1.11.0/kotlinx-coroutines-core-macosx64-1.11.0.module": {
+      "sha256": "489b0fb03fc529f6840810574c387f5c2ca98398106b45f923775eb81fdfc0bf",
+      "size": 4400
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosx64/1.11.0/kotlinx-coroutines-core-macosx64-1.11.0.pom": {
+      "sha256": "b6bc1be34c88021bce0ce2e942617945e25501686f1b3bd620e844b00dff1e30",
+      "size": 1894
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.11.0/kotlinx-coroutines-core-1.11.0-sources.jar": {
+      "sha256": "42b1e26bc792fc3d8ba702ef5bd166adcd6c8350f377f639fb7d2e01b3366e3e",
+      "size": 371185
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.11.0/kotlinx-coroutines-core-1.11.0.module": {
+      "sha256": "1e19785d34728b7525d7a77ff32ead4547d51cc7a45d4ac44d4de608169b0c0d",
+      "size": 47152
+    },
+    "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.11.0/kotlinx-coroutines-core-1.11.0.pom": {
+      "sha256": "41b6e78c1b0d11bc99de795390df9e4ece64dc113f482d6e308f1b7a421c1d30",
+      "size": 2030
+    },
+    "notices/boringssl/AUTHORS": {
+      "sha256": "6e5283f25977ae2fbbf5fd8a840b7184b2b48915279c10bf01107263d3f26936",
+      "size": 1208
+    },
+    "notices/boringssl/LICENSE": {
+      "sha256": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+      "size": 13115
+    },
+    "notices/boringssl/third_party/benchmark/AUTHORS": {
+      "sha256": "7ba6f34ad92df42a79c85c117be3689fd58f1caca11f43aaab413d20df1f9f0e",
+      "size": 2846
+    },
+    "notices/boringssl/third_party/benchmark/LICENSE": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/boringssl/third_party/fiat/AUTHORS": {
+      "sha256": "ad74c036a6afaedc418fed65f171c877c2f74a4c70938a03930aa11c98a20508",
+      "size": 648
+    },
+    "notices/boringssl/third_party/fiat/LICENSE": {
+      "sha256": "9eacbcb81be660840c714a560a9d65ba07913db98dd4baf969f78dd499fdd60f",
+      "size": 638
+    },
+    "notices/boringssl/third_party/googletest/LICENSE": {
+      "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+      "size": 1475
+    },
+    "notices/boringssl/third_party/wycheproof_testvectors/LICENSE": {
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "size": 11357
+    },
+    "notices/breakpad/AUTHORS": {
+      "sha256": "710c0a3a4681c8c40f5a59eb794f61093fa142935c647c92f46ea595f0591833",
+      "size": 22
+    },
+    "notices/breakpad/LICENSE": {
+      "sha256": "69b3d80c19a460e09716910d54d1ada5d800716e2b73751bebac44352590f646",
+      "size": 64880
+    },
+    "notices/breakpad/src/third_party/curl/COPYING": {
+      "sha256": "4d03f91b94e0db3bdc9ddaf0060dd41cc94a2096094fbc1417713a2f059658c7",
+      "size": 1045
+    },
+    "notices/breakpad/src/third_party/libdisasm/LICENSE": {
+      "sha256": "d8eaba95b8d03c5912da9b5823de2c920e84a993133039a22fc8100f9edb33a1",
+      "size": 6359
+    },
+    "notices/breakpad/src/third_party/musl/COPYRIGHT": {
+      "sha256": "70ca142d257e2690a1f8eda8a296e64a6d1b16d8aee6784f8ddcf67f3163635d",
+      "size": 5927
+    },
+    "notices/kadb/LICENSE": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    "notices/kadb/docs/experiment/LICENSES.md": {
+      "sha256": "df1291339cfb0a81ec544d5d48b5a3940acf180ccf4cfa44a8c6c033b49d870e",
+      "size": 3543
+    },
+    "notices/kadb/kadb/third_party/boringssl/LICENSE": {
+      "sha256": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+      "size": 13115
+    },
+    "notices/kadb/third-party/spake2/upstream/LICENSE": {
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "size": 34523
+    },
+    "notices/kotlin/js/js.ast/License.txt": {
+      "sha256": "1c04dd122a92359179ba2d41bdec073cd489d2ef5c4f15f01fdc46f88be6cc80",
+      "size": 339
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/breakpad_LICENSE.txt": {
+      "sha256": "69b3d80c19a460e09716910d54d1ada5d800716e2b73751bebac44352590f646",
+      "size": 64880
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/glibc_license.txt": {
+      "sha256": "0d9caa109990db2b93d423d2425202a6432d25ccfcf12ec482b76da8da93f587",
+      "size": 3432
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/harmony_LICENSE.txt": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/harmony_NOTICE.txt": {
+      "sha256": "8a6725437c8f16af6322496d8e22169fdb8988ad43c5b300350ef867fd7d48e4",
+      "size": 563
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/json_LICENSE.txt": {
+      "sha256": "3170657e74a094f54a8b84e589eb305fbdcb262566de2f80726342c065ec9a9f",
+      "size": 1119
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/libbacktrace_LICENSE.txt": {
+      "sha256": "660729a7713d03d375b81ec8126f9c801b11d1eacefbe9685185d4c6a24e79cf",
+      "size": 1470
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/libffi_license.txt": {
+      "sha256": "0f4d7a0bfb83c37465d42dc305f124189196cc0cc2cc8d6f8461103682aebbc5",
+      "size": 1132
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/llvm_license.txt": {
+      "sha256": "c1938c0e9e90639d1e8f5a7f6bebaab83a3642e0ee44295a4c69934686d0bda8",
+      "size": 3493
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/mingw-w64-headers_LICENSE.txt": {
+      "sha256": "438a5157902512cf68cabc494a952bb23439a527497b41593e98cd666d2dc4ec",
+      "size": 7140
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/mpmc_queue_LICENSE.txt": {
+      "sha256": "bd41bc36bf821736a2ad3a2f081da9acc9c53ab96c9e375191003c7176d2ef96",
+      "size": 1537
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/sdl_license.txt": {
+      "sha256": "95b29307711ed750649452bb54cd43956933d90a5127346d989111c63f649e5a",
+      "size": 877
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/unicode_LICENSE.txt": {
+      "sha256": "1c3ddd6cc94ad4357e76a589325dd46520850348770536ef66bf8f2b56c77463",
+      "size": 3397
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/xcode_license.pdf": {
+      "sha256": "ab9d718cdeb5f7c1b4e15fa7f30045011ca7b628f79147db2bcecc6719add5a2",
+      "size": 156058
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/zephyr_LICENSE.txt": {
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+      "size": 11358
+    },
+    "notices/kotlin/kotlin-native/licenses/third_party/zlib_license.txt": {
+      "sha256": "886b819c33f025e3035abe8dd1e20b4a9b08c8146e25a6228f4f01deb0b42a3e",
+      "size": 1101
+    },
+    "notices/kotlin/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/commonizeCurlInterop/libs/include/curl/COPYING": {
+      "sha256": "6fd1a1c008b5ef4c4741dd188c3f8af6944c14c25afa881eb064f98fb98358e7",
+      "size": 1088
+    },
+    "notices/kotlin/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/commonizeSQLiteAndCurlInterop/libs/include/curl/COPYING": {
+      "sha256": "6fd1a1c008b5ef4c4741dd188c3f8af6944c14c25afa881eb064f98fb98358e7",
+      "size": 1088
+    },
+    "notices/kotlin/license/COPYRIGHT.txt": {
+      "sha256": "8f1a1700adb5490604c6094fb137bf73f6c28d3ee554b58f3ff8ef975a79672d",
+      "size": 647
+    },
+    "notices/kotlin/license/COPYRIGHT_HEADER.txt": {
+      "sha256": "e2047ed7177b71a0e09d4bfbd8f812a2d1567a36d8c5778d8d31ddda9a440dda",
+      "size": 208
+    },
+    "notices/kotlin/license/LICENSE.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/NOTICE.txt": {
+      "sha256": "0b09a83d3ef7795c7dec65e815866597c066c53898f2852a76599b8f5552941a",
+      "size": 482
+    },
+    "notices/kotlin/license/README.md": {
+      "sha256": "d6967b20368eabd6d5a57f810543d6ed6941c28170eacd92c47f63dc6cae9afb",
+      "size": 20842
+    },
+    "notices/kotlin/license/third_party/aalto_xml_licence.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/aether_license.txt": {
+      "sha256": "ed8d7a24769ac9d57d08769b5f8be27519dd8811d06b0995dbe8ca6714e96d08",
+      "size": 11248
+    },
+    "notices/kotlin/license/third_party/antlr_js_grammar_license.txt": {
+      "sha256": "806d908d12c587cdcf1a1392ce30a2543befb65af526e55ceec2e997f3ca79aa",
+      "size": 1427
+    },
+    "notices/kotlin/license/third_party/aosp_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/args4j_LICENSE.txt": {
+      "sha256": "729b7cef12701553c0272bbfd2e70a47ab93065f3be6f846d81e93a091cef340",
+      "size": 1079
+    },
+    "notices/kotlin/license/third_party/asm_license.txt": {
+      "sha256": "bf7e5d772c8adf38d16306cba31de6151e1886560d08888bf25defbe8adf725a",
+      "size": 1598
+    },
+    "notices/kotlin/license/third_party/asmble_license.txt": {
+      "sha256": "9808ceffe450ef163ae04ba0d42149c3742a55ddd8da580c2471f23a7f79a405",
+      "size": 1065
+    },
+    "notices/kotlin/license/third_party/assemblyscript_license.txt": {
+      "sha256": "c5accbbd8546e94c34aed24afe689a617627d18eed5a6c48277e48db57c23851",
+      "size": 11356
+    },
+    "notices/kotlin/license/third_party/boost_LICENSE.txt": {
+      "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+      "size": 1337
+    },
+    "notices/kotlin/license/third_party/caffeine_LICENSE.txt": {
+      "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+      "size": 11357
+    },
+    "notices/kotlin/license/third_party/closure-compiler_LICENSE.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/compose_license.txt": {
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "size": 10175
+    },
+    "notices/kotlin/license/third_party/dart_LICENSE.txt": {
+      "sha256": "a572879551b8011db14feb212906d7d690abbe58a7803fb2d6f26abe2197ab0b",
+      "size": 2323
+    },
+    "notices/kotlin/license/third_party/fastutil_licence": {
+      "sha256": "fb411e13059fe3649b2630d6b94f7a031d089a8a78e49256033c4e3f3da3f1f4",
+      "size": 11386
+    },
+    "notices/kotlin/license/third_party/gradle-node-plugin_LICENSE.txt": {
+      "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a",
+      "size": 11323
+    },
+    "notices/kotlin/license/third_party/gradle_custom_user_plugin_license.txt": {
+      "sha256": "6b1e68ef97f164a0d256d9c7cf53d9f0bfb2a158848495db1bdb8cb9ef0a4850",
+      "size": 11342
+    },
+    "notices/kotlin/license/third_party/gradle_license.txt": {
+      "sha256": "f5e661dc635c82a2dad5a6bd92c71bb89500020865e0b86ffad4bdf764f78e44",
+      "size": 23605
+    },
+    "notices/kotlin/license/third_party/guava_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/gwt_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/jgit_license.txt": {
+      "sha256": "5c20fb5295c262aec6a8c33ed6fcd61646624a578f36dfad6b737eb96d5c51e8",
+      "size": 1592
+    },
+    "notices/kotlin/license/third_party/jquery_license.txt": {
+      "sha256": "df57d69fba71d2ebca048a5ce37e16f8ebbde334b79bcb2a15d2b58a09d64241",
+      "size": 1376
+    },
+    "notices/kotlin/license/third_party/jshashtable_license.txt": {
+      "sha256": "80b825b0d6de67a923091dd9b0ee67b12b3e17c01356c753aed4941c026e51f8",
+      "size": 594
+    },
+    "notices/kotlin/license/third_party/karma-teamcity-reporter_LICENSE.txt": {
+      "sha256": "aeec55919caa5b3bc95cd4c8a55f2f94c000db2cb43f16a2ab62d925cb64695b",
+      "size": 1094
+    },
+    "notices/kotlin/license/third_party/karma_LICENSE.txt": {
+      "sha256": "0ff98105e1a36e8be352d03d38df7ec7d76e2f21118d99308d58f884a19855fb",
+      "size": 1077
+    },
+    "notices/kotlin/license/third_party/lodash_LICENSE.txt": {
+      "sha256": "da079993091381e4b5821647580325329bf3ccdc4fde8cde1797f14483c13bcc",
+      "size": 1966
+    },
+    "notices/kotlin/license/third_party/lombok_LICENSE.txt": {
+      "sha256": "610f8c0be13ede2ed104952923ba63506ef70543d72941a25fad5e17f90814a2",
+      "size": 1076
+    },
+    "notices/kotlin/license/third_party/maven_LICENSE.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/mocha-teamcity-reporter_LICENSE.txt": {
+      "sha256": "ad8f27e36016bd5d48dfb13983d1f7425e8f8dfd567fa63fd18c44d4a9235d90",
+      "size": 1080
+    },
+    "notices/kotlin/license/third_party/okhttp_license.txt": {
+      "sha256": "e666ea4cda8e7122321bec8ea1f18705f469aa859baf921aeb773f549709fcc9",
+      "size": 587
+    },
+    "notices/kotlin/license/third_party/opentelemetry_license.txt": {
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    "notices/kotlin/license/third_party/playwright_license.txt": {
+      "sha256": "7fab1461b41970ff376f1c9303a637076bfaaeb71cd12dd3a1c44aaf59a1a2b9",
+      "size": 11399
+    },
+    "notices/kotlin/license/third_party/power_assert_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/protobuf_license.txt": {
+      "sha256": "31c7505c31a1ea8557a5362cd69946dc9f5ee80fac8fa1d1b1531c08530497b0",
+      "size": 1732
+    },
+    "notices/kotlin/license/third_party/prototype_license.txt": {
+      "sha256": "1bbc0362bf27809b0d5acfd030b955056feb03c781f3c5b8769aaf06e838a9ac",
+      "size": 934
+    },
+    "notices/kotlin/license/third_party/rhino_LICENSE.txt": {
+      "sha256": "8ff4d01abe4b0cd144b7896195924e421bc41a01ffc79080c7b5f2c7d75c1632",
+      "size": 49052
+    },
+    "notices/kotlin/license/third_party/scala_license.txt": {
+      "sha256": "8b29107856dc584cf90e8ea7cc5b4847339ec6907d61eafbc5b1a843a832f935",
+      "size": 1733
+    },
+    "notices/kotlin/license/third_party/sl4f_license.txt": {
+      "sha256": "b03aefa7c785d4ceeb5a7eba9edf0069978a5f720af538b2286d48c68d029490",
+      "size": 1186
+    },
+    "notices/kotlin/license/third_party/stax2-api.txt": {
+      "sha256": "7f33221dc6c76f3e8ea4111088ec905ca4ba59cdfabd67e27e1953a94d07ae34",
+      "size": 388
+    },
+    "notices/kotlin/license/third_party/sun_license.txt": {
+      "sha256": "1100abb8c9d41eb4a17ff56233e68b49faf1edc6314f9b5a32dde9acd6622f64",
+      "size": 245
+    },
+    "notices/kotlin/license/third_party/teamcity-service-messages_LICENSE.txt": {
+      "sha256": "3fa05181e029dfe866e33f825d6879f2bdbd7489368db367e3b1a986a810e72c",
+      "size": 1058
+    },
+    "notices/kotlin/license/third_party/testdata/dagger_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/testdata/eclipse_distribution_license.txt": {
+      "sha256": "d7056f7d7b0754aba44734b48b2c6e9b734c350851765c07d724bb5fb34ec9b3",
+      "size": 1562
+    },
+    "notices/kotlin/license/third_party/testdata/eclipse_license.txt": {
+      "sha256": "0dba9cd5bc833d6a40f5f5a34db70e37b6ce1cd337dbc2f06ccf1dbc521d2079",
+      "size": 11624
+    },
+    "notices/kotlin/license/third_party/testdata/findbugs_license.txt": {
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+      "size": 26530
+    },
+    "notices/kotlin/license/third_party/testdata/jspecify_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/testdata/lombok_license.txt": {
+      "sha256": "5d0155eb221fcd5a25bcb0cc4761057a9751b2375615e0435b7630ffc2f0b810",
+      "size": 1075
+    },
+    "notices/kotlin/license/third_party/testdata/rxjava_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/testdata/spring_license.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/kotlin/license/third_party/threetenbp_license.txt": {
+      "sha256": "d1bc53b493a3ab387b42717ed5c4b1976a5048996f81154278100bff86d39331",
+      "size": 1520
+    },
+    "notices/kotlin/repo/codebase-tests/tests/org/jetbrains/kotlin/code/LicensesTests.kt": {
+      "sha256": "977fffcf24a9e68cde9b00fcf23e2adc338251ab17a9aef6057d7e143cc4d89c",
+      "size": 2206
+    },
+    "notices/kotlinx-atomicfu/LICENSE.txt": {
+      "sha256": "f4def61b03500df363b99b1781d37b345d335129d33e28d7193de2e6bdb33e96",
+      "size": 596
+    },
+    "notices/kotlinx-atomicfu/license/NOTICE.txt": {
+      "sha256": "2b1db3aa8302414ea2bb1be5391110268b4611a11c9c3d28e34bf3acfddc9ef4",
+      "size": 487
+    },
+    "notices/kotlinx.coroutines/LICENSE.txt": {
+      "sha256": "b1febe6399dffb10d19d35e7663ab16300c93cb0476a94115df1cc0097a8ffd8",
+      "size": 11398
+    },
+    "notices/kotlinx.coroutines/license/NOTICE.txt": {
+      "sha256": "1ab6de67ef738bffae63f9aa6a8798a35e87341c83ea28d09c8dc8ca6993232a",
+      "size": 452
+    },
+    "notices/okio/LICENSE.txt": {
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    "notices/okio/okio-testing-support/src/commonMain/resources/go/NOTICE": {
+      "sha256": "7a384b7d03f1ff5aceca376e7308d74dc7ec6aa45b3e30a6d6aaa52eb75dc740",
+      "size": 167
+    },
+    "upstream/boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c.tar.gz": {
+      "sha256": "4117ae02de040d4469284673ed63a14e648af7c3974aa9e85bcef2975a9c9ea8",
+      "size": 74661066
+    },
+    "upstream/breakpad-f80f2888031b0570783011476a5e862fb7d848a1.tar.gz": {
+      "sha256": "63af35cf2b2ceba3d7b2cb9fc591b1ce48d70959bc7cc8980f49d2f49950f2f5",
+      "size": 5488452
+    },
+    "upstream/kadb-9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf.tar.gz": {
+      "sha256": "c305563aeca2455c00c03601008a9b3a8bd6f676d46ab3c0deaf428e7a87d769",
+      "size": 454636
+    },
+    "upstream/kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f.tar.gz": {
+      "sha256": "7aeec23b21ce2fe1fe8108c0e6ccca811774890cbbf4c218783853d0784149c0",
+      "size": 48784103
+    },
+    "upstream/kotlinx-atomicfu-1d625ed1f6e88173f2737c48afe86544e8738232.tar.gz": {
+      "sha256": "9d80a46b91226c6ae6e470f9fd2bd99b4c77db5f8e9628a5ac78061a4de10f9b",
+      "size": 218568
+    },
+    "upstream/kotlinx.coroutines-8564f65764d3d05893cec026c6e94250e2b23874.tar.gz": {
+      "sha256": "ff25c4fd2855309cc047a17136f350579a3561e58c10515251063b81b8b8afef",
+      "size": 7289061
+    },
+    "upstream/okio-9403a094ac98d5a6ba8bad4ec3301399796fad67.tar.gz": {
+      "sha256": "c6830364c697c04ce0bb915439402d82ea2bf70a64fc7b8f69686447afcfe814",
+      "size": 1162331
+    }
+  },
+  "kadb_archive": "upstream/kadb-9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf.tar.gz",
+  "kadb_commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf",
+  "legal_certification": false,
+  "maven_sources": [
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20",
+      "path": "maven/org/jetbrains/kotlin/kotlin-stdlib/2.4.20/kotlin-stdlib-2.4.20-sources.jar",
+      "source_files": 416,
+      "source_sets": [
+        "commonMain",
+        "jvmMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20",
+      "path": "maven/org/jetbrains/kotlin/kotlin-stdlib/2.4.20/kotlin-stdlib-2.4.20-common-sources.jar",
+      "source_files": 230,
+      "source_sets": [
+        "commonMain",
+        "commonNonJvmMain",
+        "webMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0",
+      "path": "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.11.0/kotlinx-coroutines-core-1.11.0-sources.jar",
+      "source_files": 163,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "jsAndWasmSharedMain",
+        "nativeDarwinMain",
+        "nativeMain",
+        "nativeOtherMain",
+        "webMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0",
+      "path": "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-linuxx64/1.11.0/kotlinx-coroutines-core-linuxx64-1.11.0-sources.jar",
+      "source_files": 140,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "nativeMain",
+        "nativeOtherMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0",
+      "path": "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iosarm64/1.11.0/kotlinx-coroutines-core-iosarm64-1.11.0-sources.jar",
+      "source_files": 140,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "nativeDarwinMain",
+        "nativeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0",
+      "path": "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-iossimulatorarm64/1.11.0/kotlinx-coroutines-core-iossimulatorarm64-1.11.0-sources.jar",
+      "source_files": 140,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "nativeDarwinMain",
+        "nativeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0",
+      "path": "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosarm64/1.11.0/kotlinx-coroutines-core-macosarm64-1.11.0-sources.jar",
+      "source_files": 140,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "nativeDarwinMain",
+        "nativeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0",
+      "path": "maven/org/jetbrains/kotlinx/kotlinx-coroutines-core-macosx64/1.11.0/kotlinx-coroutines-core-macosx64-1.11.0-sources.jar",
+      "source_files": 140,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "nativeDarwinMain",
+        "nativeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:atomicfu:0.32.1",
+      "path": "maven/org/jetbrains/kotlinx/atomicfu/0.32.1/atomicfu-0.32.1-sources.jar",
+      "source_files": 31,
+      "source_sets": [
+        "androidNativeMain",
+        "appleMain",
+        "commonMain",
+        "concurrentMain",
+        "jsAndWasmSharedMain",
+        "linuxMain",
+        "nativeMain",
+        "nativeUnixLikeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1",
+      "path": "maven/org/jetbrains/kotlinx/atomicfu-linuxx64/0.32.1/atomicfu-linuxx64-0.32.1-sources.jar",
+      "source_files": 22,
+      "source_sets": [
+        "commonMain",
+        "concurrentMain",
+        "linuxMain",
+        "nativeMain",
+        "nativeUnixLikeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1",
+      "path": "maven/org/jetbrains/kotlinx/atomicfu-iosarm64/0.32.1/atomicfu-iosarm64-0.32.1-sources.jar",
+      "source_files": 23,
+      "source_sets": [
+        "appleMain",
+        "commonMain",
+        "concurrentMain",
+        "nativeMain",
+        "nativeUnixLikeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1",
+      "path": "maven/org/jetbrains/kotlinx/atomicfu-iossimulatorarm64/0.32.1/atomicfu-iossimulatorarm64-0.32.1-sources.jar",
+      "source_files": 23,
+      "source_sets": [
+        "appleMain",
+        "commonMain",
+        "concurrentMain",
+        "nativeMain",
+        "nativeUnixLikeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1",
+      "path": "maven/org/jetbrains/kotlinx/atomicfu-macosarm64/0.32.1/atomicfu-macosarm64-0.32.1-sources.jar",
+      "source_files": 23,
+      "source_sets": [
+        "appleMain",
+        "commonMain",
+        "concurrentMain",
+        "nativeMain",
+        "nativeUnixLikeMain"
+      ]
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1",
+      "path": "maven/org/jetbrains/kotlinx/atomicfu-macosx64/0.32.1/atomicfu-macosx64-0.32.1-sources.jar",
+      "source_files": 23,
+      "source_sets": [
+        "appleMain",
+        "commonMain",
+        "concurrentMain",
+        "nativeMain",
+        "nativeUnixLikeMain"
+      ]
+    },
+    {
+      "coordinate": "com.squareup.okio:okio:3.18.2",
+      "path": "maven/com/squareup/okio/okio/3.18.2/okio-3.18.2-sources.jar",
+      "source_files": 96,
+      "source_sets": [
+        "appleMain",
+        "appleNonMacosX64Main",
+        "commonMain",
+        "hashFunctions",
+        "linuxMain",
+        "nativeMain",
+        "nonAppleMain",
+        "nonJsMain",
+        "nonJvmMain",
+        "systemFileSystemMain",
+        "unixMain",
+        "zlibMain"
+      ]
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-linuxx64:3.18.2",
+      "path": "maven/com/squareup/okio/okio-linuxx64/3.18.2/okio-linuxx64-3.18.2-sources.jar",
+      "source_files": 93,
+      "source_sets": [
+        "commonMain",
+        "hashFunctions",
+        "linuxMain",
+        "nativeMain",
+        "nonAppleMain",
+        "nonJsMain",
+        "nonJvmMain",
+        "systemFileSystemMain",
+        "unixMain",
+        "zlibMain"
+      ]
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-iosarm64:3.18.2",
+      "path": "maven/com/squareup/okio/okio-iosarm64/3.18.2/okio-iosarm64-3.18.2-sources.jar",
+      "source_files": 93,
+      "source_sets": [
+        "appleMain",
+        "appleNonMacosX64Main",
+        "commonMain",
+        "hashFunctions",
+        "nativeMain",
+        "nonJsMain",
+        "nonJvmMain",
+        "systemFileSystemMain",
+        "unixMain",
+        "zlibMain"
+      ]
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-iossimulatorarm64:3.18.2",
+      "path": "maven/com/squareup/okio/okio-iossimulatorarm64/3.18.2/okio-iossimulatorarm64-3.18.2-sources.jar",
+      "source_files": 93,
+      "source_sets": [
+        "appleMain",
+        "appleNonMacosX64Main",
+        "commonMain",
+        "hashFunctions",
+        "nativeMain",
+        "nonJsMain",
+        "nonJvmMain",
+        "systemFileSystemMain",
+        "unixMain",
+        "zlibMain"
+      ]
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-macosarm64:3.18.2",
+      "path": "maven/com/squareup/okio/okio-macosarm64/3.18.2/okio-macosarm64-3.18.2-sources.jar",
+      "source_files": 93,
+      "source_sets": [
+        "appleMain",
+        "appleNonMacosX64Main",
+        "commonMain",
+        "hashFunctions",
+        "nativeMain",
+        "nonJsMain",
+        "nonJvmMain",
+        "systemFileSystemMain",
+        "unixMain",
+        "zlibMain"
+      ]
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-macosx64:3.18.2",
+      "path": "maven/com/squareup/okio/okio-macosx64/3.18.2/okio-macosx64-3.18.2-sources.jar",
+      "source_files": 93,
+      "source_sets": [
+        "appleMain",
+        "commonMain",
+        "hashFunctions",
+        "macosX64Main",
+        "nativeMain",
+        "nonJsMain",
+        "nonJvmMain",
+        "systemFileSystemMain",
+        "unixMain",
+        "zlibMain"
+      ]
+    }
+  ],
+  "native_targets": [
+    "iosArm64",
+    "iosSimulatorArm64",
+    "macosArm64",
+    "macosX64",
+    "linuxX64"
+  ],
+  "schema": 1,
+  "scope": "experimental-native-runtime",
+  "source_archives": [
+    {
+      "component": "kadb",
+      "native_runtime_source_files": 0,
+      "notices": [
+        {
+          "archive_member": "kadb/LICENSE",
+          "bundle_path": "notices/kadb/LICENSE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        },
+        {
+          "archive_member": "kadb/docs/experiment/LICENSES.md",
+          "bundle_path": "notices/kadb/docs/experiment/LICENSES.md",
+          "sha256": "df1291339cfb0a81ec544d5d48b5a3940acf180ccf4cfa44a8c6c033b49d870e",
+          "size": 3543
+        },
+        {
+          "archive_member": "kadb/kadb/third_party/boringssl/LICENSE",
+          "bundle_path": "notices/kadb/kadb/third_party/boringssl/LICENSE",
+          "sha256": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+          "size": 13115
+        },
+        {
+          "archive_member": "kadb/third-party/spake2/upstream/LICENSE",
+          "bundle_path": "notices/kadb/third-party/spake2/upstream/LICENSE",
+          "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+          "size": 34523
+        }
+      ],
+      "source_files": 190
+    },
+    {
+      "component": "kotlin",
+      "native_runtime_source_files": 249,
+      "notices": [
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/js/js.ast/License.txt",
+          "bundle_path": "notices/kotlin/js/js.ast/License.txt",
+          "sha256": "1c04dd122a92359179ba2d41bdec073cd489d2ef5c4f15f01fdc46f88be6cc80",
+          "size": 339
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/breakpad_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/breakpad_LICENSE.txt",
+          "sha256": "69b3d80c19a460e09716910d54d1ada5d800716e2b73751bebac44352590f646",
+          "size": 64880
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/glibc_license.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/glibc_license.txt",
+          "sha256": "0d9caa109990db2b93d423d2425202a6432d25ccfcf12ec482b76da8da93f587",
+          "size": 3432
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/harmony_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/harmony_LICENSE.txt",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/harmony_NOTICE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/harmony_NOTICE.txt",
+          "sha256": "8a6725437c8f16af6322496d8e22169fdb8988ad43c5b300350ef867fd7d48e4",
+          "size": 563
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/json_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/json_LICENSE.txt",
+          "sha256": "3170657e74a094f54a8b84e589eb305fbdcb262566de2f80726342c065ec9a9f",
+          "size": 1119
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/libbacktrace_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/libbacktrace_LICENSE.txt",
+          "sha256": "660729a7713d03d375b81ec8126f9c801b11d1eacefbe9685185d4c6a24e79cf",
+          "size": 1470
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/libffi_license.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/libffi_license.txt",
+          "sha256": "0f4d7a0bfb83c37465d42dc305f124189196cc0cc2cc8d6f8461103682aebbc5",
+          "size": 1132
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/llvm_license.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/llvm_license.txt",
+          "sha256": "c1938c0e9e90639d1e8f5a7f6bebaab83a3642e0ee44295a4c69934686d0bda8",
+          "size": 3493
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/mingw-w64-headers_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/mingw-w64-headers_LICENSE.txt",
+          "sha256": "438a5157902512cf68cabc494a952bb23439a527497b41593e98cd666d2dc4ec",
+          "size": 7140
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/mpmc_queue_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/mpmc_queue_LICENSE.txt",
+          "sha256": "bd41bc36bf821736a2ad3a2f081da9acc9c53ab96c9e375191003c7176d2ef96",
+          "size": 1537
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/sdl_license.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/sdl_license.txt",
+          "sha256": "95b29307711ed750649452bb54cd43956933d90a5127346d989111c63f649e5a",
+          "size": 877
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/unicode_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/unicode_LICENSE.txt",
+          "sha256": "1c3ddd6cc94ad4357e76a589325dd46520850348770536ef66bf8f2b56c77463",
+          "size": 3397
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/xcode_license.pdf",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/xcode_license.pdf",
+          "sha256": "ab9d718cdeb5f7c1b4e15fa7f30045011ca7b628f79147db2bcecc6719add5a2",
+          "size": 156058
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/zephyr_LICENSE.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/zephyr_LICENSE.txt",
+          "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/kotlin-native/licenses/third_party/zlib_license.txt",
+          "bundle_path": "notices/kotlin/kotlin-native/licenses/third_party/zlib_license.txt",
+          "sha256": "886b819c33f025e3035abe8dd1e20b4a9b08c8146e25a6228f4f01deb0b42a3e",
+          "size": 1101
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/commonizeCurlInterop/libs/include/curl/COPYING",
+          "bundle_path": "notices/kotlin/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/commonizeCurlInterop/libs/include/curl/COPYING",
+          "sha256": "6fd1a1c008b5ef4c4741dd188c3f8af6944c14c25afa881eb064f98fb98358e7",
+          "size": 1088
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/commonizeSQLiteAndCurlInterop/libs/include/curl/COPYING",
+          "bundle_path": "notices/kotlin/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/commonizeSQLiteAndCurlInterop/libs/include/curl/COPYING",
+          "sha256": "6fd1a1c008b5ef4c4741dd188c3f8af6944c14c25afa881eb064f98fb98358e7",
+          "size": 1088
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/COPYRIGHT.txt",
+          "bundle_path": "notices/kotlin/license/COPYRIGHT.txt",
+          "sha256": "8f1a1700adb5490604c6094fb137bf73f6c28d3ee554b58f3ff8ef975a79672d",
+          "size": 647
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/COPYRIGHT_HEADER.txt",
+          "bundle_path": "notices/kotlin/license/COPYRIGHT_HEADER.txt",
+          "sha256": "e2047ed7177b71a0e09d4bfbd8f812a2d1567a36d8c5778d8d31ddda9a440dda",
+          "size": 208
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/NOTICE.txt",
+          "bundle_path": "notices/kotlin/license/NOTICE.txt",
+          "sha256": "0b09a83d3ef7795c7dec65e815866597c066c53898f2852a76599b8f5552941a",
+          "size": 482
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/README.md",
+          "bundle_path": "notices/kotlin/license/README.md",
+          "sha256": "d6967b20368eabd6d5a57f810543d6ed6941c28170eacd92c47f63dc6cae9afb",
+          "size": 20842
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/aalto_xml_licence.txt",
+          "bundle_path": "notices/kotlin/license/third_party/aalto_xml_licence.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/aether_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/aether_license.txt",
+          "sha256": "ed8d7a24769ac9d57d08769b5f8be27519dd8811d06b0995dbe8ca6714e96d08",
+          "size": 11248
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/antlr_js_grammar_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/antlr_js_grammar_license.txt",
+          "sha256": "806d908d12c587cdcf1a1392ce30a2543befb65af526e55ceec2e997f3ca79aa",
+          "size": 1427
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/aosp_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/aosp_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/args4j_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/args4j_LICENSE.txt",
+          "sha256": "729b7cef12701553c0272bbfd2e70a47ab93065f3be6f846d81e93a091cef340",
+          "size": 1079
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/asm_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/asm_license.txt",
+          "sha256": "bf7e5d772c8adf38d16306cba31de6151e1886560d08888bf25defbe8adf725a",
+          "size": 1598
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/asmble_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/asmble_license.txt",
+          "sha256": "9808ceffe450ef163ae04ba0d42149c3742a55ddd8da580c2471f23a7f79a405",
+          "size": 1065
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/assemblyscript_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/assemblyscript_license.txt",
+          "sha256": "c5accbbd8546e94c34aed24afe689a617627d18eed5a6c48277e48db57c23851",
+          "size": 11356
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/boost_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/boost_LICENSE.txt",
+          "sha256": "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+          "size": 1337
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/caffeine_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/caffeine_LICENSE.txt",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "size": 11357
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/closure-compiler_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/closure-compiler_LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/compose_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/compose_license.txt",
+          "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+          "size": 10175
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/dart_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/dart_LICENSE.txt",
+          "sha256": "a572879551b8011db14feb212906d7d690abbe58a7803fb2d6f26abe2197ab0b",
+          "size": 2323
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/fastutil_licence",
+          "bundle_path": "notices/kotlin/license/third_party/fastutil_licence",
+          "sha256": "fb411e13059fe3649b2630d6b94f7a031d089a8a78e49256033c4e3f3da3f1f4",
+          "size": 11386
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/gradle-node-plugin_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/gradle-node-plugin_LICENSE.txt",
+          "sha256": "6dc0e068dcf3a5bc8e054205b85b7720e1d49265bbc64bf515d2cf79197df69a",
+          "size": 11323
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/gradle_custom_user_plugin_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/gradle_custom_user_plugin_license.txt",
+          "sha256": "6b1e68ef97f164a0d256d9c7cf53d9f0bfb2a158848495db1bdb8cb9ef0a4850",
+          "size": 11342
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/gradle_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/gradle_license.txt",
+          "sha256": "f5e661dc635c82a2dad5a6bd92c71bb89500020865e0b86ffad4bdf764f78e44",
+          "size": 23605
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/guava_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/guava_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/gwt_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/gwt_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/jgit_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/jgit_license.txt",
+          "sha256": "5c20fb5295c262aec6a8c33ed6fcd61646624a578f36dfad6b737eb96d5c51e8",
+          "size": 1592
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/jquery_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/jquery_license.txt",
+          "sha256": "df57d69fba71d2ebca048a5ce37e16f8ebbde334b79bcb2a15d2b58a09d64241",
+          "size": 1376
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/jshashtable_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/jshashtable_license.txt",
+          "sha256": "80b825b0d6de67a923091dd9b0ee67b12b3e17c01356c753aed4941c026e51f8",
+          "size": 594
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/karma-teamcity-reporter_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/karma-teamcity-reporter_LICENSE.txt",
+          "sha256": "aeec55919caa5b3bc95cd4c8a55f2f94c000db2cb43f16a2ab62d925cb64695b",
+          "size": 1094
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/karma_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/karma_LICENSE.txt",
+          "sha256": "0ff98105e1a36e8be352d03d38df7ec7d76e2f21118d99308d58f884a19855fb",
+          "size": 1077
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/lodash_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/lodash_LICENSE.txt",
+          "sha256": "da079993091381e4b5821647580325329bf3ccdc4fde8cde1797f14483c13bcc",
+          "size": 1966
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/lombok_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/lombok_LICENSE.txt",
+          "sha256": "610f8c0be13ede2ed104952923ba63506ef70543d72941a25fad5e17f90814a2",
+          "size": 1076
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/maven_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/maven_LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/mocha-teamcity-reporter_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/mocha-teamcity-reporter_LICENSE.txt",
+          "sha256": "ad8f27e36016bd5d48dfb13983d1f7425e8f8dfd567fa63fd18c44d4a9235d90",
+          "size": 1080
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/okhttp_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/okhttp_license.txt",
+          "sha256": "e666ea4cda8e7122321bec8ea1f18705f469aa859baf921aeb773f549709fcc9",
+          "size": 587
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/opentelemetry_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/opentelemetry_license.txt",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "size": 11357
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/playwright_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/playwright_license.txt",
+          "sha256": "7fab1461b41970ff376f1c9303a637076bfaaeb71cd12dd3a1c44aaf59a1a2b9",
+          "size": 11399
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/power_assert_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/power_assert_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/protobuf_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/protobuf_license.txt",
+          "sha256": "31c7505c31a1ea8557a5362cd69946dc9f5ee80fac8fa1d1b1531c08530497b0",
+          "size": 1732
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/prototype_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/prototype_license.txt",
+          "sha256": "1bbc0362bf27809b0d5acfd030b955056feb03c781f3c5b8769aaf06e838a9ac",
+          "size": 934
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/rhino_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/rhino_LICENSE.txt",
+          "sha256": "8ff4d01abe4b0cd144b7896195924e421bc41a01ffc79080c7b5f2c7d75c1632",
+          "size": 49052
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/scala_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/scala_license.txt",
+          "sha256": "8b29107856dc584cf90e8ea7cc5b4847339ec6907d61eafbc5b1a843a832f935",
+          "size": 1733
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/sl4f_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/sl4f_license.txt",
+          "sha256": "b03aefa7c785d4ceeb5a7eba9edf0069978a5f720af538b2286d48c68d029490",
+          "size": 1186
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/stax2-api.txt",
+          "bundle_path": "notices/kotlin/license/third_party/stax2-api.txt",
+          "sha256": "7f33221dc6c76f3e8ea4111088ec905ca4ba59cdfabd67e27e1953a94d07ae34",
+          "size": 388
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/sun_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/sun_license.txt",
+          "sha256": "1100abb8c9d41eb4a17ff56233e68b49faf1edc6314f9b5a32dde9acd6622f64",
+          "size": 245
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/teamcity-service-messages_LICENSE.txt",
+          "bundle_path": "notices/kotlin/license/third_party/teamcity-service-messages_LICENSE.txt",
+          "sha256": "3fa05181e029dfe866e33f825d6879f2bdbd7489368db367e3b1a986a810e72c",
+          "size": 1058
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/dagger_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/dagger_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/eclipse_distribution_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/eclipse_distribution_license.txt",
+          "sha256": "d7056f7d7b0754aba44734b48b2c6e9b734c350851765c07d724bb5fb34ec9b3",
+          "size": 1562
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/eclipse_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/eclipse_license.txt",
+          "sha256": "0dba9cd5bc833d6a40f5f5a34db70e37b6ce1cd337dbc2f06ccf1dbc521d2079",
+          "size": 11624
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/findbugs_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/findbugs_license.txt",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+          "size": 26530
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/jspecify_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/jspecify_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/lombok_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/lombok_license.txt",
+          "sha256": "5d0155eb221fcd5a25bcb0cc4761057a9751b2375615e0435b7630ffc2f0b810",
+          "size": 1075
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/rxjava_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/rxjava_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/testdata/spring_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/testdata/spring_license.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/license/third_party/threetenbp_license.txt",
+          "bundle_path": "notices/kotlin/license/third_party/threetenbp_license.txt",
+          "sha256": "d1bc53b493a3ab387b42717ed5c4b1976a5048996f81154278100bff86d39331",
+          "size": 1520
+        },
+        {
+          "archive_member": "kotlin-890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/repo/codebase-tests/tests/org/jetbrains/kotlin/code/LicensesTests.kt",
+          "bundle_path": "notices/kotlin/repo/codebase-tests/tests/org/jetbrains/kotlin/code/LicensesTests.kt",
+          "sha256": "977fffcf24a9e68cde9b00fcf23e2adc338251ab17a9aef6057d7e143cc4d89c",
+          "size": 2206
+        }
+      ],
+      "source_files": 69429
+    },
+    {
+      "component": "kotlinx.coroutines",
+      "native_runtime_source_files": 0,
+      "notices": [
+        {
+          "archive_member": "kotlinx.coroutines-8564f65764d3d05893cec026c6e94250e2b23874/LICENSE.txt",
+          "bundle_path": "notices/kotlinx.coroutines/LICENSE.txt",
+          "sha256": "b1febe6399dffb10d19d35e7663ab16300c93cb0476a94115df1cc0097a8ffd8",
+          "size": 11398
+        },
+        {
+          "archive_member": "kotlinx.coroutines-8564f65764d3d05893cec026c6e94250e2b23874/license/NOTICE.txt",
+          "bundle_path": "notices/kotlinx.coroutines/license/NOTICE.txt",
+          "sha256": "1ab6de67ef738bffae63f9aa6a8798a35e87341c83ea28d09c8dc8ca6993232a",
+          "size": 452
+        }
+      ],
+      "source_files": 1061
+    },
+    {
+      "component": "kotlinx-atomicfu",
+      "native_runtime_source_files": 0,
+      "notices": [
+        {
+          "archive_member": "kotlinx-atomicfu-1d625ed1f6e88173f2737c48afe86544e8738232/LICENSE.txt",
+          "bundle_path": "notices/kotlinx-atomicfu/LICENSE.txt",
+          "sha256": "f4def61b03500df363b99b1781d37b345d335129d33e28d7193de2e6bdb33e96",
+          "size": 596
+        },
+        {
+          "archive_member": "kotlinx-atomicfu-1d625ed1f6e88173f2737c48afe86544e8738232/license/NOTICE.txt",
+          "bundle_path": "notices/kotlinx-atomicfu/license/NOTICE.txt",
+          "sha256": "2b1db3aa8302414ea2bb1be5391110268b4611a11c9c3d28e34bf3acfddc9ef4",
+          "size": 487
+        }
+      ],
+      "source_files": 150
+    },
+    {
+      "component": "okio",
+      "native_runtime_source_files": 0,
+      "notices": [
+        {
+          "archive_member": "okio-9403a094ac98d5a6ba8bad4ec3301399796fad67/LICENSE.txt",
+          "bundle_path": "notices/okio/LICENSE.txt",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "okio-9403a094ac98d5a6ba8bad4ec3301399796fad67/okio-testing-support/src/commonMain/resources/go/NOTICE",
+          "bundle_path": "notices/okio/okio-testing-support/src/commonMain/resources/go/NOTICE",
+          "sha256": "7a384b7d03f1ff5aceca376e7308d74dc7ec6aa45b3e30a6d6aaa52eb75dc740",
+          "size": 167
+        }
+      ],
+      "source_files": 343
+    },
+    {
+      "component": "boringssl",
+      "native_runtime_source_files": 0,
+      "notices": [
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/AUTHORS",
+          "bundle_path": "notices/boringssl/AUTHORS",
+          "sha256": "6e5283f25977ae2fbbf5fd8a840b7184b2b48915279c10bf01107263d3f26936",
+          "size": 1208
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/LICENSE",
+          "bundle_path": "notices/boringssl/LICENSE",
+          "sha256": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+          "size": 13115
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/third_party/benchmark/AUTHORS",
+          "bundle_path": "notices/boringssl/third_party/benchmark/AUTHORS",
+          "sha256": "7ba6f34ad92df42a79c85c117be3689fd58f1caca11f43aaab413d20df1f9f0e",
+          "size": 2846
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/third_party/benchmark/LICENSE",
+          "bundle_path": "notices/boringssl/third_party/benchmark/LICENSE",
+          "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "size": 11358
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/third_party/fiat/AUTHORS",
+          "bundle_path": "notices/boringssl/third_party/fiat/AUTHORS",
+          "sha256": "ad74c036a6afaedc418fed65f171c877c2f74a4c70938a03930aa11c98a20508",
+          "size": 648
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/third_party/fiat/LICENSE",
+          "bundle_path": "notices/boringssl/third_party/fiat/LICENSE",
+          "sha256": "9eacbcb81be660840c714a560a9d65ba07913db98dd4baf969f78dd499fdd60f",
+          "size": 638
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/third_party/googletest/LICENSE",
+          "bundle_path": "notices/boringssl/third_party/googletest/LICENSE",
+          "sha256": "9702de7e4117a8e2b20dafab11ffda58c198aede066406496bef670d40a22138",
+          "size": 1475
+        },
+        {
+          "archive_member": "boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/third_party/wycheproof_testvectors/LICENSE",
+          "bundle_path": "notices/boringssl/third_party/wycheproof_testvectors/LICENSE",
+          "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+          "size": 11357
+        }
+      ],
+      "source_files": 1061
+    },
+    {
+      "component": "breakpad",
+      "native_runtime_source_files": 0,
+      "notices": [
+        {
+          "archive_member": "breakpad-f80f2888031b0570783011476a5e862fb7d848a1/AUTHORS",
+          "bundle_path": "notices/breakpad/AUTHORS",
+          "sha256": "710c0a3a4681c8c40f5a59eb794f61093fa142935c647c92f46ea595f0591833",
+          "size": 22
+        },
+        {
+          "archive_member": "breakpad-f80f2888031b0570783011476a5e862fb7d848a1/LICENSE",
+          "bundle_path": "notices/breakpad/LICENSE",
+          "sha256": "69b3d80c19a460e09716910d54d1ada5d800716e2b73751bebac44352590f646",
+          "size": 64880
+        },
+        {
+          "archive_member": "breakpad-f80f2888031b0570783011476a5e862fb7d848a1/src/third_party/curl/COPYING",
+          "bundle_path": "notices/breakpad/src/third_party/curl/COPYING",
+          "sha256": "4d03f91b94e0db3bdc9ddaf0060dd41cc94a2096094fbc1417713a2f059658c7",
+          "size": 1045
+        },
+        {
+          "archive_member": "breakpad-f80f2888031b0570783011476a5e862fb7d848a1/src/third_party/libdisasm/LICENSE",
+          "bundle_path": "notices/breakpad/src/third_party/libdisasm/LICENSE",
+          "sha256": "d8eaba95b8d03c5912da9b5823de2c920e84a993133039a22fc8100f9edb33a1",
+          "size": 6359
+        },
+        {
+          "archive_member": "breakpad-f80f2888031b0570783011476a5e862fb7d848a1/src/third_party/musl/COPYRIGHT",
+          "bundle_path": "notices/breakpad/src/third_party/musl/COPYRIGHT",
+          "sha256": "70ca142d257e2690a1f8eda8a296e64a6d1b16d8aee6784f8ddcf67f3163635d",
+          "size": 5927
+        }
+      ],
+      "source_files": 618
+    }
+  ],
+  "source_lock_sha256": "b965788741db889b2e924321803470333d00cfae110c22828ff183e25337c785",
+  "versions": {
+    "atomicfu": "0.32.1",
+    "kotlin": "2.4.20",
+    "kotlinxCoroutinesCore": "1.11.0",
+    "okio": "3.18.2"
+  }
+}

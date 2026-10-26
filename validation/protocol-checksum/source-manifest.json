@@ -1,0 +1,65 @@
+{
+  "scope": "Primary-source review only; no production change, new defect reproduction, or runtime test result.",
+  "reviewed_kadb_commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf",
+  "current_aosp_commit": "1cf2f017d312f73b3dc53bda85ef2610e35a80e9",
+  "historical_aosp_commit": "f469ebae8604bc756259c7305f8cb7617ca18ddc",
+  "historical_tag_resolution": "android-8.1.0_r1 resolved to the historical commit; all listed code fetches use immutable commit URLs.",
+  "sha256_scope": "Decoded Gitiles ?format=TEXT bytes, before text normalization.",
+  "files": [
+    {
+      "local_research_name": "adb.h",
+      "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/adb.h?format=TEXT",
+      "sha256": "8ede0a42711d3b664ab11d963007ef59d3f909eccecfb26a02f33a5b1cc62a7d",
+      "bytes": 8409
+    },
+    {
+      "local_research_name": "adb.cpp",
+      "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/adb.cpp?format=TEXT",
+      "sha256": "1274bc59800964c3ff83c29a31133df121a809b62b8122caa91856396f3eeeb9",
+      "bytes": 60162
+    },
+    {
+      "local_research_name": "transport.h",
+      "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/transport.h?format=TEXT",
+      "sha256": "ce5e8d8436cf4e57ecb9270f3fed39007e81d1f92af8d8f32b58ae0137f8a1ca",
+      "bytes": 18128
+    },
+    {
+      "local_research_name": "transport.cpp",
+      "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/transport.cpp?format=TEXT",
+      "sha256": "cb78f8275ee859875cfb0ac73bdd398114ec45631d532adafd5152730fb785ab",
+      "bytes": 55174
+    },
+    {
+      "local_research_name": "apacket_reader.cpp",
+      "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/apacket_reader.cpp?format=TEXT",
+      "sha256": "e73c87fff044815b850070990344e2ab810248ceae62be1650cf946e74695fde",
+      "bytes": 4566
+    },
+    {
+      "local_research_name": "protocol-current.md",
+      "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/docs/dev/protocol.md?format=TEXT",
+      "sha256": "fd8e5b25c73a04c28bd6d6d93eaa897f4f84a16f8e23ea111f4347a8e8bb14dc",
+      "bytes": 12253
+    },
+    {
+      "local_research_name": "adb-android81.h",
+      "url": "https://android.googlesource.com/platform/system/core/+/f469ebae8604bc756259c7305f8cb7617ca18ddc/adb/adb.h?format=TEXT",
+      "sha256": "76fd4fb1088e129273e02c99970faa5a20b706faa6847e62e962b8011f2430fd",
+      "bytes": 7185
+    },
+    {
+      "local_research_name": "transport-android81.cpp",
+      "url": "https://android.googlesource.com/platform/system/core/+/f469ebae8604bc756259c7305f8cb7617ca18ddc/adb/transport.cpp?format=TEXT",
+      "sha256": "72fd7dbe1ae5a25502617e9944c4b7e264fc3925fc25d384928cd5cb658d4b42",
+      "bytes": 33592
+    },
+    {
+      "local_research_name": "transport-local-android81.cpp",
+      "url": "https://android.googlesource.com/platform/system/core/+/f469ebae8604bc756259c7305f8cb7617ca18ddc/adb/transport_local.cpp?format=TEXT",
+      "sha256": "f2442f6d949da55ef81e120c9e8bdbd96d475d7ec90e97d549b826e71e7faf06",
+      "bytes": 17925
+    }
+  ],
+  "decision": "Preserve version-aware outgoing checksum and compatible incoming checksum handling; avoid stricter unilateral legacy receive rules and pre-CNXN AUTH rejection."
+}

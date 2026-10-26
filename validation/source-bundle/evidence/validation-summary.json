@@ -1,0 +1,58 @@
+{
+  "scope": "source collection and integrity only; no binary association or legal certification",
+  "kadb_commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf",
+  "python": "3.12.14",
+  "unit_tests": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "validation/source-bundle",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "executed": 10,
+    "failures": 0,
+    "exit_code": 0
+  },
+  "initial_attempt": {
+    "exit_code": 1,
+    "cause": "Collector incorrectly expected Native module component identity to equal its target Maven coordinate; all dependency bytes had passed the fixed hashes. Corrected to check the owning common component and its published target backlink.",
+    "log": "harness-history/initial-metadata-owner-failure.txt"
+  },
+  "offline_reproducibility": {
+    "runs": [
+      2,
+      3
+    ],
+    "exit_codes": [
+      0,
+      0
+    ],
+    "matching_sha256": "a88bab1eb6da9c1fc1d206d9f1d692d0e94753fd1b41b2bea3eabffa005193bf",
+    "bytes": 142216881,
+    "same_inputs": true
+  },
+  "final_template_validation": {
+    "run": 4,
+    "exit_code": 0,
+    "sha256": "2e78c70b1c49ce729ca20f4d4e4cf07516b1cbb101565a4f17c2f12822d96ea8",
+    "bytes": 142217510,
+    "difference_from_repro_runs": "README/template updated to document a shared source artifact per run/commit. Collector algorithm and fixed dependency bytes are unchanged.",
+    "verify_exit_code": 0
+  },
+  "source_inputs": {
+    "locked_downloads": 64,
+    "locked_bytes": 142456348,
+    "source_archives_with_kadb": 7,
+    "published_source_jars": 20,
+    "published_module_files": 19,
+    "published_poms": 19,
+    "extracted_notices": 96,
+    "native_kotlin_c_cpp_source_files": 249
+  },
+  "artifact_saved_outside_git": "/workspace/scratch/db79b63d76cf/source-bundle-run-4/native-source-bundle-9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf.tar.gz"
+}

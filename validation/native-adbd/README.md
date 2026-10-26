@@ -87,6 +87,15 @@ or that a boot succeeded. The driver waits at most 120 seconds for boot and fail
 if the selected bootstrap transport is not authorized or rootable. It does not
 work around authorization by setting `ro.adb.secure=0`.
 
+Version metadata uses `emulator -no-window -no-audio -version`, matching the
+headless engine selected for startup. The `9a2ebbd` CI artifact recorded emulator
+37.2.12 starting headlessly, but a plain `-version` selected the GUI engine and
+failed to load `libpulse.so.0` before any product checks ran. The
+[launcher source](https://android.googlesource.com/platform/external/qemu/+/c6efd5a2babeb3c0bbfdeadf4b7d95949b55c32d/android/emulator/main-emulator.cpp)
+shows that `-version` and headless selection are separate flags. The argument
+fix is infrastructure only; a subsequent real CI run must establish execution
+of the fifteen checks.
+
 Execute the validation from the repository root:
 
 ```sh

@@ -65,8 +65,8 @@ class AdbMessageQueueTest {
     }
 
     @Test fun closingOneStreamPreservesOtherStreamsAndQueuedData(): Unit = Fixture().use { f ->
-        f.queue.startListening(1)
-        f.queue.startListening(2)
+        f.queue.startListening(1, remoteId = 10)
+        f.queue.startListening(2, remoteId = 20)
         f.writer.writeWrite(10, 1, "hello".encodeToByteArray(), 0, 5)
         f.writer.writeClose(10, 1)
         f.writer.writeOkay(20, 2)

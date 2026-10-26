@@ -18,7 +18,7 @@ class AdbStreamTransferTest {
         val incoming = Pipe(65536)
         val remote = AdbWriter(incoming.sink)
         val queue = AdbMessageQueue(AdbReader(incoming.source)) { incoming.cancel() }
-        queue.startListening(1)
+        queue.startListening(1, remoteId = 10)
         val stream = AdbStream(queue, AdbWriter(Buffer()), 4096, 1, 10)
         try {
             remote.writeWrite(10, 1, "partial".encodeToByteArray(), 0, 7)
@@ -37,7 +37,7 @@ class AdbStreamTransferTest {
         val remoteWriter = AdbWriter(toHost.sink)
         val remoteReader = AdbReader(fromHost.source)
         val queue = AdbMessageQueue(AdbReader(toHost.source)) { toHost.cancel(); fromHost.cancel() }
-        queue.startListening(1)
+        queue.startListening(1, remoteId = 10)
         val stream = AdbStream(queue, AdbWriter(fromHost.sink), 8192, 1, 10)
         val executor = Executors.newFixedThreadPool(2)
         val original = ByteArray(128 * 1024) { (it % 251).toByte() }
