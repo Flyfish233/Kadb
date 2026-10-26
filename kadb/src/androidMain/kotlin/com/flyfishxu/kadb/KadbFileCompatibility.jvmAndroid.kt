@@ -39,5 +39,3 @@ actual abstract class KadbFileCompatibility actual internal constructor() {
         }
     }
 }
-
-internal expect fun Kadb.readMode(file: File): Int

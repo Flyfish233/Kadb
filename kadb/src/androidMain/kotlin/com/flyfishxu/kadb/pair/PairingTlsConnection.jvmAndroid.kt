@@ -119,5 +119,3 @@ internal actual class PairingTlsConnection actual constructor(
         try { sockets.second?.close() } catch (_: IOException) { }
     }
 }
-
-internal expect fun PairingTlsConnection.getConscryptClass(): Class<*>

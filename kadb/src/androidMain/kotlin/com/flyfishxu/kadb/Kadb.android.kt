@@ -64,7 +64,7 @@ fun Kadb.readMode(file: DocumentFile): Int {
     return mode
 }
 
-actual fun Kadb.readMode(file: File): Int {
+fun Kadb.readMode(file: File): Int {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         Files.getAttribute(file.toPath(), "unix:mode") as? Int ?: throw RuntimeException(
             "Unable to read file mode"

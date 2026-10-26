@@ -1,0 +1,17 @@
+{
+  "commit": "696a85f22f25407f92754361b18ae6fd0c2cdba7",
+  "run": "https://github.com/Flyfish233/Kadb/actions/runs/40318831760",
+  "job_id": 121558526413,
+  "artifact_id": 12647479000,
+  "artifact_sha256": "6b0b4b3b65845eda2a1959050e5ab1b4a5eedd784ce26a0682e409f8b2f7344f",
+  "result": "failed",
+  "classification": "Android production compile failure after actual JVM target removal",
+  "kadb_tests_executed": 0,
+  "mdns_host_tests_executed": 5,
+  "cause": "Two former JVM/Android intermediate expect declarations moved into the same Android source set as their actual implementations.",
+  "fix_scope": "Remove only those two obsolete expect declarations and actual modifiers. Preserve public readMode(File) and its original facade filename, plus all genuinely shared common expect/actual declarations.",
+  "raw_files": {
+    "android-protocol.log": "53716cb6d9587352d12244599f426ce26c9df903e3e465fd2922deb979422ff0",
+    "test-summary.json": "71aebf7bd93cee6818c4a68f8965ced378e4834329f01f18ce82149f2672b35b"
+  }
+}
