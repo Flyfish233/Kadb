@@ -91,3 +91,28 @@ No real iPhone/Android hardware, end-to-end adbd pairing, performance budget,
 Android device/USB execution, Windows Native or independent security audit is
 claimed by this initial ledger. Later entries must link specific commits and
 job results rather than silently replacing this history.
+
+## M0: ABI instrumentation correction
+
+[Run 40306578218](https://github.com/Flyfish233/Kadb/actions/runs/40306578218)
+again executed the 78 JVM/Android tests successfully, but the aggregate KGP
+`updateKotlinAbi` task then failed on Linux: there was no existing iOS reference
+from which to infer an unsupported target dump. This is an inventory setup
+failure, not a failed product test. The next inventory reads the actual Android
+AAR with JetBrains binary-compatibility-validator 0.18.2 and matching Kotlin
+metadata 2.4.20. Its tools are checksum-pinned. It captures Kotlin-public ABI
+and the broader javap inventory separately, without inferring an Apple result
+on Linux. The standalone helper was first executed on the frozen JVM JAR and
+produced 399 public-ABI lines. Apple frameworks remain a separate native gate.
+
+## M1/M2/M3: confirmed pre-fix regression execution
+
+After correcting the test harness at `e33d5d618642a4cf295290f81b2bdd018506b51b`,
+unchanged baseline product sources executed **23 cases / 14 assertion failures /
+zero skipped**. Both TLS tests now reached the unsafe-retry assertion; both
+pairing-cancellation tests reached the worker-exit assertion. Four authenticated
+PeerInfo payloads violated their expected constraints. The remaining failures
+cover pending-connect cancellation, writer/close concurrency, three pairing
+context lifecycle cases and split UTF-8 decoding. Raw evidence is preserved
+separately from the earlier invalid harness attempts. These are defect
+reproductions, not product-health passes; green evidence must follow the fixes.

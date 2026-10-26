@@ -41,7 +41,7 @@ jobs:
         working-directory: baseline
         run: |
           set -o pipefail
-          ./gradlew :kadb:jvmTest :kadb-mdns:jvmTest :kadb:testAndroidHostTest :kadb:jvmJar --console=plain --stacktrace 2>&1 | tee ../evidence/baseline-gradle.log
+          ./gradlew :kadb:jvmTest :kadb-mdns:jvmTest :kadb:testAndroidHostTest :kadb:jvmJar :kadb:bundleAndroidMainAar :kadb-mdns:bundleAndroidMainAar --console=plain --stacktrace 2>&1 | tee ../evidence/baseline-gradle.log
       - name: Require executed test reports
         if: always()
         run: python3 validation/summarize-tests.py baseline --output evidence/test-summary.json --require kadb/build/test-results/jvmTest --require kadb-mdns/build/test-results/jvmTest --require testAndroidHostTest
@@ -52,17 +52,17 @@ jobs:
             python3 validation/capture-jvm-abi.py "$jar" evidence/baseline-jvm.abi
           done
           test -s evidence/baseline-jvm.abi
-      - name: Android bytecode and Kotlin ABI inventories
+      - name: Android bytecode and Kotlin-public ABI inventories
         run: |
-          set -o pipefail
-          python3 validation/enable-baseline-abi.py baseline
-          cd baseline
-          ./gradlew :kadb:tasks --all --console=plain > ../evidence/abi-tasks.log
-          ./gradlew :kadb:updateKotlinAbi :kadb-mdns:updateKotlinAbi --console=plain --stacktrace 2>&1 | tee ../evidence/kotlin-abi.log
-          cd ..
-          jar=$(find baseline/kadb/build/intermediates -path '*compile_library_classes_jar*' -name classes.jar -print -quit)
-          test -n "$jar"
-          python3 validation/capture-jvm-abi.py "$jar" evidence/baseline-android.abi
+          set -euo pipefail
+          aar=$(find baseline/kadb/build/outputs/aar -name '*.aar' -print -quit)
+          mdns_aar=$(find baseline/kadb-mdns/build/outputs/aar -name '*.aar' -print -quit)
+          test -n "$aar"
+          test -n "$mdns_aar"
+          python3 validation/capture-jvm-abi.py "$aar" evidence/baseline-android.abi
+          python3 validation/capture-kotlin-abi.py "$aar" evidence/baseline-android.api
+          python3 validation/capture-kotlin-abi.py "$mdns_aar" evidence/baseline-mdns-android.api
+          python3 validation/capture-kotlin-abi.py baseline/kadb/build/libs/kadb-jvm.jar evidence/baseline-jvm.api
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -73,11 +73,14 @@ jobs:
             baseline/**/build/test-results/
             baseline/**/build/reports/tests/
             baseline/kadb/build/libs/
-            baseline/kadb/build/outputs/aar/
+            baseline/**/build/outputs/aar/
             baseline/**/api/
             baseline/**/build/abi/
 
   darwin-baseline:
+    # The exact baseline is immutable; expensive Darwin replay is explicit after
+    # its initial run 40306578218. A skipped replay is not new target evidence.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: macos-15
     timeout-minutes: 45
     steps:
