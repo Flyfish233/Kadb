@@ -10,6 +10,15 @@ extern "C" {
 
 typedef struct kadb_io kadb_io;
 
+/* Create a closeable owner before connecting; close is terminal even before start.
+ * getaddrinfo itself is system-blocking: cancellation prevents publication but
+ * cannot interrupt the resolver, and the caller must wait for it to return. */
+kadb_io *kadb_io_create(char *error, size_t error_size);
+int kadb_io_connect_to(kadb_io *io, const char *host, int port, int64_t timeout_ms,
+                      int keepalive_idle, int keepalive_interval, int keepalive_count,
+                      char *error, size_t error_size);
+/* Returns an owned nonblocking dual-stack listener (IPv4 fallback), or -1. */
+int kadb_create_listener(int port, char *error, size_t error_size);
 /* Timeouts are milliseconds; zero means no timeout, matching the JVM transport. */
 kadb_io *kadb_io_connect(const char *host, int port, int64_t timeout_ms,
                          int keepalive_idle, int keepalive_interval, int keepalive_count,

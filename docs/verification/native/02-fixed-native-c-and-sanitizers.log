@@ -1,0 +1,31 @@
+-- Configuring done (0.2s)
+-- Generating done (0.5s)
+-- Build files have been written to: /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline
+[ 24%] Built target fipsmodule
+[ 88%] Built target crypto
+[ 98%] Built target ssl
+[100%] Built target kadb_native
+[100%] Built target kadb_transport_test
+Internal ctest changing into directory: /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline
+UpdateCTestConfiguration  from :/workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline/DartConfiguration.tcl
+Test project /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: kadb_native_transport
+
+1: Test command: /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline/kadb_transport_test
+1: Working Directory: /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline
+1: Test timeout computed to be: 30
+1: PASS: TCP connect, same-socket STLS/TLS 1.3, client identity selection, pairing exporter, I/O, EOF, timeout, concurrent close, TLS write failure invalidation, close-before-connect, handshake failure, per-socket SIGPIPE suppression, handshake cancellation, native listener, descriptor ownership
+1/1 Test #1: kadb_native_transport ............   Passed    1.99 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.99 sec
+PASS: TCP connect, same-socket STLS/TLS 1.3, client identity selection, pairing exporter, I/O, EOF, timeout, concurrent close, TLS write failure invalidation, close-before-connect, handshake failure, per-socket SIGPIPE suppression, handshake cancellation, native listener, descriptor ownership

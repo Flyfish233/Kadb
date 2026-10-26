@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline
+Test project /workspace/scratch/db79b63d76cf/Kadb-native/build/native-c-baseline
+    Start 1: kadb_native_transport
+1/1 Test #1: kadb_native_transport ............Subprocess aborted***Exception:   1.43 sec
+kadb_transport_test: /workspace/scratch/db79b63d76cf/Kadb-native/kadb/src/nativeInterop/tests/transport_test.c:268: test_tls_write_timeout_invalidates_connection: Assertion `!kadb_io_is_open(client)' failed.
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.44 sec
+
+The following tests FAILED:
+	  1 - kadb_native_transport (Subprocess aborted)
+Errors while running CTest
