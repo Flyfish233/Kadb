@@ -17,155 +17,102 @@
 package com.flyfishxu.kadb.forwarding
 
 import com.flyfishxu.kadb.Kadb
+import com.flyfishxu.kadb.concurrent.BlockingLock
+import com.flyfishxu.kadb.concurrent.startKadbThread
+import com.flyfishxu.kadb.concurrent.withLock
 import com.flyfishxu.kadb.debug.log
-import java.io.InterruptedIOException
 import java.net.ServerSocket
-import java.net.SocketException
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
-import java.util.concurrent.TimeoutException
-import kotlin.concurrent.thread
-import okio.*
+import okio.buffer
+import okio.sink
+import okio.source
 
 internal actual class TcpForwarder actual constructor(
     private val kadb: Kadb,
     private val hostPort: Int,
     private val targetPort: Int,
 ) : AutoCloseable {
-
-    private var state: State = State.STOPPED
-    private var serverThread: Thread? = null
-    private var server: ServerSocket? = null
-    private var clientExecutor: ExecutorService? = null
+    private val lock = BlockingLock()
+    private val stopped = lock.newCondition()
+    private var listener: Listener? = null
 
     actual fun start() {
-        check(state == State.STOPPED) { "Forwarder is already started at port $hostPort" }
-
-        moveToState(State.STARTING)
-
-        clientExecutor = Executors.newCachedThreadPool()
-        serverThread = thread {
+        require(hostPort in 0..65535) { "Invalid host port: $hostPort" }
+        require(targetPort in 1..65535) { "Invalid target port: $targetPort" }
+        lock.withLock {
+            check(listener == null) { "Forwarder is already started at port $hostPort" }
+            val created = Listener(ServerSocket(hostPort))
+            listener = created
             try {
-                handleForwarding()
-            } catch (_: SocketException) {
-                // Do nothing
-            } catch (e: IOException) {
-                log { "could not start TCP port forwarding: ${e.message}" }
-            } finally {
-                moveToState(State.STOPPED)
-            }
-        }
-
-        waitFor(10, 5000) {
-            state == State.STARTED
-        }
-    }
-
-    private fun handleForwarding() {
-        val serverRef = ServerSocket(hostPort)
-        server = serverRef
-
-        moveToState(State.STARTED)
-
-        while (!Thread.interrupted()) {
-            val client = serverRef.accept()
-
-            clientExecutor?.execute {
-                var adbStream: com.flyfishxu.kadb.stream.AdbStream? = null
-                var readerThread: Thread? = null
-                try {
-                    adbStream = kadb.open("tcp:$targetPort")
-                    val stream = adbStream
-                    readerThread = thread {
-                        try {
-                            forward(client.getInputStream().source(), stream.sink)
-                        } finally {
-                            stream.close()
-                        }
-                    }
-                    forward(
-                        stream.source, client.sink().buffer()
-                    )
-                } finally {
-                    adbStream?.close()
-                    client.close()
-                    readerThread?.interrupt()
-                }
+                startKadbThread("kadb-forward-accept") { acceptClients(created) }
+            } catch (failure: Throwable) {
+                listener = null
+                created.server.close()
+                throw failure
             }
         }
     }
 
     actual override fun close() {
-        if (state == State.STOPPED || state == State.STOPPING) {
-            return
+        val current: Listener
+        val clients: List<ForwardingSession>
+        lock.withLock {
+            current = listener ?: return
+            current.active = false
+            clients = current.clients.toList()
+            current.server.close()
         }
-
-        // Make sure that we are not stopping the server while it is in a transient state
-        // to avoid surprises
-        waitFor(10, 5000) {
-            state == State.STARTED
-        }
-
-        moveToState(State.STOPPING)
-
-        server?.close()
-        server = null
-        serverThread?.interrupt()
-        serverThread = null
-        clientExecutor?.shutdown()
-        clientExecutor?.awaitTermination(5, TimeUnit.SECONDS)
-        clientExecutor = null
-
-        waitFor(10, 5000) {
-            state == State.STOPPED
-        }
+        clients.forEach { it.close() }
+        lock.withLock { while (!current.closed) stopped.await() }
+        clients.forEach { it.awaitStopped() }
+        lock.withLock { if (listener === current) listener = null }
     }
 
-    private fun forward(source: Source, sink: BufferedSink) {
+    private fun acceptClients(current: Listener) {
         try {
-            while (!Thread.interrupted()) {
+            while (lock.withLock { current.active }) {
+                val socket = current.server.accept()
                 try {
-                    if (source.read(sink.buffer, 256) >= 0) {
-                        sink.flush()
-                    } else {
-                        return
+                    val client = ForwardingSession(
+                        kadb = kadb,
+                        destination = "tcp:$targetPort",
+                        localSource = socket.source(),
+                        localSink = socket.sink().buffer(),
+                        closeLocal = socket::close,
+                        onFinished = { lock.withLock { current.clients.remove(it) } },
+                    )
+                    val accepted = lock.withLock {
+                        if (current.active) {
+                            current.clients.add(client)
+                            true
+                        } else false
                     }
-                } catch (_: IOException) {
-                    return
+                    if (accepted) client.start() else client.close()
+                } catch (failure: Throwable) {
+                    socket.close()
+                    throw failure
                 }
             }
-        } catch (_: InterruptedException) {
-            // Do nothing
-        } catch (_: InterruptedIOException) {
-            // do nothing
+        } catch (failure: Exception) {
+            if (lock.withLock { current.active }) {
+                log { "could not continue TCP port forwarding: ${failure.message}" }
+            }
+        } finally {
+            current.server.close()
+            val clients = lock.withLock {
+                current.active = false
+                current.clients.toList()
+            }
+            clients.forEach { it.close() }
+            lock.withLock {
+                current.closed = true
+                stopped.signalAll()
+            }
         }
     }
 
-    private fun moveToState(state: State) {
-        this.state = state
+    private class Listener(val server: ServerSocket) {
+        var active = true
+        var closed = false
+        val clients = mutableSetOf<ForwardingSession>()
     }
-
-    private enum class State {
-        STARTING, STARTED, STOPPING, STOPPED
-    }
-
-    private fun waitFor(intervalMs: Int, timeoutMs: Int, test: () -> Boolean) {
-        val start = System.currentTimeMillis()
-        var lastCheck = start
-        while (!test()) {
-            val now = System.currentTimeMillis()
-            val timeSinceStart = now - start
-            val timeSinceLastCheck = now - lastCheck
-            if (timeoutMs in 0..timeSinceStart) {
-                throw TimeoutException()
-            }
-            val sleepTime = intervalMs - timeSinceLastCheck
-            if (sleepTime > 0) {
-                Thread.sleep(sleepTime)
-            }
-            lastCheck = System.currentTimeMillis()
-        }
-    }
-
 }

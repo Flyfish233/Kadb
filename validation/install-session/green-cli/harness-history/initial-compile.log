@@ -1,0 +1,36 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.jetbrains.kotlin.org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/workspace/scratch/db79b63d76cf/gradle-cache/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/2.4.20/23b042894dcabe39edd0f8bd30b7be0f25fe9933/kotlin-compiler-embeddable-2.4.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by org.jetbrains.kotlin.cli.jvm.compiler.jarfs.FastJarFileSystemKt (file:/workspace/scratch/db79b63d76cf/gradle-cache/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/2.4.20/23b042894dcabe39edd0f8bd30b7be0f25fe9933/kotlin-compiler-embeddable-2.4.20.jar)
+WARNING: Please consider reporting this to the maintainers of class org.jetbrains.kotlin.cli.jvm.compiler.jarfs.FastJarFileSystemKt
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:221:50: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+        val (previous, pending) = connectionLock.withLock {
+                                                 ^^^^^^^^
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:233:62: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+    private fun connection(): AdbConnection = connectingLock.withLock {
+                                                             ^^^^^^^^
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:234:49: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+        val expectedGeneration = connectionLock.withLock {
+                                                ^^^^^^^^
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:240:38: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+        val adopted = connectionLock.withLock {
+                                     ^^^^^^^^
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:262:36: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+                    connectionLock.withLock {
+                                   ^^^^^^^^
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:272:28: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+            connectionLock.withLock { connectingTransport = null }
+                           ^^^^^^^^
+Kadb-spake/kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt:282:32: error: cannot inline bytecode built with JVM target 25 into bytecode that is being built with JVM target 17. Specify proper '-jvm-target' option.
+                connectionLock.withLock {
+                               ^^^^^^^^
+Kadb-spake/kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/Kadb.jvm.kt:11:26: error: 'internal final actual fun Kadb.readMode(file: Path): Int' has no corresponding 'expect' declaration
+The following declaration is incompatible because parameter types are different:
+    expect fun Kadb.readMode(file: File): Int
+
+internal actual fun Kadb.readMode(file: okio.Path): Int = readMode(file.toFile())
+                         ^^^^^^^^

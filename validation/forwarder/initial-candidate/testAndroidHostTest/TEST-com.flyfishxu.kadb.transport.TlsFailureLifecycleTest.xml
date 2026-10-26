@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.transport.TlsFailureLifecycleTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:56:52.270Z" hostname="c9d49951d07d" time="0.878">
+  <properties/>
+  <testcase name="partialCiphertextWriteFailurePermanentlyInvalidatesChannel" classname="com.flyfishxu.kadb.transport.TlsFailureLifecycleTest" time="0.525"/>
+  <testcase name="writeTimeoutBeforeCiphertextDeliveryPermanentlyInvalidatesChannel" classname="com.flyfishxu.kadb.transport.TlsFailureLifecycleTest" time="0.352"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

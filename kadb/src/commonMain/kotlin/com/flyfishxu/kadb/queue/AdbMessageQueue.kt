@@ -30,12 +30,15 @@ import okio.IOException
 /** One transport reader detects EOF even when all streams are idle. */
 internal class AdbMessageQueue(
     private val reader: AdbReader,
+    private val closeUnknownStream: (localId: Int, remoteId: Int) -> Unit = { _, _ -> },
     private val closeTransport: () -> Unit,
 ) : AutoCloseable {
     private val lock = BlockingLock()
     private val changed = lock.newCondition()
     private val queues = mutableMapOf<Int, MutableMap<Int, ArrayDeque<AdbMessage>>>()
     private val openStreams = mutableSetOf<Int>()
+    private val openingStreams = mutableMapOf<Int, Int?>()
+    private var nextLocalId = 1u
     @Volatile private var failure: Throwable? = null
     val isOpen: Boolean get() = failure == null
 
@@ -69,20 +72,71 @@ internal class AdbMessageQueue(
         Unit
     }
 
+    /** Never reuse an ID within a connection: late replies must not attach to a later OPEN. */
+    fun startOpening(): Int = lock.withLock {
+        failure?.let { throw it }
+        while (true) {
+            if (nextLocalId == 0u) throw IOException("ADB stream IDs exhausted; reset the connection")
+            val localId = nextLocalId++.toInt()
+            if (localId in queues) continue
+            openStreams.add(localId)
+            queues[localId] = mutableMapOf()
+            openingStreams[localId] = null
+            return localId
+        }
+        @Suppress("UNREACHABLE_CODE") error("Unreachable")
+    }
+
+    fun cancelOpening(localId: Int) = lock.withLock {
+        if (localId in openingStreams) {
+            openStreams.remove(localId)
+            queues.remove(localId)
+            changed.signalAll()
+        }
+    }
+
+    /** Transfer a pending OPEN to AdbStream, unless cancellation already removed its queue. */
+    fun finishOpening(localId: Int): Boolean = lock.withLock {
+        if (localId !in openingStreams || localId !in queues) return false
+        openingStreams.remove(localId)
+        true
+    }
+
+    /** Return an already received remote ID so failed/cancelled OPEN can send its CLSE. */
+    fun abandonOpening(localId: Int): Int? = lock.withLock {
+        val remoteId = openingStreams.remove(localId)
+        openStreams.remove(localId)
+        queues.remove(localId)
+        changed.signalAll()
+        remoteId
+    }
+
     fun stopListening(localId: Int) = lock.withLock {
         openStreams.remove(localId)
         queues.remove(localId)
         changed.signalAll()
     }
 
-    private fun dispatch(message: AdbMessage) = lock.withLock {
-        val localId = message.arg1
-        if (message.command == AdbProtocol.CMD_CLSE) {
-            openStreams.remove(localId)
-        } else {
-            queues[localId]?.getOrPut(message.command) { ArrayDeque() }?.add(message)
+    private fun dispatch(message: AdbMessage) {
+        val lateOkay = lock.withLock {
+            val localId = message.arg1
+            val stream = queues[localId]
+            if (message.command == AdbProtocol.CMD_CLSE) {
+                openStreams.remove(localId)
+            } else if (stream != null) {
+                if (message.command == AdbProtocol.CMD_OKAY && localId in openingStreams) {
+                    openingStreams[localId] = message.arg0
+                }
+                stream.getOrPut(message.command) { ArrayDeque() }.add(message)
+            }
+            changed.signalAll()
+            stream == null && message.command == AdbProtocol.CMD_OKAY &&
+                localId != 0 && message.arg0 != 0
         }
-        changed.signalAll()
+        // AOSP reclaims the remote service when the local OPEN owner has already gone away.
+        // Never perform transport I/O under the queue lock: other streams must still drain.
+        // https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/adb.cpp#590
+        if (lateOkay) closeUnknownStream(message.arg1, message.arg0)
     }
 
     private fun terminate(error: Throwable) {
@@ -98,6 +152,8 @@ internal class AdbMessageQueue(
     override fun close() = terminate(IOException("ADB connection closed"))
 
     fun ensureEmpty() = lock.withLock {
-        check(queues.isEmpty() && openStreams.isEmpty()) { "ADB streams still open: ${queues.keys}" }
+        check(queues.isEmpty() && openStreams.isEmpty() && openingStreams.isEmpty()) {
+            "ADB streams still open: ${queues.keys}; pending OPENs: ${openingStreams.keys}"
+        }
     }
 }

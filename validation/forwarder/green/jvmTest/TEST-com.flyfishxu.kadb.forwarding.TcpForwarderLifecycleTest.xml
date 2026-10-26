@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TcpForwarderLifecycleTest[jvm]" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:47.838Z" hostname="c9d49951d07d" time="3.64">
+  <properties/>
+  <testcase name="closeDuringInitialHandshakeDetachesOnlyTheForwarderWaiter[jvm]" classname="com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest" time="0.914"/>
+  <testcase name="closeCancelsPendingOpenWithoutClosingTheSharedConnection[jvm]" classname="com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest" time="0.19"/>
+  <testcase name="closeStopsBothIdleForwardingDirections[jvm]" classname="com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest" time="1.705"/>
+  <testcase name="lateOkayIsClosedAndAnotherStreamCanUseTheSameConnection[jvm]" classname="com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest" time="0.827"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

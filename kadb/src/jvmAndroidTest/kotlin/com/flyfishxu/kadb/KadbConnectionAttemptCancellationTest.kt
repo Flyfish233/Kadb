@@ -18,10 +18,39 @@ import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
+import kotlin.concurrent.thread
 
 class KadbConnectionAttemptCancellationTest {
+    @Test fun interruptingTheFirstPublicCallerStillCancelsItsConnector() {
+        KadbCert.configure(InMemoryPrivateKeyStore())
+        KadbCert.ensureReady()
+        val entered = CountDownLatch(1)
+        val exited = CountDownLatch(1)
+        val error = AtomicReference<Throwable?>()
+        val client = Kadb.createWithTransport(KadbOptions()) {
+            entered.countDown()
+            try { awaitCancellation() } finally { exited.countDown() }
+        }
+        val caller = thread(name = "kadb-interrupted-public-caller") {
+            error.set(runCatching { client.supportsFeature("shell_v2") }.exceptionOrNull())
+        }
+        try {
+            assertTrue(entered.await(5, TimeUnit.SECONDS))
+            caller.interrupt()
+            caller.join(3000)
+            assertFalse(caller.isAlive)
+            assertIs<InterruptedException>(error.get())
+            assertTrue(exited.await(2, TimeUnit.SECONDS))
+        } finally {
+            client.close()
+            caller.interrupt()
+            caller.join(3000)
+        }
+    }
+
     @Test fun connectorTimeoutKeepsItsExistingExceptionType() {
         KadbCert.configure(InMemoryPrivateKeyStore())
+        KadbCert.ensureReady()
         Kadb.createWithTransport(KadbOptions()) {
             withTimeout(25) { awaitCancellation() }
         }.use { client ->
@@ -31,6 +60,8 @@ class KadbConnectionAttemptCancellationTest {
 
     @Test fun closeCancelsAConnectAttemptBeforeAnyTransportIsPublished() {
         KadbCert.configure(InMemoryPrivateKeyStore())
+        // RSA identity preparation is outside the connector lifecycle deadline being tested.
+        KadbCert.ensureReady()
         val entered = CountDownLatch(1)
         val exited = CountDownLatch(1)
         val connectorJob = AtomicReference<Job>()

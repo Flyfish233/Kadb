@@ -1,0 +1,22 @@
+{
+  "source_commit": "7682c0e",
+  "product_commit": "28b319f",
+  "build_directory": "/tmp/kadb-forwarder-verify-7682c0e",
+  "command": "./gradlew :kadb:jvmTest :kadb:testAndroidHostTest --no-build-cache -Pkotlin.incremental=false --console=plain",
+  "gradle_exit": 0,
+  "tasks": {
+    "jvmTest": {
+      "tests": 63,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "testAndroidHostTest": {
+      "tests": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "product_jar_sha256": "4909cf5841fc504c62b8f2f2ea4a9561484e05109e245dde9e1c19ccc6ec1073"
+}

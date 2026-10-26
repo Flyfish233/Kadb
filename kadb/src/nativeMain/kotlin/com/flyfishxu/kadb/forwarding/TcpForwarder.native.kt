@@ -7,14 +7,11 @@ import com.flyfishxu.kadb.concurrent.BlockingLock
 import com.flyfishxu.kadb.concurrent.startKadbThread
 import com.flyfishxu.kadb.concurrent.withLock
 import com.flyfishxu.kadb.debug.log
-import com.flyfishxu.kadb.stream.AdbStream
 import com.flyfishxu.kadb.transport.PosixTransportChannel
 import com.flyfishxu.kadb.transport.asOkioSink
 import com.flyfishxu.kadb.transport.asOkioSource
 import kotlinx.cinterop.*
-import okio.BufferedSink
 import okio.IOException
-import okio.Source
 import okio.buffer
 import com.flyfishxu.kadb.nativebridge.kadb_create_listener
 import platform.posix.*
@@ -32,7 +29,6 @@ internal actual class TcpForwarder actual constructor(
         require(hostPort in 0..65535) { "Invalid host port: $hostPort" }
         require(targetPort in 1..65535) { "Invalid target port: $targetPort" }
         lock.withLock {
-            if (listener?.closed == true) listener = null
             check(listener == null) { "Forwarder is already started at port $hostPort" }
             val created = Listener(createListener(hostPort))
             listener = created
@@ -48,7 +44,7 @@ internal actual class TcpForwarder actual constructor(
 
     actual override fun close() {
         val current: Listener
-        val clients: List<Client>
+        val clients: List<ForwardingSession>
         lock.withLock {
             current = listener ?: return
             current.active = false
@@ -58,10 +54,9 @@ internal actual class TcpForwarder actual constructor(
             if (!current.closed) shutdown(current.fd, SHUT_RDWR)
         }
         clients.forEach { it.close() }
-        lock.withLock {
-            while (!current.closed) stopped.await()
-            if (listener === current) listener = null
-        }
+        lock.withLock { while (!current.closed) stopped.await() }
+        clients.forEach { it.awaitStopped() }
+        lock.withLock { if (listener === current) listener = null }
     }
 
     private fun acceptClients(current: Listener) {
@@ -85,7 +80,15 @@ internal actual class TcpForwarder actual constructor(
                         throw socketFailure("accept")
                     }
                     // The channel takes ownership, including its initialization-failure path.
-                    val client = Client(PosixTransportChannel(clientFd))
+                    val channel = PosixTransportChannel(clientFd)
+                    val client = ForwardingSession(
+                        kadb = kadb,
+                        destination = "tcp:$targetPort",
+                        localSource = channel.asOkioSource(),
+                        localSink = channel.asOkioSink().buffer(),
+                        closeLocal = channel::close,
+                        onFinished = { lock.withLock { current.clients.remove(it) } },
+                    )
                     val accepted = lock.withLock {
                         if (current.active) {
                             current.clients.add(client)
@@ -97,7 +100,7 @@ internal actual class TcpForwarder actual constructor(
                         continue
                     }
                     try {
-                        startKadbThread("kadb-forward-client") { forwardClient(current, client) }
+                        client.start()
                     } catch (failure: Throwable) {
                         lock.withLock { current.clients.remove(client) }
                         client.close()
@@ -113,73 +116,20 @@ internal actual class TcpForwarder actual constructor(
             val clients = lock.withLock {
                 platform.posix.close(current.fd)
                 current.active = false
-                current.closed = true
-                stopped.signalAll()
                 current.clients.toList()
             }
             clients.forEach { it.close() }
-        }
-    }
-
-    private fun forwardClient(current: Listener, client: Client) {
-        try {
-            val stream = kadb.open("tcp:$targetPort")
-            if (!client.attach(stream)) return
-            startKadbThread("kadb-forward-upload") {
-                try {
-                    forward(client.channel.asOkioSource(), stream.sink)
-                } catch (failure: Exception) {
-                    log { "TCP forwarding upload stopped: ${failure.message}" }
-                } finally {
-                    client.close()
-                }
+            lock.withLock {
+                current.closed = true
+                stopped.signalAll()
             }
-            forward(stream.source, client.channel.asOkioSink().buffer())
-        } catch (failure: Exception) {
-            log { "TCP forwarding client stopped: ${failure.message}" }
-        } finally {
-            client.close()
-            lock.withLock { current.clients.remove(client) }
         }
-    }
-
-    private fun forward(source: Source, sink: BufferedSink) {
-        while (source.read(sink.buffer, 8192) != -1L) sink.flush()
     }
 
     private class Listener(val fd: Int) {
         var active = true
         var closed = false
-        val clients = mutableSetOf<Client>()
-    }
-
-    private class Client(val channel: PosixTransportChannel) : AutoCloseable {
-        private val lock = BlockingLock()
-        private var stream: AdbStream? = null
-        private var closed = false
-
-        fun attach(value: AdbStream): Boolean {
-            val accepted = lock.withLock {
-                if (closed) false else {
-                    stream = value
-                    true
-                }
-            }
-            if (!accepted) value.close()
-            return accepted
-        }
-
-        override fun close() {
-            val current = lock.withLock {
-                if (closed) return
-                closed = true
-                stream.also { stream = null }
-            }
-            runCatching { channel.close() }
-                .onFailure { log { "TCP forwarding socket close failed: ${it.message}" } }
-            runCatching { current?.close() }
-                .onFailure { log { "TCP forwarding stream close failed: ${it.message}" } }
-        }
+        val clients = mutableSetOf<ForwardingSession>()
     }
 }
 

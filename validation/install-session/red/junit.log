@@ -1,0 +1,48 @@
+JUnit version 4.13.2
+.E.E.E.E
+Time: 14.926
+There were 4 failures:
+1) legacyPushWriteFailureAbandonsTheCreatedSession(com.flyfishxu.kadb.InstallSessionWireLifecycleTest)
+java.lang.AssertionError: A created session must receive install-abandon after local APK I/O fails expected:<2> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:83)
+	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.exercise(InstallSessionWireLifecycleTest.kt:77)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.legacyPushWriteFailureAbandonsTheCreatedSession(InstallSessionWireLifecycleTest.kt:28)
+2) execCmdWriteFailureAbandonsTheCreatedSession(com.flyfishxu.kadb.InstallSessionWireLifecycleTest)
+java.lang.AssertionError: A created session must receive install-abandon after local APK I/O fails expected:<2> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:83)
+	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.exercise(InstallSessionWireLifecycleTest.kt:77)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.execCmdWriteFailureAbandonsTheCreatedSession(InstallSessionWireLifecycleTest.kt:26)
+3) abbExecWriteFailureAbandonsTheCreatedSession(com.flyfishxu.kadb.InstallSessionWireLifecycleTest)
+java.lang.AssertionError: A created session must receive install-abandon after local APK I/O fails expected:<2> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:83)
+	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.exercise(InstallSessionWireLifecycleTest.kt:77)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.abbExecWriteFailureAbandonsTheCreatedSession(InstallSessionWireLifecycleTest.kt:27)
+4) abandonFailureDoesNotReplaceTheOriginalFileFailure(com.flyfishxu.kadb.InstallSessionWireLifecycleTest)
+java.lang.AssertionError: A created session must receive install-abandon after local APK I/O fails expected:<2> but was:<1>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:83)
+	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.exercise(InstallSessionWireLifecycleTest.kt:77)
+	at com.flyfishxu.kadb.InstallSessionWireLifecycleTest.abandonFailureDoesNotReplaceTheOriginalFileFailure(InstallSessionWireLifecycleTest.kt:29)
+
+FAILURES!!!
+Tests run: 4,  Failures: 4
+

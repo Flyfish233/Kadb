@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PairingCancellationTest[jvm]" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:57:18.337Z" hostname="c9d49951d07d" time="0.849">
+  <properties/>
+  <testcase name="cancellationClosesHandshakeSocketAndJoinsWorker[jvm]" classname="com.flyfishxu.kadb.pair.PairingCancellationTest" time="0.442"/>
+  <testcase name="closeDuringHandshakeIsIdempotentAndUnblocksStart[jvm]" classname="com.flyfishxu.kadb.pair.PairingCancellationTest" time="0.4"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:56:46.068Z" hostname="c9d49951d07d" time="0.064">
+  <properties/>
+  <testcase name="successPreservesCallerOwnership" classname="com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest" time="0.012"/>
+  <testcase name="cancellationClosesIoButWaitsForWorkerOwnedCleanup" classname="com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest" time="0.031"/>
+  <testcase name="aFailingWorkerClosesItsResource" classname="com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest" time="0.02"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -17,5 +17,9 @@ internal actual class BlockingCondition(private val delegate: Condition) {
 }
 
 internal actual fun startReaderThread(block: () -> Unit) {
-    thread(name = "kadb-reader", isDaemon = true, block = block)
+    startKadbThread("kadb-reader", block)
+}
+
+internal actual fun startKadbThread(name: String, block: () -> Unit) {
+    thread(name = name, isDaemon = true, block = block)
 }

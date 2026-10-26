@@ -1,0 +1,30 @@
+[
+  {
+    "path": "file_sync_protocol.h",
+    "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/file_sync_protocol.h?format=TEXT",
+    "sha256": "f2a7e62e43acbef8dc6883b65c341235825d4ef94fe0b3bfc38293225c21b0f9",
+    "bytes": 3814,
+    "status": "downloaded"
+  },
+  {
+    "path": "daemon/file_sync_service.cpp",
+    "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/daemon/file_sync_service.cpp?format=TEXT",
+    "sha256": "b9e75439311a6ea0d9c64203f6c1e9e415705c0325c4f91ab1d7339cbaedbf5e",
+    "bytes": 27681,
+    "status": "downloaded"
+  },
+  {
+    "path": "client/file_sync_client.cpp",
+    "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/client/file_sync_client.cpp?format=TEXT",
+    "sha256": "082d9ff3e2d2532ac95a086be625f80e54f81f5b1c2866fc7bb6773ad8137a9e",
+    "bytes": 62244,
+    "status": "downloaded"
+  },
+  {
+    "path": "libs/libadbd_fs/adbd_fs.cpp",
+    "url": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/libs/libadbd_fs/adbd_fs.cpp?format=TEXT",
+    "sha256": "2e14795c3e3d8e217bf9a58a555c05d0aecf3972457f0b26c72f0e3f669ec48c",
+    "bytes": 1163,
+    "status": "downloaded"
+  }
+]

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="KadbTransportFailureTest[jvm]" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:44.205Z" hostname="c9d49951d07d" time="0.003">
+  <properties/>
+  <testcase name="wrappedTransportFailureRemainsRecoverable[jvm]" classname="com.flyfishxu.kadb.KadbTransportFailureTest" time="0.001"/>
+  <testcase name="transportEofRemainsRecoverable[jvm]" classname="com.flyfishxu.kadb.KadbTransportFailureTest" time="0.0"/>
+  <testcase name="rejectedServiceOpenDoesNotInvalidateTransport[jvm]" classname="com.flyfishxu.kadb.KadbTransportFailureTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

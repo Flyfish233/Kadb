@@ -4,6 +4,7 @@ import com.flyfishxu.kadb.KadbOptions
 import com.flyfishxu.kadb.cert.AdbKeyPair
 import com.flyfishxu.kadb.cert.HostKeySet
 import com.flyfishxu.kadb.cert.platform.defaultDeviceName
+import com.flyfishxu.kadb.exception.AdbStreamClosed
 import com.flyfishxu.kadb.queue.AdbMessageQueue
 import com.flyfishxu.kadb.stream.AdbStream
 import com.flyfishxu.kadb.transport.TransportChannel
@@ -13,7 +14,8 @@ import com.flyfishxu.kadb.transport.asOkioSource
 import com.flyfishxu.kadb.transport.mapInitialTlsReadError
 import com.flyfishxu.kadb.transport.upgradeTls
 import kotlin.Throws
-import kotlin.random.Random
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.ensureActive
 import okio.Buffer
 import okio.Closeable
 import okio.IOException
@@ -27,23 +29,25 @@ internal class AdbConnection internal constructor(
     private val outboundMaxPayloadSize: Int
 ) : AutoCloseable {
 
-    private val random = Random.Default
-    private val messageQueue = AdbMessageQueue(adbReader) { closeable?.close() }
+    private val messageQueue = AdbMessageQueue(adbReader, adbWriter::writeClose) { closeable?.close() }
     val isOpen: Boolean get() = messageQueue.isOpen
     private val delayedAckEnabled = supportedFeatures.contains(AdbProtocol.FEATURE_DELAYED_ACK)
 
     @Throws(IOException::class)
-    fun open(destination: String): AdbStream {
-        val localId = newId()
-        messageQueue.startListening(localId)
+    fun open(destination: String, cancellation: Job? = null): AdbStream {
+        cancellation?.ensureActive()
+        val localId = messageQueue.startOpening()
+        val cancelled = cancellation?.invokeOnCompletion { messageQueue.cancelOpening(localId) }
+        var stream: AdbStream? = null
         try {
+            cancellation?.ensureActive()
             val initialReceiveWindow = if (delayedAckEnabled) AdbProtocol.INITIAL_DELAYED_ACK_BYTES else 0
             adbWriter.writeOpen(localId, destination, initialReceiveWindow)
             val message = messageQueue.take(localId, AdbProtocol.CMD_OKAY)
             val remoteId = message.arg0
             val initialAvailableSendBytes = decodeOkayAckBytes(message, delayedAckEnabled).toLong()
 
-            return AdbStream(
+            val created = AdbStream(
                 messageQueue = messageQueue,
                 adbWriter = adbWriter,
                 outboundMaxPayloadSize = outboundMaxPayloadSize,
@@ -52,9 +56,21 @@ internal class AdbConnection internal constructor(
                 delayedAckEnabled = delayedAckEnabled,
                 initialAvailableSendBytes = initialAvailableSendBytes
             )
+            stream = created
+            if (!messageQueue.finishOpening(localId)) throw AdbStreamClosed(localId)
+            // Register before the final cancellation check: a close racing with return must own
+            // the resulting stream too. The caller owns this private lifetime until session end.
+            cancellation?.invokeOnCompletion { created.close() }
+            cancellation?.ensureActive()
+            return created
         } catch (e: Throwable) {
-            messageQueue.stopListening(localId)
+            val remoteId = messageQueue.abandonOpening(localId)
+            if (stream != null) runCatching { stream.close() }
+            else if (remoteId != null && remoteId != 0) runCatching { adbWriter.writeClose(localId, remoteId) }
+            cancellation?.ensureActive()
             throw e
+        } finally {
+            cancelled?.dispose()
         }
     }
 
@@ -65,16 +81,6 @@ internal class AdbConnection internal constructor(
     // Expose the negotiated CNXN feature set to feature-gated protocol clients (e.g. sync v1/v2).
     // https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/client/file_sync_client.cpp#238
     internal fun featureSnapshot(): Set<String> = supportedFeatures.toSet()
-
-    private fun newId(): Int {
-        var id: Int
-        do {
-            id = random.nextInt()
-            // local-id must be non-zero per protocol.
-            // https://android.googlesource.com/platform/system/core/+/dd7bc3319deb2b77c5d07a51b7d6cd7e11b5beb0/adb/protocol.txt
-        } while (id == 0)
-        return id
-    }
 
     internal fun ensureEmpty() {
         messageQueue.ensureEmpty()

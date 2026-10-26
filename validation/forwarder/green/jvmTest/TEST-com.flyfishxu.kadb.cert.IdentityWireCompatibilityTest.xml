@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="IdentityWireCompatibilityTest[jvm]" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:44.729Z" hostname="c9d49951d07d" time="0.701">
+  <properties/>
+  <testcase name="generatedIdentityCanBeExportedAndReimported[jvm]" classname="com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest" time="0.357"/>
+  <testcase name="importedJvmIdentityKeepsItsAdbWireRepresentation[jvm]" classname="com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest" time="0.013"/>
+  <testcase name="mismatchedCertificateIsRejected[jvm]" classname="com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest" time="0.314"/>
+  <testcase name="unicodeDeviceNameKeepsEveryUtf8ByteAndNullTerminator[jvm]" classname="com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest" time="0.015"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

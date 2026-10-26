@@ -1,0 +1,18 @@
+{
+  "product_commit": "28b319f",
+  "status": "incomplete: one fixture timed out before reaching its connector",
+  "tasks": {
+    "jvmTest": {
+      "tests": 62,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    "testAndroidHostTest": {
+      "tests": 47,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  }
+}

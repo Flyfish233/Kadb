@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AdbOpenCancellationTest[jvm]" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:57:14.518Z" hostname="c9d49951d07d" time="0.105">
+  <properties/>
+  <testcase name="cancelledOpenReclaimsLateOkayAndPreservesAnotherStream[jvm]" classname="com.flyfishxu.kadb.core.AdbOpenCancellationTest" time="0.06"/>
+  <testcase name="remoteCloseFollowingOkayDoesNotDiscardAlreadyQueuedData[jvm]" classname="com.flyfishxu.kadb.core.AdbOpenCancellationTest" time="0.014"/>
+  <testcase name="queuedOkayRetainsItsRemoteIdUntilTheOpenOwnerCleansUp[jvm]" classname="com.flyfishxu.kadb.core.AdbOpenCancellationTest" time="0.017"/>
+  <testcase name="cancellationBeforeOpenWritesNoRequest[jvm]" classname="com.flyfishxu.kadb.core.AdbOpenCancellationTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="KadbConnectionAttemptCancellationTest[jvm]" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:33.059Z" hostname="c9d49951d07d" time="6.967">
+  <properties/>
+  <testcase name="closeCancelsAConnectAttemptBeforeAnyTransportIsPublished[jvm]" classname="com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest" time="5.901"/>
+  <testcase name="connectorTimeoutKeepsItsExistingExceptionType[jvm]" classname="com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest" time="0.617"/>
+  <testcase name="interruptingTheFirstPublicCallerStillCancelsItsConnector[jvm]" classname="com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest" time="0.369"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

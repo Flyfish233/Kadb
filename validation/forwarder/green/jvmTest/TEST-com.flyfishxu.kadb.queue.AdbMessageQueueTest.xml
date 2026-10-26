@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AdbMessageQueueTest[jvm]" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:55.749Z" hostname="c9d49951d07d" time="0.058">
+  <properties/>
+  <testcase name="idleEofClosesTransportWithoutAnotherCommand[jvm]" classname="com.flyfishxu.kadb.queue.AdbMessageQueueTest" time="0.009"/>
+  <testcase name="takeAfterStopListeningReportsClosedStream[jvm]" classname="com.flyfishxu.kadb.queue.AdbMessageQueueTest" time="0.001"/>
+  <testcase name="closingOneStreamPreservesOtherStreamsAndQueuedData[jvm]" classname="com.flyfishxu.kadb.queue.AdbMessageQueueTest" time="0.003"/>
+  <testcase name="eofWakesEveryWaitingStream[jvm]" classname="com.flyfishxu.kadb.queue.AdbMessageQueueTest" time="0.019"/>
+  <testcase name="localCloseWakesWaitingStream[jvm]" classname="com.flyfishxu.kadb.queue.AdbMessageQueueTest" time="0.026"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

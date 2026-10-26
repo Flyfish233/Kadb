@@ -10,3 +10,5 @@ gradlew text eol=lf
 *.bat text eol=crlf
 # Preserve raw external build logs byte-for-byte, including their original trailing spaces.
 validation/jitpack/logs/*.log -whitespace
+validation/install-session/**/*.log -whitespace
+validation/sync-close/**/*.log -whitespace

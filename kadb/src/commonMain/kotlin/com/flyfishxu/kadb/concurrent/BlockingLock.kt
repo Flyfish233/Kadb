@@ -28,3 +28,6 @@ internal inline fun <T> BlockingLock.withLock(block: () -> T): T {
 }
 
 internal expect fun startReaderThread(block: () -> Unit)
+
+/** Start a platform worker. Its owner supplies completion tracking and closes blocking I/O. */
+internal expect fun startKadbThread(name: String, block: () -> Unit)

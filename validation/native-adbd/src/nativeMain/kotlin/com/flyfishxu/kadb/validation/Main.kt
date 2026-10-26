@@ -13,7 +13,11 @@ import kotlin.time.TimeSource
 
 private const val FIXTURE_PACKAGE = "com.flyfishxu.kadb.validation.fixture"
 private const val MTIME_MS = 1_700_000_000_000L
-private const val FILE_MODE = 384 // 0600
+private const val REQUESTED_FILE_MODE = 384 // 0600, unchanged Sync request bytes.
+private const val AOSP_EFFECTIVE_FILE_MODE = 438 // 0666, before any device fs_config override.
+private const val AOSP_PERMISSION_REFERENCE =
+    "https://android.googlesource.com/platform/packages/modules/adb/+/" +
+        "1cf2f017d312f73b3dc53bda85ef2610e35a80e9/daemon/file_sync_service.cpp#532"
 
 private class Report {
     val checks = mutableListOf<String>()
@@ -147,9 +151,15 @@ private fun runConsumer(options: Options, report: Report) {
             val digest = payload.toByteString().sha256().hex()
             report.details["payload_bytes"] = payload.size.toString()
             report.details["payload_sha256"] = digest
+            report.details["requested_file_mode"] = "0600"
+            report.details["aosp_reference_file_mode"] = "0666"
+            report.details["permission_reference"] = AOSP_PERMISSION_REFERENCE
+            report.details["permission_path"] = remoteFile
+            report.details["permission_reference_scope"] =
+                "Regular-file SEND under /data/local/tmp; device fs_config can override the reference mode"
 
             report.check("sync_transfer") {
-                client.push(Buffer().write(payload), remoteFile, FILE_MODE, MTIME_MS)
+                client.push(Buffer().write(payload), remoteFile, REQUESTED_FILE_MODE, MTIME_MS)
                 val received = Buffer()
                 client.pull(received, remoteFile)
                 check(received.readByteArray().contentEquals(payload))
@@ -160,7 +170,18 @@ private fun runConsumer(options: Options, report: Report) {
                     check(stat.errorCode == 0)
                     check(stat.size == payload.size.toLong())
                     check(stat.mode and 0xF000 == 0x8000)
-                    check(stat.mode and 0x1FF == FILE_MODE)
+                    val observedMode = stat.mode and 0x1FF
+                    val observedModeText = observedMode.toString(8).padStart(4, '0')
+                    report.details["observed_file_mode"] = observedModeText
+                    report.details["permission_reference_comparison"] =
+                        if (observedMode == AOSP_EFFECTIVE_FILE_MODE) "matches" else "mismatch_requires_triage"
+                    println("INFO sync_permissions requested=0600 observed=$observedModeText " +
+                        "aosp_reference=0666 path=$remoteFile source=$AOSP_PERMISSION_REFERENCE")
+                    check(observedMode == AOSP_EFFECTIVE_FILE_MODE) {
+                        "Permission expectation mismatch: requested 0600, observed $observedModeText, " +
+                            "AOSP reference 0666. Check device fs_config and wire mode before " +
+                            "attributing this mismatch to Kadb."
+                    }
                     check(stat.mtimeSec == MTIME_MS / 1000)
                 }
             }
@@ -168,7 +189,7 @@ private fun runConsumer(options: Options, report: Report) {
                 // Independent Android utilities check content and metadata, outside Kadb's Sync parser.
                 check(client.successfulShell("sha256sum '$remoteFile'").substringBefore(' ') == digest)
                 check(client.successfulShell("stat -c '%a %Y %s' '$remoteFile'").trim() ==
-                    "600 ${MTIME_MS / 1000} ${payload.size}")
+                    "666 ${MTIME_MS / 1000} ${payload.size}")
             }
             report.check("sync_directory") {
                 client.openSync().use { sync ->
@@ -192,7 +213,7 @@ private fun runConsumer(options: Options, report: Report) {
                 check(received.readByteArray().contentEquals(payload))
             }
             report.check("sync_empty_file") {
-                client.push(Buffer(), remoteEmpty, FILE_MODE, MTIME_MS)
+                client.push(Buffer(), remoteEmpty, REQUESTED_FILE_MODE, MTIME_MS)
                 val received = Buffer()
                 client.pull(received, remoteEmpty)
                 check(received.size == 0L)

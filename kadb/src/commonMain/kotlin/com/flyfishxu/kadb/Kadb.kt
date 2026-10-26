@@ -6,6 +6,7 @@ import com.flyfishxu.kadb.cert.CertUtils.loadKeyPair
 import com.flyfishxu.kadb.cert.CertUtils.loadKeySet
 import com.flyfishxu.kadb.cert.platform.defaultDeviceName
 import com.flyfishxu.kadb.concurrent.BlockingLock
+import com.flyfishxu.kadb.concurrent.startKadbThread
 import com.flyfishxu.kadb.concurrent.withLock
 import com.flyfishxu.kadb.core.AdbConnection
 import com.flyfishxu.kadb.core.AdbProtocol
@@ -25,6 +26,7 @@ import kotlin.random.Random
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.job
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
@@ -46,7 +48,8 @@ class Kadb(
     private var options: KadbOptions = KadbOptions()
     @Volatile private var connection: Pair<AdbConnection, TransportChannel>? = null
     private val connectionLock = BlockingLock()
-    private val connectingLock = BlockingLock()
+    private val connectionChanged = connectionLock.newCondition()
+    private var connectionAttempt: ConnectionAttempt? = null
     private var generation = 0
     private var closed = false
     private var connectingTransport: TransportChannel? = null
@@ -67,6 +70,10 @@ class Kadb(
     fun open(destination: String): AdbStream {
         return openStream(destination).second
     }
+
+    /** The cancellation lifetime belongs to one internal caller, never to the shared transport. */
+    internal fun openCancellable(destination: String, cancellation: Job): AdbStream =
+        openStream(destination, cancellation).second
 
     fun supportsFeature(feature: String): Boolean = connection().supportsFeature(feature)
 
@@ -229,8 +236,10 @@ class Kadb(
             generation += 1
             Triple(connection?.first, connectingTransport, connectingJob).also {
                 connection = null
+                connectionAttempt = null
                 connectingTransport = null
                 connectingJob = null
+                connectionChanged.signalAll()
             }
         }
         // A connect coroutine owns its socket before onTransportCreated can publish it here.
@@ -242,22 +251,75 @@ class Kadb(
         }
     }
 
-    private fun connection(): AdbConnection = connectingLock.withLock {
-        val expectedGeneration = connectionLock.withLock {
-            if (closed) throw IOException("Kadb is closed")
-            connection?.takeIf { it.first.isOpen && it.second.isOpen }?.let { return it.first }
-            generation
+    private fun connection(cancellation: Job? = null): AdbConnection {
+        val cancelled = cancellation?.invokeOnCompletion {
+            connectionLock.withLock { connectionChanged.signalAll() }
         }
-        val created = newConnection(expectedGeneration)
+        try {
+            var created = false
+            val attempt = connectionLock.withLock {
+                cancellation?.ensureActive()
+                if (closed) throw IOException("Kadb is closed")
+                connection?.takeIf { it.first.isOpen && it.second.isOpen }?.let { return it.first }
+                connectionAttempt ?: ConnectionAttempt(generation).also {
+                    connectionAttempt = it
+                    created = true
+                }
+            }
+            if (created) {
+                if (cancellation == null) {
+                    // Preserve the synchronous API's caller-thread/interrupt contract.
+                    establishConnection(attempt)
+                } else {
+                    try {
+                        // Kadb owns connection establishment. A forwarder can leave this wait
+                        // without cancelling the connection needed by concurrent callers.
+                        startKadbThread("kadb-connect") { establishConnection(attempt) }
+                    } catch (failure: Throwable) {
+                        completeConnectionAttempt(attempt, Result.failure(failure))
+                    }
+                }
+            }
+            return connectionLock.withLock {
+                while (true) {
+                    cancellation?.ensureActive()
+                    if (closed || generation != attempt.generation) {
+                        throw IOException("ADB connection was closed while connecting")
+                    }
+                    attempt.result?.let { return it.getOrThrow().first }
+                    connectionChanged.await()
+                }
+                @Suppress("UNREACHABLE_CODE") error("Unreachable")
+            }
+        } finally {
+            cancelled?.dispose()
+        }
+    }
+
+    private class ConnectionAttempt(val generation: Int) {
+        var result: Result<Pair<AdbConnection, TransportChannel>>? = null
+    }
+
+    private fun establishConnection(attempt: ConnectionAttempt) {
+        val result = runCatching { newConnection(attempt.generation) }
+        completeConnectionAttempt(attempt, result)
+    }
+
+    private fun completeConnectionAttempt(
+        attempt: ConnectionAttempt,
+        result: Result<Pair<AdbConnection, TransportChannel>>,
+    ) {
         val adopted = connectionLock.withLock {
-            if (closed || generation != expectedGeneration) false
-            else { connection = created; true }
+            val current = !closed && generation == attempt.generation && connectionAttempt === attempt
+            if (current) {
+                result.onSuccess { connection = it }
+                connectionAttempt = null
+            }
+            attempt.result = result
+            connectionChanged.signalAll()
+            current
         }
-        if (!adopted) {
-            created.first.close()
-            throw IOException("ADB connection was closed while connecting")
-        }
-        created.first
+        if (!adopted) result.getOrNull()?.first?.let { runCatching { it.close() } }
     }
 
     private fun newConnection(expectedGeneration: Int): Pair<AdbConnection, TransportChannel> = try {
@@ -288,8 +350,10 @@ class Kadb(
                 )
             } finally {
                 connectionLock.withLock {
-                    if (connectingJob === attempt) connectingJob = null
-                    connectingTransport = null
+                    if (connectingJob === attempt) {
+                        connectingJob = null
+                        connectingTransport = null
+                    }
                 }
             }
         }
@@ -302,10 +366,10 @@ class Kadb(
         throw error
     }
 
-    private fun openStream(destination: String): Pair<AdbConnection, AdbStream> {
-        val conn = connection()
+    private fun openStream(destination: String, cancellation: Job? = null): Pair<AdbConnection, AdbStream> {
+        val conn = connection(cancellation)
         return try {
-            conn to conn.open(destination)
+            conn to conn.open(destination, cancellation)
         } catch (error: Throwable) {
             if (isRecoverableTransportOpenFailure(error)) {
                 connectionLock.withLock {

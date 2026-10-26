@@ -516,8 +516,7 @@ class AdbSyncStream(
     private fun readUInt32AsLong(): Long = stream.source.readIntLe().toLong() and 0xFFFF_FFFFL
 
     override fun close() {
-        writePacket(ID_QUIT, 0)
-        stream.close()
+        stream.use { writePacket(ID_QUIT, 0) }
     }
 }
 

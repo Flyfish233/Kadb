@@ -1,0 +1,27 @@
+JUnit version 4.13.2
+.E...E.E
+Time: 0.636
+There were 3 failures:
+1) quitWriteFailureStillRemovesTheStreamListener(com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest)
+java.lang.IllegalStateException: ADB streams still open: [1]
+	at com.flyfishxu.kadb.queue.AdbMessageQueue.ensureEmpty(AdbMessageQueue.kt:101)
+	at com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.quitWriteFailureStillRemovesTheStreamListener(AdbSyncCloseLifecycleTest.kt:27)
+2) quitAndCloseFailuresKeepTheOriginalAndSuppressCleanup(com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest)
+java.lang.AssertionError: expected:<[java.io.IOException: CLSE write failed]> but was:<[]>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:120)
+	at kotlin.test.junit.JUnitAsserter.assertEquals(JUnitSupport.kt:32)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals(Assertions.kt:83)
+	at kotlin.test.AssertionsKt.assertEquals(Unknown Source)
+	at kotlin.test.AssertionsKt__AssertionsKt.assertEquals$default(Assertions.kt:82)
+	at kotlin.test.AssertionsKt.assertEquals$default(Unknown Source)
+	at com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.quitAndCloseFailuresKeepTheOriginalAndSuppressCleanup(AdbSyncCloseLifecycleTest.kt:38)
+3) identicalQuitAndCloseFailureCannotCauseSelfSuppression(com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest)
+java.lang.IllegalStateException: ADB streams still open: [1]
+	at com.flyfishxu.kadb.queue.AdbMessageQueue.ensureEmpty(AdbMessageQueue.kt:101)
+	at com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.identicalQuitAndCloseFailureCannotCauseSelfSuppression(AdbSyncCloseLifecycleTest.kt:49)
+
+FAILURES!!!
+Tests run: 5,  Failures: 3
+

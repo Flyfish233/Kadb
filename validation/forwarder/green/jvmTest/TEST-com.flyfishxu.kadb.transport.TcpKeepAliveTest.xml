@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TcpKeepAliveTest[jvm]" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:55.908Z" hostname="c9d49951d07d" time="0.023">
+  <properties/>
+  <testcase name="configuresSupportedKernelOptionsWithoutClosingChannel[jvm]" classname="com.flyfishxu.kadb.transport.TcpKeepAliveTest" time="0.022"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

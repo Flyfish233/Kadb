@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DesktopUsbIoTest[jvm]" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:10:59.762Z" hostname="c9d49951d07d" time="0.046">
+  <properties/>
+  <testcase name="filtersInterfacesAndSelectsOnlyBulkAdbEndpoints[jvm]" classname="com.flyfishxu.kadb.usb.DesktopUsbIoTest" time="0.033"/>
+  <testcase name="mapsTimeoutsAndSendsExactPayloadIncludingZeroLengthPackets[jvm]" classname="com.flyfishxu.kadb.usb.DesktopUsbIoTest" time="0.006"/>
+  <testcase name="closeAbortsPendingReadAndReleasesExactlyOnce[jvm]" classname="com.flyfishxu.kadb.usb.DesktopUsbIoTest" time="0.006"/>
+  <testcase name="failedClaimClosesOwnHandleButCannotCloseAnotherOwner[jvm]" classname="com.flyfishxu.kadb.usb.DesktopUsbIoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

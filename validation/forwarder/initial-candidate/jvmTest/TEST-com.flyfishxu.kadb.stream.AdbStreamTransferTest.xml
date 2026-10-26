@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AdbStreamTransferTest[jvm]" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:57:23.862Z" hostname="c9d49951d07d" time="0.082">
+  <properties/>
+  <testcase name="syncBatchesSmallSourceReadsAndPreservesFraming[jvm]" classname="com.flyfishxu.kadb.stream.AdbStreamTransferTest" time="0.072"/>
+  <testcase name="transportEofDoesNotReturnPartialShellOutputAsSuccess[jvm]" classname="com.flyfishxu.kadb.stream.AdbStreamTransferTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

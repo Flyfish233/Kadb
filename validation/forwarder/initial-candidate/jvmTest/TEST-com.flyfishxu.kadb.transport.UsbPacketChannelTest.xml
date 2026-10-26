@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="UsbPacketChannelTest[jvm]" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:57:27.332Z" hostname="c9d49951d07d" time="0.209">
+  <properties/>
+  <testcase name="invalidHeadersAndPartialWritesCloseTransport[jvm]" classname="com.flyfishxu.kadb.transport.UsbPacketChannelTest" time="0.007"/>
+  <testcase name="bufferedWriterSeparatesHeaderPayloadAndZlp[jvm]" classname="com.flyfishxu.kadb.transport.UsbPacketChannelTest" time="0.17"/>
+  <testcase name="arbitraryWritesReassembleFramesWithoutMergingUsbTransfers[jvm]" classname="com.flyfishxu.kadb.transport.UsbPacketChannelTest" time="0.01"/>
+  <testcase name="alignedIncomingPayloadDoesNotWaitForNonexistentZlp[jvm]" classname="com.flyfishxu.kadb.transport.UsbPacketChannelTest" time="0.01"/>
+  <testcase name="closeUnblocksAnIdleReader[jvm]" classname="com.flyfishxu.kadb.transport.UsbPacketChannelTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

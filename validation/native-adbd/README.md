@@ -121,7 +121,7 @@ list, and at least three observed TCP connections.
 | `feature_negotiation` | Real peer advertises shell_v2, stat_v2, ls_v2, sendrecv_v2, and cmd. |
 | `shell_v2` | Exact stdout/stderr separation and exit status 7. |
 | `sync_transfer` | 1 MiB + 13 bytes with zero/high-bit data survive push/pull byte for byte. |
-| `sync_stat` | Regular-file type, size, mode 0600, and fixed second-granularity mtime. |
+| `sync_stat` | Regular-file type, size, fixed second-granularity mtime, and device mode 0666 for a requested 0600 under the stated AOSP permission-policy assumption. |
 | `sync_shell_metadata` | Android's `sha256sum` and `stat` independently confirm Sync content/metadata. |
 | `sync_directory` | list_v2 yields the exact named file and size. |
 | `sync_symlink` | lstat sees a symlink; stat follows it; pull through it returns exact content. |
@@ -131,6 +131,23 @@ list, and at least three observed TCP connections.
 | `reconnect_1`, `reconnect_2` | reset discards the transport; the next shell opens a working new connection. |
 | `cleanup` | Remove only this run's uniquely named files and directory. |
 | `close_terminal` | Repeated close is safe; a closed client rejects another command with IOException. |
+
+The permission request remains **0600**. The pinned AOSP daemon's
+[`send_impl`](https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/daemon/file_sync_service.cpp#532)
+copies owner permission bits to group and other, producing **0666** for this
+regular-file request. Its platform `adbd_fs_config` hook can then override the
+mode, depending on the device image, process UID and path policy. This fixture
+uses a uniquely named file under `/data/local/tmp`; 0666 is the reference
+expectation for that test environment, not a guarantee for every Android device.
+
+The consumer prints and records requested mode, observed mode, reference mode,
+the actual remote path and the pinned source URL separately. A different observed
+mode records `mismatch_requires_triage` and stops this validation with a failure;
+that result alone does not establish a Kadb protocol defect. Investigate the
+device's `fs_config` policy and the transmitted mode before attributing it to Kadb.
+The independent Android `stat` check still verifies the same expected metadata.
+The [scoped Sync source review](../../docs/experiment/SYNC_REVIEW.md) records the
+source hashes and the unchanged timestamp/symlink behavior.
 
 The driver independently checks package and directory removal through official
 ADB. It also attempts cleanup after a consumer failure, restores the original

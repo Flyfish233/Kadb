@@ -1,0 +1,62 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.jetbrains.kotlin.org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/workspace/scratch/db79b63d76cf/gradle-cache/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/2.4.20/23b042894dcabe39edd0f8bd30b7be0f25fe9933/kotlin-compiler-embeddable-2.4.20.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::invokeCleaner has been called by org.jetbrains.kotlin.cli.jvm.compiler.jarfs.FastJarFileSystemKt (file:/workspace/scratch/db79b63d76cf/gradle-cache/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/2.4.20/23b042894dcabe39edd0f8bd30b7be0f25fe9933/kotlin-compiler-embeddable-2.4.20.jar)
+WARNING: Please consider reporting this to the maintainers of class org.jetbrains.kotlin.cli.jvm.compiler.jarfs.FastJarFileSystemKt
+WARNING: sun.misc.Unsafe::invokeCleaner will be removed in a future release
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/KadbFileCompatibility.jvmAndroid.kt:12:68: error: overload resolution ambiguity between candidates:
+expect fun Kadb.readMode(file: File): Int
+actual fun Kadb.readMode(file: File): Int
+    fun push(src: File, remotePath: String, mode: Int = fileClient.readMode(src), lastModifiedMs: Long = src.lastModified()) =
+                                                                   ^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/KadbFileCompatibility.jvmAndroid.kt:36:60: error: overload resolution ambiguity between candidates:
+expect fun Kadb.readMode(file: File): Int
+actual fun Kadb.readMode(file: File): Int
+            val resolvedMode = if (mask and 4 != 0) client.readMode(src) else mode
+                                                           ^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/KadbFileCompatibility.jvmAndroid.kt:43:26: error: readMode: 'expect' and corresponding 'actual' are declared in the same module.
+internal expect fun Kadb.readMode(file: File): Int
+                         ^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/cert/AndroidPubkey.kt:26:34: error: unresolved reference 'VisibleForTesting'.
+import org.jetbrains.annotations.VisibleForTesting
+                                 ^^^^^^^^^^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/cert/AndroidPubkey.kt:90:6: error: unresolved reference 'VisibleForTesting'.
+    @VisibleForTesting
+     ^^^^^^^^^^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt:67:26: error: overload resolution ambiguity between candidates:
+expect fun PairingTlsConnection.getConscryptClass(): Class<*>
+actual fun PairingTlsConnection.getConscryptClass(): Class<*>
+            val method = getConscryptClass().getMethod(
+                         ^^^^^^^^^^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt:67:46: error: unresolved reference 'getMethod'.
+            val method = getConscryptClass().getMethod(
+                                             ^^^^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt:71:20: error: cannot infer type for type parameter 'R'. Specify it explicitly.
+            method.invoke(null, tls, "adb-label\u0000", null, 64) as ByteArray
+                   ^^^^^^
+kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt:123:42: error: getConscryptClass: 'expect' and corresponding 'actual' are declared in the same module.
+internal expect fun PairingTlsConnection.getConscryptClass(): Class<*>
+                                         ^^^^^^^^^^^^^^^^^
+kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/Kadb.jvm.kt:6:17: error: 'public final actual fun Kadb.readMode(file: File): Int' has no corresponding 'expect' declaration
+The following declaration is incompatible because parameter types are different:
+    expect fun Kadb.readMode(file: Path): Int
+
+actual fun Kadb.readMode(file: File): Int {
+                ^^^^^^^^
+kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/Kadb.jvm.kt:6:17: error: readMode: 'expect' and corresponding 'actual' are declared in the same module.
+actual fun Kadb.readMode(file: File): Int {
+                ^^^^^^^^
+kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/Kadb.jvm.kt:11:59: error: overload resolution ambiguity between candidates:
+expect fun Kadb.readMode(file: File): Int
+actual fun Kadb.readMode(file: File): Int
+internal actual fun Kadb.readMode(file: okio.Path): Int = readMode(file.toFile())
+                                                          ^^^^^^^^
+kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvm.kt:3:42: error: 'internal final actual fun PairingTlsConnection.getConscryptClass(): Class<*>' has no corresponding 'expect' declaration
+internal actual fun PairingTlsConnection.getConscryptClass(): Class<*> {
+                                         ^^^^^^^^^^^^^^^^^
+kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvm.kt:3:42: error: getConscryptClass: 'expect' and corresponding 'actual' are declared in the same module.
+internal actual fun PairingTlsConnection.getConscryptClass(): Class<*> {
+                                         ^^^^^^^^^^^^^^^^^
