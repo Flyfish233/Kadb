@@ -49,6 +49,16 @@ the setup action's default requested the retired `tools` package. No product
 tests ran; the report gate correctly failed on zero executed tests. The next
 commit pins command-line tools build 16111833 and requests only platform-tools.
 
+Second CI attempt: [run 40305359479](https://github.com/Flyfish233/Kadb/actions/runs/40305359479)
+at `363de77e7c4de625876fdb360d3e61de104bce9f` executed **78 tests, zero
+failures**: Kadb JVM 38, Android Host 28, mDNS JVM 12. The JVM bytecode inventory
+contains 2,573 lines. The artifact SHA-256 is
+`b0eb9fc36d497276ddff6ee398676e861145c67d496d4e887d8ec331139a84e5`;
+the downloaded ZIP was verified before extracting the committed inventory and
+summary. The corresponding local JVM/mDNS run executed 50 tests with zero
+failures. Android Host tests exercise the host runtime, not an Android device.
+Darwin and full Android ABI inventory are separate subsequent jobs.
+
 ## Initial findings, not yet fixed/verified
 
 - Shared protocol logic already exists in this iOS baseline; relocation alone

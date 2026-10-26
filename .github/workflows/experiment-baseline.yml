@@ -5,7 +5,7 @@ on:
     branches: [experiment/kmp-native-core]
     paths:
       - .github/workflows/experiment-baseline.yml
-      - validation/baseline/**
+      - validation/baseline/source-manifest.json
   workflow_dispatch:
 
 permissions:
@@ -52,6 +52,17 @@ jobs:
             python3 validation/capture-jvm-abi.py "$jar" evidence/baseline-jvm.abi
           done
           test -s evidence/baseline-jvm.abi
+      - name: Android bytecode and Kotlin ABI inventories
+        run: |
+          set -o pipefail
+          python3 validation/enable-baseline-abi.py baseline
+          cd baseline
+          ./gradlew :kadb:tasks --all --console=plain > ../evidence/abi-tasks.log
+          ./gradlew :kadb:updateKotlinAbi :kadb-mdns:updateKotlinAbi --console=plain --stacktrace 2>&1 | tee ../evidence/kotlin-abi.log
+          cd ..
+          jar=$(find baseline/kadb/build/intermediates -path '*compile_library_classes_jar*' -name classes.jar -print -quit)
+          test -n "$jar"
+          python3 validation/capture-jvm-abi.py "$jar" evidence/baseline-android.abi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -63,3 +74,44 @@ jobs:
             baseline/**/build/reports/tests/
             baseline/kadb/build/libs/
             baseline/kadb/build/outputs/aar/
+            baseline/**/api/
+            baseline/**/build/abi/
+
+  darwin-baseline:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 75678915fd4bdd52345edbb6bc4913ae3415a680
+          path: baseline
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: Record Apple toolchain and boot simulator
+        run: |
+          mkdir -p evidence
+          test "$(uname -m)" = arm64
+          xcodebuild -version | tee evidence/xcode.log
+          python3 validation/boot-simulator.py
+      - name: Frozen iOS compilation, linkage and simulator execution
+        working-directory: baseline
+        run: |
+          set -o pipefail
+          device=$(cat ../evidence/simulator-udid.txt)
+          ./gradlew :kadb:iosSimulatorArm64Test :kadb-mdns:iosSimulatorArm64Test :kadb:linkDebugFrameworkIosArm64 :kadb:linkDebugFrameworkIosSimulatorArm64 -PiosSimulatorDevice="$device" --console=plain --stacktrace 2>&1 | tee ../evidence/baseline-darwin.log
+      - name: Require executed simulator reports
+        if: always()
+        run: python3 validation/summarize-tests.py baseline --output evidence/simulator-summary.json --require kadb/build/test-results/iosSimulatorArm64Test --require kadb-mdns/build/test-results/iosSimulatorArm64Test
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: frozen-baseline-darwin
+          if-no-files-found: error
+          path: |
+            evidence/
+            baseline/**/build/test-results/
+            baseline/**/build/reports/tests/
+            baseline/kadb/build/bin/ios*/debugFramework/

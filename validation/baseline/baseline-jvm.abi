@@ -1,0 +1,2573 @@
+public final class com.flyfishxu.kadb.DelayedAckMode extends java.lang.Enum<com.flyfishxu.kadb.DelayedAckMode> {
+  public static final com.flyfishxu.kadb.DelayedAckMode AOSP_DEFAULT;
+    descriptor: Lcom/flyfishxu/kadb/DelayedAckMode;
+  public static final com.flyfishxu.kadb.DelayedAckMode ENABLED;
+    descriptor: Lcom/flyfishxu/kadb/DelayedAckMode;
+  public static final com.flyfishxu.kadb.DelayedAckMode DISABLED;
+    descriptor: Lcom/flyfishxu/kadb/DelayedAckMode;
+  public static com.flyfishxu.kadb.DelayedAckMode[] values();
+    descriptor: ()[Lcom/flyfishxu/kadb/DelayedAckMode;
+
+  public static com.flyfishxu.kadb.DelayedAckMode valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/DelayedAckMode;
+
+  public static kotlin.enums.EnumEntries<com.flyfishxu.kadb.DelayedAckMode> getEntries();
+    descriptor: ()Lkotlin/enums/EnumEntries;
+}
+public final class com.flyfishxu.kadb.Kadb extends com.flyfishxu.kadb.KadbFileCompatibility implements java.lang.AutoCloseable {
+  public static final com.flyfishxu.kadb.Kadb$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/Kadb$Companion;
+  public com.flyfishxu.kadb.Kadb(java.lang.String, int, int, int);
+    descriptor: (Ljava/lang/String;III)V
+
+  public com.flyfishxu.kadb.Kadb(java.lang.String, int, int, int, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/String;IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  protected com.flyfishxu.kadb.Kadb getFileClient();
+    descriptor: ()Lcom/flyfishxu/kadb/Kadb;
+
+  public final boolean connectionCheck();
+    descriptor: ()Z
+
+  public final com.flyfishxu.kadb.stream.AdbStream open(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+
+  public final boolean supportsFeature(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+
+  public final com.flyfishxu.kadb.shell.AdbShellResponse shell(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/shell/AdbShellResponse;
+
+  public final com.flyfishxu.kadb.shell.AdbShellStream openShell(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/shell/AdbShellStream;
+
+  public static com.flyfishxu.kadb.shell.AdbShellStream openShell$default(com.flyfishxu.kadb.Kadb, java.lang.String, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/shell/AdbShellStream;
+
+  public final com.flyfishxu.kadb.shell.AdbPtyShellSession openPtyShellSession(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Lcom/flyfishxu/kadb/shell/AdbPtyShellSession;
+
+  public static com.flyfishxu.kadb.shell.AdbPtyShellSession openPtyShellSession$default(com.flyfishxu.kadb.Kadb, java.lang.String, java.lang.String, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/shell/AdbPtyShellSession;
+
+  public final void push(okio.Path, java.lang.String, int, long);
+    descriptor: (Lokio/Path;Ljava/lang/String;IJ)V
+
+  public static void push$default(com.flyfishxu.kadb.Kadb, okio.Path, java.lang.String, int, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Lokio/Path;Ljava/lang/String;IJILjava/lang/Object;)V
+
+  public final void push(okio.Source, java.lang.String, int, long);
+    descriptor: (Lokio/Source;Ljava/lang/String;IJ)V
+
+  public final void pull(okio.Path, java.lang.String);
+    descriptor: (Lokio/Path;Ljava/lang/String;)V
+
+  public final void pull(okio.Sink, java.lang.String);
+    descriptor: (Lokio/Sink;Ljava/lang/String;)V
+
+  public final com.flyfishxu.kadb.stream.AdbSyncStream openSync();
+    descriptor: ()Lcom/flyfishxu/kadb/stream/AdbSyncStream;
+
+  public final void install(okio.Path, java.lang.String...);
+    descriptor: (Lokio/Path;[Ljava/lang/String;)V
+
+  public final void install(okio.Source, long, java.lang.String...);
+    descriptor: (Lokio/Source;J[Ljava/lang/String;)V
+
+  public final void installMultiple(java.util.Collection<okio.Path>, java.lang.String...);
+    descriptor: (Ljava/util/Collection;[Ljava/lang/String;)V
+
+  public final void uninstall(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+
+  public final com.flyfishxu.kadb.stream.AdbStream execCmd(java.lang.String...);
+    descriptor: ([Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+
+  public final com.flyfishxu.kadb.stream.AdbStream abbExec(java.lang.String...);
+    descriptor: ([Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+
+  public final java.lang.String root();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String unroot();
+    descriptor: ()Ljava/lang/String;
+
+  public void close();
+    descriptor: ()V
+
+  public final void resetConnection();
+    descriptor: ()V
+
+  public final java.lang.AutoCloseable tcpForward(int, int) throws java.lang.InterruptedException;
+    descriptor: (II)Ljava/lang/AutoCloseable;
+
+  public static final java.lang.String access$getHost$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)Ljava/lang/String;
+
+  public static final int access$getPort$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)I
+
+  public static final com.flyfishxu.kadb.KadbOptions access$getOptions$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)Lcom/flyfishxu/kadb/KadbOptions;
+
+  public static final int access$getConnectTimeout$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)I
+
+  public static final int access$getSocketTimeout$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)I
+
+  public static final kotlin.jvm.functions.Function1 access$getTransportConnector$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)Lkotlin/jvm/functions/Function1;
+
+  public static final com.flyfishxu.kadb.concurrent.BlockingLock access$getConnectionLock$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)Lcom/flyfishxu/kadb/concurrent/BlockingLock;
+
+  public static final void access$setConnectingTransport$p(com.flyfishxu.kadb.Kadb, com.flyfishxu.kadb.transport.TransportChannel);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Lcom/flyfishxu/kadb/transport/TransportChannel;)V
+
+  public static final boolean access$getClosed$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)Z
+
+  public static final int access$getGeneration$p(com.flyfishxu.kadb.Kadb);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;)I
+
+  public com.flyfishxu.kadb.Kadb(java.lang.String, int, int, int, com.flyfishxu.kadb.KadbOptions, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/String;IIILcom/flyfishxu/kadb/KadbOptions;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public static final void access$setTransportConnector$p(com.flyfishxu.kadb.Kadb, kotlin.jvm.functions.Function1);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Lkotlin/jvm/functions/Function1;)V
+}
+public final class com.flyfishxu.kadb.Kadb$Companion {
+  public final java.lang.Object pair(java.lang.String, int, java.lang.String, java.lang.String, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static java.lang.Object pair$default(com.flyfishxu.kadb.Kadb$Companion, java.lang.String, int, java.lang.String, java.lang.String, kotlin.coroutines.Continuation, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb$Companion;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+
+  public final com.flyfishxu.kadb.Kadb create(java.lang.String, int, int, int, com.flyfishxu.kadb.KadbOptions);
+    descriptor: (Ljava/lang/String;IIILcom/flyfishxu/kadb/KadbOptions;)Lcom/flyfishxu/kadb/Kadb;
+
+  public static com.flyfishxu.kadb.Kadb create$default(com.flyfishxu.kadb.Kadb$Companion, java.lang.String, int, int, int, com.flyfishxu.kadb.KadbOptions, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb$Companion;Ljava/lang/String;IIILcom/flyfishxu/kadb/KadbOptions;ILjava/lang/Object;)Lcom/flyfishxu/kadb/Kadb;
+
+  public final com.flyfishxu.kadb.Kadb createWithTransport$Kadb_kadb(com.flyfishxu.kadb.KadbOptions, kotlin.jvm.functions.Function1<? super kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>, ? extends java.lang.Object>);
+    descriptor: (Lcom/flyfishxu/kadb/KadbOptions;Lkotlin/jvm/functions/Function1;)Lcom/flyfishxu/kadb/Kadb;
+
+  public final com.flyfishxu.kadb.Kadb tryConnection(java.lang.String, int, com.flyfishxu.kadb.KadbOptions);
+    descriptor: (Ljava/lang/String;ILcom/flyfishxu/kadb/KadbOptions;)Lcom/flyfishxu/kadb/Kadb;
+
+  public static com.flyfishxu.kadb.Kadb tryConnection$default(com.flyfishxu.kadb.Kadb$Companion, java.lang.String, int, com.flyfishxu.kadb.KadbOptions, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb$Companion;Ljava/lang/String;ILcom/flyfishxu/kadb/KadbOptions;ILjava/lang/Object;)Lcom/flyfishxu/kadb/Kadb;
+
+  public final java.lang.AutoCloseable tcpForward(java.lang.String, int, int);
+    descriptor: (Ljava/lang/String;II)Ljava/lang/AutoCloseable;
+
+  public com.flyfishxu.kadb.Kadb$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+final class com.flyfishxu.kadb.Kadb$Companion$pair$2 extends kotlin.coroutines.jvm.internal.SuspendLambda implements kotlin.jvm.functions.Function2<kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Unit>, java.lang.Object> {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+
+  public final kotlin.coroutines.Continuation<kotlin.Unit> create(java.lang.Object, kotlin.coroutines.Continuation<?>);
+    descriptor: (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+
+  public final java.lang.Object invoke(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object invoke(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.Kadb$InstallSessionMode extends java.lang.Enum<com.flyfishxu.kadb.Kadb$InstallSessionMode> {
+  public static final com.flyfishxu.kadb.Kadb$InstallSessionMode ABB_EXEC;
+    descriptor: Lcom/flyfishxu/kadb/Kadb$InstallSessionMode;
+  public static final com.flyfishxu.kadb.Kadb$InstallSessionMode EXEC_CMD;
+    descriptor: Lcom/flyfishxu/kadb/Kadb$InstallSessionMode;
+  public static final com.flyfishxu.kadb.Kadb$InstallSessionMode PM_SHELL;
+    descriptor: Lcom/flyfishxu/kadb/Kadb$InstallSessionMode;
+  public final boolean getUsesStreaming();
+    descriptor: ()Z
+
+  public static com.flyfishxu.kadb.Kadb$InstallSessionMode[] values();
+    descriptor: ()[Lcom/flyfishxu/kadb/Kadb$InstallSessionMode;
+
+  public static com.flyfishxu.kadb.Kadb$InstallSessionMode valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/Kadb$InstallSessionMode;
+
+  public static kotlin.enums.EnumEntries<com.flyfishxu.kadb.Kadb$InstallSessionMode> getEntries();
+    descriptor: ()Lkotlin/enums/EnumEntries;
+}
+public final class com.flyfishxu.kadb.Kadb$WhenMappings {
+  public static final int[] $EnumSwitchMapping$0;
+    descriptor: [I
+}
+final class com.flyfishxu.kadb.Kadb$newConnection$1 extends kotlin.coroutines.jvm.internal.SuspendLambda implements kotlin.jvm.functions.Function2<kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Pair<? extends com.flyfishxu.kadb.core.AdbConnection, ? extends com.flyfishxu.kadb.transport.TransportChannel>>, java.lang.Object> {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+
+  public final kotlin.coroutines.Continuation<kotlin.Unit> create(java.lang.Object, kotlin.coroutines.Continuation<?>);
+    descriptor: (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+
+  public final java.lang.Object invoke(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Pair<com.flyfishxu.kadb.core.AdbConnection, ? extends com.flyfishxu.kadb.transport.TransportChannel>>);
+    descriptor: (Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object invoke(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+}
+public abstract class com.flyfishxu.kadb.KadbFileCompatibility {
+  public static final com.flyfishxu.kadb.KadbFileCompatibility$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/KadbFileCompatibility$Companion;
+  public com.flyfishxu.kadb.KadbFileCompatibility();
+    descriptor: ()V
+
+  protected abstract com.flyfishxu.kadb.Kadb getFileClient();
+    descriptor: ()Lcom/flyfishxu/kadb/Kadb;
+
+  public final void push(java.io.File, java.lang.String, int, long);
+    descriptor: (Ljava/io/File;Ljava/lang/String;IJ)V
+
+  public static void push$default(com.flyfishxu.kadb.KadbFileCompatibility, java.io.File, java.lang.String, int, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/KadbFileCompatibility;Ljava/io/File;Ljava/lang/String;IJILjava/lang/Object;)V
+
+  public final void pull(java.io.File, java.lang.String);
+    descriptor: (Ljava/io/File;Ljava/lang/String;)V
+
+  public final void install(java.io.File, java.lang.String...);
+    descriptor: (Ljava/io/File;[Ljava/lang/String;)V
+
+  public final void installMultiple(java.util.List<? extends java.io.File>, java.lang.String...);
+    descriptor: (Ljava/util/List;[Ljava/lang/String;)V
+
+  public static final void push$default(com.flyfishxu.kadb.Kadb, java.io.File, java.lang.String, int, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Ljava/io/File;Ljava/lang/String;IJILjava/lang/Object;)V
+}
+public final class com.flyfishxu.kadb.KadbFileCompatibility$Companion {
+  public final void push$default(com.flyfishxu.kadb.Kadb, java.io.File, java.lang.String, int, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Ljava/io/File;Ljava/lang/String;IJILjava/lang/Object;)V
+
+  public com.flyfishxu.kadb.KadbFileCompatibility$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.KadbKt {
+  public static final boolean isRecoverableTransportOpenFailure(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Z
+
+  public static final long lastModifiedMillis(okio.Path);
+    descriptor: (Lokio/Path;)J
+
+  public static final long fileSize(okio.Path);
+    descriptor: (Lokio/Path;)J
+
+  public static final okio.Buffer access$readUntil(okio.BufferedSource, byte);
+    descriptor: (Lokio/BufferedSource;B)Lokio/Buffer;
+}
+public final class com.flyfishxu.kadb.KadbOptions {
+  public com.flyfishxu.kadb.KadbOptions(com.flyfishxu.kadb.DelayedAckMode, com.flyfishxu.kadb.TcpKeepAlive);
+    descriptor: (Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;)V
+
+  public com.flyfishxu.kadb.KadbOptions(com.flyfishxu.kadb.DelayedAckMode, com.flyfishxu.kadb.TcpKeepAlive, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final com.flyfishxu.kadb.DelayedAckMode getDelayedAckMode();
+    descriptor: ()Lcom/flyfishxu/kadb/DelayedAckMode;
+
+  public final com.flyfishxu.kadb.TcpKeepAlive getTcpKeepAlive();
+    descriptor: ()Lcom/flyfishxu/kadb/TcpKeepAlive;
+
+  public final com.flyfishxu.kadb.DelayedAckMode component1();
+    descriptor: ()Lcom/flyfishxu/kadb/DelayedAckMode;
+
+  public final com.flyfishxu.kadb.TcpKeepAlive component2();
+    descriptor: ()Lcom/flyfishxu/kadb/TcpKeepAlive;
+
+  public final com.flyfishxu.kadb.KadbOptions copy(com.flyfishxu.kadb.DelayedAckMode, com.flyfishxu.kadb.TcpKeepAlive);
+    descriptor: (Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;)Lcom/flyfishxu/kadb/KadbOptions;
+
+  public static com.flyfishxu.kadb.KadbOptions copy$default(com.flyfishxu.kadb.KadbOptions, com.flyfishxu.kadb.DelayedAckMode, com.flyfishxu.kadb.TcpKeepAlive, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/KadbOptions;Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;ILjava/lang/Object;)Lcom/flyfishxu/kadb/KadbOptions;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+
+  public com.flyfishxu.kadb.KadbOptions();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.Kadb_jvmKt {
+  public static final int readMode(com.flyfishxu.kadb.Kadb, java.io.File);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Ljava/io/File;)I
+
+  public static final int readMode(com.flyfishxu.kadb.Kadb, okio.Path);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;Lokio/Path;)I
+}
+public final class com.flyfishxu.kadb.TcpKeepAlive {
+  public com.flyfishxu.kadb.TcpKeepAlive(int, int, int);
+    descriptor: (III)V
+
+  public com.flyfishxu.kadb.TcpKeepAlive(int, int, int, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final int getIdleSeconds();
+    descriptor: ()I
+
+  public final int getIntervalSeconds();
+    descriptor: ()I
+
+  public final int getProbeCount();
+    descriptor: ()I
+
+  public final int component1();
+    descriptor: ()I
+
+  public final int component2();
+    descriptor: ()I
+
+  public final int component3();
+    descriptor: ()I
+
+  public final com.flyfishxu.kadb.TcpKeepAlive copy(int, int, int);
+    descriptor: (III)Lcom/flyfishxu/kadb/TcpKeepAlive;
+
+  public static com.flyfishxu.kadb.TcpKeepAlive copy$default(com.flyfishxu.kadb.TcpKeepAlive, int, int, int, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/TcpKeepAlive;IIIILjava/lang/Object;)Lcom/flyfishxu/kadb/TcpKeepAlive;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+
+  public com.flyfishxu.kadb.TcpKeepAlive();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.AdbKeyPair {
+  public com.flyfishxu.kadb.cert.AdbKeyPair(java.security.PrivateKey, java.security.PublicKey, java.security.cert.Certificate);
+    descriptor: (Ljava/security/PrivateKey;Ljava/security/PublicKey;Ljava/security/cert/Certificate;)V
+
+  public final java.security.PrivateKey getPrivateKey();
+    descriptor: ()Ljava/security/PrivateKey;
+
+  public final java.security.PublicKey getPublicKey();
+    descriptor: ()Ljava/security/PublicKey;
+
+  public final java.security.cert.Certificate getCertificate();
+    descriptor: ()Ljava/security/cert/Certificate;
+
+  public final byte[] signPayload(com.flyfishxu.kadb.core.AdbMessage);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbMessage;)[B
+
+  public final byte[] encodeAdbPublicKey(java.lang.String);
+    descriptor: (Ljava/lang/String;)[B
+
+  public final java.lang.String publicKeyFingerprint();
+    descriptor: ()Ljava/lang/String;
+
+  public final boolean isCertificateValid();
+    descriptor: ()Z
+}
+public final class com.flyfishxu.kadb.cert.AdbPublicKeyEncodingKt {
+  public static final byte[] encodeAdbPublicKeyWithName(byte[], java.lang.String);
+    descriptor: ([BLjava/lang/String;)[B
+}
+public final class com.flyfishxu.kadb.cert.AndroidPubkey {
+  public static final com.flyfishxu.kadb.cert.AndroidPubkey INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/cert/AndroidPubkey;
+  public final byte[] getSIGNATURE_PADDING();
+    descriptor: ()[B
+
+  public static void getSIGNATURE_PADDING$annotations();
+    descriptor: ()V
+
+  public static final byte[] encodeWithName(java.security.interfaces.RSAPublicKey, java.lang.String);
+    descriptor: (Ljava/security/interfaces/RSAPublicKey;Ljava/lang/String;)[B
+
+  public final byte[] getUserInfo(java.lang.String);
+    descriptor: (Ljava/lang/String;)[B
+
+  public final byte[] encode(java.security.interfaces.RSAPublicKey) throws java.security.InvalidKeyException;
+    descriptor: (Ljava/security/interfaces/RSAPublicKey;)[B
+}
+public final class com.flyfishxu.kadb.cert.CertUtils {
+  public static final com.flyfishxu.kadb.cert.CertUtils INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/cert/CertUtils;
+  public final void validatePrivateKeyPem(byte[]);
+    descriptor: ([B)V
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair loadKeyPair();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final com.flyfishxu.kadb.cert.HostKeySet loadKeySet();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/HostKeySet;
+
+  public final com.flyfishxu.kadb.cert.ResolvedIdentity generateNewIdentity(com.flyfishxu.kadb.cert.KadbCertPolicy);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCertPolicy;)Lcom/flyfishxu/kadb/cert/ResolvedIdentity;
+
+  public final com.flyfishxu.kadb.cert.ResolvedIdentity identityFromPrivateKey(byte[], com.flyfishxu.kadb.cert.KadbCertPolicy);
+    descriptor: ([BLcom/flyfishxu/kadb/cert/KadbCertPolicy;)Lcom/flyfishxu/kadb/cert/ResolvedIdentity;
+
+  public final com.flyfishxu.kadb.cert.ResolvedIdentity identityFromPrivateKeyAndCertificate(byte[], byte[]);
+    descriptor: ([B[B)Lcom/flyfishxu/kadb/cert/ResolvedIdentity;
+
+  public final java.security.PrivateKey parsePrivateKeyPem(byte[]);
+    descriptor: ([B)Ljava/security/PrivateKey;
+
+  public final java.security.cert.X509Certificate parseCertificatePem(byte[]);
+    descriptor: ([B)Ljava/security/cert/X509Certificate;
+
+  public final byte[] encodePrivateKeyPem(java.security.PrivateKey);
+    descriptor: (Ljava/security/PrivateKey;)[B
+
+  public final byte[] encodeCertificatePem(java.security.cert.Certificate);
+    descriptor: (Ljava/security/cert/Certificate;)[B
+
+  public final java.lang.String fingerprintSha256(java.security.PublicKey);
+    descriptor: (Ljava/security/PublicKey;)Ljava/lang/String;
+
+  public final java.lang.String fingerprintSha256(java.security.cert.Certificate);
+    descriptor: (Ljava/security/cert/Certificate;)Ljava/lang/String;
+
+  public final java.lang.String adbTlsFingerprintHex(java.security.PublicKey);
+    descriptor: (Ljava/security/PublicKey;)Ljava/lang/String;
+
+  public final void validateCertificate(java.security.cert.X509Certificate);
+    descriptor: (Ljava/security/cert/X509Certificate;)V
+
+  public final java.security.PublicKey derivePublicKey$Kadb_kadb(java.security.PrivateKey);
+    descriptor: (Ljava/security/PrivateKey;)Ljava/security/PublicKey;
+}
+public final class com.flyfishxu.kadb.cert.CertUtilsKt {
+  public static final java.util.List access$getProviders$p();
+    descriptor: ()Ljava/util/List;
+}
+public final class com.flyfishxu.kadb.cert.HostKeySet {
+  public static final com.flyfishxu.kadb.cert.HostKeySet$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/cert/HostKeySet$Companion;
+  public com.flyfishxu.kadb.cert.HostKeySet(com.flyfishxu.kadb.cert.AdbKeyPair, java.util.List<com.flyfishxu.kadb.cert.AdbKeyPair>);
+    descriptor: (Lcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/util/List;)V
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair getDefaultKeyPair();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final java.util.List<com.flyfishxu.kadb.cert.AdbKeyPair> getKeyPairs();
+    descriptor: ()Ljava/util/List;
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair component1();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final java.util.List<com.flyfishxu.kadb.cert.AdbKeyPair> component2();
+    descriptor: ()Ljava/util/List;
+
+  public final com.flyfishxu.kadb.cert.HostKeySet copy(com.flyfishxu.kadb.cert.AdbKeyPair, java.util.List<com.flyfishxu.kadb.cert.AdbKeyPair>);
+    descriptor: (Lcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/util/List;)Lcom/flyfishxu/kadb/cert/HostKeySet;
+
+  public static com.flyfishxu.kadb.cert.HostKeySet copy$default(com.flyfishxu.kadb.cert.HostKeySet, com.flyfishxu.kadb.cert.AdbKeyPair, java.util.List, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/HostKeySet;Lcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/util/List;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/HostKeySet;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public final class com.flyfishxu.kadb.cert.HostKeySet$Companion {
+  public final com.flyfishxu.kadb.cert.HostKeySet single(com.flyfishxu.kadb.cert.AdbKeyPair);
+    descriptor: (Lcom/flyfishxu/kadb/cert/AdbKeyPair;)Lcom/flyfishxu/kadb/cert/HostKeySet;
+
+  public com.flyfishxu.kadb.cert.HostKeySet$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.cert.InMemoryPrivateKeyStore implements com.flyfishxu.kadb.cert.KadbPrivateKeyStore {
+  public com.flyfishxu.kadb.cert.InMemoryPrivateKeyStore();
+    descriptor: ()V
+
+  public byte[] readPrivateKeyPem();
+    descriptor: ()[B
+
+  public void writePrivateKeyPemAtomic(byte[]);
+    descriptor: ([B)V
+
+  public void clear();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.KadbCert {
+  public static final com.flyfishxu.kadb.cert.KadbCert INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/cert/KadbCert;
+  public final void configure(com.flyfishxu.kadb.cert.KadbPrivateKeyStore, com.flyfishxu.kadb.cert.KadbCertPolicy, java.util.List<byte[]>);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbPrivateKeyStore;Lcom/flyfishxu/kadb/cert/KadbCertPolicy;Ljava/util/List;)V
+
+  public static void configure$default(com.flyfishxu.kadb.cert.KadbCert, com.flyfishxu.kadb.cert.KadbPrivateKeyStore, com.flyfishxu.kadb.cert.KadbCertPolicy, java.util.List, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCert;Lcom/flyfishxu/kadb/cert/KadbPrivateKeyStore;Lcom/flyfishxu/kadb/cert/KadbCertPolicy;Ljava/util/List;ILjava/lang/Object;)V
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot ensureReady();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot rotate();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot importIdentity(byte[], byte[]);
+    descriptor: ([B[B)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public static com.flyfishxu.kadb.cert.KadbIdentitySnapshot importIdentity$default(com.flyfishxu.kadb.cert.KadbCert, byte[], byte[], int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCert;[B[BILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot importPrivateKey(byte[]);
+    descriptor: ([B)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot exportIdentityOrNull();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final byte[] exportPrivateKeyOrNull();
+    descriptor: ()[B
+
+  public final void clear();
+    descriptor: ()V
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair currentKeyPair$Kadb_kadb();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final com.flyfishxu.kadb.cert.HostKeySet currentKeySet$Kadb_kadb();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/HostKeySet;
+}
+interface com.flyfishxu.kadb.cert.KadbCert$State {
+}
+public final class com.flyfishxu.kadb.cert.KadbCert$State$Broken implements com.flyfishxu.kadb.cert.KadbCert$State {
+  public com.flyfishxu.kadb.cert.KadbCert$State$Broken(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public final java.lang.Throwable getCause();
+    descriptor: ()Ljava/lang/Throwable;
+
+  public final java.lang.Throwable component1();
+    descriptor: ()Ljava/lang/Throwable;
+
+  public final com.flyfishxu.kadb.cert.KadbCert$State$Broken copy(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Lcom/flyfishxu/kadb/cert/KadbCert$State$Broken;
+
+  public static com.flyfishxu.kadb.cert.KadbCert$State$Broken copy$default(com.flyfishxu.kadb.cert.KadbCert$State$Broken, java.lang.Throwable, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCert$State$Broken;Ljava/lang/Throwable;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbCert$State$Broken;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public final class com.flyfishxu.kadb.cert.KadbCert$State$Ready implements com.flyfishxu.kadb.cert.KadbCert$State {
+  public com.flyfishxu.kadb.cert.KadbCert$State$Ready(com.flyfishxu.kadb.cert.KadbIdentitySnapshot, com.flyfishxu.kadb.cert.HostKeySet);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;Lcom/flyfishxu/kadb/cert/HostKeySet;)V
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot getSnapshot();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.HostKeySet getKeySet();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/HostKeySet;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot component1();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.HostKeySet component2();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/HostKeySet;
+
+  public final com.flyfishxu.kadb.cert.KadbCert$State$Ready copy(com.flyfishxu.kadb.cert.KadbIdentitySnapshot, com.flyfishxu.kadb.cert.HostKeySet);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;Lcom/flyfishxu/kadb/cert/HostKeySet;)Lcom/flyfishxu/kadb/cert/KadbCert$State$Ready;
+
+  public static com.flyfishxu.kadb.cert.KadbCert$State$Ready copy$default(com.flyfishxu.kadb.cert.KadbCert$State$Ready, com.flyfishxu.kadb.cert.KadbIdentitySnapshot, com.flyfishxu.kadb.cert.HostKeySet, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCert$State$Ready;Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;Lcom/flyfishxu/kadb/cert/HostKeySet;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbCert$State$Ready;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public final class com.flyfishxu.kadb.cert.KadbCert$State$Uninitialized implements com.flyfishxu.kadb.cert.KadbCert$State {
+  public static final com.flyfishxu.kadb.cert.KadbCert$State$Uninitialized INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/cert/KadbCert$State$Uninitialized;
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public abstract class com.flyfishxu.kadb.cert.KadbCertException extends java.lang.RuntimeException {
+  public static final com.flyfishxu.kadb.cert.KadbCertException$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/cert/KadbCertException$Companion;
+  public com.flyfishxu.kadb.cert.KadbCertException(java.lang.String, java.lang.Throwable, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException(java.lang.String, java.lang.Throwable, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertException$Companion {
+  public final com.flyfishxu.kadb.cert.KadbCertException fromPrivateKeyParseError$Kadb_kadb(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Lcom/flyfishxu/kadb/cert/KadbCertException;
+
+  public com.flyfishxu.kadb.cert.KadbCertException$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertException$PolicyViolation extends com.flyfishxu.kadb.cert.KadbCertException {
+  public com.flyfishxu.kadb.cert.KadbCertException$PolicyViolation(java.lang.String, java.lang.Throwable);
+    descriptor: (Ljava/lang/String;Ljava/lang/Throwable;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$PolicyViolation(java.lang.String, java.lang.Throwable, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertException$PrivateKeyParseFailed extends com.flyfishxu.kadb.cert.KadbCertException {
+  public com.flyfishxu.kadb.cert.KadbCertException$PrivateKeyParseFailed(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$PrivateKeyParseFailed(java.lang.Throwable, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$PrivateKeyParseFailed();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertException$StoreReadFailed extends com.flyfishxu.kadb.cert.KadbCertException {
+  public com.flyfishxu.kadb.cert.KadbCertException$StoreReadFailed(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$StoreReadFailed(java.lang.Throwable, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$StoreReadFailed();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertException$StoreWriteFailed extends com.flyfishxu.kadb.cert.KadbCertException {
+  public com.flyfishxu.kadb.cert.KadbCertException$StoreWriteFailed(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$StoreWriteFailed(java.lang.Throwable, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertException$StoreWriteFailed();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertPolicy {
+  public com.flyfishxu.kadb.cert.KadbCertPolicy(int, int, boolean, com.flyfishxu.kadb.cert.KadbCertPolicy$Subject);
+    descriptor: (IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertPolicy(int, int, boolean, com.flyfishxu.kadb.cert.KadbCertPolicy$Subject, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final int getKeySizeBits();
+    descriptor: ()I
+
+  public final int getCertValidityDays();
+    descriptor: ()I
+
+  public final boolean getAutoHealInvalidPrivateKey();
+    descriptor: ()Z
+
+  public final com.flyfishxu.kadb.cert.KadbCertPolicy$Subject getSubject();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+
+  public final int component1();
+    descriptor: ()I
+
+  public final int component2();
+    descriptor: ()I
+
+  public final boolean component3();
+    descriptor: ()Z
+
+  public final com.flyfishxu.kadb.cert.KadbCertPolicy$Subject component4();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+
+  public final com.flyfishxu.kadb.cert.KadbCertPolicy copy(int, int, boolean, com.flyfishxu.kadb.cert.KadbCertPolicy$Subject);
+    descriptor: (IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy;
+
+  public static com.flyfishxu.kadb.cert.KadbCertPolicy copy$default(com.flyfishxu.kadb.cert.KadbCertPolicy, int, int, boolean, com.flyfishxu.kadb.cert.KadbCertPolicy$Subject, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCertPolicy;IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+
+  public com.flyfishxu.kadb.cert.KadbCertPolicy();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.KadbCertPolicy$Subject {
+  public com.flyfishxu.kadb.cert.KadbCertPolicy$Subject(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+  public com.flyfishxu.kadb.cert.KadbCertPolicy$Subject(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final java.lang.String getCn();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getOu();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getO();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getL();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getSt();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getC();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component1();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component2();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component3();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component4();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component5();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component6();
+    descriptor: ()Ljava/lang/String;
+
+  public final com.flyfishxu.kadb.cert.KadbCertPolicy$Subject copy(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+
+  public static com.flyfishxu.kadb.cert.KadbCertPolicy$Subject copy$default(com.flyfishxu.kadb.cert.KadbCertPolicy$Subject, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+
+  public com.flyfishxu.kadb.cert.KadbCertPolicy$Subject();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.KadbIdentitySnapshot {
+  public com.flyfishxu.kadb.cert.KadbIdentitySnapshot(byte[], byte[], java.lang.String, long);
+    descriptor: ([B[BLjava/lang/String;J)V
+
+  public final byte[] getPrivateKeyPem();
+    descriptor: ()[B
+
+  public final byte[] getCertificatePem();
+    descriptor: ()[B
+
+  public final java.lang.String getFingerprintSha256();
+    descriptor: ()Ljava/lang/String;
+
+  public final long getNotAfterEpochMillis();
+    descriptor: ()J
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot deepCopy$Kadb_kadb();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final byte[] component1();
+    descriptor: ()[B
+
+  public final byte[] component2();
+    descriptor: ()[B
+
+  public final java.lang.String component3();
+    descriptor: ()Ljava/lang/String;
+
+  public final long component4();
+    descriptor: ()J
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot copy(byte[], byte[], java.lang.String, long);
+    descriptor: ([B[BLjava/lang/String;J)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public static com.flyfishxu.kadb.cert.KadbIdentitySnapshot copy$default(com.flyfishxu.kadb.cert.KadbIdentitySnapshot, byte[], byte[], java.lang.String, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;[B[BLjava/lang/String;JILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public interface com.flyfishxu.kadb.cert.KadbPrivateKeyStore {
+  public abstract byte[] readPrivateKeyPem();
+    descriptor: ()[B
+
+  public abstract void writePrivateKeyPemAtomic(byte[]);
+    descriptor: ([B)V
+
+  public abstract void clear();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.OkioFilePrivateKeyStore implements com.flyfishxu.kadb.cert.KadbPrivateKeyStore {
+  public com.flyfishxu.kadb.cert.OkioFilePrivateKeyStore(okio.Path, okio.FileSystem);
+    descriptor: (Lokio/Path;Lokio/FileSystem;)V
+
+  public com.flyfishxu.kadb.cert.OkioFilePrivateKeyStore(okio.Path, okio.FileSystem, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lokio/Path;Lokio/FileSystem;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public byte[] readPrivateKeyPem();
+    descriptor: ()[B
+
+  public void writePrivateKeyPemAtomic(byte[]);
+    descriptor: ([B)V
+
+  public void clear();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.cert.PemEncodingKt {
+  public static final byte[] decodeIdentityPem(byte[], java.lang.String);
+    descriptor: ([BLjava/lang/String;)[B
+
+  public static final byte[] encodeIdentityPem(byte[], java.lang.String);
+    descriptor: ([BLjava/lang/String;)[B
+}
+public final class com.flyfishxu.kadb.cert.ResolvedIdentity {
+  public com.flyfishxu.kadb.cert.ResolvedIdentity(byte[], com.flyfishxu.kadb.cert.AdbKeyPair, com.flyfishxu.kadb.cert.KadbIdentitySnapshot);
+    descriptor: ([BLcom/flyfishxu/kadb/cert/AdbKeyPair;Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;)V
+
+  public final byte[] getPrivateKeyPem();
+    descriptor: ()[B
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair getKeyPair();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot getSnapshot();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final byte[] component1();
+    descriptor: ()[B
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair component2();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final com.flyfishxu.kadb.cert.KadbIdentitySnapshot component3();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+
+  public final com.flyfishxu.kadb.cert.ResolvedIdentity copy(byte[], com.flyfishxu.kadb.cert.AdbKeyPair, com.flyfishxu.kadb.cert.KadbIdentitySnapshot);
+    descriptor: ([BLcom/flyfishxu/kadb/cert/AdbKeyPair;Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;)Lcom/flyfishxu/kadb/cert/ResolvedIdentity;
+
+  public static com.flyfishxu.kadb.cert.ResolvedIdentity copy$default(com.flyfishxu.kadb.cert.ResolvedIdentity, byte[], com.flyfishxu.kadb.cert.AdbKeyPair, com.flyfishxu.kadb.cert.KadbIdentitySnapshot, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/cert/ResolvedIdentity;[BLcom/flyfishxu/kadb/cert/AdbKeyPair;Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/ResolvedIdentity;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public final class com.flyfishxu.kadb.cert.platform.DefaultDeviceNameKt {
+  public static final java.lang.String formatDefaultDeviceName(java.lang.String, java.lang.String);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.cert.platform.DefaultDeviceName_jvmKt {
+  public static final java.lang.String defaultDeviceName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/lang/String;
+
+  public static java.lang.String defaultDeviceName$default(java.lang.String, int, java.lang.Object);
+    descriptor: (Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.concurrent.BlockingCondition {
+  public com.flyfishxu.kadb.concurrent.BlockingCondition(java.util.concurrent.locks.Condition);
+    descriptor: (Ljava/util/concurrent/locks/Condition;)V
+
+  public final void await();
+    descriptor: ()V
+
+  public final void signalAll();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.concurrent.BlockingLock {
+  public com.flyfishxu.kadb.concurrent.BlockingLock();
+    descriptor: ()V
+
+  public final void lock();
+    descriptor: ()V
+
+  public final void unlock();
+    descriptor: ()V
+
+  public final com.flyfishxu.kadb.concurrent.BlockingCondition newCondition();
+    descriptor: ()Lcom/flyfishxu/kadb/concurrent/BlockingCondition;
+}
+public final class com.flyfishxu.kadb.concurrent.BlockingLockKt {
+  public static final <T> T withLock(com.flyfishxu.kadb.concurrent.BlockingLock, kotlin.jvm.functions.Function0<? extends T>);
+    descriptor: (Lcom/flyfishxu/kadb/concurrent/BlockingLock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.concurrent.BlockingLock_jvmAndroidKt {
+  public static final void startReaderThread(kotlin.jvm.functions.Function0<kotlin.Unit>);
+    descriptor: (Lkotlin/jvm/functions/Function0;)V
+}
+public final class com.flyfishxu.kadb.core.AdbConnection implements java.lang.AutoCloseable {
+  public static final com.flyfishxu.kadb.core.AdbConnection$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/core/AdbConnection$Companion;
+  public com.flyfishxu.kadb.core.AdbConnection(com.flyfishxu.kadb.core.AdbReader, com.flyfishxu.kadb.core.AdbWriter, java.io.Closeable, java.util.Set<java.lang.String>, int, int);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbReader;Lcom/flyfishxu/kadb/core/AdbWriter;Ljava/io/Closeable;Ljava/util/Set;II)V
+
+  public final boolean isOpen();
+    descriptor: ()Z
+
+  public final com.flyfishxu.kadb.stream.AdbStream open(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+
+  public final boolean supportsFeature(java.lang.String);
+    descriptor: (Ljava/lang/String;)Z
+
+  public final java.util.Set<java.lang.String> featureSnapshot$Kadb_kadb();
+    descriptor: ()Ljava/util/Set;
+
+  public final void ensureEmpty$Kadb_kadb();
+    descriptor: ()V
+
+  public void close();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.core.AdbConnection$Companion {
+  public final java.lang.Object connect(java.lang.String, int, com.flyfishxu.kadb.cert.HostKeySet, com.flyfishxu.kadb.KadbOptions, int, int, kotlin.jvm.functions.Function1<? super kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>, ? extends java.lang.Object>, kotlin.jvm.functions.Function1<? super com.flyfishxu.kadb.transport.TransportChannel, kotlin.Unit>, kotlin.coroutines.Continuation<? super kotlin.Pair<com.flyfishxu.kadb.core.AdbConnection, ? extends com.flyfishxu.kadb.transport.TransportChannel>>);
+    descriptor: (Ljava/lang/String;ILcom/flyfishxu/kadb/cert/HostKeySet;Lcom/flyfishxu/kadb/KadbOptions;IILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static java.lang.Object connect$default(com.flyfishxu.kadb.core.AdbConnection$Companion, java.lang.String, int, com.flyfishxu.kadb.cert.HostKeySet, com.flyfishxu.kadb.KadbOptions, int, int, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, kotlin.coroutines.Continuation, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbConnection$Companion;Ljava/lang/String;ILcom/flyfishxu/kadb/cert/HostKeySet;Lcom/flyfishxu/kadb/KadbOptions;IILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+
+  public final java.lang.Object connect(java.lang.String, int, com.flyfishxu.kadb.cert.AdbKeyPair, com.flyfishxu.kadb.KadbOptions, int, int, kotlin.coroutines.Continuation<? super kotlin.Pair<com.flyfishxu.kadb.core.AdbConnection, ? extends com.flyfishxu.kadb.transport.TransportChannel>>);
+    descriptor: (Ljava/lang/String;ILcom/flyfishxu/kadb/cert/AdbKeyPair;Lcom/flyfishxu/kadb/KadbOptions;IILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static java.lang.Object connect$default(com.flyfishxu.kadb.core.AdbConnection$Companion, java.lang.String, int, com.flyfishxu.kadb.cert.AdbKeyPair, com.flyfishxu.kadb.KadbOptions, int, int, kotlin.coroutines.Continuation, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbConnection$Companion;Ljava/lang/String;ILcom/flyfishxu/kadb/cert/AdbKeyPair;Lcom/flyfishxu/kadb/KadbOptions;IILkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+
+  public static final int access$decodeOkayAckBytes(com.flyfishxu.kadb.core.AdbConnection$Companion, com.flyfishxu.kadb.core.AdbMessage, boolean);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbConnection$Companion;Lcom/flyfishxu/kadb/core/AdbMessage;Z)I
+
+  public com.flyfishxu.kadb.core.AdbConnection$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+final class com.flyfishxu.kadb.core.AdbConnection$Companion$ConnectionString {
+  public com.flyfishxu.kadb.core.AdbConnection$Companion$ConnectionString(java.util.Set<java.lang.String>);
+    descriptor: (Ljava/util/Set;)V
+
+  public final java.util.Set<java.lang.String> getFeatures();
+    descriptor: ()Ljava/util/Set;
+
+  public final java.util.Set<java.lang.String> component1();
+    descriptor: ()Ljava/util/Set;
+
+  public final com.flyfishxu.kadb.core.AdbConnection$Companion$ConnectionString copy(java.util.Set<java.lang.String>);
+    descriptor: (Ljava/util/Set;)Lcom/flyfishxu/kadb/core/AdbConnection$Companion$ConnectionString;
+
+  public static com.flyfishxu.kadb.core.AdbConnection$Companion$ConnectionString copy$default(com.flyfishxu.kadb.core.AdbConnection$Companion$ConnectionString, java.util.Set, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbConnection$Companion$ConnectionString;Ljava/util/Set;ILjava/lang/Object;)Lcom/flyfishxu/kadb/core/AdbConnection$Companion$ConnectionString;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+final class com.flyfishxu.kadb.core.AdbConnection$Companion$connect$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.core.AdbConnectionKt {
+  public static final byte[] access$adbPublicKey(com.flyfishxu.kadb.cert.AdbKeyPair);
+    descriptor: (Lcom/flyfishxu/kadb/cert/AdbKeyPair;)[B
+}
+public final class com.flyfishxu.kadb.core.AdbMessage {
+  public com.flyfishxu.kadb.core.AdbMessage(int, int, int, int, int, int, byte[]);
+    descriptor: (IIIIII[B)V
+
+  public final int getCommand();
+    descriptor: ()I
+
+  public final int getArg0();
+    descriptor: ()I
+
+  public final int getArg1();
+    descriptor: ()I
+
+  public final int getPayloadLength();
+    descriptor: ()I
+
+  public final int getChecksum();
+    descriptor: ()I
+
+  public final int getMagic();
+    descriptor: ()I
+
+  public final byte[] getPayload();
+    descriptor: ()[B
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.core.AdbProtocol {
+  public static final com.flyfishxu.kadb.core.AdbProtocol INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/core/AdbProtocol;
+  public static final int ADB_HEADER_LENGTH = 24;
+    descriptor: I
+  public static final int A_STLS = 1397511251;
+    descriptor: I
+  public static final int A_STLS_VERSION = 16777216;
+    descriptor: I
+  public static final int AUTH_TYPE_TOKEN = 1;
+    descriptor: I
+  public static final int AUTH_TYPE_SIGNATURE = 2;
+    descriptor: I
+  public static final int AUTH_TYPE_RSA_PUBLIC = 3;
+    descriptor: I
+  public static final int CMD_AUTH = 1213486401;
+    descriptor: I
+  public static final int CMD_CNXN = 1314410051;
+    descriptor: I
+  public static final int CMD_OPEN = 1313165391;
+    descriptor: I
+  public static final int CMD_OKAY = 1497451343;
+    descriptor: I
+  public static final int CMD_CLSE = 1163086915;
+    descriptor: I
+  public static final int CMD_WRTE = 1163154007;
+    descriptor: I
+  public static final int CMD_STLS = 1397511251;
+    descriptor: I
+  public static final int A_VERSION_MIN = 16777216;
+    descriptor: I
+  public static final int A_VERSION_SKIP_CHECKSUM = 16777217;
+    descriptor: I
+  public static final int A_VERSION = 16777217;
+    descriptor: I
+  public static final int CONNECT_VERSION = 16777217;
+    descriptor: I
+  public static final int MAX_PAYLOAD_V1 = 4096;
+    descriptor: I
+  public static final int CONNECT_MAXDATA = 1048576;
+    descriptor: I
+  public static final int INITIAL_DELAYED_ACK_BYTES = 33554432;
+    descriptor: I
+  public static final java.lang.String FEATURE_DELAYED_ACK = "delayed_ack";
+    descriptor: Ljava/lang/String;
+  public final java.util.List<java.lang.String> connectFeatures(com.flyfishxu.kadb.DelayedAckMode);
+    descriptor: (Lcom/flyfishxu/kadb/DelayedAckMode;)Ljava/util/List;
+
+  public static java.util.List connectFeatures$default(com.flyfishxu.kadb.core.AdbProtocol, com.flyfishxu.kadb.DelayedAckMode, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbProtocol;Lcom/flyfishxu/kadb/DelayedAckMode;ILjava/lang/Object;)Ljava/util/List;
+
+  public final byte[] connectPayload(java.util.List<java.lang.String>);
+    descriptor: (Ljava/util/List;)[B
+
+  public final byte[] generateStls();
+    descriptor: ()[B
+}
+public final class com.flyfishxu.kadb.core.AdbReader implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.core.AdbReader(okio.Source, int);
+    descriptor: (Lokio/Source;I)V
+
+  public com.flyfishxu.kadb.core.AdbReader(okio.Source, int, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lokio/Source;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final void setInboundMaxPayloadSize(int);
+    descriptor: (I)V
+
+  public final com.flyfishxu.kadb.core.AdbMessage readMessage();
+    descriptor: ()Lcom/flyfishxu/kadb/core/AdbMessage;
+
+  public void close();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.core.AdbWriter implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.core.AdbWriter(okio.Sink);
+    descriptor: (Lokio/Sink;)V
+
+  public final void updateProtocolVersion(int);
+    descriptor: (I)V
+
+  public final void writeConnect(byte[]);
+    descriptor: ([B)V
+
+  public final void writeAuth(int, byte[]);
+    descriptor: (I[B)V
+
+  public final void writeStls(int);
+    descriptor: (I)V
+
+  public final void writeOpen(int, java.lang.String, int);
+    descriptor: (ILjava/lang/String;I)V
+
+  public static void writeOpen$default(com.flyfishxu.kadb.core.AdbWriter, int, java.lang.String, int, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbWriter;ILjava/lang/String;IILjava/lang/Object;)V
+
+  public final void writeWrite(int, int, byte[], int, int);
+    descriptor: (II[BII)V
+
+  public final void writeClose(int, int);
+    descriptor: (II)V
+
+  public final void writeOkay(int, int, java.lang.Integer);
+    descriptor: (IILjava/lang/Integer;)V
+
+  public static void writeOkay$default(com.flyfishxu.kadb.core.AdbWriter, int, int, java.lang.Integer, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbWriter;IILjava/lang/Integer;ILjava/lang/Object;)V
+
+  public final void write(int, int, int, byte[], int, int);
+    descriptor: (III[BII)V
+
+  public void close();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.core.HostFeaturePolicyKt {
+  public static final boolean shouldAdvertiseDelayedAck(com.flyfishxu.kadb.DelayedAckMode);
+    descriptor: (Lcom/flyfishxu/kadb/DelayedAckMode;)Z
+}
+public final class com.flyfishxu.kadb.core.HostFeaturePolicyKt$WhenMappings {
+  public static final int[] $EnumSwitchMapping$0;
+    descriptor: [I
+}
+public final class com.flyfishxu.kadb.core.HostFeaturePolicy_jvmKt {
+  public static final boolean aospDefaultDelayedAckEnabled();
+    descriptor: ()Z
+}
+public final class com.flyfishxu.kadb.core.JvmHostFeatureDefaults {
+  public static final com.flyfishxu.kadb.core.JvmHostFeatureDefaults INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/core/JvmHostFeatureDefaults;
+  public final java.lang.Boolean getBurstModeOverride();
+    descriptor: ()Ljava/lang/Boolean;
+
+  public final void setBurstModeOverride(java.lang.Boolean);
+    descriptor: (Ljava/lang/Boolean;)V
+}
+public final class com.flyfishxu.kadb.debug.LoggingKt {
+  public static final void log(kotlin.jvm.functions.Function0<java.lang.String>);
+    descriptor: (Lkotlin/jvm/functions/Function0;)V
+}
+public final class com.flyfishxu.kadb.debug.Logging_jvmAndroidKt {
+  public static final boolean getLoggingEnabled();
+    descriptor: ()Z
+
+  public static final java.lang.String currentThreadName();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.exception.AdbAuthException extends java.io.IOException {
+  public com.flyfishxu.kadb.exception.AdbAuthException();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.exception.AdbPairAuthException extends java.io.IOException {
+  public com.flyfishxu.kadb.exception.AdbPairAuthException();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.exception.AdbStreamClosed extends java.io.IOException {
+  public com.flyfishxu.kadb.exception.AdbStreamClosed(int);
+    descriptor: (I)V
+}
+public final class com.flyfishxu.kadb.exception.PlatformInterruptedException_jvmAndroidKt {
+}
+public final class com.flyfishxu.kadb.forwarding.TcpForwarder implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.forwarding.TcpForwarder(com.flyfishxu.kadb.Kadb, int, int);
+    descriptor: (Lcom/flyfishxu/kadb/Kadb;II)V
+
+  public final void start();
+    descriptor: ()V
+
+  public void close();
+    descriptor: ()V
+}
+final class com.flyfishxu.kadb.forwarding.TcpForwarder$State extends java.lang.Enum<com.flyfishxu.kadb.forwarding.TcpForwarder$State> {
+  public static final com.flyfishxu.kadb.forwarding.TcpForwarder$State STARTING;
+    descriptor: Lcom/flyfishxu/kadb/forwarding/TcpForwarder$State;
+  public static final com.flyfishxu.kadb.forwarding.TcpForwarder$State STARTED;
+    descriptor: Lcom/flyfishxu/kadb/forwarding/TcpForwarder$State;
+  public static final com.flyfishxu.kadb.forwarding.TcpForwarder$State STOPPING;
+    descriptor: Lcom/flyfishxu/kadb/forwarding/TcpForwarder$State;
+  public static final com.flyfishxu.kadb.forwarding.TcpForwarder$State STOPPED;
+    descriptor: Lcom/flyfishxu/kadb/forwarding/TcpForwarder$State;
+  public static com.flyfishxu.kadb.forwarding.TcpForwarder$State[] values();
+    descriptor: ()[Lcom/flyfishxu/kadb/forwarding/TcpForwarder$State;
+
+  public static com.flyfishxu.kadb.forwarding.TcpForwarder$State valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/forwarding/TcpForwarder$State;
+
+  public static kotlin.enums.EnumEntries<com.flyfishxu.kadb.forwarding.TcpForwarder$State> getEntries();
+    descriptor: ()Lkotlin/enums/EnumEntries;
+}
+public final class com.flyfishxu.kadb.io.PlatformFileSystemKt {
+  public static final okio.FileSystem getPlatformFileSystem();
+    descriptor: ()Lokio/FileSystem;
+}
+public final class com.flyfishxu.kadb.pair.PairingAuthCtx {
+  public static final com.flyfishxu.kadb.pair.PairingAuthCtx$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingAuthCtx$Companion;
+  public final byte[] getMsg();
+    descriptor: ()[B
+
+  public final boolean initCipher(byte[]);
+    descriptor: ([B)Z
+
+  public final byte[] encrypt(byte[]);
+    descriptor: ([B)[B
+
+  public final byte[] decrypt(byte[]);
+    descriptor: ([B)[B
+
+  public final boolean isDestroyed();
+    descriptor: ()Z
+
+  public final void destroy();
+    descriptor: ()V
+
+  public com.flyfishxu.kadb.pair.PairingAuthCtx(com.flyfishxu.kadb.pair.PairingCrypto, byte[], kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lcom/flyfishxu/kadb/pair/PairingCrypto;[BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.pair.PairingAuthCtx$Companion {
+  public final com.flyfishxu.kadb.pair.PairingAuthCtx create$Kadb_kadb(byte[]);
+    descriptor: ([B)Lcom/flyfishxu/kadb/pair/PairingAuthCtx;
+
+  public com.flyfishxu.kadb.pair.PairingAuthCtx$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.pair.PairingAuthCtxKt {
+  public static final int HKDF_KEY_LENGTH = 16;
+    descriptor: I
+  public static final byte[] getINFO();
+    descriptor: ()[B
+
+  public static final com.flyfishxu.kadb.pair.PairingAuthCtx createAlice(com.flyfishxu.kadb.pair.PairingAuthCtx$Companion, byte[]);
+    descriptor: (Lcom/flyfishxu/kadb/pair/PairingAuthCtx$Companion;[B)Lcom/flyfishxu/kadb/pair/PairingAuthCtx;
+
+  public static final byte[] access$getCLIENT_NAME();
+    descriptor: ()[B
+
+  public static final byte[] access$getSERVER_NAME();
+    descriptor: ()[B
+}
+public final class com.flyfishxu.kadb.pair.PairingConnectionCtx implements java.io.Closeable {
+  public com.flyfishxu.kadb.pair.PairingConnectionCtx(java.lang.String, int, byte[], com.flyfishxu.kadb.cert.AdbKeyPair, java.lang.String);
+    descriptor: (Ljava/lang/String;I[BLcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/lang/String;)V
+
+  public final void start() throws java.io.IOException;
+    descriptor: ()V
+
+  public void close();
+    descriptor: ()V
+}
+final class com.flyfishxu.kadb.pair.PairingConnectionCtx$PairingPacketHeader {
+  public static final com.flyfishxu.kadb.pair.PairingConnectionCtx$PairingPacketHeader$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$PairingPacketHeader$Companion;
+  public static final byte CURRENT_KEY_HEADER_VERSION = 1;
+    descriptor: B
+  public static final byte MIN_SUPPORTED_KEY_HEADER_VERSION = 1;
+    descriptor: B
+  public static final byte MAX_SUPPORTED_KEY_HEADER_VERSION = 1;
+    descriptor: B
+  public static final int MAX_PAYLOAD_SIZE = 16384;
+    descriptor: I
+  public static final byte PAIRING_PACKET_HEADER_SIZE = 6;
+    descriptor: B
+  public static final byte SPAKE2_MSG = 0;
+    descriptor: B
+  public static final byte PEER_INFO = 1;
+    descriptor: B
+  public com.flyfishxu.kadb.pair.PairingConnectionCtx$PairingPacketHeader(byte, byte, int);
+    descriptor: (BBI)V
+
+  public final byte getType();
+    descriptor: ()B
+
+  public final int getPayloadSize();
+    descriptor: ()I
+
+  public final void writeTo(okio.Buffer);
+    descriptor: (Lokio/Buffer;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.pair.PairingConnectionCtx$PairingPacketHeader$Companion {
+  public final com.flyfishxu.kadb.pair.PairingConnectionCtx$PairingPacketHeader readFrom(okio.Buffer);
+    descriptor: (Lokio/Buffer;)Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$PairingPacketHeader;
+
+  public com.flyfishxu.kadb.pair.PairingConnectionCtx$PairingPacketHeader$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+final class com.flyfishxu.kadb.pair.PairingConnectionCtx$PeerInfo {
+  public static final com.flyfishxu.kadb.pair.PairingConnectionCtx$PeerInfo$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$PeerInfo$Companion;
+  public static final int MAX_PEER_INFO_SIZE = 8192;
+    descriptor: I
+  public static final byte ADB_RSA_PUB_KEY = 0;
+    descriptor: B
+  public static final byte ADB_DEVICE_GUID = 1;
+    descriptor: B
+  public com.flyfishxu.kadb.pair.PairingConnectionCtx$PeerInfo(byte, byte[]);
+    descriptor: (B[B)V
+
+  public final void writeTo(okio.Buffer);
+    descriptor: (Lokio/Buffer;)V
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.pair.PairingConnectionCtx$PeerInfo$Companion {
+  public final com.flyfishxu.kadb.pair.PairingConnectionCtx$PeerInfo readFrom(okio.Buffer);
+    descriptor: (Lokio/Buffer;)Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$PeerInfo;
+
+  public com.flyfishxu.kadb.pair.PairingConnectionCtx$PeerInfo$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+final class com.flyfishxu.kadb.pair.PairingConnectionCtx$State extends java.lang.Enum<com.flyfishxu.kadb.pair.PairingConnectionCtx$State> {
+  public static final com.flyfishxu.kadb.pair.PairingConnectionCtx$State Ready;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$State;
+  public static final com.flyfishxu.kadb.pair.PairingConnectionCtx$State ExchangingMsgs;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$State;
+  public static final com.flyfishxu.kadb.pair.PairingConnectionCtx$State ExchangingPeerInfo;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$State;
+  public static final com.flyfishxu.kadb.pair.PairingConnectionCtx$State Stopped;
+    descriptor: Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$State;
+  public static com.flyfishxu.kadb.pair.PairingConnectionCtx$State[] values();
+    descriptor: ()[Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$State;
+
+  public static com.flyfishxu.kadb.pair.PairingConnectionCtx$State valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/pair/PairingConnectionCtx$State;
+
+  public static kotlin.enums.EnumEntries<com.flyfishxu.kadb.pair.PairingConnectionCtx$State> getEntries();
+    descriptor: ()Lkotlin/enums/EnumEntries;
+}
+public final class com.flyfishxu.kadb.pair.PairingConnectionCtx$WhenMappings {
+  public static final int[] $EnumSwitchMapping$0;
+    descriptor: [I
+}
+public final class com.flyfishxu.kadb.pair.PairingCrypto {
+  public com.flyfishxu.kadb.pair.PairingCrypto(byte[], byte[]);
+    descriptor: ([B[B)V
+
+  public final byte[] generateMessage(byte[]);
+    descriptor: ([B)[B
+
+  public final byte[] processMessage(byte[]);
+    descriptor: ([B)[B
+
+  public final byte[] deriveKey(byte[], byte[]);
+    descriptor: ([B[B)[B
+
+  public final byte[] encryptDecrypt(boolean, byte[], byte[], byte[]);
+    descriptor: (Z[B[B[B)[B
+
+  public final void destroy();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.pair.PairingTlsConnection implements java.io.Closeable {
+  public com.flyfishxu.kadb.pair.PairingTlsConnection(java.lang.String, int, com.flyfishxu.kadb.cert.AdbKeyPair);
+    descriptor: (Ljava/lang/String;ILcom/flyfishxu/kadb/cert/AdbKeyPair;)V
+
+  public final void start();
+    descriptor: ()V
+
+  public final byte[] exportKeyingMaterial();
+    descriptor: ()[B
+
+  public final void readFully(byte[]);
+    descriptor: ([B)V
+
+  public final void write(byte[]);
+    descriptor: ([B)V
+
+  public void close();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.pair.PairingTlsConnection_jvmKt {
+  public static final java.lang.Class<?> getConscryptClass(com.flyfishxu.kadb.pair.PairingTlsConnection);
+    descriptor: (Lcom/flyfishxu/kadb/pair/PairingTlsConnection;)Ljava/lang/Class;
+}
+public final class com.flyfishxu.kadb.pair.SslUtils {
+  public static final com.flyfishxu.kadb.pair.SslUtils INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/pair/SslUtils;
+  public final boolean getCustomConscrypt();
+    descriptor: ()Z
+
+  public final void setCustomConscrypt(boolean);
+    descriptor: (Z)V
+
+  public final javax.net.ssl.SSLEngine newClientEngine(javax.net.ssl.SSLContext, java.lang.String, int);
+    descriptor: (Ljavax/net/ssl/SSLContext;Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;
+
+  public final javax.net.ssl.SSLContext getSslContext(com.flyfishxu.kadb.cert.HostKeySet);
+    descriptor: (Lcom/flyfishxu/kadb/cert/HostKeySet;)Ljavax/net/ssl/SSLContext;
+
+  public final javax.net.ssl.SSLContext getSslContext(com.flyfishxu.kadb.cert.AdbKeyPair);
+    descriptor: (Lcom/flyfishxu/kadb/cert/AdbKeyPair;)Ljavax/net/ssl/SSLContext;
+
+  public final javax.net.ssl.X509ExtendedKeyManager newClientKeyManager$Kadb_kadb(com.flyfishxu.kadb.cert.HostKeySet);
+    descriptor: (Lcom/flyfishxu/kadb/cert/HostKeySet;)Ljavax/net/ssl/X509ExtendedKeyManager;
+
+  public final java.lang.String parseAdbKeyFingerprintHexFromIssuer$Kadb_kadb(java.security.Principal);
+    descriptor: (Ljava/security/Principal;)Ljava/lang/String;
+
+  public static final boolean access$supportsKeyType(com.flyfishxu.kadb.pair.SslUtils, java.lang.String);
+    descriptor: (Lcom/flyfishxu/kadb/pair/SslUtils;Ljava/lang/String;)Z
+
+  public static final java.lang.String access$chooseAlias(com.flyfishxu.kadb.pair.SslUtils, java.lang.String[], java.security.Principal[], java.lang.String, java.util.List);
+    descriptor: (Lcom/flyfishxu/kadb/pair/SslUtils;[Ljava/lang/String;[Ljava/security/Principal;Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;
+}
+final class com.flyfishxu.kadb.pair.SslUtils$CachedContext {
+  public com.flyfishxu.kadb.pair.SslUtils$CachedContext(java.lang.String, javax.net.ssl.SSLContext, boolean);
+    descriptor: (Ljava/lang/String;Ljavax/net/ssl/SSLContext;Z)V
+
+  public final java.lang.String getHostKeyCacheKey();
+    descriptor: ()Ljava/lang/String;
+
+  public final javax.net.ssl.SSLContext getContext();
+    descriptor: ()Ljavax/net/ssl/SSLContext;
+
+  public final boolean getCustomConscrypt();
+    descriptor: ()Z
+
+  public final java.lang.String component1();
+    descriptor: ()Ljava/lang/String;
+
+  public final javax.net.ssl.SSLContext component2();
+    descriptor: ()Ljavax/net/ssl/SSLContext;
+
+  public final boolean component3();
+    descriptor: ()Z
+
+  public final com.flyfishxu.kadb.pair.SslUtils$CachedContext copy(java.lang.String, javax.net.ssl.SSLContext, boolean);
+    descriptor: (Ljava/lang/String;Ljavax/net/ssl/SSLContext;Z)Lcom/flyfishxu/kadb/pair/SslUtils$CachedContext;
+
+  public static com.flyfishxu.kadb.pair.SslUtils$CachedContext copy$default(com.flyfishxu.kadb.pair.SslUtils$CachedContext, java.lang.String, javax.net.ssl.SSLContext, boolean, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/pair/SslUtils$CachedContext;Ljava/lang/String;Ljavax/net/ssl/SSLContext;ZILjava/lang/Object;)Lcom/flyfishxu/kadb/pair/SslUtils$CachedContext;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+final class com.flyfishxu.kadb.pair.SslUtils$ClientIdentity {
+  public com.flyfishxu.kadb.pair.SslUtils$ClientIdentity(java.lang.String, com.flyfishxu.kadb.cert.AdbKeyPair, java.lang.String);
+    descriptor: (Ljava/lang/String;Lcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/lang/String;)V
+
+  public final java.lang.String getAlias();
+    descriptor: ()Ljava/lang/String;
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair getKeyPair();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final java.lang.String getAdbTlsFingerprintHex();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String component1();
+    descriptor: ()Ljava/lang/String;
+
+  public final com.flyfishxu.kadb.cert.AdbKeyPair component2();
+    descriptor: ()Lcom/flyfishxu/kadb/cert/AdbKeyPair;
+
+  public final java.lang.String component3();
+    descriptor: ()Ljava/lang/String;
+
+  public final com.flyfishxu.kadb.pair.SslUtils$ClientIdentity copy(java.lang.String, com.flyfishxu.kadb.cert.AdbKeyPair, java.lang.String);
+    descriptor: (Ljava/lang/String;Lcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/lang/String;)Lcom/flyfishxu/kadb/pair/SslUtils$ClientIdentity;
+
+  public static com.flyfishxu.kadb.pair.SslUtils$ClientIdentity copy$default(com.flyfishxu.kadb.pair.SslUtils$ClientIdentity, java.lang.String, com.flyfishxu.kadb.cert.AdbKeyPair, java.lang.String, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/pair/SslUtils$ClientIdentity;Ljava/lang/String;Lcom/flyfishxu/kadb/cert/AdbKeyPair;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/pair/SslUtils$ClientIdentity;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public final class com.flyfishxu.kadb.pair.SslUtils$getAllAcceptingTrustManager$1 implements javax.net.ssl.X509TrustManager {
+  public void checkClientTrusted(java.security.cert.X509Certificate[], java.lang.String);
+    descriptor: ([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
+
+  public void checkServerTrusted(java.security.cert.X509Certificate[], java.lang.String);
+    descriptor: ([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
+
+  public java.security.cert.X509Certificate[] getAcceptedIssuers();
+    descriptor: ()[Ljava/security/cert/X509Certificate;
+}
+public final class com.flyfishxu.kadb.pair.SslUtils$newClientKeyManager$1 extends javax.net.ssl.X509ExtendedKeyManager {
+  public java.lang.String[] getClientAliases(java.lang.String, java.security.Principal[]);
+    descriptor: (Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;
+
+  public java.lang.String chooseClientAlias(java.lang.String[], java.security.Principal[], java.net.Socket);
+    descriptor: ([Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;
+
+  public java.lang.String chooseEngineClientAlias(java.lang.String[], java.security.Principal[], javax.net.ssl.SSLEngine);
+    descriptor: ([Ljava/lang/String;[Ljava/security/Principal;Ljavax/net/ssl/SSLEngine;)Ljava/lang/String;
+
+  public java.lang.String[] getServerAliases(java.lang.String, java.security.Principal[]);
+    descriptor: (Ljava/lang/String;[Ljava/security/Principal;)[Ljava/lang/String;
+
+  public java.lang.String chooseServerAlias(java.lang.String, java.security.Principal[], java.net.Socket);
+    descriptor: (Ljava/lang/String;[Ljava/security/Principal;Ljava/net/Socket;)Ljava/lang/String;
+
+  public java.security.cert.X509Certificate[] getCertificateChain(java.lang.String);
+    descriptor: (Ljava/lang/String;)[Ljava/security/cert/X509Certificate;
+
+  public java.security.PrivateKey getPrivateKey(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/security/PrivateKey;
+}
+public final class com.flyfishxu.kadb.queue.AdbMessageQueue implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.queue.AdbMessageQueue(com.flyfishxu.kadb.core.AdbReader, kotlin.jvm.functions.Function0<kotlin.Unit>);
+    descriptor: (Lcom/flyfishxu/kadb/core/AdbReader;Lkotlin/jvm/functions/Function0;)V
+
+  public final boolean isOpen();
+    descriptor: ()Z
+
+  public final com.flyfishxu.kadb.core.AdbMessage take(int, int);
+    descriptor: (II)Lcom/flyfishxu/kadb/core/AdbMessage;
+
+  public final void startListening(int);
+    descriptor: (I)V
+
+  public final void stopListening(int);
+    descriptor: (I)V
+
+  public void close();
+    descriptor: ()V
+
+  public final void ensureEmpty();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.shell.AdbPtyShellSession implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.shell.AdbPtyShellSession(com.flyfishxu.kadb.shell.AdbShellStream);
+    descriptor: (Lcom/flyfishxu/kadb/shell/AdbShellStream;)V
+
+  public final com.flyfishxu.kadb.shell.AdbShellPacket read() throws java.io.IOException;
+    descriptor: ()Lcom/flyfishxu/kadb/shell/AdbShellPacket;
+
+  public final void write(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)V
+
+  public final void write(byte[]) throws java.io.IOException;
+    descriptor: ([B)V
+
+  public final void closeStdin() throws java.io.IOException;
+    descriptor: ()V
+
+  public final void resize(int, int, int, int) throws java.io.IOException;
+    descriptor: (IIII)V
+
+  public static void resize$default(com.flyfishxu.kadb.shell.AdbPtyShellSession, int, int, int, int, int, java.lang.Object) throws java.io.IOException;
+    descriptor: (Lcom/flyfishxu/kadb/shell/AdbPtyShellSession;IIIIILjava/lang/Object;)V
+
+  public void close();
+    descriptor: ()V
+}
+public abstract class com.flyfishxu.kadb.shell.AdbShellPacket {
+  public byte[] getPayload();
+    descriptor: ()[B
+
+  public abstract int getId();
+    descriptor: ()I
+
+  public com.flyfishxu.kadb.shell.AdbShellPacket(byte[], kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: ([BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.shell.AdbShellPacket$Exit extends com.flyfishxu.kadb.shell.AdbShellPacket {
+  public com.flyfishxu.kadb.shell.AdbShellPacket$Exit(byte[]);
+    descriptor: ([B)V
+
+  public byte[] getPayload();
+    descriptor: ()[B
+
+  public int getId();
+    descriptor: ()I
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.shell.AdbShellPacket$StdError extends com.flyfishxu.kadb.shell.AdbShellPacket {
+  public com.flyfishxu.kadb.shell.AdbShellPacket$StdError(byte[]);
+    descriptor: ([B)V
+
+  public byte[] getPayload();
+    descriptor: ()[B
+
+  public int getId();
+    descriptor: ()I
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.shell.AdbShellPacket$StdOut extends com.flyfishxu.kadb.shell.AdbShellPacket {
+  public com.flyfishxu.kadb.shell.AdbShellPacket$StdOut(byte[]);
+    descriptor: ([B)V
+
+  public byte[] getPayload();
+    descriptor: ()[B
+
+  public int getId();
+    descriptor: ()I
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.shell.AdbShellPacketV2 {
+  public static final com.flyfishxu.kadb.shell.AdbShellPacketV2$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/shell/AdbShellPacketV2$Companion;
+  public static final int ID_STDIN = 0;
+    descriptor: I
+  public static final int ID_STDOUT = 1;
+    descriptor: I
+  public static final int ID_STDERR = 2;
+    descriptor: I
+  public static final int ID_EXIT = 3;
+    descriptor: I
+  public static final int ID_CLOSE_STDIN = 4;
+    descriptor: I
+  public static final int ID_WINDOW_SIZE_CHANGE = 5;
+    descriptor: I
+  public static final int ID_INVALID = 255;
+    descriptor: I
+  public com.flyfishxu.kadb.shell.AdbShellPacketV2();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.shell.AdbShellPacketV2$Companion {
+  public com.flyfishxu.kadb.shell.AdbShellPacketV2$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.shell.AdbShellResponse {
+  public com.flyfishxu.kadb.shell.AdbShellResponse(java.lang.String, java.lang.String, int);
+    descriptor: (Ljava/lang/String;Ljava/lang/String;I)V
+
+  public final java.lang.String getOutput();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getErrorOutput();
+    descriptor: ()Ljava/lang/String;
+
+  public final int getExitCode();
+    descriptor: ()I
+
+  public final java.lang.String getAllOutput();
+    descriptor: ()Ljava/lang/String;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.shell.AdbShellStream implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.shell.AdbShellStream(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)V
+
+  public final com.flyfishxu.kadb.shell.AdbShellResponse readAll() throws java.io.IOException;
+    descriptor: ()Lcom/flyfishxu/kadb/shell/AdbShellResponse;
+
+  public final com.flyfishxu.kadb.shell.AdbShellPacket read() throws java.io.IOException;
+    descriptor: ()Lcom/flyfishxu/kadb/shell/AdbShellPacket;
+
+  public final void write(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)V
+
+  public final void write(byte[]) throws java.io.IOException;
+    descriptor: ([B)V
+
+  public final void closeStdin() throws java.io.IOException;
+    descriptor: ()V
+
+  public final void resize(int, int, int, int) throws java.io.IOException;
+    descriptor: (IIII)V
+
+  public static void resize$default(com.flyfishxu.kadb.shell.AdbShellStream, int, int, int, int, int, java.lang.Object) throws java.io.IOException;
+    descriptor: (Lcom/flyfishxu/kadb/shell/AdbShellStream;IIIIILjava/lang/Object;)V
+
+  public final void write(int, byte[]) throws java.io.IOException;
+    descriptor: (I[B)V
+
+  public static void write$default(com.flyfishxu.kadb.shell.AdbShellStream, int, byte[], int, java.lang.Object) throws java.io.IOException;
+    descriptor: (Lcom/flyfishxu/kadb/shell/AdbShellStream;I[BILjava/lang/Object;)V
+
+  public void close();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.stream.AdbStream implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.stream.AdbStream(com.flyfishxu.kadb.queue.AdbMessageQueue, com.flyfishxu.kadb.core.AdbWriter, int, int, int, boolean, long);
+    descriptor: (Lcom/flyfishxu/kadb/queue/AdbMessageQueue;Lcom/flyfishxu/kadb/core/AdbWriter;IIIZJ)V
+
+  public com.flyfishxu.kadb.stream.AdbStream(com.flyfishxu.kadb.queue.AdbMessageQueue, com.flyfishxu.kadb.core.AdbWriter, int, int, int, boolean, long, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lcom/flyfishxu/kadb/queue/AdbMessageQueue;Lcom/flyfishxu/kadb/core/AdbWriter;IIIZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final okio.BufferedSource getSource();
+    descriptor: ()Lokio/BufferedSource;
+
+  public final okio.BufferedSink getSink();
+    descriptor: ()Lokio/BufferedSink;
+
+  public void close();
+    descriptor: ()V
+
+  public static final boolean access$getDelayedAckEnabled$p(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)Z
+
+  public static final com.flyfishxu.kadb.core.AdbWriter access$getAdbWriter$p(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)Lcom/flyfishxu/kadb/core/AdbWriter;
+
+  public static final int access$getLocalId$p(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)I
+
+  public static final int access$getRemoteId$p(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)I
+
+  public static final com.flyfishxu.kadb.core.AdbMessage access$nextMessage(com.flyfishxu.kadb.stream.AdbStream, int);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;I)Lcom/flyfishxu/kadb/core/AdbMessage;
+
+  public static final int access$getOutboundMaxPayloadSize$p(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)I
+
+  public static final long access$getInitialAvailableSendBytes$p(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)J
+
+  public static final int access$awaitAckBytes(com.flyfishxu.kadb.stream.AdbStream);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;)I
+}
+public final class com.flyfishxu.kadb.stream.AdbStream$sink$1 implements okio.Sink {
+  public void write(okio.Buffer, long);
+    descriptor: (Lokio/Buffer;J)V
+
+  public void flush();
+    descriptor: ()V
+
+  public void close();
+    descriptor: ()V
+
+  public okio.Timeout timeout();
+    descriptor: ()Lokio/Timeout;
+}
+public final class com.flyfishxu.kadb.stream.AdbStream$source$1 implements okio.Source {
+  public long read(okio.Buffer, long);
+    descriptor: (Lokio/Buffer;J)J
+
+  public void close();
+    descriptor: ()V
+
+  public okio.Timeout timeout();
+    descriptor: ()Lokio/Timeout;
+}
+public final class com.flyfishxu.kadb.stream.AdbSyncDirEntry {
+  public com.flyfishxu.kadb.stream.AdbSyncDirEntry(java.lang.String, int, long, long, java.lang.Integer);
+    descriptor: (Ljava/lang/String;IJJLjava/lang/Integer;)V
+
+  public final java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+
+  public final int getMode();
+    descriptor: ()I
+
+  public final long getSize();
+    descriptor: ()J
+
+  public final long getMtimeSec();
+    descriptor: ()J
+
+  public final java.lang.Integer getErrorCode();
+    descriptor: ()Ljava/lang/Integer;
+}
+public final class com.flyfishxu.kadb.stream.AdbSyncDirEntryV2 {
+  public com.flyfishxu.kadb.stream.AdbSyncDirEntryV2(java.lang.String, int, long, long, int, int, int, int, long, long, long, long);
+    descriptor: (Ljava/lang/String;IJJIIIIJJJJ)V
+
+  public final java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+
+  public final int getErrorCode();
+    descriptor: ()I
+
+  public final long getDev();
+    descriptor: ()J
+
+  public final long getIno();
+    descriptor: ()J
+
+  public final int getMode();
+    descriptor: ()I
+
+  public final int getNlink();
+    descriptor: ()I
+
+  public final int getUid();
+    descriptor: ()I
+
+  public final int getGid();
+    descriptor: ()I
+
+  public final long getSize();
+    descriptor: ()J
+
+  public final long getAtimeSec();
+    descriptor: ()J
+
+  public final long getMtimeSec();
+    descriptor: ()J
+
+  public final long getCtimeSec();
+    descriptor: ()J
+}
+public final class com.flyfishxu.kadb.stream.AdbSyncStat {
+  public com.flyfishxu.kadb.stream.AdbSyncStat(int, long, long);
+    descriptor: (IJJ)V
+
+  public final int getMode();
+    descriptor: ()I
+
+  public final long getSize();
+    descriptor: ()J
+
+  public final long getMtimeSec();
+    descriptor: ()J
+}
+public final class com.flyfishxu.kadb.stream.AdbSyncStatV2 {
+  public com.flyfishxu.kadb.stream.AdbSyncStatV2(int, long, long, int, int, int, int, long, long, long, long);
+    descriptor: (IJJIIIIJJJJ)V
+
+  public final int getErrorCode();
+    descriptor: ()I
+
+  public final long getDev();
+    descriptor: ()J
+
+  public final long getIno();
+    descriptor: ()J
+
+  public final int getMode();
+    descriptor: ()I
+
+  public final int getNlink();
+    descriptor: ()I
+
+  public final int getUid();
+    descriptor: ()I
+
+  public final int getGid();
+    descriptor: ()I
+
+  public final long getSize();
+    descriptor: ()J
+
+  public final long getAtimeSec();
+    descriptor: ()J
+
+  public final long getMtimeSec();
+    descriptor: ()J
+
+  public final long getCtimeSec();
+    descriptor: ()J
+}
+public final class com.flyfishxu.kadb.stream.AdbSyncStream implements java.lang.AutoCloseable {
+  public com.flyfishxu.kadb.stream.AdbSyncStream(com.flyfishxu.kadb.stream.AdbStream, java.util.Set<java.lang.String>);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;Ljava/util/Set;)V
+
+  public com.flyfishxu.kadb.stream.AdbSyncStream(com.flyfishxu.kadb.stream.AdbStream, java.util.Set, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lcom/flyfishxu/kadb/stream/AdbStream;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public final void send(okio.Source, java.lang.String, int, long) throws java.io.IOException;
+    descriptor: (Lokio/Source;Ljava/lang/String;IJ)V
+
+  public final void recv(okio.Sink, java.lang.String) throws java.io.IOException;
+    descriptor: (Lokio/Sink;Ljava/lang/String;)V
+
+  public final com.flyfishxu.kadb.stream.AdbSyncStatV2 statV2(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbSyncStatV2;
+
+  public final com.flyfishxu.kadb.stream.AdbSyncStatV2 lstatV2(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbSyncStatV2;
+
+  public final com.flyfishxu.kadb.stream.AdbSyncStat lstat(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbSyncStat;
+
+  public final java.util.List<com.flyfishxu.kadb.stream.AdbSyncDirEntryV2> listV2(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)Ljava/util/List;
+
+  public final java.util.List<com.flyfishxu.kadb.stream.AdbSyncDirEntry> list(java.lang.String) throws java.io.IOException;
+    descriptor: (Ljava/lang/String;)Ljava/util/List;
+
+  public void close();
+    descriptor: ()V
+}
+public final class com.flyfishxu.kadb.stream.AdbSyncStreamKt {
+  public static final java.util.Set<java.lang.String> getSYNC_IDS();
+    descriptor: ()Ljava/util/Set;
+}
+final class com.flyfishxu.kadb.stream.DentV2Fields {
+  public com.flyfishxu.kadb.stream.DentV2Fields(int, long, long, int, int, int, int, long, long, long, long, java.lang.String);
+    descriptor: (IJJIIIIJJJJLjava/lang/String;)V
+
+  public final int getErrorCode();
+    descriptor: ()I
+
+  public final long getDev();
+    descriptor: ()J
+
+  public final long getIno();
+    descriptor: ()J
+
+  public final int getMode();
+    descriptor: ()I
+
+  public final int getNlink();
+    descriptor: ()I
+
+  public final int getUid();
+    descriptor: ()I
+
+  public final int getGid();
+    descriptor: ()I
+
+  public final long getSize();
+    descriptor: ()J
+
+  public final long getAtimeSec();
+    descriptor: ()J
+
+  public final long getMtimeSec();
+    descriptor: ()J
+
+  public final long getCtimeSec();
+    descriptor: ()J
+
+  public final java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+}
+final class com.flyfishxu.kadb.stream.Packet {
+  public com.flyfishxu.kadb.stream.Packet(java.lang.String, int);
+    descriptor: (Ljava/lang/String;I)V
+
+  public final java.lang.String getId();
+    descriptor: ()Ljava/lang/String;
+
+  public final int getArg();
+    descriptor: ()I
+}
+public final class com.flyfishxu.kadb.stream.SyncPlatformKt {
+  public static final boolean isWindowsHost();
+    descriptor: ()Z
+}
+public final class com.flyfishxu.kadb.tls.TlsErrorMapper {
+  public static final com.flyfishxu.kadb.tls.TlsErrorMapper INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/tls/TlsErrorMapper;
+  public final java.lang.Throwable map(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Ljava/lang/Throwable;
+}
+public final class com.flyfishxu.kadb.transport.OkioAdaptersKt {
+  public static final okio.Source asOkioSource(com.flyfishxu.kadb.transport.TransportChannel, long);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;J)Lokio/Source;
+
+  public static okio.Source asOkioSource$default(com.flyfishxu.kadb.transport.TransportChannel, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;JILjava/lang/Object;)Lokio/Source;
+
+  public static final okio.Sink asOkioSink(com.flyfishxu.kadb.transport.TransportChannel, long);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;J)Lokio/Sink;
+
+  public static okio.Sink asOkioSink$default(com.flyfishxu.kadb.transport.TransportChannel, long, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;JILjava/lang/Object;)Lokio/Sink;
+}
+public final class com.flyfishxu.kadb.transport.OkioAdaptersKt$asOkioSink$1 implements okio.Sink {
+  public okio.Timeout timeout();
+    descriptor: ()Lokio/Timeout;
+
+  public void write(okio.Buffer, long);
+    descriptor: (Lokio/Buffer;J)V
+
+  public void flush();
+    descriptor: ()V
+
+  public void close();
+    descriptor: ()V
+
+  public static final java.nio.ByteBuffer access$getScratch$p(com.flyfishxu.kadb.transport.OkioAdaptersKt$asOkioSink$1);
+    descriptor: (Lcom/flyfishxu/kadb/transport/OkioAdaptersKt$asOkioSink$1;)Ljava/nio/ByteBuffer;
+}
+final class com.flyfishxu.kadb.transport.OkioAdaptersKt$asOkioSink$1$write$2 extends kotlin.coroutines.jvm.internal.SuspendLambda implements kotlin.jvm.functions.Function2<kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Unit>, java.lang.Object> {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+
+  public final kotlin.coroutines.Continuation<kotlin.Unit> create(java.lang.Object, kotlin.coroutines.Continuation<?>);
+    descriptor: (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+
+  public final java.lang.Object invoke(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object invoke(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.OkioAdaptersKt$asOkioSource$1 implements okio.Source {
+  public okio.Timeout timeout();
+    descriptor: ()Lokio/Timeout;
+
+  public long read(okio.Buffer, long);
+    descriptor: (Lokio/Buffer;J)J
+
+  public void close();
+    descriptor: ()V
+
+  public static final java.nio.ByteBuffer access$getScratch$p(com.flyfishxu.kadb.transport.OkioAdaptersKt$asOkioSource$1);
+    descriptor: (Lcom/flyfishxu/kadb/transport/OkioAdaptersKt$asOkioSource$1;)Ljava/nio/ByteBuffer;
+}
+final class com.flyfishxu.kadb.transport.OkioAdaptersKt$asOkioSource$1$read$read$1 extends kotlin.coroutines.jvm.internal.SuspendLambda implements kotlin.jvm.functions.Function2<kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super java.lang.Integer>, java.lang.Object> {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+
+  public final kotlin.coroutines.Continuation<kotlin.Unit> create(java.lang.Object, kotlin.coroutines.Continuation<?>);
+    descriptor: (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+
+  public final java.lang.Object invoke(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object invoke(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.PlainNioChannel implements com.flyfishxu.kadb.transport.TransportChannel {
+  public static final com.flyfishxu.kadb.transport.PlainNioChannel$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/transport/PlainNioChannel$Companion;
+  public java.net.InetSocketAddress getLocalAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public java.net.InetSocketAddress getRemoteAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public java.lang.Object read(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object write(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object readExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object writeExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object shutdownInput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object shutdownOutput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public boolean isOpen();
+    descriptor: ()Z
+
+  public void close();
+    descriptor: ()V
+
+  public boolean getMayHaveStaleStreamPackets();
+    descriptor: ()Z
+
+  public com.flyfishxu.kadb.transport.PlainNioChannel(java.nio.channels.AsynchronousSocketChannel, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Ljava/nio/channels/AsynchronousSocketChannel;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+  public static final java.lang.Object access$aRead(com.flyfishxu.kadb.transport.PlainNioChannel, java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation);
+    descriptor: (Lcom/flyfishxu/kadb/transport/PlainNioChannel;Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static final java.nio.channels.AsynchronousSocketChannel access$getChannel$p(com.flyfishxu.kadb.transport.PlainNioChannel);
+    descriptor: (Lcom/flyfishxu/kadb/transport/PlainNioChannel;)Ljava/nio/channels/AsynchronousSocketChannel;
+
+  public static final java.lang.Object access$aWrite(com.flyfishxu.kadb.transport.PlainNioChannel, java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation);
+    descriptor: (Lcom/flyfishxu/kadb/transport/PlainNioChannel;Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.PlainNioChannel$Companion {
+  public final java.lang.Object connect(java.lang.String, int, long, java.util.concurrent.TimeUnit, com.flyfishxu.kadb.TcpKeepAlive, kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.PlainNioChannel>);
+    descriptor: (Ljava/lang/String;IJLjava/util/concurrent/TimeUnit;Lcom/flyfishxu/kadb/TcpKeepAlive;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static java.lang.Object connect$default(com.flyfishxu.kadb.transport.PlainNioChannel$Companion, java.lang.String, int, long, java.util.concurrent.TimeUnit, com.flyfishxu.kadb.TcpKeepAlive, kotlin.coroutines.Continuation, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/transport/PlainNioChannel$Companion;Ljava/lang/String;IJLjava/util/concurrent/TimeUnit;Lcom/flyfishxu/kadb/TcpKeepAlive;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+
+  public static final java.lang.Object access$connect$doConnect(java.nio.channels.AsynchronousSocketChannel, java.lang.String, int, kotlin.coroutines.Continuation);
+    descriptor: (Ljava/nio/channels/AsynchronousSocketChannel;Ljava/lang/String;ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public com.flyfishxu.kadb.transport.PlainNioChannel$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$Companion$connect$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$Companion$connect$2 extends kotlin.coroutines.jvm.internal.SuspendLambda implements kotlin.jvm.functions.Function2<kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Unit>, java.lang.Object> {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+
+  public final kotlin.coroutines.Continuation<kotlin.Unit> create(java.lang.Object, kotlin.coroutines.Continuation<?>);
+    descriptor: (Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+
+  public final java.lang.Object invoke(kotlinx.coroutines.CoroutineScope, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object invoke(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$Companion$connect$doConnect$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$Companion$connect$doConnect$2$1 implements kotlin.jvm.functions.Function1<java.lang.Throwable, kotlin.Unit> {
+  public final void invoke(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public java.lang.Object invoke(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.PlainNioChannel$Companion$connect$doConnect$2$2 implements java.nio.channels.CompletionHandler<java.lang.Void, kotlinx.coroutines.CancellableContinuation<? super kotlin.Unit>> {
+  public void completed(java.lang.Void, kotlinx.coroutines.CancellableContinuation<? super kotlin.Unit>);
+    descriptor: (Ljava/lang/Void;Lkotlinx/coroutines/CancellableContinuation;)V
+
+  public void failed(java.lang.Throwable, kotlinx.coroutines.CancellableContinuation<? super kotlin.Unit>);
+    descriptor: (Ljava/lang/Throwable;Lkotlinx/coroutines/CancellableContinuation;)V
+
+  public void completed(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)V
+
+  public void failed(java.lang.Throwable, java.lang.Object);
+    descriptor: (Ljava/lang/Throwable;Ljava/lang/Object;)V
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$aRead$2$1 implements kotlin.jvm.functions.Function1<java.lang.Throwable, kotlin.Unit> {
+  public final void invoke(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public java.lang.Object invoke(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.PlainNioChannel$aRead$2$handler$1 implements java.nio.channels.CompletionHandler<java.lang.Integer, kotlinx.coroutines.CancellableContinuation<? super java.lang.Integer>> {
+  public void completed(int, kotlinx.coroutines.CancellableContinuation<? super java.lang.Integer>);
+    descriptor: (ILkotlinx/coroutines/CancellableContinuation;)V
+
+  public void failed(java.lang.Throwable, kotlinx.coroutines.CancellableContinuation<? super java.lang.Integer>);
+    descriptor: (Ljava/lang/Throwable;Lkotlinx/coroutines/CancellableContinuation;)V
+
+  public void completed(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)V
+
+  public void failed(java.lang.Throwable, java.lang.Object);
+    descriptor: (Ljava/lang/Throwable;Ljava/lang/Object;)V
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$aWrite$2$1 implements kotlin.jvm.functions.Function1<java.lang.Throwable, kotlin.Unit> {
+  public final void invoke(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)V
+
+  public java.lang.Object invoke(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.PlainNioChannel$aWrite$2$handler$1 implements java.nio.channels.CompletionHandler<java.lang.Integer, kotlinx.coroutines.CancellableContinuation<? super java.lang.Integer>> {
+  public void completed(int, kotlinx.coroutines.CancellableContinuation<? super java.lang.Integer>);
+    descriptor: (ILkotlinx/coroutines/CancellableContinuation;)V
+
+  public void failed(java.lang.Throwable, kotlinx.coroutines.CancellableContinuation<? super java.lang.Integer>);
+    descriptor: (Ljava/lang/Throwable;Lkotlinx/coroutines/CancellableContinuation;)V
+
+  public void completed(java.lang.Object, java.lang.Object);
+    descriptor: (Ljava/lang/Object;Ljava/lang/Object;)V
+
+  public void failed(java.lang.Throwable, java.lang.Object);
+    descriptor: (Ljava/lang/Throwable;Ljava/lang/Object;)V
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$readExactly$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.PlainNioChannel$writeExactly$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.TcpKeepAlive_jvmKt {
+  public static final void configureTcpKeepAlive(java.nio.channels.AsynchronousSocketChannel, com.flyfishxu.kadb.TcpKeepAlive);
+    descriptor: (Ljava/nio/channels/AsynchronousSocketChannel;Lcom/flyfishxu/kadb/TcpKeepAlive;)V
+
+  public static final java.util.Map<java.lang.String, java.lang.Integer> keepAliveValues(com.flyfishxu.kadb.TcpKeepAlive);
+    descriptor: (Lcom/flyfishxu/kadb/TcpKeepAlive;)Ljava/util/Map;
+}
+public final class com.flyfishxu.kadb.transport.TlsBackendKt {
+  public static final java.lang.Object upgradeTls(com.flyfishxu.kadb.transport.TransportChannel, java.lang.String, int, com.flyfishxu.kadb.cert.HostKeySet, long, kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;Ljava/lang/String;ILcom/flyfishxu/kadb/cert/HostKeySet;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static final java.lang.Throwable mapInitialTlsReadError(java.lang.Throwable);
+    descriptor: (Ljava/lang/Throwable;)Ljava/lang/Throwable;
+}
+final class com.flyfishxu.kadb.transport.TlsBackendKt$upgradeTls$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.TlsNioChannel implements com.flyfishxu.kadb.transport.TransportChannel {
+  public com.flyfishxu.kadb.transport.TlsNioChannel(com.flyfishxu.kadb.transport.TransportChannel, javax.net.ssl.SSLEngine);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;Ljavax/net/ssl/SSLEngine;)V
+
+  public final java.lang.Object handshake(long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object read(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object write(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object readExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object writeExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object shutdownInput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object shutdownOutput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.net.InetSocketAddress getLocalAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public java.net.InetSocketAddress getRemoteAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public boolean isOpen();
+    descriptor: ()Z
+
+  public void close();
+    descriptor: ()V
+
+  public boolean getMayHaveStaleStreamPackets();
+    descriptor: ()Z
+}
+final class com.flyfishxu.kadb.transport.TlsNioChannel$Companion {
+  public com.flyfishxu.kadb.transport.TlsNioChannel$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.transport.TlsNioChannel$WhenMappings {
+  public static final int[] $EnumSwitchMapping$0;
+    descriptor: [I
+  public static final int[] $EnumSwitchMapping$1;
+    descriptor: [I
+}
+final class com.flyfishxu.kadb.transport.TlsNioChannel$handshake$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.TlsNioChannel$read$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.TlsNioChannel$readExactly$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.TlsNioChannel$write$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.TlsNioChannel$writeExactly$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public interface com.flyfishxu.kadb.transport.TransportChannel extends java.io.Closeable {
+  public default boolean getMayHaveStaleStreamPackets();
+    descriptor: ()Z
+
+  public abstract java.lang.Object read(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public abstract java.lang.Object write(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public abstract java.lang.Object readExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public abstract java.lang.Object writeExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public abstract java.lang.Object shutdownInput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public abstract java.lang.Object shutdownOutput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public abstract java.net.InetSocketAddress getLocalAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public abstract java.net.InetSocketAddress getRemoteAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public abstract boolean isOpen();
+    descriptor: ()Z
+
+  public static boolean access$getMayHaveStaleStreamPackets$jd(com.flyfishxu.kadb.transport.TransportChannel);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;)Z
+}
+public final class com.flyfishxu.kadb.transport.TransportChannel$DefaultImpls {
+  public static boolean getMayHaveStaleStreamPackets(com.flyfishxu.kadb.transport.TransportChannel);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportChannel;)Z
+}
+public final class com.flyfishxu.kadb.transport.TransportFactory {
+  public static final com.flyfishxu.kadb.transport.TransportFactory INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/transport/TransportFactory;
+  public final java.lang.Object connect(java.lang.String, int, long, com.flyfishxu.kadb.TcpKeepAlive, kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>);
+    descriptor: (Ljava/lang/String;IJLcom/flyfishxu/kadb/TcpKeepAlive;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public static java.lang.Object connect$default(com.flyfishxu.kadb.transport.TransportFactory, java.lang.String, int, long, com.flyfishxu.kadb.TcpKeepAlive, kotlin.coroutines.Continuation, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/transport/TransportFactory;Ljava/lang/String;IJLcom/flyfishxu/kadb/TcpKeepAlive;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.transport.TransportRuntime {
+  public static final com.flyfishxu.kadb.transport.TransportRuntime INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/transport/TransportRuntime;
+  public final java.nio.channels.AsynchronousChannelGroup getChannelGroup();
+    descriptor: ()Ljava/nio/channels/AsynchronousChannelGroup;
+
+  public final void install(java.nio.channels.AsynchronousChannelGroup);
+    descriptor: (Ljava/nio/channels/AsynchronousChannelGroup;)V
+
+  public final java.nio.channels.AsynchronousChannelGroup installFixedThreadPool(int);
+    descriptor: (I)Ljava/nio/channels/AsynchronousChannelGroup;
+
+  public final void clear();
+    descriptor: ()V
+}
+public interface com.flyfishxu.kadb.transport.UsbBulkIo extends java.io.Closeable {
+  public abstract int getInputPacketSize();
+    descriptor: ()I
+
+  public abstract int getOutputPacketSize();
+    descriptor: ()I
+
+  public abstract boolean isOpen();
+    descriptor: ()Z
+
+  public abstract int receive(byte[], int);
+    descriptor: ([BI)I
+
+  public abstract int send(byte[], int, int, int);
+    descriptor: ([BIII)I
+}
+public final class com.flyfishxu.kadb.transport.UsbPacketChannel implements com.flyfishxu.kadb.transport.TransportChannel {
+  public static final int HEADER = 24;
+    descriptor: I
+  public static final int CHUNK = 16384;
+    descriptor: I
+  public com.flyfishxu.kadb.transport.UsbPacketChannel(com.flyfishxu.kadb.transport.UsbBulkIo);
+    descriptor: (Lcom/flyfishxu/kadb/transport/UsbBulkIo;)V
+
+  public boolean getMayHaveStaleStreamPackets();
+    descriptor: ()Z
+
+  public java.lang.Void getLocalAddress();
+    descriptor: ()Ljava/lang/Void;
+
+  public java.lang.Void getRemoteAddress();
+    descriptor: ()Ljava/lang/Void;
+
+  public boolean isOpen();
+    descriptor: ()Z
+
+  public java.lang.Object read(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object write(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super java.lang.Integer>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object readExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object writeExactly(java.nio.ByteBuffer, long, java.util.concurrent.TimeUnit, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object shutdownInput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object shutdownOutput(kotlin.coroutines.Continuation<? super kotlin.Unit>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public void close();
+    descriptor: ()V
+
+  public java.net.InetSocketAddress getLocalAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+
+  public java.net.InetSocketAddress getRemoteAddress();
+    descriptor: ()Ljava/net/InetSocketAddress;
+}
+final class com.flyfishxu.kadb.transport.UsbPacketChannel$Companion {
+  public com.flyfishxu.kadb.transport.UsbPacketChannel$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+final class com.flyfishxu.kadb.transport.UsbPacketChannel$readExactly$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+final class com.flyfishxu.kadb.transport.UsbPacketChannel$writeExactly$1 extends kotlin.coroutines.jvm.internal.ContinuationImpl {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.usb.DesktopAdbEndpoints {
+  public com.flyfishxu.kadb.usb.DesktopAdbEndpoints(int, int, int, int, int, int);
+    descriptor: (IIIIII)V
+
+  public final int getInterfaceNumber();
+    descriptor: ()I
+
+  public final int getAlternateNumber();
+    descriptor: ()I
+
+  public final int getInputNumber();
+    descriptor: ()I
+
+  public final int getOutputNumber();
+    descriptor: ()I
+
+  public final int getInputPacketSize();
+    descriptor: ()I
+
+  public final int getOutputPacketSize();
+    descriptor: ()I
+
+  public final int component1();
+    descriptor: ()I
+
+  public final int component2();
+    descriptor: ()I
+
+  public final int component3();
+    descriptor: ()I
+
+  public final int component4();
+    descriptor: ()I
+
+  public final int component5();
+    descriptor: ()I
+
+  public final int component6();
+    descriptor: ()I
+
+  public final com.flyfishxu.kadb.usb.DesktopAdbEndpoints copy(int, int, int, int, int, int);
+    descriptor: (IIIIII)Lcom/flyfishxu/kadb/usb/DesktopAdbEndpoints;
+
+  public static com.flyfishxu.kadb.usb.DesktopAdbEndpoints copy$default(com.flyfishxu.kadb.usb.DesktopAdbEndpoints, int, int, int, int, int, int, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/usb/DesktopAdbEndpoints;IIIIIIILjava/lang/Object;)Lcom/flyfishxu/kadb/usb/DesktopAdbEndpoints;
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+
+  public int hashCode();
+    descriptor: ()I
+
+  public boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+}
+public final class com.flyfishxu.kadb.usb.DesktopUsbIo implements com.flyfishxu.kadb.transport.UsbBulkIo {
+  public static final com.flyfishxu.kadb.usb.DesktopUsbIo$Companion Companion;
+    descriptor: Lcom/flyfishxu/kadb/usb/DesktopUsbIo$Companion;
+  public boolean isOpen();
+    descriptor: ()Z
+
+  public int getInputPacketSize();
+    descriptor: ()I
+
+  public int getOutputPacketSize();
+    descriptor: ()I
+
+  public int receive(byte[], int);
+    descriptor: ([BI)I
+
+  public int send(byte[], int, int, int);
+    descriptor: ([BIII)I
+
+  public void close();
+    descriptor: ()V
+
+  public com.flyfishxu.kadb.usb.DesktopUsbIo(net.codecrete.usb.UsbDevice, com.flyfishxu.kadb.usb.DesktopAdbEndpoints, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lnet/codecrete/usb/UsbDevice;Lcom/flyfishxu/kadb/usb/DesktopAdbEndpoints;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.usb.DesktopUsbIo$Companion {
+  public final com.flyfishxu.kadb.usb.DesktopUsbIo open(net.codecrete.usb.UsbDevice);
+    descriptor: (Lnet/codecrete/usb/UsbDevice;)Lcom/flyfishxu/kadb/usb/DesktopUsbIo;
+
+  public com.flyfishxu.kadb.usb.DesktopUsbIo$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+public final class com.flyfishxu.kadb.usb.KadbUsb {
+  public static final com.flyfishxu.kadb.usb.KadbUsb INSTANCE;
+    descriptor: Lcom/flyfishxu/kadb/usb/KadbUsb;
+  public final java.util.List<com.flyfishxu.kadb.usb.KadbUsbDevice> devices();
+    descriptor: ()Ljava/util/List;
+
+  public final com.flyfishxu.kadb.Kadb create(com.flyfishxu.kadb.usb.KadbUsbDevice, com.flyfishxu.kadb.KadbOptions);
+    descriptor: (Lcom/flyfishxu/kadb/usb/KadbUsbDevice;Lcom/flyfishxu/kadb/KadbOptions;)Lcom/flyfishxu/kadb/Kadb;
+
+  public static com.flyfishxu.kadb.Kadb create$default(com.flyfishxu.kadb.usb.KadbUsb, com.flyfishxu.kadb.usb.KadbUsbDevice, com.flyfishxu.kadb.KadbOptions, int, java.lang.Object);
+    descriptor: (Lcom/flyfishxu/kadb/usb/KadbUsb;Lcom/flyfishxu/kadb/usb/KadbUsbDevice;Lcom/flyfishxu/kadb/KadbOptions;ILjava/lang/Object;)Lcom/flyfishxu/kadb/Kadb;
+}
+final class com.flyfishxu.kadb.usb.KadbUsb$create$2 extends kotlin.coroutines.jvm.internal.SuspendLambda implements kotlin.jvm.functions.Function1<kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>, java.lang.Object> {
+  public final java.lang.Object invokeSuspend(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+
+  public final kotlin.coroutines.Continuation<kotlin.Unit> create(kotlin.coroutines.Continuation<?>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+
+  public final java.lang.Object invoke(kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>);
+    descriptor: (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+  public java.lang.Object invoke(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Ljava/lang/Object;
+}
+public final class com.flyfishxu.kadb.usb.KadbUsbDevice {
+  public com.flyfishxu.kadb.usb.KadbUsbDevice(net.codecrete.usb.UsbDevice);
+    descriptor: (Lnet/codecrete/usb/UsbDevice;)V
+
+  public final net.codecrete.usb.UsbDevice getNativeDevice$Kadb_kadb();
+    descriptor: ()Lnet/codecrete/usb/UsbDevice;
+
+  public final int getVendorId();
+    descriptor: ()I
+
+  public final int getProductId();
+    descriptor: ()I
+
+  public final java.lang.String getManufacturer();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getProductName();
+    descriptor: ()Ljava/lang/String;
+
+  public final java.lang.String getSerialNumber();
+    descriptor: ()Ljava/lang/String;
+
+  public final boolean isConnected();
+    descriptor: ()Z
+
+  public java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+}
+public final class com.flyfishxu.kadb.usb.KadbUsbKt {
+  public static final com.flyfishxu.kadb.usb.DesktopAdbEndpoints desktopAdbEndpoints(net.codecrete.usb.UsbDevice);
+    descriptor: (Lnet/codecrete/usb/UsbDevice;)Lcom/flyfishxu/kadb/usb/DesktopAdbEndpoints;
+}
