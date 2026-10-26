@@ -88,3 +88,49 @@ real transport harness: **1 executed, 0 failed, CTest exit 0**. This confirms th
 backend with that toolchain; subsequent K/N linking and execution are recorded
 separately. The Gradle download/extraction task chain must also execute in CI;
 this manual C build does not stand in for that task-chain validation.
+
+## Executed Linux Kotlin/Native security comparison
+
+A clean worktree at `/tmp/kadb-native-security-verify` prevents the workspace's
+background file synchronizer from resurrecting deleted source files. Both runs
+use committed source, disable Gradle build/configuration caches and incremental
+compilation, and use the independently built/tested Clang 21 C archives above.
+The `buildNativeLinuxX64` task is explicitly excluded for these local runs; C
+compilation evidence is separate, while Cinterop, Kotlin compilation, executable
+linking and the actual Native tests execute normally. Integration CI must run the
+complete Gradle C task chain without this exclusion.
+
+- **Before**, source `d261c7d`: `07-linux-native-security-red.log` and
+  `security-red/*.xml` record **18 executed, 4 failed, 0 skipped**. Two failures
+  prove that default PEM writes and symlink replacement leave mode 0666 under a
+  permissive test umask. One proves embedded NUL creates a truncated subject,
+  and one proves an invalid country value escapes as `IllegalStateException`
+  instead of the certificate-policy error type. The other 14 tests pass. This is
+  failing health evidence, not a successful product run.
+- **After**, source `f6a30e308ae15a46d8c34e1bc81e4b24075d4993`:
+  `08-linux-native-security-green.log` and `security-green/*.xml` record
+  **19 executed, 0 failed, 0 skipped**, Gradle exit 0. The same four assertions
+  now pass, as does the added actual descriptor-mode/CLOEXEC control. Real
+  loopback ADB shell, identity wire fixtures, AES/HKDF, structured cancellation,
+  reentrant conditions and socket-close tests also execute successfully.
+
+The ELF executable and its SHA-256/runtime dependencies are recorded in
+`security-green/results.json` and `runtime-dependencies.json`. The tested binary
+has dynamic dependencies including glibc, libstdc++, libgcc_s and zlib. Its version
+requirements include GLIBC up to 2.14 and GLIBCXX up to 3.4.22, but no old-distro
+runtime claim is made: execution happened on the current Linux x86_64 host.
+These local snapshots contain the original M1 fixes and Native work; the shared
+SPAKE2 integration, later M6 fixes and removal of the production JVM target are
+validated separately by the integration CI, not by these local counts.
+
+The preserved NUL-input red XML rendered the unexpectedly returned identity via
+`assertFailsWith`; its key is the already-public `JvmIdentityFixture`, not a live
+identity or device credential. Subsequent regression code returns `Unit` inside
+the assertion block so future failures do not print identity material. Automatic
+approval rejected uploading the serialized identity diagnostic. The shared
+certificate XML therefore replaces exactly two identity-object renderings and
+is explicitly classified as redacted evidence, while retaining every assertion
+and stack trace. `security-red/redaction-manifest.json` records the original and
+redacted hashes and exact scope. The original remains in the local validation
+commit and can be reproduced using the recorded command and public fixture;
+the remote checkpoint does not claim that XML is byte-for-byte original output.

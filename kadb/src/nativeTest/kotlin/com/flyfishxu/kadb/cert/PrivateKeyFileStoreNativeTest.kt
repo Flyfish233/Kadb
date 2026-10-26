@@ -2,6 +2,8 @@
 
 package com.flyfishxu.kadb.cert
 
+import com.flyfishxu.kadb.nativebridge.kadb_create_private_temp
+import com.flyfishxu.kadb.nativebridge.kadb_remove_private_temp
 import kotlinx.cinterop.*
 import okio.FileSystem
 import okio.Path
@@ -10,6 +12,24 @@ import platform.posix.*
 import kotlin.test.*
 
 class PrivateKeyFileStoreNativeTest {
+    @Test fun stagingDescriptorStartsOwnerOnlyAndCloseOnExec() = inPrivateDirectory { directory ->
+        memScoped {
+            val template = (directory / "staging-XXXXXX").toString().cstr.ptr
+            val descriptor = kadb_create_private_temp(template)
+            assertTrue(descriptor >= 0)
+            try {
+                val flags = fcntl(descriptor, F_GETFD)
+                assertTrue(flags >= 0 && (flags and FD_CLOEXEC) != 0)
+                val metadata = alloc<stat>()
+                assertEquals(0, fstat(descriptor, metadata.ptr))
+                assertEquals(0x180, metadata.st_mode.toInt() and 0x1ff)
+            } finally {
+                close(descriptor)
+                kadb_remove_private_temp(template)
+            }
+        }
+    }
+
     @Test fun privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement() = inPrivateDirectory { directory ->
         val path = directory / "identity.pem"
         val store = OkioFilePrivateKeyStore(path)

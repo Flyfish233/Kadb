@@ -65,12 +65,18 @@ internal actual object CertUtils {
 
     private fun createCertificate(identity: CPointer<kadb_identity>, policy: KadbCertPolicy) {
         val requested = policy.subject
+        if (listOf(requested.c, requested.o, requested.cn, requested.ou, requested.l, requested.st)
+                .any { '\u0000' in it }) {
+            throw KadbCertException.PolicyViolation("Certificate subject must not contain NUL")
+        }
         val subject = if (listOf(requested.c, requested.o, requested.cn, requested.ou, requested.l, requested.st)
                 .all(String::isBlank)) KadbCertPolicy.Subject() else requested
         fun String.entry() = if (isBlank()) "" else this
-        check(kadb_identity_create_certificate(identity, policy.certValidityDays,
-            subject.c.entry(), subject.o.entry(), subject.cn.entry(), subject.ou.entry(),
-            subject.l.entry(), subject.st.entry()) == 1) { "Failed to generate X.509 certificate" }
+        if (kadb_identity_create_certificate(identity, policy.certValidityDays,
+                subject.c.entry(), subject.o.entry(), subject.cn.entry(), subject.ou.entry(),
+                subject.l.entry(), subject.st.entry()) != 1) {
+            throw KadbCertException.PolicyViolation("Failed to generate X.509 certificate")
+        }
     }
 
     private fun resolved(identity: CPointer<kadb_identity>, privatePem: ByteArray, privateDer: ByteArray): ResolvedIdentity {

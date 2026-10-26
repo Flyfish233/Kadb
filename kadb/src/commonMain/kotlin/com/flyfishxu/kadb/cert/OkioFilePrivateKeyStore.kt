@@ -30,6 +30,7 @@ class OkioFilePrivateKeyStore(
     }
 
     private fun writeAtomic(path: Path, payload: ByteArray) {
+        if (writeSystemPrivateKeyAtomically(fileSystem, path, payload)) return
         val tempPath = stageWrite(path, payload)
         try {
             commitStagedWrite(tempPath, path)

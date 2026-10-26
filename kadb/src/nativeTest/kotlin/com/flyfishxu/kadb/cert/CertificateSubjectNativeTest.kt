@@ -11,6 +11,7 @@ class CertificateSubjectNativeTest {
             assertFailsWith<KadbCertException.PolicyViolation> {
                 CertUtils.identityFromPrivateKey(privatePem,
                     KadbCertPolicy(subject = KadbCertPolicy.Subject(c = "USA")))
+                Unit // Avoid rendering a private identity if the assertion regresses.
             }
         } finally {
             privatePem.fill(0)
@@ -31,6 +32,7 @@ class CertificateSubjectNativeTest {
             subjects.forEach { subject ->
                 assertFailsWith<KadbCertException.PolicyViolation> {
                     CertUtils.identityFromPrivateKey(privatePem, KadbCertPolicy(subject = subject))
+                    Unit // Avoid rendering a private identity if the assertion regresses.
                 }
             }
         } finally {

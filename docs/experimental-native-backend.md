@@ -92,3 +92,35 @@ This opt-in contacts only the configured Android device and removes the unique
 remote temporary file it created. **An iOS Simulator client talking to a physical
 Android device is still not an iPhone run.** A true iPhone-to-adbd claim requires
 an actual device test host and separately recorded device evidence.
+
+## Native identity storage and input boundaries
+
+`OkioFilePrivateKeyStore` now delegates only its default `FileSystem.SYSTEM`
+write to a Native POSIX implementation. `mkostemp(O_CLOEXEC)` exclusively creates
+a 0600 staging file in the destination directory. Before writing PEM bytes, the
+writer applies and checks mode 0600, handles interrupted writes, flushes the file,
+closes it and atomically renames it over the destination. Failure closes the
+owned descriptor and removes its staging pathname. The C interoperability header
+keeps creation and close-on-exec atomic and lets cleanup use the original C path
+without a new Kotlin string allocation. Apple declares `mkostemp` available from
+macOS 10.12 / iOS 10.0 in its
+[public libc header](https://github.com/apple-oss-distributions/Libc/blob/main/include/unistd.h),
+below this experiment's minimum deployment targets.
+
+These are plaintext PEM files protected by filesystem permissions, not a
+Keychain or hardware-backed identity implementation. Atomic replacement does not
+claim durability across power loss: the parent directory is not explicitly
+fsynced. Existing files are not chmodded by reads; the next successful write
+replaces them with a protected file. Custom Okio `FileSystem` instances retain
+user-defined behavior, and the Android/JVM implementation retains its existing
+write path. No native syscall bypasses a custom filesystem.
+
+Native certificate creation rejects embedded NUL in all six subject components
+before crossing the C-string boundary. Provider failures use
+`KadbCertException.PolicyViolation`. This deliberately hardens invalid Native
+inputs; Android behavior is unchanged. Other subject differences remain: Native
+passes each field as a literal X.509 value, whereas the JVM backend constructs a
+DN string whose punctuation may have DN syntax. Default/imported identity wire
+fixtures are tested, but arbitrary custom subjects are not claimed to have
+identical cross-platform encodings. Temporary decoded private DER copies are
+cleared after independently owned identity copies have been created.
