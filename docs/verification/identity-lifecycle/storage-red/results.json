@@ -1,0 +1,13 @@
+{
+  "source_commit": "9741ab13c7850443452e6c3fb02b0f7929f999ff",
+  "counts": {
+    "tests": 3,
+    "failures": 3,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gradle_exit": 1,
+  "command": ":kadb:linuxX64Test --tests com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.* -x :kadb:buildNativeLinuxX64 --no-daemon --max-workers=2 --no-build-cache --no-configuration-cache -Pkotlin.incremental=false",
+  "native_executable_sha256": "84fa5d916c4a6575dec16b1b18c45b73707c4d223ed29740e079bed262173455",
+  "scope": "Executed health regressions against unchanged common/custom-filesystem fallback. Real disk writes through faulting wrappers; default Native SYSTEM secure path is intentionally bypassed by the supplied FileSystem."
+}

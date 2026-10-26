@@ -28,3 +28,19 @@ Native suite executes **21 tests, 0 failures, 0 skipped**, including both
 diagnostic regressions. `diagnostics-green` preserves the Gradle log, all XML and
 executable hash. Android ABI comparison and integrated-platform runs remain
 separate evidence; this result does not substitute for them.
+
+## Storage failure fixtures
+
+The first fixture compile at source `d0c7e47` failed because Okio's JVM
+`ForwardingSink` is not exposed in the resolved Native/common API. No storage
+test executed in that attempt, so its preserved log is only fixture-compilation
+failure evidence. The corrected fixture uses standard Kotlin `Sink` interface
+delegation while retaining real underlying filesystem writes.
+
+The corrected fixture at `9741ab13c7850443452e6c3fb02b0f7929f999ff` actually
+compiles, links and runs **3 tests, all 3 failing, 0 skipped**. `storage-red`
+retains the log, XML and executable hash. A partial OS write leaves a staging
+file, a failed cleanup lookup replaces the atomic-move exception, and a failed
+write never attempts staging deletion. Tests inject failures through a supplied
+`ForwardingFileSystem`, so they exercise the common fallback even on Native;
+the default Native SYSTEM secure writer is intentionally not used in these cases.
