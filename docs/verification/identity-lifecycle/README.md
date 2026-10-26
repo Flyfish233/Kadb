@@ -44,3 +44,29 @@ file, a failed cleanup lookup replaces the atomic-move exception, and a failed
 write never attempts staging deletion. Tests inject failures through a supplied
 `ForwardingFileSystem`, so they exercise the common fallback even on Native;
 the default Native SYSTEM secure writer is intentionally not used in these cases.
+
+The common fallback now cleans the staging pathname when creation/writing/close
+throws before the path is returned to its caller. Both existence checks and
+deletion are best-effort cleanup, so their failures cannot replace the original
+write or commit exception. Successful write/rename behavior, the selected
+filesystem, public APIs and the Native SYSTEM hook stay unchanged. If the
+filesystem itself refuses cleanup, removal cannot be guaranteed; the original
+operation error is preserved and the tests clean their synthetic fixtures through
+the real delegate afterward.
+
+At fixed source `6e2f381cd4de7f06960b9947b2f28e0f6fab2907`, the complete tests
+present in this local snapshot execute successfully:
+
+| Task | Executed | Failed | Skipped |
+| --- | ---: | ---: | ---: |
+| `linuxX64Test` | 24 | 0 | 0 |
+| `testAndroidHostTest` | 36 | 0 | 0 |
+
+`storage-green` contains the full Gradle output, all 22 XML reports, their
+SHA-256 hashes and the Native executable hash. Gradle exits 0 with 14 tasks
+executed and two toolchain tasks up to date. Both sets include the two diagnostic
+regressions and all three storage regressions. Native Kotlin compilation, linking
+and tests execute; Android production/test compilation and Host tests execute.
+Host tests do not establish Android device or instrumentation behavior. These
+counts describe this source snapshot, not the later integrated branch's larger
+suite, and do not replace its CI/API comparison.

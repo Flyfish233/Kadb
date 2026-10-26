@@ -1,0 +1,56 @@
+{
+  "source_commit": "6e2f381cd4de7f06960b9947b2f28e0f6fab2907",
+  "targets": {
+    "linuxX64Test": {
+      "counts": {
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "xml_sha256": {
+        "TEST-linuxX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml": "929b53a493076811d05cc701598ce3fb357ae98becc548494fae63a33cab1cef",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml": "5e1ba613d5163d5976de86a55c00d041074ba72e5e3e354ea459f6ec9c798517",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml": "ab913a6b7aeb8b713a5e7d5c7a61679e150e043d751464696763d8e45e444830",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml": "c88d7e410161d7e8537bdf56cb68441347c5d23b2330ce2aba5fbba9b83e406a",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml": "79f3517a3d0e8c24890a8d11566c24cd98febadee6e11b3280c2fa5e93157b5f",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml": "58488db8634c4e59d8fd690938f48455f010bacc2ff1555b0b1b8cc509e92c14",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml": "f0ca97e34c901b43bfa281cb7d9608db22e92d3b83b883b5dbb256f8d334439a",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml": "2a9cc957e4dd42feeed5069faf4672e9269117bd7529d8c669ed749fc7b93d94",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml": "94b40d06370d42a890a82c1eb4dc2550ab82cb793061d6e5a0dd4740363f2ef8",
+        "TEST-linuxX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml": "ab86f01b5ae1357b24895ad2856273216e20b423ad8517e544cbb1a08b4a6422"
+      }
+    },
+    "testAndroidHostTest": {
+      "counts": {
+        "tests": 36,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "xml_sha256": {
+        "TEST-com.flyfishxu.kadb.queue.AdbMessageQueueTest.xml": "9a6a127e3ffd0af908f32234ff5c13d0de98d94cde6743712eac5fc5c496f7ea",
+        "TEST-com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml": "c82f254324d693a48f24fcf48502a6fb8963dd70e5bb8e6edfdda4e19f8d8f73",
+        "TEST-com.flyfishxu.kadb.transport.UsbHandshakeTest.xml": "945df79338c30c35d7e8861a5d04664a9dcd3cdd8be522b3d058d0b094ae83e8",
+        "TEST-com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml": "0f7398dc0685f5908ccfb185abd5e7deec355f9b03cb9782a094966dc40b3e90",
+        "TEST-com.flyfishxu.kadb.transport.PlainBlockingChannelTest.xml": "6f76afd3da0c4f6dbd63fee777f8b255206ccf4b65557e84095e5b7f4c9534bd",
+        "TEST-com.flyfishxu.kadb.KadbConnectionLifecycleTest.xml": "e757011cfbc2c40aad73a4649fcc28e7e5e995bdb05694d28a971c925dbe0919",
+        "TEST-com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml": "98fdbedf698f419b3bcb01f2fb86e8586830ef8b75cf1bf3c43ac215b5b87a64",
+        "TEST-com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml": "2a18e49781daf77782f5724314589b1c14c38d6dff80991221ef30291749cf1c",
+        "TEST-com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml": "4de5ace06a447787142bc91511dba7e57e593d72e6aa0aecc0d896e24a7c3600",
+        "TEST-com.flyfishxu.kadb.transport.UsbPacketChannelTest.xml": "2f5dc45a31113f16c3570e200f700d05dc328b4a0f35c93450b588ebb8d569c7",
+        "TEST-com.flyfishxu.kadb.stream.AdbStreamTransferTest.xml": "bbef0c8ecff37d3182c7970a7a0cc90472f91d521e1ffa7b4f342b1b3a2db59a",
+        "TEST-com.flyfishxu.kadb.KadbTransportFailureTest.xml": "d0fc436235d2ccd5a9ee13b275a0ba42dce9c68a1a3e5325961cc3752069de8f"
+      }
+    }
+  },
+  "gradle_exit": 0,
+  "actionable_tasks": {
+    "executed": 14,
+    "up_to_date": 2
+  },
+  "command": ":kadb:linuxX64Test :kadb:testAndroidHostTest -x :kadb:buildNativeLinuxX64 --no-daemon --max-workers=2 --no-build-cache --no-configuration-cache -Pkotlin.incremental=false",
+  "gradle_log_sha256": "b60940a88a4d485f72878a403b649fc79dfc4feeeb34b7dace9f95f88781ba9a",
+  "native_executable_sha256": "9e2b8b7022efdb26fb3d3dfc5287d4033d416aa975a96eea8fb5062995bbdd8c",
+  "scope": "Complete tests present in this local early M1/Native snapshot, including both diagnostic and three storage regressions. Native reuses separately validated pinned C archives. Android Host execution is not Android instrumentation or device execution. Later combined SPAKE2/JVM-exit/M6 changes require integration CI."
+}

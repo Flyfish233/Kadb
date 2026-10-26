@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.KadbConnectionLifecycleTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-26T11:51:24.257Z" hostname="c9d49951d07d" time="4.045">
+  <properties/>
+  <testcase name="concurrentFirstCommandsShareOneTransport" classname="com.flyfishxu.kadb.KadbConnectionLifecycleTest" time="2.898"/>
+  <testcase name="lostOpenReplyDoesNotReplayTheCommand" classname="com.flyfishxu.kadb.KadbConnectionLifecycleTest" time="0.422"/>
+  <testcase name="resetClosesOldTransportAndKeepsClientReusable" classname="com.flyfishxu.kadb.KadbConnectionLifecycleTest" time="0.298"/>
+  <testcase name="closeDuringHandshakeCannotRestoreTheConnection" classname="com.flyfishxu.kadb.KadbConnectionLifecycleTest" time="0.403"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

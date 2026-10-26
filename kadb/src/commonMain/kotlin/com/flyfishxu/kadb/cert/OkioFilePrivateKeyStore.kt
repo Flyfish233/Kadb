@@ -54,8 +54,14 @@ class OkioFilePrivateKeyStore(
         val tempName = "${path.name}.tmp-${Random.nextInt().toUInt().toString(16)}"
         val tempPath = parent?.resolve(tempName) ?: tempName.toPath()
 
-        fileSystem.write(tempPath) {
-            write(payload)
+        try {
+            fileSystem.write(tempPath) {
+                write(payload)
+            }
+        } catch (failure: Throwable) {
+            // The caller cannot clean a staging path it has not received yet.
+            cleanupTemp(tempPath)
+            throw failure
         }
         return tempPath
     }
@@ -65,8 +71,10 @@ class OkioFilePrivateKeyStore(
     }
 
     private fun cleanupTemp(path: Path) {
-        if (fileSystem.exists(path)) {
-            runCatching { fileSystem.delete(path) }
+        // Even the existence check may fail on a custom filesystem. Cleanup is
+        // best effort and must never replace the write/commit exception.
+        runCatching {
+            if (fileSystem.exists(path)) fileSystem.delete(path)
         }
     }
 }
