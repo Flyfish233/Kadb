@@ -179,14 +179,18 @@ class Kadb(
         val installOptions = nonBlankOptions(options)
         val sessionMode = installSessionMode()
         val sessionId = createInstallSession(apks.sumOf { it.fileSize() }, installOptions, sessionMode)
-        val error = if (sessionMode.usesStreaming) {
-            apks.firstNotNullOfOrNull { apk ->
-                streamInstallWrite(apk, sessionId, sessionMode).takeIf { !it.startsWith("Success") }
+        val error = runInstallWrites(
+            abandonSession = { finishInstallSession(sessionId, "install-abandon", sessionMode) }
+        ) {
+            if (sessionMode.usesStreaming) {
+                apks.firstNotNullOfOrNull { apk ->
+                    streamInstallWrite(apk, sessionId, sessionMode).takeIf { !it.startsWith("Success") }
+                }
+            } else {
+                apks.mapIndexedNotNull { index, apk ->
+                    pushAndWrite(apk, sessionId, index).takeIf { !it.startsWith("Success") }
+                }.firstOrNull()
             }
-        } else {
-            apks.mapIndexedNotNull { index, apk ->
-                pushAndWrite(apk, sessionId, index).takeIf { !it.startsWith("Success") }
-            }.firstOrNull()
         }
         finalizeSession(sessionId, error, sessionMode)
     }
@@ -409,6 +413,11 @@ class Kadb(
 
     private fun finalizeSession(sessionId: String, error: String?, sessionMode: InstallSessionMode) {
         val finalCommand = if (error == null) "install-commit" else "install-abandon"
+        finishInstallSession(sessionId, finalCommand, sessionMode)
+        error?.let { throw IOException("Install failed: $it") }
+    }
+
+    private fun finishInstallSession(sessionId: String, finalCommand: String, sessionMode: InstallSessionMode) {
         // AOSP finalizes sessions with install-commit/install-abandon on the same install command family.
         // https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/client/adb_install.cpp#653
         val output = when (sessionMode) {
@@ -422,7 +431,6 @@ class Kadb(
             }
         }
         check(output.startsWith("Success")) { "Failed to finalize session: $output" }
-        error?.let { throw IOException("Install failed: $it") }
     }
 
     // Shell fallback builds one command string; mirror AOSP argv behavior by dropping empty args first.

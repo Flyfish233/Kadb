@@ -1,0 +1,52 @@
+JUnit version 4.13.2
+.E.E.E.E
+Time: 0.051
+There were 4 failures:
+1) closeDuringInitialHandshakeDetachesOnlyTheForwarderWaiter(com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest)
+java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.Net.socket0(Native Method)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:501)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:495)
+	at java.base/sun.nio.ch.NioSocketImpl.create(NioSocketImpl.java:471)
+	at java.base/java.net.ServerSocket.getImpl(ServerSocket.java:255)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:325)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest$Fixture.<init>(TcpForwarderLifecycleTest.kt:111)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest.closeDuringInitialHandshakeDetachesOnlyTheForwarderWaiter(TcpForwarderLifecycleTest.kt:66)
+2) closeCancelsPendingOpenWithoutClosingTheSharedConnection(com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest)
+java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.Net.socket0(Native Method)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:501)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:495)
+	at java.base/sun.nio.ch.NioSocketImpl.create(NioSocketImpl.java:471)
+	at java.base/java.net.ServerSocket.getImpl(ServerSocket.java:255)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:325)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest$Fixture.<init>(TcpForwarderLifecycleTest.kt:111)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest.closeCancelsPendingOpenWithoutClosingTheSharedConnection(TcpForwarderLifecycleTest.kt:25)
+3) closeStopsBothIdleForwardingDirections(com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest)
+java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.Net.socket0(Native Method)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:501)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:495)
+	at java.base/sun.nio.ch.NioSocketImpl.create(NioSocketImpl.java:471)
+	at java.base/java.net.ServerSocket.getImpl(ServerSocket.java:255)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:325)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest$Fixture.<init>(TcpForwarderLifecycleTest.kt:111)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest.closeStopsBothIdleForwardingDirections(TcpForwarderLifecycleTest.kt:79)
+4) lateOkayIsClosedAndAnotherStreamCanUseTheSameConnection(com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest)
+java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.Net.socket0(Native Method)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:501)
+	at java.base/sun.nio.ch.Net.serverSocket(Net.java:495)
+	at java.base/sun.nio.ch.NioSocketImpl.create(NioSocketImpl.java:471)
+	at java.base/java.net.ServerSocket.getImpl(ServerSocket.java:255)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:325)
+	at java.base/java.net.ServerSocket.<init>(ServerSocket.java:222)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest$Fixture.<init>(TcpForwarderLifecycleTest.kt:111)
+	at com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest.lateOkayIsClosedAndAnotherStreamCanUseTheSameConnection(TcpForwarderLifecycleTest.kt:36)
+
+FAILURES!!!
+Tests run: 4,  Failures: 4
+

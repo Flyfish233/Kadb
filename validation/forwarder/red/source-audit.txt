@@ -1,0 +1,7 @@
+kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/KadbConnectionAttemptCancellationTest.kt
+kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/core/AdbWriterLifecycleTest.kt
+kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/pair/PairingCancellationTest.kt
+kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/transport/TlsFailureLifecycleTest.kt
+kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/pair/PairingCompatibilityTest.kt
+
+All changes above are test-only. The product jar was built from unchanged baseline production sources.
