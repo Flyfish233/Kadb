@@ -82,14 +82,15 @@ abstract class ExtractNativeArchive : DefaultTask() {
     }
 }
 
-@DisableCachingByDefault(because = "CMake builds incrementally using the local Xcode SDK/toolchain")
-abstract class BuildIosNative : DefaultTask() {
+@DisableCachingByDefault(because = "CMake builds incrementally using the local platform toolchain")
+abstract class BuildPosixNative : DefaultTask() {
     @get:InputDirectory @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val bridgeDirectory: DirectoryProperty
     @get:InputDirectory @get:PathSensitive(PathSensitivity.RELATIVE)
     abstract val boringSslDirectory: DirectoryProperty
     @get:InputFile @get:PathSensitive(PathSensitivity.NONE)
     abstract val cmakeExecutable: RegularFileProperty
+    @get:Input abstract val operatingSystem: Property<String>
     @get:Input abstract val sdk: Property<String>
     @get:Input abstract val deploymentTarget: Property<String>
     @get:Input abstract val architecture: Property<String>
@@ -101,18 +102,22 @@ abstract class BuildIosNative : DefaultTask() {
     @get:Inject abstract val execOperations: ExecOperations
 
     @TaskAction fun build() {
-        check(System.getProperty("os.name").startsWith("Mac")) { "The iOS backend requires macOS and Xcode" }
+        val apple = operatingSystem.get() != "Linux"
+        check(System.getProperty("os.name").startsWith(if (apple) "Mac" else "Linux")) {
+            "The ${operatingSystem.get()} backend must be built on ${if (apple) "macOS with Xcode" else "Linux"}"
+        }
         val cmake = cmakeExecutable.get().asFile
         check(cmake.canExecute()) { "CMake is not executable: $cmake" }
         val buildDirectory = cmakeBuildDirectory.get().asFile
         execOperations.exec {
-            commandLine(cmake, "-S", bridgeDirectory.get().asFile, "-B", buildDirectory,
+            val arguments = mutableListOf<Any>(cmake, "-S", bridgeDirectory.get().asFile, "-B", buildDirectory,
                 "-G", "Unix Makefiles", "-DBORINGSSL_SOURCE=${boringSslDirectory.get().asFile}",
-                "-DCMAKE_SYSTEM_NAME=iOS", "-DCMAKE_OSX_SYSROOT=${sdk.get()}",
+                "-DCMAKE_BUILD_TYPE=${configuration.get()}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON")
+            if (apple) arguments.addAll(listOf(
+                "-DCMAKE_SYSTEM_NAME=${operatingSystem.get()}", "-DCMAKE_OSX_SYSROOT=${sdk.get()}",
                 "-DCMAKE_OSX_ARCHITECTURES=${architecture.get()}",
-                "-DCMAKE_OSX_DEPLOYMENT_TARGET=${deploymentTarget.get()}",
-                "-DCMAKE_BUILD_TYPE=${configuration.get()}", "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
-                "-DCMAKE_MACOSX_BUNDLE=OFF")
+                "-DCMAKE_OSX_DEPLOYMENT_TARGET=${deploymentTarget.get()}", "-DCMAKE_MACOSX_BUNDLE=OFF"))
+            commandLine(arguments)
         }.assertNormalExitValue()
         execOperations.exec {
             commandLine(cmake, "--build", buildDirectory, "--target", "kadb_native", "--parallel",
@@ -149,7 +154,7 @@ val externalCmake = when {
 }
 val cmakeBinary = if (externalCmake != null) {
     layout.file(provider { externalCmake })
-} else {
+} else if (System.getProperty("os.name").startsWith("Mac")) {
     val downloadCmake = tasks.register<DownloadVerifiedArchive>("downloadIosCmake") {
         sourceUrl.set("https://github.com/Kitware/CMake/releases/download/v$cmakeVersion/cmake-$cmakeVersion-macos-universal.tar.gz")
         sha256.set("d1449f969c54d5c00886d5b643340d493dfb3c81cb39ee29b35453395c11ebf7")
@@ -160,18 +165,30 @@ val cmakeBinary = if (externalCmake != null) {
         destinationDirectory.set(nativeRoot.map { it.dir("cmake-$cmakeVersion-macos-universal") })
     }
     prepareCmake.flatMap { it.destinationDirectory.file("CMake.app/Contents/bin/cmake") }
+} else {
+    // Linux CI provisions CMake through its image; no Apple binary is downloaded.
+    layout.file(provider { file("/usr/bin/cmake") })
 }
 
-mapOf("iosArm64" to "iphoneos", "iosSimulatorArm64" to "iphonesimulator").forEach { (target, sdkName) ->
-    tasks.register<BuildIosNative>("buildNative${target.replaceFirstChar(Char::uppercaseChar)}") {
+data class NativePlatform(val system: String, val sdk: String, val arch: String, val minimumVersion: String)
+val platforms = mapOf(
+    "iosArm64" to NativePlatform("iOS", "iphoneos", "arm64", "15.0"),
+    "iosSimulatorArm64" to NativePlatform("iOS", "iphonesimulator", "arm64", "15.0"),
+    "macosArm64" to NativePlatform("Darwin", "macosx", "arm64", "12.0"),
+    "macosX64" to NativePlatform("Darwin", "macosx", "x86_64", "12.0"),
+    "linuxX64" to NativePlatform("Linux", "", "x86_64", "")
+)
+platforms.forEach { (target, platform) ->
+    tasks.register<BuildPosixNative>("buildNative${target.replaceFirstChar(Char::uppercaseChar)}") {
         group = "build"
         description = "Build the pinned native ADB backend for $target"
         bridgeDirectory.set(layout.projectDirectory.dir("src/nativeInterop"))
         boringSslDirectory.set(prepareBoringSsl.flatMap { it.destinationDirectory })
         cmakeExecutable.set(cmakeBinary)
-        sdk.set(sdkName)
-        deploymentTarget.set("15.0")
-        architecture.set("arm64")
+        operatingSystem.set(platform.system)
+        sdk.set(platform.sdk)
+        deploymentTarget.set(platform.minimumVersion)
+        architecture.set(platform.arch)
         configuration.set("Release")
         cmakeBuildDirectory.set(nativeRoot.map { it.dir("$target/cmake") })
         nativeLibrary.set(nativeRoot.map { it.file("$target/libkadb_native.a") })

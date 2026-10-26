@@ -8,11 +8,12 @@ plugins {
 apply(from = "gradle/ios-native.gradle.kts")
 
 kotlin {
-    listOf(iosArm64(), iosSimulatorArm64()).forEach { target ->
+    listOf(iosArm64(), iosSimulatorArm64(), macosArm64(), macosX64(), linuxX64()).forEach { target ->
         val nativeOutput = layout.buildDirectory.dir("native/${target.name}")
         val buildNative = tasks.named("buildNative${target.name.replaceFirstChar(Char::uppercaseChar)}")
         val interop = target.compilations.getByName("main").cinterops.create("kadbNative") {
-            definitionFile.set(project.file("src/nativeInterop/cinterop/kadb.def"))
+            definitionFile.set(project.file("src/nativeInterop/cinterop/" +
+                if (target.name == "linuxX64") "kadb-linux.def" else "kadb.def"))
             includeDirs(project.file("src/nativeInterop/cinterop"))
             extraOpts("-libraryPath", nativeOutput.get().asFile.absolutePath)
         }
@@ -22,7 +23,7 @@ kotlin {
             inputs.files(nativeOutput.map { it.file("libkadb_native.a") },
                 nativeOutput.map { it.file("libssl.a") }, nativeOutput.map { it.file("libcrypto.a") })
         }
-        target.binaries.framework {
+        if (target.name != "linuxX64") target.binaries.framework {
             baseName = "Kadb"
             isStatic = true
             binaryOption("bundleId", "com.flyfishxu.kadb")

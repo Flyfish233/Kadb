@@ -8,6 +8,10 @@ plugins {
 kotlin {
     iosArm64()
     iosSimulatorArm64()
+    macosArm64()
+    macosX64()
+    // Data models and parsers only: there is no Linux discovery backend yet.
+    linuxX64()
 
     jvm {
         kotlin {
