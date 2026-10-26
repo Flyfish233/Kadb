@@ -49,6 +49,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(project(":spake2-legacy"))
             implementation(libs.kotlinx.coroutines.core)
             api(libs.okio)
         }
@@ -58,7 +59,6 @@ kotlin {
             dependencies {
                 implementation(libs.bcprov)
                 implementation(libs.bcpkix)
-                implementation(libs.spake2)
             }
         }
         androidMain.get().dependsOn(jvmAndroidMain)
@@ -82,6 +82,8 @@ kotlin {
         getByName("androidHostTest").dependsOn(jvmAndroidTest)
 
         jvmTest.dependencies {
+            // Independent historical peer, never a production dependency.
+            implementation(libs.spake2)
             implementation(libs.conscrypt.java)
         }
     }

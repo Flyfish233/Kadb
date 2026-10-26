@@ -1,0 +1,12 @@
+Compiled from "Kadb.kt"
+public final class com.flyfishxu.kadb.Kadb$Companion {
+  public final java.lang.Object pair(java.lang.String, int, java.lang.String, java.lang.String, kotlin.coroutines.Continuation<? super kotlin.Unit>);
+  public static java.lang.Object pair$default(com.flyfishxu.kadb.Kadb$Companion, java.lang.String, int, java.lang.String, java.lang.String, kotlin.coroutines.Continuation, int, java.lang.Object);
+  public final com.flyfishxu.kadb.Kadb create(java.lang.String, int, int, int, com.flyfishxu.kadb.KadbOptions);
+  public static com.flyfishxu.kadb.Kadb create$default(com.flyfishxu.kadb.Kadb$Companion, java.lang.String, int, int, int, com.flyfishxu.kadb.KadbOptions, int, java.lang.Object);
+  public final com.flyfishxu.kadb.Kadb createWithTransport$Kadb_kadb(com.flyfishxu.kadb.KadbOptions, kotlin.jvm.functions.Function1<? super kotlin.coroutines.Continuation<? super com.flyfishxu.kadb.transport.TransportChannel>, ? extends java.lang.Object>);
+  public final com.flyfishxu.kadb.Kadb tryConnection(java.lang.String, int, com.flyfishxu.kadb.KadbOptions);
+  public static com.flyfishxu.kadb.Kadb tryConnection$default(com.flyfishxu.kadb.Kadb$Companion, java.lang.String, int, com.flyfishxu.kadb.KadbOptions, int, java.lang.Object);
+  public final java.lang.AutoCloseable tcpForward(java.lang.String, int, int);
+  public com.flyfishxu.kadb.Kadb$Companion(kotlin.jvm.internal.DefaultConstructorMarker);
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AdbWriterLifecycleTest[jvm]" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:32:41.291Z" hostname="c9d49951d07d" time="2.372">
+  <properties/>
+  <testcase name="closeCannotFlushTheSameBufferWhileAWriteIsInFlight[jvm]" classname="com.flyfishxu.kadb.core.AdbWriterLifecycleTest" time="2.37"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

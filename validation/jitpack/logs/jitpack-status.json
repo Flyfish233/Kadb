@@ -1,0 +1,15 @@
+{
+  "version" : "b837aba27bebc1050965fa124c2efa54b4e4544a",
+  "status" : "Error",
+  "message" : "No build artifacts found. See the log: com/github/Flyfish233/spake2/b837aba27bebc1050965fa124c2efa54b4e4544a/build.log",
+  "time" : 1793008942498,
+  "commit" : "b837aba27bebc1050965fa124c2efa54b4e4544a",
+  "ci" : false,
+  "buildUrl" : "",
+  "modules" : [ ],
+  "image" : "legacy",
+  "jdk" : 8,
+  "commitWhen" : 1793004164000,
+  "isTag" : false,
+  "private" : false
+}

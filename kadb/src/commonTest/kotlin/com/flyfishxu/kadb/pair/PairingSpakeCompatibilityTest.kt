@@ -1,12 +1,12 @@
-@file:OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
-
 package com.flyfishxu.kadb.pair
 
-import com.flyfishxu.kadb.cert.withNativeBytes
-import com.flyfishxu.kadb.nativebridge.*
+import io.github.flyfish233.spake2.EntropySource
+import io.github.flyfish233.spake2.Role
+import io.github.flyfish233.spake2.legacy.LegacySpake25519
 import kotlin.test.*
 import okio.Buffer
 
+/** Shared-path integration. Independent BoringSSL expected bytes are tested separately. */
 class PairingSpakeCompatibilityTest {
     @Test fun pairsAndUsesIndependentNonceCounters() = exchange(wrongPassword = false)
     @Test fun wrongPasswordFailsAtAuthenticatedDecryption() = exchange(wrongPassword = true)
@@ -16,20 +16,12 @@ class PairingSpakeCompatibilityTest {
         val serverName = "adb pair server\u0000".encodeToByteArray()
         val password = "123456-tls-exported-session-binding".encodeToByteArray()
         val alice = assertNotNull(PairingAuthCtx.createAlice(password))
-        val bob = assertNotNull(serverName.withNativeBytes { me, myLength ->
-            clientName.withNativeBytes { peer, peerLength -> kadb_spake_new(0, me, myLength, peer, peerLength) }
-        })
+        val bob = LegacySpake25519(Role.BOB, serverName, clientName, EntropySource(::securePairingRandomBytes))
         val cipher = PairingCrypto(clientName, serverName)
         try {
             val serverPassword = if (wrongPassword) "654321-tls-exported-session-binding".encodeToByteArray() else password
-            val serverMessage = ByteArray(32)
-            assertEquals(1, serverPassword.withNativeBytes { bytes, length ->
-                serverMessage.withNativeBytes { output, _ -> kadb_spake_generate(bob, bytes, length, output) }
-            })
-            val material = ByteArray(64)
-            assertEquals(1, alice.msg.withNativeBytes { bytes, length ->
-                material.withNativeBytes { output, _ -> kadb_spake_process(bob, bytes, length, output) }
-            })
+            val serverMessage = bob.generateMessage(serverPassword)
+            val material = bob.deriveUnconfirmedKey(alice.msg)
             val key = cipher.deriveKey(material, INFO)
             material.fill(0)
             assertTrue(alice.initCipher(serverMessage))
@@ -54,7 +46,7 @@ class PairingSpakeCompatibilityTest {
         } finally {
             alice.destroy()
             cipher.destroy()
-            kadb_spake_free(bob)
+            bob.destroy()
             password.fill(0)
         }
     }

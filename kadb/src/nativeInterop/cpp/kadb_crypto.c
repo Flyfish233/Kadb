@@ -6,7 +6,7 @@
 #include <openssl/aead.h>
 #include <openssl/bn.h>
 #include <openssl/bytestring.h>
-#include <openssl/curve25519.h>
+#include <openssl/rand.h>
 #include <openssl/digest.h>
 #include <openssl/evp.h>
 #include <openssl/hkdf.h>
@@ -18,10 +18,6 @@
 struct kadb_identity {
     EVP_PKEY *key;
     X509 *certificate;
-};
-
-struct kadb_spake {
-    SPAKE2_CTX *context;
 };
 
 void kadb_crypto_free(void *buffer, size_t length) {
@@ -212,35 +208,9 @@ int kadb_identity_adb_public_key(kadb_identity *identity, uint8_t out[524]) {
     return ok;
 }
 
-kadb_spake *kadb_spake_new(int alice, const uint8_t *my_name, size_t my_name_length,
-    const uint8_t *their_name, size_t their_name_length) {
-    kadb_spake *result = OPENSSL_zalloc(sizeof(*result));
-    if (result == NULL) return NULL;
-    result->context = SPAKE2_CTX_new(alice ? spake2_role_alice : spake2_role_bob,
-        my_name, my_name_length, their_name, their_name_length);
-    if (result->context == NULL) {
-        OPENSSL_free(result);
-        return NULL;
-    }
-    return result;
-}
-
-void kadb_spake_free(kadb_spake *context) {
-    if (context == NULL) return;
-    SPAKE2_CTX_free(context->context);
-    OPENSSL_free(context);
-}
-
-int kadb_spake_generate(kadb_spake *context, const uint8_t *password, size_t length,
-    uint8_t out[32]) {
-    size_t written = 0;
-    return SPAKE2_generate_msg(context->context, out, &written, 32, password, length) && written == 32;
-}
-
-int kadb_spake_process(kadb_spake *context, const uint8_t *message, size_t length,
-    uint8_t out[64]) {
-    size_t written = 0;
-    return SPAKE2_process_msg(context->context, out, &written, 64, message, length) && written == 64;
+int kadb_random_bytes(uint8_t *output, size_t length) {
+    if (output == NULL && length != 0) return 0;
+    return RAND_bytes(output, length);
 }
 
 int kadb_hkdf_sha256(const uint8_t *material, size_t material_length,

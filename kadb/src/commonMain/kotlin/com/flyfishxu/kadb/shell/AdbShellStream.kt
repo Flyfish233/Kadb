@@ -2,6 +2,7 @@ package com.flyfishxu.kadb.shell
 
 import com.flyfishxu.kadb.stream.AdbStream
 import kotlin.Throws
+import okio.Buffer
 import okio.IOException
 
 class AdbShellStream(
@@ -9,23 +10,25 @@ class AdbShellStream(
 ) : AutoCloseable {
     @Throws(IOException::class)
     fun readAll(): AdbShellResponse {
-        val output = StringBuilder()
-        val errorOutput = StringBuilder()
+        // Packet boundaries are arbitrary byte boundaries, including inside a
+        // UTF-8 code point. Decode each complete output stream only at EXIT.
+        val output = Buffer()
+        val errorOutput = Buffer()
         while (true) {
             when (val packet = read()) {
                 is AdbShellPacket.Exit -> {
                     // Shell v2 exit code is stored as a single byte.
                     // https://android.googlesource.com/platform/system/core/+/c0e6e40/adb/shell_service.cpp
                     val exitCode = packet.payload[0].toUByte().toInt()
-                    return AdbShellResponse(output.toString(), errorOutput.toString(), exitCode)
+                    return AdbShellResponse(output.readUtf8(), errorOutput.readUtf8(), exitCode)
                 }
 
                 is AdbShellPacket.StdOut -> {
-                    output.append(packet.payload.decodeToString())
+                    output.write(packet.payload)
                 }
 
                 is AdbShellPacket.StdError -> {
-                    errorOutput.append(packet.payload.decodeToString())
+                    errorOutput.write(packet.payload)
                 }
             }
         }

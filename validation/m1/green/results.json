@@ -1,0 +1,22 @@
+{
+  "product_commit": "904aaa0d92c2f0e52f76a4e1cc13135d82798f59",
+  "command": "./gradlew :kadb:jvmTest :kadb:testAndroidHostTest --console=plain",
+  "exit_code": 0,
+  "results": [
+    {
+      "task": ":kadb:jvmTest",
+      "tests": 53,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "task": ":kadb:testAndroidHostTest",
+      "tests": 38,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "scope": "M1 only; M2 and M3 production fixes and new tests not included; native targets disabled on this Linux host"
+}

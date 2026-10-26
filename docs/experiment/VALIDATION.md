@@ -116,3 +116,28 @@ cover pending-connect cancellation, writer/close concurrency, three pairing
 context lifecycle cases and split UTF-8 decoding. Raw evidence is preserved
 separately from the earlier invalid harness attempts. These are defect
 reproductions, not product-health passes; green evidence must follow the fixes.
+
+## M0: Android artifact and Kotlin-public ABI snapshot executed
+
+[Run 40308159247](https://github.com/Flyfish233/Kadb/actions/runs/40308159247)
+at `10f64ba657c1043ec3455a329e311fff83d830a0` completed successfully:
+all 78 baseline tests ran and both actual Android AARs were built. The
+Kadb/mDNS Android Kotlin-public inventories and the broader Kadb bytecode
+inventory are committed under `validation/baseline`. Artifact SHA-256:
+`285efb0ef0c7a9bbc636b56ec8ff03c116b0e007cecf25338a60b105e5d3987a`.
+Its explicitly skipped Darwin replay is not a Darwin pass.
+
+## M1: first fixed implementation execution
+
+The M1 implementation is `bf9695a88864355797dbf3f71bfb9c93d2a25b1a`.
+Its local source-stage execution (recorded original source hash `904aaa0`) ran
+**53 JVM and 38 Android Host tests, all passing with zero skipped**. Complete
+XML, logs, manifest and the unchanged public `Kadb.Companion` Java declarations
+are in `validation/m1/green`. This closes the M1-only red/green comparison; the
+new shared SPAKE implementation, shell fix and platform integration still
+require their own full current-tree runs.
+
+The C regression was committed before its fix: `13d3d5affe7211cc99861a0e5d6e044a984f397c`
+then `69aa47f60604a610066fcb26569900c05b713eb4`. POSIX target expansion is
+`8e3fc41286ba531aa0a6d12118fe90c2c48dc3c0`. These checkpoints distinguish real
+C TLS execution from pending Kotlin/Native compilation and external linkage.

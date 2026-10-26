@@ -2,40 +2,30 @@
 
 package com.flyfishxu.kadb.pair
 
-import cnames.structs.kadb_spake
 import com.flyfishxu.kadb.cert.withNativeBytes
 import com.flyfishxu.kadb.nativebridge.*
 import kotlinx.cinterop.*
 import platform.posix.size_tVar
 
-internal actual class PairingCrypto actual constructor(myName: ByteArray, theirName: ByteArray) {
-    private var context: CPointer<kadb_spake>? = myName.withNativeBytes { me, myLength ->
-        theirName.withNativeBytes { peer, peerLength -> kadb_spake_new(1, me, myLength, peer, peerLength) }
-    }.also { checkNotNull(it) { "Failed to create SPAKE2 context" } }
-
-    actual fun generateMessage(password: ByteArray): ByteArray = ByteArray(32).also { message ->
-        val success = password.withNativeBytes { bytes, length ->
-            message.withNativeBytes { output, _ -> kadb_spake_generate(checkNotNull(context), bytes, length, output) }
-        }
-        check(success == 1) { "Failed to generate SPAKE2 message" }
+internal actual fun securePairingRandomBytes(size: Int): ByteArray = ByteArray(size).also { bytes ->
+    val success = bytes.withNativeBytes { output, length -> kadb_random_bytes(output, length) }
+    if (success != 1) {
+        bytes.fill(0)
+        error("Operating-system CSPRNG failed")
     }
+}
 
-    actual fun processMessage(message: ByteArray?): ByteArray? {
-        if (message == null || context == null) return null
-        val material = ByteArray(64)
-        val success = message.withNativeBytes { bytes, length ->
-            material.withNativeBytes { output, _ -> kadb_spake_process(context, bytes, length, output) }
-        }
-        return if (success == 1) material else { material.fill(0); null }
-    }
-
+internal actual class PairingPrimitives actual constructor() {
     actual fun deriveKey(material: ByteArray, info: ByteArray): ByteArray = ByteArray(HKDF_KEY_LENGTH).also { key ->
         val success = material.withNativeBytes { bytes, length ->
             info.withNativeBytes { infoBytes, infoLength ->
                 key.withNativeBytes { output, _ -> kadb_hkdf_sha256(bytes, length, infoBytes, infoLength, output) }
             }
         }
-        check(success == 1) { "Failed to derive pairing key" }
+        if (success != 1) {
+            key.fill(0)
+            error("Failed to derive pairing key")
+        }
     }
 
     actual fun encryptDecrypt(encrypt: Boolean, key: ByteArray, nonce: ByteArray, input: ByteArray): ByteArray? {
@@ -53,12 +43,9 @@ internal actual class PairingCrypto actual constructor(myName: ByteArray, theirN
                     }
                 }
             }
-            if (success == 1) output.copyOf(written.value.toInt()) else null
+            try {
+                if (success == 1) output.copyOf(written.value.toInt()) else null
+            } finally { output.fill(0) }
         }
-    }
-
-    actual fun destroy() {
-        kadb_spake_free(context)
-        context = null
     }
 }

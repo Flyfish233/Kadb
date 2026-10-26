@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.transport.UsbHandshakeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-26T10:32:30.271Z" hostname="c9d49951d07d" time="0.511">
+  <properties/>
+  <testcase name="freshTransportsStillRejectUnexpectedStreamPackets" classname="com.flyfishxu.kadb.transport.UsbHandshakeTest" time="0.083"/>
+  <testcase name="reconnectDiscardsOldStreamPacketsBeforeNewHandshake" classname="com.flyfishxu.kadb.transport.UsbHandshakeTest" time="0.268"/>
+  <testcase name="stalePacketFloodIsBounded" classname="com.flyfishxu.kadb.transport.UsbHandshakeTest" time="0.158"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

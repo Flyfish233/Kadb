@@ -16,50 +16,88 @@
 
 package com.flyfishxu.kadb.pair
 
-import okio.Buffer
-
 // Protocol labels include the terminating zero where AOSP uses sizeof(string literal).
 private val CLIENT_NAME get() = "adb pair client\u0000".encodeToByteArray()
 private val SERVER_NAME get() = "adb pair server\u0000".encodeToByteArray()
 internal val INFO get() = "adb pairing_auth aes-128-gcm key".encodeToByteArray()
 internal const val HKDF_KEY_LENGTH = 16
 
-/** All pairing protocol state and wire-format decisions are shared across platforms. */
+/**
+ * Single-use pairing authentication owned by the PairingConnectionCtx worker.
+ * Closing a transport must unblock that worker before its finally block destroys this state.
+ */
 internal class PairingAuthCtx private constructor(private val crypto: PairingCrypto, password: ByteArray) {
     val msg: ByteArray = crypto.generateMessage(password)
     private val secretKey = ByteArray(HKDF_KEY_LENGTH)
-    private var decryptCounter = 0L
-    private var encryptCounter = 0L
-    private var destroyed = false
+    private val decryptNonces = PairingNonceSequence()
+    private val encryptNonces = PairingNonceSequence()
+    private var state = State.MESSAGE_GENERATED
 
     fun initCipher(theirMsg: ByteArray?): Boolean {
-        if (destroyed) return false
-        val material = crypto.processMessage(theirMsg) ?: return false
+        if (state != State.MESSAGE_GENERATED) {
+            destroy()
+            return false
+        }
         return try {
-            val key = crypto.deriveKey(material, INFO)
-            try { key.copyInto(secretKey) } finally { key.fill(0) }
-            true
-        } finally {
-            material.fill(0)
+            val material = crypto.processMessage(theirMsg)
+            if (material == null) {
+                destroy()
+                false
+            } else {
+                try {
+                    val key = crypto.deriveKey(material, INFO)
+                    try {
+                        check(key.size == secretKey.size) { "Invalid pairing key length" }
+                        key.copyInto(secretKey)
+                        state = State.CIPHER_READY
+                    } finally { key.fill(0) }
+                    true
+                } finally { material.fill(0) }
+            }
+        } catch (_: IllegalArgumentException) {
+            destroy()
+            false
+        } catch (_: IllegalStateException) {
+            destroy()
+            false
+        } catch (failure: Throwable) {
+            destroy()
+            throw failure
         }
     }
 
-    fun encrypt(input: ByteArray): ByteArray? = crypt(true, input, encryptCounter++)
-    fun decrypt(input: ByteArray): ByteArray? = crypt(false, input, decryptCounter++)
-    fun isDestroyed(): Boolean = destroyed
+    fun encrypt(input: ByteArray): ByteArray? = crypt(true, input, encryptNonces)
+    fun decrypt(input: ByteArray): ByteArray? = crypt(false, input, decryptNonces)
+    fun isDestroyed(): Boolean = state == State.DESTROYED
 
     fun destroy() {
-        if (destroyed) return
-        destroyed = true
+        if (state == State.DESTROYED) return
+        state = State.DESTROYED
         secretKey.fill(0)
+        msg.fill(0)
+        encryptNonces.destroy()
+        decryptNonces.destroy()
         crypto.destroy()
     }
 
-    private fun crypt(encrypt: Boolean, input: ByteArray, counter: Long): ByteArray? {
-        if (destroyed) return null
-        val nonce = Buffer().writeLongLe(counter).writeIntLe(0).readByteArray()
-        return crypto.encryptDecrypt(encrypt, secretKey, nonce, input)
+    private fun crypt(encrypt: Boolean, input: ByteArray, nonces: PairingNonceSequence): ByteArray? {
+        if (state != State.CIPHER_READY) {
+            destroy()
+            return null
+        }
+        val nonce = nonces.next() ?: run { destroy(); return null }
+        return try {
+            crypto.encryptDecrypt(encrypt, secretKey, nonce, input).also {
+                // Authentication failure is terminal; do not accept another ciphertext/nonce on this key.
+                if (it == null) destroy()
+            }
+        } catch (failure: Throwable) {
+            destroy()
+            throw failure
+        } finally { nonce.fill(0) }
     }
+
+    private enum class State { MESSAGE_GENERATED, CIPHER_READY, DESTROYED }
 
     companion object {
         internal fun create(password: ByteArray): PairingAuthCtx? {
@@ -72,6 +110,9 @@ internal class PairingAuthCtx private constructor(private val crypto: PairingCry
             } catch (_: IllegalStateException) {
                 crypto.destroy()
                 null
+            } catch (failure: Throwable) {
+                crypto.destroy()
+                throw failure
             }
         }
     }
@@ -79,11 +120,20 @@ internal class PairingAuthCtx private constructor(private val crypto: PairingCry
 
 internal fun PairingAuthCtx.Companion.createAlice(password: ByteArray): PairingAuthCtx? = create(password)
 
-/** Only the cryptographic primitives require a platform implementation. */
-internal expect class PairingCrypto(myName: ByteArray, theirName: ByteArray) {
-    fun generateMessage(password: ByteArray): ByteArray
-    fun processMessage(message: ByteArray?): ByteArray?
-    fun deriveKey(material: ByteArray, info: ByteArray): ByteArray
-    fun encryptDecrypt(encrypt: Boolean, key: ByteArray, nonce: ByteArray, input: ByteArray): ByteArray?
-    fun destroy()
+/** ADB's 64-bit little-endian counter followed by four zero bytes; never wraps. */
+internal class PairingNonceSequence(initial: ULong = 0uL) {
+    private var counter = initial
+    private var exhausted = false
+
+    fun next(): ByteArray? {
+        if (exhausted) return null
+        val value = counter
+        if (value == ULong.MAX_VALUE) exhausted = true else counter++
+        return ByteArray(12) { index -> if (index < 8) (value shr (index * 8)).toByte() else 0 }
+    }
+
+    fun destroy() {
+        counter = 0uL
+        exhausted = true
+    }
 }

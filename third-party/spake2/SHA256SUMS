@@ -1,0 +1,7 @@
+0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0  upstream/LICENSE
+dfc55282188a4c8a97752d01b153dfdf15f1f919df3c0359d74a5a09b19826bc  upstream/primitives/src/commonMain/kotlin/io/github/flyfish233/spake2/EntropySource.kt
+b1fe1cd7cb8c17f996124237cb2a90ba530263bd80f9a2df169a7f7ce73036e6  upstream/primitives/src/commonMain/kotlin/io/github/flyfish233/spake2/InternalSpake2Api.kt
+60fb00baad467d2cd01779d3791e357c00c0ac1a9e5719b4236384bc60c60451  upstream/primitives/src/commonMain/kotlin/io/github/flyfish233/spake2/internal/crypto/Sha512.kt
+006a71ead2a4c1038635435547a22ea231aace49920de1a43b18622c942c0eb8  upstream/primitives/src/commonMain/kotlin/io/github/flyfish233/spake2/internal/math/Edwards25519.kt
+a01fc9c6b6133c0ac96b0c45ec426db1bf3ff3feb33c9512e9ab7cd923ff79bd  upstream/primitives/src/commonMain/kotlin/io/github/flyfish233/spake2/internal/math/ModMath.kt
+2e742651a083c6d29ae6b6e03c3319ced1ca22deef33e25eea278b630fc8c138  upstream/legacy/src/commonMain/kotlin/io/github/flyfish233/spake2/legacy/LegacySpake25519.kt

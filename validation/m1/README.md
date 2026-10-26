@@ -54,3 +54,29 @@ copy was removed before the confirmed run. No failed experiment was overwritten 
 
 Green validation is recorded separately after execution. Simulator, native linking, device
 pairing, and production adbd interoperability are not established by this JVM negative run.
+
+## M1 positive run
+
+Production tree committed as `904aaa0d92c2f0e52f76a4e1cc13135d82798f59`:
+
+| Task | Tests executed | Failures/errors | Skipped |
+| --- | ---: | ---: | ---: |
+| `:kadb:jvmTest` | 53 | 0 | 0 |
+| `:kadb:testAndroidHostTest` | 38 | 0 | 0 |
+
+Command: `./gradlew :kadb:jvmTest :kadb:testAndroidHostTest --console=plain`.
+Gradle exited 0; the test tasks actually ran. `green/` contains their original XML reports,
+raw Gradle output, and a separate machine-readable result summary. The full existing M1
+checkout suite ran, not only filtered new regressions. This includes the previously fixed
+concurrent-first-connect, close-during-handshake, no-OPEN-replay, reset/reconnect, stream,
+USB fake-transport, identity, and File API compatibility tests.
+
+The M2 auth-state and M3 split-UTF-8 production fixes/new tests were not yet integrated into
+this M1 checkout; their aggregate positive result belongs to the integration ledger. The
+M1 run must not be presented as proof that all M2/M3 defects were already fixed.
+
+`green/companion-api-before.txt` and `green/companion-api-after.txt` compare public Java
+bytecode declarations for `Kadb.Companion` against the exact baseline build. They are
+identical, including the suspend `pair` method's lack of new checked exceptions. This is a
+focused check for the Native-only annotation; it does not replace the repository-wide
+API/ABI comparison.

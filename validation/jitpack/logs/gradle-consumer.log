@@ -1,0 +1,27 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Task :resolveJitPackConsumer
+FAILED jvmCompileClasspath: Could not resolve all files for configuration ':jvmCompileClasspath'.
+FAILED linuxX64CompileKlibraries: Could not resolve all files for configuration ':linuxX64CompileKlibraries'.
+FAILED iosArm64CompileKlibraries: Could not resolve all files for configuration ':iosArm64CompileKlibraries'.
+FAILED iosSimulatorArm64CompileKlibraries: Could not resolve all files for configuration ':iosSimulatorArm64CompileKlibraries'.
+FAILED macosArm64CompileKlibraries: Could not resolve all files for configuration ':macosArm64CompileKlibraries'.
+FAILED macosX64CompileKlibraries: Could not resolve all files for configuration ':macosX64CompileKlibraries'.
+
+> Task :resolveJitPackConsumer FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':resolveJitPackConsumer'.
+> JitPack consumer failed: [jvmCompileClasspath, linuxX64CompileKlibraries, iosArm64CompileKlibraries, iosSimulatorArm64CompileKlibraries, macosArm64CompileKlibraries, macosX64CompileKlibraries]
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 3m 25s
+1 actionable task: 1 executed

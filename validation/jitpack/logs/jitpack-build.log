@@ -1,0 +1,187 @@
+Build starting...
+Build image: default
+Start: Mon Oct 26 10:00:01 UTC 2026 0c6b01db80c2
+Git:
+b837aba
+commit b837aba27bebc1050965fa124c2efa54b4e4544a
+Author: Flyfish233 
+Date:   Mon Oct 26 16:42:44 2026 +0800
+
+    fix: align RFC scalar sampling and harden shared arithmetic for JavaScript
+    
+
+Init SDKMan
+Using JDK 8 (default for legacy image)
+Found gradle
+Gradle build script
+Gradle wrapper found
+Init SDKMan
+Found gradle version: 8.14.3.
+Using gradle wrapper
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Downloading https://services.gradle.org/distributions/gradle-8.14.3-bin.zip
+.10%.20%.30%.40%.50%.60%.70%.80%.90%.100%
+
+------------------------------------------------------------
+Gradle 8.14.3
+------------------------------------------------------------
+
+Build time:    2025-07-04 13:15:44 UTC
+Revision:      e5ee1df3d88b8ca3a8074787a94f373e3090e1db
+
+Kotlin:        2.0.21
+Groovy:        3.0.24
+Ant:           Apache Ant(TM) version 1.10.15 compiled on August 25 2024
+Launcher JVM:  1.8.0_292 (Private Build 25.292-b10)
+Daemon JVM:    /usr/lib/jvm/java-8-openjdk-amd64 (no JDK specified, using current Java home)
+OS:            Linux 4.10.0-28-generic amd64
+
+0m4.852s
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+openjdk version "1.8.0_292"
+OpenJDK Runtime Environment (build 1.8.0_292-8u292-b10-0ubuntu1~16.04.1-b10)
+OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
+Getting tasks: ./gradlew tasks --all
+Found tasks
+
+⚠️  WARNING:  > Dependency requires at least JVM runtime version 11. This build uses a Java 8 JVM.
+Please specify Java version in jitpack.yml
+See documentation at https://docs.jitpack.io/building/#java-version
+
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Launcher JVM:  11.0.2 (Oracle Corporation 11.0.2+9)
+Daemon JVM:    /usr/lib/jvm/jdk-11 (no JDK specified, using current Java home)
+Tasks: 
+
+ ⚠️   WARNING:
+ Gradle 'publishToMavenLocal' task not found. Please add the 'maven-publish' or 'maven' plugin.
+ See the documentation and examples: https://docs.jitpack.io
+
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+
+Running: ./gradlew clean -Pgroup=com.github.Flyfish233 -Pversion=b837aba27bebc1050965fa124c2efa54b4e4544a publishToMavenLocal --console=plain --info
+
+Initialized native services in: /home/jitpack/.gradle/native
+Initialized jansi services in: /home/jitpack/.gradle/native
+Found daemon DaemonInfo{pid=187, address=[ff75138d-59fa-4f8a-8313-b072cc26ca91 port:44273, addresses:[/127.0.0.1]], state=Idle, lastBusy=1793008807903, context=DefaultDaemonContext[uid=ebc74c52-0337-4599-8c8a-53aa09ff75a7,javaHome=/usr/lib/jvm/java-8-openjdk-amd64,javaVersion=8,javaVendor=Private Build,daemonRegistryDir=/home/jitpack/.gradle/daemon,pid=187,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2g,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=/usr/lib/jvm/jdk-11 (no JDK specified, using current Java home), daemonOpts=[-Xmx2g, -Dfile.encoding=UTF-8, -Duser.country, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=ebc74c52-0337-4599-8c8a-53aa09ff75a7,javaHome=/usr/lib/jvm/java-8-openjdk-amd64,javaVersion=8,javaVendor=Private Build,daemonRegistryDir=/home/jitpack/.gradle/daemon,pid=187,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-Xmx2g,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 338). The daemon log file: /home/jitpack/.gradle/daemon/8.14.3/daemon-338.out.log
+Starting 3rd build in daemon [uptime: 1 mins 32.5 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+Using 2 worker leases.
+Not watching /home/jitpack/build since the file system is not supported
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file '/home/jitpack/build/settings.gradle.kts'.
+Projects loaded. Root project using build file '/home/jitpack/build/build.gradle.kts'.
+Included projects: [root project 'spake2', project ':legacy', project ':primitives']
+
+> Configure project :
+Evaluating root project 'spake2' using build file '/home/jitpack/build/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.multiplatform', version: '2.2.21']
+Resolved plugin [id: 'com.android.library', version: '8.11.1', apply: false]
+Build fc16a188-57a8-4940-b0b8-18c1254cb45e is started
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+[KOTLIN] Storing cached files in /home/jitpack/.gradle
+[:] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+
+> Configure project :legacy
+Evaluating project ':legacy' using build file '/home/jitpack/build/legacy/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.multiplatform']
+[:legacy] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:legacy] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:legacy] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:legacy] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+
+> Configure project :primitives
+Evaluating project ':primitives' using build file '/home/jitpack/build/primitives/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.multiplatform']
+[:primitives] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:primitives] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:primitives] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+[:primitives] commonizeCInterop task registration disabled. cInteropCommonizationEnabled == false
+All projects evaluated.
+Task name matched 'clean'
+Build fc16a188-57a8-4940-b0b8-18c1254cb45e is closed
+
+[Incubating] Problems report is available at: file:///home/jitpack/build/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Task 'publishToMavenLocal' not found in root project 'spake2' and its subprojects.
+
+* Try:
+> Run gradlew tasks to get a list of available tasks.
+> For more on name expansion, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:name_abbreviation in the Gradle documentation.
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1s
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dhttps.protocols=TLSv1.2
+Archive: io.github.flyfish233:spake2-linuxx64:0.1.0-dev
+Archive: io.github.flyfish233:spake2-iossimulatorarm64:0.1.0-dev
+Archive: io.github.flyfish233:legacy-wasm-js:0.1.0-dev
+Archive: io.github.flyfish233:spake2-jvm:0.1.0-dev
+Archive: io.github.flyfish233:spake2-iosarm64:0.1.0-dev
+Archive: io.github.flyfish233:legacy-linuxx64:0.1.0-dev
+Archive: io.github.flyfish233:non-existing-file-workaround-for-gradle-29630:0.1.0-dev
+Archive: io.github.flyfish233:legacy-metadata:0.1.0-dev
+Archive: io.github.flyfish233:spake2-js:0.1.0-dev
+Archive: io.github.flyfish233:legacy-js:0.1.0-dev
+Archive: io.github.flyfish233:spake2-iosx64:0.1.0-dev
+Archive: io.github.flyfish233:primitives-js:0.1.0-dev
+Archive: io.github.flyfish233:primitives-metadata:0.1.0-dev
+Archive: io.github.flyfish233:legacy-jvm:0.1.0-dev
+Archive: io.github.flyfish233:primitives-wasm-js:0.1.0-dev
+Archive: io.github.flyfish233:spake2-metadata:0.1.0-dev
+Archive: io.github.flyfish233:primitives-iosarm64:0.1.0-dev
+Archive: io.github.flyfish233:primitives-linuxx64:0.1.0-dev
+Archive: io.github.flyfish233:legacy-iossimulatorarm64:0.1.0-dev
+Archive: io.github.flyfish233:legacy-iosx64:0.1.0-dev
+Archive: io.github.flyfish233:primitives-iosx64:0.1.0-dev
+Archive: io.github.flyfish233:spake2-wasm-js:0.1.0-dev
+Archive: io.github.flyfish233:primitives-iossimulatorarm64:0.1.0-dev
+Archive: io.github.flyfish233:legacy-iosarm64:0.1.0-dev
+Archive: io.github.flyfish233:primitives-jvm:0.1.0-dev
+Build tool exit code: 1
+⚠️ Build failed. See errors above.
+2026-10-26T10:02:20.665770378Z
+Exit code: 1
+
+
+
+HTTP_STATUS=200
