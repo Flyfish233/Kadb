@@ -136,13 +136,18 @@ def execute(args, runner: Runner, report: dict) -> None:
     except Exception as error:
         primary_error = error
     finally:
-        if peer is not None and peer.poll() is None:
-            peer.terminate()
-            try:
-                peer.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                peer.kill()
-                peer.wait(timeout=5)
+        # A stuck reference process must not prevent fixture removal or replace
+        # the original instrumentation failure with a shutdown exception.
+        try:
+            if peer is not None and peer.poll() is None:
+                peer.terminate()
+                try:
+                    peer.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    peer.kill()
+                    peer.wait(timeout=5)
+        except Exception as error:
+            cleanup_errors.append("Reference peer cleanup: " + str(error))
         if peer is not None:
             report.setdefault("peer_exit_code", peer.returncode)
         if install_attempted:

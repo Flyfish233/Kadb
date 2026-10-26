@@ -1,0 +1,464 @@
+{
+  "reviewed_utc_date": "2026-10-26",
+  "consumer_commit": "2ab85febb3bf98338257d1d5aca0d9e49e552b19",
+  "origin_runtime_report_sha256": "baf3c5ef8b0a51a7ca20e7061a4c65a71065ee6d68ad5589c108b11333b521d6",
+  "origin_apk_sha256": "4538e33e848955a99b1bb012beab0da37d961574eeb5c6d86517272dee57dc5a",
+  "origin_apk_scope": "This hash records the already built probe APK, not a binary built from later source-collector commits. The CI verifier recomputes current external and project artifact hashes.",
+  "external_artifacts": [
+    {
+      "coordinate": "androidx.annotation:annotation-experimental:1.1.0",
+      "bytes": 17209,
+      "sha256": "0157de61a2064047896a058080f3fd67ba57ad9a94857b3f7a363660243e3f90",
+      "variant": "androidx.annotation:annotation-experimental:1.1.0 variant releaseRuntimePublication",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "annotation-experimental-1.1.0.aar"
+    },
+    {
+      "coordinate": "androidx.annotation:annotation-jvm:1.8.1",
+      "bytes": 56126,
+      "sha256": "9aab326d9492800991854360ac248f493ce7f7c3183519309b78ace9e240f6f6",
+      "variant": "androidx.annotation:annotation-jvm:1.8.1 variant jvmRuntimeElements-published",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "file_name": "annotation-jvm-1.8.1.jar"
+    },
+    {
+      "coordinate": "androidx.arch.core:core-common:2.1.0",
+      "bytes": 11257,
+      "sha256": "fe1237bf029d063e7f29fe39aeaf73ef74c8b0a3658486fc29d3c54326653889",
+      "variant": "androidx.arch.core:core-common:2.1.0 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "core-common-2.1.0.jar"
+    },
+    {
+      "coordinate": "androidx.arch.core:core-runtime:2.1.0",
+      "bytes": 6059,
+      "sha256": "dd77615bd3dd275afb11b62df25bae46b10b4a117cd37943af45bdcbf8755852",
+      "variant": "androidx.arch.core:core-runtime:2.1.0 configuration runtime",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "core-runtime-2.1.0.aar"
+    },
+    {
+      "coordinate": "androidx.collection:collection:1.0.0",
+      "bytes": 41692,
+      "sha256": "9c8d117b5c2bc120a1cdfeb857e05b495b16c36013570372a708f7827e3ac9f9",
+      "variant": "androidx.collection:collection:1.0.0 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "collection-1.0.0.jar"
+    },
+    {
+      "coordinate": "androidx.concurrent:concurrent-futures:1.0.0",
+      "bytes": 25895,
+      "sha256": "5595a40e278a7b39fa78a09490e3d7f3faa95c7b01447148bd38b5ade0605c35",
+      "variant": "androidx.concurrent:concurrent-futures:1.0.0 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "concurrent-futures-1.0.0.jar"
+    },
+    {
+      "coordinate": "androidx.core:core:1.7.0",
+      "bytes": 980200,
+      "sha256": "aaf6734226fff923784f92f65d78a2984dbf17534138855c5ce2038f18656e0b",
+      "variant": "androidx.core:core:1.7.0 variant releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "core-1.7.0.aar"
+    },
+    {
+      "coordinate": "androidx.documentfile:documentfile:1.1.0",
+      "bytes": 17070,
+      "sha256": "684e0ffcb21a660c939d1bb814521f42c4bd74816f4a117291fe6a101cf3a822",
+      "variant": "androidx.documentfile:documentfile:1.1.0 variant releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "documentfile-1.1.0.aar"
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-common:2.3.1",
+      "bytes": 23505,
+      "sha256": "15848fb56db32f4c7cdc72b324003183d52a4884d6bf09be708ac7f587d139b5",
+      "variant": "androidx.lifecycle:lifecycle-common:2.3.1 variant runtimeElements",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": "7",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "lifecycle-common-2.3.1.jar"
+    },
+    {
+      "coordinate": "androidx.lifecycle:lifecycle-runtime:2.3.1",
+      "bytes": 11230,
+      "sha256": "dd294f4a689c71ff877fd41f3b67a3a62f7760d44ce420e6130f1fc3569d8f00",
+      "variant": "androidx.lifecycle:lifecycle-runtime:2.3.1 variant releaseRuntimePublication",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "lifecycle-runtime-2.3.1.aar"
+    },
+    {
+      "coordinate": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+      "bytes": 31061,
+      "sha256": "57e8d93260d18d5b9007c9eed3c64ad159de90c8609ebfc74a347cbd514535a4",
+      "variant": "androidx.versionedparcelable:versionedparcelable:1.1.1 configuration runtime",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "versionedparcelable-1.1.1.aar"
+    },
+    {
+      "coordinate": "com.google.guava:listenablefuture:1.0",
+      "bytes": 3149,
+      "sha256": "e4ad7607e5c0477c6f890ef26a49cb8d1bb4dffb650bab4502afee64644e3069",
+      "variant": "com.google.guava:listenablefuture:1.0 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "listenablefuture-1.0.jar"
+    },
+    {
+      "coordinate": "com.squareup.okio:okio-jvm:3.18.2",
+      "bytes": 392462,
+      "sha256": "681fed549d1d2c63710f42c9eab433d642c71af778babd67035c50f8c425aaff",
+      "variant": "com.squareup.okio:okio-jvm:3.18.2 variant jvmRuntimeElements-published",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "file_name": "okio-jvm-3.18.2.jar"
+    },
+    {
+      "coordinate": "org.bouncycastle:bcpkix-jdk18on:1.86",
+      "bytes": 1341621,
+      "sha256": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7",
+      "variant": "org.bouncycastle:bcpkix-jdk18on:1.86 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "bcpkix-jdk18on-1.86.jar"
+    },
+    {
+      "coordinate": "org.bouncycastle:bcprov-jdk18on:1.86",
+      "bytes": 7224011,
+      "sha256": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f",
+      "variant": "org.bouncycastle:bcprov-jdk18on:1.86 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "bcprov-jdk18on-1.86.jar"
+    },
+    {
+      "coordinate": "org.bouncycastle:bcutil-jdk18on:1.86",
+      "bytes": 789287,
+      "sha256": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f",
+      "variant": "org.bouncycastle:bcutil-jdk18on:1.86 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "bcutil-jdk18on-1.86.jar"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20",
+      "bytes": 1853314,
+      "sha256": "2226de463d309d4a5500a481320b3dea515a6981dcae1def531fbc158884e25f",
+      "variant": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20 variant jvmRuntimeElements",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "file_name": "kotlin-stdlib-2.4.20.jar"
+    },
+    {
+      "coordinate": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0",
+      "bytes": 1577052,
+      "sha256": "d1d75aa01dffbb4d1c520e67e4c4e7f5f6174718e7cb4632412503f2f0e604fa",
+      "variant": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0 variant jvmRuntimeElements-published",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "file_name": "kotlinx-coroutines-core-jvm-1.11.0.jar"
+    },
+    {
+      "coordinate": "org.jetbrains:annotations:23.0.0",
+      "bytes": 29371,
+      "sha256": "7b0f19724082cbfcbc66e5abea2b9bc92cf08a1ea11e191933ed43801eb3cd05",
+      "variant": "org.jetbrains:annotations:23.0.0 configuration runtime",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "annotations-23.0.0.jar"
+    },
+    {
+      "coordinate": "org.jspecify:jspecify:1.0.0",
+      "bytes": 3819,
+      "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab",
+      "variant": "org.jspecify:jspecify:1.0.0 variant runtimeElements",
+      "attributes": {
+        "artifactType": "jar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": "8",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "jspecify-1.0.0.jar"
+    },
+    {
+      "coordinate": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1",
+      "bytes": 15041,
+      "sha256": "e3161dd21c97a4540b1698a33f7062aeaa1450008e1e2176070e5380f7a6324c",
+      "variant": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1 variant releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime"
+      },
+      "file_name": "hiddenapibypass-6.1.aar"
+    }
+  ],
+  "published_module_absent": [
+    {
+      "coordinate": "androidx.arch.core:core-common:2.1.0",
+      "url": "https://dl.google.com/dl/android/maven2/androidx/arch/core/core-common/2.1.0/core-common-2.1.0.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "androidx.arch.core:core-runtime:2.1.0",
+      "url": "https://dl.google.com/dl/android/maven2/androidx/arch/core/core-runtime/2.1.0/core-runtime-2.1.0.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "androidx.collection:collection:1.0.0",
+      "url": "https://dl.google.com/dl/android/maven2/androidx/collection/collection/1.0.0/collection-1.0.0.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "androidx.concurrent:concurrent-futures:1.0.0",
+      "url": "https://dl.google.com/dl/android/maven2/androidx/concurrent/concurrent-futures/1.0.0/concurrent-futures-1.0.0.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+      "url": "https://dl.google.com/dl/android/maven2/androidx/versionedparcelable/versionedparcelable/1.1.1/versionedparcelable-1.1.1.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "com.google.guava:listenablefuture:1.0",
+      "url": "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/1.0/listenablefuture-1.0.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "org.bouncycastle:bcpkix-jdk18on:1.86",
+      "url": "https://repo.maven.apache.org/maven2/org/bouncycastle/bcpkix-jdk18on/1.86/bcpkix-jdk18on-1.86.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "org.bouncycastle:bcprov-jdk18on:1.86",
+      "url": "https://repo.maven.apache.org/maven2/org/bouncycastle/bcprov-jdk18on/1.86/bcprov-jdk18on-1.86.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "org.bouncycastle:bcutil-jdk18on:1.86",
+      "url": "https://repo.maven.apache.org/maven2/org/bouncycastle/bcutil-jdk18on/1.86/bcutil-jdk18on-1.86.module",
+      "http_status": 404
+    },
+    {
+      "coordinate": "org.jetbrains:annotations:23.0.0",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/23.0.0/annotations-23.0.0.module",
+      "http_status": 404
+    }
+  ],
+  "release_archives": [
+    {
+      "repository": "https://github.com/bcgit/bc-java",
+      "revision": "eacda831fbe15b272933e40841d8b0827b556fae",
+      "tag_at_review": "r1rv86",
+      "url": "https://codeload.github.com/bcgit/bc-java/tar.gz/eacda831fbe15b272933e40841d8b0827b556fae",
+      "sha256": "5c32fbb028b4e319fe4a1a1d06ff4c17849a5157e7b6c37b58328150719b2b32",
+      "size": 33084420
+    },
+    {
+      "repository": "https://github.com/LSPosed/AndroidHiddenApiBypass",
+      "revision": "71aaad4ce558530b4788da67d0e3d9bb3596e9d3",
+      "tag_at_review": "v6.1",
+      "url": "https://codeload.github.com/LSPosed/AndroidHiddenApiBypass/tar.gz/71aaad4ce558530b4788da67d0e3d9bb3596e9d3",
+      "sha256": "7436b32ed6c81076cd22f4cf70a2dc30d6ee53b4a5b7dd63ae9d68d25ae8d244",
+      "size": 62191
+    }
+  ],
+  "documentfile_module_context": {
+    "release_page": "https://developer.android.com/jetpack/androidx/releases/documentfile#1.1.0",
+    "release_commits_link": "https://android.googlesource.com/platform/frameworks/support/+log/1fa883225f3ca6238e47b26124515acd0531da82..27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile",
+    "revision": "27495ca3d1fe4a1166bea16413ecf8cff5d85855",
+    "archive": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+archive/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile.tar.gz",
+      "sha256": "99f006d6ae091e5ef56c261f34c982a69cface6e2f46f4691c78b5cb2ced7963",
+      "size": 9975,
+      "members": [
+        "api",
+        "api/1.0.0.txt",
+        "api/1.1.0-beta01.txt",
+        "api/api_lint.ignore",
+        "api/current.txt",
+        "api/res-1.0.0.txt",
+        "api/res-1.1.0-beta01.txt",
+        "api/res-current.txt",
+        "api/restricted_1.0.0.txt",
+        "api/restricted_1.1.0-beta01.txt",
+        "api/restricted_current.txt",
+        "build.gradle",
+        "dependencyAnalysis-baseline.json",
+        "lint-baseline.xml",
+        "src",
+        "src/androidTest",
+        "src/androidTest/java",
+        "src/androidTest/java/androidx",
+        "src/androidTest/java/androidx/documentfile",
+        "src/androidTest/java/androidx/documentfile/provider",
+        "src/androidTest/java/androidx/documentfile/provider/DocumentFileTest.java",
+        "src/main",
+        "src/main/java",
+        "src/main/java/androidx",
+        "src/main/java/androidx/documentfile",
+        "src/main/java/androidx/documentfile/provider",
+        "src/main/java/androidx/documentfile/provider/DocumentFile.java",
+        "src/main/java/androidx/documentfile/provider/DocumentsContractApi19.java",
+        "src/main/java/androidx/documentfile/provider/RawDocumentFile.java",
+        "src/main/java/androidx/documentfile/provider/SingleDocumentFile.java"
+      ]
+    },
+    "source_matches": [
+      {
+        "published_source": "androidx/documentfile/provider/DocumentFile.java",
+        "subtree_file": "src/main/java/androidx/documentfile/provider/DocumentFile.java",
+        "sha256": "182e5f269fa21b1831ccaa8eea3f63aa22db08d2782924498a2c38ecbee7cb07"
+      },
+      {
+        "published_source": "androidx/documentfile/provider/DocumentsContractApi19.java",
+        "subtree_file": "src/main/java/androidx/documentfile/provider/DocumentsContractApi19.java",
+        "sha256": "32858fd9992b2ad4ef675b3bb96c3a1f06e147c6c1ed8cec361f891a4bad4142"
+      },
+      {
+        "published_source": "androidx/documentfile/provider/RawDocumentFile.java",
+        "subtree_file": "src/main/java/androidx/documentfile/provider/RawDocumentFile.java",
+        "sha256": "95dffaabfafdc1ddd0c29887acc0a29cb08c50c18a56432b60f3b821bb40022a"
+      },
+      {
+        "published_source": "androidx/documentfile/provider/SingleDocumentFile.java",
+        "subtree_file": "src/main/java/androidx/documentfile/provider/SingleDocumentFile.java",
+        "sha256": "0d81eb15afe3289bd602e3ed0ce58741bd1d636b778783f9df2b7788ccfb0883"
+      },
+      {
+        "published_source": "androidx/documentfile/provider/TreeDocumentFile.java",
+        "subtree_file": "src/main/java/androidx/documentfile/provider/TreeDocumentFile.java",
+        "sha256": "c2b6aad313f6018e298ced6ca7fa3a7fccb73e8d4de3cc751195f744ae4f3e9a"
+      }
+    ],
+    "scope": "Only the released documentfile module subtree, byte matched to all five published Java sources; not the whole AndroidX build system."
+  },
+  "scope_limits": [
+    "Fixed source JAR hashes and POM identities are verified for artifacts without a published Gradle module. No module metadata is fabricated.",
+    "AndroidX sources, original headers, available embedded notices, POMs and published module metadata are included. Except the byte-matched DocumentFile module subtree, the AndroidX parent build system is outside this inventory.",
+    "General-purpose build tools, Android SDK/platform runtime, arbitrary downstream dependency graphs and legal certification are outside this scope."
+  ]
+}

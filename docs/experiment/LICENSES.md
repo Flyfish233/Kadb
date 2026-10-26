@@ -45,7 +45,7 @@ formal JitPack version/tag, GitHub Release, final distribution policy or App Sto
 delivery is authorized by this work. CI build/test artifacts are experimental and
 must retain source provenance and this licensing context.
 
-## Native source package
+## Source package and Android validation scope
 
 The reproducible [source-bundle entry point](SOURCE_BUNDLE.md) supplies the actual
 pinned Native library source bytes, full source/build archives, published KMP
@@ -55,12 +55,20 @@ static framework. The collector records the exact Kadb commit and can associate
 the actual binary files by hash; it does not establish that those binaries were
 built from that commit without the matching CI evidence.
 
+The current package additionally includes the exact Android validation APK's
+published dependency sources, complete BC 1.86 and HiddenApiBypass 6.1 source
+archives, and the actual consumer sources/build configuration. The
+[Android inventory](ANDROID_SOURCE_COVERAGE.md) explains its fixed runtime
+archive checks and the narrower AndroidX build/resource coverage. No Host Test
+Conscrypt dependency is present in that APK's resolved runtime graph.
+
 Source and matching binary artifacts need equivalent access and an appropriate
 availability policy for the chosen section-6 method. The experimental collector
 is an engineering inventory, not a certification of all legal obligations: it
-does not cover a downstream application's own code, all Android/JVM external
-dependencies, platform installation information, or certify which OS and C/C++
-libraries qualify for the System Library exception. General-purpose compiler,
+does not cover a downstream application's own code or arbitrary Android/JVM
+dependency graphs, complete AndroidX build/resource source trees, or platform
+installation information, and does not certify which OS and C/C++ libraries
+qualify for the System Library exception. General-purpose compiler,
 JDK, CMake, Gradle and SDK binary distributions are kept separate from runtime
 library source coverage. Original per-component licenses remain unchanged.
 

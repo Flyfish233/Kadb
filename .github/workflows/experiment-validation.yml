@@ -101,7 +101,19 @@ jobs:
       - name: Real Android AAR and retained host regressions
         run: |
           set -o pipefail
-          ./gradlew :kadb:verifyProductionTargetScope :kadb-mdns:verifyProductionTargetScope :spake2-legacy:verifyProductionTargetScope :kadb:testAndroidHostTest :kadb-mdns:testAndroidHostTest :kadb:bundleAndroidMainAar :kadb-mdns:bundleAndroidMainAar :validation-android-fixture:assembleDebug --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/android-protocol.log
+          ./gradlew :kadb:verifyProductionTargetScope :kadb-mdns:verifyProductionTargetScope :spake2-legacy:verifyProductionTargetScope :kadb:testAndroidHostTest :kadb-mdns:testAndroidHostTest :kadb:bundleAndroidMainAar :kadb-mdns:bundleAndroidMainAar :validation-android-fixture:assembleDebug :validation-android-runtime:assembleDebug --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/android-protocol.log
+      - name: Inspect the real Android runtime APK and its source inventory
+        id: runtime-source-gate
+        run: |
+          set -euo pipefail
+          python3 -B -m unittest discover -s validation/android-runtime -p 'test_*.py' -v 2>&1 | tee evidence/android-runtime-gates.log
+          apk=validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk
+          python3 validation/android-runtime/inspect_apk.py "$apk" --output evidence/android-runtime-apk.json
+          "$ANDROID_HOME/build-tools/37.0.0/apksigner" verify --verbose "$apk" | tee evidence/android-runtime-signature.log
+          "$ANDROID_HOME/build-tools/37.0.0/aapt2" dump badging "$apk" > evidence/android-runtime-badging.log
+          ./gradlew -I validation/android-runtime/runtime-classpath.init.gradle :validation-android-runtime:recordRuntimeClasspath --no-configuration-cache --console=plain --stacktrace 2>&1 | tee evidence/android-runtime-classpath.log
+          cp validation/android-runtime/build/reports/debug-runtime-classpath.json evidence/
+          python3 scripts/source_bundle.py verify-android-runtime --lock validation/source-bundle/dependencies.lock.json --runtime-report evidence/debug-runtime-classpath.json --output evidence/android-runtime-source-verification.json
       - name: Require executed tests
         if: always()
         run: python3 validation/summarize-tests.py . --output evidence/test-summary.json --require kadb/build/test-results/testAndroidHostTest --require kadb-mdns/build/test-results/testAndroidHostTest
@@ -131,6 +143,7 @@ jobs:
             **/build/reports/tests/
             **/build/outputs/aar/
             validation/android-fixture/build/outputs/apk/debug/
+            ${{ steps.runtime-source-gate.outcome == 'success' && 'validation/android-runtime/build/outputs/apk/debug/' || '' }}
 
   linux-native:
     needs: corresponding-source
@@ -282,7 +295,7 @@ jobs:
   emulator-adbd:
     needs: [android-and-protocol, linux-native]
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
@@ -304,6 +317,7 @@ jobs:
           name: android-protocol-${{ github.sha }}
           path: incoming/android
       - name: Provision disposable accelerated emulator
+        id: provision-emulator
         run: |
           set -euo pipefail
           mkdir -p evidence
@@ -328,13 +342,25 @@ jobs:
           cp "$ANDROID_HOME/system-images/android-35/google_apis/x86_64/source.properties" evidence/system-image-source.properties
           cp "$ANDROID_HOME/system-images/android-35/google_apis/x86_64/package.xml" evidence/system-image-package.xml
           timeout 180 adb -P 5038 -s emulator-5554 wait-for-device
+      - name: Build the independent Android pairing reference on this host
+        id: android-peer
+        run: |
+          set -o pipefail
+          ./gradlew :validation-pairing-peer:writePeerClasspath --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/android-peer-build.log
       - name: Execute public Native API against actual emulator adbd
+        if: always() && steps.provision-emulator.outcome == 'success'
         run: |
           set -o pipefail
           consumer=incoming/linux/validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe
           apk=incoming/android/validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk
           chmod +x "$consumer"
           python3 validation/native-adbd/run_emulator.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --emulator "$ANDROID_HOME/emulator/emulator" --consumer "$consumer" --apk "$apk" --output evidence/adbd 2>&1 | tee evidence/adbd-driver.log
+      - name: Execute the actual Android APK and platform TLS exporter on ART
+        if: always() && steps.provision-emulator.outcome == 'success' && steps.android-peer.outcome == 'success'
+        run: |
+          set -o pipefail
+          apk=incoming/android/validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk
+          python3 validation/android-runtime/run_android_runtime.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --apk "$apk" --output evidence/android-runtime 2>&1 | tee evidence/android-runtime-driver.log
       - name: Stop only this job's emulator
         if: always()
         run: |

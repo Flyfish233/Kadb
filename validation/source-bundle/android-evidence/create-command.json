@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "scripts/source_bundle.py",
+    "create",
+    "--repo",
+    "/tmp/kadb-android-source-b17",
+    "--ref",
+    "5a7ca3928cb4f09c86ff8efada68c859b5f33e49",
+    "--output",
+    "/tmp/kadb-android-source-evidence/package-5a7ca39",
+    "--cache",
+    "/workspace/scratch/db79b63d76cf/source-bundle-cache",
+    "--offline"
+  ],
+  "cwd": "/tmp/kadb-android-source-b17"
+}

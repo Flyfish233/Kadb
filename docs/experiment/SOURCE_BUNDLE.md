@@ -1,4 +1,4 @@
-# Reproducible Native source-bundle entry point
+# Reproducible runtime source-bundle entry point
 
 The previous CI `git archive` supplied Kadb and vendored Legacy sources, but did
 not supply all Native library source bytes. It must not be described as the
@@ -9,7 +9,14 @@ the Kotlin runtime, coroutines, Okio and atomicfu.
 It uses only Python 3.11+ and Git; it does not build a target, modify the SPAKE2
 repository, upload a package, or publish a Release. A successful bundle result
 is evidence of source collection and integrity, not legal certification or a
-successful Native binary build.
+successful binary build or runtime test.
+
+The current lock also covers the specific `:validation-android-runtime` APK.
+[Android source coverage](ANDROID_SOURCE_COVERAGE.md) records the actual runtime
+graph, 21 external archive hashes, published source classifiers, complete BC and
+HiddenApiBypass trees, and the limits of the AndroidX source/build context. The
+collector requires the Android consumer files in the exact packaged Git commit.
+The older Native-only artifact below retains its original scope and identity.
 
 ## Fixed contents and provenance
 
@@ -25,9 +32,11 @@ successful Native binary build.
 | Breakpad | 2024.02.16 / `f80f2888031b0570783011476a5e862fb7d848a1` | Full source archive, retained for the dependency in Kotlin's macOS runtime build script |
 
 `validation/source-bundle/dependencies.lock.json` fixes every URL, archive
-revision, byte length and SHA-256. The source jars were actually downloaded and
+revision, byte length and SHA-256. The Native source jars were actually downloaded and
 checked against the published `.module` SHA-256 values, not inferred from a
-release page. Each native artifact was inspected for real source entries. The
+release page. The additional Android dependencies without `.module` metadata
+use the explicit POM-identity and fixed-hash mode documented in the Android
+coverage report; no publisher hash metadata is invented. Each native artifact was inspected for real source entries. The
 source-only jars do not contain complete standalone notices; the corresponding
 full repository archives and extracted notices supply those additional files.
 
@@ -112,8 +121,8 @@ availability policy or a certification of all Android/downstream dependencies.
 A dedicated source job can run `create --ref "$GITHUB_SHA"` without `--binary`
 and upload the actual package as `corresponding-source-FULL_COMMIT_SHA`. Have it
 expose the successful upload's artifact URL, package SHA-256 and source-lock
-SHA-256 as job outputs. This avoids uploading the same 136 MiB library sources
-from every Native matrix job; it does not replace the source with pointers.
+SHA-256 as job outputs. This avoids uploading the same library sources
+from every platform job; it does not replace the source with pointers.
 
 Every binary artifact must include `SOURCE_LOCATION.txt` identifying that exact
 source artifact, the run URL, full checkout commit and package SHA-256. Its job
@@ -125,7 +134,7 @@ source job inspected files it never received. Bind the location to the artifact
 URL returned by the successful upload, not a guessed artifact ID or a mutable
 branch URL.
 
-Gate Native binary uploads on the source job's success. Give the actual source
+Gate all associated binary uploads on the source job's success. Give the actual source
 artifact equivalent copying access and availability for the associated binaries,
 and use the same explicit retention policy. A hash, location text or successful
 source build without a successful source upload does not satisfy this workflow.
@@ -137,8 +146,10 @@ job evidence or decide a final distribution's section-6 compliance.
 Archives are already compressed; artifact upload can use compression level 0.
 The fixed source cache is independent of host architecture and can be keyed by
 the lock-file SHA-256 to avoid repeated downloads. Every cache read still checks
-the hash. The source download total is about 136 MiB, chiefly BoringSSL and the
-Kotlin source repository; no compiler binary distribution is downloaded.
+the hash. The historical Native-only source package was about 136 MiB. The current
+combined inventory additionally supplies Android validation dependencies; use
+the current manifest for its exact size. No compiler binary distribution is
+downloaded.
 
 ## Reproducibility and failure handling
 
@@ -185,9 +196,12 @@ or frameworks require binary/environment-specific System Library analysis;
 the presence of a dynamic `libstdc++` entry alone does not prove that no runtime
 code was copied statically. This tool does not certify those legal conclusions.
 
-It also does not cover all Android/JVM external dependencies, third-party code
-added by a downstream app, platform signing/installation information for a
-User Product, or a deployment's section 13 obligations. Full upstream archives
+The Android extension covers the specific validation APK's resolved runtime
+graph, not arbitrary Android/JVM applications. AndroidX published source
+classifiers are not its complete shared build forest or original resource
+source tree; see the explicit coverage limits. This inventory also excludes
+third-party code added by a downstream app, platform signing/installation
+information for a User Product, and a deployment's section 13 obligations. Full upstream archives
 include build scripts, but all upstream compiler/tools/tests have not been
 rebuilt; this is not an offline distribution of every build tool. A final
 binary/application distribution needs its own inventory and review. No Maven

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "scripts/source_bundle.py",
+    "verify",
+    "/tmp/kadb-android-source-evidence/package-5a7ca39/native-source-bundle-5a7ca3928cb4f09c86ff8efada68c859b5f33e49.tar.gz",
+    "--sha256",
+    "dafd92f795ba51b6ab08edffcaebcdf475d538e3332eb4bb4200912f92213649"
+  ],
+  "exit_code": 0
+}

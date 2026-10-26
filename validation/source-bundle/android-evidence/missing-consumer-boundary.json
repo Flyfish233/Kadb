@@ -1,0 +1,6 @@
+{
+  "error": "Android consumer source is absent from b17f418dd12c9a7dcc25021860266ebe24dc8039: validation/android-runtime/build.gradle.kts",
+  "meaning": "Collector boundary control, not a Kadb product health test",
+  "requested_commit": "b17f418",
+  "status": "expected-rejection"
+}

@@ -1,0 +1,50 @@
+{
+  "aar-context-observation.json": {
+    "sha256": "f39c4d8d19f2c5f8ff17c1fd3015fb605169ac623bd93b79d8f5423e38bcbda8",
+    "bytes": 1304
+  },
+  "create-5a7ca39.log": {
+    "sha256": "5a51f479093ae29bed66aa98156a1d44e8b4b8147deb0c129f2a0df77f2ec9ab",
+    "bytes": 23860
+  },
+  "create-command.json": {
+    "sha256": "959145c2c22c63838a2563f6e1e9a5c9dcd6ce49646118b7fea266df55279df7",
+    "bytes": 465
+  },
+  "create-exit-5a7ca39.json": {
+    "sha256": "e89df0eae5ec7db81135aed16463968955c578bcc4f2ec43172eff351f080c17",
+    "bytes": 17
+  },
+  "integrity-tests-final.log": {
+    "sha256": "8a6e37ce4220c6f4b74e2fa807f480062bac765cbfb0e29ff763763d6130e929",
+    "bytes": 3817
+  },
+  "missing-consumer-boundary.json": {
+    "sha256": "44f3e8e147c53de37886f261f74f6190d53d6244a5deef695d10653652f84ec6",
+    "bytes": 284
+  },
+  "origin-debug-runtime-classpath.json": {
+    "sha256": "baf3c5ef8b0a51a7ca20e7061a4c65a71065ee6d68ad5589c108b11333b521d6",
+    "bytes": 26948
+  },
+  "runtime-source-lock-verification.json": {
+    "sha256": "24ad7d15573e9419735b868a2c2527a31cced84cb5b8d879e304be26e78bce62",
+    "bytes": 4508
+  },
+  "source-bundle-manifest.json": {
+    "sha256": "40e2c3e9b5663a4d41b0ee608216b062d8dc00c632008d1391cb8eb3d83f5401",
+    "bytes": 111043
+  },
+  "source-bundle-result.json": {
+    "sha256": "f1ba957f85bbcd58ce9660e627321d363541f6e289271410273f37dad3b11459",
+    "bytes": 405
+  },
+  "verify-5a7ca39.log": {
+    "sha256": "2a941e6a5cd9446d8d3b2bb127405a6827597fad1fbf511a3f52d654e06cb2fd",
+    "bytes": 230
+  },
+  "verify-command.json": {
+    "sha256": "a3dda95b8c236a32dc85011eec129dcc58bd2b2600a5b715e0c2da449bb534c7",
+    "bytes": 381
+  }
+}

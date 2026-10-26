@@ -1,0 +1,55 @@
+[
+  {
+    "coordinate": "androidx.annotation:annotation-experimental:1.1.0",
+    "aar_resource_files": 1,
+    "manifest": true,
+    "examples": [
+      "res/values/values.xml"
+    ]
+  },
+  {
+    "coordinate": "androidx.arch.core:core-runtime:2.1.0",
+    "aar_resource_files": 0,
+    "manifest": true,
+    "examples": []
+  },
+  {
+    "coordinate": "androidx.core:core:1.7.0",
+    "aar_resource_files": 122,
+    "manifest": true,
+    "examples": [
+      "res/drawable/notification_bg.xml",
+      "res/drawable/notification_bg_low.xml",
+      "res/drawable/notification_icon_background.xml",
+      "res/drawable/notification_tile_bg.xml"
+    ]
+  },
+  {
+    "coordinate": "androidx.documentfile:documentfile:1.1.0",
+    "aar_resource_files": 1,
+    "manifest": true,
+    "examples": [
+      "res/values/values.xml"
+    ]
+  },
+  {
+    "coordinate": "androidx.lifecycle:lifecycle-runtime:2.3.1",
+    "aar_resource_files": 1,
+    "manifest": true,
+    "examples": [
+      "res/values/values.xml"
+    ]
+  },
+  {
+    "coordinate": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+    "aar_resource_files": 0,
+    "manifest": true,
+    "examples": []
+  },
+  {
+    "coordinate": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1",
+    "aar_resource_files": 0,
+    "manifest": true,
+    "examples": []
+  }
+]

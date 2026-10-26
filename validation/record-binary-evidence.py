@@ -46,12 +46,22 @@ def main():
         'kadb/build/classes/kotlin/**/*.klib', 'evidence/swift-consumer',
     ):
         candidates.update(path for path in Path('.').glob(pattern) if path.is_file())
+    android_verification = args.output / 'android-runtime-source-verification.json'
+    android_source_gate = {'status': 'not verified; runtime APK excluded'}
+    if android_verification.is_file():
+        verification = json.loads(android_verification.read_text())
+        if verification.get('status') != 'verified' or verification.get('source_lock_sha256') != args.source_lock_sha256:
+            raise RuntimeError('Android runtime source verification does not match the uploaded source lock')
+        candidates.update(path for path in Path('.').glob('validation/android-runtime/build/outputs/apk/**/*.apk')
+                          if path.is_file())
+        android_source_gate = {'status': 'verified', 'report_sha256': sha256(android_verification)}
     artifacts = [{'path': path.as_posix(), 'bytes': path.stat().st_size, 'sha256': sha256(path)}
                  for path in sorted(candidates)]
     report = {'schema': 1, 'commit': commit, 'run_url': run_url,
               'source_artifact_url': args.source_url,
               'source_package_sha256': args.source_sha256,
               'source_lock_sha256': args.source_lock_sha256,
+              'android_runtime_source_gate': android_source_gate,
               'binary_artifacts': artifacts,
               'scope': 'Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries.'}
     args.output.mkdir(parents=True, exist_ok=True)
