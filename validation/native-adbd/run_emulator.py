@@ -340,8 +340,13 @@ def main() -> int:
         report["commands_executed"] = runner.counter
         runner.log.close()
         (arguments.output / "report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps({"status": report["status"], "report": str(arguments.output / "report.json"),
-                      "checks_executed": report.get("consumer", {}).get("checks_executed", 0)}))
+    summary = {"status": report["status"], "report": str(arguments.output / "report.json"),
+               "checks_executed": report.get("consumer", {}).get("checks_executed", 0),
+               "commands_executed": report["commands_executed"]}
+    for field in ("error_type", "error"):
+        if field in report:
+            summary[field] = report[field]
+    print(json.dumps(summary))
     return return_code
 
 

@@ -354,3 +354,45 @@ The diagnostic artifact is `12649694165`, SHA-256
 The full job log and explicit failed scope are retained in
 `validation/integration/da03-source-failure`. The next repair must establish a
 reproducible source acquisition without weakening the integrity check.
+
+## Stable source content and integrated platform evidence at `35e002e`
+
+`35e002e721d8610dfd08d374fd41cbf666f16c35` fixes the source acquisition
+by pinning the exact 19-file AndroidX DocumentFile Git subtree, including blob
+identities, lengths and SHA-256 values. Two successful Gitiles responses for the
+same commit contain identical files but different request-time tar/PAX metadata.
+The reproducible USTAR is 71,680 bytes with SHA-256
+`3b60454ef61425219931a5b664d3e6b7c75bf680350da1025afd1f88ba8f23c4`.
+The original responses and the separate local `4c5febe` source-package proof
+are retained in `validation/source-bundle/context-fix-evidence`; that local
+package is not relabeled as the integrated CI package.
+
+[Run 40326629845](https://github.com/Flyfish233/Kadb/actions/runs/40326629845)
+has five completed successful jobs. The downloaded ZIP hashes were independently
+checked; selected unmodified reports are in
+[`validation/integration/35e-reports`](../../validation/integration/35e-reports).
+
+| Completed job | Actual evidence |
+| --- | --- |
+| Source package | 27 integrity tests; actual 183,189,268-byte package, SHA-256 `93f1881bcd2f9c2ee7be834651af4bf8367d2559f8a3e5647a583fe412aa4d6e`; downloaded and independently verified all 240 members |
+| Android | 102 Kadb + 5 mDNS Host tests, zero failures/skips; real AAR/APK build and signature/DEX/source-inventory checks; both Kotlin-public API differences empty |
+| Linux | 63 Kadb + 5 mDNS tests, zero failures/skips; actual linked consumers, two independent TLS/Legacy peer sessions, C regressions/sanitizers and 18 oracle comparisons |
+| Intel macOS | 65 Kadb + 5 mDNS tests, zero failures/skips; actual Native pairing, Swift compile/link/run and framework metadata |
+| ARM macOS + iOS Simulator | 70 macOS + 70 Simulator tests actually execute; the old optional Simulator peer case is ignored and excluded; mandatory external peer sessions pass on each runtime; Swift executes; device and Simulator frameworks link |
+| Apple API | 921 baseline declarations retained, zero removed/changed and 22 additions; refreshed iPhone Air / iOS 26.5 metadata records `Booted` |
+
+The broader Android bytecode inventory has 36 affected class blocks, including
+five groups of binary changes to Kotlin-internal declarations compiled as
+JVM-public. Java/reflection callers relying on those internals can break. The
+complete classification and intended public API boundary are in
+[ANDROID_ABI_REVIEW.md](ANDROID_ABI_REVIEW.md).
+
+The emulator job's Native and ART drivers both return failure and their console
+summaries report zero completed checks. Those summaries alone do not establish
+whether a consumer started. The subsequent unbounded `adb logcat` command blocks
+cleanup and upload. After the other five jobs completed, ordinary cancellation
+was requested through GitHub; the request acknowledgement is retained. At this
+checkpoint the raw emulator reports are still unavailable, and no adbd or ART
+success is claimed. The next harness bounds diagnostics and cleanup, allows
+ordinary cancellation of test steps, and prints existing failure fields in both
+driver summaries. It leaves protocol/provider behavior and pass gates unchanged.

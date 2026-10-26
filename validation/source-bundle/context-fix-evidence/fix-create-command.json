@@ -1,0 +1,17 @@
+{
+  "commit": "4c5febe1be6a761e2119e02ac9013472f72681af",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "scripts/source_bundle.py",
+    "create",
+    "--repo",
+    "/tmp/kadb-android-source-b17",
+    "--ref",
+    "4c5febe1be6a761e2119e02ac9013472f72681af",
+    "--output",
+    "/tmp/kadb-documentfile-ci-diagnosis/package-4c5febe",
+    "--cache",
+    "/workspace/scratch/db79b63d76cf/source-bundle-cache",
+    "--offline"
+  ]
+}

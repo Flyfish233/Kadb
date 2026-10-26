@@ -1,0 +1,29 @@
+{
+  "executed_at_utc": "2026-10-26T13:03:19.515851+00:00",
+  "result": "PASS: every observed C-oracle byte matched the immutable external fixture",
+  "scope": "C reference reexecution; Kotlin consumer tests are recorded separately",
+  "fixture_reference_commit": "9e04aed2d1652441d2c84e85ed21acc05e053260",
+  "executed_reference_commit": "5b83e5d1abf0ae0033ae52ab579d906b67633b2c",
+  "reference_spake_source_sha256": "ea8787b522a4f300eda3f30c7e268286e69789d8d0c8009ab68ca0e5671397cd",
+  "reference_crypto_archive_sha256": "0860f18f49ccc32a4d0d6632f9cf4d978c31691693006894b1548981f29c77a9",
+  "build_command": [
+    "c++",
+    "-std=c++17",
+    "-O2",
+    "-DBORINGSSL_PREFIX=KADB_BSSL",
+    "-I/home/runner/work/Kadb/Kadb/kadb/build/native/boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c",
+    "-I/home/runner/work/Kadb/Kadb/kadb/build/native/boringssl-5b83e5d1abf0ae0033ae52ab579d906b67633b2c/include",
+    "/home/runner/work/Kadb/Kadb/validation/spake2/legacy_oracle.cc",
+    "/home/runner/work/Kadb/Kadb/kadb/build/native/linuxX64/cmake/lib/libcrypto.a",
+    "-lpthread",
+    "-o",
+    "/home/runner/work/Kadb/Kadb/evidence/spake-oracle"
+  ],
+  "fixture_sha256": "94ed5b9c564794eac6d2494966ff3ae479d872171f6a70286f504cbe4bfe8d94",
+  "harness_sha256": "380a2b0cd469b8b0d7b960f573e53e4f12e3ea579b0e49457208ffefa9844687",
+  "executable_sha256": "6bd4d8759991746ed68ad044b07c6416d0b925c8b08317b9de481e7d2b1d3d1f",
+  "exchanges": 7,
+  "endpoint_exchange_results": 14,
+  "peer_input_cases": 4,
+  "oracle_exit_code": 0
+}

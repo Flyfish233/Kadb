@@ -13,6 +13,8 @@ validation/jitpack/logs/*.log -whitespace
 validation/install-session/**/*.log -whitespace
 validation/sync-close/**/*.log -whitespace
 validation/integration/**/*.log -whitespace
+# Diff context lines intentionally contain one leading space, even for blank lines.
+validation/integration/**/*.diff -whitespace
 validation/android-runtime/evidence/build-attempt-*.txt -whitespace
 # Byte-identical vendored upstream context and license retain upstream whitespace.
 third-party/androidx-documentfile-context/** -whitespace

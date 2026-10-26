@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "artifact": "kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Kadb",
+  "sha256": "643fb890a807d4828a708f6988234406521e6d6d67ca8a9f35ebb260aba49fd0",
+  "bytes": 78266336,
+  "file": "/Users/runner/work/Kadb/Kadb/kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Kadb: current ar archive",
+  "architectures": [
+    "arm64"
+  ],
+  "deployment_records": [
+    {
+      "platform": "ios-simulator",
+      "minimum_os": "15.0",
+      "command": "LC_BUILD_VERSION",
+      "count": 706
+    }
+  ],
+  "declared_deployment_target": "15.0",
+  "scope": {
+    "actual_artifact_inspected": true,
+    "oldest_os_runtime_executed": false
+  }
+}

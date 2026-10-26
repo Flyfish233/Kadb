@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "commit": "35e002e721d8610dfd08d374fd41cbf666f16c35",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/40326629845",
+  "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/40326629845/artifacts/12651666149",
+  "source_package_sha256": "93f1881bcd2f9c2ee7be834651af4bf8367d2559f8a3e5647a583fe412aa4d6e",
+  "source_lock_sha256": "87820248096bd110de6337071bb478405581b5248a88f4af31e685fabc0a1943",
+  "android_runtime_source_gate": {
+    "status": "not verified; runtime APK excluded"
+  },
+  "binary_artifacts": [
+    {
+      "path": "evidence/swift-consumer",
+      "bytes": 8788472,
+      "sha256": "24f57400e449c2d4fa4b9460e49a962914385ea8d80683d4a9028d67b61b5979"
+    },
+    {
+      "path": "kadb/build/bin/macosX64/debugFramework/Kadb.framework/Kadb",
+      "bytes": 79567520,
+      "sha256": "716894a2e7f7b92cc00f46f52037cef9bc91c8c2401ec10d3b1315f03b93a4b6"
+    },
+    {
+      "path": "kadb/build/bin/macosX64/debugTest/test.kexe",
+      "bytes": 9170352,
+      "sha256": "99ef3b127c49bc5c150442a491266bdb5d797335fec4c776eba2315d33cd62b8"
+    },
+    {
+      "path": "kadb/build/bin/macosX64/debugTest/test.kexe.dSYM/Contents/Resources/DWARF/test.kexe",
+      "bytes": 14397397,
+      "sha256": "73d0c0b36e36830f1a755cbb3bfa6e6ec5a2d4142adf03160f6adc0102bdebd3"
+    },
+    {
+      "path": "kadb-mdns/build/bin/macosX64/debugTest/test.kexe",
+      "bytes": 4591256,
+      "sha256": "a0e0db41ee1913a0793154f8ca363e0310b08e19f706dccac5da0d5507c9158e"
+    },
+    {
+      "path": "kadb-mdns/build/bin/macosX64/debugTest/test.kexe.dSYM/Contents/Resources/DWARF/test.kexe",
+      "bytes": 2000052,
+      "sha256": "4786c0019d579e7af32647a75dd6b8ca149405ee8b70215f90a6b2b6241b76b9"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosX64/debugExecutable/kadb-native-adbd.kexe",
+      "bytes": 6795752,
+      "sha256": "62c73c93a049956e6190f0a2c477d14d4e62b8d1a0a05923e408b74689ff71e8"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosX64/debugExecutable/kadb-native-adbd.kexe.dSYM/Contents/Resources/DWARF/kadb-native-adbd.kexe",
+      "bytes": 13172055,
+      "sha256": "74fb90e8b250f8aafdd9f5cead471db0877a0406adec0030685ff58f1a6079ac"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+      "bytes": 6212568,
+      "sha256": "dcc146ab7d16b8c9a6f31b7e4d17174debb2e810b275230ab2fd845634d01cd2"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosX64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Resources/DWARF/kadb-native-pairing.kexe",
+      "bytes": 12845850,
+      "sha256": "d7a38ef9ea8e0c93ed3dc1565831fc2c083f073d9905a449c41507416cae12f1"
+    }
+  ],
+  "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+}

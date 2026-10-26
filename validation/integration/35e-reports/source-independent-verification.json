@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "commit": "35e002e721d8610dfd08d374fd41cbf666f16c35",
+  "artifact_id": 12651666149,
+  "artifact_zip_sha256": "202e849351121f55782fb7b4632dd5f98e1eec4f8194537a60c4c262b0d03294",
+  "source_package_sha256": "93f1881bcd2f9c2ee7be834651af4bf8367d2559f8a3e5647a583fe412aa4d6e",
+  "independently_downloaded_zip_hash_matches": true,
+  "independent_package_verify_exit_code": 0,
+  "verified_package_members": 240,
+  "scope": "Downloaded actual CI artifact; independently checked outer ZIP and all source package member hashes. No binary reproducibility or legal certification claim."
+}

@@ -1,0 +1,3 @@
+PASS independent_reference_pairing
+PASS independent_reference_wrong_code_rejection
+KADB_NATIVE_PAIRING_JSON {"status":"passed","checks_executed":2,"elapsed_ms":405,"physical_device":false}

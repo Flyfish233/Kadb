@@ -199,7 +199,9 @@ def main() -> int:
         runner.log.close()
         (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"status": report["status"], "report": str(args.output / "report.json"),
-                      "checks_executed": report.get("android", {}).get("checks_executed", 0)}))
+                      "checks_executed": report.get("android", {}).get("checks_executed", 0),
+                      "commands_executed": report["commands_executed"],
+                      "error_type": report.get("error_type"), "error": report.get("error")}))
     return code
 
 

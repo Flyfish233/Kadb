@@ -21,10 +21,16 @@ baseline's workers. The behavior assertions require the shared transport to surv
 `red/sandbox-denied.log` is an earlier environment-only failure: socket creation was
 forbidden in the restricted sandbox. It is **not** defect-reproduction evidence.
 
-The same source can run through the normal build with:
+On the historical pre-M5 checkout, the same source runs through the normal build with:
 
 ```sh
 ./gradlew :kadb:jvmTest :kadb:testAndroidHostTest --tests '*TcpForwarderLifecycleTest'
+```
+
+After the standalone production JVM target removal, the retained Host entry is:
+
+```sh
+./gradlew :kadb:testAndroidHostTest --tests '*TcpForwarderLifecycleTest'
 ```
 
 The initial CLI evidence is JVM-only. It establishes neither Android execution nor

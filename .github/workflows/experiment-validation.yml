@@ -348,7 +348,7 @@ jobs:
           set -o pipefail
           ./gradlew :validation-pairing-peer:writePeerClasspath --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/android-peer-build.log
       - name: Execute public Native API against actual emulator adbd
-        if: always() && steps.provision-emulator.outcome == 'success'
+        if: ${{ !cancelled() && steps.provision-emulator.outcome == 'success' }}
         run: |
           set -o pipefail
           consumer=incoming/linux/validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe
@@ -357,18 +357,18 @@ jobs:
           python3 validation/native-adbd/run_emulator.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --emulator "$ANDROID_HOME/emulator/emulator" --consumer "$consumer" --apk "$apk" --output evidence/adbd 2>&1 | tee evidence/adbd-driver.log
       - name: Execute the actual Android APK and platform TLS exporter on ART
         id: android-runtime
-        if: always() && steps.provision-emulator.outcome == 'success' && steps.android-peer.outcome == 'success'
+        if: ${{ !cancelled() && steps.provision-emulator.outcome == 'success' && steps.android-peer.outcome == 'success' }}
         run: |
           set -o pipefail
           apk=incoming/android/validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk
           python3 validation/android-runtime/run_android_runtime.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --apk "$apk" --output evidence/android-runtime 2>&1 | tee evidence/android-runtime-driver.log
       - name: Preserve emulator VM diagnostics if Android instrumentation fails
-        if: always() && steps.android-runtime.outcome == 'failure'
-        run: adb -P 5038 -s emulator-5554 logcat -d -v threadtime -s AndroidRuntime:E System.err:W > evidence/android-runtime-logcat.log 2>&1 || true
+        if: ${{ !cancelled() && steps.android-runtime.outcome == 'failure' }}
+        run: timeout --kill-after=5s 20s adb -P 5038 -s emulator-5554 logcat -d -v threadtime -s AndroidRuntime:E System.err:W > evidence/android-runtime-logcat.log 2>&1 || true
       - name: Stop only this job's emulator
         if: always()
         run: |
-          adb -P 5038 -s emulator-5554 emu kill || true
+          timeout --kill-after=5s 15s adb -P 5038 -s emulator-5554 emu kill || true
           if [ -n "${KADB_EMULATOR_PID:-}" ]; then kill "$KADB_EMULATOR_PID" 2>/dev/null || true; fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()

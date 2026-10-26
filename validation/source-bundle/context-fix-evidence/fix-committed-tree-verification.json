@@ -1,0 +1,13 @@
+{
+  "actual_vendored_tree": "70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589",
+  "candidate_commit": "4c5febe1be6a761e2119e02ac9013472f72681af",
+  "negative_control": {
+    "error": "Vendored source is absent from 5a7ca3928cb4f09c86ff8efada68c859b5f33e49: api/1.0.0.txt",
+    "meaning": "Old commit lacking retained context cannot be satisfied by local working-tree files.",
+    "source_commit": "5a7ca3928cb4f09c86ff8efada68c859b5f33e49",
+    "status": "expected-rejection"
+  },
+  "source_files": 19,
+  "source_lock_sha256": "87820248096bd110de6337071bb478405581b5248a88f4af31e685fabc0a1943",
+  "upstream_tree": "70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589"
+}

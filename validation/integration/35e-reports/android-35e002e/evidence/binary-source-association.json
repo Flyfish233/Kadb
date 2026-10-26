@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "commit": "35e002e721d8610dfd08d374fd41cbf666f16c35",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/40326629845",
+  "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/40326629845/artifacts/12651666149",
+  "source_package_sha256": "93f1881bcd2f9c2ee7be834651af4bf8367d2559f8a3e5647a583fe412aa4d6e",
+  "source_lock_sha256": "87820248096bd110de6337071bb478405581b5248a88f4af31e685fabc0a1943",
+  "android_runtime_source_gate": {
+    "status": "verified",
+    "report_sha256": "ea627d3b65fb143a64069e6a473975b07fb149a50f42d1b5417b6e85f40ffa06"
+  },
+  "binary_artifacts": [
+    {
+      "path": "kadb/build/outputs/aar/kadb.aar",
+      "bytes": 318468,
+      "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+    },
+    {
+      "path": "kadb-mdns/build/outputs/aar/kadb-mdns.aar",
+      "bytes": 36341,
+      "sha256": "a8a913ab0693ab8690bcacc0c0874c71c3a91fa13ee35be02b42cf2064dce7df"
+    },
+    {
+      "path": "validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk",
+      "bytes": 44853,
+      "sha256": "4bac5d3e018777a70623ca38d24ca422bc630a7bc1bfa2ba8dcb5200c81100ae"
+    },
+    {
+      "path": "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk",
+      "bytes": 5582040,
+      "sha256": "b95b4684ddcf701b4fa74751681a0dd9e944a698f227068f5f1daa639abc38fc"
+    }
+  ],
+  "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+}

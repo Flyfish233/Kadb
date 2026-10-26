@@ -1,0 +1,1 @@
+KADB_PAIRING_PEER_JSON {"status":"passed","sessions_executed":2,"positive_sessions":1,"wrong_code_rejections":1,"tls":"TLSv1.3","spake_reference":"spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"}
