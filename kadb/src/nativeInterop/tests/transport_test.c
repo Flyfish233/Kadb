@@ -10,6 +10,7 @@
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <pthread.h>
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -213,10 +214,78 @@ static void test_tcp_connect(void) {
     close(listener);
 }
 
+/* A blocked SSL_write has consumed internal state even when it returns no byte
+ * count. Returning the socket to callers would permit an invalid new write or
+ * duplicated application data. This is a positive product-health assertion:
+ * it MUST fail against the unmodified 75678915 baseline. */
+typedef struct {
+    int fd;
+    SSL_CTX *context;
+    pthread_mutex_t lock;
+    pthread_cond_t condition;
+    int release;
+} stalled_server_args;
+
+static void *stalled_tls_server(void *argument) {
+    stalled_server_args *args = argument;
+    SSL *ssl = SSL_new(args->context);
+    assert(SSL_set_fd(ssl, args->fd));
+    assert(SSL_accept(ssl) == 1);
+    pthread_mutex_lock(&args->lock);
+    while (!args->release) pthread_cond_wait(&args->condition, &args->lock);
+    pthread_mutex_unlock(&args->lock);
+    SSL_free(ssl);
+    close(args->fd);
+    return NULL;
+}
+
+static void test_tls_write_timeout_invalidates_connection(void) {
+    identity identity = generate_identity(3);
+    SSL_CTX *server = SSL_CTX_new(TLS_method());
+    assert(SSL_CTX_set_min_proto_version(server, TLS1_3_VERSION));
+    assert(SSL_CTX_use_certificate(server, identity.cert));
+    assert(SSL_CTX_use_PrivateKey(server, identity.key));
+    int sockets[2];
+    assert(socketpair(AF_UNIX, SOCK_STREAM, 0, sockets) == 0);
+    int tiny_buffer = 1024;
+    assert(setsockopt(sockets[0], SOL_SOCKET, SO_SNDBUF, &tiny_buffer, sizeof(tiny_buffer)) == 0);
+    stalled_server_args args = {.fd = sockets[1], .context = server,
+        .lock = PTHREAD_MUTEX_INITIALIZER, .condition = PTHREAD_COND_INITIALIZER};
+    pthread_t thread;
+    assert(pthread_create(&thread, NULL, stalled_tls_server, &args) == 0);
+    char error[512] = {0};
+    kadb_io *client = kadb_io_adopt(sockets[0], error, sizeof(error));
+    assert(client);
+    add_identity(client, &identity);
+    assert(kadb_io_start_tls(client, 5000, error, sizeof(error)) == 1);
+    const int length = 4 * 1024 * 1024;
+    uint8_t *bytes = malloc(length);
+    assert(bytes);
+    memset(bytes, 0x5a, length);
+    assert(kadb_io_write(client, bytes, length, 40, error, sizeof(error)) == -1);
+    assert(strstr(error, "timed out"));
+    /* The regression assertion. A successful negative reproducer is not a pass. */
+    assert(!kadb_io_is_open(client));
+    assert(kadb_io_write(client, (const uint8_t *) "NEW!", 4, 40, error, sizeof(error)) == -1);
+    assert(strstr(error, "closed"));
+    free(bytes);
+    kadb_io_free(client);
+    pthread_mutex_lock(&args.lock);
+    args.release = 1;
+    pthread_cond_signal(&args.condition);
+    pthread_mutex_unlock(&args.lock);
+    pthread_join(thread, NULL);
+    pthread_cond_destroy(&args.condition);
+    pthread_mutex_destroy(&args.lock);
+    SSL_CTX_free(server);
+    free_identity(&identity);
+}
+
 int main(void) {
     test_stls_and_exporter();
     test_timeout_and_close();
     test_tcp_connect();
-    puts("PASS: TCP connect, same-socket STLS/TLS 1.3, client identity selection, pairing exporter, I/O, EOF, timeout, concurrent close");
+    test_tls_write_timeout_invalidates_connection();
+    puts("PASS: TCP connect, same-socket STLS/TLS 1.3, client identity selection, pairing exporter, I/O, EOF, timeout, concurrent close, TLS write failure invalidation");
     return 0;
 }

@@ -11,3 +11,17 @@ target_include_directories(kadb_native PRIVATE cinterop)
 target_link_libraries(kadb_native PRIVATE ssl crypto)
 set_target_properties(kadb_native ssl crypto PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+
+option(KADB_NATIVE_TESTS "Build host-only native transport integration tests" OFF)
+if(KADB_NATIVE_TESTS)
+    enable_testing()
+    find_package(Threads REQUIRED)
+    add_executable(kadb_transport_test tests/transport_test.c)
+    target_include_directories(kadb_transport_test PRIVATE cinterop)
+    target_compile_definitions(kadb_transport_test PRIVATE BORINGSSL_PREFIX=KADB_BSSL)
+    # Tests use assert for both calls and checks, including Release builds.
+    target_compile_options(kadb_transport_test PRIVATE -UNDEBUG)
+    target_link_libraries(kadb_transport_test PRIVATE kadb_native ssl crypto Threads::Threads)
+    add_test(NAME kadb_native_transport COMMAND kadb_transport_test)
+    set_tests_properties(kadb_native_transport PROPERTIES TIMEOUT 30)
+endif()
