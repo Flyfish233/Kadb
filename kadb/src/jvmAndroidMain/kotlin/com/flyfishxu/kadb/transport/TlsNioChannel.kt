@@ -15,8 +15,10 @@
 
 package com.flyfishxu.kadb.transport
 
+import java.io.IOException
 import java.nio.ByteBuffer
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.net.ssl.SSLEngine
 import javax.net.ssl.SSLEngineResult
 import javax.net.ssl.SSLException
@@ -26,11 +28,21 @@ internal class TlsNioChannel(
     private val engine: SSLEngine
 ) : TransportChannel {
 
+    private val closed = AtomicBoolean(false)
     private var netIn: ByteBuffer = ByteBuffer.allocate(engine.session.packetBufferSize)
     private var netOut: ByteBuffer = ByteBuffer.allocate(engine.session.packetBufferSize)
     private var appIn: ByteBuffer = ByteBuffer.allocate(engine.session.applicationBufferSize)
 
     suspend fun handshake(timeout: Long, unit: TimeUnit) {
+        ensureOpen()
+        try {
+            doHandshake(timeout, unit)
+        } catch (error: Throwable) {
+            fail(error)
+        }
+    }
+
+    private suspend fun doHandshake(timeout: Long, unit: TimeUnit) {
         netIn.clear()
         netIn.limit(0)
         appIn.clear()
@@ -111,6 +123,15 @@ internal class TlsNioChannel(
     }
 
     override suspend fun read(dst: ByteBuffer, timeout: Long, unit: TimeUnit): Int {
+        ensureOpen()
+        return try {
+            readRecord(dst, timeout, unit)
+        } catch (error: Throwable) {
+            fail(error)
+        }
+    }
+
+    private suspend fun readRecord(dst: ByteBuffer, timeout: Long, unit: TimeUnit): Int {
         appIn.flip()
         if (appIn.hasRemaining()) {
             val toCopy = minOf(dst.remaining(), appIn.remaining())
@@ -159,26 +180,39 @@ internal class TlsNioChannel(
     }
 
     override suspend fun write(src: ByteBuffer, timeout: Long, unit: TimeUnit): Int {
-        netOut.clear()
-        val result = engine.wrap(src, netOut)
-        return when (result.status) {
-            SSLEngineResult.Status.OK -> {
-                netOut.flip()
-                while (netOut.hasRemaining()) {
-                    net.writeExactly(netOut, timeout, unit)
+        ensureOpen()
+        try {
+            while (true) {
+                netOut.clear()
+                val result = engine.wrap(src, netOut)
+                when (result.status) {
+                    SSLEngineResult.Status.OK -> {
+                        if (result.bytesConsumed() == 0 && result.bytesProduced() == 0 && src.hasRemaining()) {
+                            throw SSLException("TLS write made no progress")
+                        }
+                        netOut.flip()
+                        net.writeExactly(netOut, timeout, unit)
+                        return result.bytesConsumed()
+                    }
+                    SSLEngineResult.Status.BUFFER_OVERFLOW -> {
+                        netOut = enlarge(netOut, engine.session.packetBufferSize)
+                    }
+                    SSLEngineResult.Status.BUFFER_UNDERFLOW -> throw SSLException("Unexpected TLS wrap underflow")
+                    SSLEngineResult.Status.CLOSED -> {
+                        close()
+                        return -1
+                    }
                 }
-                result.bytesConsumed()
             }
-            SSLEngineResult.Status.BUFFER_OVERFLOW -> {
-                netOut = enlarge(netOut, engine.session.packetBufferSize)
-                write(src, timeout, unit)
-            }
-            SSLEngineResult.Status.BUFFER_UNDERFLOW -> error("wrap BUFFER_UNDERFLOW should not happen")
-            SSLEngineResult.Status.CLOSED -> -1
+        } catch (error: Throwable) {
+            // wrap has already advanced the TLS record sequence and may have consumed plaintext.
+            // Even a zero-byte TCP timeout cannot make this record safe to discard or replay.
+            fail(error)
         }
     }
 
     override suspend fun readExactly(dst: ByteBuffer, timeout: Long, unit: TimeUnit) {
+        ensureOpen()
         while (dst.hasRemaining()) {
             val n = read(dst, timeout, unit)
             if (n < 0) throw java.io.EOFException("EOF while TLS readExactly")
@@ -186,6 +220,7 @@ internal class TlsNioChannel(
     }
 
     override suspend fun writeExactly(src: ByteBuffer, timeout: Long, unit: TimeUnit) {
+        ensureOpen()
         while (src.hasRemaining()) {
             val n = write(src, timeout, unit)
             if (n < 0) throw java.io.IOException("TLS write returned $n")
@@ -200,13 +235,26 @@ internal class TlsNioChannel(
 
     override val remoteAddress get() = net.remoteAddress
 
-    override val isOpen get() = net.isOpen
+    override val isOpen get() = !closed.get() && net.isOpen
 
     override fun close() {
         // Cancellation must unblock reads/writes even if the peer has stopped receiving.
         // Do not wait for a TLS close_notify write on a failed ADB transport.
-        net.close()
-        engine.closeOutbound()
+        if (!closed.compareAndSet(false, true)) return
+        try {
+            net.close()
+        } finally {
+            engine.closeOutbound()
+        }
+    }
+
+    private fun ensureOpen() {
+        if (!isOpen) throw IOException("TLS transport is closed")
+    }
+
+    private fun fail(error: Throwable): Nothing {
+        runCatching { close() }
+        throw error
     }
 
     private fun enlarge(buffer: ByteBuffer, minimum: Int): ByteBuffer {

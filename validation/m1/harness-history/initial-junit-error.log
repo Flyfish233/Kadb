@@ -1,0 +1,117 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :kadb
+w: ⚠️ Native task 'iosSimulatorArm64Test' is disabled
+Task 'iosSimulatorArm64Test' for target 'ios_simulator_arm64' cannot run on the current host (linux-x86_64).
+Reason: simulator tests require macOS
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosSimulatorArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosSimulatorArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Disabled Kotlin/Native Targets
+The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64
+Solution: To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kadb-mdns
+WARNING: The 'commonTest' source directory exists, but android host tests are not enabled. To enable android host tests, add `withHostTest {}` to your android target configuration in the Gradle build file.
+Add android.sync.suppressAgpWarnings=GENERIC to the gradle.properties file to suppress this warning.
+
+> Task :kadb:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kadb:compileKotlinJvm FROM-CACHE
+> Task :kadb:compileJvmMainJava NO-SOURCE
+> Task :kadb:jvmProcessResources NO-SOURCE
+> Task :kadb:processJvmMainResources SKIPPED
+> Task :kadb:jvmMainClasses UP-TO-DATE
+> Task :kadb:jvmJar
+> Task :kadb:jvmTestProcessResources NO-SOURCE
+> Task :kadb:processJvmTestResources SKIPPED
+> Task :kadb:compileTestKotlinJvm
+> Task :kadb:compileJvmTestJava NO-SOURCE
+> Task :kadb:jvmTestClasses
+
+> Task :kadb:jvmTest
+
+KadbConnectionAttemptCancellationTest[jvm] > closeCancelsAConnectAttemptBeforeAnyTransportIsPublished[jvm] FAILED
+    java.lang.AssertionError at KadbConnectionAttemptCancellationTest.kt:43
+
+AdbWriterLifecycleTest[jvm] > closeCannotFlushTheSameBufferWhileAWriteIsInFlight[jvm] FAILED
+    java.lang.AssertionError at AdbWriterLifecycleTest.kt:62
+
+PairingAuthLifecycleTest[jvm] > invalidPeerMessageConsumesContext[jvm] FAILED
+    java.lang.IllegalArgumentException at PairingAuthLifecycleTest.kt:21
+
+PairingAuthLifecycleTest[jvm] > destructionErasesTheOwnedOutboundMessage[jvm] FAILED
+    java.lang.AssertionError at PairingAuthLifecycleTest.kt:32
+
+PairingAuthLifecycleTest[jvm] > cannotEncryptBeforeKeyAgreement[jvm] FAILED
+    java.lang.AssertionError at PairingAuthLifecycleTest.kt:14
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.conscrypt.NativeLibraryUtil in an unnamed module (file:/workspace/scratch/db79b63d76cf/gradle-cache/caches/modules-2/files-2.1/org.conscrypt/conscrypt-openjdk-uber/2.7.0/bc396edfd5fefe70b7e1f9764edb803e13c6741f/conscrypt-openjdk-uber-2.7.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+> Task :kadb:jvmTest
+
+PairingCancellationTest[jvm] > cancellationClosesHandshakeSocketAndJoinsWorker[jvm] FAILED
+    javax.net.ssl.SSLHandshakeException at SSLUtils.java:393
+        Caused by: javax.net.ssl.SSLHandshakeException at SSLUtils.java:393
+            Caused by: java.io.EOFException at ConscryptEngineSocket.java:246
+
+PairingCancellationTest[jvm] > closeDuringHandshakeIsIdempotentAndUnblocksStart[jvm] FAILED
+    java.util.concurrent.TimeoutException at PairingCancellationTest.kt:73
+
+PairingCompatibilityTest[jvm] > rejectsAuthenticatedEmptyDeviceGuid[jvm] FAILED
+    java.lang.AssertionError at PairingCompatibilityTest.kt:124
+
+PairingCompatibilityTest[jvm] > rejectsAuthenticatedClientKeyAsServerIdentity[jvm] FAILED
+    java.lang.AssertionError at PairingCompatibilityTest.kt:124
+
+PairingCompatibilityTest[jvm] > rejectsAuthenticatedUnterminatedDeviceGuid[jvm] FAILED
+    java.lang.AssertionError at PairingCompatibilityTest.kt:124
+
+PairingCompatibilityTest[jvm] > rejectsAuthenticatedUnknownPeerInfoType[jvm] FAILED
+    java.lang.AssertionError at PairingCompatibilityTest.kt:124
+
+AdbShellEncodingTest[jvm] > utf8CodePointsMayCrossShellPacketsAndInterleavedStderr[jvm] FAILED
+    org.junit.ComparisonFailure at AdbShellEncodingTest.kt:22
+
+TlsFailureLifecycleTest[jvm] > initializationError[jvm] FAILED
+    org.junit.runners.model.InvalidTestClassError at ParentRunner.java:525
+
+22 tests completed, 13 failed
+
+> Task :kadb:jvmTest FAILED
+
+[Incubating] Problems report is available at: file:///workspace/scratch/db79b63d76cf/Kadb-m1-red/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':kadb:jvmTest'.
+> There were failing tests. See the report at: file:///workspace/scratch/db79b63d76cf/Kadb-m1-red/kadb/build/reports/tests/jvmTest/index.html
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 2m 38s
+5 actionable tasks: 4 executed, 1 from cache

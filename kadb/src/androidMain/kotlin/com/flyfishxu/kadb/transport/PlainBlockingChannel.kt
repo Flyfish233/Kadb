@@ -16,6 +16,7 @@
 package com.flyfishxu.kadb.transport
 
 import com.flyfishxu.kadb.TcpKeepAlive
+import com.flyfishxu.kadb.concurrent.runClosingOnCancellation
 import java.net.InetSocketAddress
 import java.net.Socket
 import java.nio.ByteBuffer
@@ -27,18 +28,15 @@ internal class PlainBlockingChannel private constructor(
 ) : TransportChannel {
 
     companion object {
-        fun connect(host: String, port: Int, connectTimeoutMs: Long, tcpKeepAlive: TcpKeepAlive? = null): PlainBlockingChannel {
+        suspend fun connect(host: String, port: Int, connectTimeoutMs: Long, tcpKeepAlive: TcpKeepAlive? = null): PlainBlockingChannel {
             require(connectTimeoutMs >= 0) { "Connect timeout must not be negative" }
             val socket = Socket()
-            try {
+            return runClosingOnCancellation(socket::close) {
                 socket.keepAlive = true
                 socket.tcpNoDelay = true
                 socket.connect(InetSocketAddress(host, port), connectTimeoutMs.coerceAtMost(Int.MAX_VALUE.toLong()).toInt())
                 tcpKeepAlive?.let { configureTcpKeepAlive(socket, it) }
-                return PlainBlockingChannel(socket)
-            } catch (error: Throwable) {
-                runCatching { socket.close() }
-                throw error
+                PlainBlockingChannel(socket)
             }
         }
     }

@@ -2,6 +2,7 @@ package com.flyfishxu.kadb
 
 import com.flyfishxu.kadb.io.platformFileSystem
 
+import com.flyfishxu.kadb.cert.KadbCertException
 import com.flyfishxu.kadb.cert.CertUtils.loadKeyPair
 import com.flyfishxu.kadb.cert.CertUtils.loadKeySet
 import com.flyfishxu.kadb.cert.platform.defaultDeviceName
@@ -10,6 +11,7 @@ import com.flyfishxu.kadb.concurrent.withLock
 import com.flyfishxu.kadb.core.AdbConnection
 import com.flyfishxu.kadb.core.AdbProtocol
 import com.flyfishxu.kadb.exception.AdbStreamClosed
+import com.flyfishxu.kadb.exception.NativeThrows
 import com.flyfishxu.kadb.exception.PlatformInterruptedException
 import com.flyfishxu.kadb.forwarding.TcpForwarder
 import com.flyfishxu.kadb.pair.PairingConnectionCtx
@@ -22,7 +24,12 @@ import com.flyfishxu.kadb.transport.TransportChannel
 import kotlin.concurrent.Volatile
 import kotlin.time.Clock
 import kotlin.random.Random
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.job
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import okio.*
@@ -45,6 +52,7 @@ class Kadb(
     private var generation = 0
     private var closed = false
     private var connectingTransport: TransportChannel? = null
+    private var connectingJob: Job? = null
 
     private constructor(
         host: String,
@@ -214,16 +222,22 @@ class Kadb(
     fun resetConnection() = clearConnection(permanently = false)
 
     private fun clearConnection(permanently: Boolean) {
-        val (previous, pending) = connectionLock.withLock {
+        val (previous, pending, attempt) = connectionLock.withLock {
             closed = closed || permanently
             generation += 1
-            (connection?.first to connectingTransport).also {
+            Triple(connection?.first, connectingTransport, connectingJob).also {
                 connection = null
                 connectingTransport = null
+                connectingJob = null
             }
         }
-        pending?.close()
-        previous?.close()
+        // A connect coroutine owns its socket before onTransportCreated can publish it here.
+        attempt?.cancel(CancellationException("ADB connection was closed while connecting"))
+        try {
+            pending?.close()
+        } finally {
+            previous?.close()
+        }
     }
 
     private fun connection(): AdbConnection = connectingLock.withLock {
@@ -244,29 +258,46 @@ class Kadb(
         created.first
     }
 
-    private fun newConnection(expectedGeneration: Int): Pair<AdbConnection, TransportChannel> = runBlocking {
-        try {
-            AdbConnection.connect(
-                host = host,
-                port = port,
-                hostKeySet = loadKeySet(),
-                options = options,
-                connectTimeoutMs = connectTimeout,
-                ioTimeoutMs = socketTimeout,
-                transportConnector = transportConnector,
-                onTransportCreated = { transport ->
-                    connectionLock.withLock {
-                        if (closed || generation != expectedGeneration) {
-                            transport.close()
-                            throw IOException("ADB connection was cancelled")
+    private fun newConnection(expectedGeneration: Int): Pair<AdbConnection, TransportChannel> = try {
+        runBlocking {
+            val attempt = currentCoroutineContext().job
+            connectionLock.withLock {
+                if (closed || generation != expectedGeneration) throw IOException("ADB connection was cancelled")
+                connectingJob = attempt
+            }
+            try {
+                AdbConnection.connect(
+                    host = host,
+                    port = port,
+                    hostKeySet = loadKeySet(),
+                    options = options,
+                    connectTimeoutMs = connectTimeout,
+                    ioTimeoutMs = socketTimeout,
+                    transportConnector = transportConnector,
+                    onTransportCreated = { transport ->
+                        connectionLock.withLock {
+                            if (closed || generation != expectedGeneration) {
+                                transport.close()
+                                throw IOException("ADB connection was cancelled")
+                            }
+                            connectingTransport = transport
                         }
-                        connectingTransport = transport
                     }
+                )
+            } finally {
+                connectionLock.withLock {
+                    if (connectingJob === attempt) connectingJob = null
+                    connectingTransport = null
                 }
-            )
-        } finally {
-            connectionLock.withLock { connectingTransport = null }
+            }
         }
+    } catch (error: CancellationException) {
+        // Explicit close/reset reports transport termination; preserve existing connector timeout
+        // exceptions when the client generation was not invalidated by a lifecycle operation.
+        if (connectionLock.withLock { closed || generation != expectedGeneration }) {
+            throw IOException("ADB connection was cancelled", error)
+        }
+        throw error
     }
 
     private fun openStream(destination: String): Pair<AdbConnection, AdbStream> {
@@ -478,9 +509,15 @@ class Kadb(
         private const val SHELL_TYPE_PTY = "pty"
         private const val DEFAULT_TERM_TYPE = "xterm-256color"
 
+        @NativeThrows(CancellationException::class, IOException::class, KadbCertException::class, IllegalArgumentException::class)
         suspend fun pair(host: String, port: Int, pairingCode: String, name: String = defaultDeviceName()) =
-            withContext(Dispatchers.Default) {
-                PairingConnectionCtx(host, port, pairingCode.encodeToByteArray(), loadKeyPair(), name).use { it.start() }
+            withContext(Dispatchers.IO) {
+                val password = pairingCode.encodeToByteArray()
+                try {
+                    PairingConnectionCtx(host, port, password, loadKeyPair(), name).startCancellable()
+                } finally {
+                    password.fill(0)
+                }
             }
 
         fun create(

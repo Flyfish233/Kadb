@@ -133,7 +133,9 @@ internal class AdbWriter(sink: Sink) : AutoCloseable {
         return checksum
     }
 
-    override fun close() {
+    override fun close() = lock.withLock {
+        // AdbConnection closes the transport first, unblocking any in-flight write.
+        // Serialize buffer cleanup with write(): RealBufferedSink is not thread-safe.
         bufferedSink.close()
     }
 }

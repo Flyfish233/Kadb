@@ -1,0 +1,72 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :kadb
+w: ⚠️ Native task 'iosSimulatorArm64Test' is disabled
+Task 'iosSimulatorArm64Test' for target 'ios_simulator_arm64' cannot run on the current host (linux-x86_64).
+Reason: simulator tests require macOS
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosSimulatorArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosSimulatorArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Disabled Kotlin/Native Targets
+The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64
+Solution: To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :kadb-mdns
+WARNING: The 'commonTest' source directory exists, but android host tests are not enabled. To enable android host tests, add `withHostTest {}` to your android target configuration in the Gradle build file.
+Add android.sync.suppressAgpWarnings=GENERIC to the gradle.properties file to suppress this warning.
+
+> Task :kadb:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kadb:compileKotlinJvm UP-TO-DATE
+> Task :kadb:compileJvmMainJava NO-SOURCE
+> Task :kadb:jvmProcessResources NO-SOURCE
+> Task :kadb:processJvmMainResources SKIPPED
+> Task :kadb:jvmMainClasses UP-TO-DATE
+> Task :kadb:jvmJar UP-TO-DATE
+> Task :kadb:jvmTestProcessResources NO-SOURCE
+> Task :kadb:processJvmTestResources SKIPPED
+> Task :kadb:compileTestKotlinJvm
+e: file:///workspace/scratch/db79b63d76cf/Kadb-m1-red/kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/pair/PairingCancellationTest.kt:29:7 Redeclaration:
+class PairingCancellationTest : Any
+
+> Task :kadb:compileTestKotlinJvm FAILED
+
+[Incubating] Problems report is available at: file:///workspace/scratch/db79b63d76cf/Kadb-m1-red/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':kadb:compileTestKotlinJvm' (registered in build file 'kadb/build.gradle.kts').
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.btapi.BuildToolsApiCompilationWork
+   > Kotlin compiler: CLASSIFIER_REDECLARATION
+       Kotlin compiler error
+         Redeclaration:
+         class PairingCancellationTest : Any
+         Location: /workspace/scratch/db79b63d76cf/Kadb-m1-red/kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/pair/PairingCancellationTest.kt line 29
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 51s
+4 actionable tasks: 2 executed, 2 up-to-date

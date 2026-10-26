@@ -1,0 +1,150 @@
+{
+  "baseline_product_commit": "75678915fd4bdd52345edbb6bc4913ae3415a680",
+  "m1_test_commit": "648222c79f56571603e7568e9bfd5d423d8adb05",
+  "additional_test_commits": [
+    "f53ee4b0a9c29d1b9082a5ba08aa142a23801d06",
+    "32159c40cc155cac68877682de6960d935c51743"
+  ],
+  "tests": 23,
+  "failures": 14,
+  "results": [
+    {
+      "class": "com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest",
+      "name": "closeCancelsAConnectAttemptBeforeAnyTransportIsPublished[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: close() must cancel a pending connector even before it returns a socket"
+    },
+    {
+      "class": "com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "name": "corruptMagicAndOversizedOrNegativeLengthsFailBeforeReadingPayload[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "name": "emptyAndBinaryFramesRoundTripWithoutStringConversions[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "name": "stlsHeaderMatchesTheAospWireLayout[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "name": "checksumUsesUnsignedBytesAndIsDisabledAfterVersionNegotiation[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.core.AdbWriterLifecycleTest",
+      "name": "closeCannotFlushTheSameBufferWhileAWriteIsInFlight[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Close must not concurrently flush/mutate the writer's buffer"
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+      "name": "invalidPeerMessageConsumesContext[jvm]",
+      "status": "failed",
+      "message": "java.lang.IllegalArgumentException: Invalid peer message."
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+      "name": "destructionErasesTheOwnedOutboundMessage[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Expected value to be true."
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+      "name": "cannotEncryptBeforeKeyAgreement[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Uninitialized pairing must never encrypt with an all-zero key expected null, but was:<[B@54bff557>"
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCancellationTest",
+      "name": "cancellationClosesHandshakeSocketAndJoinsWorker[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Cancelled pairing must close blocked TLS I/O and finish its worker"
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCancellationTest",
+      "name": "closeDuringHandshakeIsIdempotentAndUnblocksStart[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: close() did not unblock the TLS handshake worker"
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "rejectsAuthenticatedEmptyDeviceGuid[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Expected an exception of class java.io.IOException to be thrown, but was completed successfully."
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "rejectsAuthenticatedWrongPeerInfoSize[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "rejectsAuthenticatedClientKeyAsServerIdentity[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Expected an exception of class java.io.IOException to be thrown, but was completed successfully."
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "cipherUsesIndependentLittleEndianCountersAndRejectsReplay[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "rejectsAuthenticatedUnterminatedDeviceGuid[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Expected an exception of class java.io.IOException to be thrown, but was completed successfully."
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "rejectsAuthenticatedUnknownPeerInfoType[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: Expected an exception of class java.io.IOException to be thrown, but was completed successfully."
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "rejectsWrongPairingCode[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "name": "pairsOverTlsWithSessionBindingAndBigEndianFrames[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.shell.AdbShellEncodingTest",
+      "name": "incompleteUtf8AtExitRetainsTheExistingReplacementPolicy[jvm]",
+      "status": "passed",
+      "message": null
+    },
+    {
+      "class": "com.flyfishxu.kadb.shell.AdbShellEncodingTest",
+      "name": "utf8CodePointsMayCrossShellPacketsAndInterleavedStderr[jvm]",
+      "status": "failed",
+      "message": "org.junit.ComparisonFailure: expected:<[\u4f60\u597d\ud83c\udf0d]\n> but was:<[\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd]\n>"
+    },
+    {
+      "class": "com.flyfishxu.kadb.transport.TlsFailureLifecycleTest",
+      "name": "partialCiphertextWriteFailurePermanentlyInvalidatesChannel[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: A failed TLS record cannot be safely retried"
+    },
+    {
+      "class": "com.flyfishxu.kadb.transport.TlsFailureLifecycleTest",
+      "name": "writeTimeoutBeforeCiphertextDeliveryPermanentlyInvalidatesChannel[jvm]",
+      "status": "failed",
+      "message": "java.lang.AssertionError: A failed TLS record cannot be safely retried"
+    }
+  ]
+}

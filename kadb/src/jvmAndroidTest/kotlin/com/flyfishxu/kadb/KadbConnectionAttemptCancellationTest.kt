@@ -8,15 +8,27 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicReference
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.withTimeout
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.job
 import kotlin.test.Test
+import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 class KadbConnectionAttemptCancellationTest {
+    @Test fun connectorTimeoutKeepsItsExistingExceptionType() {
+        KadbCert.configure(InMemoryPrivateKeyStore())
+        Kadb.createWithTransport(KadbOptions()) {
+            withTimeout(25) { awaitCancellation() }
+        }.use { client ->
+            assertFailsWith<TimeoutCancellationException> { client.supportsFeature("shell_v2") }
+        }
+    }
+
     @Test fun closeCancelsAConnectAttemptBeforeAnyTransportIsPublished() {
         KadbCert.configure(InMemoryPrivateKeyStore())
         val entered = CountDownLatch(1)

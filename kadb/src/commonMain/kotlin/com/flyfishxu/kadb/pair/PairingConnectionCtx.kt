@@ -17,6 +17,9 @@
 package com.flyfishxu.kadb.pair
 
 import com.flyfishxu.kadb.cert.AdbKeyPair
+import com.flyfishxu.kadb.concurrent.BlockingLock
+import com.flyfishxu.kadb.concurrent.withLock
+import com.flyfishxu.kadb.concurrent.runClosingOnCancellation
 import okio.Buffer
 import okio.Closeable
 import okio.IOException
@@ -28,45 +31,42 @@ internal class PairingConnectionCtx(
     private val mPeerInfo = PeerInfo(PeerInfo.ADB_RSA_PUB_KEY, keyPair.encodeAdbPublicKey(deviceName))
     private val transport = PairingTlsConnection(host, port, keyPair)
     private var mPairingAuthCtx: PairingAuthCtx? = null
-    private var mState = State.Ready
+    private val lifecycleLock = BlockingLock()
+    private var started = false
+    private var running = false
+    private var closed = false
+
+    /** Cancellation closes I/O; start() retains ownership of crypto until its finally block. */
+    suspend fun startCancellable() = runClosingOnCancellation(::close) { start() }
 
     @Throws(IOException::class)
     fun start() {
-        if (mState != State.Ready) {
-            throw IOException("Connection is not ready yet.")
+        lifecycleLock.withLock {
+            if (started || closed) throw IOException("Connection is not ready yet.")
+            started = true
+            running = true
         }
-        mState = State.ExchangingMsgs
-
-        // Start worker
-        setupTlsConnection()
-        while (true) {
-            mState = when (mState) {
-                State.ExchangingMsgs -> {
-                    if (!doExchangeMsgs()) {
-                        notifyResult()
-                        throw IOException("Exchanging message wasn't successful.")
-                    }
-                    State.ExchangingPeerInfo
+        try {
+            setupTlsConnection()
+            if (!doExchangeMsgs()) throw IOException("Exchanging message wasn't successful.")
+            if (!doExchangePeerInfo()) throw IOException("Could not exchange peer info.")
+            lifecycleLock.withLock {
+                if (closed) throw IOException("Pairing connection was closed.")
+            }
+        } finally {
+            // Only the I/O worker destroys crypto: close() may concurrently interrupt an operation.
+            try {
+                mPairingAuthCtx?.destroy()
+            } finally {
+                mPairingAuthCtx = null
+                mPwd.fill(0)
+                lifecycleLock.withLock {
+                    running = false
+                    closed = true
                 }
-
-                State.ExchangingPeerInfo -> {
-                    if (!doExchangePeerInfo()) {
-                        notifyResult()
-                        throw IOException("Could not exchange peer info.")
-                    }
-                    notifyResult()
-                    return
-                }
-
-                State.Ready, State.Stopped -> throw IOException(
-                    "Connection closed with errors."
-                )
+                transport.close()
             }
         }
-    }
-
-    private fun notifyResult() {
-        mState = State.Stopped
     }
 
     @Throws(IOException::class)
@@ -74,12 +74,18 @@ internal class PairingConnectionCtx(
         transport.start()
         // Bind the PAKE password to this TLS session, as required by ADB.
         val keyMaterial = transport.exportKeyingMaterial()
-        val passwordBytes = ByteArray(mPwd.size + keyMaterial.size)
-        mPwd.copyInto(passwordBytes)
-        keyMaterial.copyInto(passwordBytes, mPwd.size)
-        val pairingAuthCtx =
-            PairingAuthCtx.createAlice(passwordBytes) ?: throw IOException("Unable to create PairingAuthCtx.")
-        mPairingAuthCtx = pairingAuthCtx
+        try {
+            if (keyMaterial.size != 64) throw IOException("Invalid pairing TLS exporter length")
+            val passwordBytes = mPwd + keyMaterial
+            try {
+                mPairingAuthCtx = PairingAuthCtx.createAlice(passwordBytes)
+                    ?: throw IOException("Unable to create PairingAuthCtx.")
+            } finally {
+                passwordBytes.fill(0)
+            }
+        } finally {
+            keyMaterial.fill(0)
+        }
     }
 
     @Throws(IOException::class)
@@ -161,20 +167,16 @@ internal class PairingConnectionCtx(
         if (decryptedMsg.size != PeerInfo.MAX_PEER_INFO_SIZE) {
             return false
         }
-        PeerInfo.readFrom(Buffer().write(decryptedMsg))
-        return true
+        return PeerInfo.readFrom(Buffer().write(decryptedMsg)).isValidDeviceGuid()
     }
 
     override fun close() {
-        mPwd.fill(0)
-        transport.close()
-        if (mState != State.Ready) {
-            mPairingAuthCtx?.destroy()
+        lifecycleLock.withLock {
+            closed = true
+            // An active worker may still be binding the password or processing SPAKE2.
+            if (!running) mPwd.fill(0)
         }
-    }
-
-    private enum class State {
-        Ready, ExchangingMsgs, ExchangingPeerInfo, Stopped
+        transport.close()
     }
 
     private class PeerInfo(private val type: Byte, data: ByteArray) {
@@ -186,6 +188,13 @@ internal class PairingConnectionCtx(
 
         fun writeTo(buffer: Buffer) {
             buffer.writeByte(type.toInt()).write(data)
+        }
+
+        fun isValidDeviceGuid(): Boolean {
+            // AOSP adb_wifi.cpp rejects any server type other than ADB_DEVICE_GUID.
+            // Treat the GUID as an opaque nonempty C string: do not impose a UUID format
+            // or zero-padding rule that adbd does not require.
+            return type == ADB_DEVICE_GUID && data.indexOf(0.toByte()) > 0
         }
 
         override fun toString(): String {
