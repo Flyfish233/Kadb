@@ -1,0 +1,836 @@
+{
+  "baseline": "75678915fd4bdd52345edbb6bc4913ae3415a680",
+  "forkMain": "3d1c13e8df261cc4a2bb57b03aa8c392cb8386c3",
+  "files": [
+    {
+      "path": "build.gradle.kts",
+      "sha256": "2a17c9b9c0a0565f80b5fea48ccbf3c45d7023fff19ea9cb4a7f9668d3f3e480",
+      "bytes": 232
+    },
+    {
+      "path": "gradle.properties",
+      "sha256": "69a1fcc25ed01e070835b7d4115a29c5bbe017460c302e31b59a2dd553cd2e1d",
+      "bytes": 535
+    },
+    {
+      "path": "gradle/gradle-daemon-jvm.properties",
+      "sha256": "6c13aa5ba36690ccfbbb25a8807d01d98c15833e446d7ae82ddc726472cb8ef7",
+      "bytes": 1138
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "sha256": "b0e850fd8ea1cc88b629912678081e463a8edaa436006c7b312eab6d0b45939e",
+      "bytes": 1564
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e",
+      "bytes": 223
+    },
+    {
+      "path": "kadb-mdns/build.gradle.kts",
+      "sha256": "fb4505c6e12fdf871fd9173e5be0bc6ee914a2fbb9341bd440f1c44b985f7d37",
+      "bytes": 2347
+    },
+    {
+      "path": "kadb-mdns/src/androidMain/kotlin/com/flyfishxu/kadb/mdns/KadbMdnsAndroid.kt",
+      "sha256": "205bd0983c955952efa0e5e4dc121e96a5abf23ae5c969e067bc6a3896eb8687",
+      "bytes": 7046
+    },
+    {
+      "path": "kadb-mdns/src/androidMain/kotlin/com/flyfishxu/kadb/mdns/internal/AndroidDiscoveryListener.kt",
+      "sha256": "cdbf1000c03a3870387e351e595fbb3da8590431617305b8f58df53ee21b86aa",
+      "bytes": 1545
+    },
+    {
+      "path": "kadb-mdns/src/androidMain/kotlin/com/flyfishxu/kadb/mdns/internal/AndroidResolveListener.kt",
+      "sha256": "f5b6eb89a8e01a2c543c6019741eea5b7052289ee76e514835d9adb4d6831809",
+      "bytes": 554
+    },
+    {
+      "path": "kadb-mdns/src/androidMain/kotlin/com/flyfishxu/kadb/mdns/internal/AndroidServiceInfoCallback.kt",
+      "sha256": "75e63bb8422dc76b912413fb8fca6123c5406d4ee3400482c0368a50925caea4",
+      "bytes": 828
+    },
+    {
+      "path": "kadb-mdns/src/androidMain/kotlin/com/flyfishxu/kadb/mdns/internal/NsdServiceInfoMapper.kt",
+      "sha256": "3f24a0f9546fca5ce5ef48f8a0f318008e6a5ac0ccff7ebff279652e187cb50d",
+      "bytes": 1703
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/KadbMdns.kt",
+      "sha256": "6fbb3310b70814a5078066cd54d72427dacef7e3c0de0b812c593063ca277742",
+      "bytes": 227
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/MdnsConfig.kt",
+      "sha256": "d0ed34d0a4f2928be2f0fca72021c3810ed9aba1dcaeb8beb606ee071b73580b",
+      "bytes": 171
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/MdnsDiscoveryState.kt",
+      "sha256": "2b3552877a09b625d2d192e933cbd6b64f6f6fd550e33dba2fdc29b0c6659533",
+      "bytes": 349
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/MdnsEndpoint.kt",
+      "sha256": "9dc581f8502d56273d716fdb718a96aea6e29606a4f338b8e0c15c410faf0ac2",
+      "bytes": 160
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/MdnsServiceType.kt",
+      "sha256": "778e37301999dc67eb53864513cc7096c4fab98a0c2cd42084f7c5bf3ea0aa50",
+      "bytes": 190
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/MdnsStatus.kt",
+      "sha256": "32509e577d0d5d545707d545f024e92370339ec133b74d572a9dbdf6d18cb5c3",
+      "bytes": 110
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/internal/MdnsRegistry.kt",
+      "sha256": "adcfe8f9d3612dc4d130032287cd76ae1d4beba4cdd9ecc35c466f4a0232aa01",
+      "bytes": 2534
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/internal/MdnsServiceKey.kt",
+      "sha256": "9c1f3b634cab32ed42df3cc2b61034d91840ff4dfc0f0e716d73793d3e2f3d64",
+      "bytes": 187
+    },
+    {
+      "path": "kadb-mdns/src/commonMain/kotlin/com/flyfishxu/kadb/mdns/internal/MdnsServiceTypeParser.kt",
+      "sha256": "b55c7634c3f147d3b1fa5db7ba0bb7a463c0a6ec8b02ecd672476429735fd9bd",
+      "bytes": 478
+    },
+    {
+      "path": "kadb-mdns/src/commonTest/kotlin/com/flyfishxu/kadb/mdns/MdnsRegistryTest.kt",
+      "sha256": "04dda3edd731f2ad5de28419f38b32a4e59f5e643fc83680f36018387c86d439",
+      "bytes": 2184
+    },
+    {
+      "path": "kadb-mdns/src/commonTest/kotlin/com/flyfishxu/kadb/mdns/MdnsServiceTypeParserTest.kt",
+      "sha256": "d8a784284d2fd17dd4b3b68ee3b9b3bc384762261cef4596829edfdb43301bdf",
+      "bytes": 951
+    },
+    {
+      "path": "kadb-mdns/src/iosMain/kotlin/com/flyfishxu/kadb/mdns/KadbMdnsIos.kt",
+      "sha256": "08324e44bd0eb332f4f1e6f989b0a7b6b6c89839d6e72cdfc2e0171a2905b05c",
+      "bytes": 7289
+    },
+    {
+      "path": "kadb-mdns/src/jvmMain/kotlin/com/flyfishxu/kadb/mdns/KadbMdnsJvm.kt",
+      "sha256": "9cbab0b4c2b48753d5335c9bb4b0d97e72704036fe6223147153de1930da12ec",
+      "bytes": 4481
+    },
+    {
+      "path": "kadb-mdns/src/jvmMain/kotlin/com/flyfishxu/kadb/mdns/internal/JmDnsBackend.kt",
+      "sha256": "5c34f887d695ac4f382e785d483a89956d6559a4e8777dc0646050daeffb5c81",
+      "bytes": 534
+    },
+    {
+      "path": "kadb-mdns/src/jvmMain/kotlin/com/flyfishxu/kadb/mdns/internal/JmDnsEndpointMapper.kt",
+      "sha256": "4abb0ace2aacfd8ca62572188d906df5ac1c8c99a15ae839187e133918c3c0a2",
+      "bytes": 1123
+    },
+    {
+      "path": "kadb-mdns/src/jvmMain/kotlin/com/flyfishxu/kadb/mdns/internal/JmDnsServiceListener.kt",
+      "sha256": "58f6b51ae7692ddb81197c6cad8cf2ae8af34636a9dbb9b40b76f71ac47c1cdc",
+      "bytes": 747
+    },
+    {
+      "path": "kadb-mdns/src/jvmMain/kotlin/com/flyfishxu/kadb/mdns/internal/RealJmDnsBackend.kt",
+      "sha256": "09456721eaf8f0d80c38958ba6de9a0988aa38e058aa999e43c63f05d6b65920",
+      "bytes": 2490
+    },
+    {
+      "path": "kadb-mdns/src/jvmTest/kotlin/com/flyfishxu/kadb/mdns/JmDnsEndpointMapperTest.kt",
+      "sha256": "50c4478b7e9a387866bbae2dda56626745f250efc9121ad9b90e5da20e7aacde",
+      "bytes": 1695
+    },
+    {
+      "path": "kadb-mdns/src/jvmTest/kotlin/com/flyfishxu/kadb/mdns/KadbMdnsJvmTest.kt",
+      "sha256": "36d3f6fc5736e55ff86741711d51b58923c895f3bb4fdc62051d7cb511cd71d6",
+      "bytes": 1770
+    },
+    {
+      "path": "kadb-mdns/src/jvmTest/kotlin/com/flyfishxu/kadb/mdns/internal/FakeJmDnsBackend.kt",
+      "sha256": "cae2667eee3f9d0b17dbc53e4b83a0bbc70200692cab7185604870a4859f7382",
+      "bytes": 1230
+    },
+    {
+      "path": "kadb-mdns/src/jvmTest/kotlin/com/flyfishxu/kadb/mdns/internal/JmDnsServiceTypeFormatterTest.kt",
+      "sha256": "f31e0889d8f429da6b58e11a7ffaf9ae54a7a70b8207ff5be547fb80194d3e91",
+      "bytes": 473
+    },
+    {
+      "path": "kadb/build.gradle.kts",
+      "sha256": "a6be014cda0cd1f4b8c9f1e2d58ae86f95c1028d4d6eea536010885017f23e48",
+      "bytes": 6095
+    },
+    {
+      "path": "kadb/gradle/ios-native.gradle.kts",
+      "sha256": "1a4fb0aa2d8ca4324c0fd8a9995679a88f74f0ca19bcb36fa2e3b9cc8a3e1286",
+      "bytes": 9497
+    },
+    {
+      "path": "kadb/src/androidHostTest/kotlin/com/flyfishxu/kadb/transport/PlainBlockingChannelTest.kt",
+      "sha256": "2abe7604ef824827810f5871ad9f615275d884c54063800c76e156181d247897",
+      "bytes": 2159
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/Kadb.android.kt",
+      "sha256": "ad2a7d13c4f71c886280e5b2f44d27a2212ef7f04504c1faa0d027096b216332",
+      "bytes": 2225
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/cert/platform/DefaultDeviceName.android.kt",
+      "sha256": "6c4f62803d92574ec0b8a5299b42d528da7419b37c648d64c1232fae2409f61f",
+      "bytes": 453
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/core/HostFeaturePolicy.android.kt",
+      "sha256": "db2fb8cad61b147856d4676b00422817fe0ad2b19331889e5202d792288388d5",
+      "bytes": 101
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.android.kt",
+      "sha256": "f4b1d378d6d155829b191792fe37d4a3d338305d92cd0278c95152041c4cefc5",
+      "bytes": 1076
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/transport/PlainBlockingChannel.kt",
+      "sha256": "2c2608e6d12ea7804b44dd08ac4f27629be527a1417e4aa182d6ae773725d37c",
+      "bytes": 4367
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/transport/TcpKeepAlive.android.kt",
+      "sha256": "5f80a17b02920501db98e69b64a3d37e95ba171f13fa79beca28cb5a99d8763c",
+      "bytes": 1167
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/transport/TransportFactory.android.kt",
+      "sha256": "62f48e1f64529919ece0969c61befcda580890085e6fa5d5503a32757411dd45",
+      "bytes": 939
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/usb/KadbUsb.kt",
+      "sha256": "a36ee09b46d960dc578b7069989fe6ee3661ab58fe9aedf8ec8afe6d7a668c34",
+      "bytes": 7506
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/Kadb.kt",
+      "sha256": "2d28f260bba93977d903492a7c59f67862c6d0ac8b40bd54f5003c81297c1f95",
+      "bytes": 24784
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/KadbFileCompatibility.kt",
+      "sha256": "bcefd0eb581382a835c47fb058ee32ff959d82887299bc3cd0d0cfe8a1e09484",
+      "bytes": 237
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/KadbOptions.kt",
+      "sha256": "2173dc13953fe3827f6c9c6b51538caf3a1b712f9c19d1a2a0d6e33d4edd07b7",
+      "bytes": 819
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/TcpKeepAlive.kt",
+      "sha256": "32c04368ef6aed3924139fdb4d8da1577ca4510d55680dc5168c951d4bc233e3",
+      "bytes": 389
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/AdbKeyPair.kt",
+      "sha256": "c6f368cf0f3b7b4d9a04fefddc28297ff66c8aaae3255aec3804fdfbd22867bc",
+      "bytes": 376
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/AdbPublicKeyEncoding.kt",
+      "sha256": "4c53737222a4c24460aeba043ecb9e51acb9ba56fc3d29f2f46e5a653bd5fe96",
+      "bytes": 320
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/CertUtils.kt",
+      "sha256": "daed72130e477115d95e56e1ffb13b35cf00fac6a8b407c213673a4dda4664fa",
+      "bytes": 695
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/HostKeySet.kt",
+      "sha256": "5870e6f36c8fe78df332ea8c2bd9ba8e925b375799348c93c6641a345a9a30c0",
+      "bytes": 544
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/InMemoryPrivateKeyStore.kt",
+      "sha256": "454c96e9c43da9ac362f2d5b7598eb449f16687f23cbc5235c9d9a1c2fd37ade",
+      "bytes": 647
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/KadbCert.kt",
+      "sha256": "5b3d987757d43140d794792af3814d6aa534abf869cc7b230782e6960fd9a2b9",
+      "bytes": 8124
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/KadbCertException.kt",
+      "sha256": "b7c06b943a463d8894dd2044f3ccfeb6ae818bc2cc984f97f09d1020049aee75",
+      "bytes": 817
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/KadbCertPolicy.kt",
+      "sha256": "e2593771e7f9eb315a8f1ec86384be9dfb824c39a53da1df83b6629d1f9db65b",
+      "bytes": 437
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/KadbIdentitySnapshot.kt",
+      "sha256": "bfc2df61aad5075093675f377e14486f9b3045fa47a1d4155641e66b69042539",
+      "bytes": 404
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/KadbPrivateKeyStore.kt",
+      "sha256": "42542c9675ab2b0967db9147c64d65bee6681d098120a89b388f446d7e4214b6",
+      "bytes": 183
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/OkioFilePrivateKeyStore.kt",
+      "sha256": "e120f5767f08804fac9f299eae01fb530fa0134299d5e106742382f2c2a098cb",
+      "bytes": 1936
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/PemEncoding.kt",
+      "sha256": "b6c6842b3e10f99c38619158c1d24137abdaf57a78ddc89aa9433ce02a8e6304",
+      "bytes": 567
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/cert/platform/DefaultDeviceName.kt",
+      "sha256": "c22c0a96a8099b306b25c4de19d9b57d8fd2cb34b4b72f4c424b01957a95273e",
+      "bytes": 421
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/concurrent/BlockingLock.kt",
+      "sha256": "8652221226d19ce56bcbab61f0be80d6b6eaf05e134486e9c3326a8caf1c1fb2",
+      "bytes": 755
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/core/AdbConnection.kt",
+      "sha256": "a2fd6db2e96691dfbe9bb9a6e234b2b605f2690a17b2e65e811cdce5c156ce75",
+      "bytes": 13856
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/core/AdbMessage.kt",
+      "sha256": "d9294d2f82c6e1aac23dc2bd8583a6e607ac25259a5202c97d727f716160f63f",
+      "bytes": 3018
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/core/AdbProtocol.kt",
+      "sha256": "56efe5ca9964d9888957aa278124fe8b413859578b7393b67c3796b064a1f74b",
+      "bytes": 6830
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/core/AdbReader.kt",
+      "sha256": "c574a57d11b7ab4862a3b8e2e5d94cbacb6b97ea2c80850629340065aec60f2c",
+      "bytes": 4301
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/core/AdbWriter.kt",
+      "sha256": "3360bfd2e4c2180c4186fa18504b829d15d10f3ef2283645b7879ce06bc30266",
+      "bytes": 5047
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/core/HostFeaturePolicy.kt",
+      "sha256": "81cdc19024519f5d0f300e909e39d282141772d764ffb531536fe83714e37c33",
+      "bytes": 362
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/debug/Logging.kt",
+      "sha256": "bfbac3b440d2c15528532cc780bdf06e0330e61425dbfeffbae90fe502cedc34",
+      "bytes": 831
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/exception/AdbAuthException.kt",
+      "sha256": "8aa4058e070c3b20b32d009a6b12d3521da28b75b39833b209d7b7dd38aae643",
+      "bytes": 719
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/exception/AdbPairAuthException.kt",
+      "sha256": "4bb887ef56636708322ea526ef29e9a3d96db1ca5a89c5ece5c4d48d4b0fa665",
+      "bytes": 141
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/exception/AdbStreamClosed.kt",
+      "sha256": "89ca3c11f0001f3715b2bfa1ace98dcb6e7b221a7b24e8c02ca0d98242c0d208",
+      "bytes": 801
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/exception/PlatformInterruptedException.kt",
+      "sha256": "14bfd819fd69f982fc2c464fe9e6e12a6ad5d040832fb95d3a8687d0794e6936",
+      "bytes": 195
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/forwarding/TcpForwarder.kt",
+      "sha256": "18acae5cb17621a4f8c315121a0af16575a1bfaedb4f673d95a489b14ae0d2d8",
+      "bytes": 211
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/io/PlatformFileSystem.kt",
+      "sha256": "a7461985b291e971ba998f866ed706afe4de727e9bb0e77f2f6f31e4244beae6",
+      "bytes": 191
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "sha256": "1b292f64416c7d474ae8971de600124599dc3df120dd0db3d4bc8aa34c582f6b",
+      "bytes": 3482
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "sha256": "24c67380204e5ccbb2b8d22c5ade378db9ec49bd19dfc449ba2d2fd87540ff34",
+      "bytes": 8898
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.kt",
+      "sha256": "6ffa2825ab2b83df6d169edaa75e77c809bdac0814b7f61238bf1fcb1cb234e3",
+      "bytes": 438
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/queue/AdbMessageQueue.kt",
+      "sha256": "f91cb4934825fca0f24521b221486c14a52d8d7b973c534627866b1f7b5843c9",
+      "bytes": 3534
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/shell/AdbPtyShellSession.kt",
+      "sha256": "4fe84d19e15397e71dd3327d734e1a14213a76216506a81795ebd3885f1dcec0",
+      "bytes": 1367
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/shell/AdbShellPacket.kt",
+      "sha256": "0afe4c7388e5e85fa24f996894af3021a03a223c10101a9ec8862ec6bb44f2f2",
+      "bytes": 1357
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/shell/AdbShellPacketV2.kt",
+      "sha256": "acb2427a6f4dfafb7d1de8f47a814980284d3c82bbb32ca101cf0a5ee1743da5",
+      "bytes": 396
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/shell/AdbShellResponse.kt",
+      "sha256": "3d007d6171d5295ab19a71c82f7fcd8635964a6524df40c999a134e93dc1c4a9",
+      "bytes": 270
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/shell/AdbShellStream.kt",
+      "sha256": "c325471f9cde0ef54ff8d9dd114c3bc5d50a079e4afffa2480aaae48b71c5c40",
+      "bytes": 4025
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/stream/AdbStream.kt",
+      "sha256": "d8461f57cfa91e58b2e1ed0658a324e64f4dad8a105209b98332405531af8824",
+      "bytes": 6591
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/stream/AdbSyncModels.kt",
+      "sha256": "1c4172d448c773c7c82f4e664d5c0a943eea11a779123fd51c8f8809ab36bc8d",
+      "bytes": 1600
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/stream/AdbSyncStream.kt",
+      "sha256": "cb2c53f81e37ac011d753affb1ce6ee8d22fbcf5700a16e15e91c0965395b13c",
+      "bytes": 18365
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/transport/OkioAdapters.kt",
+      "sha256": "6022ad8ae2bfc5ca0e7801c986515f8816abb17904b7f6ae3f0c50a5dc35bc17",
+      "bytes": 240
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/transport/TlsBackend.kt",
+      "sha256": "1740938cb26cc14cfa3d91fcf7b1fac115584633be8267cc7950e676a917512d",
+      "bytes": 304
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/transport/TransportChannel.kt",
+      "sha256": "63ee0039954a56d70edfb1ecc0e8eacfe371cf039dbeeb69823cb26f8f8c982b",
+      "bytes": 192
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/transport/TransportFactory.kt",
+      "sha256": "5ee6f9dd1e02240e1b7b1e44b7773cfb65f8a82ef118ce0f254daf52ed8cf82d",
+      "bytes": 843
+    },
+    {
+      "path": "kadb/src/commonTest/kotlin/com/flyfishxu/kadb/cert/IdentityWireCompatibilityTest.kt",
+      "sha256": "bfc2f8f50f215ad15b1c4da3fac32b57a0d42a84e7bae5fda006ade8d750ee75",
+      "bytes": 3124
+    },
+    {
+      "path": "kadb/src/commonTest/kotlin/com/flyfishxu/kadb/cert/JvmIdentityFixture.kt",
+      "sha256": "852313c2aa998d2b8027bca195fb211c2b060b5a4740cd28fbd26468998ece03",
+      "bytes": 5898
+    },
+    {
+      "path": "kadb/src/commonTest/kotlin/com/flyfishxu/kadb/pair/PairingCipherCompatibilityTest.kt",
+      "sha256": "93d12bd8fec02e487123943a85c0a15591f5c138316f6db47e9a717ac8753029",
+      "bytes": 1766
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/Kadb.ios.kt",
+      "sha256": "31854d7a841761f1aed85e69260176eb854ee154a1088deaa67add769275f0f6",
+      "bytes": 619
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/cert/AdbKeyPair.ios.kt",
+      "sha256": "c105195f6cc8fd944c7340a9a772b1c604be51b56e463c730d11e7528b8d8df1",
+      "bytes": 1891
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/cert/CertUtils.ios.kt",
+      "sha256": "327a96aba2f847771134f161a94b5abc6ba9775a02703a0baa788bc1b825a6f3",
+      "bytes": 3795
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/cert/NativeIdentity.kt",
+      "sha256": "90411e1fe1b8a12504adfb0cd4a6241c13796a8664d8f6292b0409e133b8ec73",
+      "bytes": 1389
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/cert/platform/DefaultDeviceName.ios.kt",
+      "sha256": "e7beb7d9abfcb1d979f0a8dea7ec76ad40fab79f7a97771ea3929f2dbddaf75c",
+      "bytes": 346
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/concurrent/BlockingLock.ios.kt",
+      "sha256": "7297dc1d03e94e521e64f94f9e4b859d63b716d465e194517885090cfb8ed656",
+      "bytes": 2341
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/core/HostFeaturePolicy.ios.kt",
+      "sha256": "342e9118848ebba51343ff7864bad55b79d4545d662791faeef1aeabef68ce0d",
+      "bytes": 204
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/debug/Logging.ios.kt",
+      "sha256": "5852cb60ae4122e353c9f76d5fef78c875c8b0fad981583104f40f5596322159",
+      "bytes": 401
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/exception/PlatformInterruptedException.ios.kt",
+      "sha256": "0fe3bedda7ddcb10a2c2266f97165b0ec7d078c711ffe16be1fadb0e5a2fae55",
+      "bytes": 108
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/forwarding/TcpForwarder.ios.kt",
+      "sha256": "f141c474ad658f1333c0d021cfea29efac1073e99e903480142074768b79ae7a",
+      "bytes": 9112
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/io/PlatformFileSystem.kt",
+      "sha256": "32fc325bd95f26e822030db1856228a65fa179614022ffcb37d65e33c97b1240",
+      "bytes": 132
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.ios.kt",
+      "sha256": "d48248bf766ab7b7f7b4fdd1cec32f74951a0ec5f59a511ba1c4ca66eb0c05cc",
+      "bytes": 2960
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.ios.kt",
+      "sha256": "cc4ff13c96451984a3561dc9168ba761e21437ee55487999833bfca72db662a2",
+      "bytes": 1367
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/stream/SyncPlatform.ios.kt",
+      "sha256": "d0873eed1cf11cc72cf5540713f271be454f1ea0198f41487b0375024f2cf048",
+      "bytes": 88
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/transport/OkioAdapters.ios.kt",
+      "sha256": "bcfdbbc8cae95078f28a2b49fab51310dfc1b9bf3989d0584e4d2a10f5fa84e1",
+      "bytes": 1873
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/transport/TlsBackend.ios.kt",
+      "sha256": "0757041ba743068b70809e7b5a9ae1de53c16f494d10546a6c211156c5c9e99d",
+      "bytes": 1164
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/transport/TransportChannel.ios.kt",
+      "sha256": "360fed53eff121a702b2beddeeac727295546ec2b61593c3f9450b71c73208f0",
+      "bytes": 5589
+    },
+    {
+      "path": "kadb/src/iosMain/kotlin/com/flyfishxu/kadb/transport/TransportFactory.ios.kt",
+      "sha256": "b23b276c45198e7e63142b8ac3b6b86ade56cb8415145672f85c8a5b62b2dec8",
+      "bytes": 812
+    },
+    {
+      "path": "kadb/src/iosTest/kotlin/com/flyfishxu/kadb/AdbSessionIosTest.kt",
+      "sha256": "6c56a767ed63de5beb8ab378272b1bd7f8d30915b2271e9ceae9aaac83afafa3",
+      "bytes": 4115
+    },
+    {
+      "path": "kadb/src/iosTest/kotlin/com/flyfishxu/kadb/RealDeviceSmokeTest.kt",
+      "sha256": "1a778bfe90c150c7f154e4fc5de350a309a57f454fd13ea1a63de131d74a1e89",
+      "bytes": 5430
+    },
+    {
+      "path": "kadb/src/iosTest/kotlin/com/flyfishxu/kadb/concurrent/BlockingLockTest.kt",
+      "sha256": "1b8aa2d038c0444809c76f743ebb245bbe7e36cf021c3e666634db8fc23e0b7a",
+      "bytes": 2137
+    },
+    {
+      "path": "kadb/src/iosTest/kotlin/com/flyfishxu/kadb/forwarding/TcpForwarderTest.kt",
+      "sha256": "a2a22c10c431744c44635ca2b65b30f8b2a0cbc94dc2090e112038ae3a77715d",
+      "bytes": 664
+    },
+    {
+      "path": "kadb/src/iosTest/kotlin/com/flyfishxu/kadb/pair/JvmPairingInteropTest.kt",
+      "sha256": "491afcb21430621f21f9b7b8a7b7d98ee88becc3da807441f342b7e210fca6d1",
+      "bytes": 1195
+    },
+    {
+      "path": "kadb/src/iosTest/kotlin/com/flyfishxu/kadb/pair/PairingSpakeCompatibilityTest.kt",
+      "sha256": "13243e2914b7ce1b2406e2ff1b224205d566a566c8fa9cdc56a5b3cfd839b559",
+      "bytes": 3025
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/KadbFileCompatibility.jvmAndroid.kt",
+      "sha256": "e19317a5c4eb2a22cd4fff937dba151190baa782ec6c45d01a08efe2806aa5fc",
+      "bytes": 1652
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/cert/AdbKeyPair.kt",
+      "sha256": "f47ed5086c0bceb09061d4484fce3d9d1be599a1b611d67f29899dc2cebf5be1",
+      "bytes": 1697
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/cert/AndroidPubkey.kt",
+      "sha256": "a2397ffa44e5c4d76090190f988f3809ba4bb0cfa389e7aae89cbafbbe16d834",
+      "bytes": 7263
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/cert/CertUtils.kt",
+      "sha256": "58d6e473509ffa5958d1818375ea2f91af5eebbbe598d29e63c834aff4c65474",
+      "bytes": 10686
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/concurrent/BlockingLock.jvmAndroid.kt",
+      "sha256": "1b7d81aa37f263fd951d86fc606b61eb5bf03e369420307fb69d1455516210e3",
+      "bytes": 742
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/debug/Logging.jvmAndroid.kt",
+      "sha256": "e1a3ad0419928d9ca5d3002dccf10f53c72e2058786372072014ae8d32059444",
+      "bytes": 198
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/exception/PlatformInterruptedException.jvmAndroid.kt",
+      "sha256": "7b2bb35cf32a921679b56485deebbe713e7e34609f8e5364f2a52444962c6c9d",
+      "bytes": 116
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/forwarding/TcpForwarder.kt",
+      "sha256": "1af18337ec69cd699753028c8088c6d2a495e337ecea599d45c01eb49b3a1778",
+      "bytes": 5217
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/io/PlatformFileSystem.kt",
+      "sha256": "32fc325bd95f26e822030db1856228a65fa179614022ffcb37d65e33c97b1240",
+      "bytes": 132
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "sha256": "35eda2fb4243ffe03516114a043268d004047205a994342900d5cd671023a7b7",
+      "bytes": 1820
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "sha256": "e3c78606abb1127cb58b479a1e300cfadc14aa9bc6a585cd863be06ed8b72439",
+      "bytes": 1921
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/pair/SslUtils.kt",
+      "sha256": "f539edd3a7086f2f903a4f22ad739c6857c7bc173ff3c581fcbdb322b03cfca3",
+      "bytes": 8599
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/stream/SyncPlatform.kt",
+      "sha256": "f9f1799ee84bbf2cafbca5e9b8ac0aac24f307122b9b9448162f9fabfc50e506",
+      "bytes": 166
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/tls/TlsErrorMapper.kt",
+      "sha256": "34c122379c2cdab2b270c01d3a298ad8d0b4d7611ad231c405f900d2a8b37e24",
+      "bytes": 1986
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/transport/OkioAdapters.kt",
+      "sha256": "02d288e89cf311378faf37a28ba81d01f663c423c0a75404d9194475528d7821",
+      "bytes": 3953
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/transport/TlsBackend.kt",
+      "sha256": "59cf4bf88be56d33dd3e65df5beaba4d975a581832a41977f358fb94c4726477",
+      "bytes": 886
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/transport/TlsNioChannel.kt",
+      "sha256": "34b4540682f3519660bf17dbe0dde4fcf48f17d10a867a5e196d0ae5014fe2a6",
+      "bytes": 9077
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/transport/TransportChannel.kt",
+      "sha256": "f347ad09936cc281223fc4142d256ee351a9f3c1bc92cae6079bc8c079d24e2d",
+      "bytes": 1454
+    },
+    {
+      "path": "kadb/src/jvmAndroidMain/kotlin/com/flyfishxu/kadb/transport/UsbPacketChannel.kt",
+      "sha256": "e97ba3b5d2b7a181355cf42764c9f4620e18ed203c9e076cd9f3feb830859426",
+      "bytes": 6010
+    },
+    {
+      "path": "kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/KadbConnectionLifecycleTest.kt",
+      "sha256": "82dbead378fad33d61976b121a62dfd9996f828c13ea3e4d11b41bf024946536",
+      "bytes": 5938
+    },
+    {
+      "path": "kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/KadbTransportFailureTest.kt",
+      "sha256": "f3979893fc20ba4a7b19c478996085fe9229125f3678ee159cd7cc22bbb05726",
+      "bytes": 794
+    },
+    {
+      "path": "kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/queue/AdbMessageQueueTest.kt",
+      "sha256": "9935c06d8884571da717118f00d3fefd2cac3dff1bbf951af80a491986ff19d2",
+      "bytes": 3239
+    },
+    {
+      "path": "kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/stream/AdbStreamTransferTest.kt",
+      "sha256": "4f68afa551d5a52f7a6c99f8b1527a0c5b1e2d2861e93152d107093961f761e7",
+      "bytes": 3938
+    },
+    {
+      "path": "kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/transport/UsbHandshakeTest.kt",
+      "sha256": "287f2b51a6be3936bf14def3831bdc63a5f9b3d0592044e129e93e6bee400ddb",
+      "bytes": 2988
+    },
+    {
+      "path": "kadb/src/jvmAndroidTest/kotlin/com/flyfishxu/kadb/transport/UsbPacketChannelTest.kt",
+      "sha256": "4cdf31d9b44e6151abf3fee4a48a1c2cd155061c511782e6591d7b5772d6f5be",
+      "bytes": 5567
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/Kadb.jvm.kt",
+      "sha256": "0ab9fd52652bf6e9e6e0e91ff446664f65f8962fa29aa0bed52f6ff3863cc508",
+      "bytes": 338
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/cert/platform/DefaultDeviceName.jvm.kt",
+      "sha256": "3dc852d0883ae793709451c488efa4c00eff05a71f4bf3e64064acb12f75f113",
+      "bytes": 382
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/core/HostFeaturePolicy.jvm.kt",
+      "sha256": "18eb67bc809d76ce3c1c5d58e040e4b7261f29574988236a959dbe4df8595571",
+      "bytes": 294
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvm.kt",
+      "sha256": "d75c33851092ecdbe208864e890245a2bf1c26eaea8b69829458e18c730ea285",
+      "bytes": 317
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/transport/PlainNioChannel.kt",
+      "sha256": "ca9faf39ab9a823fced381027eb754d61aea2e5871a99e78bc7e120f7ba5b439",
+      "bytes": 6380
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/transport/TcpKeepAlive.jvm.kt",
+      "sha256": "3dd24ef56e6236bd16a404f5a71f844bfd1e279bcda1d20708fd1d822408e355",
+      "bytes": 897
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/transport/TransportFactory.jvm.kt",
+      "sha256": "3e3ab9efd6d82e7c9256aff89c6f32512db2bc1586db812e4da4b96ad9e8e569",
+      "bytes": 994
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/transport/TransportRuntime.kt",
+      "sha256": "7d1e3acdc4db34ac697a93b3f9eb5c0006517bbe3ab1596ac0b43c5501b90a87",
+      "bytes": 1921
+    },
+    {
+      "path": "kadb/src/jvmMain/kotlin/com/flyfishxu/kadb/usb/KadbUsb.kt",
+      "sha256": "85987bc04a2e43bfe3733230a3be963c8a07585918d6ddd48ba1bbfe0f4f96ac",
+      "bytes": 6878
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/KadbFileBinaryCompatibilityTest.kt",
+      "sha256": "4fc61b4a38de20e11f786cb82a94fafdc7ab746561fa4add1e5678f97878a24e",
+      "bytes": 3448
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/cert/IdentityCompatibilityTest.kt",
+      "sha256": "ec6f0c8ae17d09e7b4ef730d8c5e953befa7c52b1deaedd7c1aa79f202517faa",
+      "bytes": 1796
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/pair/IosPairingPeer.kt",
+      "sha256": "50af41dc9837b74f4c36c7db756135390113e5febd8b18929d18ee7c222a85c3",
+      "bytes": 6312
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/pair/PairingCompatibilityTest.kt",
+      "sha256": "c94abe0b36e7a28be1bef81f2e24069be7fb25a23b5732af789ecaf0ff84ac19",
+      "bytes": 7976
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/transport/TcpKeepAliveTest.kt",
+      "sha256": "434b43a0e9d260186ce8c3612c98d977109dc8f4f2daf81378837499f8cbd30b",
+      "bytes": 1621
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/usb/DesktopUsbIoTest.kt",
+      "sha256": "5b8e047e959e77d0252beb7b8d9c76885a4feee474fa8aa0b99103b51b76928d",
+      "bytes": 5571
+    },
+    {
+      "path": "kadb/src/jvmTest/kotlin/com/flyfishxu/kadb/usb/DesktopUsbSmoke.kt",
+      "sha256": "fa61765f7c6d678232becd850ce66ac5b1790d34900bfcd99fb67404cc74dbbf",
+      "bytes": 9658
+    },
+    {
+      "path": "kadb/src/nativeInterop/cinterop/kadb.def",
+      "sha256": "9eb399a27b525957eff8cd8cb6867fbc9bac2bc57217a384f5e084bf698b9893",
+      "bytes": 204
+    },
+    {
+      "path": "kadb/src/nativeInterop/cinterop/kadb_crypto.h",
+      "sha256": "e0509160b4c367b42036ad2fd74d30db98417047c2356d37a58a2043e956782b",
+      "bytes": 2261
+    },
+    {
+      "path": "kadb/src/nativeInterop/cinterop/kadb_transport.h",
+      "sha256": "a5b2754eb12f6971746d421b51831728d5e807986d3641f60eeab19b58aad8cd",
+      "bytes": 1580
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "sha256": "be11807b9253d1776edeb45e7ffc0905be4eda3cac4f3a63cf2447ffb89ae9f6",
+      "bytes": 9795
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "sha256": "0aa0a6cd6e85d9461782cfaf9feb9bb4f4c66f840f3f840f6a7e7f341a2b8f70",
+      "bytes": 15921
+    },
+    {
+      "path": "kadb/src/nativeInterop/tests/transport_test.c",
+      "sha256": "b0ae91df39e58c82c0822214723b58b351c9c15f5d1983d66501f9da9f71de95",
+      "bytes": 8922
+    },
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "80e231b3ace989dfbc7ebe6e384443c81e6b7660591ee0842cd60317729354cc",
+      "bytes": 426
+    },
+    {
+      "path": "versions.properties",
+      "sha256": "142875129446e5136150e1bc8429b347ce686dedb4cb8196683c432cd3d4665d",
+      "bytes": 397
+    }
+  ]
+}
