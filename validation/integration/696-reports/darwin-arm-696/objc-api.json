@@ -1,0 +1,96 @@
+{
+  "baseline_declarations": 921,
+  "current_declarations": 943,
+  "removed_or_changed": [],
+  "additions": [
+    [
+      "KadbKadbApple",
+      "- (BOOL)closeAndReturnError:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"close()\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)installLocalPath:(NSString *)localPath options:(NSArray<NSString *> *)options error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"install(localPath:options:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)installMultipleLocalPaths:(NSArray<NSString *> *)localPaths options:(NSArray<NSString *> *)options error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"installMultiple(localPaths:options:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)pullLocalPath:(NSString *)localPath remotePath:(NSString *)remotePath error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"pull(localPath:remotePath:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)pushLocalPath:(NSString *)localPath remotePath:(NSString *)remotePath error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"push(localPath:remotePath:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)pushLocalPath:(NSString *)localPath remotePath:(NSString *)remotePath mode:(int32_t)mode lastModifiedMs:(int64_t)lastModifiedMs error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"push(localPath:remotePath:mode:lastModifiedMs:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)resetConnectionAndReturnError:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"resetConnection()\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (BOOL)uninstallPackageName:(NSString *)packageName error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"uninstall(packageName:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (KadbAdbShellResponse * _Nullable)shellCommand:(NSString *)command error:(NSError * _Nullable * _Nullable)error __attribute__((swift_name(\"shell(command:)\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "- (instancetype)initWithClient:(KadbKadb *)client __attribute__((swift_name(\"init(client:)\"))) __attribute__((objc_designated_initializer));"
+    ],
+    [
+      "KadbKadbApple",
+      "@interface KadbKadbApple : KadbBase"
+    ],
+    [
+      "KadbKadbApple",
+      "@property (class, readonly, getter=companion) KadbKadbAppleCompanion *companion __attribute__((swift_name(\"companion\")));"
+    ],
+    [
+      "KadbKadbApple",
+      "__attribute__((objc_subclassing_restricted))"
+    ],
+    [
+      "KadbKadbApple",
+      "__attribute__((swift_name(\"KadbApple\")))"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "+ (instancetype)alloc __attribute__((unavailable));"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "+ (instancetype)companion __attribute__((swift_name(\"init()\")));"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "- (void)pairHost:(NSString *)host port:(int32_t)port pairingCode:(NSString *)pairingCode name:(NSString *)name completionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name(\"pair(host:port:pairingCode:name:completionHandler:)\")));"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "@interface KadbKadbAppleCompanion : KadbBase"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "@property (class, readonly, getter=shared) KadbKadbAppleCompanion *shared __attribute__((swift_name(\"shared\")));"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "__attribute__((objc_subclassing_restricted))"
+    ],
+    [
+      "KadbKadbAppleCompanion",
+      "__attribute__((swift_name(\"KadbApple.Companion\")))"
+    ]
+  ],
+  "result": "PASS"
+}

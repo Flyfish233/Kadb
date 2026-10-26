@@ -1,0 +1,197 @@
+{
+  "suites": [
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.AdbSessionNativeTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+      "cases": 6,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 6
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb-mdns/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb-mdns/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "suite": "linuxX64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    }
+  ],
+  "executed": 68,
+  "failed": 0,
+  "device_coverage": "Not established by this summary; requires explicit device evidence.",
+  "missing_required_test_groups": []
+}

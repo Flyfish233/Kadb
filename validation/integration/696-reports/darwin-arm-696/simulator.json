@@ -1,0 +1,11 @@
+{
+  "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-26-5",
+  "dataPath": "/Users/runner/Library/Developer/CoreSimulator/Devices/726D52AF-426A-408A-974D-CA8B9BE8A479/data",
+  "dataPathSize": 18337792,
+  "logPath": "/Users/runner/Library/Logs/CoreSimulator/726D52AF-426A-408A-974D-CA8B9BE8A479",
+  "udid": "726D52AF-426A-408A-974D-CA8B9BE8A479",
+  "isAvailable": true,
+  "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-Air",
+  "state": "Shutdown",
+  "name": "iPhone Air"
+}

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "commit": "696a85f22f25407f92754361b18ae6fd0c2cdba7",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/40318831760",
+  "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/40318831760/artifacts/12647837176",
+  "source_package_sha256": "707f257633c57ac115ee6ac6d63b24d02f4f18456ea5d6723ee8cac813ee6485",
+  "source_lock_sha256": "b965788741db889b2e924321803470333d00cfae110c22828ff183e25337c785",
+  "binary_artifacts": [
+    {
+      "path": "kadb/build/bin/linuxX64/debugTest/test.kexe",
+      "bytes": 27746008,
+      "sha256": "78f841884cded25a3cadf4d25ceba9eea4e1b66ae435528265e1051993f42743"
+    },
+    {
+      "path": "kadb-mdns/build/bin/linuxX64/debugTest/test.kexe",
+      "bytes": 9967744,
+      "sha256": "2df1dc074dd982557d8f0c4970ead4be1d1f8e762405515090ecdb0097dee987"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe",
+      "bytes": 24910768,
+      "sha256": "56778b0c829563dc765eee1151c92dc4129cb02b43cf361e1f15a77d9f032618"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+      "bytes": 24231888,
+      "sha256": "1f18fe9c74ede3fe1f24abb410e8f94785245f6dc24ba0f446a0ce7b27f880b8"
+    }
+  ],
+  "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+}

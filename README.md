@@ -14,7 +14,7 @@ It is intended for apps and tools that need shell, sync, install, pairing, or po
 ## Overview
 
 - Direct Kotlin API for `adbd`
-- Android plus iOS, macOS and Linux Native targets; see [platform scope and evidence](docs/platform.md)
+- Android plus iOS, macOS and Linux x86_64 Native targets; see [platform scope and evidence](docs/platform.md)
 - Android USB; shared wireless pairing, shell, file transfer, install and TCP forwarding protocols
 - AOSP-aligned host behavior where practical
 
@@ -116,11 +116,10 @@ Kadb.create("127.0.0.1", 5555).use { kadb ->
 Forward a TCP port:
 
 ```kotlin
-Kadb.create("127.0.0.1", 5555).tcpForward(
-    hostPort = 7001,
-    targetPort = 7001
-).use {
-    // localhost:7001 now forwards to the device's port 7001
+Kadb.create("127.0.0.1", 5555).use { kadb ->
+    kadb.tcpForward(hostPort = 7001, targetPort = 7001).use {
+        // localhost:7001 now forwards to the device's port 7001
+    }
 }
 ```
 
@@ -129,11 +128,15 @@ Kadb.create("127.0.0.1", 5555).tcpForward(
 - Android target support starts at `minSdk 23`
 - Basic connect / shell / sync / install flows do not require the full `adb` binary
 - Pairing has stricter requirements than ordinary client operations
-- Android 6 to 8 usually need an appropriate custom Conscrypt provider for pairing.
+- The default Android pairing provider path starts at Android 10 (API 29).
+  Android 6–9 need a compatible custom Conscrypt provider for this path.
 - Native TLS and identity operations use the pinned C provider; SPAKE25519 math
   and pairing state are shared Kotlin.
 - `java.io.File` overloads remain on Android. Native callers use Okio `Path`,
   `Source` and `Sink`.
+- Swift callers can use the additive `KadbApple` adapter for high-level operations
+  with NSError/throwing boundaries. See [Apple exception handling](docs/apple-exception-boundary.md)
+  for ownership, blocking behavior and the limits of raw stream APIs.
 
 ## Scope and Limitations
 

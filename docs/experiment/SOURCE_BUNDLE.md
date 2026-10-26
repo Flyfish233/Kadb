@@ -85,10 +85,29 @@ Upload the source package, checksum and manifest in the same artifact group as
 the matching binaries, or use the shared-source arrangement below. A source
 collection failure must block that binary upload from being labeled as
 accompanied by its source; upload diagnostic logs separately. Keeping only the
-dependency URLs or a Kadb-only archive is not the replacement. This change does
-not itself edit or enable a workflow or release.
+dependency URLs or a Kadb-only archive is not the replacement. The collector is
+independent of package publication; the experimental CI integration is described
+below.
 
 ### One shared source artifact per run and commit
+
+The workflow committed at `696a85f22f25407f92754361b18ae6fd0c2cdba7`
+implements this arrangement. Its dedicated source job in
+[run 40318831760](https://github.com/Flyfish233/Kadb/actions/runs/40318831760)
+actually collected and verified the package, then uploaded
+[artifact 12647837176](https://github.com/Flyfish233/Kadb/actions/runs/40318831760/artifacts/12647837176).
+The internal source package is 142,303,048 bytes, with SHA-256
+`707f257633c57ac115ee6ac6d63b24d02f4f18456ea5d6723ee8cac813ee6485`.
+The outer GitHub artifact ZIP has its own distinct digest. These values belong
+only to that exact commit; earlier local reproducibility runs used `9a2ebbde`.
+
+Android, Linux Native and Darwin jobs require the source job to succeed. They
+record actual binary hashes, the exact commit and source-lock hash in a separate
+`binary-source-association.json`, plus `SOURCE_LOCATION.txt`. Source and binary
+artifacts use the same configured 90-day retention. This engineering provenance
+does not turn a failed build into a pass: the platform results remain separate
+entries in the verification ledger. The retention period is not a final source
+availability policy or a certification of all Android/downstream dependencies.
 
 A dedicated source job can run `create --ref "$GITHUB_SHA"` without `--binary`
 and upload the actual package as `corresponding-source-FULL_COMMIT_SHA`. Have it

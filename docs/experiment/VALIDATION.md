@@ -13,6 +13,11 @@
 `validation/baseline/source-manifest.json` freezes the baseline source and
 configuration byte hashes. Source existence alone does not prove execution.
 
+This ledger preserves chronological entries, including their original pending
+states and failed experiments. Later sections supersede earlier status claims;
+results belong only to the named source snapshot and job. Counts from different
+snapshots must not be added together as one integrated run.
+
 ## Evidence levels
 
 Record source, compilation, linkage, executed tests, simulator execution,
@@ -26,7 +31,7 @@ Each defect regression must have (1) the test commit, (2) a baseline execution
 with an assertion failure demonstrating the defect, and (3) the fix commit and
 passing execution. Dependency/configuration errors do not establish a red test.
 
-## M0: baseline freeze (in progress)
+## M0: baseline freeze — initial entry
 
 The baseline's committed versions are retained: Kotlin 2.4.20, Gradle 9.6.0,
 AGP 9.4.0, JDK 25, coroutines 1.11.0, Okio 3.18.2, Bouncy Castle 1.86.
@@ -59,7 +64,7 @@ summary. The corresponding local JVM/mDNS run executed 50 tests with zero
 failures. Android Host tests exercise the host runtime, not an Android device.
 Darwin and full Android ABI inventory are separate subsequent jobs.
 
-## Initial findings, not yet fixed/verified
+## Initial findings at the frozen baseline
 
 - Shared protocol logic already exists in this iOS baseline; relocation alone
   is not a goal.
@@ -240,7 +245,7 @@ of complete desktop feature parity or completion of the remaining gates.
 
 ## M5: actual standalone JVM target removal
 
-The next implementation removes production JVM targets/providers from all three
+Commit `0411b29e2cd27a6525068a368b2fb8b177157a5c` removes production JVM targets/providers from all three
 modules, moves the retained Android backends without renaming facade-producing
 files, and moves shared host regressions into Android Host tests. Desktop USB,
 JmDNS and Windows JVM availability are explicitly lost; Android retains its File
@@ -263,3 +268,55 @@ There are no fabricated symbols or undefined-symbol exemptions. Framework
 deployment stamps are checked separately from runtime OS claims. Independent
 iOS steps can still execute if a Swift consumer check fails. The emulator host
 installs and records the missing system runtime libraries before retrying.
+
+## M5/M6: post-removal execution and Android migration repair
+
+[Run 40318831760](https://github.com/Flyfish233/Kadb/actions/runs/40318831760)
+at `696a85f22f25407f92754361b18ae6fd0c2cdba7` is **failed overall**. It is
+the first full retained-target run after production JVM removal. The executed
+Native results are distinct from its Android compiler failure:
+
+| Job / scope | Actually observed |
+| --- | --- |
+| Source package | 10 collector integrity tests pass; actual pinned sources collected, verified and uploaded as artifact `12647837176`; per-binary jobs record its real URL and hashes |
+| Linux Native | **63 Kadb + 5 mDNS tests pass**, zero failed/skipped; complete C task chain, Cinterop, external Native links, two independent TLS/Legacy sessions, C transport/bridge sanitizers, 18 BoringSSL oracle comparisons and five observer tests pass |
+| macOS x86_64 | **65 Kadb + 5 mDNS tests pass**, zero failed/skipped; external Native pairing, framework linking, external Swift compile/link/run and deployment-metadata inspection pass |
+| macOS arm64 | **65 Kadb + 5 mDNS tests pass**; independent pairing, framework, Swift compile/link/run and deployment metadata pass |
+| iOS Simulator arm64 | **65 Kadb + 5 mDNS tests actually execute and pass** on the iOS **26.5** iPhone Air Simulator; mandatory external pairing executes both successful-code and wrong-code sessions |
+| iOS device build | `iosArm64` framework compiles and links; this is not physical-iPhone execution |
+| Exported Apple API | All **921** parsed baseline declarations retained; **0** removed/changed, **22** additions for the Apple adapter and companion |
+| Android | Five mDNS Host tests execute successfully; Kadb production compilation fails before its Host tests, APK or ABI gate |
+| Emulator adbd | Skipped because Android prerequisite failed; **zero** product checks in this run |
+
+The ARM Darwin job has one explicitly ignored old optional
+`JvmPairingInteropTest`; it contributes **zero** to the 140 executed cases.
+Its replacement mandatory external Simulator driver passed both actual TLS
+sessions. No skipped optional case is represented as a pass.
+
+Both macOS Swift consumers recorded a received CNXN frame followed by an
+NSError/Kotlin IOException and a joined peer worker. SDKs were 26.4 under
+Xcode 26.4.1; the observed Simulator runtime was separately 26.5. Actual framework
+records identify macOS 12 / iOS 15 deployment minima, without establishing
+execution on those oldest systems. The historical `simulator.json` recorded its
+pre-boot `Shutdown` state; boot logs, executed reports and the spawned consumer
+establish the runtime result. The next harness refreshes that metadata after boot.
+
+The Android failure is a migration bug: two former intermediate JVM/Android
+`expect` declarations moved into `androidMain` alongside their `actual`
+implementations. Repair `b17f418dd12c9a7dcc25021860266ebe24dc8039` removes
+only those obsolete dispatch declarations/modifiers, preserving the public
+`readMode(File)` signature and generated-facade filename. It requires a new
+Android compile, Host test and ABI result. The original failure log is preserved
+under `validation/integration/m5/android-source-set-failure`.
+
+Artifact IDs/digests, source-package identity, per-job limits and the corrected
+executed counts are in [`696-results.json`](../../validation/integration/696-results.json).
+Downloaded Linux and both Darwin reports are retained under
+`validation/integration/696-reports` without altering their contents.
+
+The integrated lineage is explicit: Native secure persistence `0b79d56`, actual
+JVM removal `0411b29`, remote-ID/diagnostic fixes `e14be4e`, and common storage
+cleanup `696a85f`. Earlier local evidence still belongs to its original source
+snapshots: `02bdb55` routing overlay 22/22, `04a63fd` Native 21/21 and `6e2f381`
+Native 24/24 plus Android Host 36/36. This full CI run does not relabel those
+isolated source snapshots as the current checkout.

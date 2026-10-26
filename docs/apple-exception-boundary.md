@@ -79,5 +79,15 @@ Also invoke the adapter's suspending pairing function against a closed loopback
 port and require an NSError callback; calling the original unannotated pair is
 not an equivalent error-path test.
 
-Until that external consumer has run, the adapter is source implementation with
-a concrete validation entry point, not a claim of tested Swift error propagation.
+## Executed checkpoint
+
+At `696a85f22f25407f92754361b18ae6fd0c2cdba7`, both macOS architectures in
+[run 40318831760](https://github.com/Flyfish233/Kadb/actions/runs/40318831760)
+compiled, linked and ran that external Swift consumer. Each recorded
+`SWIFT_SOCKET_EOF_OK command=CNXN payloadBytes=62 peerJoined=true` and
+`SWIFT_CONSUMER_OK`, including the controlled pairing-error callback. The
+iOS Simulator framework header comparison retained all 921 parsed baseline
+declarations with no removal/change, adding 22 declarations for `KadbApple`
+and its companion. These are actual consumer/error-path and header-comparison
+results, not physical-iPhone execution or coverage of every operation exposed
+by the adapter. The validation ledger identifies later checkpoints separately.

@@ -229,15 +229,16 @@ history. An exported header is necessary but insufficient for consumer support:
 the standalone Swift consumer must compile, link, run, receive a controlled
 pairing failure and catch a real accepted-socket EOF from `KadbApple.shell`.
 
-A read-only review of the M5 candidate `/tmp/kadb-m5` confirms a substantive
-removal design: production `jvm()` targets and desktop JVM USB/JmDNS backends
-are removed; Android retains the Java/ART crypto and transport implementation;
-independent Java reference processes remain test tooling. This candidate was
-not the `9a2ebbde` CI tree, so JVM-removal acceptance requires a new full-tree
-run. Native TCP, TLS, shell, Sync, installation and forwarding are the desktop
-replacement scope. Native USB and Linux discovery are explicit feature losses,
-not advertised replacements. No Java/JVM artifact compatibility is promised for
-the intentionally removed desktop target.
+The M5 implementation was committed as
+[`0411b29`](https://github.com/Flyfish233/Kadb/commit/0411b29e2cd27a6525068a368b2fb8b177157a5c):
+production `jvm()` targets and desktop JVM USB/JmDNS backends are removed;
+Android retains the Java/ART crypto and transport implementation, while
+independent Java reference processes remain test tooling. This implementation
+is newer than the historical `9a2ebbde` evidence table below. The validation
+ledger records its subsequent full-tree checks and migration repairs. Native
+TCP, TLS, shell, Sync, installation and forwarding are the desktop replacement
+scope. Native USB and Linux discovery remain explicit feature losses. No
+Java/JVM artifact compatibility is promised for the removed desktop target.
 
 ## Execution evidence at the reviewed checkpoint
 
@@ -298,22 +299,23 @@ Neither remedy is recorded here as having run successfully.
    owned I/O. Native detached threads and Java reader threads may finish later.
    Cleaner reclamation of an unreachable lock/handle is also distinct from
    explicit socket/secret release.
-6. **Identity persistence:** Native system-store hardening is separately tested
-   in the Native security follow-up (`f6a30e3`), including exclusive 0600 staging,
-   symlink replacement, cleanup and close-on-exec. It was not part of this
-   reviewed CI checkpoint. The common/custom-filesystem staging path was found
-   to skip cleanup if staging itself throws, and its cleanup existence probe
-   can mask the original error; that ordinary-I/O regression is assigned to the
-   Native/storage follow-up. Custom filesystems cannot be promised POSIX
-   permissions. `KadbCert` restoring its previous in-memory state after an error
-   is not an atomic rollback of an already committed store write; no injected
-   OOM/store transaction proof is claimed.
-7. **Secret diagnostics and lifecycle:** the snapshot data-class diagnostic
-   string contains secret-array representations at the reviewed checkpoint;
-   the separately assigned redaction follow-up must retain component/copy/API
-   compatibility and show synthetic-secret tests. Long-lived caller snapshots,
-   immutable pairing-code strings and provider internals cannot be erased by
-   closing a Kadb session. See the crypto review for finer erasure limits.
+6. **Identity persistence:** Native system-store hardening is delivered in
+   `0b79d56`, including exclusive 0600 staging, symlink replacement, cleanup and
+   close-on-exec. The later `696a85f` fixes common/custom-filesystem staging leaks
+   and prevents cleanup errors from replacing the original failure. Both have
+   separate executed red/green records under `docs/verification`; they are newer
+   than the historical CI checkpoint above. A filesystem that refuses deletion
+   can still leave a staging file, and custom filesystems cannot be promised
+   POSIX permissions. `KadbCert` restoring previous in-memory state after an
+   error is not an atomic rollback of an already committed store write; no
+   injected OOM/store transaction proof is claimed.
+7. **Secret diagnostics and lifecycle:** `e14be4e` replaces identity data-class
+   diagnostic strings with an explicit public-only representation, retaining
+   constructor/property/component/copy signatures. Synthetic-secret regressions
+   and executed red/green evidence are retained in
+   `docs/verification/identity-lifecycle`. Long-lived caller snapshots, immutable
+   pairing-code strings and provider internals cannot be erased by closing a
+   Kadb session. See the crypto review for finer erasure limits.
 8. **Hardware and OS coverage:** no physical iPhone-to-adbd, Android USB hardware,
    Native USB, Windows Native, real-network Bonjour churn, suspend/resume or
    minimum-OS execution is established here. The explicit device entry point

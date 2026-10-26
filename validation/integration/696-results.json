@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "commit": "696a85f22f25407f92754361b18ae6fd0c2cdba7",
+  "run_id": 40318831760,
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/40318831760",
+  "overall_result": "failure",
+  "source": {
+    "job_id": 121558198239,
+    "result": "success",
+    "artifact_id": 12647837176,
+    "artifact_zip_sha256": "09da7e50e9a8bbd1eed9c2080013bd4aa106a7f0b37dbb811fb5a9f6e20d1dcb",
+    "package_sha256": "707f257633c57ac115ee6ac6d63b24d02f4f18456ea5d6723ee8cac813ee6485",
+    "package_bytes": 142303048,
+    "source_lock_sha256": "b965788741db889b2e924321803470333d00cfae110c22828ff183e25337c785",
+    "retention_days": 90
+  },
+  "artifacts": [
+    {
+      "id": 12649550889,
+      "name": "darwin-macosArm64-696a85f22f25407f92754361b18ae6fd0c2cdba7",
+      "sha256": "7216975c5984aa36c8973ed2831c62a48942e9f5f2902c3fed4ce5e0b92d5e2f",
+      "bytes": 133524503
+    },
+    {
+      "id": 12648777085,
+      "name": "darwin-macosX64-696a85f22f25407f92754361b18ae6fd0c2cdba7",
+      "sha256": "c7a0722bf85642ec3b581a27a714314f4a68f62e7189ca2b0d221a0a2db117f8",
+      "bytes": 81853087
+    },
+    {
+      "id": 12648490978,
+      "name": "linux-native-696a85f22f25407f92754361b18ae6fd0c2cdba7",
+      "sha256": "e24a8203189415b526597dd088b166ff6e13e4a9949300cf06908c72ba4a550e",
+      "bytes": 39781378
+    },
+    {
+      "id": 12647837176,
+      "name": "corresponding-source-696a85f22f25407f92754361b18ae6fd0c2cdba7",
+      "sha256": "09da7e50e9a8bbd1eed9c2080013bd4aa106a7f0b37dbb811fb5a9f6e20d1dcb",
+      "bytes": 142416946
+    },
+    {
+      "id": 12647479000,
+      "name": "android-protocol-696a85f22f25407f92754361b18ae6fd0c2cdba7",
+      "sha256": "6b0b4b3b65845eda2a1959050e5ab1b4a5eedd784ce26a0682e409f8b2f7344f",
+      "bytes": 563418
+    }
+  ],
+  "jobs": [
+    {
+      "job_id": 121558526413,
+      "scope": "Android",
+      "result": "failure",
+      "kadb_tests_executed": 0,
+      "mdns_tests_executed": 5,
+      "reason": "Same-source-set expect/actual declarations after JVM exit; no Android ABI gate or APK build passed.",
+      "repair_commit": "b17f418dd12c9a7dcc25021860266ebe24dc8039"
+    },
+    {
+      "job_id": 121558526660,
+      "scope": "Linux Native",
+      "result": "success",
+      "kadb_tests_executed": 63,
+      "mdns_tests_executed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "independent_pairing_sessions": 2,
+      "c_transport_and_bridge_sanitizers": true,
+      "independent_boringssl_comparisons": 18,
+      "observer_tests": 5
+    },
+    {
+      "job_id": 121558526458,
+      "scope": "macOS x86_64",
+      "result": "success",
+      "kadb_tests_executed": 65,
+      "mdns_tests_executed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "independent_pairing_sessions": 2,
+      "external_swift_compile_link_execute": true
+    },
+    {
+      "job_id": 121558526478,
+      "scope": "macOS arm64 and iOS Simulator arm64",
+      "result": "success",
+      "macos_kadb_tests_executed": 65,
+      "macos_mdns_tests_executed": 5,
+      "ios_kadb_tests_executed": 65,
+      "ios_mdns_tests_executed": 5,
+      "failed": 0,
+      "skipped_optional_old_pairing_test": 1,
+      "mandatory_independent_pairing_sessions": 4,
+      "external_swift_compile_link_execute": true,
+      "ios_device_framework_linked": true,
+      "ios_simulator_framework_linked": true,
+      "simulator_runtime": "com.apple.CoreSimulator.SimRuntime.iOS-26-5",
+      "simulator_device_name": "iPhone Air",
+      "xcode": "26.4.1",
+      "sdk": "26.4",
+      "objc_baseline_declarations": 921,
+      "objc_removed_or_changed": 0,
+      "objc_additions": 22
+    },
+    {
+      "job_id": 121559704518,
+      "scope": "Emulator adbd",
+      "result": "skipped",
+      "product_checks_executed": 0,
+      "reason": "Android prerequisite failed"
+    }
+  ],
+  "scope": {
+    "production_desktop_jvm_removed": true,
+    "native_minimum_os_runtime_executed": false,
+    "physical_iphone": false,
+    "physical_android": false,
+    "android_art": false,
+    "real_adbd": false,
+    "security_certification": false,
+    "performance_acceptance": false
+  },
+  "notes": [
+    "Android, Linux and both Darwin artifact ZIP hashes were independently checked after download.",
+    "The 140 executed cases on the ARM Darwin job exclude one explicitly ignored legacy optional JvmPairingInteropTest; mandatory external Simulator pairing executed both sessions.",
+    "simulator.json in this historical artifact copied its state from the pre-boot inventory (Shutdown). bootstatus, actual tests and simctl-spawned consumer establish execution; the next harness refreshes device state after boot.",
+    "No successful Native or mDNS result converts the overall failed workflow or skipped emulator into a pass."
+  ]
+}

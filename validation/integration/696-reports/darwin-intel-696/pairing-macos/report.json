@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "started_utc": "2026-10-26T12:04:28.470212+00:00",
+  "commit": "696a85f22f25407f92754361b18ae6fd0c2cdba7",
+  "tracked_worktree_changes": "",
+  "consumer_sha256": "75a23cef9eb3344c2485a979ee3c79099a0e980fbe73514b340a73cd0e2b1f2b",
+  "consumer_bytes": 6212568,
+  "java_version": "openjdk version \"25.0.4.1\" 2026-08-18 LTS\nOpenJDK Runtime Environment Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.4.1+1 (build 25.0.4.1+1-LTS, mixed mode)",
+  "reference_artifacts": {
+    "spake2-java-1.1.1.jar": "077e52ff5594401cdbfca66f9b4d315676e01dff98eaa8ef302fa748ac508028",
+    "conscrypt-openjdk-uber-2.7.0.jar": "a82c2efe7d75df6cb077cb72a3cbd9bb437fb9624d62b469013f10114b0cffa4",
+    "bcpkix-jdk18on-1.86.jar": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7",
+    "ed25519-elisabeth-0.1.0.jar": "f2b0f1f7353b3b4a41caa230bd203858a4b5844acd022f830b09d347aade3d23",
+    "curve25519-elisabeth-0.1.0.jar": "e3d07e0138b49c5c48ac89ad4f6828af74c4cd70abe495d7515e7c6a0227184c",
+    "bcutil-jdk18on-1.86.jar": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f",
+    "bcprov-jdk18on-1.86.jar": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f"
+  },
+  "reference_classes": {
+    "com/flyfishxu/kadb/validation/peer/IosPairingPeer$1.class": "74dd674fc7bd76e53d861bc4596d4eef3e47ff0ec06f32c41f3e24ccba1f6d7f",
+    "com/flyfishxu/kadb/validation/peer/IosPairingPeer.class": "d1ba307694d71888629bcff18f6103f1bc83ef40675081a2b071bb8465685778"
+  },
+  "peer_command": [
+    "/Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.4-101.0/x64/Contents/Home/bin/java",
+    "--enable-native-access=ALL-UNNAMED",
+    "-cp",
+    "/Users/runner/work/Kadb/Kadb/validation/pairing-peer/build/classes/java/main:/Users/runner/.gradle/caches/modules-2/files-2.1/com.github.Flyfish233/spake2-java/1.1.1/d7a2b95e871e45a40d18ade772bfce0a3690eea0/spake2-java-1.1.1.jar:/Users/runner/.gradle/caches/modules-2/files-2.1/org.conscrypt/conscrypt-openjdk-uber/2.7.0/bc396edfd5fefe70b7e1f9764edb803e13c6741f/conscrypt-openjdk-uber-2.7.0.jar:/Users/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.86/fb5ea65959db10fe5d61148bb2b77f6e231455b1/bcpkix-jdk18on-1.86.jar:/Users/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/534c70f4a52f8c134fc3f84e96fe525390eec270/ed25519-elisabeth-0.1.0.jar:/Users/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/curve25519-elisabeth/0.1.0/5c9a330af3ca88b9788cd92a468b61f5d2e0f834/curve25519-elisabeth-0.1.0.jar:/Users/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.86/2c8e77f5601c2b84c8773af4caf403a34daca357/bcutil-jdk18on-1.86.jar:/Users/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.86/830c8467bed8e4c1148262386b09fc42aedcf262/bcprov-jdk18on-1.86.jar",
+    "com.flyfishxu.kadb.validation.peer.IosPairingPeer",
+    "/Users/runner/work/Kadb/Kadb/evidence/pairing-macos/peer-ready"
+  ],
+  "native_command": [
+    "/Users/runner/work/Kadb/Kadb/validation/native-adbd/build/bin/macosX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+    "--port",
+    "49289"
+  ],
+  "native_exit_code": 0,
+  "peer_exit_code": 0,
+  "native": {
+    "status": "passed",
+    "checks_executed": 2,
+    "elapsed_ms": 431,
+    "physical_device": false
+  },
+  "peer": {
+    "status": "passed",
+    "sessions_executed": 2,
+    "positive_sessions": 1,
+    "wrong_code_rejections": 1,
+    "tls": "TLSv1.3",
+    "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+  },
+  "scope": {
+    "native_executable_linked_and_executed": true,
+    "ios_simulator_executed": false,
+    "independent_legacy_spake_peer": true,
+    "tls_exporter_and_peer_info": true,
+    "real_adbd": false,
+    "physical_device": false,
+    "independent_security_audit": false,
+    "performance_acceptance": false
+  }
+}
