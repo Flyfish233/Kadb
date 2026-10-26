@@ -40,3 +40,4 @@ google-services.json
 
 # Local development artifacts
 .codex-artifacts/
+__pycache__/

@@ -43,6 +43,12 @@ directory. It retains raw Gradle logs, XML reports, ABI inventories and built
 artifacts even when a later step fails. Test results will be recorded here
 after the jobs have actually completed.
 
+First CI attempt: [run 40305077881](https://github.com/Flyfish233/Kadb/actions/runs/40305077881)
+at `1b17e16efb91d0b9c79a900466c92797af7c5abc` failed in Android SDK setup:
+the setup action's default requested the retired `tools` package. No product
+tests ran; the report gate correctly failed on zero executed tests. The next
+commit pins command-line tools build 16111833 and requests only platform-tools.
+
 ## Initial findings, not yet fixed/verified
 
 - Shared protocol logic already exists in this iOS baseline; relocation alone

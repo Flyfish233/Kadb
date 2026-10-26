@@ -26,6 +26,11 @@ jobs:
           distribution: temurin
           java-version: '25'
       - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          cmdline-tools-version: '16111833'
+          packages: platform-tools
+          accept-android-sdk-licenses: false
+          log-accepted-android-sdk-licenses: false
       - name: SDK and environment
         run: |
           mkdir -p evidence
