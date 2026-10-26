@@ -1,0 +1,13 @@
+{
+  "source_commit": "077b3f34aa9b14a4869ac48fe17f952e992bf28c",
+  "counts": {
+    "tests": 2,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gradle_exit": 1,
+  "command": ":kadb:linuxX64Test --tests com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.* -x :kadb:buildNativeLinuxX64 --no-daemon --max-workers=2 --no-build-cache --no-configuration-cache -Pkotlin.incremental=false",
+  "native_executable_sha256": "b48b5a6c67e1f8078760cc6dda6027a21ab57e014d23d313beb00c02e47c666d",
+  "scope": "Focused executed Linux Native regression using previously built pinned C archives. Expected failing health assertions; not a product pass."
+}

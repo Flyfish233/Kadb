@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2026-10-26T11:35:12.669Z" hostname="c9d49951d07d" time="0.118">
+  <properties/>
+  <testcase name="publicSnapshotDiagnosticsOmitPrivateMaterial[linuxX64]" classname="linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest" time="0.021">
+    <failure message="kotlin.AssertionError: kotlin.AssertionError: Diagnostic must omit the private-key field" type="kotlin.AssertionError">kotlin.AssertionError: Diagnostic must omit the private-key field
+	at kotlin.Error#&lt;init&gt;(Unknown Source)
+	at kotlin.AssertionError#&lt;init&gt;(Unknown Source)
+	at kotlin.test.DefaultAsserter#fail(Unknown Source)
+	at kotlin.test.Asserter#fail(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test#assertFalse(Unknown Source)
+	at com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.assertSafeDiagnostic#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest#publicSnapshotDiagnosticsOmitPrivateMaterial(Unknown Source)
+	at com.flyfishxu.kadb.cert.$IdentityDiagnosticRedactionTest$test$5.$IdentityDiagnosticRedactionTest$test$5$$FUNCTION_REFERENCE_FOR$publicSnapshotDiagnosticsOmitPrivateMaterial$0.invoke#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.$IdentityDiagnosticRedactionTest$test$5.$IdentityDiagnosticRedactionTest$test$5$$FUNCTION_REFERENCE_FOR$publicSnapshotDiagnosticsOmitPrivateMaterial$0.$&lt;bridge-DNC&gt;invoke(Unknown Source)
+	at kotlin.Function1#invoke(Unknown Source)
+	at kotlin.native.internal.test.BaseClassSuite.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#run__at__kotlin.native.internal.test.TestSuite(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#runIteration(Unknown Source)
+	at kotlin.native.internal.test.TestRunner#run(Unknown Source)
+	at kotlin.native.internal.test#testLauncherEntryPoint(Unknown Source)
+	at kotlin.native.internal.test#main(Unknown Source)
+	at &lt;global&gt;.Konan_start(Unknown Source)
+	at &lt;global&gt;.Init_and_run_start(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+	at &lt;global&gt;.__libc_start_main(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+</failure>
+  </testcase>
+  <testcase name="internalIdentityDiagnosticsOmitPrivateMaterial[linuxX64]" classname="linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest" time="0.003">
+    <failure message="kotlin.AssertionError: kotlin.AssertionError: Diagnostic must omit the private-key field" type="kotlin.AssertionError">kotlin.AssertionError: Diagnostic must omit the private-key field
+	at kotlin.Error#&lt;init&gt;(Unknown Source)
+	at kotlin.AssertionError#&lt;init&gt;(Unknown Source)
+	at kotlin.test.DefaultAsserter#fail(Unknown Source)
+	at kotlin.test.Asserter#fail(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test#assertFalse(Unknown Source)
+	at com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.assertSafeDiagnostic#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest#internalIdentityDiagnosticsOmitPrivateMaterial(Unknown Source)
+	at com.flyfishxu.kadb.cert.$IdentityDiagnosticRedactionTest$test$5.$IdentityDiagnosticRedactionTest$test$5$$FUNCTION_REFERENCE_FOR$internalIdentityDiagnosticsOmitPrivateMaterial$1.invoke#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.$IdentityDiagnosticRedactionTest$test$5.$IdentityDiagnosticRedactionTest$test$5$$FUNCTION_REFERENCE_FOR$internalIdentityDiagnosticsOmitPrivateMaterial$1.$&lt;bridge-DNC&gt;invoke(Unknown Source)
+	at kotlin.Function1#invoke(Unknown Source)
+	at kotlin.native.internal.test.BaseClassSuite.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#run__at__kotlin.native.internal.test.TestSuite(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#runIteration(Unknown Source)
+	at kotlin.native.internal.test.TestRunner#run(Unknown Source)
+	at kotlin.native.internal.test#testLauncherEntryPoint(Unknown Source)
+	at kotlin.native.internal.test#main(Unknown Source)
+	at &lt;global&gt;.Konan_start(Unknown Source)
+	at &lt;global&gt;.Init_and_run_start(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+	at &lt;global&gt;.__libc_start_main(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
