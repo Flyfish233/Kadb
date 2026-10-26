@@ -10,6 +10,9 @@ case $(uname -m) in
 esac
 xcrun swiftc validation/swift/Consumer.swift -target "$target" \
   -F "$framework" -framework Kadb -framework Foundation -framework Security \
-  -lresolv -o "$output/swift-consumer"
+  -lresolv -Xlinker -dead_strip -Xlinker -map -Xlinker "$output/swift-consumer.map" \
+  -o "$output/swift-consumer"
+xcrun nm -u "$output/swift-consumer" > "$output/swift-consumer-imports.log"
+xcrun otool -L "$output/swift-consumer" > "$output/swift-consumer-libraries.log"
 "$output/swift-consumer" | tee "$output/swift-consumer.log"
 grep -q '^SWIFT_CONSUMER_OK ' "$output/swift-consumer.log"

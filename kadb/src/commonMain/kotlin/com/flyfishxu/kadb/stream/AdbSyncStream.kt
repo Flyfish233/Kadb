@@ -101,8 +101,6 @@ class AdbSyncStream(
 ) : AutoCloseable {
 
     private val buffer = Buffer()
-    private val isWindowsHost =
-        isWindowsHost()
 
     @Throws(IOException::class)
     fun send(source: Source, remotePath: String, mode: Int, lastModifiedMs: Long) {
@@ -476,12 +474,9 @@ class AdbSyncStream(
     }
 
     private fun validateEntryName(name: String) {
-        // AOSP sync client rejects '/' in listed names and rejects '\\' on Windows hosts.
+        // All retained production hosts use POSIX path separators.
         // https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/client/file_sync_client.cpp#555
         if (name.contains('/')) {
-            throw IOException("Invalid sync entry name: $name")
-        }
-        if (isWindowsHost && name.contains('\\')) {
             throw IOException("Invalid sync entry name: $name")
         }
     }
@@ -519,5 +514,3 @@ class AdbSyncStream(
         stream.use { writePacket(ID_QUIT, 0) }
     }
 }
-
-internal expect fun isWindowsHost(): Boolean

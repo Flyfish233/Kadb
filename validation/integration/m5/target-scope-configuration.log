@@ -1,0 +1,155 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Calculating task graph as no cached configuration is available for tasks: :kadb:verifyProductionTargetScope :kadb-mdns:verifyProductionTargetScope :spake2-legacy:verifyProductionTargetScope
+
+> Configure project :kadb
+w: file:///tmp/kadb-m5-current/kadb/build.gradle.kts:9:59: 'fun macosX64(): KotlinNativeTargetWithHostTests' is deprecated. Target will be removed in a future release. See: https://kotl.in/native-targets-tiers.
+w: [33m[1m⚠️ Native task 'iosSimulatorArm64Test' is disabled[0m[0m
+Task 'iosSimulatorArm64Test' for target 'ios_simulator_arm64' cannot run on the current host (linux-x86_64).
+Reason: simulator tests require macOS
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'macosArm64Test' is disabled[0m[0m
+Task 'macosArm64Test' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_arm64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'macosX64Test' is disabled[0m[0m
+Task 'macosX64Test' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_x64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'[0m[0m
+In project 'kadb', cross compilation to target 'iosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+[32m[1mSolutions:[0m[0m
+[32m * [3mRemove the cinterop dependencies 'kadbNative' from target 'iosArm64'[0m[0m
+[32m * [3mBuild on a compatible host platform for this target/cinterop combination[0m[0m
+[32m * [3mTo disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties[0m[0m
+
+w: [33m[1m⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'[0m[0m
+In project 'kadb', cross compilation to target 'iosSimulatorArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+[32m[1mSolutions:[0m[0m
+[32m * [3mRemove the cinterop dependencies 'kadbNative' from target 'iosSimulatorArm64'[0m[0m
+[32m * [3mBuild on a compatible host platform for this target/cinterop combination[0m[0m
+[32m * [3mTo disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties[0m[0m
+
+w: [33m[1m⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'[0m[0m
+In project 'kadb', cross compilation to target 'macosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+[32m[1mSolutions:[0m[0m
+[32m * [3mRemove the cinterop dependencies 'kadbNative' from target 'macosArm64'[0m[0m
+[32m * [3mBuild on a compatible host platform for this target/cinterop combination[0m[0m
+[32m * [3mTo disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties[0m[0m
+
+w: [33m[1m⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'[0m[0m
+In project 'kadb', cross compilation to target 'macosX64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+[32m[1mSolutions:[0m[0m
+[32m * [3mRemove the cinterop dependencies 'kadbNative' from target 'macosX64'[0m[0m
+[32m * [3mBuild on a compatible host platform for this target/cinterop combination[0m[0m
+[32m * [3mTo disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties[0m[0m
+
+w: [33m[1m⚠️ Disabled Kotlin/Native Targets[0m[0m
+The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, macosArm64, macosX64
+[32m[1mSolution:[0m[0m
+[32m[3mTo hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.[0m[0m
+
+
+> Configure project :kadb-mdns
+w: file:///tmp/kadb-m5-current/kadb-mdns/build.gradle.kts:10:5: 'fun macosX64(): KotlinNativeTargetWithHostTests' is deprecated. Target will be removed in a future release. See: https://kotl.in/native-targets-tiers.
+
+> Configure project :spake2-legacy
+w: file:///tmp/kadb-m5-current/third-party/spake2/build.gradle.kts:21:5: 'fun macosX64(): KotlinNativeTargetWithHostTests' is deprecated. Target will be removed in a future release. See: https://kotl.in/native-targets-tiers.
+
+> Configure project :validation-android-fixture
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+w: file:///tmp/kadb-m5-current/validation/android-fixture/build.gradle.kts:6:38: 'fun <U : Task> RegisteringDomainObjectDelegateProviderWithTypeAndAction<out TaskContainer, U>.provideDelegate(receiver: Any?, property: KProperty<*>): ExistingDomainObjectDelegate<TaskProvider<U>>' is deprecated. Use 'val task = tasks.register<Type>(name) { }' instead. See the Gradle 9.6 upgrading guide.
+w: file:///tmp/kadb-m5-current/validation/android-fixture/build.gradle.kts:6:38: 'fun <T : Any, C : PolymorphicDomainObjectContainer<T>, U : T> C.registering(type: KClass<U>, action: U.() -> Unit): RegisteringDomainObjectDelegateProviderWithTypeAndAction<out C, U>' is deprecated. Use 'val element = register<Type>(name) { }' instead. See the Gradle 9.6 upgrading guide.
+w: file:///tmp/kadb-m5-current/validation/android-fixture/build.gradle.kts:6:38: 'fun <T> ExistingDomainObjectDelegate<out T>.getValue(receiver: Any?, property: KProperty<*>): T' is deprecated. Use the named() API instead. See the Gradle 9.6 upgrading guide.
+w: file:///tmp/kadb-m5-current/validation/android-fixture/build.gradle.kts:19:1: 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+
+> Configure project :validation-native-adbd
+w: file:///tmp/kadb-m5-current/validation/native-adbd/build.gradle.kts:6:38: 'fun macosX64(): KotlinNativeTargetWithHostTests' is deprecated. Target will be removed in a future release. See: https://kotl.in/native-targets-tiers.
+w: [33m[1m⚠️ Native task 'runDebugExecutableMacosArm64' is disabled[0m[0m
+Task 'runDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runReleaseExecutableMacosArm64' is disabled[0m[0m
+Task 'runReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runPairingDebugExecutableMacosArm64' is disabled[0m[0m
+Task 'runPairingDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runPairingReleaseExecutableMacosArm64' is disabled[0m[0m
+Task 'runPairingReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runDebugExecutableMacosX64' is disabled[0m[0m
+Task 'runDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runReleaseExecutableMacosX64' is disabled[0m[0m
+Task 'runReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runPairingDebugExecutableMacosX64' is disabled[0m[0m
+Task 'runPairingDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+w: [33m[1m⚠️ Native task 'runPairingReleaseExecutableMacosX64' is disabled[0m[0m
+Task 'runPairingReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+[32m[1mSolution:[0m[0m
+[32m[3mTo suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.[0m[0m
+
+
+> Task :kadb:verifyProductionTargetScope
+PRODUCTION_TARGET_SCOPE_OK :kadb:verifyProductionTargetScope [android:androidJvm, iosArm64:native, iosSimulatorArm64:native, linuxX64:native, macosArm64:native, macosX64:native, metadata:common]
+
+> Task :kadb-mdns:verifyProductionTargetScope
+PRODUCTION_TARGET_SCOPE_OK :kadb-mdns:verifyProductionTargetScope [android:androidJvm, iosArm64:native, iosSimulatorArm64:native, linuxX64:native, macosArm64:native, macosX64:native, metadata:common]
+
+> Task :spake2-legacy:verifyProductionTargetScope
+PRODUCTION_TARGET_SCOPE_OK :spake2-legacy:verifyProductionTargetScope [android:androidJvm, iosArm64:native, iosSimulatorArm64:native, linuxX64:native, macosArm64:native, macosX64:native, metadata:common]
+
+[Incubating] Problems report is available at: file:///tmp/kadb-m5-current/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3m 9s
+3 actionable tasks: 3 executed
+Configuration cache entry stored.

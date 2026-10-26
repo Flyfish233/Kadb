@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidMultiplatformLibrary)
-    id("com.vanniktech.maven.publish")
-    id("signing")
 }
 
 kotlin {
@@ -13,11 +11,7 @@ kotlin {
     // Data models and parsers only: there is no Linux discovery backend yet.
     linuxX64()
 
-    jvm {
-        kotlin {
-            jvmToolchain(25)
-        }
-    }
+    jvmToolchain(25)
 
     android {
         namespace = "com.flyfishxu.kadb.mdns"
@@ -25,6 +19,7 @@ kotlin {
         minSdk = 23
 
         withJava()
+        withHostTest {}
     }
 
     sourceSets {
@@ -36,9 +31,7 @@ kotlin {
             implementation(libs.kotlin.test)
         }
 
-        jvmMain.dependencies {
-            implementation(libs.jmdns)
-        }
+
     }
 }
 
@@ -53,43 +46,16 @@ tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimu
     standalone.set(false)
 }
 
-signing {
-    useGpgCmd()
-}
-
-mavenPublishing {
-    publishToMavenCentral()
-    if (providers.gradleProperty("signAllPublications").map { it.toBoolean() }.orElse(true).get()) {
-        signAllPublications()
-    }
-
-    coordinates("com.flyfishxu", "kadb-mdns", "2.1.5")
-
-    pom {
-        name.set("Kadb mDNS")
-        description.set("Optional Kotlin Multiplatform mDNS discovery module for ADB services.")
-        url.set("https://github.com/flyfishxu/Kadb.git")
-
-        licenses {
-            license {
-                name.set("Apache License 2.0")
-                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                distribution.set("repo")
-            }
-        }
-        developers {
-            developer {
-                id.set("flyfishxu")
-                name.set("Flyfish Xu")
-                url.set("https://github.com/flyfishxu")
-                organization.set("Flyfish Studio")
-                email.set("flyfishxu@outlook.com")
-            }
-        }
-        scm {
-            connection.set("scm:git:git://github.com/flyfishxu/Kadb.git")
-            developerConnection.set("scm:git:ssh://github.com/flyfishxu/Kadb.git")
-            url.set("https://github.com/flyfishxu/Kadb.git")
-        }
+// Scope gate, separate from runtime/compilation evidence. Android is retained;
+// validation-only Java processes never restore a production desktop JVM target.
+tasks.register("verifyProductionTargetScope") {
+    group = "verification"
+    inputs.property("targetPlatforms", kotlin.targets.map { "${it.name}:${it.platformType.name}" }.sorted())
+    doLast {
+        val targets = inputs.properties.getValue("targetPlatforms") as List<*>
+        check(targets.none { it.toString().endsWith(":jvm") }) { "Unexpected desktop JVM target: $targets" }
+        check("android:androidJvm" in targets) { "Android production target was lost: $targets" }
+        check("macosArm64:native" in targets && "iosArm64:native" in targets) { "Darwin targets were lost: $targets" }
+        println("PRODUCTION_TARGET_SCOPE_OK $path $targets")
     }
 }

@@ -1,0 +1,138 @@
+{
+  "commit": "9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf",
+  "run_id": 40314095952,
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/40314095952",
+  "overall_status": "failed",
+  "reports": {
+    "android": {
+      "executed": 185,
+      "failed": 0,
+      "groups": {
+        "kadb/build/test-results/jvmTest": 81,
+        "kadb/build/test-results/testAndroidHostTest": 92,
+        "kadb-mdns/build/test-results/jvmTest": 12
+      },
+      "missing_required_test_groups": []
+    },
+    "linux": {
+      "executed": 47,
+      "failed": 0,
+      "groups": {
+        "kadb/build/test-results/linuxX64Test": 47
+      },
+      "missing_required_test_groups": []
+    },
+    "macos_arm64": {
+      "executed": 54,
+      "failed": 0,
+      "groups": {
+        "kadb/build/test-results/macosArm64Test": 49,
+        "kadb-mdns/build/test-results/macosArm64Test": 5
+      },
+      "missing_required_test_groups": [
+        "kadb/build/test-results/iosSimulatorArm64Test",
+        "kadb-mdns/build/test-results/iosSimulatorArm64Test"
+      ]
+    }
+  },
+  "android_abi": {
+    "actual_aars_built": true,
+    "kadb_public_diff_bytes": 0,
+    "mdns_public_diff_bytes": 0
+  },
+  "independent_pairing": {
+    "linux": {
+      "status": "passed",
+      "consumer_sha256": "294214c9835f5bf4a48bda6c96bae778248947220e85b65e5e000217166450b5",
+      "native": {
+        "status": "passed",
+        "checks_executed": 2,
+        "elapsed_ms": 500,
+        "physical_device": false
+      },
+      "peer": {
+        "status": "passed",
+        "sessions_executed": 2,
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "tls": "TLSv1.3",
+        "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+      },
+      "scope": {
+        "native_executable_linked_and_executed": true,
+        "ios_simulator_executed": false,
+        "independent_legacy_spake_peer": true,
+        "tls_exporter_and_peer_info": true,
+        "real_adbd": false,
+        "physical_device": false,
+        "independent_security_audit": false,
+        "performance_acceptance": false
+      }
+    },
+    "macos_arm64": {
+      "status": "passed",
+      "consumer_sha256": "0d555664847728dc87d07b346e289fe43fa7f2df40cb60c39aa594a65400eb11",
+      "native": {
+        "status": "passed",
+        "checks_executed": 2,
+        "elapsed_ms": 387,
+        "physical_device": false
+      },
+      "peer": {
+        "status": "passed",
+        "sessions_executed": 2,
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "tls": "TLSv1.3",
+        "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+      },
+      "scope": {
+        "native_executable_linked_and_executed": true,
+        "ios_simulator_executed": false,
+        "independent_legacy_spake_peer": true,
+        "tls_exporter_and_peer_info": true,
+        "real_adbd": false,
+        "physical_device": false,
+        "independent_security_audit": false,
+        "performance_acceptance": false
+      }
+    }
+  },
+  "failures": {
+    "swift_external_link": "Xcode 16.4 SDK does not supply unused symbols from Kotlin 2.4.20 cached platform wrappers. Native K/N links/tests and independent pairing passed; Swift executable did not link.",
+    "ios_simulator": "Not executed in this integrated run because the preceding Swift step failed.",
+    "emulator": "Booted, but driver emulator -version requires missing libpulse.so.0. Zero product checks executed."
+  },
+  "scope": {
+    "physical_iphone": false,
+    "physical_android": false,
+    "independent_security_audit": false,
+    "performance_acceptance": false
+  },
+  "artifacts": [
+    {
+      "id": 12646416100,
+      "local_name": "android-protocol-9a2.zip",
+      "bytes": 1016795,
+      "sha256": "0a08d9c773f2205542f12ebdb28badefa2dfdab11b27c9d65bd8e7eca38e65f8"
+    },
+    {
+      "id": 12646421446,
+      "local_name": "linux-native-9a2.zip",
+      "bytes": 39453020,
+      "sha256": "8391dedf294611651e5ef8fa8149c5625440ecc8e88841f502957b474d433d47"
+    },
+    {
+      "id": 12646212571,
+      "local_name": "darwin-arm-9a2.zip",
+      "bytes": 76702483,
+      "sha256": "4f999e494a3a1c1c65781704b6f7b6fd426fc2b3271eea7472cab3d0e9198635"
+    },
+    {
+      "id": 12645534547,
+      "local_name": "emulator-9a2.zip",
+      "bytes": 13071,
+      "sha256": "1f046f8572908ce897a18685073d725659dfb6c6ae2096942c6a4f3b6418c4a4"
+    }
+  ]
+}

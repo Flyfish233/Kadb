@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidMultiplatformLibrary)
-    id("com.vanniktech.maven.publish")
-    id("signing")
 }
 
 apply(from = "gradle/ios-native.gradle.kts")
@@ -30,11 +28,7 @@ kotlin {
         }
     }
 
-    jvm {
-        kotlin {
-            jvmToolchain(25)
-        }
-    }
+    jvmToolchain(25)
 
     android {
         namespace = "com.flyfishxu.kadb"
@@ -58,42 +52,18 @@ kotlin {
             implementation(libs.kotlinx.coroutines.core)
             api(libs.okio)
         }
-        // Android and desktop share JVM crypto/TLS backends, not common APIs.
-        val jvmAndroidMain = create("jvmAndroidMain") {
-            dependsOn(commonMain.get())
-            dependencies {
-                implementation(libs.bcprov)
-                implementation(libs.bcpkix)
-            }
-        }
-        androidMain.get().dependsOn(jvmAndroidMain)
-        jvmMain.get().dependsOn(jvmAndroidMain)
         androidMain.dependencies {
+            implementation(libs.bcprov)
+            implementation(libs.bcpkix)
             implementation(libs.documentfile)
             implementation(libs.hiddenapibypass)
-        }
-
-        jvmMain.dependencies {
-            implementation(libs.java.does.usb)
         }
 
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
-        val jvmAndroidTest = create("jvmAndroidTest") {
-            dependsOn(commonTest.get())
-        }
-        jvmTest.get().dependsOn(jvmAndroidTest)
-        getByName("androidHostTest").dependsOn(jvmAndroidTest)
-
         getByName("androidHostTest").dependencies {
-            // Independent historical reference peer for the Android variant.
-            implementation(libs.spake2)
-            implementation(libs.conscrypt.java)
-        }
-
-        jvmTest.dependencies {
-            // Independent historical peer, never a production dependency.
+            // These independent oracles validate the Android production variant.
             implementation(libs.spake2)
             implementation(libs.conscrypt.java)
         }
@@ -111,71 +81,22 @@ tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimu
     standalone.set(false)
 }
 
-signing {
-    useGpgCmd()
-}
-
-providers.gradleProperty("workspaceMavenRepository").orNull?.let { repositoryPath ->
-    publishing.repositories.maven {
-        name = "workspace"
-        url = uri(repositoryPath)
-    }
-}
-
-mavenPublishing {
-    publishToMavenCentral()
-    if (providers.gradleProperty("signAllPublications").map { it.toBoolean() }.orElse(true).get()) {
-        signAllPublications()
-    }
-
-    coordinates("com.flyfishxu", "kadb", "2.1.5")
-
-    pom {
-
-        name.set("Kadb")
-        description.set("A modern and versatile Kotlin Multiplatform ADB client library that simplifies the interaction with Android devices.")
-        url.set("https://github.com/flyfishxu/Kadb.git")
-
-        licenses {
-            license {
-                name.set("Apache License 2.0")
-                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                distribution.set("repo")
-            }
-        }
-        developers {
-            developer {
-                id.set("flyfishxu")
-                name.set("Flyfish Xu")
-                url.set("https://github.com/flyfishxu")
-                organization.set("Flyfish Studio")
-                email.set("flyfishxu@outlook.com")
-            }
-        }
-        scm {
-            connection.set("scm:git:git://github.com/flyfishxu/Kadb.git")
-            developerConnection.set("scm:git:ssh://github.com/flyfishxu/Kadb.git")
-            url.set("https://github.com/flyfishxu/Kadb.git")
-        }
-    }
-}
-
-// Explicit hardware task; plain jvmTest never enumerates or claims USB devices.
-val desktopUsbTestCompilation = kotlin.targets.getByName("jvm").compilations.getByName("test")
-tasks.register<JavaExec>("desktopUsbSmoke") {
-    group = "verification"
-    description = "Enumerate desktop USB devices, or test the device selected by -PusbSerial"
-    dependsOn("jvmTestClasses")
-    classpath(desktopUsbTestCompilation.output.allOutputs, desktopUsbTestCompilation.runtimeDependencyFiles)
-    mainClass.set("com.flyfishxu.kadb.usb.DesktopUsbSmoke")
-    jvmArgs("--enable-native-access=ALL-UNNAMED")
-    args(providers.gradleProperty("usbSerial").orElse("").get(),
-        providers.gradleProperty("usbKey").orElse("").get(),
-        providers.gradleProperty("usbApk").orElse("").get())
-}
-
-// Validation-only independent Java peer; it has no Kadb runtime dependency.
+// Validation-only Java reference process, with no Kadb runtime dependency.
 tasks.register("iosInteropPeer") {
     group = "verification"
     dependsOn(":validation-pairing-peer:iosInteropPeer")
+}
+
+// Scope gate, separate from runtime/compilation evidence. Android is retained;
+// validation-only Java processes never restore a production desktop JVM target.
+tasks.register("verifyProductionTargetScope") {
+    group = "verification"
+    inputs.property("targetPlatforms", kotlin.targets.map { "${it.name}:${it.platformType.name}" }.sorted())
+    doLast {
+        val targets = inputs.properties.getValue("targetPlatforms") as List<*>
+        check(targets.none { it.toString().endsWith(":jvm") }) { "Unexpected desktop JVM target: $targets" }
+        check("android:androidJvm" in targets) { "Android production target was lost: $targets" }
+        check("macosArm64:native" in targets && "iosArm64:native" in targets) { "Darwin targets were lost: $targets" }
+        println("PRODUCTION_TARGET_SCOPE_OK $path $targets")
+    }
 }

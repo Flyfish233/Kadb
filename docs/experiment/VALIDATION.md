@@ -214,3 +214,52 @@ The checksum-task repair executed all four selected tasks with configuration
 cache enabled and successfully stored its entry. Raw output is retained as
 `validation/integration/05-checksum-tasks-configuration-cache-fixed.log`.
 This focused build check does not replace the next full integrated run.
+
+## Native replacement gate before the JVM exit attempt
+
+[Run 40314095952](https://github.com/Flyfish233/Kadb/actions/runs/40314095952)
+at `9a2ebbde700d36f7b0efcfc5002dea5c3e9634cf` establishes these distinct facts:
+
+| Job / scope | Actual result |
+| --- | --- |
+| Android + temporary desktop reference | **92 Android Host + 81 JVM + 12 mDNS JVM** tests pass, zero skipped; actual AARs built; both Android Kotlin-public ABI diffs are empty |
+| Linux Native | Full Gradle C downloads/build, Cinterop and native links execute; **47 Kotlin/Native tests pass**; external public-API consumer links |
+| Independent Linux pairing | Two actual TLS 1.3/Legacy sessions complete: one successful code and one rejected wrong code; exporter and authenticated PeerInfo are exercised |
+| Linux provider/reference checks | Real C transport harness and bridge sanitizers pass; pinned BoringSSL oracle reexecutes; Python observer tests run |
+| macOS arm64 | **49 Kadb + 5 mDNS tests pass**; framework and public-API Native consumers link; independent positive/negative pairing completes |
+| macOS x64 | Native build/tests/framework and independent pairing steps succeed; subsequent Swift link fails |
+| External Swift | Source/API calls compile, but final link fails on unused cached Foundation/CoreFoundation wrappers absent from Xcode 16.4; no Swift runtime pass |
+| Current iOS Simulator | Not executed after that Swift failure; the earlier frozen baseline simulator result is separate |
+| Android Emulator adbd | Emulator starts, but the driver stops at `emulator -version` because the host lacks `libpulse.so.0`; **zero product checks** |
+
+The overall run is **failed**, despite the successful Android and Linux jobs.
+Recovered reports and artifact checksums are indexed in
+`validation/integration/9a2-results.json`. These are actual Native replacement
+capabilities sufficient to start the permitted JVM exit experiment, not a claim
+of complete desktop feature parity or completion of the remaining gates.
+
+## M5: actual standalone JVM target removal
+
+The next implementation removes production JVM targets/providers from all three
+modules, moves the retained Android backends without renaming facade-producing
+files, and moves shared host regressions into Android Host tests. Desktop USB,
+JmDNS and Windows JVM availability are explicitly lost; Android retains its File
+overloads and platform support. The Java-only independent peer remains test
+infrastructure without a Kadb runtime dependency.
+
+An isolated preparation tree actually executes all three target-scope tasks
+with configuration cache enabled. Each reports Android, the five Native targets
+and common metadata, with no desktop JVM target. The raw log is
+`validation/integration/m5/target-scope-configuration.log`; this is a configuration
+gate only. The complete retained targets and Android ABI must pass again after
+integration. Publishing/signing plugins are removed from this experiment.
+
+For the next Darwin run, the runner changes to macOS 26 on both architectures and
+explicit Xcode **26.4.1**, within the SDK family named by K/N 2.4.20 and its
+[official compatibility table](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html).
+The external Swift link enables standard dead-code stripping, also listed in
+the pinned compiler's `konan.properties`, and records its actual imports/link map.
+There are no fabricated symbols or undefined-symbol exemptions. Framework
+deployment stamps are checked separately from runtime OS claims. Independent
+iOS steps can still execute if a Swift consumer check fails. The emulator host
+installs and records the missing system runtime libraries before retrying.

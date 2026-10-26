@@ -45,13 +45,13 @@ jobs:
           git archive --format=tar.gz --output=evidence/corresponding-source.tar.gz HEAD
           sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 2>&1 | tee evidence/sdk.log
           (cd third-party/spake2 && sha256sum --check SHA256SUMS) | tee evidence/spake-source-check.log
-      - name: Real Android AAR, host regressions and independent JVM reference
+      - name: Real Android AAR and retained host regressions
         run: |
           set -o pipefail
-          ./gradlew :kadb:testAndroidHostTest :kadb:jvmTest :kadb-mdns:jvmTest :kadb:bundleAndroidMainAar :kadb-mdns:bundleAndroidMainAar :validation-android-fixture:assembleDebug --console=plain --stacktrace 2>&1 | tee evidence/android-protocol.log
+          ./gradlew :kadb:verifyProductionTargetScope :kadb-mdns:verifyProductionTargetScope :spake2-legacy:verifyProductionTargetScope :kadb:testAndroidHostTest :kadb-mdns:testAndroidHostTest :kadb:bundleAndroidMainAar :kadb-mdns:bundleAndroidMainAar :validation-android-fixture:assembleDebug --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/android-protocol.log
       - name: Require executed tests
         if: always()
-        run: python3 validation/summarize-tests.py . --output evidence/test-summary.json --require kadb/build/test-results/jvmTest --require testAndroidHostTest --require kadb-mdns/build/test-results/jvmTest
+        run: python3 validation/summarize-tests.py . --output evidence/test-summary.json --require kadb/build/test-results/testAndroidHostTest --require kadb-mdns/build/test-results/testAndroidHostTest
       - name: Compare actual Android public ABI
         run: |
           set -euo pipefail
@@ -92,11 +92,11 @@ jobs:
           cmake --version | tee evidence/cmake.log
           git rev-parse HEAD | tee evidence/commit.txt
           git archive --format=tar.gz --output=evidence/corresponding-source.tar.gz HEAD
-          ./gradlew :kadb:linuxX64Test :validation-native-adbd:linkDebugExecutableLinuxX64 :validation-native-adbd:linkPairingDebugExecutableLinuxX64 :validation-pairing-peer:writePeerClasspath --console=plain --stacktrace 2>&1 | tee evidence/linux-native.log
+          ./gradlew :kadb:linuxX64Test :kadb-mdns:linuxX64Test :validation-native-adbd:linkDebugExecutableLinuxX64 :validation-native-adbd:linkPairingDebugExecutableLinuxX64 :validation-pairing-peer:writePeerClasspath --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/linux-native.log
       - name: Require actual Native test reports and executable
         if: always()
         run: |
-          python3 validation/summarize-tests.py . --output evidence/native-summary.json --require kadb/build/test-results/linuxX64Test
+          python3 validation/summarize-tests.py . --output evidence/native-summary.json --require kadb/build/test-results/linuxX64Test --require kadb-mdns/build/test-results/linuxX64Test
           test -x validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe
           file validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe | tee evidence/consumer-file.log
       - name: External Native pairing against independent Java peer
@@ -129,16 +129,19 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - runner: macos-15
+          - runner: macos-26
             architecture: arm64
             target: MacosArm64
             directory: macosArm64
-          - runner: macos-15-intel
+          - runner: macos-26-intel
             architecture: x86_64
             target: MacosX64
             directory: macosX64
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 55
+    env:
+      # Kotlin/Native 2.4.20 platform bindings use the Xcode 26.4 SDK family.
+      DEVELOPER_DIR: /Applications/Xcode_26.4.1.app/Contents/Developer
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
@@ -150,31 +153,44 @@ jobs:
         run: |
           mkdir -p evidence
           test "$(uname -m)" = '${{ matrix.architecture }}'
+          test -d "$DEVELOPER_DIR"
           xcodebuild -version | tee evidence/xcode.log
+          xcrun --sdk macosx --show-sdk-version | tee evidence/macos-sdk.log
+          xcrun --sdk iphoneos --show-sdk-version | tee evidence/ios-sdk.log
           git rev-parse HEAD | tee evidence/commit.txt
           git archive --format=tar.gz --output=evidence/corresponding-source.tar.gz HEAD
       - name: macOS Native build, execution and framework
+        id: macos-build
         run: |
           set -o pipefail
-          ./gradlew :kadb:${{ matrix.directory }}Test :kadb-mdns:${{ matrix.directory }}Test :kadb:linkDebugFramework${{ matrix.target }} :validation-native-adbd:linkDebugExecutable${{ matrix.target }} :validation-native-adbd:linkPairingDebugExecutable${{ matrix.target }} :validation-pairing-peer:writePeerClasspath --console=plain --stacktrace 2>&1 | tee evidence/macos-native.log
+          ./gradlew :kadb:${{ matrix.directory }}Test :kadb-mdns:${{ matrix.directory }}Test :kadb:linkDebugFramework${{ matrix.target }} :validation-native-adbd:linkDebugExecutable${{ matrix.target }} :validation-native-adbd:linkPairingDebugExecutable${{ matrix.target }} :validation-pairing-peer:writePeerClasspath --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/macos-native.log
       - name: External macOS pairing against independent Java peer
         run: python3 validation/pairing-peer/run_interop.py --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --consumer validation/native-adbd/build/bin/${{ matrix.directory }}/pairingDebugExecutable/kadb-native-pairing.kexe --output evidence/pairing-macos
       - name: External Swift consumer
+        if: always() && steps.macos-build.outcome == 'success'
         run: validation/swift/run-macos.sh kadb/build/bin/${{ matrix.directory }}/debugFramework evidence
+      - name: Inspect actual macOS deployment metadata
+        if: always() && steps.macos-build.outcome == 'success'
+        run: python3 validation/inspect-apple-artifact.py --artifact kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Kadb --architecture '${{ matrix.architecture }}' --platform macos --maximum-minimum-os 12.0 --output evidence/macos-framework-metadata.json
       - name: Boot iOS Simulator
-        if: matrix.architecture == 'arm64'
+        id: ios-boot
+        if: always() && matrix.architecture == 'arm64' && steps.macos-build.outcome == 'success'
         run: python3 validation/boot-simulator.py
       - name: iOS device framework and actual simulator tests
-        if: matrix.architecture == 'arm64'
+        id: ios-build
+        if: always() && matrix.architecture == 'arm64' && steps.ios-boot.outcome == 'success'
         run: |
           set -o pipefail
           device=$(cat evidence/simulator-udid.txt)
-          ./gradlew :kadb:iosSimulatorArm64Test :kadb-mdns:iosSimulatorArm64Test :kadb:linkDebugFrameworkIosArm64 :kadb:linkDebugFrameworkIosSimulatorArm64 :validation-native-adbd:linkPairingDebugExecutableIosSimulatorArm64 -PiosSimulatorDevice="$device" --console=plain --stacktrace 2>&1 | tee evidence/ios-simulator.log
+          ./gradlew :kadb:iosSimulatorArm64Test :kadb-mdns:iosSimulatorArm64Test :kadb:linkDebugFrameworkIosArm64 :kadb:linkDebugFrameworkIosSimulatorArm64 :validation-native-adbd:linkPairingDebugExecutableIosSimulatorArm64 -PiosSimulatorDevice="$device" --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/ios-simulator.log
       - name: Actual simulator pairing and exported API comparison
-        if: matrix.architecture == 'arm64'
+        if: always() && matrix.architecture == 'arm64' && steps.ios-build.outcome == 'success'
         run: |
+          set -euo pipefail
           python3 validation/pairing-peer/run_interop.py --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --consumer validation/native-adbd/build/bin/iosSimulatorArm64/pairingDebugExecutable/kadb-native-pairing.kexe --simulator-udid "$(cat evidence/simulator-udid.txt)" --output evidence/pairing-simulator
           python3 validation/compare-objc-api.py validation/baseline/darwin/Kadb-iosSimulatorArm64.h kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Headers/Kadb.h --report evidence/objc-api.json
+          python3 validation/inspect-apple-artifact.py --artifact kadb/build/bin/iosArm64/debugFramework/Kadb.framework/Kadb --architecture arm64 --platform ios --maximum-minimum-os 15.0 --output evidence/ios-device-framework-metadata.json
+          python3 validation/inspect-apple-artifact.py --artifact kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Kadb --architecture arm64 --platform ios-simulator --maximum-minimum-os 15.0 --output evidence/ios-simulator-framework-metadata.json
       - name: Require executed Native reports
         if: always()
         run: |
@@ -226,6 +242,9 @@ jobs:
           mkdir -p evidence
           test -c /dev/kvm
           sudo chmod a+rw /dev/kvm
+          sudo apt-get update > evidence/host-packages.log 2>&1
+          sudo apt-get install -y --no-install-recommends libpulse0 libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxrandr2 libxrender1 libxtst6 libglu1-mesa >> evidence/host-packages.log 2>&1
+          dpkg-query -W libpulse0 libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxrandr2 libxrender1 libxtst6 libglu1-mesa > evidence/host-package-versions.log
           sdkmanager 'emulator' 'platform-tools' 'build-tools;37.0.0' 'system-images;android-35;google_apis;x86_64' 2>&1 | tee evidence/emulator-sdk.log
           export ANDROID_USER_HOME="$RUNNER_TEMP/kadb-android-user"
           export ANDROID_AVD_HOME="$RUNNER_TEMP/kadb-avd"

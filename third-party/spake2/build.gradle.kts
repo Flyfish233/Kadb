@@ -8,7 +8,6 @@ plugins {
 // Kadb-owned build adaptation; upstream sources below are verified unchanged.
 kotlin {
     jvmToolchain(25)
-    jvm()
     android {
         namespace = "io.github.flyfish233.spake2.legacy.kadb"
         compileSdk = 37
@@ -74,4 +73,18 @@ val verifyPinnedSources = tasks.register<VerifyPinnedSpakeSources>("verifyPinned
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
     dependsOn(verifyPinnedSources)
+}
+
+// Scope gate, separate from runtime/compilation evidence. Android is retained;
+// validation-only Java processes never restore a production desktop JVM target.
+tasks.register("verifyProductionTargetScope") {
+    group = "verification"
+    inputs.property("targetPlatforms", kotlin.targets.map { "${it.name}:${it.platformType.name}" }.sorted())
+    doLast {
+        val targets = inputs.properties.getValue("targetPlatforms") as List<*>
+        check(targets.none { it.toString().endsWith(":jvm") }) { "Unexpected desktop JVM target: $targets" }
+        check("android:androidJvm" in targets) { "Android production target was lost: $targets" }
+        check("macosArm64:native" in targets && "iosArm64:native" in targets) { "Darwin targets were lost: $targets" }
+        println("PRODUCTION_TARGET_SCOPE_OK $path $targets")
+    }
 }

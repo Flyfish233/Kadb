@@ -1,195 +1,77 @@
-# Platform Notes
+# Platform scope of the Native-core experiment
 
-This page documents the platform-specific runtime requirements and behavior differences for Kadb.
+The source targets below describe this branch's architecture. Executed evidence
+is recorded per commit/job in [VALIDATION.md](experiment/VALIDATION.md); target
+configuration, compilation, linkage, unit execution and device interoperability
+are different claims.
 
-## Support Matrix
+| Target | Production transport/provider | mDNS | USB | Public file API |
+| --- | --- | --- | --- | --- |
+| Android, minSdk 23 | Android socket/TLS, JCA/Bouncy Castle; optional compatible Conscrypt for pairing | Android NSD | Android USB Host | Existing `File` overloads plus Okio |
+| `iosArm64` | Shared POSIX/BoringSSL Native backend | Foundation Bonjour | Unavailable | Okio |
+| `iosSimulatorArm64` | Same Native backend on simulator SDK | Foundation Bonjour | Unavailable | Okio |
+| `macosArm64` | Same Native backend on macOS SDK | Foundation Bonjour | Unavailable | Okio |
+| `macosX64` | Same Native backend on Intel macOS | Foundation Bonjour | Unavailable | Okio |
+| `linuxX64` | POSIX/BoringSSL with a matching K/N libc/toolchain | Unavailable | Unavailable | Okio |
+| Desktop JVM / Windows Native | Not supported in this experiment | — | — | — |
 
-| Area | Android | JVM | iOS 15+ |
-| --- | --- | --- | --- |
-| Direct `adbd` connection | Yes | Yes | Yes, TCP |
-| Shell / shell v2 | Yes | Yes | Yes |
-| File transfer | Yes | Yes | Yes, Okio `Path` / `Source` / `Sink` |
-| APK install / uninstall | Yes | Yes | Yes |
-| TCP forward | Yes | Yes | Yes |
-| Wireless pairing | Yes | Yes | Yes |
-| Optional mDNS discovery | Yes | Yes | `KadbMdnsIos` |
-| USB Host discovery / connection | Yes, `KadbUsb` | Yes, `KadbUsb` (Java 25+) | Not implemented |
+KGP 2.4.20 deprecates `macosX64` for removal in a future toolchain. This branch
+pins its current toolchain and tests that target on an actual Intel runner; it
+does not promise indefinite future compiler support. Deployment targets are
+iOS 15 and macOS 12. `macosArm64Test` on an Intel host, or Apple tasks on Linux,
+may be disabled by KGP and cannot count as executed tests.
 
-The iOS targets are available in the current source tree. Previously published
-2.1.5 artifacts do not acquire these targets until a new release is published.
+## Shared logic and provider boundaries
 
-## Pairing Requirements
+`commonMain` owns ADB frames/checksums, connection and stream lifecycle, Shell
+and shell-v2, Sync and installation orchestration, pairing state, exact protocol
+labels, identity/store contracts and protocol models. The pinned shared Kotlin
+Legacy SPAKE25519 module supplies the PAKE math. RFC 9382 is not substituted.
 
-Pairing has stricter requirements than the rest of the library:
+`androidMain` retains Android/JCA/Bouncy Castle behavior and the original File
+bridges. `nativeMain` owns POSIX transport/TLS and Native crypto/identity adapters.
+`appleMain` supplies Foundation locks, threads and logging; `linuxMain` supplies
+pthread equivalents. Platform default names remain in their narrow source sets.
+`kadb-mdns` shares registry and service-type parsing in common code, with only
+system discovery in Android/Apple adapters.
 
-- SPAKE2 support
-- TLS 1.3 support
-- TLS exporter support required by the pairing flow
+Socket/TLS, secure entropy, AES/HKDF providers, certificates, filesystem safety
+and USB are not forced into common code. Synchronous APIs remain synchronous.
+Cancellation of suspend pairing closes the socket and waits for its blocking
+worker before returning, preventing use-after-destroy of PAKE state.
 
-Basic connect / shell / sync / install usage does not require the same provider setup as pairing.
+## Native provider and identity
 
-## Android
+The C bridge uses BoringSSL at the exact revision and archive hash recorded in
+`kadb/gradle/ios-native.gradle.kts` and retains its license under
+`kadb/third_party/boringssl`. TLS upgrades the existing ADB socket, uses the ADB
+certificate-selection convention and the exact NUL-terminated pairing exporter
+label. See [Native provider evidence](verification/native/README.md).
 
-### Runtime baseline
+The default identity store is process-local memory. Persistent identities use
+the supplied store interface and explicit caller configuration. Native filesystem
+storage is not a Keychain/Secure Enclave integration; OS-backed custom stores can
+be supplied through that interface. Do not infer durable identity behavior from
+a memory-store-only test.
 
-- `minSdk 23`
-- direct client features are supported on Android targets
-- pairing support depends on TLS provider availability
-- optional mDNS discovery is provided by `com.flyfishxu:kadb-mdns`
-- mDNS discovery requires an explicit Android `Context` and uses platform `NsdManager`
+## Compatibility and validation commands
 
-### USB Host
+Android AARs are compared with frozen Kotlin-public ABI and javap snapshots.
+File default-argument bridges and public pairing signatures have dedicated
+compatibility tests. iOS framework declarations are compared with the frozen
+header; a separate Swift executable compiles, links and calls the produced
+framework. Native protocol/pairing consumers do not access internal test friends.
 
-See [Android USB](usb.md) for permission handling, connection ownership and device requirements.
-
-### Pairing
-
-Android pairing needs:
-
-- SPAKE2 support
-- a TLS 1.3-capable provider
-
-In practice:
-
-- Android 9 and newer can usually use the platform provider
-- Android 6 to 8 usually need a custom Conscrypt dependency
-
-If TLS 1.3 is unavailable, Kadb fails pairing rather than falling back to an older TLS version.
-
-## JVM
-
-### Runtime baseline
-
-The JVM target supports:
-
-- direct `adbd` connection
-- shell
-- sync push / pull
-- APK install / uninstall
-- TCP forward
-- wireless pairing
-- optional mDNS discovery through `com.flyfishxu:kadb-mdns`
-
-The JVM mDNS implementation uses JmDNS internally and does not require Android concepts such as `Context`.
-
-### USB
-
-Desktop USB uses Java Does USB 1.3.0, with native OS APIs on macOS, Linux, and Windows.
-Run on Java 25+ with `--enable-native-access=ALL-UNNAMED` (or grant the named
-`net.codecrete.usb` module native access when using the module path).
-See [desktop USB](usb.md#desktop-jvm) for permissions, driver requirements and testing.
-Only macOS arm64 has been hardware-validated in this checkout.
-
-### Pairing
-
-On JVM, pairing requires a Conscrypt runtime dependency.
-
-Recommended setup:
-
-```kotlin
-dependencies {
-    implementation("com.flyfishxu:kadb:2.1.5")
-    implementation("org.conscrypt:conscrypt-openjdk-uber:2.5.2")
-}
+```sh
+./gradlew :kadb:testAndroidHostTest :kadb-mdns:testAndroidHostTest :kadb:bundleAndroidMainAar
+./gradlew :kadb:linuxX64Test :validation-native-adbd:linkDebugExecutableLinuxX64
+./gradlew :kadb:macosArm64Test :kadb:linkDebugFrameworkMacosArm64
+./gradlew :kadb:macosX64Test :kadb:linkDebugFrameworkMacosX64
+./gradlew :kadb:iosSimulatorArm64Test :kadb-mdns:iosSimulatorArm64Test -PiosSimulatorDevice=EXPLICIT_UDID
+./gradlew :kadb:linkDebugFrameworkIosArm64
 ```
 
-Without Conscrypt on the classpath, pairing fails with an explicit runtime error.
-
-## Identity and Host Auth
-
-Kadb uses a private-key-first host identity model on every platform:
-
-- the private key is the persisted source of truth
-- certificates are generated from that key at runtime
-- optional extra private keys can be supplied for AOSP-style multi-key host auth
-
-Further detail: [kadbcert.md](kadbcert.md)
-
-## iOS
-
-Targets: `iosArm64` and `iosSimulatorArm64`, with a minimum deployment target of
-15.0. The library remains a synchronous ADB API: run shell, sync and install work
-off the application's main thread. Pairing is suspending.
-DNS/TCP establishment currently observes coroutine cancellation after the native
-connect returns (OS/configured timeout); active TLS handshake cancellation closes
-the socket promptly.
-
-```kotlin
-import okio.Path.Companion.toPath
-
-Kadb.create("192.168.1.20", 37123).use { client ->
-    client.push("/path/to/local.bin".toPath(), "/data/local/tmp/local.bin")
-    println(client.shell("id").output)
-}
-```
-
-For LAN connections the host app must declare `NSLocalNetworkUsageDescription`
-and obtain local-network permission. If using `KadbMdnsIos`, also declare these
-`NSBonjourServices`: `_adb._tcp`, `_adb-tls-connect._tcp`,
-`_adb-tls-pairing._tcp`. Bonjour discovery does not require the restricted
-multicast entitlement. Discovery callbacks are scheduled on the main run loop.
-
-TLS and Bouncy Castle are separate layers. Android/JVM still use their existing
-Conscrypt/JSSE transport and BC crypto backend. iOS uses a pinned BoringSSL build
-for TLS 1.3, the TLS exporter, RSA/X.509 and SPAKE2. It upgrades the existing TCP
-socket after ADB's STLS exchange; a generic HTTPS client cannot replace this
-transport. Pairing exports 64 bytes with `adb-label` including its terminal NUL,
-then binds that material to the pairing code in common code.
-
-The iOS KLIB bundles static native archives; applications consuming the artifact
-do not need to install BoringSSL. All upstream symbols use the `KADB_BSSL` prefix
-to avoid collisions with other embedded TLS libraries. Retain the bundled
-[BoringSSL license](../kadb/third_party/boringssl/LICENSE) when distributing it.
-
-### Build and verify
-
-Xcode with the iOS SDK is required. Gradle Kotlin DSL tasks download a pinned,
-SHA-256-checked BoringSSL archive under `kadb/build/native`. If CMake is absent,
-the build downloads a checked copy into the same directory; it does not install
-system tools. `CMAKE` can point to an existing CMake executable. Python is not
-required. The task implementation lives in `kadb/gradle/ios-native.gradle.kts`.
-
-```shell
-./gradlew :kadb:linkDebugFrameworkIosArm64 :kadb:linkDebugFrameworkIosSimulatorArm64
-# Open an arm64 iOS Simulator first. These tasks use the existing booted device.
-./gradlew :kadb:iosSimulatorArm64Test :kadb-mdns:iosSimulatorArm64Test
-```
-
-When several simulators are running, set `-PiosSimulatorDevice=<UDID>` for Gradle.
-Tests do not boot or shut down simulators. Optional pairing interoperability and
-real-device tests remain in `iosTest`; they run only when their explicit
-environment variables are supplied. No device credentials are needed for normal
-builds or unit tests.
-
-A physical Android device has also been tested from an iPhone 18 Pro / iOS 27
-Simulator: pairing, ADB TLS, shell_v2 stdout/stderr/exit status, a 1,048,589-byte
-push/pull with matching SHA-256, two reconnects and temporary-file cleanup all
-passed. This is simulator-to-Android evidence; physical iPhone execution and
-Bonjour permission prompts in a host app remain unverified.
-
-## Shared Code and Platform Backends
-
-`commonMain` owns the ADB protocol, pairing state machine, roles/labels/nonce
-counters, PEM encoding, ADB public-key name framing, shell/sync/install logic,
-identity lifecycle and message queue. It uses Kotlin APIs and Okio. UTF-8 device
-names are encoded by byte length, preserving the terminal NUL even for Chinese
-names or emoji.
-
-`jvmAndroidMain` shares the established Java/BC/Conscrypt implementation between
-Android and desktop. `iosMain` supplies native crypto/TLS, POSIX sockets,
-Foundation blocking primitives and platform integration through the same small
-internal boundaries. Blocking locks remain reentrant; a coroutine `Mutex` is not
-a replacement for the synchronous queue's condition waits.
-
-Common file APIs now use Okio `Path`, and batch installation accepts
-`Collection<Path>`. Existing Android/JVM `File` calls remain source-compatible
-through `KadbFileCompatibility`. A JVM bridge preserves the original generated
-`Kadb.push$default` descriptor for compiled Kotlin callers, and file metadata
-continues to follow symbolic links. `Source`/`Sink` APIs and `OkioFilePrivateKeyStore` remain available on all
-three platforms.
-
-## Related Docs
-
-- [Project README](../README.md)
-- [mDNS Discovery](mdns.md)
-- [KadbCert](kadbcert.md)
+Run only commands matching the host. The CI summary requires nonempty executed
+XML groups. Physical-device tests, real Bonjour browsing, Android USB behavior,
+Windows, performance acceptance and an independent cryptographic audit require
+separate evidence; none follows from `BUILD SUCCESSFUL`.

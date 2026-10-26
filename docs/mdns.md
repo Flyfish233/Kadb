@@ -4,22 +4,12 @@ Kadb mDNS discovery is available as the optional `com.flyfishxu:kadb-mdns` artif
 
 The module discovers ADB-related mDNS services only. It does not open ADB connections, perform pairing, or manage device authorization. Consumers decide how to use discovered endpoints with `Kadb.create(host, port)` or `Kadb.pair(host, port, code)`.
 
-## Installation
+## Source dependency
 
-```kotlin
-dependencies {
-    implementation("com.flyfishxu:kadb-mdns:2.1.5")
-}
-```
-
-Use the core Kadb artifact separately when you also need ADB connections:
-
-```kotlin
-dependencies {
-    implementation("com.flyfishxu:kadb:2.1.5")
-    implementation("com.flyfishxu:kadb-mdns:2.1.5")
-}
-```
+This experimental branch does not publish packages. Use `project(":kadb-mdns")`
+from this source tree. Discovery providers are available for Android and Darwin.
+The Linux Native target exposes shared models and parsers only; Linux discovery
+and the removed desktop JVM/JmDNS backend are unavailable.
 
 ## Service Types
 
@@ -42,16 +32,18 @@ mdns.start()
 
 The Android implementation uses platform `NsdManager`, stores `context.applicationContext`, and supports API 23+. Android API 34 and newer use `NsdManager.ServiceInfoCallback`; older versions use `resolveService`.
 
-## JVM
-
-JVM discovery does not require Android concepts:
+## Darwin
 
 ```kotlin
-val mdns = KadbMdnsJvm()
+val mdns = KadbMdnsIos() // historical public class name retained on iOS/macOS
 mdns.start()
 ```
 
-The JVM implementation uses JmDNS internally. It attempts to create discovery backends for eligible active network interfaces and falls back to a default JmDNS instance if interface enumeration cannot provide a usable address.
+The Darwin adapter uses Foundation Bonjour and a running main run loop. iOS
+applications must declare `NSLocalNetworkUsageDescription` and the required
+`NSBonjourServices` entries in their Info.plist. Real multicast discovery and
+permission prompts require separate network/device validation; common parser
+and registry tests do not establish that coverage.
 
 ## Lifecycle
 
