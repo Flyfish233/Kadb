@@ -1,0 +1,337 @@
+﻿2026-10-26T12:45:07.1767107Z Current runner version: '2.338.0'
+2026-10-26T12:45:07.1784079Z ##[group]Runner Image Provisioner
+2026-10-26T12:45:07.1784694Z Hosted Compute Agent
+2026-10-26T12:45:07.1785101Z Version: 20261021.618
+2026-10-26T12:45:07.1785537Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-26T12:45:07.1786120Z Build Date: 2026-10-21T00:45:21Z
+2026-10-26T12:45:07.1786533Z Worker ID: {5cd3fe3e-cfdb-42f8-ac54-7d740fecd5a8}
+2026-10-26T12:45:07.1787021Z Region: centralus
+2026-10-26T12:45:07.1787376Z Cloud: Azure
+2026-10-26T12:45:07.1787925Z ##[endgroup]
+2026-10-26T12:45:07.1789010Z ##[group]Operating System
+2026-10-26T12:45:07.1789382Z Ubuntu
+2026-10-26T12:45:07.1789723Z 24.04.5
+2026-10-26T12:45:07.1790101Z LTS
+2026-10-26T12:45:07.1790420Z ##[endgroup]
+2026-10-26T12:45:07.1790821Z ##[group]Runner Image
+2026-10-26T12:45:07.1791193Z Image: ubuntu-24.04
+2026-10-26T12:45:07.1791561Z Version: 20261012.334.1
+2026-10-26T12:45:07.1792375Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-26T12:45:07.1793306Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-26T12:45:07.1793872Z ##[endgroup]
+2026-10-26T12:45:07.1794577Z ##[group]GITHUB_TOKEN Permissions
+2026-10-26T12:45:07.1795771Z Contents: read
+2026-10-26T12:45:07.1796136Z Metadata: read
+2026-10-26T12:45:07.1796549Z ##[endgroup]
+2026-10-26T12:45:07.1798076Z Secret source: Actions
+2026-10-26T12:45:07.1798702Z Cache mode: write
+2026-10-26T12:45:07.1799148Z Prepare workflow directory
+2026-10-26T12:45:07.2048571Z Prepare all required actions
+2026-10-26T12:45:07.2081610Z Getting action download info
+2026-10-26T12:45:07.4438494Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-26T12:45:07.5438727Z Download action repository 'actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-10-26T12:45:07.6710164Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-26T12:45:07.8858010Z Complete job name: corresponding-source
+2026-10-26T12:45:07.9305106Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-26T12:45:07.9305616Z with:
+2026-10-26T12:45:07.9305857Z   repository: Flyfish233/Kadb
+2026-10-26T12:45:07.9308342Z   token: ***
+2026-10-26T12:45:07.9308582Z   ssh-strict: true
+2026-10-26T12:45:07.9308839Z   ssh-user: git
+2026-10-26T12:45:07.9309084Z   persist-credentials: true
+2026-10-26T12:45:07.9309351Z   clean: true
+2026-10-26T12:45:07.9309599Z   sparse-checkout-cone-mode: true
+2026-10-26T12:45:07.9309884Z   fetch-depth: 1
+2026-10-26T12:45:07.9310122Z   fetch-tags: false
+2026-10-26T12:45:07.9310370Z   show-progress: true
+2026-10-26T12:45:07.9310617Z   lfs: false
+2026-10-26T12:45:07.9310876Z   submodules: false
+2026-10-26T12:45:07.9311122Z   set-safe-directory: true
+2026-10-26T12:45:07.9311402Z   allow-unsafe-pr-checkout: false
+2026-10-26T12:45:07.9311789Z env:
+2026-10-26T12:45:07.9312110Z   GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2
+2026-10-26T12:45:07.9312490Z ##[endgroup]
+2026-10-26T12:45:08.0014686Z Syncing repository: Flyfish233/Kadb
+2026-10-26T12:45:08.0016098Z ##[group]Getting Git version info
+2026-10-26T12:45:08.0016651Z Working directory is '/home/runner/work/Kadb/Kadb'
+2026-10-26T12:45:08.0017446Z [command]/usr/bin/git version
+2026-10-26T12:45:08.0098767Z git version 2.55.0
+2026-10-26T12:45:08.0126526Z ##[endgroup]
+2026-10-26T12:45:08.0130884Z Temporarily overriding HOME='/home/runner/work/_temp/3cb067c2-09cf-4078-ae4b-c1b7011ceac2' before making global git config changes
+2026-10-26T12:45:08.0131623Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T12:45:08.0132220Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Kadb/Kadb
+2026-10-26T12:45:08.0173045Z Deleting the contents of '/home/runner/work/Kadb/Kadb'
+2026-10-26T12:45:08.0177331Z ##[group]Initializing the repository
+2026-10-26T12:45:08.0180393Z [command]/usr/bin/git init /home/runner/work/Kadb/Kadb
+2026-10-26T12:45:08.0292713Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-26T12:45:08.0293595Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-26T12:45:08.0294713Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-26T12:45:08.0295393Z hint: call:
+2026-10-26T12:45:08.0295742Z hint:
+2026-10-26T12:45:08.0296073Z hint: 	git config --global init.defaultBranch <name>
+2026-10-26T12:45:08.0296425Z hint:
+2026-10-26T12:45:08.0296802Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-26T12:45:08.0297968Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-26T12:45:08.0298589Z hint:
+2026-10-26T12:45:08.0298898Z hint: 	git branch -m <name>
+2026-10-26T12:45:08.0299177Z hint:
+2026-10-26T12:45:08.0299544Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-26T12:45:08.0300089Z Initialized empty Git repository in /home/runner/work/Kadb/Kadb/.git/
+2026-10-26T12:45:08.0311146Z [command]/usr/bin/git remote add origin https://github.com/Flyfish233/Kadb
+2026-10-26T12:45:08.0351690Z ##[endgroup]
+2026-10-26T12:45:08.0352148Z ##[group]Disabling automatic garbage collection
+2026-10-26T12:45:08.0356300Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-26T12:45:08.0384194Z ##[endgroup]
+2026-10-26T12:45:08.0384609Z ##[group]Setting up auth
+2026-10-26T12:45:08.0390815Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T12:45:08.0419958Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T12:45:08.0722630Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T12:45:08.0749901Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T12:45:08.0924413Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T12:45:08.0952313Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T12:45:08.1128247Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-26T12:45:08.1175277Z ##[endgroup]
+2026-10-26T12:45:08.1176273Z ##[group]Fetching the repository
+2026-10-26T12:45:08.1183800Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +da03de02848bc4509c7d88cabc56fe2764d3e654:refs/remotes/origin/experiment/kmp-native-core
+2026-10-26T12:45:08.9403877Z From https://github.com/Flyfish233/Kadb
+2026-10-26T12:45:08.9405078Z  * [new ref]         da03de02848bc4509c7d88cabc56fe2764d3e654 -> origin/experiment/kmp-native-core
+2026-10-26T12:45:08.9429090Z ##[endgroup]
+2026-10-26T12:45:08.9429757Z ##[group]Determining the checkout info
+2026-10-26T12:45:08.9430495Z ##[endgroup]
+2026-10-26T12:45:08.9430934Z [command]/usr/bin/git sparse-checkout disable
+2026-10-26T12:45:08.9465698Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-26T12:45:08.9494375Z ##[group]Checking out the ref
+2026-10-26T12:45:08.9498820Z [command]/usr/bin/git checkout --progress --force -B experiment/kmp-native-core refs/remotes/origin/experiment/kmp-native-core
+2026-10-26T12:45:08.9853548Z Switched to a new branch 'experiment/kmp-native-core'
+2026-10-26T12:45:08.9857236Z branch 'experiment/kmp-native-core' set up to track 'origin/experiment/kmp-native-core'.
+2026-10-26T12:45:08.9863205Z ##[endgroup]
+2026-10-26T12:45:08.9955044Z [command]/usr/bin/git log -1 --format=%H
+2026-10-26T12:45:08.9977189Z da03de02848bc4509c7d88cabc56fe2764d3e654
+2026-10-26T12:45:09.0677917Z ##[group]Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
+2026-10-26T12:45:09.0678910Z with:
+2026-10-26T12:45:09.0679576Z   path: /home/runner/work/_temp/kadb-source-cache
+2026-10-26T12:45:09.0680868Z   key: native-library-sources-0b317c4bb2c4e2971252996193dca5bf3f90c60d8e29bd63670673da70bd1201
+2026-10-26T12:45:09.0682135Z   enableCrossOsArchive: false
+2026-10-26T12:45:09.0682867Z   fail-on-cache-miss: false
+2026-10-26T12:45:09.0683555Z   lookup-only: false
+2026-10-26T12:45:09.0684190Z   save-always: false
+2026-10-26T12:45:09.0684809Z env:
+2026-10-26T12:45:09.0685582Z   GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2
+2026-10-26T12:45:09.0686514Z ##[endgroup]
+2026-10-26T12:45:09.1361557Z (node:2058) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T12:45:09.1363373Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T12:45:09.2643059Z Cache not found for input keys: native-library-sources-0b317c4bb2c4e2971252996193dca5bf3f90c60d8e29bd63670673da70bd1201
+2026-10-26T12:45:09.2750490Z ##[group]Run set -euo pipefail
+2026-10-26T12:45:09.2751259Z [36;1mset -euo pipefail[0m
+2026-10-26T12:45:09.2751934Z [36;1mmkdir -p evidence[0m
+2026-10-26T12:45:09.2753100Z [36;1mpython3 -m unittest discover -s validation/source-bundle -p 'test_*.py' -v 2>&1 | tee evidence/source-tests.log[0m
+2026-10-26T12:45:09.2755281Z [36;1mpython3 scripts/source_bundle.py create --repo "$PWD" --ref "$GITHUB_SHA" --output evidence/native-source --cache "$RUNNER_TEMP/kadb-source-cache" 2>&1 | tee evidence/source-create.log[0m
+2026-10-26T12:45:09.2983726Z shell: /usr/bin/bash -e {0}
+2026-10-26T12:45:09.2984356Z env:
+2026-10-26T12:45:09.2985081Z   GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2
+2026-10-26T12:45:09.2985961Z ##[endgroup]
+2026-10-26T12:45:09.5135438Z test_android_runtime_metadata_graph_and_project_set_must_match (test_source_bundle.SourceBundleIntegrityTest.test_android_runtime_metadata_graph_and_project_set_must_match) ... ok
+2026-10-26T12:45:09.5151852Z test_android_runtime_missing_unknown_and_duplicate_modules_fail (test_source_bundle.SourceBundleIntegrityTest.test_android_runtime_missing_unknown_and_duplicate_modules_fail) ... ok
+2026-10-26T12:45:09.5159604Z test_android_runtime_publisher_binary_replacement_fails_even_with_fresh_report (test_source_bundle.SourceBundleIntegrityTest.test_android_runtime_publisher_binary_replacement_fails_even_with_fresh_report) ... ok
+2026-10-26T12:45:09.5169407Z test_android_runtime_requires_locked_sources_and_poms (test_source_bundle.SourceBundleIntegrityTest.test_android_runtime_requires_locked_sources_and_poms) ... ok
+2026-10-26T12:45:09.5176768Z test_android_runtime_stale_report_cannot_hide_mutated_files (test_source_bundle.SourceBundleIntegrityTest.test_android_runtime_stale_report_cannot_hide_mutated_files) ... ok
+2026-10-26T12:45:09.5246577Z test_android_runtime_verifies_current_files_and_does_not_pin_project_hash (test_source_bundle.SourceBundleIntegrityTest.test_android_runtime_verifies_current_files_and_does_not_pin_project_hash) ... ok
+2026-10-26T12:45:09.5250029Z test_android_scope_rejects_empty_consumer_source (test_source_bundle.SourceBundleIntegrityTest.test_android_scope_rejects_empty_consumer_source) ... ok
+2026-10-26T12:45:09.5255039Z test_android_scope_uses_committed_consumer_sources (test_source_bundle.SourceBundleIntegrityTest.test_android_scope_uses_committed_consumer_sources) ... ok
+2026-10-26T12:45:09.5270775Z test_bundle_round_trip_is_deterministic (test_source_bundle.SourceBundleIntegrityTest.test_bundle_round_trip_is_deterministic) ... ok
+2026-10-26T12:45:09.5291212Z test_changed_or_unlisted_member_is_rejected (test_source_bundle.SourceBundleIntegrityTest.test_changed_or_unlisted_member_is_rejected) ... ok
+2026-10-26T12:45:09.5301051Z test_class_only_jar_is_not_source (test_source_bundle.SourceBundleIntegrityTest.test_class_only_jar_is_not_source) ... ok
+2026-10-26T12:45:09.5304886Z test_corrupt_cache_fails_without_refetch (test_source_bundle.SourceBundleIntegrityTest.test_corrupt_cache_fails_without_refetch) ... ok
+2026-10-26T12:45:09.5349446Z test_flat_module_context_requires_byte_identical_sources_and_license (test_source_bundle.SourceBundleIntegrityTest.test_flat_module_context_requires_byte_identical_sources_and_license) ... ok
+2026-10-26T12:45:09.5362394Z test_kotlin_source_archive_must_include_native_runtime (test_source_bundle.SourceBundleIntegrityTest.test_kotlin_source_archive_must_include_native_runtime) ... ok
+2026-10-26T12:45:09.5374768Z test_missing_required_build_source_is_failure (test_source_bundle.SourceBundleIntegrityTest.test_missing_required_build_source_is_failure) ... ok
+2026-10-26T12:45:09.5385510Z test_native_metadata_owner_requires_published_target_backlink (test_source_bundle.SourceBundleIntegrityTest.test_native_metadata_owner_requires_published_target_backlink) ... ok
+2026-10-26T12:45:09.5388178Z test_offline_cache_miss_is_failure (test_source_bundle.SourceBundleIntegrityTest.test_offline_cache_miss_is_failure) ... ok
+2026-10-26T12:45:09.5395904Z test_path_traversal_and_outer_hash_mismatch_are_rejected (test_source_bundle.SourceBundleIntegrityTest.test_path_traversal_and_outer_hash_mismatch_are_rejected) ... ok
+2026-10-26T12:45:09.5398812Z test_pom_cannot_masquerade_as_gradle_source_metadata (test_source_bundle.SourceBundleIntegrityTest.test_pom_cannot_masquerade_as_gradle_source_metadata) ... ok
+2026-10-26T12:45:09.5402101Z test_pom_only_source_is_explicitly_supported_without_fabricated_module (test_source_bundle.SourceBundleIntegrityTest.test_pom_only_source_is_explicitly_supported_without_fabricated_module) ... ok
+2026-10-26T12:45:09.5406953Z test_pom_only_source_requires_matching_pom_identity (test_source_bundle.SourceBundleIntegrityTest.test_pom_only_source_requires_matching_pom_identity) ... ok
+2026-10-26T12:45:09.5409500Z test_pom_only_source_requires_pom_in_lock (test_source_bundle.SourceBundleIntegrityTest.test_pom_only_source_requires_pom_in_lock) ... ok
+2026-10-26T12:45:09.5416386Z test_published_source_hash_must_match_lock (test_source_bundle.SourceBundleIntegrityTest.test_published_source_hash_must_match_lock) ... ok
+2026-10-26T12:45:09.5417440Z 
+2026-10-26T12:45:09.5417989Z ----------------------------------------------------------------------
+2026-10-26T12:45:09.5418771Z Ran 23 tests in 0.030s
+2026-10-26T12:45:09.5419140Z 
+2026-10-26T12:45:09.5419362Z OK
+2026-10-26T12:45:09.6135846Z {"binary_associations": 0, "event": "started", "kadb_commit": "da03de02848bc4509c7d88cabc56fe2764d3e654", "native_targets": ["iosArm64", "iosSimulatorArm64", "macosArm64", "macosX64", "linuxX64"], "python": "3.12.3", "utc": "2026-10-26T12:45:09.613297+00:00"}
+2026-10-26T12:45:17.2020717Z {"bytes": 48784103, "component": "kotlin", "event": "download_verified", "sha256": "7aeec23b21ce2fe1fe8108c0e6ccca811774890cbbf4c218783853d0784149c0", "utc": "2026-10-26T12:45:17.201735+00:00"}
+2026-10-26T12:45:20.2880995Z {"component": "kotlin", "event": "archive_inventory_verified", "notices": 73, "source_files": 69429, "utc": "2026-10-26T12:45:20.287831+00:00"}
+2026-10-26T12:45:20.9363842Z {"bytes": 7289061, "component": "kotlinx.coroutines", "event": "download_verified", "sha256": "ff25c4fd2855309cc047a17136f350579a3561e58c10515251063b81b8b8afef", "utc": "2026-10-26T12:45:20.936195+00:00"}
+2026-10-26T12:45:20.9979770Z {"component": "kotlinx.coroutines", "event": "archive_inventory_verified", "notices": 2, "source_files": 1061, "utc": "2026-10-26T12:45:20.997855+00:00"}
+2026-10-26T12:45:21.3212841Z {"bytes": 218568, "component": "kotlinx-atomicfu", "event": "download_verified", "sha256": "9d80a46b91226c6ae6e470f9fd2bd99b4c77db5f8e9628a5ac78061a4de10f9b", "utc": "2026-10-26T12:45:21.321104+00:00"}
+2026-10-26T12:45:21.3309856Z {"component": "kotlinx-atomicfu", "event": "archive_inventory_verified", "notices": 2, "source_files": 150, "utc": "2026-10-26T12:45:21.330822+00:00"}
+2026-10-26T12:45:21.7776138Z {"bytes": 1162331, "component": "okio", "event": "download_verified", "sha256": "c6830364c697c04ce0bb915439402d82ea2bf70a64fc7b8f69686447afcfe814", "utc": "2026-10-26T12:45:21.777429+00:00"}
+2026-10-26T12:45:21.7998204Z {"component": "okio", "event": "archive_inventory_verified", "notices": 2, "source_files": 343, "utc": "2026-10-26T12:45:21.799664+00:00"}
+2026-10-26T12:45:29.0596993Z {"bytes": 74661066, "component": "boringssl", "event": "download_verified", "sha256": "4117ae02de040d4469284673ed63a14e648af7c3974aa9e85bcef2975a9c9ea8", "utc": "2026-10-26T12:45:29.059439+00:00"}
+2026-10-26T12:45:29.8344143Z {"component": "boringssl", "event": "archive_inventory_verified", "notices": 8, "source_files": 1061, "utc": "2026-10-26T12:45:29.834174+00:00"}
+2026-10-26T12:45:30.9243797Z {"bytes": 5488452, "component": "breakpad", "event": "download_verified", "sha256": "63af35cf2b2ceba3d7b2cb9fc591b1ce48d70959bc7cc8980f49d2f49950f2f5", "utc": "2026-10-26T12:45:30.924151+00:00"}
+2026-10-26T12:45:30.9993991Z {"component": "breakpad", "event": "archive_inventory_verified", "notices": 5, "source_files": 618, "utc": "2026-10-26T12:45:30.999266+00:00"}
+2026-10-26T12:45:31.0639154Z {"bytes": 12431, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20.module", "event": "download_verified", "sha256": "afb28052ac6c3d605c0f661816ea653e073eb039682fed35bfa6cdc704c0911c", "utc": "2026-10-26T12:45:31.063695+00:00"}
+2026-10-26T12:45:31.1127042Z {"bytes": 2301, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20.pom", "event": "download_verified", "sha256": "bd69b382dba8e2b7ae3846375eb2f1389017eb908987277051ae4e3acec8c938", "utc": "2026-10-26T12:45:31.112549+00:00"}
+2026-10-26T12:45:31.1960499Z {"bytes": 767009, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20-sources.jar", "event": "download_verified", "sha256": "9a2ce1266925b3cb0ff361392b91c3e288d3e78ca0961bb39e33e27aa6d1749a", "utc": "2026-10-26T12:45:31.195870+00:00"}
+2026-10-26T12:45:31.2865634Z {"bytes": 486449, "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20:kotlin-stdlib-2.4.20-common-sources.jar", "event": "download_verified", "sha256": "62be1ffec2f32f838e0d90b6fcbfbafe13b388240bdf2f49bc04a378d56640d2", "utc": "2026-10-26T12:45:31.286374+00:00"}
+2026-10-26T12:45:31.3450318Z {"bytes": 47152, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0:kotlinx-coroutines-core-1.11.0.module", "event": "download_verified", "sha256": "1e19785d34728b7525d7a77ff32ead4547d51cc7a45d4ac44d4de608169b0c0d", "utc": "2026-10-26T12:45:31.344887+00:00"}
+2026-10-26T12:45:31.3943467Z {"bytes": 2030, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0:kotlinx-coroutines-core-1.11.0.pom", "event": "download_verified", "sha256": "41b6e78c1b0d11bc99de795390df9e4ece64dc113f482d6e308f1b7a421c1d30", "utc": "2026-10-26T12:45:31.394216+00:00"}
+2026-10-26T12:45:31.4799084Z {"bytes": 371185, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0:kotlinx-coroutines-core-1.11.0-sources.jar", "event": "download_verified", "sha256": "42b1e26bc792fc3d8ba702ef5bd166adcd6c8350f377f639fb7d2e01b3366e3e", "utc": "2026-10-26T12:45:31.479725+00:00"}
+2026-10-26T12:45:31.5423980Z {"bytes": 2898, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0:kotlinx-coroutines-core-linuxx64-1.11.0.module", "event": "download_verified", "sha256": "420c6760b617b8ce8384d3751089cabb51c2a4f18dab56d8431715ebfc3d83d7", "utc": "2026-10-26T12:45:31.542241+00:00"}
+2026-10-26T12:45:31.5945088Z {"bytes": 1894, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0:kotlinx-coroutines-core-linuxx64-1.11.0.pom", "event": "download_verified", "sha256": "cf6a4b4cbede69b07a76c84e6a904121bc89427604a11edd157ed7528803830b", "utc": "2026-10-26T12:45:31.594328+00:00"}
+2026-10-26T12:45:31.7096107Z {"bytes": 356223, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-linuxx64:1.11.0:kotlinx-coroutines-core-linuxx64-1.11.0-sources.jar", "event": "download_verified", "sha256": "da2747041ff6250bec2ebe405188dc92b255092ecb918043579900405530b6e1", "utc": "2026-10-26T12:45:31.709454+00:00"}
+2026-10-26T12:45:31.7685213Z {"bytes": 4400, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0:kotlinx-coroutines-core-iosarm64-1.11.0.module", "event": "download_verified", "sha256": "8104231a1d1e4047754fd9c6e52ea1cda713a3c9de7d80f4c7de5963d9b8ee52", "utc": "2026-10-26T12:45:31.768370+00:00"}
+2026-10-26T12:45:31.8151995Z {"bytes": 1894, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0:kotlinx-coroutines-core-iosarm64-1.11.0.pom", "event": "download_verified", "sha256": "71df08b0acb2ea32daa1488aa164c4d4d5e15f49bd68bd14af38111488ddaf85", "utc": "2026-10-26T12:45:31.815046+00:00"}
+2026-10-26T12:45:31.8879958Z {"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64:1.11.0:kotlinx-coroutines-core-iosarm64-1.11.0-sources.jar", "event": "download_verified", "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1", "utc": "2026-10-26T12:45:31.887798+00:00"}
+2026-10-26T12:45:31.9450060Z {"bytes": 4511, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0:kotlinx-coroutines-core-iossimulatorarm64-1.11.0.module", "event": "download_verified", "sha256": "1da039308715f4533de87319cda4f1bacf2cb89712a653653dc867d7ca0ef9e4", "utc": "2026-10-26T12:45:31.944734+00:00"}
+2026-10-26T12:45:31.9946946Z {"bytes": 1912, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0:kotlinx-coroutines-core-iossimulatorarm64-1.11.0.pom", "event": "download_verified", "sha256": "8c50592e0a02c4a0cc41067fe327ae0f379cc8e5aba176b6a2e53aebc356d4fd", "utc": "2026-10-26T12:45:31.994527+00:00"}
+2026-10-26T12:45:32.0633197Z {"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:1.11.0:kotlinx-coroutines-core-iossimulatorarm64-1.11.0-sources.jar", "event": "download_verified", "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1", "utc": "2026-10-26T12:45:32.063116+00:00"}
+2026-10-26T12:45:32.1162818Z {"bytes": 4424, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0:kotlinx-coroutines-core-macosarm64-1.11.0.module", "event": "download_verified", "sha256": "025c308b9de3726832991c320b92c96351abf137a0b24b01e7f1bf2df7a99c6e", "utc": "2026-10-26T12:45:32.116082+00:00"}
+2026-10-26T12:45:32.1796476Z {"bytes": 1898, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0:kotlinx-coroutines-core-macosarm64-1.11.0.pom", "event": "download_verified", "sha256": "a5918ff5a08b230471751f435c8bdb5be5418263686b2e890c658f34a69c8818", "utc": "2026-10-26T12:45:32.179353+00:00"}
+2026-10-26T12:45:32.2929330Z {"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosarm64:1.11.0:kotlinx-coroutines-core-macosarm64-1.11.0-sources.jar", "event": "download_verified", "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1", "utc": "2026-10-26T12:45:32.292724+00:00"}
+2026-10-26T12:45:32.3560199Z {"bytes": 4400, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0:kotlinx-coroutines-core-macosx64-1.11.0.module", "event": "download_verified", "sha256": "489b0fb03fc529f6840810574c387f5c2ca98398106b45f923775eb81fdfc0bf", "utc": "2026-10-26T12:45:32.355844+00:00"}
+2026-10-26T12:45:32.4042196Z {"bytes": 1894, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0:kotlinx-coroutines-core-macosx64-1.11.0.pom", "event": "download_verified", "sha256": "b6bc1be34c88021bce0ce2e942617945e25501686f1b3bd620e844b00dff1e30", "utc": "2026-10-26T12:45:32.404036+00:00"}
+2026-10-26T12:45:32.5680903Z {"bytes": 356836, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-macosx64:1.11.0:kotlinx-coroutines-core-macosx64-1.11.0-sources.jar", "event": "download_verified", "sha256": "adac4ed567fa58f2ec9e7633a6943fe1604d8becc47e2a9ec57ce228300496c1", "utc": "2026-10-26T12:45:32.567917+00:00"}
+2026-10-26T12:45:32.6270328Z {"bytes": 45316, "component": "org.jetbrains.kotlinx:atomicfu:0.32.1:atomicfu-0.32.1.module", "event": "download_verified", "sha256": "86d3cedc1bf235d9a7f629344f9dcfe5bbc1da6ea198e4292dae8c5dba698285", "utc": "2026-10-26T12:45:32.626885+00:00"}
+2026-10-26T12:45:32.6905380Z {"bytes": 1636, "component": "org.jetbrains.kotlinx:atomicfu:0.32.1:atomicfu-0.32.1.pom", "event": "download_verified", "sha256": "5f7e55acee8c1a226ae3ff80f9eb4aca0eee02615651cb8a41391893767b7d1b", "utc": "2026-10-26T12:45:32.690277+00:00"}
+2026-10-26T12:45:32.7485380Z {"bytes": 32711, "component": "org.jetbrains.kotlinx:atomicfu:0.32.1:atomicfu-0.32.1-sources.jar", "event": "download_verified", "sha256": "65f4245841d8560b7ecb3f68dd29645154e0515effaff6b20ef3504750b963db", "utc": "2026-10-26T12:45:32.748374+00:00"}
+2026-10-26T12:45:32.8007819Z {"bytes": 2993, "component": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1:atomicfu-linuxx64-0.32.1.module", "event": "download_verified", "sha256": "b7e26be8ca71ac7bca13067d91ab628fb41fc996936f7a7501ca3c318a89496e", "utc": "2026-10-26T12:45:32.800610+00:00"}
+2026-10-26T12:45:32.8625069Z {"bytes": 1646, "component": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1:atomicfu-linuxx64-0.32.1.pom", "event": "download_verified", "sha256": "3326bd9761d0748cf5542b76514c1c1c50b613e8e51f2f9eff8f000c21bf5f25", "utc": "2026-10-26T12:45:32.862326+00:00"}
+2026-10-26T12:45:33.0190225Z {"bytes": 24440, "component": "org.jetbrains.kotlinx:atomicfu-linuxx64:0.32.1:atomicfu-linuxx64-0.32.1-sources.jar", "event": "download_verified", "sha256": "50db38ca0e2377bd4221bafc713656730aaac3d6e7a4fbc7cabc98db0092cf51", "utc": "2026-10-26T12:45:33.018857+00:00"}
+2026-10-26T12:45:33.0719801Z {"bytes": 4134, "component": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1:atomicfu-iosarm64-0.32.1.module", "event": "download_verified", "sha256": "f6ac181b771e1eeaad95c4bf3a5497f1942cf71bd69acfd0310720cb9bd42f42", "utc": "2026-10-26T12:45:33.071824+00:00"}
+2026-10-26T12:45:33.1361376Z {"bytes": 1646, "component": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1:atomicfu-iosarm64-0.32.1.pom", "event": "download_verified", "sha256": "7d2d3fbf2f662e4100e8816b4723b5938a65f2a6f259ff4361285dc8d25abdba", "utc": "2026-10-26T12:45:33.135965+00:00"}
+2026-10-26T12:45:33.2046649Z {"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-iosarm64:0.32.1:atomicfu-iosarm64-0.32.1-sources.jar", "event": "download_verified", "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2", "utc": "2026-10-26T12:45:33.204486+00:00"}
+2026-10-26T12:45:33.2516872Z {"bytes": 4263, "component": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1:atomicfu-iossimulatorarm64-0.32.1.module", "event": "download_verified", "sha256": "5dcb28af84cfc2cc2022d2c95c86bb70bc79309e334e6ef14c31629d7e79cc5a", "utc": "2026-10-26T12:45:33.251514+00:00"}
+2026-10-26T12:45:33.2973511Z {"bytes": 1655, "component": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1:atomicfu-iossimulatorarm64-0.32.1.pom", "event": "download_verified", "sha256": "de47f9e286a00da4fce0a0f7cfbab43f54126942869d6add99e26a9ca1640bec", "utc": "2026-10-26T12:45:33.297170+00:00"}
+2026-10-26T12:45:33.3550483Z {"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:0.32.1:atomicfu-iossimulatorarm64-0.32.1-sources.jar", "event": "download_verified", "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2", "utc": "2026-10-26T12:45:33.354878+00:00"}
+2026-10-26T12:45:33.4099038Z {"bytes": 4162, "component": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1:atomicfu-macosarm64-0.32.1.module", "event": "download_verified", "sha256": "650c1dc58d4c9dca48b8bf3d575545e073193d73287ebbee820bec6a7a962728", "utc": "2026-10-26T12:45:33.409728+00:00"}
+2026-10-26T12:45:33.4588250Z {"bytes": 1648, "component": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1:atomicfu-macosarm64-0.32.1.pom", "event": "download_verified", "sha256": "392cfe490a7aafa813c33d38656a57735e04987e923b470435e47f9df725e49e", "utc": "2026-10-26T12:45:33.458637+00:00"}
+2026-10-26T12:45:33.5297602Z {"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-macosarm64:0.32.1:atomicfu-macosarm64-0.32.1-sources.jar", "event": "download_verified", "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2", "utc": "2026-10-26T12:45:33.529583+00:00"}
+2026-10-26T12:45:33.5768577Z {"bytes": 4134, "component": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1:atomicfu-macosx64-0.32.1.module", "event": "download_verified", "sha256": "aff088ec69a52e587dfc4c306a8cfc33ec0bb7c6e9cb49a47c4b67d93eef2b26", "utc": "2026-10-26T12:45:33.576697+00:00"}
+2026-10-26T12:45:33.6299097Z {"bytes": 1646, "component": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1:atomicfu-macosx64-0.32.1.pom", "event": "download_verified", "sha256": "4eb10dbeac3f7be47482f9ff2a858f4afe56f492b6a2fa018011dda66910c41f", "utc": "2026-10-26T12:45:33.629735+00:00"}
+2026-10-26T12:45:33.7163732Z {"bytes": 25320, "component": "org.jetbrains.kotlinx:atomicfu-macosx64:0.32.1:atomicfu-macosx64-0.32.1-sources.jar", "event": "download_verified", "sha256": "587e055d252e4e766b481d372f486642e2f262b20fbc832cbb0c4e3fca908ae2", "utc": "2026-10-26T12:45:33.716199+00:00"}
+2026-10-26T12:45:33.7788405Z {"bytes": 37605, "component": "com.squareup.okio:okio:3.18.2:okio-3.18.2.module", "event": "download_verified", "sha256": "1f56f7f4840cde0ec9e64ca36a98696e3b384e45550eb2d5dc3ae5b12bc625e7", "utc": "2026-10-26T12:45:33.778652+00:00"}
+2026-10-26T12:45:33.8357100Z {"bytes": 1703, "component": "com.squareup.okio:okio:3.18.2:okio-3.18.2.pom", "event": "download_verified", "sha256": "d63868feb53befeae594494d329bfaabd58cd9c6f0818b1a1daab89ed204b786", "utc": "2026-10-26T12:45:33.835555+00:00"}
+2026-10-26T12:45:33.9062668Z {"bytes": 179252, "component": "com.squareup.okio:okio:3.18.2:okio-3.18.2-sources.jar", "event": "download_verified", "sha256": "51cde92400cf66dd7832bb54971870322d866254e41a9c18195278793b545f35", "utc": "2026-10-26T12:45:33.906123+00:00"}
+2026-10-26T12:45:33.9536788Z {"bytes": 3123, "component": "com.squareup.okio:okio-linuxx64:3.18.2:okio-linuxx64-3.18.2.module", "event": "download_verified", "sha256": "787744d14a4641aad156f43d57269c89ca86a20feb30a001981100b1e89e1d7d", "utc": "2026-10-26T12:45:33.953520+00:00"}
+2026-10-26T12:45:34.0199453Z {"bytes": 1750, "component": "com.squareup.okio:okio-linuxx64:3.18.2:okio-linuxx64-3.18.2.pom", "event": "download_verified", "sha256": "cc599b72bb0eb8e7419cf1deaf303d61f34d92b058a1337522cf4c7a3002d76c", "utc": "2026-10-26T12:45:34.019786+00:00"}
+2026-10-26T12:45:34.1671233Z {"bytes": 174293, "component": "com.squareup.okio:okio-linuxx64:3.18.2:okio-linuxx64-3.18.2-sources.jar", "event": "download_verified", "sha256": "6da53f72e0d338b0e8d670aeb72850fe1e22b9c6784ffb363645085d3e5bd97c", "utc": "2026-10-26T12:45:34.166668+00:00"}
+2026-10-26T12:45:34.2301287Z {"bytes": 3901, "component": "com.squareup.okio:okio-iosarm64:3.18.2:okio-iosarm64-3.18.2.module", "event": "download_verified", "sha256": "e8428ea4a18e767839f8fc06580ae19f5cbba17d1f73f20c1b70fe3f4156e3f6", "utc": "2026-10-26T12:45:34.229936+00:00"}
+2026-10-26T12:45:34.2823073Z {"bytes": 1750, "component": "com.squareup.okio:okio-iosarm64:3.18.2:okio-iosarm64-3.18.2.pom", "event": "download_verified", "sha256": "bed9f4953718e4f46dff5bab5537234f7adea6bf4de146d7268ce7bb70efb334", "utc": "2026-10-26T12:45:34.282167+00:00"}
+2026-10-26T12:45:34.3832704Z {"bytes": 174186, "component": "com.squareup.okio:okio-iosarm64:3.18.2:okio-iosarm64-3.18.2-sources.jar", "event": "download_verified", "sha256": "b905e3f41d9d4bd47b15b86b65b49da9d3f7e805d6e204f9e51d8cb9c52013e6", "utc": "2026-10-26T12:45:34.383139+00:00"}
+2026-10-26T12:45:34.4322078Z {"bytes": 4012, "component": "com.squareup.okio:okio-iossimulatorarm64:3.18.2:okio-iossimulatorarm64-3.18.2.module", "event": "download_verified", "sha256": "6aeebeee08628d022134cc7b335da888294a06dae9745294cbb6b00426e2208a", "utc": "2026-10-26T12:45:34.432080+00:00"}
+2026-10-26T12:45:34.5303201Z {"bytes": 1759, "component": "com.squareup.okio:okio-iossimulatorarm64:3.18.2:okio-iossimulatorarm64-3.18.2.pom", "event": "download_verified", "sha256": "2b39b703faf8570f428ac951ef1f58a57ba2231b9e6e75650c1ac0235f76d205", "utc": "2026-10-26T12:45:34.530193+00:00"}
+2026-10-26T12:45:34.6438165Z {"bytes": 174186, "component": "com.squareup.okio:okio-iossimulatorarm64:3.18.2:okio-iossimulatorarm64-3.18.2-sources.jar", "event": "download_verified", "sha256": "b905e3f41d9d4bd47b15b86b65b49da9d3f7e805d6e204f9e51d8cb9c52013e6", "utc": "2026-10-26T12:45:34.643608+00:00"}
+2026-10-26T12:45:34.7098086Z {"bytes": 3925, "component": "com.squareup.okio:okio-macosarm64:3.18.2:okio-macosarm64-3.18.2.module", "event": "download_verified", "sha256": "a1298d6cae145b8d36ba80f84396ebab4938dd4dc01fe8b5d530fc723fdae6f9", "utc": "2026-10-26T12:45:34.709611+00:00"}
+2026-10-26T12:45:34.7633066Z {"bytes": 1752, "component": "com.squareup.okio:okio-macosarm64:3.18.2:okio-macosarm64-3.18.2.pom", "event": "download_verified", "sha256": "b25352f8dda92f265813988aba10701a65feb8731e76aa3d51a2df34cefeed54", "utc": "2026-10-26T12:45:34.763142+00:00"}
+2026-10-26T12:45:34.8595848Z {"bytes": 174186, "component": "com.squareup.okio:okio-macosarm64:3.18.2:okio-macosarm64-3.18.2-sources.jar", "event": "download_verified", "sha256": "b905e3f41d9d4bd47b15b86b65b49da9d3f7e805d6e204f9e51d8cb9c52013e6", "utc": "2026-10-26T12:45:34.859447+00:00"}
+2026-10-26T12:45:34.9276624Z {"bytes": 3901, "component": "com.squareup.okio:okio-macosx64:3.18.2:okio-macosx64-3.18.2.module", "event": "download_verified", "sha256": "56e77c022b2123bc1ab5a2aba9e393862cb0902ae42221e92de1cad5dcc8a4ee", "utc": "2026-10-26T12:45:34.927461+00:00"}
+2026-10-26T12:45:34.9993932Z {"bytes": 1750, "component": "com.squareup.okio:okio-macosx64:3.18.2:okio-macosx64-3.18.2.pom", "event": "download_verified", "sha256": "5d51df4afaae35a7a11155440f5fa6ddbfbbbc54d1f26e0ddac781a23d98abf8", "utc": "2026-10-26T12:45:34.999250+00:00"}
+2026-10-26T12:45:35.1759744Z {"bytes": 174174, "component": "com.squareup.okio:okio-macosx64:3.18.2:okio-macosx64-3.18.2-sources.jar", "event": "download_verified", "sha256": "8c9a5a3f83d10c987fc12ba7c6f1449197f98cd737f42ac722301400d12fd9e2", "utc": "2026-10-26T12:45:35.175848+00:00"}
+2026-10-26T12:45:35.2831578Z {"bytes": 1725, "component": "androidx.annotation:annotation-experimental:1.1.0:annotation-experimental-1.1.0.pom", "event": "download_verified", "sha256": "550a6601e1af47cf99501cc6cc15d1ebe9cef17b51e5dd58b6ab6c23568ef7a9", "utc": "2026-10-26T12:45:35.282970+00:00"}
+2026-10-26T12:45:35.3688484Z {"bytes": 2745, "component": "androidx.annotation:annotation-experimental:1.1.0:annotation-experimental-1.1.0.module", "event": "download_verified", "sha256": "0361d1526a4d7501255e19779e09e93cdbd07fee0e2f5c50b7a137432d510119", "utc": "2026-10-26T12:45:35.368651+00:00"}
+2026-10-26T12:45:35.4567574Z {"bytes": 5310, "component": "androidx.annotation:annotation-experimental:1.1.0:annotation-experimental-1.1.0-sources.jar", "event": "download_verified", "sha256": "7ea8c98ebd649ee4c0a74b19e1e81ac5f4469be5a12555f288083f1efd4f29d9", "utc": "2026-10-26T12:45:35.456578+00:00"}
+2026-10-26T12:45:35.5846870Z {"bytes": 1826, "component": "androidx.annotation:annotation-jvm:1.8.1:annotation-jvm-1.8.1.pom", "event": "download_verified", "sha256": "d49203733aa6fae046c3a3de4e796eed347595755486a64273989844759750b4", "utc": "2026-10-26T12:45:35.584511+00:00"}
+2026-10-26T12:45:35.6839789Z {"bytes": 3225, "component": "androidx.annotation:annotation-jvm:1.8.1:annotation-jvm-1.8.1.module", "event": "download_verified", "sha256": "c959e3b0cdc75c15efe01605fa56aa79f033e39238e150638b8fabde6aa121a0", "utc": "2026-10-26T12:45:35.683820+00:00"}
+2026-10-26T12:45:35.8264580Z {"bytes": 67324, "component": "androidx.annotation:annotation-jvm:1.8.1:annotation-jvm-1.8.1-sources.jar", "event": "download_verified", "sha256": "5add69d7bb907ade52823bf4b15730a1a32cfce6657bfbe7eb865b00107a6369", "utc": "2026-10-26T12:45:35.826275+00:00"}
+2026-10-26T12:45:35.9270009Z {"bytes": 1315, "component": "androidx.arch.core:core-common:2.1.0:core-common-2.1.0.pom", "event": "download_verified", "sha256": "83bbb3960eaabc600ac366c94cb59414e441532a1d6aa9388b0b8bfface5cf01", "utc": "2026-10-26T12:45:35.926842+00:00"}
+2026-10-26T12:45:36.0138241Z {"bytes": 5563, "component": "androidx.arch.core:core-common:2.1.0:core-common-2.1.0-sources.jar", "event": "download_verified", "sha256": "01ef2736c9b688658d7446e8396099ff0c598d9a7e753131d566f953270c5878", "utc": "2026-10-26T12:45:36.013634+00:00"}
+2026-10-26T12:45:36.1168749Z {"bytes": 1531, "component": "androidx.arch.core:core-runtime:2.1.0:core-runtime-2.1.0.pom", "event": "download_verified", "sha256": "c0c4ed0160cd2ca18390015de8b392b697c173327c6b2c0947d4e62f6958c05d", "utc": "2026-10-26T12:45:36.116701+00:00"}
+2026-10-26T12:45:36.2011446Z {"bytes": 4518, "component": "androidx.arch.core:core-runtime:2.1.0:core-runtime-2.1.0-sources.jar", "event": "download_verified", "sha256": "913acdee357814e814745466a46a793e8ad7410086ba4548458b83cd6a98424b", "utc": "2026-10-26T12:45:36.200981+00:00"}
+2026-10-26T12:45:36.2865991Z {"bytes": 1497, "component": "androidx.collection:collection:1.0.0:collection-1.0.0.pom", "event": "download_verified", "sha256": "a7913a5275ad68e555d2612ebe8c14c367b153e14ca48a1872a64899020e54ef", "utc": "2026-10-26T12:45:36.286440+00:00"}
+2026-10-26T12:45:36.4464710Z {"bytes": 33973, "component": "androidx.collection:collection:1.0.0:collection-1.0.0-sources.jar", "event": "download_verified", "sha256": "3dcefe7a84308582986dda5e2cf66fd3bd279f076e3a58c377e6ed66d5233b9d", "utc": "2026-10-26T12:45:36.446288+00:00"}
+2026-10-26T12:45:36.5501263Z {"bytes": 1535, "component": "androidx.concurrent:concurrent-futures:1.0.0:concurrent-futures-1.0.0.pom", "event": "download_verified", "sha256": "4505b9a5e30a9418b59a9ad6702c3e4193aea6e691a3d03cf220c7640ad083e2", "utc": "2026-10-26T12:45:36.549833+00:00"}
+2026-10-26T12:45:36.6631341Z {"bytes": 19616, "component": "androidx.concurrent:concurrent-futures:1.0.0:concurrent-futures-1.0.0-sources.jar", "event": "download_verified", "sha256": "510037347fda5081179db4e72a1699df61f290692a439092b281c27ea2b16c17", "utc": "2026-10-26T12:45:36.662949+00:00"}
+2026-10-26T12:45:36.7424226Z {"bytes": 3001, "component": "androidx.core:core:1.7.0:core-1.7.0.pom", "event": "download_verified", "sha256": "6c4e7ff09a769cf49ec56705c02ca5caaa25fb2b035e2a3135f1d9787c61702c", "utc": "2026-10-26T12:45:36.742269+00:00"}
+2026-10-26T12:45:36.8271349Z {"bytes": 4393, "component": "androidx.core:core:1.7.0:core-1.7.0.module", "event": "download_verified", "sha256": "988f820899d5a4982e5c878ca1cd417970ace332ea2ff72f5be19b233fa0e788", "utc": "2026-10-26T12:45:36.826972+00:00"}
+2026-10-26T12:45:37.1350311Z {"bytes": 798483, "component": "androidx.core:core:1.7.0:core-1.7.0-sources.jar", "event": "download_verified", "sha256": "5421e943026bafe2b43da3fe87eb64091dcdb40ad1ce2026d0014c1a0e86686c", "utc": "2026-10-26T12:45:37.134882+00:00"}
+2026-10-26T12:45:37.2258776Z {"bytes": 2433, "component": "androidx.documentfile:documentfile:1.1.0:documentfile-1.1.0.pom", "event": "download_verified", "sha256": "f3d68f5cc51f74d5415eefa617b5e6539aa89a941525762940a812e78415e4a8", "utc": "2026-10-26T12:45:37.225701+00:00"}
+2026-10-26T12:45:37.2960279Z {"bytes": 4173, "component": "androidx.documentfile:documentfile:1.1.0:documentfile-1.1.0.module", "event": "download_verified", "sha256": "3525a13b15328b9d94851c1591ea7f82c772a1c78d4b9f99886ffdfe14a273b6", "utc": "2026-10-26T12:45:37.295867+00:00"}
+2026-10-26T12:45:37.4631729Z {"bytes": 15246, "component": "androidx.documentfile:documentfile:1.1.0:documentfile-1.1.0-sources.jar", "event": "download_verified", "sha256": "d39120d0f88be611b858b76986e16925e30cb59bf2b8c5dca6b5e12f99a19fdc", "utc": "2026-10-26T12:45:37.462990+00:00"}
+2026-10-26T12:45:37.5509425Z {"bytes": 1719, "component": "androidx.lifecycle:lifecycle-common:2.3.1:lifecycle-common-2.3.1.pom", "event": "download_verified", "sha256": "8cd23d889a14095c6ce16840d29b1a6388fa5e115144c1309d4d6d469c1bc351", "utc": "2026-10-26T12:45:37.550755+00:00"}
+2026-10-26T12:45:37.6613576Z {"bytes": 3140, "component": "androidx.lifecycle:lifecycle-common:2.3.1:lifecycle-common-2.3.1.module", "event": "download_verified", "sha256": "5fb7c8514d8c56cada5e29ef89dc0289e71942ab4cb0b2e6dca137b9dcb8fdd4", "utc": "2026-10-26T12:45:37.661184+00:00"}
+2026-10-26T12:45:37.8196860Z {"bytes": 18630, "component": "androidx.lifecycle:lifecycle-common:2.3.1:lifecycle-common-2.3.1-sources.jar", "event": "download_verified", "sha256": "68ad8199336509f3daa27a9dedb61f6b770d5f0b712f064e02fefa1a2aafad6a", "utc": "2026-10-26T12:45:37.819500+00:00"}
+2026-10-26T12:45:37.8910478Z {"bytes": 2326, "component": "androidx.lifecycle:lifecycle-runtime:2.3.1:lifecycle-runtime-2.3.1.pom", "event": "download_verified", "sha256": "b4442a84fc397edb2e908a1fdf713c6ae7d3a87641a09ee13d10ec8ee10b331f", "utc": "2026-10-26T12:45:37.890880+00:00"}
+2026-10-26T12:45:37.9853054Z {"bytes": 3923, "component": "androidx.lifecycle:lifecycle-runtime:2.3.1:lifecycle-runtime-2.3.1.module", "event": "download_verified", "sha256": "2a7b90e5049b674b36bccfd68677b3a0b3178b3f7c2ef7ddf618d3895598c4ce", "utc": "2026-10-26T12:45:37.985128+00:00"}
+2026-10-26T12:45:38.0764924Z {"bytes": 8927, "component": "androidx.lifecycle:lifecycle-runtime:2.3.1:lifecycle-runtime-2.3.1-sources.jar", "event": "download_verified", "sha256": "a1757f478939a9ae47e3a005f5c3ce051e50859d54478e3b931fdb06738269a9", "utc": "2026-10-26T12:45:38.076328+00:00"}
+2026-10-26T12:45:38.1715911Z {"bytes": 1643, "component": "androidx.versionedparcelable:versionedparcelable:1.1.1:versionedparcelable-1.1.1.pom", "event": "download_verified", "sha256": "5f51e65873ca612de3838fa90d2ee95b8d040efd31b9c390a19bf94d615cdb2f", "utc": "2026-10-26T12:45:38.171402+00:00"}
+2026-10-26T12:45:38.3056179Z {"bytes": 21164, "component": "androidx.versionedparcelable:versionedparcelable:1.1.1:versionedparcelable-1.1.1-sources.jar", "event": "download_verified", "sha256": "135016af471acf4cd9583d36ceb779710c6b46812ccaaef7c526d5d60eae6b0b", "utc": "2026-10-26T12:45:38.305052+00:00"}
+2026-10-26T12:45:38.3644861Z {"bytes": 2226, "component": "com.google.guava:listenablefuture:1.0:listenablefuture-1.0.pom", "event": "download_verified", "sha256": "53873caf26bc1ed8a567ea6c939ab2aaa3f47a5e32d5cade95ddf5080d23238a", "utc": "2026-10-26T12:45:38.364330+00:00"}
+2026-10-26T12:45:38.4201185Z {"bytes": 4021, "component": "com.google.guava:listenablefuture:1.0:listenablefuture-1.0-sources.jar", "event": "download_verified", "sha256": "3d1bd8d4a39b293612a40e547ec51d9ce34fa638d7adeae83871cdbe2923b161", "utc": "2026-10-26T12:45:38.419972+00:00"}
+2026-10-26T12:45:38.4781488Z {"bytes": 1715, "component": "com.squareup.okio:okio-jvm:3.18.2:okio-jvm-3.18.2.pom", "event": "download_verified", "sha256": "94ef678c6c26f04c380a902951174f216bbae4d3f1bfc421e1830f9aac556d28", "utc": "2026-10-26T12:45:38.477998+00:00"}
+2026-10-26T12:45:38.5311143Z {"bytes": 3346, "component": "com.squareup.okio:okio-jvm:3.18.2:okio-jvm-3.18.2.module", "event": "download_verified", "sha256": "d4ecee7c2e57bd3155bef0a26bd2eff49b6d7dbc108ee321b4c7be60628730d4", "utc": "2026-10-26T12:45:38.530981+00:00"}
+2026-10-26T12:45:38.6178197Z {"bytes": 192914, "component": "com.squareup.okio:okio-jvm:3.18.2:okio-jvm-3.18.2-sources.jar", "event": "download_verified", "sha256": "967a2e30e8504e48c2de60acfc96d091d2fd44671def26875896a37a1624a0f4", "utc": "2026-10-26T12:45:38.617651+00:00"}
+2026-10-26T12:45:38.6807261Z {"bytes": 1522, "component": "org.bouncycastle:bcpkix-jdk18on:1.86:bcpkix-jdk18on-1.86.pom", "event": "download_verified", "sha256": "44989844fb17b39eb08eabeaf81e1fd16ac50c994d5c02119f891220c3ac5878", "utc": "2026-10-26T12:45:38.680579+00:00"}
+2026-10-26T12:45:38.7763553Z {"bytes": 969954, "component": "org.bouncycastle:bcpkix-jdk18on:1.86:bcpkix-jdk18on-1.86-sources.jar", "event": "download_verified", "sha256": "0bb00b50a80404e40c6465cb8012d3835d2a9100d94d16eaa9efed4587d7e34d", "utc": "2026-10-26T12:45:38.776191+00:00"}
+2026-10-26T12:45:38.8708082Z {"bytes": 1160, "component": "org.bouncycastle:bcprov-jdk18on:1.86:bcprov-jdk18on-1.86.pom", "event": "download_verified", "sha256": "970b70cb75a184639b6fb9ba3c465aca6a4e1a5f3fff4d65ce8574b2fd79ef38", "utc": "2026-10-26T12:45:38.870604+00:00"}
+2026-10-26T12:45:39.0028801Z {"bytes": 4909869, "component": "org.bouncycastle:bcprov-jdk18on:1.86:bcprov-jdk18on-1.86-sources.jar", "event": "download_verified", "sha256": "34a8b7dcb030a08ddd5356d3d5be962f9299ca5275e1460273186f8fdbe44c34", "utc": "2026-10-26T12:45:39.002712+00:00"}
+2026-10-26T12:45:39.1497987Z {"bytes": 1344, "component": "org.bouncycastle:bcutil-jdk18on:1.86:bcutil-jdk18on-1.86.pom", "event": "download_verified", "sha256": "2209b3e5d1eb2bb3c593b824c1b8f142b05dea8e9df7400b0f33f2b91a0741fa", "utc": "2026-10-26T12:45:39.149615+00:00"}
+2026-10-26T12:45:39.2271086Z {"bytes": 601111, "component": "org.bouncycastle:bcutil-jdk18on:1.86:bcutil-jdk18on-1.86-sources.jar", "event": "download_verified", "sha256": "a79e8cdbc04a24aecf64503eda9a4aa61019132484c64f7ce32a68ac30ef6df7", "utc": "2026-10-26T12:45:39.226942+00:00"}
+2026-10-26T12:45:39.2903731Z {"bytes": 2168, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0:kotlinx-coroutines-core-jvm-1.11.0.pom", "event": "download_verified", "sha256": "dd54b97aa3fab91fc24f5df2916c22be9429a339d2f45b7ff092332f6c19dc39", "utc": "2026-10-26T12:45:39.290197+00:00"}
+2026-10-26T12:45:39.3382004Z {"bytes": 4454, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0:kotlinx-coroutines-core-jvm-1.11.0.module", "event": "download_verified", "sha256": "5b255653ad6b1f21e0c46108605f129e3aa56ed9414849cc9f5b436441517528", "utc": "2026-10-26T12:45:39.338002+00:00"}
+2026-10-26T12:45:39.4070835Z {"bytes": 438533, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0:kotlinx-coroutines-core-jvm-1.11.0-sources.jar", "event": "download_verified", "sha256": "3e0847c0b463965404d5b6fe5d6868000a220b050180dec68501801e9439976a", "utc": "2026-10-26T12:45:39.406919+00:00"}
+2026-10-26T12:45:39.4637173Z {"bytes": 1354, "component": "org.jetbrains:annotations:23.0.0:annotations-23.0.0.pom", "event": "download_verified", "sha256": "c9490f655132328df2cfbcfdf743f53fc3916d6c1d10437175a6ca6e3a67771c", "utc": "2026-10-26T12:45:39.463562+00:00"}
+2026-10-26T12:45:39.5130840Z {"bytes": 37462, "component": "org.jetbrains:annotations:23.0.0:annotations-23.0.0-sources.jar", "event": "download_verified", "sha256": "ff2309b42f7584520497bb48bc609aca04c9886cf48708f14be83f00423ec144", "utc": "2026-10-26T12:45:39.512929+00:00"}
+2026-10-26T12:45:39.5607759Z {"bytes": 1511, "component": "org.jspecify:jspecify:1.0.0:jspecify-1.0.0.pom", "event": "download_verified", "sha256": "cdab929a3b95211f43d2090c5e2d0dfe8465960e378bc32b35841dab324433a6", "utc": "2026-10-26T12:45:39.560610+00:00"}
+2026-10-26T12:45:39.6025560Z {"bytes": 3439, "component": "org.jspecify:jspecify:1.0.0:jspecify-1.0.0.module", "event": "download_verified", "sha256": "d307ca77a54e18ac1ef1aaed4e5bbe014bd2f49f29e1d2f813e47c278283195b", "utc": "2026-10-26T12:45:39.602396+00:00"}
+2026-10-26T12:45:39.6648856Z {"bytes": 11996, "component": "org.jspecify:jspecify:1.0.0:jspecify-1.0.0-sources.jar", "event": "download_verified", "sha256": "adf0898191d55937fb3192ba971826f4f294292c4a960740f3c27310e7b70296", "utc": "2026-10-26T12:45:39.664730+00:00"}
+2026-10-26T12:45:39.7261275Z {"bytes": 1456, "component": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1:hiddenapibypass-6.1.pom", "event": "download_verified", "sha256": "55109914ea9c6ef31c903198e9af0b671be208412a1539bfab025ff47d9f9597", "utc": "2026-10-26T12:45:39.725956+00:00"}
+2026-10-26T12:45:39.7833864Z {"bytes": 3522, "component": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1:hiddenapibypass-6.1.module", "event": "download_verified", "sha256": "0a9110b0713c3f7aff9f65de0bebd2de8c2ebe14f421dd4b7e851e7f0df9be3e", "utc": "2026-10-26T12:45:39.783226+00:00"}
+2026-10-26T12:45:39.8682816Z {"bytes": 9361, "component": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1:hiddenapibypass-6.1-sources.jar", "event": "download_verified", "sha256": "3da76de7a8a84f2b078461770e9804681c2e25e3a2c482ed84f819530340a801", "utc": "2026-10-26T12:45:39.868112+00:00"}
+2026-10-26T12:45:40.0084238Z {"bytes": 2008, "component": "androidx.annotation:annotation:1.8.1:annotation-1.8.1.pom", "event": "download_verified", "sha256": "b71225974ec087eb96c25ef6819f55b1c22f530e85ca446ba735fb66ed04ff5c", "utc": "2026-10-26T12:45:40.008262+00:00"}
+2026-10-26T12:45:40.1068699Z {"bytes": 34460, "component": "androidx.annotation:annotation:1.8.1:annotation-1.8.1.module", "event": "download_verified", "sha256": "e6386e85afdd865044e216575e493ed39a63a6325bd925379a21429c3941c8b5", "utc": "2026-10-26T12:45:40.106736+00:00"}
+2026-10-26T12:45:40.2654351Z {"bytes": 69592, "component": "androidx.annotation:annotation:1.8.1:annotation-1.8.1-multiplatform-sources.jar", "event": "download_verified", "sha256": "1df309b2983afee24b4c95bc2f8e59e2df622881bc2696495b4479fcad79440f", "utc": "2026-10-26T12:45:40.265311+00:00"}
+2026-10-26T12:45:40.5134705Z {"bytes": 25046, "component": "androidx.annotation:annotation:1.8.1:annotation-1.8.1-sources.jar", "event": "download_verified", "sha256": "706eb1c09bbc2ad74bf0f173e1fe77ac46fd7945efd9b6409053fb3f8763eff2", "utc": "2026-10-26T12:45:40.513337+00:00"}
+2026-10-26T12:45:40.5571092Z {"bytes": 4279, "component": "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.11.0:kotlinx-coroutines-bom-1.11.0.pom", "event": "download_verified", "sha256": "f65860bce58a2bfadf05fdc516d38333421f0e387fef87e24449c0394c80d254", "utc": "2026-10-26T12:45:40.556994+00:00"}
+2026-10-26T12:45:40.6112534Z {"bytes": 10180, "component": "com.google.guava:guava-parent:26.0-android:guava-parent-26.0-android.pom", "event": "download_verified", "sha256": "f8698ab46ca996ce889c1afc8ca4f25eb8ac6b034dc898d4583742360016cc04", "utc": "2026-10-26T12:45:40.611113+00:00"}
+2026-10-26T12:45:43.4833054Z {"bytes": 33084420, "component": "bouncycastle", "event": "download_verified", "sha256": "5c32fbb028b4e319fe4a1a1d06ff4c17849a5157e7b6c37b58328150719b2b32", "utc": "2026-10-26T12:45:43.483083+00:00"}
+2026-10-26T12:45:43.9000044Z {"component": "bouncycastle", "event": "archive_inventory_verified", "notices": 4, "source_files": 8109, "utc": "2026-10-26T12:45:43.899782+00:00"}
+2026-10-26T12:45:44.1326575Z {"bytes": 62191, "component": "hiddenapibypass", "event": "download_verified", "sha256": "7436b32ed6c81076cd22f4cf70a2dc30d6ee53b4a5b7dd63ae9d68d25ae8d244", "utc": "2026-10-26T12:45:44.132521+00:00"}
+2026-10-26T12:45:44.1345025Z {"component": "hiddenapibypass", "event": "archive_inventory_verified", "notices": 1, "source_files": 8, "utc": "2026-10-26T12:45:44.134405+00:00"}
+2026-10-26T12:45:45.0995707Z {"error": "Download exceeds locked size: androidx-documentfile-context", "error_type": "ValueError", "event": "failed", "utc": "2026-10-26T12:45:45.099422+00:00"}
+2026-10-26T12:45:45.0996197Z SOURCE_BUNDLE_FAILED ValueError: Download exceeds locked size: androidx-documentfile-context
+2026-10-26T12:45:45.1135138Z ##[error]Process completed with exit code 1.
+2026-10-26T12:45:45.1203435Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-10-26T12:45:45.1203660Z with:
+2026-10-26T12:45:45.1203855Z   name: source-collection-failure-da03de02848bc4509c7d88cabc56fe2764d3e654
+2026-10-26T12:45:45.1204089Z   path: evidence/
+2026-10-26T12:45:45.1204203Z   retention-days: 90
+2026-10-26T12:45:45.1204328Z   if-no-files-found: warn
+2026-10-26T12:45:45.1204460Z   compression-level: 6
+2026-10-26T12:45:45.1204595Z   overwrite: false
+2026-10-26T12:45:45.1204720Z   include-hidden-files: false
+2026-10-26T12:45:45.1204857Z env:
+2026-10-26T12:45:45.1205027Z   GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2
+2026-10-26T12:45:45.1205232Z ##[endgroup]
+2026-10-26T12:45:45.2230010Z (node:2093) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T12:45:45.2230571Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T12:45:45.2281803Z With the provided path, there will be 3 files uploaded
+2026-10-26T12:45:45.2284890Z Artifact name is valid!
+2026-10-26T12:45:45.2285290Z Root directory input is valid!
+2026-10-26T12:45:45.4987970Z Beginning upload of artifact content to blob storage
+2026-10-26T12:45:45.5136516Z (node:2093) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-26T12:45:45.7382483Z Uploaded bytes 15965
+2026-10-26T12:45:45.7855037Z Finished uploading artifact content to blob storage!
+2026-10-26T12:45:45.7855677Z SHA256 digest of uploaded artifact zip is 29975085ac4d79eddef0296604881440ab09678bd7b9f3f49eb0598e229cea58
+2026-10-26T12:45:45.7856851Z Finalizing artifact upload
+2026-10-26T12:45:46.1927735Z Artifact source-collection-failure-da03de02848bc4509c7d88cabc56fe2764d3e654.zip successfully finalized. Artifact ID 12649694165
+2026-10-26T12:45:46.1928682Z Artifact source-collection-failure-da03de02848bc4509c7d88cabc56fe2764d3e654 has been successfully uploaded! Final size is 15965 bytes. Artifact ID is 12649694165
+2026-10-26T12:45:46.1931832Z Artifact download URL: https://github.com/Flyfish233/Kadb/actions/runs/40324927894/artifacts/12649694165
+2026-10-26T12:45:46.2103521Z Post job cleanup.
+2026-10-26T12:45:46.2670140Z [command]/usr/bin/git version
+2026-10-26T12:45:46.2704607Z git version 2.55.0
+2026-10-26T12:45:46.2727886Z Temporarily overriding HOME='/home/runner/work/_temp/2cf9a358-f5c8-4757-a4a5-414a8ca374a6' before making global git config changes
+2026-10-26T12:45:46.2728578Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T12:45:46.2731975Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Kadb/Kadb
+2026-10-26T12:45:46.2762006Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T12:45:46.2788427Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T12:45:46.3009827Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T12:45:46.3034057Z http.https://github.com/.extraheader
+2026-10-26T12:45:46.3043362Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-26T12:45:46.3094419Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T12:45:46.3285882Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T12:45:46.3315597Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T12:45:46.3604317Z Evaluate and set job outputs
+2026-10-26T12:45:46.3610981Z Cleaning up orphan processes
+2026-10-26T12:45:46.3805233Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830, actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

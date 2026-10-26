@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "commit": "da03de02848bc4509c7d88cabc56fe2764d3e654",
+  "run_id": 40324927894,
+  "job_id": 121579069748,
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/40324927894",
+  "result": "failure",
+  "failure_stage": "fixed source acquisition",
+  "integrity_tests": {
+    "executed": 23,
+    "failures": 0
+  },
+  "error": "Download exceeds locked size: androidx-documentfile-context",
+  "diagnostic_artifact": {
+    "id": 12649694165,
+    "bytes": 15965,
+    "sha256": "29975085ac4d79eddef0296604881440ab09678bd7b9f3f49eb0598e229cea58"
+  },
+  "source_package_uploaded": false,
+  "product_tests_executed": 0,
+  "skipped": [
+    "android-and-protocol",
+    "linux-native",
+    "darwin-native",
+    "emulator-adbd"
+  ],
+  "scope": "Source gate rejected the response. This is neither a product regression nor a successful Android/Native/ART/adbd run."
+}

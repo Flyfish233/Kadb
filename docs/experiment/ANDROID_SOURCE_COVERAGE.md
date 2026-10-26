@@ -35,9 +35,10 @@ are distinct from the APK's bundled dependencies. Atomicfu remains in the Native
 source scope; it is not added to the Android binary inventory when absent from
 that actual graph.
 
-The combined lock contains **123 fetched inputs**: eight complete upstream
-source archives, one DocumentFile module context, 42 published source JARs,
-30 Gradle module files and 42 POM files. The exact Kadb commit is archived
+The combined lock contains **123 fixed inputs**: **122 fetched archives/metadata
+files and one locally assembled DocumentFile context**. These comprise eight
+complete upstream source archives, the DocumentFile context, 42 published source
+JARs, 30 Gradle module files and 42 POM files. The exact Kadb commit is archived
 separately, including the vendored Legacy SPAKE25519 sources, modifications,
 Android consumer source, manifest, Gradle configuration and validation drivers.
 The collector requires the consumer files to exist in the selected Git commit;
@@ -58,15 +59,27 @@ fabricated. The source files themselves, rather than POM URLs alone, are present
 The [official DocumentFile 1.1.0 release entry](https://developer.android.com/jetpack/androidx/releases/documentfile#1.1.0)
 links to the change range ending at
 `27495ca3d1fe4a1166bea16413ecf8cff5d85855`. The collected
-[module subtree](https://android.googlesource.com/platform/frameworks/support/+archive/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile.tar.gz)
-is only 9,975 bytes, with SHA-256
-`99f006d6ae091e5ef56c261f34c982a69cface6e2f46f4691c78b5cb2ced7963`.
-All five `src/main/java` files match the published source JAR byte-for-byte; the
-collector rechecks that match during creation. Its license is retained from the
+[module subtree](../../third-party/androidx-documentfile-context/README.md)
+is retained as 19 readable files from Git tree
+`70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589`. Thirteen fixed Gitiles directory-tree
+responses verified every file's membership and Git blob ID. The collector reads
+the files from the exact selected Kadb commit, checks each SHA-256/blob ID, and
+assembles a plain USTAR with zero timestamps and fixed headers: **71,680 bytes**,
+SHA-256 `3b60454ef61425219931a5b664d3e6b7c75bf680350da1025afd1f88ba8f23c4`.
+All five `src/main/java` files also match the published source JAR byte-for-byte;
+the collector rechecks that match during creation. Its license is retained from the
 published JAR's `META-INF/androidx/documentfile/documentfile/LICENSE.txt`.
 This supplies the module build script and tests, not the AndroidX parent build
 infrastructure. No release-to-commit mapping is guessed for other AndroidX
 modules, and their larger build forest is not claimed to be included.
+
+The former `+archive/...tar.gz` download is kept as provenance, not used as a
+reproducible byte source. Fresh HTTP 200 responses contained identical 19 files
+but different tar/PAX request-time timestamps and compressed hashes. CI correctly
+rejected the changed archive. The replacement retains every original file and
+checks both per-file and complete assembled-archive hashes; it does not relax the
+hash gate. The original candidate package evidence is left unchanged. See the
+[transport diagnosis](../../validation/source-bundle/gitiles-context-diagnosis.json).
 
 ## CI integration
 

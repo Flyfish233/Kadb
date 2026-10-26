@@ -1,7 +1,7 @@
 # Kadb — experimental Native core
 
 This is the `experiment/kmp-native-core` branch of **Flyfish233/Kadb**, based on
-upstream iOS commit `75678915fd4bdd52345edbb6bc4913ae3415a680`. It is a source-only
+upstream iOS commit `75678915fd4bdd52345edbb6bc4913ae3415a680`. It is an unpublished
 architecture experiment. No release or Maven/JitPack version is published for
 this branch. See the [verification ledger](docs/experiment/VALIDATION.md) for
 actual executed coverage and [combination licensing](docs/experiment/LICENSES.md)

@@ -1,0 +1,428 @@
+{
+  "repository": "https://android.googlesource.com/platform/frameworks/support",
+  "revision": "27495ca3d1fe4a1166bea16413ecf8cff5d85855",
+  "subtree": "documentfile/documentfile",
+  "tree": "70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589",
+  "archive_source_sha256": "99f006d6ae091e5ef56c261f34c982a69cface6e2f46f4691c78b5cb2ced7963",
+  "files": [
+    {
+      "path": "api/1.0.0.txt",
+      "size": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125",
+      "git_blob": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab"
+    },
+    {
+      "path": "api/1.1.0-beta01.txt",
+      "size": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125",
+      "git_blob": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab"
+    },
+    {
+      "path": "api/api_lint.ignore",
+      "size": 466,
+      "sha256": "fa62abaaf5b77bc199aad5cc942ba8358eecc2fb9b8603cae5b61b4a873ad60c",
+      "git_blob": "f41cf609bf2101c5875a29308d8af99da6455551"
+    },
+    {
+      "path": "api/current.txt",
+      "size": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125",
+      "git_blob": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab"
+    },
+    {
+      "path": "api/res-1.0.0.txt",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "api/res-1.1.0-beta01.txt",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "api/res-current.txt",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "api/restricted_1.0.0.txt",
+      "size": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125",
+      "git_blob": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab"
+    },
+    {
+      "path": "api/restricted_1.1.0-beta01.txt",
+      "size": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125",
+      "git_blob": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab"
+    },
+    {
+      "path": "api/restricted_current.txt",
+      "size": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125",
+      "git_blob": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab"
+    },
+    {
+      "path": "build.gradle",
+      "size": 1158,
+      "sha256": "cbe18987d26b94f5105fcfa39b8248132d0f83678b57186068fad281db50f385",
+      "git_blob": "b754936fb83ddd1a76729d77a48160068be6d9e8"
+    },
+    {
+      "path": "dependencyAnalysis-baseline.json",
+      "size": 483,
+      "sha256": "f36cdf6618c94ab4597184fd36a64edd2d5b670f438d459cdb8b0147dab148c0",
+      "git_blob": "754c47c8f53bd1f5188f80c56e48221227c6c64b"
+    },
+    {
+      "path": "lint-baseline.xml",
+      "size": 843,
+      "sha256": "40c3aad5ba3736a558200711622ea4b49b17b4faa02f2474106def57d39b4d33",
+      "git_blob": "d2a46f475caa3208f93628e4a2a4901ef1e6b76f"
+    },
+    {
+      "path": "src/androidTest/java/androidx/documentfile/provider/DocumentFileTest.java",
+      "size": 2005,
+      "sha256": "f755b3b778cca612ec4942a3a48f1effde82b18ae94bc55561404d32f06bb02e",
+      "git_blob": "ee2c0e61d5768e7f62ad893521a2580dc91d06af"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/DocumentFile.java",
+      "size": 15068,
+      "sha256": "182e5f269fa21b1831ccaa8eea3f63aa22db08d2782924498a2c38ecbee7cb07",
+      "git_blob": "d73c2bfd29354fd01bd04def3a6a29a1be4e0557"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/DocumentsContractApi19.java",
+      "size": 7089,
+      "sha256": "32858fd9992b2ad4ef675b3bb96c3a1f06e147c6c1ed8cec361f891a4bad4142",
+      "git_blob": "96f4c7f19d516d5d74443773261ed03117747b33"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/RawDocumentFile.java",
+      "size": 4959,
+      "sha256": "95dffaabfafdc1ddd0c29887acc0a29cb08c50c18a56432b60f3b821bb40022a",
+      "git_blob": "21484697e02ab99bfed33cadd40e95c987fda0bc"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/SingleDocumentFile.java",
+      "size": 3144,
+      "sha256": "0d81eb15afe3289bd602e3ed0ce58741bd1d636b778783f9df2b7788ccfb0883",
+      "git_blob": "91d8696131c465127b8d4697db6a112791fe8e9f"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/TreeDocumentFile.java",
+      "size": 5776,
+      "sha256": "c2b6aad313f6018e298ced6ca7fa3a7fccb73e8d4de3cc751195f744ae4f3e9a",
+      "git_blob": "a09d0fb7deef35504080959a90bf02802672052e"
+    }
+  ],
+  "verified_directory_trees": {
+    ".": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/?format=JSON",
+      "sha256": "bb76b6cbc46e196127f4c1fd24f13c9ec96d667cb7b8a86f98cbf7a5889038be",
+      "tree": {
+        "id": "70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "e5dac9c39749f84c8547d3a60911144c1826b2e6",
+            "name": "api"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "b754936fb83ddd1a76729d77a48160068be6d9e8",
+            "name": "build.gradle"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "754c47c8f53bd1f5188f80c56e48221227c6c64b",
+            "name": "dependencyAnalysis-baseline.json"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d2a46f475caa3208f93628e4a2a4901ef1e6b76f",
+            "name": "lint-baseline.xml"
+          },
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "7ff6af28735cd1dc25692502a67402801b8f623e",
+            "name": "src"
+          }
+        ]
+      }
+    },
+    "api": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/api/?format=JSON",
+      "sha256": "40aa95db623c041afbb957cef0dd6df86ddc0ad14c82ad5e80296c321c7f1150",
+      "tree": {
+        "id": "e5dac9c39749f84c8547d3a60911144c1826b2e6",
+        "entries": [
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab",
+            "name": "1.0.0.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab",
+            "name": "1.1.0-beta01.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "f41cf609bf2101c5875a29308d8af99da6455551",
+            "name": "api_lint.ignore"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab",
+            "name": "current.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "name": "res-1.0.0.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "name": "res-1.1.0-beta01.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "name": "res-current.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab",
+            "name": "restricted_1.0.0.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab",
+            "name": "restricted_1.1.0-beta01.txt"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d82769c46ce8ba7517a4da73d64a6a737bc7dcab",
+            "name": "restricted_current.txt"
+          }
+        ]
+      }
+    },
+    "src": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/?format=JSON",
+      "sha256": "9ad13f49a57ea68e869b4610903aa038e794a8743c6b083f646e87288eb8551d",
+      "tree": {
+        "id": "7ff6af28735cd1dc25692502a67402801b8f623e",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "a344ad2f139b34e81ab0b4092e6fb19738cbaee6",
+            "name": "androidTest"
+          },
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "3b04f4eb49c5469588fdf9e8e538f73cf3f3711b",
+            "name": "main"
+          }
+        ]
+      }
+    },
+    "src/androidTest": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/androidTest/?format=JSON",
+      "sha256": "13ef6cbf48ae7621be6e2bf31631db32037fe8d9573d6badaa407e8957276959",
+      "tree": {
+        "id": "a344ad2f139b34e81ab0b4092e6fb19738cbaee6",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "691eb766537c95f12dd5d65e5236893de757d04b",
+            "name": "java"
+          }
+        ]
+      }
+    },
+    "src/androidTest/java": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/androidTest/java/?format=JSON",
+      "sha256": "6fc230de4d72cf0167fe5e7fe6df2c89a1dd8db6ced155ad43dbcc7df31a6f79",
+      "tree": {
+        "id": "691eb766537c95f12dd5d65e5236893de757d04b",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "1f12682a81c9ebf94b6e5b03f81d2b0907ea25f4",
+            "name": "androidx"
+          }
+        ]
+      }
+    },
+    "src/androidTest/java/androidx": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/androidTest/java/androidx/?format=JSON",
+      "sha256": "851d8e7a3051f6bcadaf6b02ffa95110c843367dfa872cfc132cdca790c1fa05",
+      "tree": {
+        "id": "1f12682a81c9ebf94b6e5b03f81d2b0907ea25f4",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "24ee15e05024468c16c2d540301a24f50618ac78",
+            "name": "documentfile"
+          }
+        ]
+      }
+    },
+    "src/androidTest/java/androidx/documentfile": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/androidTest/java/androidx/documentfile/?format=JSON",
+      "sha256": "affcc4f3153b3e13a240e289a7ef3ffed05dfbb738eb55cfa7b18f631a901e8d",
+      "tree": {
+        "id": "24ee15e05024468c16c2d540301a24f50618ac78",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "7cb7f77e67d4d1b6c0277bb8590698ed189c8daf",
+            "name": "provider"
+          }
+        ]
+      }
+    },
+    "src/androidTest/java/androidx/documentfile/provider": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/androidTest/java/androidx/documentfile/provider/?format=JSON",
+      "sha256": "b3bebc01244342ae5a26cd6a959862c5a85d3a6874cc15ec95cd7f8aaedad975",
+      "tree": {
+        "id": "7cb7f77e67d4d1b6c0277bb8590698ed189c8daf",
+        "entries": [
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "ee2c0e61d5768e7f62ad893521a2580dc91d06af",
+            "name": "DocumentFileTest.java"
+          }
+        ]
+      }
+    },
+    "src/main": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/main/?format=JSON",
+      "sha256": "6bcf9d3222e48c899ede2f7feb33d816eecf084116b78addd77e3af62165447b",
+      "tree": {
+        "id": "3b04f4eb49c5469588fdf9e8e538f73cf3f3711b",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "f0af436e02751edb96782e6d2c70b0407551b2b5",
+            "name": "java"
+          }
+        ]
+      }
+    },
+    "src/main/java": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/main/java/?format=JSON",
+      "sha256": "406828f6adba2052bb5cf256ff608bb5a8b8336e31a7142ae1c0b923925602a0",
+      "tree": {
+        "id": "f0af436e02751edb96782e6d2c70b0407551b2b5",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "2ff7b817a1338723a29181e0ad910113cc15763d",
+            "name": "androidx"
+          }
+        ]
+      }
+    },
+    "src/main/java/androidx": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/main/java/androidx/?format=JSON",
+      "sha256": "2488bf782bfbea755fdf20d05c8825c3370b152ef4bd6e14c37c62ca68d43805",
+      "tree": {
+        "id": "2ff7b817a1338723a29181e0ad910113cc15763d",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "09cbba93bbc8c18f771da4a620fb47a56e0ddf6d",
+            "name": "documentfile"
+          }
+        ]
+      }
+    },
+    "src/main/java/androidx/documentfile": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/main/java/androidx/documentfile/?format=JSON",
+      "sha256": "8a162c543826dea492a3dc739c117aa746d137cf80b89e386983d71cd9272e58",
+      "tree": {
+        "id": "09cbba93bbc8c18f771da4a620fb47a56e0ddf6d",
+        "entries": [
+          {
+            "mode": 16384,
+            "type": "tree",
+            "id": "1d17c1928669610eb315310418c406d3bc7df981",
+            "name": "provider"
+          }
+        ]
+      }
+    },
+    "src/main/java/androidx/documentfile/provider": {
+      "url": "https://android.googlesource.com/platform/frameworks/support/+/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile/src/main/java/androidx/documentfile/provider/?format=JSON",
+      "sha256": "b9996beae96cbf0a2f30efbf9be8e17731595b1a5730860bc3d106ed8eabd374",
+      "tree": {
+        "id": "1d17c1928669610eb315310418c406d3bc7df981",
+        "entries": [
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "d73c2bfd29354fd01bd04def3a6a29a1be4e0557",
+            "name": "DocumentFile.java"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "96f4c7f19d516d5d74443773261ed03117747b33",
+            "name": "DocumentsContractApi19.java"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "21484697e02ab99bfed33cadd40e95c987fda0bc",
+            "name": "RawDocumentFile.java"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "91d8696131c465127b8d4697db6a112791fe8e9f",
+            "name": "SingleDocumentFile.java"
+          },
+          {
+            "mode": 33188,
+            "type": "blob",
+            "id": "a09d0fb7deef35504080959a90bf02802672052e",
+            "name": "TreeDocumentFile.java"
+          }
+        ]
+      }
+    }
+  }
+}

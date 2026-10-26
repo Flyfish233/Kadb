@@ -23,8 +23,10 @@ a closed owner, without waiting for Kotlin's cleaner.
 ## Targets and evidence boundary
 
 Configured core targets are `iosArm64`, `iosSimulatorArm64`, `macosArm64`,
-`macosX64`, and `linuxX64`, in addition to Android and the temporary desktop JVM
-baseline. Target configuration by itself does not establish support. Follow the
+`macosX64`, and `linuxX64`, in addition to Android. The standalone production
+JVM target was removed in `0411b29`; its exact original baseline remains a
+separate historical verification checkout. Target configuration by itself does
+not establish support. Follow the
 experiment's verification ledger and CI job results for compilation, linking,
 execution and external-consumer evidence. The initial C backend evidence is in
 [`verification/native/README.md`](verification/native/README.md).
@@ -112,14 +114,14 @@ Keychain or hardware-backed identity implementation. Atomic replacement does not
 claim durability across power loss: the parent directory is not explicitly
 fsynced. Existing files are not chmodded by reads; the next successful write
 replaces them with a protected file. Custom Okio `FileSystem` instances retain
-user-defined behavior, and the Android/JVM implementation retains its existing
+user-defined behavior, and the Android implementation retains its existing
 write path. No native syscall bypasses a custom filesystem.
 
 Native certificate creation rejects embedded NUL in all six subject components
 before crossing the C-string boundary. Provider failures use
 `KadbCertException.PolicyViolation`. This deliberately hardens invalid Native
 inputs; Android behavior is unchanged. Other subject differences remain: Native
-passes each field as a literal X.509 value, whereas the JVM backend constructs a
+passes each field as a literal X.509 value, whereas the Android backend constructs a
 DN string whose punctuation may have DN syntax. Default/imported identity wire
 fixtures are tested, but arbitrary custom subjects are not claimed to have
 identical cross-platform encodings. Temporary decoded private DER copies are

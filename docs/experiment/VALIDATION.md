@@ -320,3 +320,37 @@ cleanup `696a85f`. Earlier local evidence still belongs to its original source
 snapshots: `02bdb55` routing overlay 22/22, `04a63fd` Native 21/21 and `6e2f381`
 Native 24/24 plus Android Host 36/36. This full CI run does not relabel those
 isolated source snapshots as the current checkout.
+
+## Android migration repair: actual local consumer and API evidence
+
+Commit `f109e804ec0dfbf114f597ec1dacfe7ab0d1d163` integrates the Android
+consumer and its actual isolated-build evidence. The production source tree is
+identical to `b17f418dd12c9a7dcc25021860266ebe24dc8039`. All **102 Kadb + 5
+mDNS Android Host tests execute and pass**, with zero skipped tests, and both
+actual AAR Kotlin-public API inventories exactly match the frozen baseline.
+The 5,582,037-byte debug APK passes D8, signature verification and a real DEX
+class-definition inventory. It includes the shared Legacy implementation and
+excludes the test-only Java SPAKE/Conscrypt peer.
+
+The record preserves the initial BC notice-packaging collision and incorrect
+Gradle artifact-view attempt before the successful build. The APK's actual
+runtime inventory contains 21 external archives and two project artifacts.
+These are build/Host/API results, **not ART, Android TLS exporter or real-adbd
+execution**. See [the original logs and exact source/artifact identities](../../validation/android-runtime/evidence/README.md).
+
+## Android runtime CI entry: source acquisition failure
+
+[Run 40324927894](https://github.com/Flyfish233/Kadb/actions/runs/40324927894)
+at `da03de02848bc4509c7d88cabc56fe2764d3e654` fails before any product build.
+The source job `121579069748` executes all **23 integrity tests successfully**,
+then rejects the DocumentFile fixed-commit subtree download because its response
+exceeds the locked 9,975-byte length. The source package is not uploaded; all
+Android, Linux, Darwin and emulator jobs are correctly skipped. **Zero product
+tests execute in this run**. This is a source-acquisition failure, not an ART
+or Native result.
+
+The diagnostic artifact is `12649694165`, SHA-256
+`29975085ac4d79eddef0296604881440ab09678bd7b9f3f49eb0598e229cea58`.
+The full job log and explicit failed scope are retained in
+`validation/integration/da03-source-failure`. The next repair must establish a
+reproducible source acquisition without weakening the integrity check.

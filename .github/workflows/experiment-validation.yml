@@ -356,11 +356,15 @@ jobs:
           chmod +x "$consumer"
           python3 validation/native-adbd/run_emulator.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --emulator "$ANDROID_HOME/emulator/emulator" --consumer "$consumer" --apk "$apk" --output evidence/adbd 2>&1 | tee evidence/adbd-driver.log
       - name: Execute the actual Android APK and platform TLS exporter on ART
+        id: android-runtime
         if: always() && steps.provision-emulator.outcome == 'success' && steps.android-peer.outcome == 'success'
         run: |
           set -o pipefail
           apk=incoming/android/validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk
           python3 validation/android-runtime/run_android_runtime.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --apk "$apk" --output evidence/android-runtime 2>&1 | tee evidence/android-runtime-driver.log
+      - name: Preserve emulator VM diagnostics if Android instrumentation fails
+        if: always() && steps.android-runtime.outcome == 'failure'
+        run: adb -P 5038 -s emulator-5554 logcat -d -v threadtime -s AndroidRuntime:E System.err:W > evidence/android-runtime-logcat.log 2>&1 || true
       - name: Stop only this job's emulator
         if: always()
         run: |

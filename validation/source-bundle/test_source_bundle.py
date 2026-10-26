@@ -308,6 +308,64 @@ class SourceBundleIntegrityTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "differs from published sources"):
             bundle.verify_source_context(entry, self.root, ["build.gradle"])
 
+    def vendored_context_fixture(self):
+        files = {"Example.java": b"class Example {}\n", "build.gradle": b"// fixed build context\n"}
+        entry = {"id": "context", "vendored_root": "third-party/context/upstream", "size": 10240,
+                 "sha256": "eea29b61c2ff2716d77504dbdf2640e5511d1fe776d701cd1271bece29687691",
+                 "vendored_files": [{"path": name, "size": len(data),
+                     "sha256": hashlib.sha256(data).hexdigest(),
+                     "git_blob": hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data,
+                                              usedforsecurity=False).hexdigest()}
+                     for name, data in files.items()]}
+        def committed_file(repo, operation, path):
+            self.assertEqual("show", operation)
+            return files[path.split("/upstream/", 1)[1]]
+        return entry, files, committed_file
+
+    def test_vendored_context_has_stable_headers_and_reads_the_requested_commit(self):
+        entry, _, read = self.vendored_context_fixture()
+        first, second = self.root / "one.tar", self.root / "two.tar"
+        with mock.patch.object(bundle, "git", side_effect=read) as git:
+            bundle.write_vendored_context(self.root, "a" * 40, entry, first)
+            bundle.write_vendored_context(self.root, "b" * 40, entry, second)
+            self.assertEqual(["a" * 40] * 2 + ["b" * 40] * 2,
+                             [call.args[2].split(":", 1)[0] for call in git.call_args_list])
+        self.assertEqual(first.read_bytes(), second.read_bytes())
+        with tarfile.open(first) as archive:
+            self.assertEqual(["Example.java", "build.gradle"], archive.getnames())
+            for member in archive:
+                self.assertEqual((0, 0, 0, "", "", 0o644, {}),
+                                 (member.mtime, member.uid, member.gid, member.uname,
+                                  member.gname, member.mode, member.pax_headers))
+
+    def test_vendored_context_rejects_committed_source_or_blob_changes(self):
+        entry, files, read = self.vendored_context_fixture()
+        with mock.patch.object(bundle, "git", side_effect=read):
+            files["Example.java"] = b"class Modified {}\n"
+            with self.assertRaisesRegex(ValueError, "source hash/blob mismatch"):
+                bundle.write_vendored_context(self.root, "a" * 40, entry, self.root / "out.tar")
+            files["Example.java"] = b"class Example {}\n"
+            entry["vendored_files"][0]["git_blob"] = "0" * 40
+            with self.assertRaisesRegex(ValueError, "source hash/blob mismatch"):
+                bundle.write_vendored_context(self.root, "a" * 40, entry, self.root / "out.tar")
+
+    def test_vendored_context_cannot_fall_back_to_uncommitted_files(self):
+        entry, files, _ = self.vendored_context_fixture()
+        for name, data in files.items():
+            path = self.root / entry["vendored_root"] / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+        with mock.patch.object(bundle, "git", side_effect=subprocess.CalledProcessError(128, "git show")):
+            with self.assertRaisesRegex(ValueError, "Vendored source is absent"):
+                bundle.write_vendored_context(self.root, "a" * 40, entry, self.root / "out.tar")
+
+    def test_vendored_context_keeps_the_whole_archive_hash_gate(self):
+        entry, _, read = self.vendored_context_fixture()
+        entry["sha256"] = "0" * 64
+        with mock.patch.object(bundle, "git", side_effect=read):
+            with self.assertRaisesRegex(ValueError, "Size/SHA-256 mismatch"):
+                bundle.write_vendored_context(self.root, "a" * 40, entry, self.root / "out.tar")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -11,6 +11,7 @@ import argparse
 import datetime
 import gzip
 import hashlib
+import io
 import json
 import os
 from pathlib import Path, PurePosixPath
@@ -162,7 +163,7 @@ def inspect_archive(archive: Path, component: str, destination: Path, required: 
     notices = []
     sources = 0
     native_runtime_sources = 0
-    with tarfile.open(archive, "r|gz") as source:
+    with tarfile.open(archive, "r|*") as source:
         for member in source:
             name = relative_name(member.name)
             # Upstream GitHub archives and the Kadb Git archive have one root directory.
@@ -301,7 +302,7 @@ def verify_source_context(entry: dict, bundle: Path, required: list[str]) -> dic
             raise ValueError("Module source context lacks its referenced license")
         expected = {name: published.read(name) for name in published.namelist() if name.endswith(".java")}
     matched = set()
-    with tarfile.open(bundle / entry["path"], "r|gz") as archive:
+    with tarfile.open(bundle / entry["path"], "r|*") as archive:
         for member in archive:
             name = relative_name(member.name)
             if member.isfile() and name.startswith("src/main/java/"):
@@ -316,6 +317,36 @@ def verify_source_context(entry: dict, bundle: Path, required: list[str]) -> dic
     return {**report, "scope": "module subtree; parent build system not included",
             "published_sources": entry["published_sources"], "matched_java_files": len(matched),
             "license_member": entry["license_member"]}
+
+
+def write_vendored_context(repo: Path, commit: str, entry: dict, destination: Path) -> None:
+    """Archive the reviewed small module tree, without Gitiles' request-time tar metadata."""
+    root = relative_name(entry["vendored_root"])
+    sources = {}
+    for record in entry["vendored_files"]:
+        name = relative_name(record["path"])
+        if name in sources:
+            raise ValueError(f"Duplicate vendored source path: {name}")
+        try:
+            data = git(repo, "show", commit + ":" + root + "/" + name)
+        except subprocess.CalledProcessError as error:
+            raise ValueError(f"Vendored source is absent from {commit}: {name}") from error
+        blob = hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data, usedforsecurity=False).hexdigest()
+        if (len(data), hashlib.sha256(data).hexdigest(), blob) != (record["size"], record["sha256"], record["git_blob"]):
+            raise ValueError(f"Vendored source hash/blob mismatch: {name}")
+        sources[name] = data
+    if not sources:
+        raise ValueError("Vendored source context is empty")
+    # Plain USTAR has no gzip compressor variance or PAX request-time fields.
+    # Explicit headers exclude filesystem/checkout timestamps and owner names.
+    with tarfile.open(destination, "w", format=tarfile.USTAR_FORMAT) as archive:
+        for name, data in sorted(sources.items()):
+            info = tarfile.TarInfo(name)
+            info.size = len(data)
+            info.mode = 0o644
+            info.mtime = 0
+            archive.addfile(info, io.BytesIO(data))
+    checked_file(destination, entry)
 
 
 def android_inventory(lock: dict) -> dict:
@@ -528,10 +559,15 @@ def create(arguments) -> dict:
                 source_reports = [inspect_archive(kadb_archive, "kadb", bundle, required_kadb)]
                 maven_reports = []
                 for entry in lock["entries"]:
-                    cached = fetch(entry, arguments.cache, arguments.offline, arguments.boringssl_archive, emit)
                     output = bundle / entry["path"]
                     output.parent.mkdir(parents=True, exist_ok=True)
-                    shutil.copyfile(cached, output)
+                    if "vendored_root" in entry:
+                        write_vendored_context(arguments.repo, commit, entry, output)
+                        emit("vendored_source_verified", component=entry["id"], commit=commit,
+                             files=len(entry["vendored_files"]), bytes=entry["size"], sha256=entry["sha256"])
+                    else:
+                        cached = fetch(entry, arguments.cache, arguments.offline, arguments.boringssl_archive, emit)
+                        shutil.copyfile(cached, output)
                     if entry["kind"] == "source-archive":
                         report = inspect_archive(output, entry["component"], bundle,
                             lock["required_archive_files"][entry["component"]])

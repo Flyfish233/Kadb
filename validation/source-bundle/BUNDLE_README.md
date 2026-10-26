@@ -22,6 +22,11 @@ image, or a source package for arbitrary downstream Android applications.
   Castle 1.86; and HiddenApiBypass 6.1.
 - A fixed DocumentFile 1.1.0 module subtree with its build script, tests and all
   five runtime Java files, checked byte-for-byte against the published sources.
+  Its 19 readable files are retained in the exact Kadb commit and checked against
+  upstream Git blob IDs and per-file SHA-256 before a fixed plain USTAR is
+  assembled and checked by its whole-archive hash. This avoids Gitiles archives'
+  varying request-time tar metadata. Of 123 fixed dependency inputs, 122 are
+  fetched and this one is assembled from committed files.
   This small subtree does not include the AndroidX parent build system.
 - `maven/`: 42 published sources jars, 30 module metadata files and 42 POM files.
   The library/common, five retained Native targets and the APK's actual 21

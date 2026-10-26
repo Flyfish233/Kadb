@@ -12,4 +12,7 @@ gradlew text eol=lf
 validation/jitpack/logs/*.log -whitespace
 validation/install-session/**/*.log -whitespace
 validation/sync-close/**/*.log -whitespace
+validation/integration/**/*.log -whitespace
 validation/android-runtime/evidence/build-attempt-*.txt -whitespace
+# Byte-identical vendored upstream context and license retain upstream whitespace.
+third-party/androidx-documentfile-context/** -whitespace

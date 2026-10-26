@@ -454,7 +454,15 @@
         "sha256": "c2b6aad313f6018e298ced6ca7fa3a7fccb73e8d4de3cc751195f744ae4f3e9a"
       }
     ],
-    "scope": "Only the released documentfile module subtree, byte matched to all five published Java sources; not the whole AndroidX build system."
+    "scope": "Only the released documentfile module subtree, byte matched to all five published Java sources; not the whole AndroidX build system.",
+    "bundled_context": {
+      "path": "upstream/androidx-documentfile-27495ca3d1fe4a1166bea16413ecf8cff5d85855.tar",
+      "size": 71680,
+      "sha256": "3b60454ef61425219931a5b664d3e6b7c75bf680350da1025afd1f88ba8f23c4",
+      "vendored_root": "third-party/androidx-documentfile-context/upstream",
+      "upstream_tree": "70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589"
+    },
+    "archive_transport": "The original Gitiles archive is provenance only. Its per-member mtime/PAX fields vary by request. The bundle now uses a fixed plain USTAR assembled from 19 vendored source files read from the exact Kadb commit, with per-file SHA-256/Git-blob checks and a locked whole-archive hash."
   },
   "scope_limits": [
     "Fixed source JAR hashes and POM identities are verified for artifacts without a published Gradle module. No module metadata is fabricated.",

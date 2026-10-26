@@ -1,0 +1,159 @@
+{
+  "ci_failure": {
+    "run": 40324927894,
+    "job": 121579069748,
+    "checkout": "da03de02848bc4509c7d88cabc56fe2764d3e654",
+    "error": "Download exceeds locked size: androidx-documentfile-context",
+    "raw_log_owner": "See main validation ledger; this directory does not replace the original CI log.",
+    "limitation": "The failed downloader discarded its partial response. Fresh repeated requests below establish unstable archive metadata; they do not claim a retained full CI response."
+  },
+  "url": "https://android.googlesource.com/platform/frameworks/support/+archive/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile.tar.gz",
+  "original": {
+    "bytes": 9975,
+    "sha256": "99f006d6ae091e5ef56c261f34c982a69cface6e2f46f4691c78b5cb2ced7963",
+    "tar_bytes": 103936,
+    "tar_sha256": "b2c16d4b563a31fef671e93b14764d82a8e465d483793b0d2cef78a87b67558e"
+  },
+  "responses": [
+    {
+      "status": 200,
+      "final_url": "https://android.googlesource.com/platform/frameworks/support/+archive/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile.tar.gz",
+      "observed_utc": "2026-10-26T12:47:30.933422+00:00",
+      "bytes": 9970,
+      "sha256": "0ff3b088aba57abb81a385190b41efc500c0805b34b7f6a8c8eb1e573c7c253c",
+      "tar_bytes": 103936,
+      "tar_sha256": "9bb1ab942a948eac2327830cab60b2831f42cf8debe7cab4964938c9fabf680f",
+      "content_type": "application/x-gzip",
+      "content_encoding": null,
+      "same_19_file_contents": true,
+      "changed_member_metadata_fields": [
+        "mtime",
+        "pax_headers.mtime"
+      ],
+      "original_first_mtime": 1793017032.756,
+      "response_first_mtime": 1793018850.615
+    },
+    {
+      "status": 200,
+      "final_url": "https://android.googlesource.com/platform/frameworks/support/+archive/27495ca3d1fe4a1166bea16413ecf8cff5d85855/documentfile/documentfile.tar.gz",
+      "observed_utc": "2026-10-26T12:47:31.476354+00:00",
+      "bytes": 9945,
+      "sha256": "1578d88f145fde2bc1fb02bcd41e275ef809704846478118ef3734a49f0c9f09",
+      "tar_bytes": 103936,
+      "tar_sha256": "41e32c6595d87ec9d05abd3a7c407b8af4677b3528ac3ff7a80fbafdd07aecbc",
+      "content_type": "application/x-gzip",
+      "content_encoding": null,
+      "same_19_file_contents": true,
+      "changed_member_metadata_fields": [
+        "mtime",
+        "pax_headers.mtime"
+      ],
+      "original_first_mtime": 1793017032.756,
+      "response_first_mtime": 1793018851.39
+    }
+  ],
+  "logical_file_inventory": [
+    {
+      "path": "api/1.0.0.txt",
+      "bytes": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125"
+    },
+    {
+      "path": "api/1.1.0-beta01.txt",
+      "bytes": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125"
+    },
+    {
+      "path": "api/api_lint.ignore",
+      "bytes": 466,
+      "sha256": "fa62abaaf5b77bc199aad5cc942ba8358eecc2fb9b8603cae5b61b4a873ad60c"
+    },
+    {
+      "path": "api/current.txt",
+      "bytes": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125"
+    },
+    {
+      "path": "api/res-1.0.0.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "api/res-1.1.0-beta01.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "api/res-current.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "api/restricted_1.0.0.txt",
+      "bytes": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125"
+    },
+    {
+      "path": "api/restricted_1.1.0-beta01.txt",
+      "bytes": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125"
+    },
+    {
+      "path": "api/restricted_current.txt",
+      "bytes": 1609,
+      "sha256": "c64fa31e755d9d9e768362cc4cb695bd93ac44d27d6986d72b8fcdd715b96125"
+    },
+    {
+      "path": "build.gradle",
+      "bytes": 1158,
+      "sha256": "cbe18987d26b94f5105fcfa39b8248132d0f83678b57186068fad281db50f385"
+    },
+    {
+      "path": "dependencyAnalysis-baseline.json",
+      "bytes": 483,
+      "sha256": "f36cdf6618c94ab4597184fd36a64edd2d5b670f438d459cdb8b0147dab148c0"
+    },
+    {
+      "path": "lint-baseline.xml",
+      "bytes": 843,
+      "sha256": "40c3aad5ba3736a558200711622ea4b49b17b4faa02f2474106def57d39b4d33"
+    },
+    {
+      "path": "src/androidTest/java/androidx/documentfile/provider/DocumentFileTest.java",
+      "bytes": 2005,
+      "sha256": "f755b3b778cca612ec4942a3a48f1effde82b18ae94bc55561404d32f06bb02e"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/DocumentFile.java",
+      "bytes": 15068,
+      "sha256": "182e5f269fa21b1831ccaa8eea3f63aa22db08d2782924498a2c38ecbee7cb07"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/DocumentsContractApi19.java",
+      "bytes": 7089,
+      "sha256": "32858fd9992b2ad4ef675b3bb96c3a1f06e147c6c1ed8cec361f891a4bad4142"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/RawDocumentFile.java",
+      "bytes": 4959,
+      "sha256": "95dffaabfafdc1ddd0c29887acc0a29cb08c50c18a56432b60f3b821bb40022a"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/SingleDocumentFile.java",
+      "bytes": 3144,
+      "sha256": "0d81eb15afe3289bd602e3ed0ce58741bd1d636b778783f9df2b7788ccfb0883"
+    },
+    {
+      "path": "src/main/java/androidx/documentfile/provider/TreeDocumentFile.java",
+      "bytes": 5776,
+      "sha256": "c2b6aad313f6018e298ced6ca7fa3a7fccb73e8d4de3cc751195f744ae4f3e9a"
+    }
+  ],
+  "gitiles_tree": "70d1f5c4e38eb73cbc08b4d1f1d09f547ad39589",
+  "canonical_context": {
+    "path": "upstream/androidx-documentfile-27495ca3d1fe4a1166bea16413ecf8cff5d85855.tar",
+    "size": 71680,
+    "sha256": "3b60454ef61425219931a5b664d3e6b7c75bf680350da1025afd1f88ba8f23c4",
+    "vendored_root": "third-party/androidx-documentfile-context/upstream"
+  }
+}
