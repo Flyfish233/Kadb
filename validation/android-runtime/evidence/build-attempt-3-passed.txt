@@ -1,0 +1,238 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/workspace/scratch/db79b63d76cf/gradle-cache/wrapper/dists/gradle-9.6.0-bin/42k10rwplmzkhuboz9kdazi7s/gradle-9.6.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :kadb
+w: ⚠️ Native task 'iosSimulatorArm64Test' is disabled
+Task 'iosSimulatorArm64Test' for target 'ios_simulator_arm64' cannot run on the current host (linux-x86_64).
+Reason: simulator tests require macOS
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosArm64Test' is disabled
+Task 'macosArm64Test' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosX64Test' is disabled
+Task 'macosX64Test' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosSimulatorArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosSimulatorArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'macosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'macosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'macosX64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'macosX64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Disabled Kotlin/Native Targets
+The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, macosArm64, macosX64
+Solution: To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :validation-android-fixture
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+
+> Configure project :validation-native-adbd
+w: ⚠️ Native task 'runDebugExecutableMacosArm64' is disabled
+Task 'runDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosArm64' is disabled
+Task 'runReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosArm64' is disabled
+Task 'runPairingDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosArm64' is disabled
+Task 'runPairingReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runDebugExecutableMacosX64' is disabled
+Task 'runDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosX64' is disabled
+Task 'runReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosX64' is disabled
+Task 'runPairingDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosX64' is disabled
+Task 'runPairingReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+
+> Task :validation-android-runtime:preBuild UP-TO-DATE
+> Task :validation-android-runtime:preDebugBuild UP-TO-DATE
+> Task :kadb:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :spake2-legacy:kmpPartiallyResolvedDependenciesChecker
+> Task :spake2-legacy:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :spake2-legacy:verifyPinnedSources
+> Task :validation-android-runtime:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :kadb:androidPreBuild UP-TO-DATE
+> Task :kadb:preAndroidMainBuild UP-TO-DATE
+> Task :spake2-legacy:compileAndroidMain UP-TO-DATE
+> Task :spake2-legacy:androidPreBuild UP-TO-DATE
+> Task :spake2-legacy:preAndroidMainBuild UP-TO-DATE
+> Task :spake2-legacy:bundleAndroidMainClassesToCompileJar UP-TO-DATE
+> Task :kadb:javaPreCompileAndroidMain UP-TO-DATE
+> Task :validation-android-runtime:generateDebugResources UP-TO-DATE
+> Task :validation-android-runtime:packageDebugResources UP-TO-DATE
+> Task :spake2-legacy:generateAndroidMainEmptyResourceFiles UP-TO-DATE
+> Task :validation-android-runtime:javaPreCompileDebug UP-TO-DATE
+> Task :kadb:compileAndroidMain UP-TO-DATE
+> Task :validation-android-runtime:generateDebugAssets UP-TO-DATE
+> Task :kadb:compileAndroidMainJavaWithJavac NO-SOURCE
+> Task :kadb:bundleAndroidMainClassesToCompileJar UP-TO-DATE
+> Task :kadb:generateAndroidMainEmptyResourceFiles UP-TO-DATE
+> Task :kadb:processAndroidMainJavaRes UP-TO-DATE
+> Task :spake2-legacy:processAndroidMainJavaRes UP-TO-DATE
+> Task :kadb:bundleAndroidMainClassesToRuntimeJar UP-TO-DATE
+> Task :spake2-legacy:bundleAndroidMainClassesToRuntimeJar UP-TO-DATE
+> Task :kadb:writeAndroidMainAarMetadata UP-TO-DATE
+> Task :spake2-legacy:writeAndroidMainAarMetadata UP-TO-DATE
+> Task :kadb:processAndroidMainManifest UP-TO-DATE
+> Task :spake2-legacy:processAndroidMainManifest UP-TO-DATE
+> Task :kadb:mergeAndroidMainJniLibFolders UP-TO-DATE
+> Task :kadb:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :kadb:copyAndroidMainJniLibsProjectOnly UP-TO-DATE
+> Task :spake2-legacy:mergeAndroidMainJniLibFolders UP-TO-DATE
+> Task :spake2-legacy:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :spake2-legacy:copyAndroidMainJniLibsProjectOnly UP-TO-DATE
+> Task :kadb:checkAndroidMainAarMetadata UP-TO-DATE
+> Task :kadb:extractAndroidMainAnnotations UP-TO-DATE
+> Task :validation-android-runtime:mergeDebugAssets UP-TO-DATE
+> Task :validation-android-runtime:processDebugNavigationResources UP-TO-DATE
+> Task :validation-android-runtime:parseDebugLocalResources UP-TO-DATE
+> Task :validation-android-runtime:generateDebugRFile UP-TO-DATE
+> Task :validation-android-runtime:compileDebugJavaWithJavac UP-TO-DATE
+> Task :validation-android-runtime:compressDebugAssets UP-TO-DATE
+> Task :validation-android-runtime:generateDebugGlobalSynthetics UP-TO-DATE
+> Task :kadb:mergeAndroidMainGeneratedProguardFiles
+> Task :validation-android-runtime:processDebugJavaRes NO-SOURCE
+> Task :kadb:mergeAndroidMainConsumerProguardFiles
+> Task :kadb:prepareAndroidMainArtProfile
+> Task :kadb:prepareLintJarForPublish
+> Task :validation-android-runtime:checkDebugDuplicateClasses UP-TO-DATE
+> Task :validation-android-runtime:desugarDebugFileDependencies UP-TO-DATE
+> Task :validation-android-runtime:mergeExtDexDebug UP-TO-DATE
+> Task :validation-android-runtime:mergeDebugJavaResource
+> Task :validation-android-runtime:checkDebugAarMetadata
+> Task :validation-android-runtime:mapDebugSourceSetPaths
+> Task :validation-android-runtime:compileDebugNavigationResources
+> Task :validation-android-runtime:mergeLibDexDebug
+> Task :validation-android-runtime:createDebugCompatibleScreenManifests
+> Task :validation-android-runtime:extractDeepLinksDebug
+> Task :validation-android-runtime:mergeDebugResources
+> Task :kadb:mergeAndroidMainJavaResource
+> Task :validation-android-runtime:processDebugMainManifest
+> Task :validation-android-runtime:processDebugManifest
+> Task :validation-android-runtime:processDebugManifestForPackage
+> Task :kadb:syncAndroidMainLibJars
+> Task :kadb:bundleAndroidMainAar
+> Task :kadb-mdns:androidPreBuild UP-TO-DATE
+> Task :kadb-mdns:preAndroidMainBuild UP-TO-DATE
+> Task :kadb-mdns:checkAndroidMainAarMetadata
+> Task :kadb-mdns:mergeAndroidMainJniLibFolders
+> Task :kadb-mdns:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :kadb-mdns:copyAndroidMainJniLibsProjectOnly
+> Task :kadb-mdns:extractAndroidMainAnnotations
+> Task :kadb-mdns:generateAndroidMainEmptyResourceFiles
+> Task :kadb-mdns:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb-mdns:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kadb-mdns:compileAndroidMain UP-TO-DATE
+> Task :kadb-mdns:javaPreCompileAndroidMain UP-TO-DATE
+> Task :kadb-mdns:compileAndroidMainJavaWithJavac NO-SOURCE
+> Task :kadb-mdns:mergeAndroidMainGeneratedProguardFiles
+> Task :kadb-mdns:mergeAndroidMainConsumerProguardFiles
+> Task :kadb-mdns:prepareAndroidMainArtProfile
+> Task :kadb-mdns:prepareLintJarForPublish
+> Task :kadb-mdns:processAndroidMainManifest
+> Task :kadb-mdns:processAndroidMainJavaRes UP-TO-DATE
+> Task :kadb-mdns:mergeAndroidMainJavaResource
+> Task :validation-android-runtime:mergeDebugJniLibFolders
+> Task :validation-android-runtime:mergeDebugNativeLibs NO-SOURCE
+> Task :validation-android-runtime:stripDebugDebugSymbols NO-SOURCE
+> Task :validation-android-runtime:processDebugResources
+> Task :kadb-mdns:syncAndroidMainLibJars
+> Task :kadb-mdns:writeAndroidMainAarMetadata
+> Task :kadb-mdns:bundleAndroidMainAar
+
+> Task :validation-android-runtime:generateRuntimeKeyStore
+Generating 2048-bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 3,650 days
+	for: CN=Kadb disposable Android runtime validation
+
+> Task :validation-android-runtime:dexBuilderDebug
+> Task :validation-android-runtime:validateSigningDebug
+> Task :validation-android-runtime:writeDebugAppMetadata
+> Task :validation-android-runtime:writeDebugSigningConfigVersions
+> Task :validation-android-runtime:mergeProjectDexDebug
+
+> Task :validation-android-runtime:recordRuntimeClasspath
+ANDROID_RUNTIME_CLASSPATH_RECORDED /tmp/kadb-android-runtime-696a85f/validation/android-runtime/build/reports/debug-runtime-classpath.json
+
+> Task :validation-android-runtime:packageDebug
+> Task :validation-android-runtime:createDebugApkListingFileRedirect
+> Task :validation-android-runtime:assembleDebug
+
+[Incubating] Problems report is available at: file:///tmp/kadb-android-runtime-696a85f/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 3m 5s
+84 actionable tasks: 47 executed, 37 up-to-date

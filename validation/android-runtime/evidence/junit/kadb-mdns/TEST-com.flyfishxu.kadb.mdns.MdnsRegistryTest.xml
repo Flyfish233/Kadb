@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.mdns.MdnsRegistryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:15:12.374Z" hostname="c9d49951d07d" time="0.331">
+  <properties/>
+  <testcase name="removesEndpointByNameAndServiceType" classname="com.flyfishxu.kadb.mdns.MdnsRegistryTest" time="0.142"/>
+  <testcase name="ignoresInvalidEndpointsAndDisabledServiceTypes" classname="com.flyfishxu.kadb.mdns.MdnsRegistryTest" time="0.005"/>
+  <testcase name="groupsConnectAndPairingDevices" classname="com.flyfishxu.kadb.mdns.MdnsRegistryTest" time="0.114"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

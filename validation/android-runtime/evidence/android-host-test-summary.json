@@ -1,0 +1,296 @@
+{
+  "suites": [
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.InstallSessionLifecycleTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.InstallSessionWireLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.InstallSessionWireLifecycleTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest.xml",
+      "suite": "com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbConnectionLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.KadbConnectionLifecycleTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbFileBinaryCompatibilityTest.xml",
+      "suite": "com.flyfishxu.kadb.KadbFileBinaryCompatibilityTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbTransportFailureTest.xml",
+      "suite": "com.flyfishxu.kadb.KadbTransportFailureTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.IdentityCompatibilityTest.xml",
+      "suite": "com.flyfishxu.kadb.cert.IdentityCompatibilityTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "suite": "com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "suite": "com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "suite": "com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "suite": "com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "suite": "com.flyfishxu.kadb.core.AdbOpenCancellationTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "suite": "com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.core.AdbWriterLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.core.AdbWriterLifecycleTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+      "cases": 6,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 6
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingCancellationTest.xml",
+      "suite": "com.flyfishxu.kadb.pair.PairingCancellationTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "suite": "com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingCompatibilityTest.xml",
+      "suite": "com.flyfishxu.kadb.pair.PairingCompatibilityTest",
+      "cases": 8,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 8
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "suite": "com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "suite": "com.flyfishxu.kadb.pair.PairingSpakeVectorTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.queue.AdbMessageQueueTest.xml",
+      "suite": "com.flyfishxu.kadb.queue.AdbMessageQueueTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "suite": "com.flyfishxu.kadb.queue.AdbStreamIdentityTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "suite": "com.flyfishxu.kadb.shell.AdbShellEncodingTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.stream.AdbStreamTransferTest.xml",
+      "suite": "com.flyfishxu.kadb.stream.AdbStreamTransferTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.PlainBlockingChannelTest.xml",
+      "suite": "com.flyfishxu.kadb.transport.PlainBlockingChannelTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.TlsFailureLifecycleTest.xml",
+      "suite": "com.flyfishxu.kadb.transport.TlsFailureLifecycleTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.UsbHandshakeTest.xml",
+      "suite": "com.flyfishxu.kadb.transport.UsbHandshakeTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.UsbPacketChannelTest.xml",
+      "suite": "com.flyfishxu.kadb.transport.UsbPacketChannelTest",
+      "cases": 5,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 5
+    },
+    {
+      "file": "kadb-mdns/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "suite": "com.flyfishxu.kadb.mdns.MdnsRegistryTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb-mdns/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "suite": "com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    }
+  ],
+  "executed": 107,
+  "failed": 0,
+  "device_coverage": "Not established by this summary; requires explicit device evidence.",
+  "missing_required_test_groups": []
+}

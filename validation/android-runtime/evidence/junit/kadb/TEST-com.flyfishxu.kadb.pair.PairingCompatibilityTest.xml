@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.pair.PairingCompatibilityTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:19.322Z" hostname="c9d49951d07d" time="2.79">
+  <properties/>
+  <testcase name="rejectsAuthenticatedEmptyDeviceGuid" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.526"/>
+  <testcase name="rejectsAuthenticatedWrongPeerInfoSize" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.383"/>
+  <testcase name="rejectsAuthenticatedClientKeyAsServerIdentity" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.226"/>
+  <testcase name="cipherUsesIndependentLittleEndianCountersAndRejectsReplay" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.019"/>
+  <testcase name="rejectsAuthenticatedUnterminatedDeviceGuid" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.363"/>
+  <testcase name="rejectsAuthenticatedUnknownPeerInfoType" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.409"/>
+  <testcase name="rejectsWrongPairingCode" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.299"/>
+  <testcase name="pairsOverTlsWithSessionBindingAndBigEndianFrames" classname="com.flyfishxu.kadb.pair.PairingCompatibilityTest" time="0.559"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

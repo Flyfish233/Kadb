@@ -1,0 +1,60 @@
+// Validation-only provenance export. Invoke after assembleDebug with --no-configuration-cache.
+// Records the actual production APK runtime configuration, not Host Test or Java peer dependencies.
+import groovy.json.JsonOutput
+import org.gradle.api.artifacts.component.ModuleComponentIdentifier
+import org.gradle.api.artifacts.component.ProjectComponentIdentifier
+import org.gradle.api.artifacts.type.ArtifactTypeDefinition
+import java.security.MessageDigest
+
+allprojects { target ->
+    if (target.path == ':validation-android-runtime') {
+        target.tasks.register('recordRuntimeClasspath') {
+            notCompatibleWithConfigurationCache('Explicit one-off resolved artifact provenance export')
+            doLast {
+                def configuration = target.configurations.getByName('debugRuntimeClasspath')
+                // AGP publishes multiple project artifact variants. The unqualified
+                // incoming.artifacts view is ambiguous even though the APK resolves.
+                // Keep external archives untransformed; select the actual Android
+                // classes view separately for production project artifacts.
+                def externalArtifacts = configuration.incoming.artifactView {
+                    componentFilter { it instanceof ModuleComponentIdentifier }
+                }.artifacts.artifacts
+                def projectArtifacts = configuration.incoming.artifactView {
+                    componentFilter { it instanceof ProjectComponentIdentifier }
+                    attributes.attribute(ArtifactTypeDefinition.ARTIFACT_TYPE_ATTRIBUTE, 'android-classes-jar')
+                }.artifacts.artifacts
+                def entries = (externalArtifacts + projectArtifacts).collect { artifact ->
+                    def component = artifact.id.componentIdentifier
+                    def file = artifact.file
+                    if (!file.isFile()) throw new GradleException("Runtime artifact is not a regular file: ${file}")
+                    def attributes = artifact.variant.attributes.keySet().sort { it.name }.collectEntries {
+                        [(it.name): String.valueOf(artifact.variant.attributes.getAttribute(it))]
+                    }
+                    def external = component instanceof ModuleComponentIdentifier
+                    [kind: external ? 'external-module' : 'project',
+                     component: component.displayName,
+                     coordinate: external ? "${component.group}:${component.module}:${component.version}" : null,
+                     selection_view: external ? 'original external archives' : 'Android project classes JAR',
+                     artifact: artifact.id.displayName,
+                     variant: artifact.variant.displayName,
+                     attributes: attributes,
+                     file: file.canonicalPath,
+                     bytes: file.length(),
+                     sha256: MessageDigest.getInstance('SHA-256').digest(file.bytes).encodeHex().toString()]
+                }.sort { it.component + ':' + it.artifact }
+                def output = target.layout.buildDirectory.file('reports/debug-runtime-classpath.json').get().asFile
+                output.parentFile.mkdirs()
+                output.text = JsonOutput.prettyPrint(JsonOutput.toJson([
+                    schema: 1, project: target.path, configuration: configuration.name,
+                    scope: 'Actual resolved production APK runtime artifacts; no claim of corresponding-source completeness',
+                    resolved_components: configuration.incoming.resolutionResult.allComponents.collect {
+                        it.id.displayName
+                    }.sort(),
+                    external_modules: entries.findAll { it.kind == 'external-module' },
+                    project_artifacts: entries.findAll { it.kind == 'project' },
+                ])) + '\n'
+                println("ANDROID_RUNTIME_CLASSPATH_RECORDED ${output}")
+            }
+        }
+    }
+}

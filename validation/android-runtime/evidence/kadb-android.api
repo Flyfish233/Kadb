@@ -1,0 +1,394 @@
+public final class com/flyfishxu/kadb/DelayedAckMode : java/lang/Enum {
+	public static final field AOSP_DEFAULT Lcom/flyfishxu/kadb/DelayedAckMode;
+	public static final field DISABLED Lcom/flyfishxu/kadb/DelayedAckMode;
+	public static final field ENABLED Lcom/flyfishxu/kadb/DelayedAckMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/flyfishxu/kadb/DelayedAckMode;
+	public static fun values ()[Lcom/flyfishxu/kadb/DelayedAckMode;
+}
+
+public final class com/flyfishxu/kadb/Kadb : com/flyfishxu/kadb/KadbFileCompatibility, java/lang/AutoCloseable {
+	public static final field Companion Lcom/flyfishxu/kadb/Kadb$Companion;
+	public fun <init> (Ljava/lang/String;III)V
+	public synthetic fun <init> (Ljava/lang/String;IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;IIILcom/flyfishxu/kadb/KadbOptions;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun abbExec ([Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+	public fun close ()V
+	public final fun connectionCheck ()Z
+	public final fun execCmd ([Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+	public final fun install (Lokio/Path;[Ljava/lang/String;)V
+	public final fun install (Lokio/Source;J[Ljava/lang/String;)V
+	public final fun installMultiple (Ljava/util/Collection;[Ljava/lang/String;)V
+	public final fun open (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbStream;
+	public final fun openPtyShellSession (Ljava/lang/String;Ljava/lang/String;)Lcom/flyfishxu/kadb/shell/AdbPtyShellSession;
+	public static synthetic fun openPtyShellSession$default (Lcom/flyfishxu/kadb/Kadb;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/shell/AdbPtyShellSession;
+	public final fun openShell (Ljava/lang/String;)Lcom/flyfishxu/kadb/shell/AdbShellStream;
+	public static synthetic fun openShell$default (Lcom/flyfishxu/kadb/Kadb;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/shell/AdbShellStream;
+	public final fun openSync ()Lcom/flyfishxu/kadb/stream/AdbSyncStream;
+	public final fun pull (Lokio/Path;Ljava/lang/String;)V
+	public final fun pull (Lokio/Sink;Ljava/lang/String;)V
+	public final fun push (Lokio/Path;Ljava/lang/String;IJ)V
+	public final fun push (Lokio/Source;Ljava/lang/String;IJ)V
+	public static synthetic fun push$default (Lcom/flyfishxu/kadb/Kadb;Lokio/Path;Ljava/lang/String;IJILjava/lang/Object;)V
+	public final fun resetConnection ()V
+	public final fun root ()Ljava/lang/String;
+	public final fun shell (Ljava/lang/String;)Lcom/flyfishxu/kadb/shell/AdbShellResponse;
+	public final fun supportsFeature (Ljava/lang/String;)Z
+	public final fun tcpForward (II)Ljava/lang/AutoCloseable;
+	public final fun uninstall (Ljava/lang/String;)V
+	public final fun unroot ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/Kadb$Companion {
+	public final fun create (Ljava/lang/String;IIILcom/flyfishxu/kadb/KadbOptions;)Lcom/flyfishxu/kadb/Kadb;
+	public static synthetic fun create$default (Lcom/flyfishxu/kadb/Kadb$Companion;Ljava/lang/String;IIILcom/flyfishxu/kadb/KadbOptions;ILjava/lang/Object;)Lcom/flyfishxu/kadb/Kadb;
+	public final fun pair (Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun pair$default (Lcom/flyfishxu/kadb/Kadb$Companion;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun tcpForward (Ljava/lang/String;II)Ljava/lang/AutoCloseable;
+	public final fun tryConnection (Ljava/lang/String;ILcom/flyfishxu/kadb/KadbOptions;)Lcom/flyfishxu/kadb/Kadb;
+	public static synthetic fun tryConnection$default (Lcom/flyfishxu/kadb/Kadb$Companion;Ljava/lang/String;ILcom/flyfishxu/kadb/KadbOptions;ILjava/lang/Object;)Lcom/flyfishxu/kadb/Kadb;
+}
+
+public abstract class com/flyfishxu/kadb/KadbFileCompatibility {
+	public static final field Companion Lcom/flyfishxu/kadb/KadbFileCompatibility$Companion;
+	protected abstract fun getFileClient ()Lcom/flyfishxu/kadb/Kadb;
+	public final fun install (Ljava/io/File;[Ljava/lang/String;)V
+	public final fun installMultiple (Ljava/util/List;[Ljava/lang/String;)V
+	public final fun pull (Ljava/io/File;Ljava/lang/String;)V
+	public final fun push (Ljava/io/File;Ljava/lang/String;IJ)V
+	public static final synthetic fun push$default (Lcom/flyfishxu/kadb/Kadb;Ljava/io/File;Ljava/lang/String;IJILjava/lang/Object;)V
+	public static synthetic fun push$default (Lcom/flyfishxu/kadb/KadbFileCompatibility;Ljava/io/File;Ljava/lang/String;IJILjava/lang/Object;)V
+}
+
+public final class com/flyfishxu/kadb/KadbFileCompatibility$Companion {
+	public final synthetic fun push$default (Lcom/flyfishxu/kadb/Kadb;Ljava/io/File;Ljava/lang/String;IJILjava/lang/Object;)V
+}
+
+public final class com/flyfishxu/kadb/KadbOptions {
+	public fun <init> ()V
+	public fun <init> (Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;)V
+	public synthetic fun <init> (Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/flyfishxu/kadb/DelayedAckMode;
+	public final fun component2 ()Lcom/flyfishxu/kadb/TcpKeepAlive;
+	public final fun copy (Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;)Lcom/flyfishxu/kadb/KadbOptions;
+	public static synthetic fun copy$default (Lcom/flyfishxu/kadb/KadbOptions;Lcom/flyfishxu/kadb/DelayedAckMode;Lcom/flyfishxu/kadb/TcpKeepAlive;ILjava/lang/Object;)Lcom/flyfishxu/kadb/KadbOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDelayedAckMode ()Lcom/flyfishxu/kadb/DelayedAckMode;
+	public final fun getTcpKeepAlive ()Lcom/flyfishxu/kadb/TcpKeepAlive;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/Kadb_androidKt {
+	public static final fun install (Lcom/flyfishxu/kadb/Kadb;Landroidx/documentfile/provider/DocumentFile;Landroid/content/Context;)V
+	public static final fun pull (Lcom/flyfishxu/kadb/Kadb;Landroidx/documentfile/provider/DocumentFile;Ljava/lang/String;Landroid/content/Context;)V
+	public static final fun push (Lcom/flyfishxu/kadb/Kadb;Landroidx/documentfile/provider/DocumentFile;Ljava/lang/String;Landroid/content/Context;IJ)V
+	public static synthetic fun push$default (Lcom/flyfishxu/kadb/Kadb;Landroidx/documentfile/provider/DocumentFile;Ljava/lang/String;Landroid/content/Context;IJILjava/lang/Object;)V
+	public static final fun readMode (Lcom/flyfishxu/kadb/Kadb;Landroidx/documentfile/provider/DocumentFile;)I
+	public static final fun readMode (Lcom/flyfishxu/kadb/Kadb;Ljava/io/File;)I
+}
+
+public final class com/flyfishxu/kadb/TcpKeepAlive {
+	public fun <init> ()V
+	public fun <init> (III)V
+	public synthetic fun <init> (IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun copy (III)Lcom/flyfishxu/kadb/TcpKeepAlive;
+	public static synthetic fun copy$default (Lcom/flyfishxu/kadb/TcpKeepAlive;IIIILjava/lang/Object;)Lcom/flyfishxu/kadb/TcpKeepAlive;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIdleSeconds ()I
+	public final fun getIntervalSeconds ()I
+	public final fun getProbeCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/cert/InMemoryPrivateKeyStore : com/flyfishxu/kadb/cert/KadbPrivateKeyStore {
+	public fun <init> ()V
+	public fun clear ()V
+	public fun readPrivateKeyPem ()[B
+	public fun writePrivateKeyPemAtomic ([B)V
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCert {
+	public static final field INSTANCE Lcom/flyfishxu/kadb/cert/KadbCert;
+	public final fun clear ()V
+	public final fun configure (Lcom/flyfishxu/kadb/cert/KadbPrivateKeyStore;Lcom/flyfishxu/kadb/cert/KadbCertPolicy;Ljava/util/List;)V
+	public static synthetic fun configure$default (Lcom/flyfishxu/kadb/cert/KadbCert;Lcom/flyfishxu/kadb/cert/KadbPrivateKeyStore;Lcom/flyfishxu/kadb/cert/KadbCertPolicy;Ljava/util/List;ILjava/lang/Object;)V
+	public final fun ensureReady ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public final fun exportIdentityOrNull ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public final fun exportPrivateKeyOrNull ()[B
+	public final fun importIdentity ([B[B)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public static synthetic fun importIdentity$default (Lcom/flyfishxu/kadb/cert/KadbCert;[B[BILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public final fun importPrivateKey ([B)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public final fun rotate ()Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+}
+
+public abstract class com/flyfishxu/kadb/cert/KadbCertException : java/lang/RuntimeException {
+	public static final field Companion Lcom/flyfishxu/kadb/cert/KadbCertException$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertException$Companion {
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertException$PolicyViolation : com/flyfishxu/kadb/cert/KadbCertException {
+	public fun <init> (Ljava/lang/String;Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertException$PrivateKeyParseFailed : com/flyfishxu/kadb/cert/KadbCertException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertException$StoreReadFailed : com/flyfishxu/kadb/cert/KadbCertException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertException$StoreWriteFailed : com/flyfishxu/kadb/cert/KadbCertException {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Throwable;)V
+	public synthetic fun <init> (Ljava/lang/Throwable;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertPolicy {
+	public fun <init> ()V
+	public fun <init> (IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;)V
+	public synthetic fun <init> (IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun component4 ()Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+	public final fun copy (IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy;
+	public static synthetic fun copy$default (Lcom/flyfishxu/kadb/cert/KadbCertPolicy;IIZLcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAutoHealInvalidPrivateKey ()Z
+	public final fun getCertValidityDays ()I
+	public final fun getKeySizeBits ()I
+	public final fun getSubject ()Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/cert/KadbCertPolicy$Subject {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+	public static synthetic fun copy$default (Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbCertPolicy$Subject;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getC ()Ljava/lang/String;
+	public final fun getCn ()Ljava/lang/String;
+	public final fun getL ()Ljava/lang/String;
+	public final fun getO ()Ljava/lang/String;
+	public final fun getOu ()Ljava/lang/String;
+	public final fun getSt ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/cert/KadbIdentitySnapshot {
+	public fun <init> ([B[BLjava/lang/String;J)V
+	public final fun component1 ()[B
+	public final fun component2 ()[B
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()J
+	public final fun copy ([B[BLjava/lang/String;J)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public static synthetic fun copy$default (Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;[B[BLjava/lang/String;JILjava/lang/Object;)Lcom/flyfishxu/kadb/cert/KadbIdentitySnapshot;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCertificatePem ()[B
+	public final fun getFingerprintSha256 ()Ljava/lang/String;
+	public final fun getNotAfterEpochMillis ()J
+	public final fun getPrivateKeyPem ()[B
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/flyfishxu/kadb/cert/KadbPrivateKeyStore {
+	public abstract fun clear ()V
+	public abstract fun readPrivateKeyPem ()[B
+	public abstract fun writePrivateKeyPemAtomic ([B)V
+}
+
+public final class com/flyfishxu/kadb/cert/OkioFilePrivateKeyStore : com/flyfishxu/kadb/cert/KadbPrivateKeyStore {
+	public fun <init> (Lokio/Path;Lokio/FileSystem;)V
+	public synthetic fun <init> (Lokio/Path;Lokio/FileSystem;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun clear ()V
+	public fun readPrivateKeyPem ()[B
+	public fun writePrivateKeyPemAtomic ([B)V
+}
+
+public final class com/flyfishxu/kadb/cert/platform/DefaultDeviceName_androidKt {
+	public static final fun defaultDeviceName (Ljava/lang/String;)Ljava/lang/String;
+	public static synthetic fun defaultDeviceName$default (Ljava/lang/String;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/exception/AdbAuthException : java/io/IOException {
+	public fun <init> ()V
+}
+
+public final class com/flyfishxu/kadb/exception/AdbPairAuthException : java/io/IOException {
+	public fun <init> ()V
+}
+
+public final class com/flyfishxu/kadb/shell/AdbPtyShellSession : java/lang/AutoCloseable {
+	public fun close ()V
+	public final fun closeStdin ()V
+	public final fun read ()Lcom/flyfishxu/kadb/shell/AdbShellPacket;
+	public final fun resize (IIII)V
+	public static synthetic fun resize$default (Lcom/flyfishxu/kadb/shell/AdbPtyShellSession;IIIIILjava/lang/Object;)V
+	public final fun write (Ljava/lang/String;)V
+	public final fun write ([B)V
+}
+
+public abstract class com/flyfishxu/kadb/shell/AdbShellPacket {
+	public synthetic fun <init> ([BLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public abstract fun getId ()I
+	public fun getPayload ()[B
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellPacket$Exit : com/flyfishxu/kadb/shell/AdbShellPacket {
+	public fun <init> ([B)V
+	public fun getId ()I
+	public fun getPayload ()[B
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellPacket$StdError : com/flyfishxu/kadb/shell/AdbShellPacket {
+	public fun <init> ([B)V
+	public fun getId ()I
+	public fun getPayload ()[B
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellPacket$StdOut : com/flyfishxu/kadb/shell/AdbShellPacket {
+	public fun <init> ([B)V
+	public fun getId ()I
+	public fun getPayload ()[B
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellPacketV2 {
+	public static final field Companion Lcom/flyfishxu/kadb/shell/AdbShellPacketV2$Companion;
+	public static final field ID_CLOSE_STDIN I
+	public static final field ID_EXIT I
+	public static final field ID_INVALID I
+	public static final field ID_STDERR I
+	public static final field ID_STDIN I
+	public static final field ID_STDOUT I
+	public static final field ID_WINDOW_SIZE_CHANGE I
+	public fun <init> ()V
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellPacketV2$Companion {
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellResponse {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;I)V
+	public final fun getAllOutput ()Ljava/lang/String;
+	public final fun getErrorOutput ()Ljava/lang/String;
+	public final fun getExitCode ()I
+	public final fun getOutput ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/flyfishxu/kadb/shell/AdbShellStream : java/lang/AutoCloseable {
+	public fun <init> (Lcom/flyfishxu/kadb/stream/AdbStream;)V
+	public fun close ()V
+	public final fun closeStdin ()V
+	public final fun read ()Lcom/flyfishxu/kadb/shell/AdbShellPacket;
+	public final fun readAll ()Lcom/flyfishxu/kadb/shell/AdbShellResponse;
+	public final fun resize (IIII)V
+	public static synthetic fun resize$default (Lcom/flyfishxu/kadb/shell/AdbShellStream;IIIIILjava/lang/Object;)V
+	public final fun write (I[B)V
+	public final fun write (Ljava/lang/String;)V
+	public final fun write ([B)V
+	public static synthetic fun write$default (Lcom/flyfishxu/kadb/shell/AdbShellStream;I[BILjava/lang/Object;)V
+}
+
+public final class com/flyfishxu/kadb/stream/AdbStream : java/lang/AutoCloseable {
+	public fun close ()V
+	public final fun getSink ()Lokio/BufferedSink;
+	public final fun getSource ()Lokio/BufferedSource;
+}
+
+public final class com/flyfishxu/kadb/stream/AdbSyncDirEntry {
+	public fun <init> (Ljava/lang/String;IJJLjava/lang/Integer;)V
+	public final fun getErrorCode ()Ljava/lang/Integer;
+	public final fun getMode ()I
+	public final fun getMtimeSec ()J
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSize ()J
+}
+
+public final class com/flyfishxu/kadb/stream/AdbSyncDirEntryV2 {
+	public fun <init> (Ljava/lang/String;IJJIIIIJJJJ)V
+	public final fun getAtimeSec ()J
+	public final fun getCtimeSec ()J
+	public final fun getDev ()J
+	public final fun getErrorCode ()I
+	public final fun getGid ()I
+	public final fun getIno ()J
+	public final fun getMode ()I
+	public final fun getMtimeSec ()J
+	public final fun getName ()Ljava/lang/String;
+	public final fun getNlink ()I
+	public final fun getSize ()J
+	public final fun getUid ()I
+}
+
+public final class com/flyfishxu/kadb/stream/AdbSyncStat {
+	public fun <init> (IJJ)V
+	public final fun getMode ()I
+	public final fun getMtimeSec ()J
+	public final fun getSize ()J
+}
+
+public final class com/flyfishxu/kadb/stream/AdbSyncStatV2 {
+	public fun <init> (IJJIIIIJJJJ)V
+	public final fun getAtimeSec ()J
+	public final fun getCtimeSec ()J
+	public final fun getDev ()J
+	public final fun getErrorCode ()I
+	public final fun getGid ()I
+	public final fun getIno ()J
+	public final fun getMode ()I
+	public final fun getMtimeSec ()J
+	public final fun getNlink ()I
+	public final fun getSize ()J
+	public final fun getUid ()I
+}
+
+public final class com/flyfishxu/kadb/stream/AdbSyncStream : java/lang/AutoCloseable {
+	public fun <init> (Lcom/flyfishxu/kadb/stream/AdbStream;Ljava/util/Set;)V
+	public synthetic fun <init> (Lcom/flyfishxu/kadb/stream/AdbStream;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
+	public final fun list (Ljava/lang/String;)Ljava/util/List;
+	public final fun listV2 (Ljava/lang/String;)Ljava/util/List;
+	public final fun lstat (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbSyncStat;
+	public final fun lstatV2 (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbSyncStatV2;
+	public final fun recv (Lokio/Sink;Ljava/lang/String;)V
+	public final fun send (Lokio/Source;Ljava/lang/String;IJ)V
+	public final fun statV2 (Ljava/lang/String;)Lcom/flyfishxu/kadb/stream/AdbSyncStatV2;
+}
+
+public final class com/flyfishxu/kadb/usb/KadbUsb {
+	public static final field INSTANCE Lcom/flyfishxu/kadb/usb/KadbUsb;
+	public final fun create (Landroid/content/Context;Landroid/hardware/usb/UsbDevice;Lcom/flyfishxu/kadb/KadbOptions;)Lcom/flyfishxu/kadb/Kadb;
+	public static synthetic fun create$default (Lcom/flyfishxu/kadb/usb/KadbUsb;Landroid/content/Context;Landroid/hardware/usb/UsbDevice;Lcom/flyfishxu/kadb/KadbOptions;ILjava/lang/Object;)Lcom/flyfishxu/kadb/Kadb;
+	public final fun devices (Landroid/hardware/usb/UsbManager;)Ljava/util/List;
+	public final fun isAdbDevice (Landroid/hardware/usb/UsbDevice;)Z
+}

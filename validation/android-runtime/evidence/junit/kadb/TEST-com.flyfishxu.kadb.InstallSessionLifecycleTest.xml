@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.InstallSessionLifecycleTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:02.484Z" hostname="c9d49951d07d" time="0.7">
+  <properties/>
+  <testcase name="successfulWritesDoNotAbandonTheSession" classname="com.flyfishxu.kadb.InstallSessionLifecycleTest" time="0.153"/>
+  <testcase name="cancellationDuringWritesStillAttemptsToAbandon" classname="com.flyfishxu.kadb.InstallSessionLifecycleTest" time="0.137"/>
+  <testcase name="identicalCleanupExceptionCannotMaskTheOriginalWithSelfSuppression" classname="com.flyfishxu.kadb.InstallSessionLifecycleTest" time="0.044"/>
+  <testcase name="cleanupFailureIsSuppressedOnTheWriteFailure" classname="com.flyfishxu.kadb.InstallSessionLifecycleTest" time="0.194"/>
+  <testcase name="writeFailureAbandonsOnceAndKeepsTheOriginalException" classname="com.flyfishxu.kadb.InstallSessionLifecycleTest" time="0.02"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

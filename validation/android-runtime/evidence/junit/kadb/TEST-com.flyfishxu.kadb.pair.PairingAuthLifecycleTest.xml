@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:18.323Z" hostname="c9d49951d07d" time="0.283">
+  <properties/>
+  <testcase name="repeatedInitializationIsTerminal" classname="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.207"/>
+  <testcase name="invalidPeerMessageConsumesContext" classname="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.009"/>
+  <testcase name="nonceUsesAllSixtyFourBitsWithoutWrapping" classname="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.001"/>
+  <testcase name="failedAuthenticationConsumesTheKey" classname="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.045"/>
+  <testcase name="destructionErasesTheOwnedOutboundMessage" classname="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.011"/>
+  <testcase name="cannotEncryptBeforeKeyAgreement" classname="com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

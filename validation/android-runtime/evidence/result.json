@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "status": "local-build-and-host-validation-passed",
+  "captured_utc": "2026-10-26T12:28:38.581787+00:00",
+  "consumer_source_commit": "2ab85febb3bf98338257d1d5aca0d9e49e552b19",
+  "canonical_production_commit": "b17f418dd12c9a7dcc25021860266ebe24dc8039",
+  "local_production_commit": "41cc7ab760baf9ea12407415050e97959d2aebd1",
+  "identical_production_tree": "e36acd1fcca8d07a8d00b2616a44835dbfe42abc",
+  "build_attempts": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "executed_tasks": 55,
+      "reason": "Actual BC LICENSE.md resource collision; Host Tests still executed and passed",
+      "log": "build-attempt-1-failed.txt"
+    },
+    {
+      "attempt": 2,
+      "exit_code": 1,
+      "executed_tasks": 4,
+      "up_to_date_tasks": 21,
+      "reason": "Provenance exporter incorrectly used unqualified AGP project-artifact view",
+      "log": "build-attempt-2-inventory-failed.txt"
+    },
+    {
+      "attempt": 3,
+      "exit_code": 0,
+      "executed_tasks": 47,
+      "up_to_date_tasks": 37,
+      "log": "build-attempt-3-passed.txt"
+    }
+  ],
+  "apk": {
+    "path": "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk",
+    "bytes": 5582037,
+    "sha256": "4538e33e848955a99b1bb012beab0da37d961574eeb5c6d86517272dee57dc5a"
+  },
+  "aar_artifacts": [
+    {
+      "path": "kadb/build/outputs/aar/kadb.aar",
+      "bytes": 318468,
+      "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+    },
+    {
+      "path": "kadb-mdns/build/outputs/aar/kadb-mdns.aar",
+      "bytes": 36341,
+      "sha256": "a8a913ab0693ab8690bcacc0c0874c71c3a91fa13ee35be02b42cf2064dce7df"
+    }
+  ],
+  "dex_files": 6,
+  "dex_class_definitions": 11751,
+  "apk_permission_inventory": [
+    "android.permission.INTERNET"
+  ],
+  "apk_v1_v2_signature_verified": true,
+  "host_tests": {
+    "executed": 107,
+    "failed": 0,
+    "skipped": 0,
+    "kadb": 102,
+    "kadb_mdns": 5
+  },
+  "android_api": [
+    {
+      "module": "kadb",
+      "baseline": {
+        "path": "validation/baseline/baseline-android.api",
+        "bytes": 21079,
+        "sha256": "6bde68959f1149df541a580dab02362fb05e7a9150b0d2e284638a6b18137f35"
+      },
+      "actual": {
+        "path": "validation/android-runtime/evidence/kadb-android.api",
+        "bytes": 21079,
+        "sha256": "6bde68959f1149df541a580dab02362fb05e7a9150b0d2e284638a6b18137f35"
+      },
+      "diff_exit_code": 0,
+      "exact_match": true
+    },
+    {
+      "module": "kadb-mdns",
+      "baseline": {
+        "path": "validation/baseline/baseline-mdns-android.api",
+        "bytes": 4999,
+        "sha256": "55f4e568ae4bd6196fdb3abeb01b4c6c30d476fc512ae8c91bd4213637fd9dd9"
+      },
+      "actual": {
+        "path": "validation/android-runtime/evidence/kadb-mdns-android.api",
+        "bytes": 4999,
+        "sha256": "55f4e568ae4bd6196fdb3abeb01b4c6c30d476fc512ae8c91bd4213637fd9dd9"
+      },
+      "diff_exit_code": 0,
+      "exact_match": true
+    }
+  ],
+  "validation_gate_tests": {
+    "executed": 7,
+    "failed": 0,
+    "scope": "Infrastructure, not ART"
+  },
+  "reference_preflight": {
+    "artifacts_verified": 7,
+    "compiled_classes_hashed": 2,
+    "pairing_sessions_executed": 0
+  },
+  "runtime_graph": {
+    "external_artifacts": 21,
+    "project_artifacts": 2,
+    "inventory": {
+      "path": "validation/android-runtime/evidence/debug-runtime-classpath.json",
+      "bytes": 26948,
+      "sha256": "baf3c5ef8b0a51a7ca20e7061a4c65a71065ee6d68ad5589c108b11333b521d6"
+    }
+  },
+  "scope": {
+    "android_compilation": true,
+    "real_apk_d8_packaging": true,
+    "android_library_public_kotlin_api_comparison": true,
+    "android_host_tests": true,
+    "android_emulator_art": false,
+    "android_platform_tls_exporter": false,
+    "physical_device": false,
+    "real_adbd_pairing": false,
+    "security_or_performance_acceptance": false
+  },
+  "notable_invocation_error": "The first ABI invocation used kadb-android.aar rather than the actual AGP output kadb.aar; it failed before capture. Log retained as abi-invocation-wrong-path.txt. Correct actual AAR captures and both strict diffs passed."
+}

@@ -12,3 +12,4 @@ gradlew text eol=lf
 validation/jitpack/logs/*.log -whitespace
 validation/install-session/**/*.log -whitespace
 validation/sync-close/**/*.log -whitespace
+validation/android-runtime/evidence/build-attempt-*.txt -whitespace

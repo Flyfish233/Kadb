@@ -1,0 +1,11 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx256m -XX:ActiveProcessorCount=2
+Traceback (most recent call last):
+  File "/tmp/kadb-android-runtime-696a85f/validation/capture-kotlin-abi.py", line 82, in <module>
+    capture(args.archive, args.output, args.cache)
+  File "/tmp/kadb-android-runtime-696a85f/validation/capture-kotlin-abi.py", line 64, in capture
+    with zipfile.ZipFile(archive) as aar:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py", line 1353, in __init__
+    self.fp = io.open(file, filemode)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'kadb/build/outputs/aar/kadb-android.aar'

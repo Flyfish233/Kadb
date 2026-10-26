@@ -1,0 +1,3 @@
+Picked up JAVA_TOOL_OPTIONS: -Xmx256m -XX:ActiveProcessorCount=2
+Picked up JAVA_TOOL_OPTIONS: -Xmx256m -XX:ActiveProcessorCount=2
+Captured 92 Kotlin-public ABI lines from kadb-mdns.aar

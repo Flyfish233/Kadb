@@ -1,0 +1,849 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/workspace/scratch/db79b63d76cf/gradle-cache/wrapper/dists/gradle-9.6.0-bin/42k10rwplmzkhuboz9kdazi7s/gradle-9.6.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :kadb
+w: ⚠️ Native task 'iosSimulatorArm64Test' is disabled
+Task 'iosSimulatorArm64Test' for target 'ios_simulator_arm64' cannot run on the current host (linux-x86_64).
+Reason: simulator tests require macOS
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosArm64Test' is disabled
+Task 'macosArm64Test' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosX64Test' is disabled
+Task 'macosX64Test' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosSimulatorArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosSimulatorArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'macosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'macosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'macosX64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'macosX64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Disabled Kotlin/Native Targets
+The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, macosArm64, macosX64
+Solution: To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :validation-android-fixture
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+
+> Configure project :validation-android-runtime
+w: file:///tmp/kadb-android-runtime-696a85f/validation/android-runtime/build.gradle.kts:13:38: 'fun <U : Task> RegisteringDomainObjectDelegateProviderWithTypeAndAction<out TaskContainer, U>.provideDelegate(receiver: Any?, property: KProperty<*>): ExistingDomainObjectDelegate<TaskProvider<U>>' is deprecated. Use 'val task = tasks.register<Type>(name) { }' instead. See the Gradle 9.6 upgrading guide.
+w: file:///tmp/kadb-android-runtime-696a85f/validation/android-runtime/build.gradle.kts:13:38: 'fun <T : Any, C : PolymorphicDomainObjectContainer<T>, U : T> C.registering(type: KClass<U>, action: U.() -> Unit): RegisteringDomainObjectDelegateProviderWithTypeAndAction<out C, U>' is deprecated. Use 'val element = register<Type>(name) { }' instead. See the Gradle 9.6 upgrading guide.
+w: file:///tmp/kadb-android-runtime-696a85f/validation/android-runtime/build.gradle.kts:13:38: 'fun <T> ExistingDomainObjectDelegate<out T>.getValue(receiver: Any?, property: KProperty<*>): T' is deprecated. Use the named() API instead. See the Gradle 9.6 upgrading guide.
+w: file:///tmp/kadb-android-runtime-696a85f/validation/android-runtime/build.gradle.kts:26:1: 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+
+> Configure project :validation-native-adbd
+w: ⚠️ Native task 'runDebugExecutableMacosArm64' is disabled
+Task 'runDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosArm64' is disabled
+Task 'runReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosArm64' is disabled
+Task 'runPairingDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosArm64' is disabled
+Task 'runPairingReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runDebugExecutableMacosX64' is disabled
+Task 'runDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosX64' is disabled
+Task 'runReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosX64' is disabled
+Task 'runPairingDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosX64' is disabled
+Task 'runPairingReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+
+> Task :kadb:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :spake2-legacy:kmpPartiallyResolvedDependenciesChecker
+> Task :spake2-legacy:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :spake2-legacy:verifyPinnedSources
+> Task :spake2-legacy:compileAndroidMain UP-TO-DATE
+> Task :spake2-legacy:androidPreBuild UP-TO-DATE
+> Task :spake2-legacy:preAndroidMainBuild UP-TO-DATE
+> Task :spake2-legacy:bundleAndroidMainClassesToCompileJar UP-TO-DATE
+> Task :kadb:compileAndroidMain UP-TO-DATE
+> Task :kadb:androidPreBuild UP-TO-DATE
+> Task :kadb:preAndroidMainBuild UP-TO-DATE
+> Task :kadb:javaPreCompileAndroidMain UP-TO-DATE
+> Task :kadb:compileAndroidMainJavaWithJavac NO-SOURCE
+> Task :kadb:bundleAndroidMainClassesToCompileJar UP-TO-DATE
+> Task :kadb:generateAndroidMainEmptyResourceFiles UP-TO-DATE
+> Task :spake2-legacy:generateAndroidMainEmptyResourceFiles UP-TO-DATE
+> Task :kadb:processAndroidMainJavaRes UP-TO-DATE
+> Task :spake2-legacy:processAndroidMainJavaRes UP-TO-DATE
+> Task :kadb:bundleAndroidMainClassesToRuntimeJar UP-TO-DATE
+> Task :spake2-legacy:bundleAndroidMainClassesToRuntimeJar UP-TO-DATE
+> Task :kadb:writeAndroidMainAarMetadata UP-TO-DATE
+> Task :spake2-legacy:writeAndroidMainAarMetadata UP-TO-DATE
+> Task :kadb:processAndroidMainManifest UP-TO-DATE
+> Task :spake2-legacy:processAndroidMainManifest UP-TO-DATE
+> Task :kadb:mergeAndroidMainJniLibFolders UP-TO-DATE
+> Task :kadb:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :kadb:copyAndroidMainJniLibsProjectOnly UP-TO-DATE
+> Task :spake2-legacy:mergeAndroidMainJniLibFolders UP-TO-DATE
+> Task :spake2-legacy:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :spake2-legacy:copyAndroidMainJniLibsProjectOnly UP-TO-DATE
+> Task :kadb:checkAndroidMainAarMetadata UP-TO-DATE
+> Task :validation-android-runtime:recordRuntimeClasspath FAILED
+> Task :kadb:extractAndroidMainAnnotations UP-TO-DATE
+
+[Incubating] Problems report is available at: file:///tmp/kadb-android-runtime-696a85f/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Initialization script '/tmp/kadb-android-runtime-696a85f/validation/android-runtime/runtime-classpath.init.gradle' line: 13
+
+* What went wrong:
+Execution failed for task ':validation-android-runtime:recordRuntimeClasspath' (registered in initialization script 'validation/android-runtime/runtime-classpath.init.gradle').
+> Could not resolve all artifacts for configuration ':validation-android-runtime:debugRuntimeClasspath'.
+   > The consumer was configured to find a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm'. However we cannot choose between the following variants of project ':kadb':
+       - Configuration ':kadb:androidRuntimeElements' variant android-aar-metadata declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-aar-metadata' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-art-profile declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-art-profile' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-classes-jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-classes-jar' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-consumer-proguard-rules declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-consumer-proguard-rules' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-java-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-java-res' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-jni declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-jni' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-lint declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-lint' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-lint-local-aar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-lint-local-aar' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-manifest declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-manifest' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-navigation-xml declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-navigation-xml' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-res' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant android-symbol declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-symbol' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':kadb:androidRuntimeElements' variant jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'jar' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+   > The consumer was configured to find a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm'. However we cannot choose between the following variants of project ':spake2-legacy':
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-aar-metadata declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-aar-metadata' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-art-profile declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-art-profile' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-classes-jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-classes-jar' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-consumer-proguard-rules declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-consumer-proguard-rules' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-java-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-java-res' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-jni declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-jni' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-lint declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-lint' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-lint-local-aar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-lint-local-aar' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-manifest declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-manifest' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-navigation-xml declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-navigation-xml' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-res' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant android-symbol declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'android-symbol' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+       - Configuration ':spake2-legacy:androidRuntimeElements' variant jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+           - Unmatched attributes:
+               - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+               - Provides attribute 'artifactType' with value 'jar' but the consumer didn't ask for it
+               - Provides its elements packaged as a jar but the consumer didn't ask for it
+
+* Try:
+> Ambiguity errors are explained in more detail at https://docs.gradle.org/9.6.0/userguide/variant_model.html#sub:variant-ambiguity.
+> Review the variant matching algorithm at https://docs.gradle.org/9.6.0/userguide/variant_attributes.html#sec:abm_algorithm.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':validation-android-runtime:recordRuntimeClasspath' (registered in initialization script 'validation/android-runtime/runtime-classpath.init.gradle').
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$11(DefaultBuildLifecycleController.java:323)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:304)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$9(StateTransitionController.java:215)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:215)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:314)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:182)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:199)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:199)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.api.internal.artifacts.ivyservice.TypedResolveException: Could not resolve all artifacts for configuration ':validation-android-runtime:debugRuntimeClasspath'.
+	at org.gradle.api.internal.artifacts.ResolveExceptionMapper.mapFailures(ResolveExceptionMapper.java:61)
+	at org.gradle.api.internal.artifacts.configurations.DefaultConfiguration$DefaultResolutionHost.consolidateFailures(DefaultConfiguration.java:1803)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionHost.rethrowFailuresAndReportProblems(ResolutionHost.java:75)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.lambda$new$0(DefaultArtifactCollection.java:67)
+	at org.gradle.internal.model.CalculatedValueContainerFactory$SupplierBackedCalculator.calculateValue(CalculatedValueContainerFactory.java:69)
+	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.lambda$attachValue$0(CalculatedValueContainer.java:227)
+	at org.gradle.internal.Try.ofFailable(Try.java:46)
+	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.attachValue(CalculatedValueContainer.java:222)
+	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:195)
+	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:186)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.ensureResolved(DefaultArtifactCollection.java:123)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.getArtifacts(DefaultArtifactCollection.java:95)
+	at runtime_classpath_init_8ixlj4elfavj8oar3evvlq6aq$_run_closure1$_closure2$_closure3.doCall$original(/tmp/kadb-android-runtime-696a85f/validation/android-runtime/runtime-classpath.init.gradle:13)
+	at runtime_classpath_init_8ixlj4elfavj8oar3evvlq6aq$_run_closure1$_closure2$_closure3.doCall(/tmp/kadb-android-runtime-696a85f/validation/android-runtime/runtime-classpath.init.gradle)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.doExecute(AbstractTask.java:799)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.lambda$execute$0(AbstractTask.java:786)
+	at org.gradle.internal.code.DefaultUserCodeApplicationContext$CurrentApplication.reapply(DefaultUserCodeApplicationContext.java:99)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.execute(AbstractTask.java:786)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.execute(AbstractTask.java:762)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:167)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:137)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:134)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:134)
+	at org.gradle.internal.execution.steps.ExecuteStep$Mutable.execute(ExecuteStep.java:80)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:39)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:42)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:24)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+	at org.gradle.internal.Either$Right.fold(Either.java:176)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:70)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:32)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:69)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:85)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+	... 61 more
+Cause 1: org.gradle.internal.component.resolution.failure.exception.ArtifactSelectionException: The consumer was configured to find a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm'. However we cannot choose between the following variants of project ':kadb':
+  - Configuration ':kadb:androidRuntimeElements' variant android-aar-metadata declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-aar-metadata' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-art-profile declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-art-profile' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-classes-jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-classes-jar' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-consumer-proguard-rules declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-consumer-proguard-rules' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-java-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-java-res' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-jni declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-jni' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-lint declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-lint' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-lint-local-aar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-lint-local-aar' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-manifest declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-manifest' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-navigation-xml declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-navigation-xml' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-res' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant android-symbol declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-symbol' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':kadb:androidRuntimeElements' variant jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'jar' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+	at org.gradle.internal.component.resolution.failure.describer.AmbiguousArtifactsFailureDescriber.describeFailure(AmbiguousArtifactsFailureDescriber.java:52)
+	at org.gradle.internal.component.resolution.failure.describer.AmbiguousArtifactsFailureDescriber.describeFailure(AmbiguousArtifactsFailureDescriber.java:34)
+	at org.gradle.internal.component.resolution.failure.ResolutionFailureHandler.lambda$describeFailure$2(ResolutionFailureHandler.java:293)
+	at org.gradle.internal.component.resolution.failure.ResolutionFailureHandler.describeFailure(ResolutionFailureHandler.java:293)
+	at org.gradle.internal.component.resolution.failure.ResolutionFailureHandler.ambiguousArtifactsFailure(ResolutionFailureHandler.java:255)
+	at org.gradle.api.internal.artifacts.transform.AttributeMatchingArtifactVariantSelector.doSelect(AttributeMatchingArtifactVariantSelector.java:90)
+	at org.gradle.api.internal.artifacts.transform.AttributeMatchingArtifactVariantSelector.select(AttributeMatchingArtifactVariantSelector.java:70)
+	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.VariantResolvingArtifactSet.select(VariantResolvingArtifactSet.java:110)
+	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.DefaultVisitedArtifactResults.select(DefaultVisitedArtifactResults.java:42)
+	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.DefaultVisitedArtifactSet.select(DefaultVisitedArtifactSet.java:97)
+	at org.gradle.api.internal.artifacts.resolver.DefaultResolutionOutputs$DefaultArtifactView.selectArtifacts(DefaultResolutionOutputs.java:192)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionResultProvider$1.getValue(ResolutionResultProvider.java:54)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionResultProviderBackedSelectedArtifactSet.visitArtifacts(ResolutionResultProviderBackedSelectedArtifactSet.java:50)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.lambda$new$0(DefaultArtifactCollection.java:61)
+	... 172 more
+Cause 2: org.gradle.internal.component.resolution.failure.exception.ArtifactSelectionException: The consumer was configured to find a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'com.android.build.api.attributes.BuildTypeAttr' with value 'debug', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm'. However we cannot choose between the following variants of project ':spake2-legacy':
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-aar-metadata declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-aar-metadata' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-art-profile declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-art-profile' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-classes-jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-classes-jar' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-consumer-proguard-rules declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-consumer-proguard-rules' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-java-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-java-res' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-jni declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-jni' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-lint declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-lint' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-lint-local-aar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-lint-local-aar' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-manifest declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-manifest' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-navigation-xml declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-navigation-xml' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-res declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-res' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant android-symbol declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'android-symbol' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+  - Configuration ':spake2-legacy:androidRuntimeElements' variant jar declares a library for use during runtime, preferably optimized for Android, as well as attribute 'com.android.build.api.attributes.AgpVersionAttr' with value '9.4.0', attribute 'org.jetbrains.kotlin.platform.type' with value 'androidJvm':
+      - Unmatched attributes:
+          - Doesn't say anything about com.android.build.api.attributes.BuildTypeAttr (required 'debug')
+          - Provides attribute 'artifactType' with value 'jar' but the consumer didn't ask for it
+          - Provides its elements packaged as a jar but the consumer didn't ask for it
+	at org.gradle.internal.component.resolution.failure.describer.AmbiguousArtifactsFailureDescriber.describeFailure(AmbiguousArtifactsFailureDescriber.java:52)
+	at org.gradle.internal.component.resolution.failure.describer.AmbiguousArtifactsFailureDescriber.describeFailure(AmbiguousArtifactsFailureDescriber.java:34)
+	at org.gradle.internal.component.resolution.failure.ResolutionFailureHandler.lambda$describeFailure$2(ResolutionFailureHandler.java:293)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.gradle.internal.component.resolution.failure.ResolutionFailureHandler.describeFailure(ResolutionFailureHandler.java:293)
+	at org.gradle.internal.component.resolution.failure.ResolutionFailureHandler.ambiguousArtifactsFailure(ResolutionFailureHandler.java:255)
+	at org.gradle.api.internal.artifacts.transform.AttributeMatchingArtifactVariantSelector.doSelect(AttributeMatchingArtifactVariantSelector.java:90)
+	at org.gradle.api.internal.artifacts.transform.AttributeMatchingArtifactVariantSelector.select(AttributeMatchingArtifactVariantSelector.java:70)
+	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.VariantResolvingArtifactSet.select(VariantResolvingArtifactSet.java:110)
+	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.DefaultVisitedArtifactResults.select(DefaultVisitedArtifactResults.java:42)
+	at org.gradle.api.internal.artifacts.ivyservice.resolveengine.artifact.DefaultVisitedArtifactSet.select(DefaultVisitedArtifactSet.java:97)
+	at org.gradle.api.internal.artifacts.resolver.DefaultResolutionOutputs$DefaultArtifactView.selectArtifacts(DefaultResolutionOutputs.java:192)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionResultProvider$1.getValue(ResolutionResultProvider.java:54)
+	at org.gradle.api.internal.artifacts.configurations.ResolutionResultProviderBackedSelectedArtifactSet.visitArtifacts(ResolutionResultProviderBackedSelectedArtifactSet.java:50)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.lambda$new$0(DefaultArtifactCollection.java:61)
+	at org.gradle.internal.model.CalculatedValueContainerFactory$SupplierBackedCalculator.calculateValue(CalculatedValueContainerFactory.java:69)
+	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.lambda$attachValue$0(CalculatedValueContainer.java:227)
+	at org.gradle.internal.Try.ofFailable(Try.java:46)
+	at org.gradle.internal.model.CalculatedValueContainer$CalculationState.attachValue(CalculatedValueContainer.java:222)
+	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:195)
+	at org.gradle.internal.model.CalculatedValueContainer.finalizeIfNotAlready(CalculatedValueContainer.java:186)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.ensureResolved(DefaultArtifactCollection.java:123)
+	at org.gradle.api.internal.artifacts.configurations.DefaultArtifactCollection.getArtifacts(DefaultArtifactCollection.java:95)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at runtime_classpath_init_8ixlj4elfavj8oar3evvlq6aq$_run_closure1$_closure2$_closure3.doCall$original(/tmp/kadb-android-runtime-696a85f/validation/android-runtime/runtime-classpath.init.gradle:13)
+	at runtime_classpath_init_8ixlj4elfavj8oar3evvlq6aq$_run_closure1$_closure2$_closure3.doCall(/tmp/kadb-android-runtime-696a85f/validation/android-runtime/runtime-classpath.init.gradle)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:280)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1009)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:422)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.doExecute(AbstractTask.java:799)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.lambda$execute$0(AbstractTask.java:786)
+	at org.gradle.internal.code.DefaultUserCodeApplicationContext$CurrentApplication.reapply(DefaultUserCodeApplicationContext.java:99)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.execute(AbstractTask.java:786)
+	at org.gradle.api.internal.AbstractTask$ClosureTaskAction.execute(AbstractTask.java:762)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:167)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:137)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:134)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:134)
+	at org.gradle.internal.execution.steps.ExecuteStep$Mutable.execute(ExecuteStep.java:80)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:39)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:42)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:24)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+	at org.gradle.internal.Either$Right.fold(Either.java:176)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:70)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:32)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:69)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:85)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.execution.plan.DefaultPlanExecutor.process(DefaultPlanExecutor.java:111)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.executeWithServices(DefaultTaskExecutionGraph.java:146)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph.execute(DefaultTaskExecutionGraph.java:131)
+	at org.gradle.execution.SelectedTaskExecutionAction.execute(SelectedTaskExecutionAction.java:35)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor$ExecuteTasks.call(BuildOperationFiringBuildWorkerExecutor.java:43)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.execution.BuildOperationFiringBuildWorkerExecutor.execute(BuildOperationFiringBuildWorkerExecutor.java:40)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.lambda$executeTasks$11(DefaultBuildLifecycleController.java:323)
+	at org.gradle.internal.model.StateTransitionController.doTransition(StateTransitionController.java:304)
+	at org.gradle.internal.model.StateTransitionController.lambda$tryTransition$9(StateTransitionController.java:215)
+	at org.gradle.internal.work.DefaultSynchronizer.withLock(DefaultSynchronizer.java:45)
+	at org.gradle.internal.model.StateTransitionController.tryTransition(StateTransitionController.java:215)
+	at org.gradle.internal.build.DefaultBuildLifecycleController.executeTasks(DefaultBuildLifecycleController.java:314)
+	at org.gradle.internal.build.DefaultBuildWorkGraphController$DefaultBuildWorkGraph.runWork(DefaultBuildWorkGraphController.java:220)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.lambda$runAndReleaseLocks$0(DefaultWorkerLeaseService.java:300)
+	at org.gradle.internal.work.ResourceLockStatistics$1.measure(ResourceLockStatistics.java:43)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAndReleaseLocks(DefaultWorkerLeaseService.java:298)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocksAcquired(DefaultWorkerLeaseService.java:294)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:286)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:130)
+	at org.gradle.composite.internal.DefaultBuildController.doRun(DefaultBuildController.java:182)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.lambda$run$0(DefaultBuildController.java:199)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.composite.internal.DefaultBuildController$BuildOpRunnable.run(DefaultBuildController.java:199)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3m 41s
+25 actionable tasks: 4 executed, 21 up-to-date

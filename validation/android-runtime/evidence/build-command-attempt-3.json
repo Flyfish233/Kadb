@@ -1,0 +1,26 @@
+{
+  "cwd": "/tmp/kadb-android-runtime-696a85f",
+  "environment_overrides": {
+    "JAVA_HOME": "/workspace/scratch/db79b63d76cf/toolchains/jdk-25.0.5+8",
+    "ANDROID_HOME": "/workspace/scratch/db79b63d76cf/android-sdk",
+    "GRADLE_USER_HOME": "/workspace/scratch/db79b63d76cf/gradle-cache"
+  },
+  "argv": [
+    "./gradlew",
+    "-I",
+    "validation/android-runtime/runtime-classpath.init.gradle",
+    ":validation-android-runtime:assembleDebug",
+    ":kadb:bundleAndroidMainAar",
+    ":kadb-mdns:bundleAndroidMainAar",
+    ":validation-android-runtime:recordRuntimeClasspath",
+    "--continue",
+    "--no-daemon",
+    "--no-build-cache",
+    "--no-configuration-cache",
+    "--max-workers=2",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    "-Dorg.gradle.jvmargs=-Xmx1280m -XX:ActiveProcessorCount=2 -Dfile.encoding=UTF-8",
+    "--console=plain",
+    "--stacktrace"
+  ]
+}

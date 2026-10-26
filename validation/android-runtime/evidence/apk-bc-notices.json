@@ -1,0 +1,10 @@
+{
+  "status": "verified",
+  "path": "META-INF/LICENSE.md",
+  "original_notice_sha256": "0e01f1549c9022f406392ac2947d32223b7c2e977d21ea2f8c182fdeb4dae5fd",
+  "original_notice_bytes": 1171,
+  "merged_notice_sha256": "ef524b6f2495e950811323b4050422fe0925d148ca356346dada636193699a8d",
+  "merged_notice_bytes": 3513,
+  "original_copies_retained": 3,
+  "scope": "Actual APK retains all three BC LICENSE.md copies; only conflicting Java 9 OSGi bundle manifests excluded"
+}

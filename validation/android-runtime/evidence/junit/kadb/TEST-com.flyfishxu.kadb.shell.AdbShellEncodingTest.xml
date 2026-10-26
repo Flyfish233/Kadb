@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.shell.AdbShellEncodingTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:22.797Z" hostname="c9d49951d07d" time="0.015">
+  <properties/>
+  <testcase name="incompleteUtf8AtExitRetainsTheExistingReplacementPolicy" classname="com.flyfishxu.kadb.shell.AdbShellEncodingTest" time="0.009"/>
+  <testcase name="utf8CodePointsMayCrossShellPacketsAndInterleavedStderr" classname="com.flyfishxu.kadb.shell.AdbShellEncodingTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:22.119Z" hostname="c9d49951d07d" time="0.095">
+  <properties/>
+  <testcase name="wrongPasswordFailsAtAuthenticatedDecryption" classname="com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest" time="0.039"/>
+  <testcase name="pairsAndUsesIndependentNonceCounters" classname="com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest" time="0.056"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

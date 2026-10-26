@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.transport.PlainBlockingChannelTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:22.894Z" hostname="c9d49951d07d" time="0.025">
+  <properties/>
+  <testcase name="slicedAndDirectBuffersPreservePositionsAndBytes" classname="com.flyfishxu.kadb.transport.PlainBlockingChannelTest" time="0.025"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

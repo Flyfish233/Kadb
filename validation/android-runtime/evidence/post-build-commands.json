@@ -1,0 +1,102 @@
+{
+  "JAVA_TOOL_OPTIONS": "-Xmx256m -XX:ActiveProcessorCount=2",
+  "java_bin": "/workspace/scratch/db79b63d76cf/toolchains/jdk-25.0.5+8/bin",
+  "android_build_tools": "/workspace/scratch/db79b63d76cf/android-sdk/build-tools/37.0.0",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "validation/capture-kotlin-abi.py",
+        "kadb/build/outputs/aar/kadb.aar",
+        "validation/android-runtime/evidence/kadb-android.api",
+        "--cache",
+        "/workspace/scratch/db79b63d76cf/Kadb/.gradle/kadb-abi-tools"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "validation/capture-kotlin-abi.py",
+        "kadb-mdns/build/outputs/aar/kadb-mdns.aar",
+        "validation/android-runtime/evidence/kadb-mdns-android.api",
+        "--cache",
+        "/workspace/scratch/db79b63d76cf/Kadb/.gradle/kadb-abi-tools"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "diff",
+        "-u",
+        "validation/baseline/baseline-android.api",
+        "validation/android-runtime/evidence/kadb-android.api"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "diff",
+        "-u",
+        "validation/baseline/baseline-mdns-android.api",
+        "validation/android-runtime/evidence/kadb-mdns-android.api"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "validation/android-runtime/inspect_apk.py",
+        "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk",
+        "--output",
+        "validation/android-runtime/evidence/apk-dex-inventory.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "aapt2",
+        "dump",
+        "badging",
+        "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "aapt2",
+        "dump",
+        "xmltree",
+        "--file",
+        "AndroidManifest.xml",
+        "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "apksigner",
+        "verify",
+        "--verbose",
+        "--print-certs",
+        "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "validation/android-runtime",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

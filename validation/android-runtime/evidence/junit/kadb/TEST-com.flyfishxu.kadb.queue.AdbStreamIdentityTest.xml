@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.queue.AdbStreamIdentityTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:22.471Z" hostname="c9d49951d07d" time="0.319">
+  <properties/>
+  <testcase name="dataBeforeFirstOkayCannotEnterTheStream" classname="com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.019"/>
+  <testcase name="wrongRemoteCloseIsIgnoredButLegacyZeroCloseStillWorks" classname="com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.274"/>
+  <testcase name="zeroRemoteIdCannotEstablishAnOpen" classname="com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.01"/>
+  <testcase name="wrongRemoteIdCannotSupplyStreamData" classname="com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.006"/>
+  <testcase name="wrongRemoteIdCannotSupplyAcknowledgement" classname="com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

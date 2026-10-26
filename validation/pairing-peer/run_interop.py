@@ -26,25 +26,9 @@ def hash_file(path: Path) -> str:
         return hashlib.file_digest(source, "sha256").hexdigest()
 
 
-def execute(args, report: dict) -> None:
-    repo = Path(__file__).resolve().parents[2]
-    report["commit"] = subprocess.run(["git", "-C", repo, "rev-parse", "HEAD"], capture_output=True,
-                                       text=True, check=True, timeout=10).stdout.strip()
-    report["tracked_worktree_changes"] = subprocess.run(
-        ["git", "-C", repo, "status", "--porcelain", "--untracked-files=no"], capture_output=True,
-        text=True, check=True, timeout=10).stdout
-    consumer = args.consumer.resolve(strict=True)
-    if not os.access(consumer, os.X_OK):
-        raise RuntimeError("Native consumer is not executable")
-    with consumer.open("rb") as binary:
-        magic = binary.read(4)
-    if magic not in (b"\x7fELF", b"\xcf\xfa\xed\xfe", b"\xfe\xed\xfa\xcf", b"\xca\xfe\xba\xbe", b"\xbe\xba\xfe\xca"):
-        raise RuntimeError("Consumer is not a linked ELF/Mach-O binary")
-    report["consumer_sha256"] = hash_file(consumer)
-    report["consumer_bytes"] = consumer.stat().st_size
-    report["java_version"] = subprocess.run([args.java, "-version"], capture_output=True, text=True,
-                                             check=True, timeout=10).stderr.strip()
-    classpath = args.classpath_file.resolve(strict=True).read_text().strip()
+def verified_reference_classpath(classpath_file: Path, report: dict) -> str:
+    """Shared process-launch preflight; neither consumer duplicates the reference protocol."""
+    classpath = classpath_file.resolve(strict=True).read_text().strip()
     if not classpath or "\n" in classpath:
         raise RuntimeError("Malformed reference-classpath file")
     entries = [Path(entry).resolve(strict=True) for entry in classpath.split(os.pathsep)]
@@ -63,6 +47,28 @@ def execute(args, report: dict) -> None:
         raise RuntimeError("Reference class directory includes unrelated or Kadb production classes")
     report["reference_artifacts"] = artifacts
     report["reference_classes"] = class_files
+    return classpath
+
+
+def execute(args, report: dict) -> None:
+    repo = Path(__file__).resolve().parents[2]
+    report["commit"] = subprocess.run(["git", "-C", repo, "rev-parse", "HEAD"], capture_output=True,
+                                       text=True, check=True, timeout=10).stdout.strip()
+    report["tracked_worktree_changes"] = subprocess.run(
+        ["git", "-C", repo, "status", "--porcelain", "--untracked-files=no"], capture_output=True,
+        text=True, check=True, timeout=10).stdout
+    consumer = args.consumer.resolve(strict=True)
+    if not os.access(consumer, os.X_OK):
+        raise RuntimeError("Native consumer is not executable")
+    with consumer.open("rb") as binary:
+        magic = binary.read(4)
+    if magic not in (b"\x7fELF", b"\xcf\xfa\xed\xfe", b"\xfe\xed\xfa\xcf", b"\xca\xfe\xba\xbe", b"\xbe\xba\xfe\xca"):
+        raise RuntimeError("Consumer is not a linked ELF/Mach-O binary")
+    report["consumer_sha256"] = hash_file(consumer)
+    report["consumer_bytes"] = consumer.stat().st_size
+    report["java_version"] = subprocess.run([args.java, "-version"], capture_output=True, text=True,
+                                             check=True, timeout=10).stderr.strip()
+    classpath = verified_reference_classpath(args.classpath_file, report)
     ready = args.output / "peer-ready"
     command = [args.java, "--enable-native-access=ALL-UNNAMED", "-cp", classpath,
                "com.flyfishxu.kadb.validation.peer.IosPairingPeer", str(ready.resolve())]

@@ -1,0 +1,56 @@
+{
+  "consumer_source_commit": "2ab85febb3bf98338257d1d5aca0d9e49e552b19",
+  "canonical_production_commit": "b17f418dd12c9a7dcc25021860266ebe24dc8039",
+  "files": [
+    {
+      "path": "settings.gradle.kts",
+      "bytes": 1150,
+      "sha256": "68a5c1c8c10e066aff44b5376fc59d58f3a0cccf5f348df6abefa23dc23d23fd"
+    },
+    {
+      "path": "validation/android-runtime/README.md",
+      "bytes": 8613,
+      "sha256": "26112114dda6972d0230a41d1c7ae70b60c7fe3fd6ce4f814a7c7082fcd8d0b8"
+    },
+    {
+      "path": "validation/android-runtime/build.gradle.kts",
+      "bytes": 2092,
+      "sha256": "88870f0e652ec4aff15955e28996b064919a68903eee30c881b0d8780555f6ab"
+    },
+    {
+      "path": "validation/android-runtime/inspect_apk.py",
+      "bytes": 4344,
+      "sha256": "46eb6f8c6448477c5d4c355b2187f48ee120cda44780a489e76e7a01bc8e2393"
+    },
+    {
+      "path": "validation/android-runtime/run_android_runtime.py",
+      "bytes": 10816,
+      "sha256": "59c1319395a722c198db990188f479ec3e323eeb8c2635c6b9cafa32eae8732b"
+    },
+    {
+      "path": "validation/android-runtime/runtime-classpath.init.gradle",
+      "bytes": 3973,
+      "sha256": "b76d6cf1371525d25446ecda3e7f69b4cc7e134a63a667e4ef00e2a3c67e9eee"
+    },
+    {
+      "path": "validation/android-runtime/src/main/AndroidManifest.xml",
+      "bytes": 580,
+      "sha256": "296342bc0635329acd1fe139010d47d69c8e47aa7a8629632a0c5a5949d758b4"
+    },
+    {
+      "path": "validation/android-runtime/src/main/java/com/flyfishxu/kadb/validation/runtime/RuntimeInstrumentation.java",
+      "bytes": 12888,
+      "sha256": "17156852daddf2e35cc937e05f788a8a3c5e980e0bd5fb601c55e7bc3680276d"
+    },
+    {
+      "path": "validation/android-runtime/test_runtime_gate.py",
+      "bytes": 4236,
+      "sha256": "e6be75a2115e62363c1be4ae096ead4a917bdf5e01048afc097ea1e2233e5418"
+    },
+    {
+      "path": "validation/pairing-peer/run_interop.py",
+      "bytes": 8438,
+      "sha256": "242d0ef11b2c24b677a02450ec97041db0529c0cb13f3ce4a348ae958a660acc"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.InstallSessionWireLifecycleTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:04.053Z" hostname="c9d49951d07d" time="5.161">
+  <properties/>
+  <testcase name="legacyPushWriteFailureAbandonsTheCreatedSession" classname="com.flyfishxu.kadb.InstallSessionWireLifecycleTest" time="4.025"/>
+  <testcase name="execCmdWriteFailureAbandonsTheCreatedSession" classname="com.flyfishxu.kadb.InstallSessionWireLifecycleTest" time="0.361"/>
+  <testcase name="abbExecWriteFailureAbandonsTheCreatedSession" classname="com.flyfishxu.kadb.InstallSessionWireLifecycleTest" time="0.492"/>
+  <testcase name="abandonFailureDoesNotReplaceTheOriginalFileFailure" classname="com.flyfishxu.kadb.InstallSessionWireLifecycleTest" time="0.281"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

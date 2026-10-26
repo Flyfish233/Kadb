@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="false"
+        android:label="Kadb Android runtime validation"
+        android:supportsRtl="true" />
+    <instrumentation
+        android:name="com.flyfishxu.kadb.validation.runtime.RuntimeInstrumentation"
+        android:targetPackage="com.flyfishxu.kadb.validation.runtime"
+        android:label="Kadb public API and Android TLS validation" />
+</manifest>

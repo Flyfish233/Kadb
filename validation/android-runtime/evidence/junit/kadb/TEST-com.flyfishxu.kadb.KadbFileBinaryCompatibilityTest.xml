@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.KadbFileBinaryCompatibilityTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:13.305Z" hostname="c9d49951d07d" time="0.313">
+  <properties/>
+  <testcase name="oldFilePushDefaultDescriptorResolvesAndHonorsDefaultMasks" classname="com.flyfishxu.kadb.KadbFileBinaryCompatibilityTest" time="0.268"/>
+  <testcase name="apkMetadataFollowsSymlinksAndForwardingKeepsCheckedException" classname="com.flyfishxu.kadb.KadbFileBinaryCompatibilityTest" time="0.038"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

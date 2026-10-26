@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-26T12:14:22.873Z" hostname="c9d49951d07d" time="0.015">
+  <properties/>
+  <testcase name="quitWriteFailureStillRemovesTheStreamListener" classname="com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.005"/>
+  <testcase name="clseFailureAfterSuccessfulQuitStillRemovesTheListener" classname="com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.002"/>
+  <testcase name="successfulClosePreservesQuitThenClseWireSequence" classname="com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.002"/>
+  <testcase name="quitAndCloseFailuresKeepTheOriginalAndSuppressCleanup" classname="com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.003"/>
+  <testcase name="identicalQuitAndCloseFailureCannotCauseSelfSuppression" classname="com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
