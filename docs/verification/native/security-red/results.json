@@ -1,0 +1,66 @@
+{
+  "source_commit": "d261c7d",
+  "tests": [
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.AdbSessionNativeTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest",
+      "tests": "2",
+      "failures": "2",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest",
+      "tests": "4",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest",
+      "tests": "3",
+      "failures": "2",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest",
+      "tests": "1",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    },
+    {
+      "name": "linuxX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest",
+      "tests": "3",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0"
+    }
+  ],
+  "classification": "Expected failing security regressions; not a product health pass",
+  "c_archive_validation": "06-linux-clang-c-transport.log",
+  "command": "linuxX64Test -x buildNativeLinuxX64 --no-build-cache --no-configuration-cache -Pkotlin.incremental=false",
+  "evidence_redaction_manifest": "redaction-manifest.json",
+  "certificate_xml_is_unmodified_raw": false
+}

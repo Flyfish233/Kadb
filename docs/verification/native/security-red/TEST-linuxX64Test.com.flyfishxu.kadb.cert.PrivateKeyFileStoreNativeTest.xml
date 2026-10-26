@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest" tests="3" skipped="0" failures="2" errors="0" timestamp="2026-10-26T11:17:47.598Z" hostname="c9d49951d07d" time="0.008">
+  <properties/>
+  <testcase name="privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement[linuxX64]" classname="linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest" time="0.002">
+    <failure message="kotlin.AssertionError: kotlin.AssertionError: Private PEM mode must be 0600. Expected &lt;384&gt;, actual &lt;438&gt;." type="kotlin.AssertionError">kotlin.AssertionError: Private PEM mode must be 0600. Expected &lt;384&gt;, actual &lt;438&gt;.
+	at kotlin.Error#&lt;init&gt;(Unknown Source)
+	at kotlin.AssertionError#&lt;init&gt;(Unknown Source)
+	at kotlin.test.DefaultAsserter#fail(Unknown Source)
+	at kotlin.test.Asserter#fail(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertEquals(Unknown Source)
+	at kotlin.test.Asserter#assertEquals(Unknown Source)
+	at kotlin.test#assertEquals(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.assertOwnerOnly#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.PrivateKeyFileStoreNativeTest$privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement$1.invoke#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.PrivateKeyFileStoreNativeTest$privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement$1.$&lt;bridge-DNC&gt;invoke(Unknown Source)
+	at kotlin.Function1#invoke(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.inPrivateDirectory#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest#privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement(Unknown Source)
+	at com.flyfishxu.kadb.cert.$PrivateKeyFileStoreNativeTest$test$2.$PrivateKeyFileStoreNativeTest$test$2$$FUNCTION_REFERENCE_FOR$privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement$0.invoke#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.$PrivateKeyFileStoreNativeTest$test$2.$PrivateKeyFileStoreNativeTest$test$2$$FUNCTION_REFERENCE_FOR$privateKeyIsOwnerOnlyAndSurvivesAtomicReplacement$0.$&lt;bridge-DNC&gt;invoke(Unknown Source)
+	at kotlin.Function1#invoke(Unknown Source)
+	at kotlin.native.internal.test.BaseClassSuite.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#run__at__kotlin.native.internal.test.TestSuite(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#runIteration(Unknown Source)
+	at kotlin.native.internal.test.TestRunner#run(Unknown Source)
+	at kotlin.native.internal.test#testLauncherEntryPoint(Unknown Source)
+	at kotlin.native.internal.test#main(Unknown Source)
+	at &lt;global&gt;.Konan_start(Unknown Source)
+	at &lt;global&gt;.Init_and_run_start(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+	at &lt;global&gt;.__libc_start_main(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+</failure>
+  </testcase>
+  <testcase name="replacingSymlinkDoesNotOverwriteItsTarget[linuxX64]" classname="linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest" time="0.003">
+    <failure message="kotlin.AssertionError: kotlin.AssertionError: Private PEM mode must be 0600. Expected &lt;384&gt;, actual &lt;438&gt;." type="kotlin.AssertionError">kotlin.AssertionError: Private PEM mode must be 0600. Expected &lt;384&gt;, actual &lt;438&gt;.
+	at kotlin.Error#&lt;init&gt;(Unknown Source)
+	at kotlin.AssertionError#&lt;init&gt;(Unknown Source)
+	at kotlin.test.DefaultAsserter#fail(Unknown Source)
+	at kotlin.test.Asserter#fail(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertTrue(Unknown Source)
+	at kotlin.test.Asserter#assertEquals(Unknown Source)
+	at kotlin.test.Asserter#assertEquals(Unknown Source)
+	at kotlin.test#assertEquals(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.assertOwnerOnly#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.PrivateKeyFileStoreNativeTest$replacingSymlinkDoesNotOverwriteItsTarget$1.invoke#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.PrivateKeyFileStoreNativeTest$replacingSymlinkDoesNotOverwriteItsTarget$1.$&lt;bridge-DNC&gt;invoke(Unknown Source)
+	at kotlin.Function1#invoke(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.inPrivateDirectory#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest#replacingSymlinkDoesNotOverwriteItsTarget(Unknown Source)
+	at com.flyfishxu.kadb.cert.$PrivateKeyFileStoreNativeTest$test$2.$PrivateKeyFileStoreNativeTest$test$2$$FUNCTION_REFERENCE_FOR$replacingSymlinkDoesNotOverwriteItsTarget$1.invoke#internal(Unknown Source)
+	at com.flyfishxu.kadb.cert.$PrivateKeyFileStoreNativeTest$test$2.$PrivateKeyFileStoreNativeTest$test$2$$FUNCTION_REFERENCE_FOR$replacingSymlinkDoesNotOverwriteItsTarget$1.$&lt;bridge-DNC&gt;invoke(Unknown Source)
+	at kotlin.Function1#invoke(Unknown Source)
+	at kotlin.native.internal.test.BaseClassSuite.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#doRun(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestCase#run(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#run__at__kotlin.native.internal.test.TestSuite(Unknown Source)
+	at kotlin.native.internal.test.TestRunner.kotlin.native.internal.test.TestRunner#runIteration(Unknown Source)
+	at kotlin.native.internal.test.TestRunner#run(Unknown Source)
+	at kotlin.native.internal.test#testLauncherEntryPoint(Unknown Source)
+	at kotlin.native.internal.test#main(Unknown Source)
+	at &lt;global&gt;.Konan_start(Unknown Source)
+	at &lt;global&gt;.Init_and_run_start(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+	at &lt;global&gt;.__libc_start_main(Unknown Source)
+	at &lt;global&gt;.0x0(Unknown Source)
+</failure>
+  </testcase>
+  <testcase name="failedRenameLeavesNoPlaintextStagingFile[linuxX64]" classname="linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

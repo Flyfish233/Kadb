@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "reason": "Automatic approval review rejected uploading serialized private PEM identity values in a failing test assertion. The identity uses an existing public test fixture, but its serialized object is omitted from shared diagnostic output.",
+  "redactions": [
+    {
+      "path": "docs/verification/native/security-red/TEST-linuxX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "original_sha256": "698c006bc799da9b0109a58cee1154a9d6b262455c8e733c7395f14c7a805e18",
+      "original_bytes": 45046,
+      "redacted_sha256": "a41374bc25cf14632e1a93c04acd845a21192433ba37a835a5bcc7d50127b459",
+      "redacted_bytes": 5854,
+      "serialized_identity_objects_removed": 2
+    }
+  ],
+  "preserved": [
+    "test names and counts",
+    "the expected exception assertion and unexpected success",
+    "all stack traces",
+    "exit code and command/source metadata",
+    "other raw logs and reports"
+  ],
+  "classification": "redacted evidence; not byte-for-byte original XML",
+  "original_location": "Local Native validation worktree original commit af0b6cd; rerunnable from the recorded test commands and public fixture. Not uploaded by this checkpoint."
+}
