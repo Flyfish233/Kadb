@@ -69,6 +69,22 @@ Darwin and full Android ABI inventory are separate subsequent jobs.
 - The selected SPAKE2 source has no Maven publishing tasks or macOS targets.
   JitPack consumption must be tested independently from its build status.
 
+## M1/M2/M3: first regression execution
+
+The first added-test run on unchanged `75678915` product sources executed 22
+cases and reported 13 failures. This count is **not** a healthy product-test
+result. The actual assertion failures establish missing authenticated PeerInfo
+validation, pre-agreement pairing encryption, context disposal, a writer/close
+race, pending-connect cancellation, and UTF-8 corruption when a character spans
+shell-v2 packets. The full original test source commits are retained in the
+experiment history before production fixes.
+
+Two harness problems were identified in that first run: the TLS write tests had
+JUnit non-void method signatures and therefore did not execute; pairing
+cancellation cleanup could mask the intended assertion with a handshake error.
+Those results do not establish the corresponding regressions. Corrected tests
+and a repeated pre-fix run are required before calling those defects reproduced.
+
 ## Coverage not yet established
 
 No real iPhone/Android hardware, end-to-end adbd pairing, performance budget,

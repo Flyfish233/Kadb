@@ -32,7 +32,33 @@ class PairingCompatibilityTest {
 
     @Test fun rejectsWrongPairingCode() = pairWithPeer(wrongCode = true)
 
-    private fun pairWithPeer(wrongCode: Boolean) {
+    @Test fun rejectsAuthenticatedUnknownPeerInfoType() = pairWithPeer(
+        wrongCode = false, responseType = 255, expectRejected = true
+    )
+
+    @Test fun rejectsAuthenticatedClientKeyAsServerIdentity() = pairWithPeer(
+        wrongCode = false, responseType = 0, expectRejected = true
+    )
+
+    @Test fun rejectsAuthenticatedEmptyDeviceGuid() = pairWithPeer(
+        wrongCode = false, responseGuid = byteArrayOf(0), expectRejected = true
+    )
+
+    @Test fun rejectsAuthenticatedUnterminatedDeviceGuid() = pairWithPeer(
+        wrongCode = false, responseGuid = ByteArray(8191) { 'x'.code.toByte() }, expectRejected = true
+    )
+
+    @Test fun rejectsAuthenticatedWrongPeerInfoSize() = pairWithPeer(
+        wrongCode = false, responseSize = 8191, expectRejected = true
+    )
+
+    private fun pairWithPeer(
+        wrongCode: Boolean,
+        responseType: Int = 1,
+        responseGuid: ByteArray = "adb-test-guid\u0000".encodeToByteArray(),
+        responseSize: Int = 8192,
+        expectRejected: Boolean = wrongCode
+    ) {
         val identity = CertUtils.generateNewIdentity(KadbCertPolicy())
         // Kadb's key manager is client-only. Give the test peer a real server identity.
         val keyStore = KeyStore.getInstance(KeyStore.getDefaultType()).apply {
@@ -84,9 +110,9 @@ class PairingCompatibilityTest {
                             assertEquals(0, info[0].toInt())
                             assertContentEquals(expectedPublicKey, info.copyOfRange(1, 1 + expectedPublicKey.size))
                             assertTrue(info.drop(1 + expectedPublicKey.size).all { it == 0.toByte() })
-                            val response = ByteArray(8192)
-                            response[0] = 1 // ADB_DEVICE_GUID
-                            "adb-test-guid\u0000".encodeToByteArray().copyInto(response, 1)
+                            val response = ByteArray(responseSize)
+                            response[0] = responseType.toByte()
+                            responseGuid.copyInto(response, 1, endIndex = minOf(responseGuid.size, response.size - 1))
                             output.frame(1, encrypt(key, 0, response))
                         }
                     } finally {
@@ -95,7 +121,7 @@ class PairingCompatibilityTest {
                 }
             }
             PairingConnectionCtx(server.inetAddress.hostAddress, server.localPort, code, identity.keyPair, name).use {
-                if (wrongCode) assertFailsWith<IOException> { it.start() } else it.start()
+                if (expectRejected) assertFailsWith<IOException> { it.start() } else it.start()
             }
             peer.get(10, TimeUnit.SECONDS)
             assertTrue(code.all { it == 0.toByte() }, "Closing pairing must erase the supplied password")
