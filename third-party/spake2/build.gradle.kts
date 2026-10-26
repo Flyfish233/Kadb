@@ -7,7 +7,8 @@ plugins {
 
 // Kadb-owned build adaptation; upstream sources below are verified unchanged.
 kotlin {
-    jvm { jvmToolchain(25) }
+    jvmToolchain(25)
+    jvm()
     android {
         namespace = "io.github.flyfish233.spake2.legacy.kadb"
         compileSdk = 37
@@ -20,12 +21,12 @@ kotlin {
     macosArm64()
     macosX64()
     sourceSets {
+        all { languageSettings.optIn("io.github.flyfish233.spake2.InternalSpake2Api") }
         commonMain {
             kotlin.setSrcDirs(listOf(
                 "upstream/primitives/src/commonMain/kotlin",
                 "upstream/legacy/src/commonMain/kotlin"
             ))
-            languageSettings.optIn("io.github.flyfish233.spake2.InternalSpake2Api")
         }
         commonTest.dependencies { implementation(libs.kotlin.test) }
     }

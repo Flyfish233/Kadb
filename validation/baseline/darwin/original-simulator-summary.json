@@ -1,0 +1,98 @@
+{
+  "suites": [
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.AdbSessionIosTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.AdbSessionIosTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.RealDeviceSmokeTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.RealDeviceSmokeTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": true,
+      "executed": 0
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest",
+      "cases": 4,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 4
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest",
+      "cases": 1,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 1
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    },
+    {
+      "file": "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest",
+      "cases": 3,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 3
+    },
+    {
+      "file": "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest",
+      "cases": 2,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed": false,
+      "executed": 2
+    }
+  ],
+  "executed": 16,
+  "failed": 0,
+  "device_coverage": "Not established by this summary; requires explicit device evidence.",
+  "missing_required_test_groups": []
+}

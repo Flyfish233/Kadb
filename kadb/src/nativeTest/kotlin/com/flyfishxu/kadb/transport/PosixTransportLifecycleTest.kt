@@ -12,7 +12,7 @@ import platform.posix.*
 import kotlin.test.*
 
 class PosixTransportLifecycleTest {
-    @Test fun plaintextRoundTripAndRepeatedClose() = memScoped {
+    @Test fun plaintextRoundTripAndRepeatedClose(): Unit = memScoped {
         val descriptors = allocArray<IntVar>(2)
         assertEquals(0, socketpair(AF_UNIX, SOCK_STREAM, 0, descriptors))
         val first = PosixTransportChannel(descriptors[0])
@@ -66,7 +66,7 @@ class PosixTransportLifecycleTest {
         }
     }
 
-    @Test fun failedWriteIsTerminal() = memScoped {
+    @Test fun failedWriteIsTerminal(): Unit = memScoped {
         val descriptors = allocArray<IntVar>(2)
         assertEquals(0, socketpair(AF_UNIX, SOCK_STREAM, 0, descriptors))
         val channel = PosixTransportChannel(descriptors[0])

@@ -16,7 +16,12 @@ def summarize(root: Path) -> dict:
     for path in sorted(root.glob("**/build/test-results/**/TEST-*.xml")):
         xml = ET.parse(path).getroot()
         output = "\n".join(node.text or "" for node in xml.findall("system-out"))
-        opt_in_missing = "SKIP:" in output or "Skipping" in output
+        # The frozen interop test silently returns without KADB_JVM_PAIRING_PORT.
+        # Its JUnit success is not execution proof. Dedicated mandatory CLI
+        # consumers now provide separate, explicit interoperability reports.
+        known_optional = any(name in xml.attrib.get("name", "") for name in
+                             ("JvmPairingInteropTest", "RealDeviceSmokeTest"))
+        opt_in_missing = known_optional or "SKIP:" in output or "Skipping" in output
         cases = xml.findall("testcase")
         failed = sum(case.find("failure") is not None or case.find("error") is not None for case in cases)
         skipped = sum(case.find("skipped") is not None for case in cases)

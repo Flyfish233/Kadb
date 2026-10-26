@@ -52,7 +52,7 @@ private fun allocateMutex(recursive: Boolean): CPointer<pthread_mutex_t> {
             val attributes = alloc<pthread_mutexattr_t>()
             check(pthread_mutexattr_init(attributes.ptr) == 0)
             try {
-                if (recursive) check(pthread_mutexattr_settype(attributes.ptr, PTHREAD_MUTEX_RECURSIVE) == 0)
+                if (recursive) check(pthread_mutexattr_settype(attributes.ptr, PTHREAD_MUTEX_RECURSIVE.toInt()) == 0)
                 check(pthread_mutex_init(mutex, attributes.ptr) == 0)
             } finally {
                 pthread_mutexattr_destroy(attributes.ptr)

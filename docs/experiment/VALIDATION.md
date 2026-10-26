@@ -141,3 +141,38 @@ The C regression was committed before its fix: `13d3d5affe7211cc99861a0e5d6e044a
 then `69aa47f60604a610066fcb26569900c05b713eb4`. POSIX target expansion is
 `8e3fc41286ba531aa0a6d12118fe90c2c48dc3c0`. These checkpoints distinguish real
 C TLS execution from pending Kotlin/Native compilation and external linkage.
+
+## M0: actual iOS simulator baseline and framework linkage
+
+The Darwin job `121517061889` in
+[run 40306578218](https://github.com/Flyfish233/Kadb/actions/runs/40306578218)
+**succeeded**, independently of the failed Linux ABI-instrumentation job in
+that run. All 33 Gradle tasks executed, including Cinterop, device/simulator
+framework links and simulator test binaries. The raw artifact SHA-256 is
+`e4b4d84aaf4d2151eef95cb69c2cd213846b69aca92fda3d339c30362e2c56fb`.
+
+An audit corrected the summary from 16 to **15 actually exercised cases**:
+`JvmPairingInteropTest` silently returns when its peer environment is absent.
+It must be excluded along with the explicit real-device opt-in suite. The raw
+original summary is retained, with a corrected summary and the reason alongside
+it. No JVM-peer pairing or physical device coverage is inferred from that run.
+
+## First integrated CI configuration failure
+
+[Run 40309464206](https://github.com/Flyfish233/Kadb/actions/runs/40309464206)
+at `fc6e84c2051bede4dd37e77d54281149585e8cb8` failed during Gradle configuration:
+the source-composition adapter used target-level `jvmToolchain(25)`, prohibited
+by KGP 2.4.20. No current integrated product tests ran. The next change moves
+that toolchain declaration to extension scope, and adds mandatory external
+pairing consumers before attempting standalone JVM removal.
+
+A local configuration-only check then caught a second adapter issue before a
+CI rerun: the `InternalSpake2Api` opt-in was set only on `commonMain`, violating
+KGP's dependent-source-set consistency rule. It now applies to every source
+set. The original configuration-failure log is retained under
+`validation/integration`; a `help` task is only a build-configuration check.
+
+The next configuration check caught Gradle 9.6's locked configuration roles in
+the Java-only reference harness. The harness now clears outgoing archives and
+keeps its JAR task disabled instead of mutating the Java plugin's locked role.
+It is a separate validation process, never a Kadb runtime dependency.

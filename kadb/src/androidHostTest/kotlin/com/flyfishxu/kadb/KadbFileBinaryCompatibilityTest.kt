@@ -78,6 +78,13 @@ class KadbFileBinaryCompatibilityTest {
             return super.toPath()
         }
 
+        override fun canRead(): Boolean {
+            // Android before API 26 uses File capability flags; the SDK stub in a
+            // host test selects this branch. API 26+ resolves mode through toPath.
+            modeReads++
+            return super.canRead()
+        }
+
         override fun lastModified(): Long {
             timestampReads++
             return super.lastModified()

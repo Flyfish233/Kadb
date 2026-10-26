@@ -81,6 +81,12 @@ kotlin {
         jvmTest.get().dependsOn(jvmAndroidTest)
         getByName("androidHostTest").dependsOn(jvmAndroidTest)
 
+        getByName("androidHostTest").dependencies {
+            // Independent historical reference peer for the Android variant.
+            implementation(libs.spake2)
+            implementation(libs.conscrypt.java)
+        }
+
         jvmTest.dependencies {
             // Independent historical peer, never a production dependency.
             implementation(libs.spake2)
@@ -163,12 +169,8 @@ tasks.register<JavaExec>("desktopUsbSmoke") {
         providers.gradleProperty("usbApk").orElse("").get())
 }
 
-// Independent JVM peer for the optional iOS/JVM pairing interoperability test.
-tasks.register<JavaExec>("iosInteropPeer") {
+// Validation-only independent Java peer; it has no Kadb runtime dependency.
+tasks.register("iosInteropPeer") {
     group = "verification"
-    description = "Serve two loopback pairing sessions for the iOS interoperability test"
-    dependsOn("jvmTestClasses")
-    classpath(desktopUsbTestCompilation.output.allOutputs, desktopUsbTestCompilation.runtimeDependencyFiles)
-    mainClass.set("com.flyfishxu.kadb.pair.IosPairingPeer")
-    args(providers.gradleProperty("iosInteropReadyFile").orElse(layout.buildDirectory.file("ios-peer-ready").get().asFile.absolutePath).get())
+    dependsOn(":validation-pairing-peer:iosInteropPeer")
 }

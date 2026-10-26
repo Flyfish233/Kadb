@@ -9,6 +9,8 @@ import kotlin.test.Test
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class PairingSpakeVectorTest {
@@ -49,6 +51,55 @@ class PairingSpakeVectorTest {
             first.fill(0)
             assertTrue(second.any { it != 0.toByte() })
         } finally { first.fill(0); second.fill(0) }
+    }
+
+    @Test fun matchesIndependentBoringSslPeerInputSemantics() {
+        // The fixture's name "invalid-encoding-all-ff" is historical: BoringSSL
+        // accepts it. This checks Legacy compatibility, not subgroup validation.
+        val cases = listOf(
+            "invalid-length-31|42424242424242424242424242424242424242424242424242424242424242|",
+            "invalid-encoding-all-ff|ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff|bddf615441437c1a4066c69a5c618fa60d4eec7de489f203ec858996fed6f7c166b97c1fa09430a27e7a42c47a24d96ff340245e64485105575bb6fca32d516d",
+            "corrupted-valid-message-bit0|e914a51e5e1032ce32bd9e47f74fb58a42f02b61b355e062a36836dbd8de35c5|4d95fff14ff133c85b657ed3f5c2d8f296223ab9e007f7f3e53b77f018dda8fdb7643234ce36811c275473a8a7cb9606635d436497bd57367e6fecc3256d578e",
+            "identity-after-unmasking|b913bb9caea8f58dade78801fd10ca3e350ed15d670f2d4b1efc34d2acf57256|7429af78efc5b3d678ab2888a64786e708f13220c98f824b53132961e287be6a4c7249e9d622b3d4190b6d39961c12a6767bdb9ab11042cfe4aa58dc7071f7b1",
+        )
+        assertEquals(4, cases.size)
+        for (entry in cases) {
+            val (name, message, expectedKey) = entry.split('|')
+            val crypto = PairingCrypto("alice".encodeToByteArray(), "bob".encodeToByteArray(),
+                EntropySource { count -> ByteArray(count).also { it[0] = 1 } })
+            try {
+                crypto.generateMessage("515109".encodeToByteArray())
+                val material = crypto.processMessage(message.hex())
+                if (expectedKey.isEmpty()) assertNull(material, name)
+                else assertContentEquals(expectedKey.hex(), material, name)
+                material?.fill(0)
+            } finally { crypto.destroy() }
+        }
+    }
+
+    @Test fun malformedEntropyFailsTerminallyAndErasesTransferredBuffer() {
+        val malformed = ByteArray(63) { 42 }
+        val crypto = PairingCrypto("alice".encodeToByteArray(), "bob".encodeToByteArray(), EntropySource { malformed })
+        try {
+            assertFailsWith<IllegalStateException> { crypto.generateMessage("password".encodeToByteArray()) }
+            assertTrue(malformed.all { it == 0.toByte() })
+            assertNull(crypto.processMessage(ByteArray(32)))
+            assertFailsWith<IllegalStateException> { crypto.generateMessage("password".encodeToByteArray()) }
+        } finally { crypto.destroy() }
+    }
+
+    @Test fun entropyFailureCannotFallBackToDeterministicBytes() {
+        var requests = 0
+        val crypto = PairingCrypto("alice".encodeToByteArray(), "bob".encodeToByteArray(), EntropySource {
+            requests++
+            error("Injected entropy failure")
+        })
+        try {
+            assertFailsWith<IllegalStateException> { crypto.generateMessage("password".encodeToByteArray()) }
+            assertEquals(1, requests)
+            assertFailsWith<IllegalStateException> { crypto.generateMessage("password".encodeToByteArray()) }
+            assertEquals(1, requests, "Failed sessions cannot retry their entropy source")
+        } finally { crypto.destroy() }
     }
 
     private fun String.hex(): ByteArray = ByteArray(length / 2) {

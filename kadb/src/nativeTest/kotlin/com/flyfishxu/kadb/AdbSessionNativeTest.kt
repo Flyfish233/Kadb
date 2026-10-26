@@ -34,6 +34,7 @@ class AdbSessionNativeTest {
             val completed = CompletableDeferred<Unit>()
             val output = "你好 from Native\n".encodeToByteArray()
             startKadbThread("kadb-native-peer") {
+                var failure: Throwable? = null
                 try {
                     memScoped {
                         val ready = alloc<pollfd> { fd = listener; events = POLLIN.toShort() }
@@ -57,22 +58,24 @@ class AdbSessionNativeTest {
                         // A closed service does not itself end the shared ADB transport.
                         runCatching { reader.readMessage() }
                     }
-                    completed.complete(Unit)
-                } catch (failure: Throwable) {
-                    completed.completeExceptionally(failure)
+                } catch (error: Throwable) {
+                    failure = error
                 } finally {
                     close(listener)
                 }
+                // Completion is published only after the peer's descriptors close.
+                val terminal = failure
+                if (terminal == null) completed.complete(Unit) else completed.completeExceptionally(terminal)
             }
             try {
                 Kadb.create("127.0.0.1", port, connectTimeout = 3000, socketTimeout = 3000).use { client ->
                     assertEquals(output.decodeToString(), client.shell("echo test").output)
                     assertTrue(client.connectionCheck())
                 }
-                withTimeout(5000) { completed.await() }
             } finally {
-                // The accepting worker owns close; only wake it here, avoiding fd reuse.
-                if (!completed.isCompleted) shutdown(listener, SHUT_RDWR)
+                // poll and socket reads have bounded waits. Only the peer closes its
+                // listener, and the test waits for cleanup even when the client fails.
+                withTimeout(10000) { completed.await() }
             }
         }
     }

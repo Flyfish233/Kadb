@@ -9,13 +9,17 @@ import okio.IOException
 import okio.use
 import platform.posix.getenv
 import kotlin.test.Test
+import kotlin.test.Ignore
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
 
+@Ignore // Replaced by the mandatory external Native consumer; retained as a baseline harness reference.
 class JvmPairingInteropTest {
-    /** Opt-in via KADB_PAIRING_PEER_PORT; ordinary tests require no external process. */
+    /** Historical internal-API harness. Use validation/pairing-peer/run_interop.py for actual evidence. */
     @Test fun pairsWithJvmPeerAndRejectsWrongCode() {
-        val port = getenv("KADB_PAIRING_PEER_PORT")?.toKString()?.toInt() ?: return
+        val port = requireNotNull(getenv("KADB_PAIRING_PEER_PORT")?.toKString()?.toInt()) {
+            "Missing KADB_PAIRING_PEER_PORT; no interoperability test was executed"
+        }
         val identity = CertUtils.generateNewIdentity(KadbCertPolicy())
         for (wrongCode in listOf(false, true)) {
             val password = (if (wrongCode) "654321" else "123456").encodeToByteArray()
