@@ -25,10 +25,10 @@ import kotlin.test.assertTrue
 
 /** Actual JDK TLS records; only the TCP sink is fault-injected after a completed handshake. */
 class TlsFailureLifecycleTest {
-    @Test fun partialCiphertextWriteFailurePermanentlyInvalidatesChannel() = exerciseWriteFailure(5)
-    @Test fun writeTimeoutBeforeCiphertextDeliveryPermanentlyInvalidatesChannel() = exerciseWriteFailure(0)
+    @Test fun partialCiphertextWriteFailurePermanentlyInvalidatesChannel(): Unit = exerciseWriteFailure(5)
+    @Test fun writeTimeoutBeforeCiphertextDeliveryPermanentlyInvalidatesChannel(): Unit = exerciseWriteFailure(0)
 
-    private fun exerciseWriteFailure(deliveredPrefix: Int) = runBlocking {
+    private fun exerciseWriteFailure(deliveredPrefix: Int): Unit = runBlocking {
         val context = tlsContext()
         val listener = context.serverSocketFactory.createServerSocket(
             0, 1, InetAddress.getLoopbackAddress()

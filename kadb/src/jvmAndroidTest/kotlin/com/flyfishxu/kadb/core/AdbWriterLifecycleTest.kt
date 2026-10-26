@@ -58,9 +58,11 @@ class AdbWriterLifecycleTest {
             // On the baseline close() re-enters Sink.write while the first flush is held here.
             overlap.await(2, TimeUnit.SECONDS)
             release.countDown()
-            assertNull(write.get(5, TimeUnit.SECONDS))
-            assertNull(close.get(5, TimeUnit.SECONDS))
+            val writeError = write.get(5, TimeUnit.SECONDS)
+            val closeError = close.get(5, TimeUnit.SECONDS)
             assertFalse(overlappingAccess.get(), "Close must not concurrently flush/mutate the writer's buffer")
+            assertNull(writeError)
+            assertNull(closeError)
         } finally {
             release.countDown()
             executor.shutdownNow()

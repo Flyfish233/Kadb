@@ -11,7 +11,10 @@ import java.net.ServerSocket
 import java.net.Socket
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
+import java.util.concurrent.TimeoutException
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicReference
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -20,6 +23,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertTrue
+import kotlin.test.assertIs
 
 /** A peer deliberately accepts TCP and never answers ClientHello. Cleanup is bounded even on the old bug. */
 class PairingCancellationTest {
@@ -29,9 +33,14 @@ class PairingCancellationTest {
         server().use { listener ->
             runBlocking {
                 val exited = CountDownLatch(1)
+                val failure = AtomicReference<Throwable>()
                 val pairing = launch(Dispatchers.Default) {
                     try {
                         Kadb.pair("127.0.0.1", listener.localPort, "123456", "cancel-test")
+                    } catch (error: Throwable) {
+                        // Preserve the main timeout assertion on the defective baseline: closing
+                        // the test peer during cleanup must not replace it with handshake EOF.
+                        failure.set(error)
                     } finally {
                         exited.countDown()
                     }
@@ -44,6 +53,7 @@ class PairingCancellationTest {
                             "Cancelled pairing must close blocked TLS I/O and finish its worker")
                         withTimeout(1000) { pairing.join() }
                         assertTrue(pairing.isCompleted, "Cancellation must not leave an orphan worker")
+                        assertIs<CancellationException>(failure.get())
                     } finally {
                         // Makes the regression test terminate on the defective implementation too.
                         peer.close()
@@ -70,7 +80,11 @@ class PairingCancellationTest {
                         readClientHelloStart(peer)
                         context.close()
                         context.close()
-                        call.get(2, TimeUnit.SECONDS)
+                        try {
+                            call.get(2, TimeUnit.SECONDS)
+                        } catch (timeout: TimeoutException) {
+                            throw AssertionError("close() did not unblock the TLS handshake worker", timeout)
+                        }
                         assertTrue(password.all { it == 0.toByte() })
                         assertFailsWith<IOException> { context.start() }
                     } finally {
