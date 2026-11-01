@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "date": "2026-11-02",
+  "timezone": "Asia/Singapore",
+  "scope": "M1 only",
+  "repository": "Flyfish233/Kadb",
+  "base_branch": "experiment/kmp-native-core",
+  "base_commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "work_branch": "work/spake2-maven-migration",
+  "existing_remote_work_branch": false,
+  "recoverable_prior_migration": false,
+  "prior_worktrees_preserved": true,
+  "spake2_documentation_commit": "0795a4b3d7c8fbdabde8641360717e3e0903f308",
+  "spake2_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "version": "0.1.0-dev.59105290820b",
+  "candidate_run": 40388080222,
+  "candidate_artifact": 12682137388,
+  "candidate_zip_sha256": "29fe208f315ea08c9643d4388df8d832b984b04270fd39e55d00328ed4746ac3",
+  "baseline_ci_run": 40331404006,
+  "baseline_ci_conclusion": "failure",
+  "m1_verdict": "NOT VERIFIED"
+}
