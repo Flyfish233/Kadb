@@ -699,8 +699,26 @@ def binary_inventory(arguments: list[str]) -> list[dict]:
             kind = "Mach-O-or-fat"
         elif path.suffix == ".klib" and zipfile.is_zipfile(path):
             kind = "KLIB"
+        elif path.suffix == ".aar" and zipfile.is_zipfile(path):
+            with zipfile.ZipFile(path) as archive:
+                names = [relative_name(item.filename) for item in archive.infolist() if not item.is_dir()]
+                if (len(names) != len(set(names)) or archive.testzip() is not None or
+                        not {"AndroidManifest.xml", "classes.jar"}.issubset(names) or
+                        not archive.read("AndroidManifest.xml")):
+                    raise ValueError(f"Invalid Android AAR structure: {label}")
+                try:
+                    with zipfile.ZipFile(io.BytesIO(archive.read("classes.jar"))) as classes:
+                        class_names = [relative_name(item.filename) for item in classes.infolist()
+                                       if not item.is_dir() and item.filename.endswith(".class")]
+                        if (not class_names or len(class_names) != len(set(class_names)) or
+                                classes.testzip() is not None or any(not classes.read(name).startswith(b"\xca\xfe\xba\xbe")
+                                                                   for name in class_names)):
+                            raise ValueError(f"Android AAR lacks valid JVM class entries: {label}")
+                except zipfile.BadZipFile as error:
+                    raise ValueError(f"Invalid Android AAR classes.jar: {label}") from error
+            kind = "Android-AAR"
         else:
-            raise ValueError(f"Unsupported Native artifact format: {label}")
+            raise ValueError(f"Unsupported binary artifact format: {label}")
         result.append({"label": label, "kind": kind, "size": path.stat().st_size, "sha256": digest(path)})
         labels.add(label)
     return sorted(result, key=lambda item: item["label"])
@@ -785,7 +803,7 @@ def create(arguments) -> dict:
     android = android_inventory(lock) if lock["scope"] == ANDROID_SCOPE else None
     commit, epoch = check_project(arguments.repo, arguments.ref, lock)
     if arguments.binary and arguments.spake2_resolution_report is None:
-        raise ValueError("Native binary association requires an actual SPAKE2 Maven resolution report")
+        raise ValueError("Binary association requires an actual SPAKE2 Maven resolution report")
     candidate_report = verify_spake2_maven(lock, arguments.spake2_repository,
                                           arguments.spake2_resolution_report, lock_path)
     binary_files = binary_inventory(arguments.binary)

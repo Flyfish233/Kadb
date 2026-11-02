@@ -124,8 +124,10 @@ python3 scripts/source_bundle.py create \
   --binary macosArm64/Kadb.framework/Kadb=kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Kadb
 ```
 
-For Linux, pass the linked executable or library path actually uploaded. Repeat
-`--binary LABEL=PATH` for additional artifacts. If no binary is supplied, the
+For Linux, pass the linked executable or library path actually uploaded. For the
+Android library, pass `--binary kadb-android-aar=kadb/build/outputs/aar/kadb.aar`;
+the collector checks the AAR manifest and nested JVM classes before recording
+its bytes/hash. Repeat `--binary LABEL=PATH` for additional artifacts. If no binary is supplied, the
 manifest explicitly records a source-only inventory with **no binary
 association**; that mode is useful before linking but is not an assertion about
 a particular binary. Hash association records the supplied artifact; it does not

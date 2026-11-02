@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "executedAtUtc": "2026-11-02T06:24:43.155784+00:00",
+  "baseCommit": "316c64a9761c16293d7f1f69adc7769393e7a705",
+  "problem": "M1 CI invokes source-bundle create with --binary kadb-android-aar=..., but inherited binary_inventory only accepted Native formats.",
+  "before": {
+    "status": "FAIL",
+    "error": "Unsupported Native artifact format: kadb-android-aar",
+    "stage": "Before source collection; Android/Native builds and source identity checks already passed."
+  },
+  "after": {
+    "status": "PASS",
+    "sourceSuiteTests": 42,
+    "binaryArtifacts": [
+      {
+        "label": "kadb-android-aar",
+        "kind": "Android-AAR",
+        "size": 318468,
+        "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+      },
+      {
+        "label": "linuxX64-debug-test",
+        "kind": "ELF",
+        "size": 27791088,
+        "sha256": "1742db4415dd494e1a95a092e679dfc4d876ba413f561d9c3f6f6b31d81dedeb"
+      }
+    ]
+  },
+  "changeScope": "Source bundle binary-format recognition only; accepts AAR after checking outer ZIP inventory/CRC, nonempty manifest and nested JVM class entries; rejects malformed or arbitrary ZIP."
+}

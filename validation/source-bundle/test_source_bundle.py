@@ -3,6 +3,7 @@
 import hashlib
 import copy
 import importlib.util
+import io
 import json
 from pathlib import Path
 import subprocess
@@ -64,6 +65,28 @@ class SourceBundleIntegrityTest(unittest.TestCase):
         entry = {"id": "example", "path": "source.jar", "sha256": "a" * 64}
         with self.assertRaisesRegex(FileNotFoundError, "Offline source cache"):
             bundle.fetch(entry, self.root, True, None, lambda *args, **kwargs: None)
+
+    def test_binary_inventory_associates_compiled_android_aar(self):
+        classes = io.BytesIO()
+        with zipfile.ZipFile(classes, "w") as archive:
+            archive.writestr("example/Kadb.class", b"\xca\xfe\xba\xbe" + b"\x00" * 8)
+        aar = self.root / "kadb.aar"
+        with zipfile.ZipFile(aar, "w") as archive:
+            archive.writestr("AndroidManifest.xml", b"<manifest package='test' />")
+            archive.writestr("classes.jar", classes.getvalue())
+        result = bundle.binary_inventory([f"kadb-android-aar={aar}"])
+        self.assertEqual([{ "label": "kadb-android-aar", "kind": "Android-AAR",
+                           "size": aar.stat().st_size, "sha256": bundle.digest(aar)}], result)
+
+    def test_arbitrary_or_malformed_zip_cannot_masquerade_as_android_aar(self):
+        for contents in ({"README": b"not an AAR"},
+                         {"AndroidManifest.xml": b"<manifest />", "classes.jar": b"not a JAR"}):
+            aar = self.root / "wrong.aar"
+            with zipfile.ZipFile(aar, "w") as archive:
+                for name, content in contents.items():
+                    archive.writestr(name, content)
+            with self.subTest(contents=list(contents)), self.assertRaisesRegex(ValueError, "Invalid Android AAR"):
+                bundle.binary_inventory([f"wrong={aar}"])
 
     def test_class_only_jar_is_not_source(self):
         archive = self.root / "empty-sources.jar"

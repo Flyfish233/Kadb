@@ -85,3 +85,15 @@ Android Host 的实际 Kadb 编译、AAR 及 **102 项测试** 已在本轮中�
 继续入口：先运行 `python3 scripts/prepare_spake2_candidate.py`，再执行 `.github/workflows/m1-maven.yml`
 中的对应 host/Native 命令和 `source_bundle.py create --ref <本检查点提交>`。
 无需重做恢复基线、SPAKE2 审计或候选重新构建。
+
+## 独立修复：AAR 对应源码关联
+
+第二检查点已推送为 `316c64a9761c16293d7f1f69adc7769393e7a705`。
+在该提交上，真实 Gradle 来源门禁与 Android Host / Linux Native 测试同次执行通过：
+Android Host 102 项、Linux Native 63 项，合计 165 项、零失败；AAR 与 Native ELF 均实际生成。
+
+完整源码收集首次尝试发现旧收集器的 `binary_inventory` 只接受 Native 格式，新 M1 CI 传入
+AAR 时在收集前拒绝。此处增加 AAR 外层 ZIP、manifest、内层 classes.jar 与 class 文件标识检查，
+记录真实 AAR 摘要；任意 ZIP 与损坏 classes.jar 均拒绝。源码测试现为 **42/42 PASS**。
+这是本次新增 AAR 关联路径的集成修复，未改密码学、协议或生产编译输入。
+完整源码包的创建、独立校验及可复现性仍等待修复提交后的实际执行。
