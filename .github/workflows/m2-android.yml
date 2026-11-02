@@ -85,6 +85,17 @@ jobs:
           ./gradlew -I validation/android-runtime/runtime-classpath.init.gradle :validation-android-runtime:recordRuntimeClasspath --no-configuration-cache --console=plain --stacktrace 2>&1 | tee evidence/android-runtime-classpath.log
           cp validation/android-runtime/build/reports/debug-runtime-classpath.json evidence/
           python3 scripts/source_bundle.py verify-android-runtime --runtime-report evidence/debug-runtime-classpath.json --output evidence/android-runtime-source-verification.json 2>&1 | tee evidence/android-runtime-source-verification.log
+      - name: Preserve APK provenance immediately before emulator work
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: m2-android-provenance-${{ github.sha }}
+          retention-days: 90
+          if-no-files-found: error
+          compression-level: 6
+          path: |
+            evidence/*.json
+            evidence/*.log
       - name: Collect complete corresponding source for this exact APK checkout
         id: source
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
