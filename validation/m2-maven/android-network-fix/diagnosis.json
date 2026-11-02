@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T09:38:27.744317+00:00",
+  "successful_run": 41419309545,
+  "network_failure_run": 41420744621,
+  "failure_source_sha": "ff5b33262d001204cf5df2c5684e77690af511cf",
+  "artifact_id": 13130091920,
+  "artifact_zip_sha256": "9b49e1d2bc7e62c7e634032fda3af4c22bc7d15209b5d522c6b5530e2c9245d8",
+  "original_runtime_reports": {
+    "validation/m2-maven/runs/41419309545/android-art/evidence/android-runtime/report.json": "7b8998f49c08a06aeb948868afa54533296e4346813aaf182baee10e76543b66",
+    "validation/m2-maven/runs/41420744621/android-art/evidence/android-runtime/report.json": "196bce51bc5c720ddb18d928e6ac4231f18308d2189a20a66075f71b62fadd30"
+  },
+  "failure": {
+    "checks_executed": 6,
+    "failed_check": "pairing_positive",
+    "error_type": "java.net.ConnectException",
+    "error": "failed to connect to /10.0.2.2 (port 44519) from /:: (port 0): connect failed: ENETUNREACH (Network is unreachable)",
+    "elapsed_ms": 706
+  },
+  "failure_stage": "TCP connect, before TLS handshake, TLS exporter or SPAKE2",
+  "java_peer_log_empty": true,
+  "same_dex_files": true,
+  "same_peer_classes": true,
+  "same_peer_dependencies": true,
+  "same_fingerprint": true,
+  "same_tool_binaries": {
+    "java": true,
+    "adb": true,
+    "aapt2": true
+  },
+  "apk_member_sets_equal": true,
+  "apk_payload_entries_changed": [
+    "META-INF/CERT.RSA"
+  ],
+  "logcat_excerpts": {
+    "41419309545": {
+      "source_path": "validation/m2-maven/runs/41419309545/android-art/evidence/emulator-logcat.log.gz",
+      "source_gzip_sha256": "628daa9a370d9605efc24e7b4485d919086d1e36b972231e66959a3bc3dcf5d3",
+      "matching_lines": 10
+    },
+    "41420744621": {
+      "source_path": "validation/m2-maven/runs/41420744621/android-art/evidence/emulator-logcat.log.gz",
+      "source_gzip_sha256": "66d7ee361e75984f638bd2c8a83ba36ba8b20160f152e2a2b03918868e101f8d",
+      "matching_lines": 3
+    }
+  },
+  "root_cause": "The boot-complete/package-manager check allowed instrumentation while Wi-Fi/DHCP/default routing was still starting; app Socket.connect returned ENETUNREACH.",
+  "fix": {
+    "scope": "Only M2 emulator readiness harness, its focused tests and workflow entry",
+    "checks": [
+      "Active default network has a numeric netId",
+      "IPv4 default route via emulator host alias 10.0.2.2",
+      "On-link IPv4 route contains host alias on the same interface; neither route linkdown"
+    ],
+    "overall_readiness_timeout_seconds": 120,
+    "attempts": 1,
+    "actual_peer_port_probed": false,
+    "protocol_retries": 0,
+    "production_or_crypto_sources_changed": false,
+    "ART_checks_required": 9,
+    "primary_format_reference": "https://android.googlesource.com/platform/packages/modules/Connectivity/+/refs/heads/android15-release/service/src/com/android/server/ConnectivityService.java",
+    "format_verified": "ConnectivityService.dump prints Active default network: followed by none or defaultNai.network.getNetId()"
+  },
+  "scope_note": "Original failed CI remains failed. The next full CI run must demonstrate the new readiness predicate and execute all original ART/peer checks."
+}

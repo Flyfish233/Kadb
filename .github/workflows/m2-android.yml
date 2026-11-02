@@ -153,10 +153,13 @@ jobs:
           cp "$ANDROID_HOME/emulator/source.properties" evidence/emulator-source.properties
           cp "$ANDROID_HOME/system-images/android-35/google_apis/x86_64/source.properties" evidence/system-image-source.properties
           cp "$ANDROID_HOME/system-images/android-35/google_apis/x86_64/package.xml" evidence/system-image-package.xml
-      - name: Require boot and package manager readiness with bounded diagnostics
+      - name: Require boot, package manager and host-network readiness with bounded diagnostics
         id: ready
         if: ${{ !cancelled() && steps.provision.outcome == 'success' }}
-        run: python3 validation/m2-maven/android/wait_ready.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --timeout 120 --output evidence/emulator-readiness
+        run: |
+          set -euo pipefail
+          python3 -B -m unittest discover -s validation/m2-maven/android -p 'test_*.py' -v 2>&1 | tee evidence/emulator-readiness-gates.log
+          python3 validation/m2-maven/android/wait_ready.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --timeout 120 --output evidence/emulator-readiness
       - name: Execute all nine Android ART checks and two independent peer sessions
         id: art
         if: ${{ !cancelled() && steps.ready.outcome == 'success' && steps.build.outcome == 'success' }}

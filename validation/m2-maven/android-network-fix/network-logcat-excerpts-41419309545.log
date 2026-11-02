@@ -1,0 +1,10 @@
+11-02 09:20:44.116   553   825 I WifiClientModeImpl[36473:wlan0]: disconnectedstate enter
+11-02 09:20:44.581   553   825 D WifiClientModeImpl[36473:wlan0]: CMD_START_CONNECT  my state DisconnectedState nid=0 roam=false
+11-02 09:20:44.681   553   825 D WifiClientModeImpl[36473:wlan0]: Start Connecting Watchdog 1
+11-02 09:20:50.276  1005  1867 D DhcpClient: Broadcasting DHCPDISCOVER
+11-02 09:20:50.294  1005  1867 D DhcpClient: Received packet: 02:15:b2:00:00:00 OFFER, ip /10.0.2.16, netmask /255.255.255.0, DNS servers: /10.0.2.3 , gateways [/10.0.2.2], lease time 86400, domain null
+11-02 09:20:50.358  1005  1867 D DhcpClient: Broadcasting DHCPREQUEST ciaddr=0.0.0.0 request=10.0.2.16 serverid=10.0.2.2
+11-02 09:20:50.383  1005  1867 D DhcpClient: Received packet: 02:15:b2:00:00:00 ACK: your new IP /10.0.2.16, netmask /255.255.255.0, gateways [/10.0.2.2] DNS servers: /10.0.2.3 , lease time 86400, domain null
+11-02 09:20:50.408  1005  1867 D DhcpClient: Confirmed lease: com.android.networkstack.android.net.DhcpResults@8587a94b DHCP server /10.0.2.2 Vendor info null lease 86400 seconds Servername 
+11-02 09:20:50.846   553   832 D ConnectivityService: [100 WIFI] EVENT_NETWORK_INFO_CHANGED, going from CONNECTING to CONNECTED
+11-02 09:20:51.633   553   832 D ConnectivityService: Sending CONNECTED broadcast for type 1 [100 WIFI] isDefaultNetwork=true

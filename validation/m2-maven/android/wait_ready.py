@@ -3,11 +3,45 @@
 
 import argparse
 import datetime
+import ipaddress
 import json
 from pathlib import Path
 import re
 import subprocess
 import time
+
+
+def network_readiness(connectivity: str, routes: str) -> dict | None:
+    """Require Android's default network plus IPv4 routing to the host alias."""
+    # Android 15 ConnectivityService.dump() prints the netId or literal "none".
+    defaults = re.findall(r"^\s*Active default network:\s*(\d+)\s*$", connectivity, re.MULTILINE)
+    if len(defaults) != 1 or int(defaults[0]) <= 0:
+        return None
+    host = ipaddress.IPv4Address("10.0.2.2")
+    entries = [line.split() for line in routes.splitlines() if line.strip()]
+    for entry in entries:
+        if (entry[0] != "default" or "via" not in entry or "dev" not in entry or "linkdown" in entry):
+            continue
+        try:
+            gateway = entry[entry.index("via") + 1]
+            interface = entry[entry.index("dev") + 1]
+        except IndexError:
+            continue
+        if gateway != str(host) or interface == "lo":
+            continue
+        for direct in entries:
+            if "via" in direct or "dev" not in direct or "linkdown" in direct:
+                continue
+            try:
+                subnet = ipaddress.IPv4Network(direct[0], strict=False)
+                direct_interface = direct[direct.index("dev") + 1]
+            except (ValueError, IndexError):
+                continue
+            if host in subnet and direct_interface == interface:
+                return {"active_default_network": int(defaults[0]), "host_alias": str(host),
+                        "interface": interface, "default_route": " ".join(entry),
+                        "on_link_route": " ".join(direct)}
+    return None
 
 
 def main():
@@ -61,17 +95,31 @@ def main():
                             qemu = run("emulator-identity", ["shell", "getprop", "ro.kernel.qemu"])
                             if qemu["exit_code"] != 0 or qemu["stdout"].strip() != "1":
                                 raise RuntimeError("Explicit emulator serial did not report ro.kernel.qemu=1")
-                            report["status"] = "PASS"
-                            report["fingerprint"] = run("fingerprint", ["shell", "getprop", "ro.build.fingerprint"])["stdout"].strip()
-                            break
+                            # sys.boot_completed can precede Wi-Fi/DHCP/default
+                            # route assignment. Do not begin the finite peer
+                            # sessions while ordinary app sockets get ENETUNREACH.
+                            report.setdefault("network_wait_started_seconds", round(time.monotonic() - started, 3))
+                            connectivity = run("android-default-network", ["shell", "dumpsys", "connectivity"])
+                            routes = run("android-ipv4-routes", ["shell", "ip", "-4", "route", "show", "table", "all"])
+                            report["last_connectivity_state"] = connectivity
+                            report["last_ipv4_routes"] = routes
+                            network = (network_readiness(connectivity["stdout"], routes["stdout"])
+                                       if connectivity["exit_code"] == routes["exit_code"] == 0 else None)
+                            if network is not None:
+                                report["network_readiness"] = network
+                                report["status"] = "PASS"
+                                report["fingerprint"] = run("fingerprint", ["shell", "getprop", "ro.build.fingerprint"])["stdout"].strip()
+                                break
                 time.sleep(min(2, max(0, deadline - time.monotonic())))
             if report["status"] != "PASS":
-                report["error"] = "Emulator transport, Android boot or package manager did not become ready within the single bounded attempt"
+                report["error"] = "Emulator transport, Android boot, package manager or host-network route did not become ready within the single bounded attempt"
         except Exception as error:
             report["error"] = str(error)
             report["error_type"] = type(error).__name__
         finally:
             report["elapsed_seconds"] = round(time.monotonic() - started, 3)
+            if "network_wait_started_seconds" in report:
+                report["network_wait_seconds"] = round(report["elapsed_seconds"] - report["network_wait_started_seconds"], 3)
             (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report))
     return 0 if report["status"] == "PASS" else 1
