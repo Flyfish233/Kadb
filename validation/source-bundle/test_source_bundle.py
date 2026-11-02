@@ -461,7 +461,17 @@ class MavenCandidateSourceTest(unittest.TestCase):
         for coordinate in binaries:
             fixed = next(item for item in lock["spake2_maven"]["inventory"]
                          if item["coordinate"] == coordinate and item["path"].endswith(".aar"))
-            path = self.repo / fixed["path"]
+            published_path = self.repo / fixed["path"]
+            metadata = json.loads(published_path.with_suffix(".module").read_text())
+            variant = next(item for item in metadata["variants"]
+                           if item["attributes"].get("org.gradle.usage") == "java-runtime")
+            published = next(item for item in variant["files"] if item["url"] == published_path.name)
+            self.assertEqual((fixed["size"], fixed["sha256"]), (published["size"], published["sha256"]))
+            # Match Gradle's actual cache filename from published metadata; keep
+            # the original Maven URL and candidate bytes unchanged in self.repo.
+            path = self.root / "runtime-cache" / published["name"]
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(published_path.read_bytes())
             external.append({"kind": "external-module", "component": coordinate, "coordinate": coordinate,
                 "configuration": "debugRuntimeClasspath", **origin, "file": str(path),
                 "bytes": fixed["size"], "sha256": fixed["sha256"],
@@ -500,6 +510,16 @@ class MavenCandidateSourceTest(unittest.TestCase):
         self.assertEqual(2, result["spake2_runtime_origin"]["android_binaries"])
         report.pop("spake2_provenance")
         with self.assertRaisesRegex(ValueError, "lacks APK-specific"):
+            self.verify_android(lock_path, report)
+
+    def test_android_runtime_candidate_filename_is_still_exactly_locked(self):
+        lock_path, report = self.android_runtime_fixture()
+        record = report["external_modules"][0]
+        original = Path(record["file"])
+        renamed = original.with_name("unpublished-alias.aar")
+        renamed.write_bytes(original.read_bytes())
+        record["file"] = str(renamed)
+        with self.assertRaisesRegex(ValueError, "binary differs from the source lock"):
             self.verify_android(lock_path, report)
 
     def test_android_Kadb_graph_or_stale_lock_cannot_supply_APK_origin(self):

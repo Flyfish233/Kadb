@@ -3508,7 +3508,7 @@
         "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
         "bytes": 67077,
         "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036",
-        "file_name": "spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+        "file_name": "legacy-release.aar",
         "source_paths": [
           "maven/io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-sources.jar"
         ]
@@ -3517,7 +3517,7 @@
         "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
         "bytes": 92941,
         "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232",
-        "file_name": "spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+        "file_name": "primitives-release.aar",
         "source_paths": [
           "maven/io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-sources.jar"
         ]

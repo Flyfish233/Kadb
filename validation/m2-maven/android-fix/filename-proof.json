@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T09:23:54.250820+00:00",
+  "failing_run_id": 41419309545,
+  "failing_job_id": 125190753041,
+  "source_sha": "892331117cddb6b7a0bd370c29ab2ffb117dd38d",
+  "artifact_id": 13130295362,
+  "artifact_zip_sha256": "bf03349746ecbd3195e11c051996f4f311f0acb81d86df5ab1ab102eaf096886",
+  "actual_runtime_report_path": "validation/m2-maven/runs/41419309545/android-art/evidence/debug-runtime-classpath.json",
+  "actual_runtime_report_sha256": "65c42200953069748e218c4f05b4e38abd2387b9871a8b3cb0c1d7cb44cafe99",
+  "old_source_lock_sha256": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
+  "new_source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+  "candidate_inventory_unchanged": true,
+  "exactly_two_runtime_filename_fields_changed": true,
+  "mappings": [
+    {
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "before_expected_filename": "spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+      "after_expected_filename": "legacy-release.aar",
+      "observed_ci_filename": "legacy-release.aar",
+      "published_maven_url": "spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+      "published_variant": "releaseRuntimeElements-published",
+      "metadata_repository_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.module",
+      "metadata_sha256": "550315bebb167dccb0c93796bf4a0dc1a738fcad88b86185774f849dad477da1",
+      "bytes": 67077,
+      "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036",
+      "repository_id": "7e58f1920695606d3f146ed0a8fe2f3b",
+      "repository_name": "spake2ValidatedCandidate"
+    },
+    {
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "before_expected_filename": "spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+      "after_expected_filename": "primitives-release.aar",
+      "observed_ci_filename": "primitives-release.aar",
+      "published_maven_url": "spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+      "published_variant": "releaseRuntimeElements-published",
+      "metadata_repository_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.module",
+      "metadata_sha256": "a4f1454207339f8726c756b161d491adebf019036cc3c3f82b5eadb8ab6f7ae8",
+      "bytes": 92941,
+      "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232",
+      "repository_id": "7e58f1920695606d3f146ed0a8fe2f3b",
+      "repository_name": "spake2ValidatedCandidate"
+    }
+  ],
+  "scope": "Metadata-bound correction of expected Gradle cache filenames. Previous CI remains FAIL at its original lock; a new complete Android CI run is required to verify the fix."
+}
