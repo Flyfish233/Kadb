@@ -7,6 +7,7 @@ on:
       - '.github/workflows/m2-darwin.yml'
       - 'validation/m2-maven/darwin/**'
       - 'validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-macosArm64.h'
+      - 'validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-iosSimulatorArm64.h'
       - 'kadb/**'
       - 'kadb-mdns/**'
       - 'gradle/**'
@@ -158,7 +159,7 @@ jobs:
         run: |
           set -euo pipefail
           cp kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Headers/Kadb.h evidence/Kadb-${{ matrix.directory }}.h
-          kadb_api_baseline=validation/baseline/darwin/Kadb-iosSimulatorArm64.h
+          kadb_api_baseline=validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-iosSimulatorArm64.h
           if [ '${{ matrix.platform }}' = macos ]; then
             kadb_api_baseline=validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-macosArm64.h
           fi
@@ -182,7 +183,7 @@ jobs:
           cp kadb/build/reports/spake2-maven-resolution.json evidence/spake2-resolution-ios-device.json
           python3 validation/inspect-apple-artifact.py --artifact kadb/build/bin/iosArm64/debugFramework/Kadb.framework/Kadb --architecture arm64 --platform ios --maximum-minimum-os 15.0 --output evidence/ios-device-framework-metadata.json
           cp kadb/build/bin/iosArm64/debugFramework/Kadb.framework/Headers/Kadb.h evidence/Kadb-iosArm64.h
-          python3 validation/compare-objc-api.py validation/baseline/darwin/Kadb-iosSimulatorArm64.h evidence/Kadb-iosArm64.h --report evidence/ios-device-objc-api.json 2>&1 | tee evidence/ios-device-objc-api.log
+          python3 validation/compare-objc-api.py validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-iosSimulatorArm64.h evidence/Kadb-iosArm64.h --report evidence/ios-device-objc-api.json 2>&1 | tee evidence/ios-device-objc-api.log
       - name: Collect complete corresponding source bound to actual linked binaries
         id: source
         if: ${{ !cancelled() && steps.link.outcome == 'success' }}

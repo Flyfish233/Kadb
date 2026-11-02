@@ -30,9 +30,14 @@ workflow 已存在、任务成功排队或依赖解析成功均不等于目标�
 
 ## 已取得的首轮结果与最小修复
 
-首轮 `677a39e` 的四个 Darwin 目标均实际编译、链接成功。iOS Simulator Arm64 已通过
-Kadb / mDNS 的实际测试、独立 peer 的两个会话、公共 API 与 framework 检查；完整平台裁决
-仍等待 device framework、对应源码和最终 artifact。`iosX64` 正在进行 Simulator 阶段。
+首轮 `677a39e` 的四个 Darwin 目标均实际编译、链接成功。
+**iOS Simulator Arm64 首个完整平台裁决为 PASS**：Kadb / mDNS 共 70 项实际执行，
+0 失败、0 非 optional 跳过；独立 peer 正向与错误配对码两个会话通过；公共 API、
+Simulator framework、iOS device framework 构建/部署元数据、完整对应源码均通过。
+实际 source bundle 校验 630 文件、3 项二进制关联，摘要为
+`f1c30f8fd7b0dbb6bf5e5ca6a73ecee6a05c029b6583a1ee65e5f7480408b909`。
+原始 job 日志及阶段裁决位于 `runs/41415836057/iosSimulatorArm64-milestone.json`。
+`iosX64` 已启动 Simulator 并正在执行测试。
 
 macOS 两架构已通过 framework 架构/部署检查、外部 Swift consumer 编译链接执行和
 完整对应源码收集。测试及配对未开始，原因是新增 workflow 在 macOS Bash 3.2 的 `set -u`
@@ -43,6 +48,11 @@ macOS 首轮 API 步骤误用了 iOS 历史头文件，只缺少 iOS 专属的�
 现从原 CI artifact `12655313986` 提取真实 macOS 历史头文件，保存原始身份。
 用原比较器重新比较首轮真实 macOS Arm64 头文件：**943 对 943，0 删除/变更，0 新增**。
 这项更正与原始失败报告一并保留；修复后的 CI 将按平台选择正确基线。
+
+iOS 旧兼容头文件只有 921 项声明；从同一原 CI 恢复的精确实验基线头文件已有 943 项。
+额外 22 项在 Maven 迁移之前即存在。M2 现冻结精确恢复基线用于比较，原有旧 CI 及
+921 项兼容基线保留。943 对 943 的具体声明比较仍由实际生成的目标头文件执行，
+不从声明数量相同推断 API 完全一致。
 
 APK 专属来源门禁已作为 `8a7a75a4061cb26f86b144454ffba98cf2aee9d4` 推送。
 它校验 APK `debugRuntimeClasspath` 的实际仓库、固定请求版本、四个根/Android 组件及两份

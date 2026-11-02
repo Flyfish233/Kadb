@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "artifact_id": 12655313986,
+  "run_id": 40331404006,
+  "source_commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "artifact_archive_sha256": "d2c0b7733739d97b4291e7d9eaddc4bcb485c1a600ada8cde5c3baffaf60b684",
+  "archive_member": "kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Headers/Kadb.h",
+  "header_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+  "header_bytes": 119713,
+  "declarations": 943,
+  "older_baseline_declarations": 921,
+  "additions_already_in_recovery_baseline": 22,
+  "removed_from_older_baseline": 0,
+  "scope": "Actual pre-Maven iOS Simulator Arm64 exported header at the experiment recovery baseline; used for iOS 64-bit Simulator and device framework API comparison."
+}

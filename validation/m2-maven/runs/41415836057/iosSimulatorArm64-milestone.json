@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "source_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "run_id": 41415836057,
+  "job_id": 125179330999,
+  "platform": "iosSimulatorArm64",
+  "verdict": "PASS",
+  "compile": "PASS",
+  "link": "PASS",
+  "unit_tests": {
+    "executed": 70,
+    "failed": 0,
+    "skipped_nonoptional": 0
+  },
+  "independent_peer": {
+    "status": "PASS",
+    "native_driver_checks": 2,
+    "peer_sessions": 2,
+    "positive_sessions": 1,
+    "wrong_code_rejections": 1,
+    "count_basis": "Unchanged driver requires these exact counters before returning passed; detailed report retained in the identified CI artifact"
+  },
+  "public_api": {
+    "baseline_declarations": 921,
+    "current_declarations": 943,
+    "removed_or_changed": 0,
+    "status": "PASS",
+    "scope": "Existing earlier compatibility header; exact experiment-baseline comparison will be retained separately"
+  },
+  "simulator": {
+    "device": "iPhone Air",
+    "runtime": "iOS26.5"
+  },
+  "ios_device_framework": {
+    "build_and_metadata": "PASS",
+    "device_runtime": "NOT VERIFIED"
+  },
+  "corresponding_source": {
+    "status": "PASS",
+    "files": 630,
+    "binary_associations": 3,
+    "sha256": "f1c30f8fd7b0dbb6bf5e5ca6a73ecee6a05c029b6583a1ee65e5f7480408b909"
+  },
+  "raw_log": {
+    "file": "job-125179330999.log.gz",
+    "original_bytes": 339793,
+    "original_sha256": "2ee2abfdc258dbb88633db94327d9cf396e00d1b07d8e3e4f2d66655a0ae2f12"
+  },
+  "artifact": {
+    "id": 13128890597,
+    "bytes": 413550609,
+    "github_digest": "sha256:0c210932ea3e0cc86af7ed281b7e7b1644a6b10b1703e78148870f165d95af5c",
+    "full_zip_downloaded_locally": false
+  },
+  "scope": "First independently completed M2 platform; macOS launch fixes and iosX64 final results remain separate"
+}
