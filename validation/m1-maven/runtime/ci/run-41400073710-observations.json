@@ -1,0 +1,91 @@
+{
+  "checked_at_utc": "2026-11-02T06:34:36.174Z",
+  "observations": [
+    {
+      "job_id": 125130202861,
+      "job_name": "m1-linux-native",
+      "job_url": "https://github.com/Flyfish233/Kadb/actions/runs/41400073710/job/125130202861",
+      "status": "completed",
+      "conclusion": "success",
+      "test_summary_from_actual_log": {
+        "executed": 63,
+        "failed": 0,
+        "device_coverage": "Not established by this summary; requires explicit device evidence.",
+        "missing_required_test_groups": []
+      },
+      "python_unittest_summaries_from_actual_log": [],
+      "source_bundle_result_from_actual_log": {
+        "binary_associations": 0,
+        "bundle": "native-source-bundle-af6aa42ebb2bd880753600ed43fbe6e49d6f197e.tar.gz",
+        "bytes": 192725968,
+        "files": 630,
+        "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "52195c4809fb78be7d1b10fff42607ca37dd76d97509166f019f62dafb60cafd",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "maven_resolution_from_actual_log": {
+        "configurations": [
+          "linuxX64CompileKlibraries",
+          "linuxX64TestCompileKlibraries"
+        ],
+        "resolution_report_sha256": "df34abdd1cc96d00536533125860fb615713be87f9b306c031fa47b4f3ea04e9",
+        "repository_origin": {
+          "id": "7e58f1920695606d3f146ed0a8fe2f3b",
+          "name": "spake2ValidatedCandidate"
+        },
+        "verified_artifact_count": 4
+      },
+      "failures": [],
+      "evidence_method": "Authenticated GitHub job logs; exact summarize-tests.py output and completed source_bundle.py result parsed. Full artifact ZIP not downloaded."
+    },
+    {
+      "job_id": 125130203299,
+      "job_name": "m1-host",
+      "job_url": "https://github.com/Flyfish233/Kadb/actions/runs/41400073710/job/125130203299",
+      "status": "completed",
+      "conclusion": "success",
+      "test_summary_from_actual_log": {
+        "executed": 102,
+        "failed": 0,
+        "device_coverage": "Not established by this summary; requires explicit device evidence.",
+        "missing_required_test_groups": []
+      },
+      "python_unittest_summaries_from_actual_log": [
+        "Ran 6 tests in 2.561s",
+        "Ran 42 tests in 3.236s",
+        "Ran 6 tests in 28.982s"
+      ],
+      "source_bundle_result_from_actual_log": {
+        "binary_associations": 1,
+        "bundle": "native-source-bundle-af6aa42ebb2bd880753600ed43fbe6e49d6f197e.tar.gz",
+        "bytes": 192725929,
+        "files": 630,
+        "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "242f4051004705d074ed91025b0675f297b6f544edcf43874552666c58e940d1",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "maven_resolution_from_actual_log": {
+        "configurations": [
+          "androidCompileClasspath",
+          "androidHostTestCompileClasspath",
+          "androidHostTestRuntimeClasspath",
+          "androidRuntimeClasspath"
+        ],
+        "resolution_report_sha256": "d40796a0f873c6fd6cca3c82c8b757977bf7aa266a348b8ccab07cb088db6d64",
+        "repository_origin": {
+          "id": "7e58f1920695606d3f146ed0a8fe2f3b",
+          "name": "spake2ValidatedCandidate"
+        },
+        "verified_artifact_count": 8
+      },
+      "failures": [],
+      "evidence_method": "Authenticated GitHub job logs; exact summarize-tests.py output and completed source_bundle.py result parsed. Full artifact ZIP not downloaded."
+    }
+  ]
+}

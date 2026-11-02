@@ -109,3 +109,15 @@ AAR 修复已推送为 `df9a1f1b2b666103f227b8c52af2018c8620eab2`。
 报告确认 Android main/hostTest、Linux main/test 四组 compilation，以及六个必查配置全部覆盖，
 实际记录 20 次 Maven 制品选择。原始命令、工作树构建输入摘要及报告保存在
 `validation/m1-maven/runtime/resumed/scheduled-default-*`，没有把测试时尚未提交的修改描述成已提交状态。
+
+## 本轮最终交付：M1 PASS
+
+最终代码提交 `af6aa42ebb2bd880753600ed43fbe6e49d6f197e` 已推送；本轮完整来源和执行证据
+已以 `f6ba8ebd37520626a219aaf1a6ad94d9ace7c384` 推送。
+最终 [M1 CI 41400073710](https://github.com/Flyfish233/Kadb/actions/runs/41400073710)
+的 Android Host 与 Linux Native 两个 job 均成功，含实际测试、来源门禁、完整源码收集和上传。
+本地两次完整离线源码包逐字节一致，独立验证通过，关联真实 AAR 和 Native 测试 ELF。
+
+**最终裁决为 M1 PASS；M2 / M3 未执行。** 本文件此前的 NOT VERIFIED 是各检查点当时状态，保留供追溯。
+请直接从 [M1-DELIVERY.zh-CN.md](M1-DELIVERY.zh-CN.md) 及 `validation/m1-maven/verdict.json`
+继续，不再重做已交付的基线、依赖迁移或审计。

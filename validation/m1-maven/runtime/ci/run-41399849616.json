@@ -1,0 +1,17 @@
+{
+  "id": 41399849616,
+  "name": "M1 fixed Maven migration",
+  "head_branch": "work/spake2-maven-migration",
+  "head_sha": "df9a1f1b2b666103f227b8c52af2018c8620eab2",
+  "path": ".github/workflows/m1-maven.yml",
+  "run_number": 2,
+  "run_attempt": 1,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/41399849616",
+  "created_at": "2026-11-02T06:25:52Z",
+  "updated_at": "2026-11-02T06:29:21Z",
+  "run_started_at": "2026-11-02T06:25:52Z",
+  "checked_at_utc": "2026-11-02T06:29:56.835054+00:00"
+}

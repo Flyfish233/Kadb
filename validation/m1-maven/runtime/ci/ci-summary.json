@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-11-02T06:34:36.174Z",
+  "validated_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+  "final_run": {
+    "id": 41400073710,
+    "url": "https://github.com/Flyfish233/Kadb/actions/runs/41400073710",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "jobs": [
+    {
+      "job_id": 125130202861,
+      "job_name": "m1-linux-native",
+      "job_url": "https://github.com/Flyfish233/Kadb/actions/runs/41400073710/job/125130202861",
+      "status": "completed",
+      "conclusion": "success",
+      "test_summary_from_actual_log": {
+        "executed": 63,
+        "failed": 0,
+        "device_coverage": "Not established by this summary; requires explicit device evidence.",
+        "missing_required_test_groups": []
+      },
+      "python_unittest_summaries_from_actual_log": [],
+      "source_bundle_result_from_actual_log": {
+        "binary_associations": 0,
+        "bundle": "native-source-bundle-af6aa42ebb2bd880753600ed43fbe6e49d6f197e.tar.gz",
+        "bytes": 192725968,
+        "files": 630,
+        "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "52195c4809fb78be7d1b10fff42607ca37dd76d97509166f019f62dafb60cafd",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "maven_resolution_from_actual_log": {
+        "configurations": [
+          "linuxX64CompileKlibraries",
+          "linuxX64TestCompileKlibraries"
+        ],
+        "resolution_report_sha256": "df34abdd1cc96d00536533125860fb615713be87f9b306c031fa47b4f3ea04e9",
+        "repository_origin": {
+          "id": "7e58f1920695606d3f146ed0a8fe2f3b",
+          "name": "spake2ValidatedCandidate"
+        },
+        "verified_artifact_count": 4
+      },
+      "failures": [],
+      "evidence_method": "Authenticated GitHub job logs; exact summarize-tests.py output and completed source_bundle.py result parsed. Full artifact ZIP not downloaded."
+    },
+    {
+      "job_id": 125130203299,
+      "job_name": "m1-host",
+      "job_url": "https://github.com/Flyfish233/Kadb/actions/runs/41400073710/job/125130203299",
+      "status": "completed",
+      "conclusion": "success",
+      "test_summary_from_actual_log": {
+        "executed": 102,
+        "failed": 0,
+        "device_coverage": "Not established by this summary; requires explicit device evidence.",
+        "missing_required_test_groups": []
+      },
+      "python_unittest_summaries_from_actual_log": [
+        "Ran 6 tests in 2.561s",
+        "Ran 42 tests in 3.236s",
+        "Ran 6 tests in 28.982s"
+      ],
+      "source_bundle_result_from_actual_log": {
+        "binary_associations": 1,
+        "bundle": "native-source-bundle-af6aa42ebb2bd880753600ed43fbe6e49d6f197e.tar.gz",
+        "bytes": 192725929,
+        "files": 630,
+        "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "242f4051004705d074ed91025b0675f297b6f544edcf43874552666c58e940d1",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "maven_resolution_from_actual_log": {
+        "configurations": [
+          "androidCompileClasspath",
+          "androidHostTestCompileClasspath",
+          "androidHostTestRuntimeClasspath",
+          "androidRuntimeClasspath"
+        ],
+        "resolution_report_sha256": "d40796a0f873c6fd6cca3c82c8b757977bf7aa266a348b8ccab07cb088db6d64",
+        "repository_origin": {
+          "id": "7e58f1920695606d3f146ed0a8fe2f3b",
+          "name": "spake2ValidatedCandidate"
+        },
+        "verified_artifact_count": 8
+      },
+      "failures": [],
+      "evidence_method": "Authenticated GitHub job logs; exact summarize-tests.py output and completed source_bundle.py result parsed. Full artifact ZIP not downloaded."
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13121092177,
+      "name": "m1-maven-linux-native-af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+      "size_in_bytes": 253887793,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13121092177",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13121092177/zip",
+      "expired": false,
+      "created_at": "2026-11-02T06:33:23Z",
+      "expires_at": "2027-01-31T06:28:04Z",
+      "updated_at": "2026-11-02T06:33:23Z",
+      "digest": "sha256:9153205f81d036e106890e67d7c6752e46f54ea15fee78dab235836ce11c2e56",
+      "workflow_run": {
+        "id": 41400073710,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e"
+      }
+    },
+    {
+      "id": 13120104510,
+      "name": "m1-maven-af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+      "size_in_bytes": 193805836,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13120104510",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13120104510/zip",
+      "expired": false,
+      "created_at": "2026-11-02T06:31:56Z",
+      "expires_at": "2027-01-31T06:28:04Z",
+      "updated_at": "2026-11-02T06:31:56Z",
+      "digest": "sha256:2fcd915e45657ebbb93c626a6fb3cdeb8d54469dbea2f77c3d5b30a97b63ba80",
+      "workflow_run": {
+        "id": 41400073710,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e"
+      }
+    }
+  ],
+  "artifact_identity_method": "GitHub artifact metadata records exact run/head SHA and ZIP digest. ZIP bytes were not downloaded or independently rehashed for this monitoring record.",
+  "history": [
+    {
+      "run": 41399433444,
+      "sha": "316c64a9761c16293d7f1f69adc7769393e7a705",
+      "conclusion": "failure",
+      "explanation": "Native fully passed. Host compilation, 102 tests and Maven origin gate passed; corresponding-source collection rejected the AAR as an unsupported Native artifact. Fixed by df9a1f1."
+    },
+    {
+      "run": 41399849616,
+      "sha": "df9a1f1b2b666103f227b8c52af2018c8620eab2",
+      "conclusion": "success",
+      "explanation": "Both jobs passed including corresponding-source collection after AAR support fix; exact 102 Host + 63 Native executed tests."
+    }
+  ],
+  "scope": {
+    "android_host_compile_and_tests": "PASS",
+    "linux_native_compile_link_and_tests": "PASS",
+    "corresponding_source_collection": "PASS",
+    "android_art_or_emulator": "NOT EXECUTED",
+    "darwin_build_or_tests": "NOT EXECUTED",
+    "external_adb_pairing_or_physical_device": "NOT EXECUTED",
+    "native_ci_binary_association": "The Native job validates corresponding source against its actual Maven resolution but does not pass --binary; use the separate local full bundle association for Native binary hash evidence."
+  }
+}
