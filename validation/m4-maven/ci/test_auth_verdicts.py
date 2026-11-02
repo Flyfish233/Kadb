@@ -6,7 +6,7 @@ import copy
 import unittest
 
 from rsa_stage import require_wire
-from tls_stage import _negative, _positive
+from tls_stage import _auth, _negative, _positive
 
 
 REFERENCE_PEER = {"pid": "417", "listener_present": True, "ro.adb.secure": "1"}
@@ -52,7 +52,8 @@ def tls_sample(*, accepted):
         "consumer": {"adb_handshake_completed": accepted, "shell_succeeded": accepted,
                      "rejection_category": None if accepted else "tls_authentication_error_mapping"},
         "system": {"auth_not_required": False, "tls_matched_identity": accepted,
-                   "tls_key_mismatch": not accepted, "tls_handshake_failed": not accepted},
+                   "tls_key_mismatch": not accepted, "tls_handshake_failed": not accepted,
+                   "tls_certificate_verify_failed": not accepted},
         "peer_before": dict(REFERENCE_PEER),
         "peer_after": dict(REFERENCE_PEER),
     }
@@ -123,6 +124,36 @@ class RsaVerdictTest(unittest.TestCase):
 
 
 class TlsVerdictTest(unittest.TestCase):
+    def test_failed_native_rejection_attempt_preserves_unexpected_success_and_marks_stage_fail(self):
+        class FailingRunner:
+            def __init__(self):
+                self.sessions = []
+
+            def auth_session(self, label, identity, forward, mode):
+                self.sessions.append({"label": label, "identity": identity["name"], "mode": mode,
+                                      "status": "failed", "exit_code": 1,
+                                      "consumer": {"adb_handshake_completed": True, "shell_succeeded": False,
+                                                   "status": "failed", "checks_executed": 3},
+                                      "wire": {"connections": 1}})
+                raise RuntimeError("Native authentication consumer reported failure")
+
+            @staticmethod
+            def redact(value):
+                return str(value)
+
+        stage = {"verdict": "NOT VERIFIED", "sessions": []}
+        runner = FailingRunner()
+        with self.assertRaisesRegex(RuntimeError, "Native authentication consumer"):
+            _auth(runner, stage, "tls-unpaired-b", {"name": "tls_b"}, 12345, "reject")
+        self.assertEqual(stage["verdict"], "FAIL")
+        self.assertEqual(len(stage["sessions"]), 1)
+        preserved = stage["sessions"][0]
+        self.assertIs(preserved["consumer"]["adb_handshake_completed"], True)
+        self.assertEqual(preserved["consumer"]["checks_executed"], 3)
+        self.assertEqual(preserved["exit_code"], 1)
+        self.assertEqual(preserved["wire"]["connections"], 1)
+        self.assertIn("execution_error", preserved)
+
     def test_reference_acceptance_and_refusal_require_different_real_evidence(self):
         accepted = tls_sample(accepted=True)
         refused = tls_sample(accepted=False)
@@ -154,7 +185,7 @@ class TlsVerdictTest(unittest.TestCase):
                     _negative(record, REFERENCE_PEER)
 
     def test_key_mismatch_and_handshake_rejection_are_both_required(self):
-        for field in ("tls_key_mismatch", "tls_handshake_failed"):
+        for field in ("tls_key_mismatch", "tls_handshake_failed", "tls_certificate_verify_failed"):
             for missing in (True, False):
                 with self.subTest(field=field, missing=missing):
                     record = tls_sample(accepted=False)
@@ -164,6 +195,17 @@ class TlsVerdictTest(unittest.TestCase):
                         record["system"][field] = False
                     with self.assertRaises(RuntimeError):
                         _negative(record, REFERENCE_PEER)
+
+    def test_intermediate_key_mismatch_plus_generic_ssl_error_is_not_certificate_refusal(self):
+        record = tls_sample(accepted=False)
+        # adbd compares a certificate against each authorized public key. A
+        # nonmatching candidate can precede acceptance; a later generic SSL I/O
+        # error must not turn that comparison into certificate rejection.
+        record["system"]["tls_key_mismatch"] = True
+        record["system"]["tls_handshake_failed"] = True
+        record["system"]["tls_certificate_verify_failed"] = False
+        with self.assertRaisesRegex(RuntimeError, "certificate verification rejection"):
+            _negative(record, REFERENCE_PEER)
 
     def test_successful_b_is_a_failure_even_if_shell_or_system_log_later_fails(self):
         for field in ("adb_handshake_completed", "shell_succeeded"):

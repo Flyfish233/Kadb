@@ -61,6 +61,112 @@ class AuthObserverTest(unittest.TestCase):
         device = AuthFrameObserver("adbd_to_host", events.append, session)
         return session, events, host, device
 
+    def live_public_request(self, public_text, signature, inspect):
+        """Exercise the relay accessor while a real loopback request is live."""
+        target = socket.socket()
+        target.bind(("127.0.0.1", 0))
+        target.listen(1)
+        target_port = target.getsockname()[1]
+        request_received = threading.Event()
+        release = threading.Event()
+        failures = []
+        challenge = frame(b"AUTH", self.token, 1)
+        second_challenge = frame(b"AUTH", b"n" * 20, 1)
+        public = frame(b"AUTH", public_text.encode("ascii") + b"\x00", 3)
+
+        def receive_exact(sock, count):
+            result = bytearray()
+            while len(result) < count:
+                part = sock.recv(count - len(result))
+                if not part:
+                    raise RuntimeError("Unexpected fixture EOF")
+                result.extend(part)
+            return bytes(result)
+
+        def peer():
+            try:
+                connection, _ = target.accept()
+                with connection:
+                    connection.settimeout(3)
+                    connection.sendall(challenge)
+                    if signature is not None:
+                        expected = frame(b"AUTH", signature, 2)
+                        if receive_exact(connection, len(expected)) != expected:
+                            raise RuntimeError("Signature bytes changed in relay")
+                        connection.sendall(second_challenge)
+                    if receive_exact(connection, len(public)) != public:
+                        raise RuntimeError("Public request bytes changed in relay")
+                    request_received.set()
+                    release.wait(timeout=3)
+            except Exception as error:
+                failures.append(type(error).__name__)
+            finally:
+                target.close()
+
+        thread = threading.Thread(target=peer)
+        thread.start()
+        relay = AuthRelay(target_port, self.blob)
+        try:
+            with relay:
+                with socket.create_connection(("127.0.0.1", relay.port), timeout=3) as client:
+                    self.assertEqual(receive_exact(client, len(challenge)), challenge)
+                    if signature is not None:
+                        client.sendall(frame(b"AUTH", signature, 2))
+                        self.assertEqual(receive_exact(client, len(second_challenge)), second_challenge)
+                    client.sendall(public)
+                    self.assertTrue(request_received.wait(timeout=3))
+                    inspect(relay)
+        finally:
+            release.set()
+            thread.join(timeout=3)
+        self.assertFalse(thread.is_alive())
+        self.assertEqual(failures, [])
+        return relay
+
+    def test_exact_auth3_comment_is_one_shot_and_never_in_snapshot(self):
+        public_text = self.blob + " Kadb@different-host original comment"
+
+        def inspect(relay):
+            before = relay.snapshot()
+            self.assertNotIn(self.blob, json.dumps(before))
+            self.assertNotIn("Kadb@different-host", json.dumps(before))
+            request = before["authorization_requests"]["1"]
+            self.assertTrue(request["available_in_memory"])
+            self.assertEqual(request["sha256"], hashlib.sha256(public_text.encode()).hexdigest())
+            self.assertEqual(relay.take_verified_public_key(), public_text)
+            after = relay.snapshot()
+            self.assertFalse(after["authorization_requests"]["1"]["available_in_memory"])
+            self.assertTrue(after["authorization_requests"]["1"]["consumed"])
+            self.assertNotIn(public_text, json.dumps(after))
+            with self.assertRaises(RuntimeError):
+                relay.take_verified_public_key()
+
+        self.live_public_request(public_text, self.signature, inspect)
+
+    def test_auth3_accessor_refuses_wrong_key_or_missing_current_valid_signature(self):
+        def unavailable(relay):
+            with self.assertRaises(RuntimeError):
+                relay.take_verified_public_key()
+            self.assertFalse(relay.snapshot()["authorization_requests"]["1"]["available_in_memory"])
+
+        with self.subTest(reason="wrong_public_key"):
+            wrong_blob = public_blob(self.public.modulus ^ 2)
+            self.live_public_request(wrong_blob + " wrong@key", self.signature, unavailable)
+        with self.subTest(reason="no_signature_on_this_connection"):
+            self.live_public_request(self.blob + " Kadb@host", None, unavailable)
+        with self.subTest(reason="invalid_signature_on_this_connection"):
+            wrong_signature = self.signature[:-1] + bytes([self.signature[-1] ^ 1])
+            self.live_public_request(self.blob + " Kadb@host", wrong_signature, unavailable)
+
+    def test_unconsumed_auth3_request_is_cleared_on_connection_close(self):
+        def still_available(relay):
+            self.assertTrue(relay.snapshot()["authorization_requests"]["1"]["available_in_memory"])
+
+        relay = self.live_public_request(self.blob + " Kadb@host", self.signature, still_available)
+        self.assertFalse(relay.snapshot()["authorization_requests"]["1"]["available_in_memory"])
+        with self.assertRaises(RuntimeError):
+            relay.take_verified_public_key()
+
     def test_openssl_prehashed_signature_and_wrong_identity(self):
         self.assertTrue(self.public.verifies(self.token, self.signature))
         self.assertFalse(self.public.verifies(hashlib.sha1(self.token).digest(), self.signature))

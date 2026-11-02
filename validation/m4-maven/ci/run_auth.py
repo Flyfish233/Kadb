@@ -35,6 +35,103 @@ EXPECTED_CHECKS = {
     "reject": ["identity_import", "initially_disconnected", "connection_attempt_rejected", "failed_connection_not_open",
                "attempt_bounded", "connection_closed", "closed_client_reuse_rejected", "temporary_identity_cleared"],
 }
+REQUIRED_STAGES = ("M4-A", "M4-B")
+
+
+def stage_scope(selection):
+    """Describe this invocation without claiming unexecuted M4 requirements."""
+    selections = {"all": REQUIRED_STAGES, "rsa": ("M4-A",), "tls": ("M4-B",)}
+    if selection not in selections:
+        raise ValueError("Unknown M4 stage selection")
+    selected = selections[selection]
+    scope = {
+        "requested_stages": list(selected),
+        "execution_scope": {
+            "selection": selection,
+            "environment": "one explicit disposable authenticated emulator per invocation",
+            "overall_m4_requires": list(REQUIRED_STAGES),
+            "includes_all_required_stages": selected == REQUIRED_STAGES,
+            "run_verdict_applies_only_to_requested_stages": True,
+        },
+    }
+    for label in REQUIRED_STAGES:
+        scope[label] = {"verdict": "NOT VERIFIED", "status": "not_started" if label in selected else "not_executed"}
+        if label not in selected:
+            scope[label]["reason"] = "Not selected for this invocation; requires separate execution evidence"
+    return scope
+
+
+def aggregate_verdicts(report):
+    """Keep a selected-stage CI result separate from the complete M4 verdict."""
+    selected = report["requested_stages"]
+    if not selected or len(set(selected)) != len(selected) or any(label not in REQUIRED_STAGES for label in selected):
+        raise ValueError("Invalid requested M4 stage set")
+    unexpected_success = any(
+        item.get("mode") == "reject" and item.get("consumer", {}).get("adb_handshake_completed")
+        for item in report.get("sessions", []))
+    verdicts = [report[label].get("verdict", "NOT VERIFIED") for label in selected]
+    clean = (report.get("cleanup_verdict") == "PASS" and not report.get("cleanup_errors")
+             and not report.get("error")
+             and not any(report[label].get("execution_error") or report[label].get("status") == "failed"
+                         for label in selected))
+    if unexpected_success or "FAIL" in verdicts:
+        run_verdict = "FAIL"
+    elif all(verdict == "PASS" for verdict in verdicts):
+        run_verdict = "PASS" if clean else "CONDITIONAL PASS"
+    elif any(verdict in ("PASS", "CONDITIONAL PASS") for verdict in verdicts):
+        run_verdict = "CONDITIONAL PASS"
+    else:
+        run_verdict = "NOT VERIFIED"
+
+    if unexpected_success or any(report[label].get("verdict") == "FAIL" for label in REQUIRED_STAGES):
+        overall = "FAIL"
+    elif set(selected) != set(REQUIRED_STAGES):
+        # A successful matrix job supplies one requirement, not the full M4 gate.
+        overall = "NOT VERIFIED"
+    else:
+        overall = run_verdict
+    report["run_verdict"] = run_verdict
+    report["verdict"] = overall
+    report["status"] = "passed" if run_verdict == "PASS" else "failed" if run_verdict == "FAIL" else "incomplete"
+    return 0 if run_verdict == "PASS" else 1
+
+
+def apply_pending_confirmation(runner, relay, label, identity, approval):
+    """Use the exact current AUTH3 string that Android presented for approval.
+
+    Android indexes connection accounting by the complete key string, including
+    its comment. Reconstructing it from adb keygen's .pub file can give the same
+    RSA key a different framework identity. Keep the observed text in memory;
+    only digests and lengths enter the report.
+    """
+    if approval not in ("allow", "deny"):
+        raise ValueError("Invalid pending confirmation action")
+    public_request = relay.take_verified_public_key()
+    if (not isinstance(public_request, str) or any(char in public_request for char in "\x00\r\n")
+            or not public_request.isascii() or not public_request.split()
+            or public_request.split()[0] != identity["blob"]
+            or valid_key_blobs(public_request) != {identity["blob"]}):
+        raise RuntimeError("Observed AUTH3 request does not match the expected temporary identity")
+    request_bytes = public_request.encode("ascii")
+    metadata = {
+        "current_connection_AUTH3_matches_identity": True,
+        "last_key_received_matches_identity": True,
+        "fingerprint_md5": identity["fingerprint"],
+        "action": approval,
+        "request_source": "one-shot verified current-connection AUTH3 from byte-transparent relay",
+        "auth3_payload_sha256": hashlib.sha256(request_bytes + b"\x00").hexdigest(),
+        "auth3_payload_bytes": len(request_bytes) + 1,
+        "public_key_argument_sha256": hashlib.sha256(request_bytes).hexdigest(),
+        "public_key_argument_bytes": len(request_bytes),
+        "only_terminal_nul_removed": True,
+        "observed_request_used_verbatim_for_allow": approval == "allow",
+    }
+    if approval == "allow":
+        runner.binder(label + "-allow-normal-confirmation", 1, "i32", 1, "s16", public_request)
+    else:
+        runner.binder(label + "-deny-normal-confirmation", 2)
+    metadata["binder_action_completed"] = True
+    return metadata
 
 
 def digest(path):
@@ -224,14 +321,8 @@ class M4Runner(Runner):
                                            if event.get("direction") == "host_to_adbd" and event.get("auth_type") == 3
                                            and event.get("public_key_matches_expected_identity")]
                             if len(submissions) == 1 and self.pending_identity(label + "-pending-key", identity):
-                                record["pending_confirmation"] = {"current_connection_AUTH3_matches_identity": True,
-                                                                  "last_key_received_matches_identity": True,
-                                                                  "fingerprint_md5": identity["fingerprint"], "action": approval}
-                                if approval == "allow":
-                                    self.binder(label + "-allow-normal-confirmation", 1, "i32", 1, "s16", identity["public"])
-                                else:
-                                    self.binder(label + "-deny-normal-confirmation", 2)
-                                record["pending_confirmation"]["binder_action_completed"] = True
+                                record["pending_confirmation"] = apply_pending_confirmation(
+                                    self, relay, label, identity, approval)
                                 break
                             time.sleep(0.1)
                         if not record.get("pending_confirmation", {}).get("binder_action_completed"):
@@ -352,20 +443,29 @@ def execute(runner, report):
     with tempfile.TemporaryDirectory(prefix="kadb-m4-identities-") as directory:
         report["temporary_identity_directory_created"] = True
         try:
-            for name in ("rsa_a", "rsa_b", "tls_a", "tls_b"):
+            identity_names = []
+            if "M4-A" in report["requested_stages"]:
+                identity_names.extend(("rsa_a", "rsa_b"))
+            if "M4-B" in report["requested_stages"]:
+                identity_names.extend(("tls_a", "tls_b"))
+            for name in identity_names:
                 key = Path(directory) / name
                 runner.run("generate-" + name.replace("_", "-"), [runner.args.adb, "keygen", key])
                 key.chmod(0o600)
                 identities[name] = identity(runner, name, key)
             blobs = {item["blob"] for item in identities.values()}
-            if len(blobs) != 5 or any(identities[name]["blob"] in runner.initial_keys for name in identities if name != "control"):
+            if len(blobs) != len(identity_names) + 1 or any(identities[name]["blob"] in runner.initial_keys for name in identity_names):
                 raise RuntimeError("M4 identities are not independent and initially unauthorized")
             report["temporary_identity_fingerprints_md5"] = {name: item["fingerprint"] for name, item in identities.items() if name != "control"}
             from rsa_stage import run_rsa
             from tls_stage import run_tls
             for label, operation in (("M4-A", run_rsa), ("M4-B", run_tls)):
+                if label not in report["requested_stages"]:
+                    continue
+                report[label]["status"] = "running"
                 try:
                     operation(runner, identities, report)
+                    report[label]["status"] = "executed"
                 except Exception as failure:
                     report[label]["execution_error"] = runner.redact(failure)
                     report[label]["error_type"] = type(failure).__name__
@@ -404,6 +504,8 @@ def main():
     parser.add_argument("--consumer", required=True)
     parser.add_argument("--pairing-consumer", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--stage", choices=("all", "rsa", "tls"), default="all",
+                        help="Run selected M4 requirements; a single-stage PASS does not establish overall M4 PASS")
     args = parser.parse_args()
     if not re.fullmatch(r"emulator-\d+", args.serial):
         parser.error("An explicit emulator serial is required; physical devices are refused")
@@ -416,10 +518,10 @@ def main():
             parser.error("All consumers and adb must be executable")
         setattr(args, name, str(path))
     runner = M4Runner(args)
-    report = {"schema": 1, "milestone": "M4", "status": "running", "verdict": "NOT VERIFIED",
+    report = {"schema": 2, "milestone": "M4", "status": "running", "verdict": "NOT VERIFIED", "run_verdict": "NOT VERIFIED",
               "started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(), "run_id": runner.run_id,
               "physical_device": False, "root_used": False, "authorization_files_written_by_driver": False,
-              "M4-A": {"verdict": "NOT VERIFIED"}, "M4-B": {"verdict": "NOT VERIFIED"},
+              **stage_scope(args.stage),
               "M4-C": {"verdict": "NOT VERIFIED", "reason": "No physical device authorized or selected"},
               "cleanup_errors": [], "sessions": runner.sessions,
               "fixed_candidate": {"version": "0.1.0-dev.59105290820b", "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"},
@@ -458,24 +560,15 @@ def main():
         report["commands_executed"] = runner.count
         report["checks_executed"] = sum(session.get("consumer", {}).get("checks_executed", 0) for session in runner.sessions)
         report["checks_executed"] += report["M4-B"].get("pairing", {}).get("consumer", {}).get("checks_executed", 0)
-        unexpected_success = any(s["mode"] == "reject" and s.get("consumer", {}).get("adb_handshake_completed") for s in runner.sessions)
-        stage_verdicts = [report["M4-A"].get("verdict"), report["M4-B"].get("verdict")]
-        if unexpected_success or "FAIL" in stage_verdicts:
-            report["verdict"] = "FAIL"
-        elif stage_verdicts == ["PASS", "PASS"]:
-            report["verdict"] = "PASS" if not report["cleanup_errors"] and not report.get("error") else "CONDITIONAL PASS"
-        elif "PASS" in stage_verdicts or "CONDITIONAL PASS" in stage_verdicts:
-            report["verdict"] = "CONDITIONAL PASS"
         report["cleanup_verdict"] = "PASS" if (not report["cleanup_errors"] and report.get("authentication_and_uid_restored")
                                                   and report.get("temporary_private_keys_deleted") and not runner.owned_forwards) else "NOT VERIFIED"
-        if report["verdict"] == "PASS" and report["cleanup_verdict"] != "PASS":
-            report["verdict"] = "CONDITIONAL PASS"
-        report["status"] = "passed" if report["verdict"] == "PASS" else "incomplete" if report["verdict"] != "FAIL" else "failed"
+        exit_code = aggregate_verdicts(report)
         report["finished_utc"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         runner.log.close()
         (args.output / "report.json").write_text(json.dumps(runner.sanitized(report), indent=2) + "\n")
-    print(json.dumps({key: report[key] for key in ("status", "verdict", "checks_executed", "cleanup_verdict")}))
-    return 0 if report["verdict"] == "PASS" else 1
+    print(json.dumps({key: report[key] for key in ("status", "run_verdict", "verdict", "requested_stages",
+                                                  "execution_scope", "checks_executed", "cleanup_verdict")}))
+    return exit_code
 
 
 if __name__ == "__main__":

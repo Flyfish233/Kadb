@@ -109,8 +109,9 @@ def _negative(session, reference):
     system = session.get("system", {})
     _require(consumer.get("adb_handshake_completed") is False and consumer.get("shell_succeeded") is False,
              "Unauthorized TLS identity obtained a successful ADB session")
-    _require(system.get("tls_key_mismatch") is True and system.get("tls_handshake_failed") is True,
-             "Connection failure lacks actual adbd key mismatch and TLS handshake rejection")
+    _require(system.get("tls_key_mismatch") is True and system.get("tls_handshake_failed") is True
+             and system.get("tls_certificate_verify_failed") is True,
+             "Connection failure lacks actual adbd key mismatch and certificate verification rejection")
     _require(not system.get("tls_matched_identity"), "Rejected identity was also reported accepted")
     _require(consumer.get("rejection_category") not in ("network_connect_error", "io_timeout"),
              "A network failure or timeout cannot replace TLS identity rejection")
@@ -124,6 +125,14 @@ def _auth(runner, stage, label, identity, forward, mode):
         record.update(runner.auth_session(label, identity, forward, mode))
     except Exception as error:
         record["execution_error"] = runner.redact(error)
+        # The shared runner saves the actual attempt before raising. Retain it
+        # here too so a rejected identity that unexpectedly established CNXN
+        # cannot disappear behind this stage's placeholder record.
+        partial = next((item for item in reversed(runner.sessions) if item.get("label") == label), None)
+        if partial:
+            record.update(partial)
+        if mode == "reject" and record.get("consumer", {}).get("adb_handshake_completed") is True:
+            stage["verdict"] = "FAIL"
         raise
     return record
 

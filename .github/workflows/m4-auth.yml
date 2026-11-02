@@ -20,8 +20,15 @@ env:
 
 jobs:
   authenticated-environment:
+    name: authenticated-${{ matrix.stage }}
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        # Separate fresh AVDs prevent delayed RSA framework notifications from
+        # becoming authorization input to the wireless acceptance experiment.
+        stage: [rsa, tls]
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Restore and verify the unchanged Maven candidate
@@ -93,7 +100,7 @@ jobs:
         if: ${{ !cancelled() && steps.source.outcome == 'success' }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: corresponding-source-${{ github.sha }}
+          name: corresponding-source-${{ github.sha }}-${{ matrix.stage }}
           path: evidence/corresponding-source/
           compression-level: 0
           retention-days: 90
@@ -137,12 +144,12 @@ jobs:
         id: environment
         if: ${{ !cancelled() && steps.ready.outcome == 'success' }}
         run: python3 validation/m4-maven/ci/probe_environment.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --output evidence/environment
-      - name: Execute real RSA AUTH and wireless TLS identity acceptance and rejection
+      - name: Execute the isolated real ${{ matrix.stage }} identity acceptance and rejection stage
         id: auth
         if: ${{ !cancelled() && steps.environment.outcome == 'success' && steps.association.outcome == 'success' && steps.harness.outcome == 'success' }}
         run: |
           set -euo pipefail
-          python3 validation/m4-maven/ci/run_auth.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --consumer validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe --pairing-consumer validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe --output evidence/auth 2>&1 | tee evidence/auth-driver.txt
+          python3 validation/m4-maven/ci/run_auth.py --stage '${{ matrix.stage }}' --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --consumer validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe --pairing-consumer validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe --output evidence/auth 2>&1 | tee evidence/auth-driver.txt
       - name: Destroy this job's emulator, control identity and AVD
         id: cleanup
         if: always()
@@ -176,6 +183,7 @@ jobs:
           M4_ENVIRONMENT: ${{ steps.environment.outcome }}
           M4_AUTH: ${{ steps.auth.outcome }}
           M4_CLEANUP: ${{ steps.cleanup.outcome }}
+          M4_STAGE: ${{ matrix.stage }}
         run: |
           python3 - <<'PY'
           import json, os
@@ -186,7 +194,8 @@ jobs:
               'schema': 1,
               'commit': os.environ['GITHUB_SHA'],
               'run_id': os.environ['GITHUB_RUN_ID'],
-              'step_outcomes': {key.removeprefix('M4_').lower(): value for key, value in os.environ.items() if key.startswith('M4_')},
+              'stage': os.environ['M4_STAGE'],
+              'step_outcomes': {key.removeprefix('M4_').lower(): value for key, value in os.environ.items() if key.startswith('M4_') and key != 'M4_STAGE'},
               'authentication_verdict_source': 'auth/report.json; step completion alone is not an authentication verdict',
               'physical_devices': 'NOT VERIFIED',
           }
@@ -196,7 +205,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: m4-auth-${{ github.sha }}
+          name: m4-auth-${{ github.sha }}-${{ matrix.stage }}
           path: |
             evidence/
             !evidence/corresponding-source/*.tar.gz

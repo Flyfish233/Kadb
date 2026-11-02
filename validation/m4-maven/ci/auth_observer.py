@@ -78,6 +78,13 @@ class AuthSession:
         self.challenge_sequence = 0
         self.events = []
         self.verifications = []
+        # Exact AUTH3 request text is needed by Android's normal allowDebugging
+        # UI path: framework connection accounting keys include its comment.
+        # Keep it privately in memory, outside every serializable observation.
+        self._public_key_request = bytearray()
+        self._public_key_request_count = 0
+        self._public_key_request_consumed = False
+        self._public_key_request_metadata = {}
 
     def _append(self, event):
         if len(self.events) < EVENT_LIMIT:
@@ -114,11 +121,27 @@ class AuthSession:
             # previous challenge's validity, even if the bytes happen to match.
             self.clear_token()
         elif direction == "host_to_adbd" and kind == 3:
+            self._public_key_request_count += 1
+            self.clear_public_key_request()
             try:
-                key_text = payload.rstrip(b"\x00").decode("ascii")
+                if not payload.endswith(b"\x00") or payload.count(b"\x00") != 1:
+                    raise ValueError("AUTH3 requires one terminal NUL")
+                request = payload[:-1]
+                key_text = request.decode("ascii")
                 supplied = AdbRsaPublicKey(key_text)
                 event["public_key_matches_expected_identity"] = supplied.sha256 == self.public_key.sha256
                 event["supplied_public_key_sha256"] = supplied.sha256
+                verified_signature = (len(self.verifications) == 1
+                                      and self.verifications[0]["token_observed_on_this_connection"]
+                                      and self.verifications[0]["signature_matches_expected_identity"])
+                if (event["public_key_matches_expected_identity"] and verified_signature
+                        and self._public_key_request_count == 1 and not self._public_key_request_consumed):
+                    self._public_key_request.extend(request)
+                    self._public_key_request_metadata = {"sha256": hashlib.sha256(request).hexdigest(),
+                                                         "bytes": len(request),
+                                                         "source": "verified_current_connection_AUTH3_without_terminal_NUL"}
+                    event["exact_public_key_request_captured"] = True
+                    event["authorization_request_sha256"] = self._public_key_request_metadata["sha256"]
             except (UnicodeDecodeError, ValueError):
                 event["public_key_matches_expected_identity"] = False
                 event["malformed_public_key"] = True
@@ -127,6 +150,26 @@ class AuthSession:
     def clear_token(self):
         self.token[:] = b"\x00" * len(self.token)
         self.token.clear()
+
+    def clear_public_key_request(self):
+        self._public_key_request[:] = b"\x00" * len(self._public_key_request)
+        self._public_key_request.clear()
+
+    def take_verified_public_key(self):
+        if (self._public_key_request_consumed or self._public_key_request_count != 1
+                or not self._public_key_request or len(self.verifications) != 1
+                or not self.verifications[0]["token_observed_on_this_connection"]
+                or not self.verifications[0]["signature_matches_expected_identity"]):
+            raise RuntimeError("No unconsumed verified current-connection AUTH3 request")
+        text = self._public_key_request.decode("ascii")
+        self.clear_public_key_request()
+        self._public_key_request_consumed = True
+        return text
+
+    def authorization_request_metadata(self):
+        return {**self._public_key_request_metadata,
+                "available_in_memory": bool(self._public_key_request),
+                "consumed": self._public_key_request_consumed}
 
 
 class AuthFrameObserver:
@@ -296,6 +339,7 @@ class AuthRelay(AdbRelay):
         finally:
             with self.lock:
                 session.clear_token()
+                session.clear_public_key_request()
                 for observer in self.observers.get(connection, {}).values():
                     observer.close()
             for endpoint in (incoming, outgoing):
@@ -313,6 +357,19 @@ class AuthRelay(AdbRelay):
         super().__exit__(*arguments)
         self.idle.wait(timeout=3)
 
+    def take_verified_public_key(self):
+        """Consume exact AUTH3 text for normal Binder approval, never for logs.
+
+        Requires exactly one live relay connection and that connection's valid
+        RSA signature plus matching AUTH3 public key. The caller must retain the
+        returned text only long enough to make its redacted Binder request.
+        """
+        with self.lock:
+            if (self.connections != 1 or self.active_connections != 1 or len(self.sessions) != 1
+                    or self.counts.get("host_to_adbd:AUTH:3") != 1 or self.errors):
+                raise RuntimeError("AUTH3 approval requires exactly one live current connection")
+            return next(iter(self.sessions.values())).take_verified_public_key()
+
     def snapshot(self):
         with self.lock:
             result = super().snapshot()
@@ -322,6 +379,8 @@ class AuthRelay(AdbRelay):
                                 for connection, session in self.sessions.items()},
                 "auth_verifications": {str(connection): copy.deepcopy(session.verifications)
                                        for connection, session in self.sessions.items()},
+                "authorization_requests": {str(connection): session.authorization_request_metadata()
+                                           for connection, session in self.sessions.items()},
                 "tls": {str(connection): {direction: observer.snapshot() for direction, observer in observers.items()}
                         for connection, observers in self.observers.items()},
                 "transport_events": copy.deepcopy(self.transport_events),
