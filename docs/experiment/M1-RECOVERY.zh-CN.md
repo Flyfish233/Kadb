@@ -59,3 +59,29 @@ PeerInfo 认证、一次性状态机、失败销毁与异常映射。SPAKE2 生�
 **本检查点为静态迁移已交付、构建待验证；M1 尚未 PASS。**
 它不将候选文件完整性、上游成功构建或旧基线 CI 等同于 Kadb 本轮编译/单测通过。
 后续首先增加实际 Gradle 组件、传递依赖、变体、来源摘要和项目替换门禁，再记录当前工具链的执行结果。
+
+## 继续执行检查点 2：对应源码与实际 Maven 来源门禁
+
+2026-11-02（Asia/Shanghai），静态迁移已以 `77921027374c7295f65ae82eb1b939a7dae7361e`
+推送。本检查点继续保留旧工作树并修复其有效但未完成的门禁实现：
+
+- `gradle/spake2-maven.gradle` 检查真实 Gradle 解析图、同版 Legacy/Primitives、平台变体、
+  元数据中的原始文件 URL、缓存文件 SHA-256 和实际仓库名称/唯一仓库 descriptor；拒绝项目替换、
+  错误版本、来源混淆及不完整传递依赖。配置锁定 Gradle 9.6.0，不静默忽略不支持的来源 API。
+- 正常 Kadb 编译、测试、AAR/check 入口依赖该门禁，settings 禁止子项目另设依赖仓库。
+- `source_bundle.py` 与依赖锁改为真实 Maven 组件与逐文件摘要，保留两个完整源码包、全部相关
+  Gradle Module Metadata/POM/source/许可材料，以及 Kadb 原有依赖来源收集功能。
+- 保留原有 Apache-2.0 / AGPL-3.0-only 边界与独立 Java oracle；未修改生产密码学或配对协议源码。
+- 增加独立 M1 CI（Android Host 与 Linux Native 两个 job），同步修正实验 workflow 中的旧内嵌模块假设。
+
+本次实际执行：候选恢复测试 **6/6**、源码门禁测试 **40/40**、真实 Gradle 9.6/JDK 25
+解析正负测试 **6/6** 通过；负向覆盖错误版本、缺失 Primitives、非法项目替换、相同字节但错误仓库、
+被修改二进制。发现并修复了 Gradle AAR 缓存改名导致的误判及恢复测试缺少 source-lock 摘要的问题。
+
+Android Host 的实际 Kadb 编译、AAR 及 **102 项测试** 已在本轮中间工作树通过，
+但尚需在此门禁提交上保存完整解析证据、执行完整源码包并记录 Linux Native 结果。
+**本检查点仍不宣称 M1 PASS**；具体编译/单测与最终裁决以接下来的独立运行证据记录为准。
+
+继续入口：先运行 `python3 scripts/prepare_spake2_candidate.py`，再执行 `.github/workflows/m1-maven.yml`
+中的对应 host/Native 命令和 `source_bundle.py create --ref <本检查点提交>`。
+无需重做恢复基线、SPAKE2 审计或候选重新构建。

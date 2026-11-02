@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "scope": "experimental-native-and-android-validation-runtime",
-  "reviewed_utc_date": "2026-10-26",
+  "reviewed_utc_date": "2026-11-01",
   "versions": {
     "kotlin": "2.4.20",
     "kotlinxCoroutinesCore": "1.11.0",
@@ -9,7 +9,8 @@
     "atomicfu": "0.32.1",
     "bc": "1.86",
     "documentfile": "1.1.0",
-    "hiddenapibypass": "6.1"
+    "hiddenapibypass": "6.1",
+    "spake2KmpCandidate": "0.1.0-dev.59105290820b"
   },
   "native_targets": [
     "iosArm64",
@@ -18,7 +19,7 @@
     "macosX64",
     "linuxX64"
   ],
-  "spake2_revision": "b837aba27bebc1050965fa124c2efa54b4e4544a",
+  "spake2_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
   "boringssl_revision": "5b83e5d1abf0ae0033ae52ab579d906b67633b2c",
   "required_archive_files": {
     "boringssl": [
@@ -1770,13 +1771,1566 @@
           "git_blob": "a09d0fb7deef35504080959a90bf02802672052e"
         }
       ]
+    },
+    {
+      "id": "spake2-legacy/spake2-legacy-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy",
+      "candidate_path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy/spake2-legacy-0.1.0-dev.59105290820b-source-distribution.zip",
+      "kind": "spake2-source-distribution",
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy",
+      "candidate_path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-source-distribution.zip",
+      "path": "maven/io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-source-distribution.zip",
+      "size": 1426991,
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "build.gradle.kts",
+        "primitives/build.gradle.kts",
+        "legacy/build.gradle.kts",
+        "settings.gradle.kts",
+        "gradle.properties",
+        "gradlew",
+        "gradlew.bat",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "kotlin-js-store/yarn.lock",
+        "README.md",
+        "SECURITY.md",
+        "docs/API.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy/spake2-legacy-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy",
+      "candidate_path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy/spake2-legacy-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy",
+      "candidate_path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.module",
+      "size": 22000,
+      "sha256": "9f0ac1ee6dce5eb8b2d93cea626daf4f253c92909766ba6c74bc534f3c3d6712",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy/spake2-legacy-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy",
+      "candidate_path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.pom",
+      "size": 2289,
+      "sha256": "4a290c32a497b16ecf2a5e5317c95fad2c4acac1a3832df60ef636fb3f84c7d9",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-android/spake2-legacy-android-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-android",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-android/spake2-legacy-android-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-android",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "a8bc0a078f329f7c1d7bb837f26acd2cf77c26b95cbd0b2ec3aea9da7944de62",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-android/spake2-legacy-android-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-android",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.module",
+      "size": 4661,
+      "sha256": "550315bebb167dccb0c93796bf4a0dc1a738fcad88b86185774f849dad477da1",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-android/spake2-legacy-android-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-android",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.pom",
+      "size": 2330,
+      "sha256": "42117e8915574fd340779d099412736b07b17f667357c818449265c4fe574917",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-iosarm64/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-iosarm64/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-iosarm64/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.module",
+      "size": 4146,
+      "sha256": "2a38ab58d5e03fd1fd571a90695031cfe53f4f42d8dab8a1bbbe082fb568269e",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-iosarm64/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.pom",
+      "size": 2333,
+      "sha256": "0431cd466c707ab45e551ee44ed0dc42e33584ec5b0be7eada05e68d790eb6f1",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-iossimulatorarm64/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-iossimulatorarm64/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-iossimulatorarm64/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+      "size": 4257,
+      "sha256": "98d19340b1e143e6cd97faea475e072854e205cf6bad18ea5f7e276d6a054550",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-iossimulatorarm64/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+      "size": 2351,
+      "sha256": "c200e53add661bd93ee6db38b016709db988363263085aa6d00971f94e60365d",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-iosx64/spake2-legacy-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-iosx64/spake2-legacy-iosx64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-iosx64/spake2-legacy-iosx64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.module",
+      "size": 4122,
+      "sha256": "80e75832907926ee74245d47848cb215a7d4a9d6fc314f779ac507c666c03dfd",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-iosx64/spake2-legacy-iosx64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.pom",
+      "size": 2329,
+      "sha256": "ac826f08fd7cb0152675fc2a3f224a6a8535175699cd7127cbd47a770742dc30",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-js/spake2-legacy-js-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-js",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-js/spake2-legacy-js-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-js",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-js/spake2-legacy-js-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-js",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.module",
+      "size": 3927,
+      "sha256": "3a2a2a1eb89bf466ea8bc79692b11c557d7b992aa756f1caa023b18a8feffdf1",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-js/spake2-legacy-js-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-js",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.pom",
+      "size": 2324,
+      "sha256": "d78d406355b92ff8dc8ebb816ee45df1d3884934dd9af631e361661f31aee6d6",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-jvm/spake2-legacy-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-jvm/spake2-legacy-jvm-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-jvm/spake2-legacy-jvm-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.module",
+      "size": 3929,
+      "sha256": "b832a16955c7a83de16afc5ace63db20f41a9a9674e896dfdd58ae05b3e39276",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-jvm/spake2-legacy-jvm-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.pom",
+      "size": 2293,
+      "sha256": "b22dbde5d0735930478be676c6283bfc29af592b4eb76a14fa821f6fa595c98e",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-linuxx64/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-linuxx64/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-linuxx64/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.module",
+      "size": 2781,
+      "sha256": "f1133033c1ff0fa7f4c0ed191d556961b10e8bcddc6b8a695fc86b7f296e3661",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-linuxx64/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.pom",
+      "size": 2333,
+      "sha256": "bbdd6b29aedf9df7a6e3f5c144babfbe09d1e4646123857f34461375748ad67f",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-macosarm64/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-macosarm64/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-macosarm64/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.module",
+      "size": 4170,
+      "sha256": "c2eb035e872f266ba27e824c0f5de46a55e74f432c9b0ef92ab89dad4dc216a1",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-macosarm64/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.pom",
+      "size": 2337,
+      "sha256": "c958b1f4e3a33fe0a8af7938411eba003d9af55459f0b852bc0d1a18c83f32f6",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-macosx64/spake2-legacy-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-macosx64/spake2-legacy-macosx64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-macosx64/spake2-legacy-macosx64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.module",
+      "size": 4146,
+      "sha256": "099642fdabd18e25970c2e055ac9bc9e4620ca541a6fc71d05c9dc25df72474b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-macosx64/spake2-legacy-macosx64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.pom",
+      "size": 2333,
+      "sha256": "749aef1904439abb3bdc88167e5906d6cd962ac8b4f1bdf0729259a991f79dc0",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-wasmjs/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-legacy-wasmjs/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+      "size": 61357,
+      "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 1,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-legacy-wasmjs/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.module",
+      "size": 3972,
+      "sha256": "ee71a3a673fb3c39547d06ba9adcf4d61337b4f436fe703b333a4639e4efc716",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-legacy-wasmjs/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-legacy-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.pom",
+      "size": 2337,
+      "sha256": "fc43ea2f2a328523f973537c2bf448e0e765776b8a1a6e1cc8c0a0f92ce6256a",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives/spake2-primitives-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives",
+      "candidate_path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives/spake2-primitives-0.1.0-dev.59105290820b-source-distribution.zip",
+      "kind": "spake2-source-distribution",
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives",
+      "candidate_path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-source-distribution.zip",
+      "path": "maven/io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-source-distribution.zip",
+      "size": 1426991,
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "build.gradle.kts",
+        "primitives/build.gradle.kts",
+        "legacy/build.gradle.kts",
+        "settings.gradle.kts",
+        "gradle.properties",
+        "gradlew",
+        "gradlew.bat",
+        "gradle/wrapper/gradle-wrapper.jar",
+        "gradle/wrapper/gradle-wrapper.properties",
+        "kotlin-js-store/yarn.lock",
+        "README.md",
+        "SECURITY.md",
+        "docs/API.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives/spake2-primitives-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives",
+      "candidate_path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives/spake2-primitives-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives",
+      "candidate_path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.module",
+      "size": 22179,
+      "sha256": "20808d6718b11ef577472d17211be194124506d8af2d923b5c5f76d232effaec",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives/spake2-primitives-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives",
+      "candidate_path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.pom",
+      "size": 2075,
+      "sha256": "09dc1d2f28f97da3e6c7922dbb022a2818e66c5056413d0a16fe3c61053bc463",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-android/spake2-primitives-android-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-android",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-android/spake2-primitives-android-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-android",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "a9d0e57bbf2396cb160664d95f95e12b0372b8fc500a303f53c13e2600463067",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-android/spake2-primitives-android-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-android",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.module",
+      "size": 3906,
+      "sha256": "a4f1454207339f8726c756b161d491adebf019036cc3c3f82b5eadb8ab6f7ae8",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-android/spake2-primitives-android-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-android",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.pom",
+      "size": 2108,
+      "sha256": "cdf0eb4dfabc0c9e1bbce27e7774e275e5ecdcd9146b8b1eb5a7d1a12d412e27",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-iosarm64/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-iosarm64/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-iosarm64/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.module",
+      "size": 3804,
+      "sha256": "d4d9ac00a293e6258f4dbe2aa07261c04e7acadf4fa850df7c01a95f39c0407a",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-iosarm64/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.pom",
+      "size": 2110,
+      "sha256": "adff96b3b4d011c0b8d360c885c599cee670a73b1aa5dde66fca8b374020f8f3",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-iossimulatorarm64/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-iossimulatorarm64/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-iossimulatorarm64/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+      "size": 3915,
+      "sha256": "4c7f54af8a4f9d6894303f24fc4d5013f55e4035164d18d52d6e12994a99df53",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-iossimulatorarm64/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iossimulatorarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+      "size": 2119,
+      "sha256": "f825b68fa3d4ad865d4f745cbe5afdf9fdbf9cd60508f9bd1a6403b174af131e",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-iosx64/spake2-primitives-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-iosx64/spake2-primitives-iosx64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-iosx64/spake2-primitives-iosx64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.module",
+      "size": 3780,
+      "sha256": "da133bc9388c7726f1503311ebf629feba3cad24abff28fec9b9f7b93659fc1c",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-iosx64/spake2-primitives-iosx64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-iosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.pom",
+      "size": 2108,
+      "sha256": "4e0d53303ef96d1342f8f9405294756d4223a326f095e8138951bb4860b413f9",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-js/spake2-primitives-js-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-js",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-js/spake2-primitives-js-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-js",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-js/spake2-primitives-js-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-js",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.module",
+      "size": 3587,
+      "sha256": "52f0314997f9e5cd790549e3c49f81d260279189aec2ccc4d7d5b45e9478d6eb",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-js/spake2-primitives-js-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-js",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.pom",
+      "size": 2107,
+      "sha256": "2620ae69550b874ef31e9c6087d5e81135b9cd86f95a4a0c8ccb532eddf49010",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-jvm/spake2-primitives-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-jvm/spake2-primitives-jvm-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-jvm/spake2-primitives-jvm-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.module",
+      "size": 3587,
+      "sha256": "612569c65e626e3979fdf218e79c4203c80572c2173922a697c8a2d50f7379c0",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-jvm/spake2-primitives-jvm-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-jvm",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.pom",
+      "size": 2075,
+      "sha256": "d9dc87c8cd0b38dcbf9451803c47b16cccdb8035170783a67654204973a1a101",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-linuxx64/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-linuxx64/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-linuxx64/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.module",
+      "size": 2620,
+      "sha256": "c09a8ab5fb326dfc049a3a839f0a0db6a3e1830c018ffc72955a965022848286",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-linuxx64/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-linuxx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.pom",
+      "size": 2110,
+      "sha256": "00a54acd4b6fbf6cbcd5509cc8783901cd72b6f358d0b83191f53d1c6ba86d3b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-macosarm64/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-macosarm64/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-macosarm64/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.module",
+      "size": 3828,
+      "sha256": "528c84e9f65eb44d458e727078848030a4179c8995a393640276f35e637e0bd6",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-macosarm64/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosarm64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.pom",
+      "size": 2112,
+      "sha256": "0380ca2b2acdb25bc4939626a1c332b7a670af249d9d9acb1921f40ef1eb94a9",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-macosx64/spake2-primitives-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-macosx64/spake2-primitives-macosx64-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-macosx64/spake2-primitives-macosx64-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.module",
+      "size": 3804,
+      "sha256": "e83e13307a2283072627d616150b78afc387e972d4e916ae1c7a2fecc2272024",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-macosx64/spake2-primitives-macosx64-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-macosx64",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.pom",
+      "size": 2110,
+      "sha256": "7b130a15e141daf1a69505f7c8746de2907d9c60493255f89101d3357d392292",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-wasmjs/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+      "kind": "spake2-license-companion",
+      "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+      "size": 71595,
+      "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "required_members": [
+        "LICENSE",
+        "THIRD_PARTY.md",
+        "third-party/boringssl/LICENSE",
+        "third-party/spake2-java/LICENSE",
+        "third-party/gradle/LICENSE",
+        "third-party/WYCHEPROOF-LICENSE.txt",
+        "third-party/WYCHEPROOF-NOTICE.txt",
+        "third-party/ietf/LICENSE-BSD",
+        "third-party/ietf/NOTICE",
+        "third-party/ietf/RFC4231-NOTICE",
+        "third-party/ietf/RFC9382-IRTF-NOTICE",
+        "third-party/ietf/TLP-2015-REFERENCE.txt",
+        "API.md",
+        "SECURITY.md"
+      ],
+      "license_member": "LICENSE",
+      "license_sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    },
+    {
+      "id": "spake2-primitives-wasmjs/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+      "kind": "maven-source",
+      "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+      "path": "maven/io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+      "size": 74314,
+      "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+      "source_entries": 9,
+      "source_sets": [
+        "commonMain"
+      ],
+      "metadata_verification": "gradle-module"
+    },
+    {
+      "id": "spake2-primitives-wasmjs/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.module",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.module",
+      "path": "maven/io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.module",
+      "size": 3632,
+      "sha256": "338ecd647e1ce7b2275dd0953af6c6e22a2c14356b37335cfc1e98bd92535ef0",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "id": "spake2-primitives-wasmjs/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.pom",
+      "kind": "maven-metadata",
+      "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+      "component": "spake2-primitives-wasmjs",
+      "candidate_path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.pom",
+      "path": "maven/io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.pom",
+      "size": 2116,
+      "sha256": "9c6b92a7c4ee051703462dd1b88e89344e6172441d9a6dc60b5ee931e934f5a4",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
     }
   ],
   "android_runtime": {
     "project": ":validation-android-runtime",
     "configuration": "debugRuntimeClasspath",
     "scope": "Only this repository's validation-android-runtime debug APK; no general downstream application claim",
-    "origin_runtime_report_sha256": "baf3c5ef8b0a51a7ca20e7061a4c65a71065ee6d68ad5589c108b11333b521d6",
     "required_project_files": [
       "settings.gradle.kts",
       "validation/android-runtime/build.gradle.kts",
@@ -1803,6 +3357,10 @@
       "com.google.guava:listenablefuture:1.0",
       "com.squareup.okio:okio-jvm:3.18.2",
       "com.squareup.okio:okio:3.18.2",
+      "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
       "org.bouncycastle:bcpkix-jdk18on:1.86",
       "org.bouncycastle:bcprov-jdk18on:1.86",
       "org.bouncycastle:bcutil-jdk18on:1.86",
@@ -1814,16 +3372,16 @@
       "org.jspecify:jspecify:1.0.0",
       "org.lsposed.hiddenapibypass:hiddenapibypass:6.1",
       "project ':kadb'",
-      "project ':spake2-legacy'",
       "project ':validation-android-runtime'"
     ],
     "project_components": [
-      "project ':kadb'",
-      "project ':spake2-legacy'"
+      "project ':kadb'"
     ],
     "metadata_only_components": [
       "androidx.annotation:annotation:1.8.1",
       "com.squareup.okio:okio:3.18.2",
+      "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
       "org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.11.0",
       "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.11.0"
     ],
@@ -1946,6 +3504,24 @@
         ]
       },
       {
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "bytes": 67077,
+        "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036",
+        "file_name": "spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+        "source_paths": [
+          "maven/io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-sources.jar"
+        ]
+      },
+      {
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "bytes": 92941,
+        "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232",
+        "file_name": "spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+        "source_paths": [
+          "maven/io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-sources.jar"
+        ]
+      },
+      {
         "coordinate": "org.bouncycastle:bcpkix-jdk18on:1.86",
         "bytes": 1341621,
         "sha256": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7",
@@ -2017,6 +3593,794 @@
         "source_paths": [
           "maven/org/lsposed/hiddenapibypass/hiddenapibypass/6.1/hiddenapibypass-6.1-sources.jar"
         ]
+      }
+    ],
+    "baseline_runtime_report_sha256": "baf3c5ef8b0a51a7ca20e7061a4c65a71065ee6d68ad5589c108b11333b521d6",
+    "migration_inventory_status": "Expected fixed candidate graph; verify against a fresh recordRuntimeClasspath report before Android binary-source acceptance"
+  },
+  "spake2_maven": {
+    "schema": 1,
+    "group": "io.github.flyfish233",
+    "version": "0.1.0-dev.59105290820b",
+    "revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "source": {
+      "repository": "Flyfish233/spake2",
+      "run_id": 40388080222,
+      "artifact_id": 12682137388,
+      "artifact_sha256": "29fe208f315ea08c9643d4388df8d832b984b04270fd39e55d00328ed4746ac3",
+      "artifact_bytes": 10310865,
+      "recovery_archive": "validation/maven-candidate/spake2-0.1.0-dev.59105290820b-maven.tar.xz",
+      "recovery_archive_sha256": "3ea50362515509300850ac2bdb487bc070379d3e40e346250eb228ed2ad47d33",
+      "source_archive_vs_git": "validation/m1-maven/provenance/source-archive-vs-git.json"
+    },
+    "publications": [
+      "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+      "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b"
+    ],
+    "inventory": [
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-kotlin-tooling-metadata.json",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 3310,
+        "sha256": "83aaca9e3c2278f172e06ac7a7f47b5912c72fe161fada9215ce14056da98cbb"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-source-distribution.zip",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 1426991,
+        "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 3314,
+        "sha256": "4a6b9a815ed480f4495973bd2b8a18c2f6b4d943a49570bbec658cdd12781084"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 22000,
+        "sha256": "9f0ac1ee6dce5eb8b2d93cea626daf4f253c92909766ba6c74bc534f3c3d6712"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+        "size": 2289,
+        "sha256": "4a290c32a497b16ecf2a5e5317c95fad2c4acac1a3832df60ef636fb3f84c7d9"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "a8bc0a078f329f7c1d7bb837f26acd2cf77c26b95cbd0b2ec3aea9da7944de62"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "size": 67077,
+        "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "size": 4661,
+        "sha256": "550315bebb167dccb0c93796bf4a0dc1a738fcad88b86185774f849dad477da1"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "size": 2330,
+        "sha256": "42117e8915574fd340779d099412736b07b17f667357c818449265c4fe574917"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+        "size": 22720,
+        "sha256": "a237e33254e198d39a666b608bcc5e37743da9725755b6b1bd002b01854e9c5a"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+        "size": 4146,
+        "sha256": "2a38ab58d5e03fd1fd571a90695031cfe53f4f42d8dab8a1bbbe082fb568269e"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+        "size": 2333,
+        "sha256": "0431cd466c707ab45e551ee44ed0dc42e33584ec5b0be7eada05e68d790eb6f1"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 22783,
+        "sha256": "f08cb164f08177001d2d61768f75d38c12c63e1f5b1adde3bf2479d0fbc86898"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 4257,
+        "sha256": "98d19340b1e143e6cd97faea475e072854e205cf6bad18ea5f7e276d6a054550"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 2351,
+        "sha256": "c200e53add661bd93ee6db38b016709db988363263085aa6d00971f94e60365d"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+        "size": 22707,
+        "sha256": "23923c9d5ac4bc973fa68cea4c57c62ad41f02bea0cfd74f5a6180df7fc14517"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+        "size": 4122,
+        "sha256": "80e75832907926ee74245d47848cb215a7d4a9d6fc314f779ac507c666c03dfd"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+        "size": 2329,
+        "sha256": "ac826f08fd7cb0152675fc2a3f224a6a8535175699cd7127cbd47a770742dc30"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+        "size": 78968,
+        "sha256": "11c9ccf1622bfc20e8a7748b45ecd570025d5c49f5438b166c8de0a7e7529a94"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+        "size": 3927,
+        "sha256": "3a2a2a1eb89bf466ea8bc79692b11c557d7b992aa756f1caa023b18a8feffdf1"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-js/0.1.0-dev.59105290820b/spake2-legacy-js-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-js:0.1.0-dev.59105290820b",
+        "size": 2324,
+        "sha256": "d78d406355b92ff8dc8ebb816ee45df1d3884934dd9af631e361661f31aee6d6"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+        "size": 70024,
+        "sha256": "2ed2e90596a08173911cbc6be25d0c889bf74ecfe09adadc764d8b7958d6880c"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+        "size": 3929,
+        "sha256": "b832a16955c7a83de16afc5ace63db20f41a9a9674e896dfdd58ae05b3e39276"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-jvm/0.1.0-dev.59105290820b/spake2-legacy-jvm-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-jvm:0.1.0-dev.59105290820b",
+        "size": 2293,
+        "sha256": "b22dbde5d0735930478be676c6283bfc29af592b4eb76a14fa821f6fa595c98e"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+        "size": 22721,
+        "sha256": "02671b1ac036bf6088973672c66d3a195b1355a12e046392c6046b54aa94f942"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+        "size": 2781,
+        "sha256": "f1133033c1ff0fa7f4c0ed191d556961b10e8bcddc6b8a695fc86b7f296e3661"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+        "size": 2333,
+        "sha256": "bbdd6b29aedf9df7a6e3f5c144babfbe09d1e4646123857f34461375748ad67f"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+        "size": 22733,
+        "sha256": "d3e83221e45e169c6bc829381913f8c2b764031ee6ef125f6c1a4f0ca49988a8"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+        "size": 4170,
+        "sha256": "c2eb035e872f266ba27e824c0f5de46a55e74f432c9b0ef92ab89dad4dc216a1"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+        "size": 2337,
+        "sha256": "c958b1f4e3a33fe0a8af7938411eba003d9af55459f0b852bc0d1a18c83f32f6"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+        "size": 22721,
+        "sha256": "7123cee41c6f8966f8c8efba4ebccea48250fbd359602f36a1ff368b2f9683cb"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+        "size": 4146,
+        "sha256": "099642fdabd18e25970c2e055ac9bc9e4620ca541a6fc71d05c9dc25df72474b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+        "size": 2333,
+        "sha256": "749aef1904439abb3bdc88167e5906d6cd962ac8b4f1bdf0729259a991f79dc0"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+        "size": 61357,
+        "sha256": "11d632d8b515aba83ede1f73bc2fc38a44e29934f563bfe3001381900b629b41"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+        "size": 78989,
+        "sha256": "dffdb1b4c1e63678811681a30492c97a9e0b1e95be2f9cf2aee04e92c391b73b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+        "size": 3972,
+        "sha256": "ee71a3a673fb3c39547d06ba9adcf4d61337b4f436fe703b333a4639e4efc716"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-legacy-wasmjs/0.1.0-dev.59105290820b/spake2-legacy-wasmjs-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-legacy-wasmjs:0.1.0-dev.59105290820b",
+        "size": 2337,
+        "sha256": "fc43ea2f2a328523f973537c2bf448e0e765776b8a1a6e1cc8c0a0f92ce6256a"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-kotlin-tooling-metadata.json",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 3310,
+        "sha256": "83aaca9e3c2278f172e06ac7a7f47b5912c72fe161fada9215ce14056da98cbb"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-source-distribution.zip",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 1426991,
+        "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 8719,
+        "sha256": "d58ecf3a26c0c54a170e0ae6192bc21f0ab74ab4efa839a4aa309932d05e5fc4"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 22179,
+        "sha256": "20808d6718b11ef577472d17211be194124506d8af2d923b5c5f76d232effaec"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+        "size": 2075,
+        "sha256": "09dc1d2f28f97da3e6c7922dbb022a2818e66c5056413d0a16fe3c61053bc463"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "a9d0e57bbf2396cb160664d95f95e12b0372b8fc500a303f53c13e2600463067"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "size": 92941,
+        "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "size": 3906,
+        "sha256": "a4f1454207339f8726c756b161d491adebf019036cc3c3f82b5eadb8ab6f7ae8"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "size": 2108,
+        "sha256": "cdf0eb4dfabc0c9e1bbce27e7774e275e5ecdcd9146b8b1eb5a7d1a12d412e27"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+        "size": 77587,
+        "sha256": "c08f0bd0dce3cec452e04f456cdcfa381eb7e215dd235f9980fb748d9f51fc4a"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+        "size": 3804,
+        "sha256": "d4d9ac00a293e6258f4dbe2aa07261c04e7acadf4fa850df7c01a95f39c0407a"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+        "size": 2110,
+        "sha256": "adff96b3b4d011c0b8d360c885c599cee670a73b1aa5dde66fca8b374020f8f3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 77653,
+        "sha256": "420860188e0b521fefb1069396357724743ea76a87530df745444458ec4e4d01"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 3915,
+        "sha256": "4c7f54af8a4f9d6894303f24fc4d5013f55e4035164d18d52d6e12994a99df53"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+        "size": 2119,
+        "sha256": "f825b68fa3d4ad865d4f745cbe5afdf9fdbf9cd60508f9bd1a6403b174af131e"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+        "size": 77575,
+        "sha256": "228123f30e1f58a968471021b0fc38e885300664777fbd0c2d2743a713164af7"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+        "size": 3780,
+        "sha256": "da133bc9388c7726f1503311ebf629feba3cad24abff28fec9b9f7b93659fc1c"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+        "size": 2108,
+        "sha256": "4e0d53303ef96d1342f8f9405294756d4223a326f095e8138951bb4860b413f9"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+        "size": 132395,
+        "sha256": "bd0369c3e1882e4e612b717e17d52298a9f6edd63f29ae94a934662684c499f5"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+        "size": 3587,
+        "sha256": "52f0314997f9e5cd790549e3c49f81d260279189aec2ccc4d7d5b45e9478d6eb"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-js/0.1.0-dev.59105290820b/spake2-primitives-js-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-js:0.1.0-dev.59105290820b",
+        "size": 2107,
+        "sha256": "2620ae69550b874ef31e9c6087d5e81135b9cd86f95a4a0c8ccb532eddf49010"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+        "size": 97521,
+        "sha256": "abdb0f81c8319a0a3bbb1ad730a9133588b7afcec5a6b5e8373d4de837cf2c5d"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+        "size": 3587,
+        "sha256": "612569c65e626e3979fdf218e79c4203c80572c2173922a697c8a2d50f7379c0"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-jvm/0.1.0-dev.59105290820b/spake2-primitives-jvm-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-jvm:0.1.0-dev.59105290820b",
+        "size": 2075,
+        "sha256": "d9dc87c8cd0b38dcbf9451803c47b16cccdb8035170783a67654204973a1a101"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+        "size": 77588,
+        "sha256": "3ff9f5d006209c78440a6bf7653cfa19dca73a20398fb87f5d05a098812e2a6f"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+        "size": 2620,
+        "sha256": "c09a8ab5fb326dfc049a3a839f0a0db6a3e1830c018ffc72955a965022848286"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+        "size": 2110,
+        "sha256": "00a54acd4b6fbf6cbcd5509cc8783901cd72b6f358d0b83191f53d1c6ba86d3b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+        "size": 77600,
+        "sha256": "94340b7e423d0a45bae2af53a54297bf8feeed26958d7b0adc1ebf2d9809d0e7"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+        "size": 3828,
+        "sha256": "528c84e9f65eb44d458e727078848030a4179c8995a393640276f35e637e0bd6"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+        "size": 2112,
+        "sha256": "0380ca2b2acdb25bc4939626a1c332b7a670af249d9d9acb1921f40ef1eb94a9"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-metadata.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+        "size": 261,
+        "sha256": "c6deada2fac53b8ea6523dbda77597b128006674616f140f04df23264c6d1aa3"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+        "size": 77588,
+        "sha256": "06d47faab58c30193a49c90cf34b7816ca9aa864be23ec623275344ee919a295"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+        "size": 3804,
+        "sha256": "e83e13307a2283072627d616150b78afc387e972d4e916ae1c7a2fecc2272024"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+        "size": 2110,
+        "sha256": "7b130a15e141daf1a69505f7c8746de2907d9c60493255f89101d3357d392292"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-javadoc.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+        "size": 71595,
+        "sha256": "46db03a191cf867408957032b347250abfbe28067b3465981acaba41aea44f8b"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b-sources.jar",
+        "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+        "size": 74314,
+        "sha256": "30f895bf5444800b2eb06028dc33c93fee213349b419a8e8226a2c3cdfc0ef29"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.klib",
+        "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+        "size": 132414,
+        "sha256": "48137a65e7e2d73562421d0285803418f457a5e8ae350f8bb784a2f552b1a614"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.module",
+        "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+        "size": 3632,
+        "sha256": "338ecd647e1ce7b2275dd0953af6c6e22a2c14356b37335cfc1e98bd92535ef0"
+      },
+      {
+        "path": "io/github/flyfish233/spake2-primitives-wasmjs/0.1.0-dev.59105290820b/spake2-primitives-wasmjs-0.1.0-dev.59105290820b.pom",
+        "coordinate": "io.github.flyfish233:spake2-primitives-wasmjs:0.1.0-dev.59105290820b",
+        "size": 2116,
+        "sha256": "9c6b92a7c4ee051703462dd1b88e89344e6172441d9a6dc60b5ee931e934f5a4"
       }
     ]
   }

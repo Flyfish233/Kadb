@@ -13,7 +13,7 @@ successful binary build or runtime test.
 
 The current lock also covers the specific `:validation-android-runtime` APK.
 [Android source coverage](ANDROID_SOURCE_COVERAGE.md) records the actual runtime
-graph, 21 external archive hashes, published source classifiers, complete BC and
+baseline graph, published source classifiers, complete BC and
 HiddenApiBypass trees, and the limits of the AndroidX source/build context. The
 collector requires the Android consumer files in the exact packaged Git commit.
 The older Native-only artifact below retains its original scope and identity.
@@ -23,7 +23,7 @@ The older Native-only artifact below retains its original scope and identity.
 | Component | Version / immutable revision | Source provided |
 | --- | --- | --- |
 | Kadb, its C/Cinterop shim and Legacy adaptation | Caller-specified Git commit | Exact `git archive`, including all tracked build scripts and retained licenses |
-| Legacy SPAKE25519 | `b837aba27bebc1050965fa124c2efa54b4e4544a` | The actual six unmodified runtime sources and complete AGPL text already vendored in Kadb |
+| Maven Legacy SPAKE25519 and Primitives | `0.1.0-dev.59105290820b` / `59105290820bcbfd4e0336a2e7713006a461527f` | Both complete source/build ZIPs, all 22 publication source JARs and license/documentation companions, POM/module metadata; fixed candidate bytes and actual selected variants are checked |
 | BoringSSL | `5b83e5d1abf0ae0033ae52ab579d906b67633b2c` | Full 74,661,066-byte upstream archive; same SHA-256 gate as the Native build |
 | Kotlin stdlib and Native runtime | 2.4.20 / `890ac1d94fdb80eb85f0eeb5be5e4352df987b2f` | Full repository source archive, including Native C/C++ runtime, plus published stdlib sources classifiers |
 | Coroutines | 1.11.0 / `8564f65764d3d05893cec026c6e94250e2b23874` | Full source/build tree and common plus five Native source classifiers |
@@ -54,6 +54,54 @@ resolved revision and upstream response are retained in
 are provenance, not a claim that unsigned upstream tags are cryptographically
 authenticated. Future execution downloads by immutable commit and fixed hash.
 
+## Fixed Maven candidate and actual resolution
+
+`spake2_maven` in the source lock fixes the original GitHub run/artifact and
+archive digest, producer revision, exact version, **22 Legacy/Primitives
+publications and 124 Maven files**. The full candidate additionally contains
+RFC publications; its complete 33-publication check is recorded separately in
+`validation/m1-maven/provenance/`. These are publication inventory checks,
+not 33 executed platform tests.
+
+The collector adds **90 source, metadata and license inputs** to the prior
+123-input inventory, for **213 fixed entries**. It actually copies both
+`-source-distribution.zip` files, 22 source JARs, 22 license/documentation JARs,
+22 POMs and 22 Gradle module files. Each complete ZIP supplies all three producer
+modules, tests, reference tools, Gradle wrapper/build scripts, yarn lock and
+original notices. The complete ZIP files were also compared against the fixed
+Git revision; a `-sources.jar` alone cannot replace them.
+
+Restore the retained candidate with `python3 scripts/prepare_spake2_candidate.py`,
+then run the existing Kadb Gradle build with
+`-Pspake2Repository=/absolute/path/to/maven`. After resolution/compilation, keep
+its actual report and run:
+
+```sh
+python3 scripts/source_bundle.py verify-spake2-maven \
+  --spake2-repository "$SPAKE2_REPOSITORY" \
+  --spake2-resolution-report kadb/build/reports/spake2-maven-resolution.json \
+  --output evidence/spake2-source-resolution.json
+```
+
+This independently reads selected cache/repository files, checks fixed hashes,
+component coordinates, variant names and published attributes, and requires both
+Legacy and same-version Primitives in each reported configuration. Per-component
+and per-artifact repository origin IDs/names must match the verified candidate
+repository descriptor recorded by the Gradle gate. A renamed file in Gradle's
+cache is permitted when its published URL, exact bytes and actual repository
+origin all match; identical bytes obtained from a different repository fail. Wrong
+versions, missing modules, project substitution, changed byte content and
+missing complete-source/license inputs are rejected. Reports must be generated
+by the Gradle gate; the Python check does not itself execute Gradle.
+
+`create` defaults to the restored `build/spake2-candidate/maven` directory;
+`--spake2-repository` selects another verified copy of the same candidate. Supplying
+`--spake2-resolution-report` binds the collected candidate to the actual selected
+artifacts. Omitting the report explicitly records `resolution_status: NOT
+VERIFIED`; that source-only mode does not claim an executed consumer build.
+Source-only packages remain useful to a dedicated source job, while binary
+acceptance must retain its matching actual resolution evidence.
+
 ## CI integration
 
 The collector supports a source package made in each binary job or a single
@@ -70,6 +118,8 @@ python3 scripts/source_bundle.py create \
   --repo "$PWD" --ref "$GITHUB_SHA" \
   --output evidence/native-source \
   --cache "$RUNNER_TEMP/kadb-source-cache" \
+  --spake2-repository "$SPAKE2_REPOSITORY" \
+  --spake2-resolution-report kadb/build/reports/spake2-maven-resolution.json \
   --boringssl-archive kadb/build/native/downloads/boringssl.tar.gz \
   --binary macosArm64/Kadb.framework/Kadb=kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Kadb
 ```
@@ -118,7 +168,8 @@ does not turn a failed build into a pass: the platform results remain separate
 entries in the verification ledger. The retention period is not a final source
 availability policy or a certification of all Android/downstream dependencies.
 
-A dedicated source job can run `create --ref "$GITHUB_SHA"` without `--binary`
+A dedicated source job can run `create --ref "$GITHUB_SHA"` with the fixed
+`--spake2-repository` and without `--binary`
 and upload the actual package as `corresponding-source-FULL_COMMIT_SHA`. Have it
 expose the successful upload's artifact URL, package SHA-256 and source-lock
 SHA-256 as job outputs. This avoids uploading the same library sources
@@ -153,15 +204,15 @@ downloaded.
 
 ## Reproducibility and failure handling
 
-Given the same Kadb commit, lock/assembly files and labeled binary bytes, the
-archive has deterministic file order, normalized ownership/modes, commit-based
+Given the same Kadb commit, lock/assembly files, labeled binary bytes and exact
+resolution report (when supplied), the archive has deterministic file order, normalized ownership/modes, commit-based
 tar timestamps and zero gzip timestamps. Wall-clock execution data and local
 paths stay outside the package. The same inputs can therefore be collected
 again using `--offline` and a populated cache. This concerns the source bundle;
 it does not claim bit-for-bit Native compiler output reproducibility.
 
 The collector refuses changed project library versions, a mismatched BoringSSL
-pin/hash, a changed Legacy revision, missing required source files, mismatched
+pin/hash, a changed Maven candidate/revision, substituted project artifacts, missing required source files, mismatched
 publisher source metadata, invalid archives, and corrupt cached/downloaded
 bytes. Transient network failures have bounded retries; an integrity failure is
 not silently replaced or accepted. It retains full source archives and copies

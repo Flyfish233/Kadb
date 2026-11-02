@@ -1,0 +1,212 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+import org.gradle.api.artifacts.Configuration
+import org.gradle.api.artifacts.component.ModuleComponentIdentifier
+import org.gradle.api.artifacts.component.ModuleComponentSelector
+import org.gradle.api.artifacts.result.ResolvedDependencyResult
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
+
+// This inspects the real consumer graph and original published artifacts. Run in
+// the same invocation as compilation/tests, before recording corresponding source.
+tasks.register('verifySpake2MavenResolution') {
+    group = 'verification'
+    description = 'Verify fixed external SPAKE2 components, variants and candidate bytes'
+    notCompatibleWithConfigurationCache('Inspects the resolved consumer dependency graph')
+    doLast {
+        def output = layout.buildDirectory.file('reports/spake2-maven-resolution.json').get().asFile
+        // A failed retry must never leave an older success report usable as evidence.
+        if (output.exists() && !output.delete()) throw new GradleException(
+            "Cannot remove stale SPAKE2 verification report: ${output}")
+        def lockFile = rootProject.file('validation/source-bundle/dependencies.lock.json')
+        def lock = new JsonSlurper().parse(lockFile).spake2_maven
+        if (lock == null) throw new GradleException('Missing spake2_maven source lock')
+        def version = '0.1.0-dev.59105290820b'
+        def revision = '59105290820bcbfd4e0336a2e7713006a461527f'
+        if (lock.version != version || lock.revision != revision) {
+            throw new GradleException('SPAKE2 lock does not describe the fixed M1 candidate')
+        }
+        def repository = rootProject.file(providers.gradleProperty('spake2Repository')
+            .getOrElse(rootProject.file('build/spake2-candidate/maven').absolutePath)).canonicalFile
+        // Gradle's public artifact API exposes cached files, not their origin. In
+        // particular Kotlin metadata gives Android/Native files a different name
+        // from their Maven URL. Bind the real component's repository identity to
+        // the configured file repository, then verify the selected bytes below.
+        // These origin APIs are internal, so this gate intentionally fails closed
+        // outside the project's pinned Gradle version.
+        if (gradle.gradleVersion != '9.6.0') {
+            throw new GradleException('SPAKE2 origin verification requires the pinned Gradle 9.6.0')
+        }
+        def configuredRepositories = (repositories.toList() +
+            gradle.settings.dependencyResolutionManagement.repositories.toList())
+        def candidateRepositories = configuredRepositories.findAll { candidate ->
+            candidate instanceof MavenArtifactRepository && candidate.url.scheme == 'file' &&
+                new File(candidate.url).canonicalFile == repository
+        }
+        if (candidateRepositories.size() != 1 || !candidateRepositories[0].artifactUrls.isEmpty()) {
+            throw new GradleException('SPAKE2 artifact came from a different repository: ' +
+                'exactly one fixed candidate repository without alternate artifact URLs is required')
+        }
+        def candidateRepository = candidateRepositories[0]
+        if (configuredRepositories.count { it.name == candidateRepository.name } != 1) {
+            throw new GradleException('SPAKE2 candidate repository name is ambiguous')
+        }
+        def repositoryId = candidateRepository.descriptor.id
+        def digest = { File f ->
+            def md = MessageDigest.getInstance('SHA-256')
+            f.withInputStream { input ->
+                byte[] buffer = new byte[65536]
+                int count
+                while ((count = input.read(buffer)) != -1) md.update(buffer, 0, count)
+            }
+            md.digest().encodeHex().toString()
+        }
+        def inventory = lock.inventory.collectEntries { [(it.path): it] }
+        // Verify the selected repository independently of Gradle's artifact cache.
+        inventory.each { relative, entry ->
+            def file = new File(repository, relative).canonicalFile
+            if (!file.toPath().startsWith(repository.toPath()) || !file.isFile() ||
+                file.length() != entry.size || digest(file) != entry.sha256) {
+                throw new GradleException("Fixed Maven candidate is missing or changed: ${relative}")
+            }
+        }
+        def allowedBases = ['spake2-legacy', 'spake2-primitives']
+        def suffixes = ['android', 'jvm', 'js', 'wasmjs', 'linuxx64', 'macosarm64',
+            'macosx64', 'iosarm64', 'iossimulatorarm64', 'iosx64']
+        def allowedModules = allowedBases.collectMany { base -> [base] + suffixes.collect { "${base}-${it}".toString() } }.toSet()
+        def checkId = { id, configuration ->
+            if (!(id instanceof ModuleComponentIdentifier)) {
+                throw new GradleException("SPAKE2 project substitution rejected in ${configuration}: ${id}")
+            }
+            if (id.group != 'io.github.flyfish233' || !(id.module in allowedModules) || id.version != version) {
+                throw new GradleException("Unexpected SPAKE2 Maven component in ${configuration}: ${id}")
+            }
+        }
+        def selectedNames = providers.gradleProperty('spake2Configurations').orNull
+        def explicitlyRequested = selectedNames ? selectedNames.split(',').collect { it.trim() } :
+            ['androidCompileClasspath', 'androidRuntimeClasspath']
+        def configurationsToCheck = configurations.findAll {
+            it.canBeResolved && (it.state != Configuration.State.UNRESOLVED || it.name in explicitlyRequested)
+        }.sort { it.name }
+        explicitlyRequested.each { name ->
+            if (!configurationsToCheck.any { it.name == name }) {
+                throw new GradleException("Requested Maven verification configuration does not exist or cannot resolve: ${name}")
+            }
+        }
+        def components = []
+        def artifacts = []
+        def edges = []
+        configurationsToCheck.each { configuration ->
+            def resolution = configuration.incoming.resolutionResult
+            resolution.allDependencies.each { dependency ->
+                def requested = dependency.requested
+                if (requested instanceof ModuleComponentSelector && requested.group == 'io.github.flyfish233') {
+                    def constraint = requested.versionConstraint
+                    if (!(requested.module in allowedModules) || requested.version != version ||
+                        [constraint.requiredVersion, constraint.strictVersion, constraint.preferredVersion]
+                            .any { it && it != version }) {
+                        throw new GradleException(
+                            "SPAKE2 request is not the fixed candidate in ${configuration.name}: ${requested}")
+                    }
+                    if (!(dependency instanceof ResolvedDependencyResult)) {
+                        throw new GradleException("Unresolved SPAKE2 dependency in ${configuration.name}: ${requested}")
+                    }
+                    checkId(dependency.selected.id, configuration.name)
+                    edges << [configuration: configuration.name, from: dependency.from.id.displayName,
+                        requested: requested.displayName, selected: dependency.selected.id.displayName]
+                }
+            }
+            resolution.allComponents.each { component ->
+                def id = component.id
+                if (id instanceof ModuleComponentIdentifier && id.group == 'io.github.flyfish233') {
+                    checkId(id, configuration.name)
+                    if (component.repositoryName != candidateRepository.name) {
+                        throw new GradleException("SPAKE2 artifact came from a different repository: ${id} " +
+                            "${component.repositoryName}")
+                    }
+                    components << [configuration: configuration.name, component: id.displayName,
+                        kind: 'external-module', coordinate: "${id.group}:${id.module}:${id.version}".toString(),
+                        repository_id: repositoryId, repository_name: component.repositoryName,
+                        version: id.version, variants: component.variants.collect { it.displayName }.sort()]
+                }
+            }
+            // Filtering artifacts only after graph validation prevents a project
+            // replacement from disappearing behind a ModuleComponentIdentifier filter.
+            configuration.incoming.artifactView {
+                componentFilter { id -> id instanceof ModuleComponentIdentifier && id.group == 'io.github.flyfish233' }
+            }.artifacts.artifacts.each { artifact ->
+                def id = artifact.id.componentIdentifier
+                checkId(id, configuration.name)
+                def coordinate = "${id.group}:${id.module}:${id.version}".toString()
+                def attributes = artifact.variant.attributes.keySet().collectEntries {
+                    [(it.name): artifact.variant.attributes.getAttribute(it).toString()]
+                }
+                def metadataPath = "${id.group.replace('.', '/')}/${id.module}/${id.version}/${id.module}-${id.version}.module"
+                def metadata = new JsonSlurper().parse(new File(repository, metadataPath))
+                def actualHash = digest(artifact.file)
+                def publishedVariants = metadata.variants.findAll { variant ->
+                    variant.files?.any { published ->
+                        artifact.file.name in [published.name, published.url] &&
+                            published.size == artifact.file.length() && published.sha256 == actualHash
+                    } && variant.attributes.every { key, value -> attributes[key] == value.toString() }
+                }
+                if (publishedVariants.size() != 1) {
+                    throw new GradleException("Selected artifact has no unique published variant: ${coordinate} ${artifact.variant.displayName}")
+                }
+                def publishedFiles = publishedVariants[0].files.findAll { published ->
+                    artifact.file.name in [published.name, published.url] &&
+                        published.size == artifact.file.length() && published.sha256 == actualHash
+                }
+                if (publishedFiles.size() != 1) throw new GradleException(
+                    "Selected artifact has no unique published file: ${coordinate} ${artifact.file}")
+                def relative = "${id.group.replace('.', '/')}/${id.module}/${id.version}/${publishedFiles[0].url}".toString()
+                def expected = inventory[relative]
+                if (expected == null || expected.coordinate != coordinate ||
+                    expected.size != artifact.file.length() || expected.sha256 != actualHash) {
+                    throw new GradleException("Selected Maven binary is not the pinned candidate: ${coordinate} ${artifact.file}")
+                }
+                artifacts << [configuration: configuration.name, component: id.displayName,
+                    kind: 'external-module', coordinate: coordinate, variant: publishedVariants[0].name,
+                    variant_display_name: artifact.variant.displayName,
+                    attributes: attributes, file: artifact.file.canonicalPath, repository_path: relative,
+                    repository_id: repositoryId, repository_name: candidateRepository.name,
+                    bytes: artifact.file.length(), sha256: actualHash]
+            }
+            def selectedForConfiguration = artifacts.findAll { it.configuration == configuration.name }
+            // Explicit configurations must contain the complete pair. Other already
+            // resolved configurations are checked only when they actually consume SPAKE2.
+            if (configuration.name in explicitlyRequested || selectedForConfiguration) {
+                allowedBases.each { base ->
+                    if (!selectedForConfiguration.any {
+                        it.coordinate.startsWith("io.github.flyfish233:${base}:") ||
+                            it.coordinate.startsWith("io.github.flyfish233:${base}-")
+                    }) {
+                        throw new GradleException(
+                            "Required transitive Maven component missing in ${configuration.name}: ${base}")
+                    }
+                }
+            }
+        }
+        if (artifacts.isEmpty()) throw new GradleException('No real Maven SPAKE2 binary was selected')
+        def report = [schema: 1, repository: repository.absolutePath, version: version, revision: revision,
+            repository_id: repositoryId, repository_name: candidateRepository.name,
+            origin_binding: 'gradle-9.6-repository-name-to-unique-descriptor',
+            artifacts: artifacts.unique().sort { a, b -> (a.configuration + a.coordinate + a.file) <=> (b.configuration + b.coordinate + b.file) },
+            resolved_components: components.unique(), dependency_edges: edges.unique(),
+            source_lock_sha256: digest(lockFile)]
+        output.parentFile.mkdirs()
+        output.text = JsonOutput.prettyPrint(JsonOutput.toJson(report)) + '\n'
+        logger.lifecycle("SPAKE2_MAVEN_RESOLUTION_VERIFIED ${artifacts.size()} selections: ${output}")
+    }
+}
+
+// Enforce the same gate on ordinary production builds as on evidence-producing
+// CI invocations. This task resolves only external candidate binaries and does
+// not depend on generated Kadb outputs, so compilation can safely depend on it.
+tasks.configureEach { task ->
+    if (task.name == 'check' || task.name.startsWith('compile') ||
+        task.name == 'bundleAndroidMainAar' || task.name == 'testAndroidHostTest' ||
+        task.name == 'linuxX64Test') {
+        task.dependsOn('verifySpake2MavenResolution')
+    }
+}

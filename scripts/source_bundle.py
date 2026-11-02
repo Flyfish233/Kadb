@@ -36,6 +36,13 @@ CHUNK = 1024 * 1024
 NOTICE_LIMIT = 16 * CHUNK
 HEX_SHA = re.compile(r"[0-9a-f]{64}\Z")
 ANDROID_SCOPE = "experimental-native-and-android-validation-runtime"
+SPAKE_GROUP = "io.github.flyfish233"
+SPAKE_VERSION = "0.1.0-dev.59105290820b"
+SPAKE_REVISION = "59105290820bcbfd4e0336a2e7713006a461527f"
+SPAKE_ARTIFACT_SHA256 = "29fe208f315ea08c9643d4388df8d832b984b04270fd39e55d00328ed4746ac3"
+SPAKE_MODULES = ("spake2-legacy", "spake2-primitives")
+SPAKE_TARGETS = ("android", "jvm", "js", "wasmjs", "linuxx64", "macosarm64", "macosx64",
+                 "iosarm64", "iossimulatorarm64", "iosx64")
 
 
 def digest(path: Path) -> str:
@@ -66,20 +73,34 @@ def check_project(repo: Path, revision: str, lock: dict) -> tuple[str, int]:
     if not re.fullmatch(r"[0-9a-f]{40}", commit):
         raise ValueError("Expected an immutable Git SHA-1 commit")
     catalog = tomllib.loads(git(repo, "show", commit + ":gradle/libs.versions.toml").decode())
-    version_keys = ["kotlin", "kotlinxCoroutinesCore", "okio"]
+    version_keys = ["kotlin", "kotlinxCoroutinesCore", "okio", "spake2KmpCandidate"]
     if lock["scope"] == ANDROID_SCOPE:
         version_keys += ["bc", "documentfile", "hiddenapibypass"]
         check_android_project_sources(repo, commit, lock)
     for key in version_keys:
-        if catalog["versions"][key] != lock["versions"][key]:
+        value = catalog["versions"][key]
+        if key == "spake2KmpCandidate" and isinstance(value, dict) and set(value) == {"strictly"}:
+            value = value["strictly"]
+        if value != lock["versions"][key]:
             raise ValueError(f"Source lock does not cover project version {key}={catalog['versions'][key]}")
     native = git(repo, "show", commit + ":kadb/gradle/ios-native.gradle.kts").decode()
     boring = next(entry for entry in lock["entries"] if entry["id"] == "boringssl")
     if lock["boringssl_revision"] not in native or boring["sha256"] not in native:
         raise ValueError("Source lock does not match the project's BoringSSL revision/checksum")
-    spake = git(repo, "show", commit + ":third-party/spake2/UPSTREAM_COMMIT").decode().strip()
-    if spake != lock["spake2_revision"]:
-        raise ValueError("Source lock does not match the vendored Legacy revision")
+    candidate = spake2_inventory(lock)
+    alias = catalog["libraries"].get("spake2LegacyKmp", {})
+    if (alias.get("module"), alias.get("version", {}).get("ref")) != (
+            SPAKE_GROUP + ":spake2-legacy", "spake2KmpCandidate"):
+        raise ValueError("Project does not declare the fixed Maven Legacy dependency")
+    settings = git(repo, "show", commit + ":settings.gradle.kts").decode()
+    kadb_build = git(repo, "show", commit + ":kadb/build.gradle.kts").decode()
+    if ('include(":spake2-legacy")' in settings or 'third-party/spake2' in settings or
+            'implementation(project(":spake2-legacy"))' in kadb_build or
+            'implementation(libs.spake2LegacyKmp)' not in kadb_build):
+        raise ValueError("Project still substitutes embedded SPAKE2 source for Maven")
+    committed_lock = json.loads(git(repo, "show", commit + ":validation/source-bundle/dependencies.lock.json"))
+    if committed_lock != lock:
+        raise ValueError("Selected Kadb commit does not contain this complete source dependency lock")
     epoch = int(git(repo, "show", "-s", "--format=%ct", commit).decode())
     return commit, epoch
 
@@ -103,9 +124,241 @@ def checked_file(path: Path, entry: dict) -> None:
         raise ValueError(f"Size/SHA-256 mismatch: {entry['id']}")
 
 
-def fetch(entry: dict, cache: Path, offline: bool, boring_archive: Path | None, emit) -> Path:
+def spake2_inventory(lock: dict) -> dict:
+    """Require the immutable Maven format; the former six-file source lock is insufficient."""
+    candidate = lock.get("spake2_maven", {})
+    revision, version = candidate.get("revision", ""), candidate.get("version", "")
+    if (candidate.get("schema"), candidate.get("group")) != (1, SPAKE_GROUP):
+        raise ValueError("Source lock lacks the Maven SPAKE2 candidate identity")
+    if (revision != SPAKE_REVISION or version != SPAKE_VERSION or
+            lock.get("spake2_revision") != revision or lock["versions"].get("spake2KmpCandidate") != version):
+        raise ValueError("Maven SPAKE2 version/revision differs from the source lock")
+    publications = {f"{SPAKE_GROUP}:{module}{'-' + target if target else ''}:{version}"
+                    for module in SPAKE_MODULES for target in (None, *SPAKE_TARGETS)}
+    if set(candidate.get("publications", [])) != publications:
+        raise ValueError("Maven SPAKE2 publication set is incomplete")
+    source = candidate.get("source", {})
+    if (source.get("repository"), source.get("run_id"), source.get("artifact_id"),
+            source.get("artifact_sha256"), source.get("artifact_bytes")) != (
+            "Flyfish233/spake2", 40388080222, 12682137388, SPAKE_ARTIFACT_SHA256, 10310865):
+        raise ValueError("Maven SPAKE2 fixed artifact provenance differs from the M1 candidate")
+    inventory = candidate.get("inventory", [])
+    if not inventory or len({item["path"] for item in inventory}) != len(inventory):
+        raise ValueError("Maven SPAKE2 artifact inventory is empty or duplicated")
+    by_path = {}
+    for item in inventory:
+        name = relative_name(item["path"])
+        if (item["coordinate"] not in publications or not HEX_SHA.fullmatch(item["sha256"]) or
+                item["size"] <= 0):
+            raise ValueError("Invalid Maven SPAKE2 artifact identity/hash/size")
+        _, module, item_version = item["coordinate"].split(":")
+        if not name.startswith(f"io/github/flyfish233/{module}/{item_version}/{module}-{item_version}"):
+            raise ValueError("Maven SPAKE2 coordinate/path mismatch")
+        by_path[name] = item
+    for coordinate in publications:
+        _, module, item_version = coordinate.split(":")
+        prefix = f"io/github/flyfish233/{module}/{item_version}/{module}-{item_version}"
+        suffixes = [".pom", ".module", "-sources.jar", "-javadoc.jar"]
+        if module in SPAKE_MODULES:
+            suffixes.append("-source-distribution.zip")
+        if any(prefix + suffix not in by_path for suffix in suffixes):
+            raise ValueError(f"Maven SPAKE2 publication lacks metadata/source/license companions: {coordinate}")
+    required_material = {name for name in by_path if name.endswith((".pom", ".module", "-sources.jar",
+                                                                 "-javadoc.jar", "-source-distribution.zip"))}
+    entries = [entry for entry in lock["entries"] if "candidate_path" in entry]
+    if len(entries) != len({entry["candidate_path"] for entry in entries}) or {
+            entry["candidate_path"] for entry in entries} != required_material:
+        raise ValueError("Source lock omits or duplicates Maven SPAKE2 source/metadata/license material")
+    for entry in entries:
+        fixed = by_path[entry["candidate_path"]]
+        if ((entry["coordinate"], entry["size"], entry["sha256"], entry.get("source_revision")) !=
+                (fixed["coordinate"], fixed["size"], fixed["sha256"], revision) or
+                entry["path"] != "maven/" + entry["candidate_path"]):
+            raise ValueError("Source lock Maven SPAKE2 material differs from its fixed inventory")
+    return candidate
+
+
+def inspect_spake2_zip(entry: dict, path: Path, destination: Path | None = None) -> dict:
+    """Retain full build sources and original notices, including non-runtime references."""
+    checked_file(path, entry)
+    with zipfile.ZipFile(path) as archive:
+        names = [relative_name(item.filename) for item in archive.infolist() if not item.is_dir()]
+        if len(names) != len(set(names)) or archive.testzip() is not None:
+            raise ValueError("Invalid or duplicated SPAKE2 source/license archive members")
+        required = entry["required_members"]
+        if any(name not in names or not archive.getinfo(name).file_size for name in required):
+            raise ValueError("SPAKE2 archive lacks required build sources or license notices")
+        if entry["kind"] == "spake2-source-distribution":
+            for prefix in ("legacy/src/commonMain/", "primitives/src/commonMain/", "src/commonMain/",
+                           "legacy/src/commonTest/", "primitives/src/commonTest/", "src/commonTest/",
+                           "tools/", "test-vectors/", "integration/"):
+                if not any(name.startswith(prefix) for name in names):
+                    raise ValueError(f"SPAKE2 full source distribution lacks {prefix}")
+        license_name = entry["license_member"]
+        if hashlib.sha256(archive.read(license_name)).hexdigest() != entry["license_sha256"]:
+            raise ValueError("SPAKE2 complete AGPL license differs from the fixed text")
+        notices = []
+        if destination is not None:
+            for name in names:
+                if not is_notice(name) and not name.endswith("THIRD_PARTY.md"):
+                    continue
+                if archive.getinfo(name).file_size > NOTICE_LIMIT:
+                    raise ValueError("SPAKE2 notice exceeds the size limit")
+                content = archive.read(name)
+                target = destination / "notices" / entry["path"] / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(content)
+                notices.append({"archive_member": name, "bundle_path": target.relative_to(destination).as_posix(),
+                                "sha256": hashlib.sha256(content).hexdigest(), "size": len(content)})
+    return {"coordinate": entry["coordinate"], "path": entry["path"], "kind": entry["kind"],
+            "files": len(names), "sha256": entry["sha256"], "source_revision": entry["source_revision"],
+            "notices": notices}
+
+
+def verify_spake2_maven(lock: dict, repository: Path, report_path: Path | None = None,
+                        lock_path: Path | None = None) -> dict:
+    """Bind selected external components/variants to the fixed candidate's actual bytes."""
+    candidate = spake2_inventory(lock)
+    repository = repository.resolve(strict=True)
+    inventory = {item["path"]: item for item in candidate["inventory"]}
+    version = candidate["version"]
+    modules = {}
+    for name, item in inventory.items():
+        path = repository / name
+        if path.is_symlink() or not path.resolve().is_relative_to(repository):
+            raise ValueError("Maven SPAKE2 artifact escapes its candidate repository")
+        checked_file(path, {"id": name, **item})
+        if name.endswith(".module"):
+            modules[item["coordinate"]] = json.loads(path.read_text())
+        if name.endswith(".pom"):
+            pom = ET.parse(path).getroot()
+            namespace = {"p": "http://maven.apache.org/POM/4.0.0"}
+            text = lambda field: pom.findtext(field, namespaces=namespace)
+            identity = ":".join(text("p:" + field) or "" for field in ("groupId", "artifactId", "version"))
+            if (identity != item["coordinate"] or text("p:scm/p:tag") != candidate["revision"] or
+                    text("p:properties/p:spake2.sourceRevision") != candidate["revision"]):
+                raise ValueError("Maven SPAKE2 POM version/revision/identity mismatch")
+    for coordinate, metadata in modules.items():
+        for variant in metadata["variants"]:
+            for dependency in variant.get("dependencies", []):
+                if dependency["group"] == SPAKE_GROUP:
+                    expected = f"{SPAKE_GROUP}:{dependency['module']}:{dependency['version'].get('requires')}"
+                    if expected not in candidate["publications"]:
+                        raise ValueError("Maven SPAKE2 transitive dependency differs from the fixed candidate")
+            for published in variant.get("files", []):
+                _, module, _ = coordinate.split(":")
+                key = f"io/github/flyfish233/{module}/{version}/{relative_name(published['url'])}"
+                fixed = inventory.get(key)
+                if fixed is None or (fixed["size"], fixed["sha256"]) != (published["size"], published["sha256"]):
+                    raise ValueError("Maven SPAKE2 variant file is missing or mismatched")
+    source_reports = []
+    for entry in lock["entries"]:
+        if entry["kind"] in ("spake2-source-distribution", "spake2-license-companion"):
+            source_reports.append(inspect_spake2_zip(entry, repository / entry["candidate_path"]))
+    if len([item for item in source_reports if item["kind"] == "spake2-source-distribution"]) != 2:
+        raise ValueError("Both Legacy and Primitives complete source distributions must be collected")
+    result = {"status": "verified", "version": version, "revision": candidate["revision"],
+              "candidate_source": candidate["source"], "publications": len(modules),
+              "fixed_files": len(inventory), "source_distributions": [item for item in source_reports
+                  if item["kind"] == "spake2-source-distribution"],
+              "resolution_status": "NOT VERIFIED"}
+    if report_path is None:
+        return result
+    report = json.loads(report_path.read_text())
+    if ((report.get("schema"), report.get("version"), report.get("revision")) !=
+            (1, version, candidate["revision"]) or Path(report.get("repository", "")).resolve() != repository):
+        raise ValueError("SPAKE2 resolution report version/revision/repository mismatch")
+    lock_path = lock_path or SUPPORT / "dependencies.lock.json"
+    if json.loads(lock_path.read_text()) != lock or report.get("source_lock_sha256") != digest(lock_path):
+        raise ValueError("SPAKE2 resolution report source lock is missing, stale or mismatched")
+    origin = (report.get("repository_id"), report.get("repository_name"))
+    if not all(isinstance(value, str) and value for value in origin):
+        raise ValueError("SPAKE2 resolution report lacks the actual repository origin")
+
+    def check_origin(item: dict) -> None:
+        if (item.get("repository_id"), item.get("repository_name")) != origin:
+            raise ValueError("SPAKE2 resolved repository origin differs from the verified candidate repository")
+
+    components = report.get("resolved_components", [])
+    if not components:
+        raise ValueError("SPAKE2 resolution report contains no actual resolved components")
+    component_keys = set()
+    for component in components:
+        if not isinstance(component, dict):
+            raise ValueError("SPAKE2 resolution report has an obsolete component schema")
+        check_origin(component)
+        coordinate = component.get("coordinate", "")
+        if component.get("kind") != "external-module" or coordinate not in candidate["publications"]:
+            raise ValueError("SPAKE2 resolved component is substituted or has an unexpected version")
+        configuration = component.get("configuration")
+        if not isinstance(configuration, str) or not configuration:
+            raise ValueError("SPAKE2 resolved component lacks its consumer configuration")
+        component_keys.add((configuration, coordinate))
+    artifacts = report.get("artifacts", [])
+    if not artifacts:
+        raise ValueError("SPAKE2 resolution report contains no actual Maven artifacts")
+    configurations = {}
+    platforms = {}
+    verified = []
+    for artifact in artifacts:
+        check_origin(artifact)
+        coordinate = artifact.get("coordinate")
+        if artifact.get("kind") != "external-module" or coordinate not in candidate["publications"]:
+            raise ValueError("SPAKE2 artifact is substituted or has an unexpected version")
+        if (artifact.get("configuration"), coordinate) not in component_keys:
+            raise ValueError("SPAKE2 selected artifact is absent from the actual component graph")
+        name = relative_name(artifact.get("repository_path", ""))
+        fixed = inventory.get(name)
+        if fixed is None or fixed["coordinate"] != coordinate:
+            raise ValueError("SPAKE2 resolved artifact is absent from the fixed Maven inventory")
+        if (not name.endswith((".aar", ".jar", ".klib")) or name.endswith(("-sources.jar", "-javadoc.jar")) or
+                artifact.get("attributes", {}).get("org.gradle.category") != "library"):
+            raise ValueError("SPAKE2 selected artifact is source/documentation, not a library binary")
+        if (artifact.get("bytes"), artifact.get("sha256")) != (fixed["size"], fixed["sha256"]):
+            raise ValueError("SPAKE2 resolved binary differs from the fixed candidate")
+        checked_file(Path(artifact["file"]), {"id": coordinate, **fixed})
+        variants = modules[coordinate]["variants"]
+        matching = [variant for variant in variants if variant["name"] == artifact.get("variant")]
+        if len(matching) != 1 or not all(artifact.get("attributes", {}).get(key) == str(value)
+                for key, value in matching[0].get("attributes", {}).items()):
+            raise ValueError("SPAKE2 resolved variant/attributes differ from published metadata")
+        if not any((published.get("url"), published.get("size"), published.get("sha256")) ==
+                   (PurePosixPath(name).name, fixed["size"], fixed["sha256"])
+                   for published in matching[0].get("files", [])):
+            raise ValueError("SPAKE2 selected binary is not a file of the reported published variant")
+        _, module, _ = coordinate.split(":")
+        family = next((root for root in SPAKE_MODULES if module == root or module.startswith(root + "-")), None)
+        configurations.setdefault(artifact["configuration"], set()).add(family)
+        platform = tuple(artifact["attributes"].get(key) for key in (
+            "org.jetbrains.kotlin.platform.type", "org.jetbrains.kotlin.native.target",
+            "org.jetbrains.kotlin.js.compiler"))
+        platforms.setdefault(artifact["configuration"], set()).add(platform)
+        verified.append({key: artifact[key] for key in ("configuration", "coordinate", "variant",
+                                                       "attributes", "repository_path", "repository_id", "repository_name", "bytes", "sha256")})
+    if any(families != set(SPAKE_MODULES) for families in configurations.values()):
+        raise ValueError("SPAKE2 resolution omits Legacy or its same-version Primitives dependency")
+    if any(len(selected) != 1 for selected in platforms.values()):
+        raise ValueError("SPAKE2 Legacy and Primitives select different platforms in one configuration")
+    return {**result, "resolution_status": "verified", "resolution_report_sha256": digest(report_path),
+            "repository_origin": {"id": origin[0], "name": origin[1]},
+            "configurations": sorted(configurations), "verified_artifacts": verified}
+
+
+def fetch(entry: dict, cache: Path, offline: bool, boring_archive: Path | None, emit,
+          spake2_repository: Path | None = None) -> Path:
     name = entry["sha256"] + "-" + PurePosixPath(entry["path"]).name
     cached = cache / name
+    if "candidate_path" in entry:
+        if spake2_repository is None:
+            raise ValueError("SPAKE2 candidate sources require --spake2-repository")
+        source = spake2_repository / relative_name(entry["candidate_path"])
+        checked_file(source, entry)
+        if cached.exists():
+            checked_file(cached, entry)
+        else:
+            shutil.copyfile(source, cached)
+        emit("candidate_source_verified", component=entry["id"], bytes=entry["size"], sha256=entry["sha256"])
+        return cached
     if cached.exists():
         # Do not silently replace a corrupt cache entry and hide the integrity failure.
         checked_file(cached, entry)
@@ -526,10 +779,15 @@ def create(arguments) -> dict:
         relative_name(entry["path"])
         if not HEX_SHA.fullmatch(entry["sha256"]) or entry["size"] <= 0:
             raise ValueError("Invalid locked source hash/size")
-        if entry["kind"] not in ("source-archive", "source-context-archive", "maven-source", "maven-metadata"):
+        if entry["kind"] not in ("source-archive", "source-context-archive", "maven-source", "maven-metadata",
+                                  "spake2-source-distribution", "spake2-license-companion"):
             raise ValueError(f"Unknown source lock entry kind: {entry['kind']}")
     android = android_inventory(lock) if lock["scope"] == ANDROID_SCOPE else None
     commit, epoch = check_project(arguments.repo, arguments.ref, lock)
+    if arguments.binary and arguments.spake2_resolution_report is None:
+        raise ValueError("Native binary association requires an actual SPAKE2 Maven resolution report")
+    candidate_report = verify_spake2_maven(lock, arguments.spake2_repository,
+                                          arguments.spake2_resolution_report, lock_path)
     binary_files = binary_inventory(arguments.binary)
     arguments.output.mkdir(parents=True, exist_ok=True)
     arguments.cache.mkdir(parents=True, exist_ok=True)
@@ -553,11 +811,13 @@ def create(arguments) -> dict:
                 (bundle / "upstream").mkdir()
                 kadb_archive = bundle / "upstream" / f"kadb-{commit}.tar.gz"
                 write_git_archive(arguments.repo, commit, kadb_archive)
-                required_kadb = ["LICENSE", "gradlew", "gradle/libs.versions.toml", "third-party/spake2/upstream/LICENSE"]
+                required_kadb = ["LICENSE", "gradlew", "gradle/libs.versions.toml",
+                                 "validation/source-bundle/dependencies.lock.json", "docs/experiment/LICENSES.md"]
                 if android is not None:
                     required_kadb += android["required_project_files"]
                 source_reports = [inspect_archive(kadb_archive, "kadb", bundle, required_kadb)]
                 maven_reports = []
+                candidate_archives = []
                 for entry in lock["entries"]:
                     output = bundle / entry["path"]
                     output.parent.mkdir(parents=True, exist_ok=True)
@@ -566,7 +826,8 @@ def create(arguments) -> dict:
                         emit("vendored_source_verified", component=entry["id"], commit=commit,
                              files=len(entry["vendored_files"]), bytes=entry["size"], sha256=entry["sha256"])
                     else:
-                        cached = fetch(entry, arguments.cache, arguments.offline, arguments.boringssl_archive, emit)
+                        cached = fetch(entry, arguments.cache, arguments.offline, arguments.boringssl_archive, emit,
+                                       arguments.spake2_repository)
                         shutil.copyfile(cached, output)
                     if entry["kind"] == "source-archive":
                         report = inspect_archive(output, entry["component"], bundle,
@@ -576,6 +837,8 @@ def create(arguments) -> dict:
                              source_files=report["source_files"], notices=len(report["notices"]))
                     elif entry["kind"] == "maven-source":
                         maven_reports.append(inspect_maven(entry, output, bundle))
+                    elif entry["kind"] in ("spake2-source-distribution", "spake2-license-companion"):
+                        candidate_archives.append(inspect_spake2_zip(entry, output, bundle))
                 verify_module_sources(lock, bundle)
                 context_reports = [verify_source_context(entry, bundle,
                     lock["required_archive_files"][entry["component"]]) for entry in lock["entries"]
@@ -596,6 +859,7 @@ def create(arguments) -> dict:
                             "native_targets": lock["native_targets"], "binary_artifacts": binary_files,
                             "binary_association_scope": "caller-supplied artifact hashes" if binary_files else "source inventory only; no binary association",
                             "source_archives": source_reports, "source_contexts": context_reports,
+                            "spake2_maven": candidate_report, "spake2_source_and_license_archives": candidate_archives,
                             "maven_sources": maven_reports, "android_runtime": android, "files": files}
                 manifest_path = bundle / "MANIFEST.json"
                 manifest_path.write_bytes(json_bytes(manifest))
@@ -625,6 +889,9 @@ def main() -> int:
     collect.add_argument("--ref", required=True, help="Git revision of the corresponding Kadb binary source")
     collect.add_argument("--output", type=Path, required=True)
     collect.add_argument("--cache", type=Path, required=True)
+    collect.add_argument("--spake2-repository", type=Path, default=ROOT / "build/spake2-candidate/maven",
+                         help="Complete fixed Maven candidate repository (default: restored build/spake2-candidate/maven)")
+    collect.add_argument("--spake2-resolution-report", type=Path, help="Actual Gradle resolution report; omitted means source inventory only")
     collect.add_argument("--offline", action="store_true", help="Require all fixed sources in the verified local cache")
     collect.add_argument("--boringssl-archive", type=Path, help="Reuse the Native build's archive only after verifying its fixed hash")
     collect.add_argument("--binary", action="append", default=[], metavar="LABEL=PATH", help="Associate a compiled Native artifact by hash; repeat as needed")
@@ -635,6 +902,11 @@ def main() -> int:
     android.add_argument("--lock", type=Path, default=SUPPORT / "dependencies.lock.json")
     android.add_argument("--runtime-report", type=Path, required=True)
     android.add_argument("--output", type=Path, help="Save successful verification as a new JSON evidence file")
+    candidate = subparsers.add_parser("verify-spake2-maven", help="Verify fixed Maven bytes, source/license coverage and optional actual resolution")
+    candidate.add_argument("--lock", type=Path, default=SUPPORT / "dependencies.lock.json")
+    candidate.add_argument("--spake2-repository", type=Path, default=ROOT / "build/spake2-candidate/maven")
+    candidate.add_argument("--spake2-resolution-report", type=Path)
+    candidate.add_argument("--output", type=Path)
     arguments = parser.parse_args()
     try:
         if arguments.command == "create":
@@ -642,7 +914,11 @@ def main() -> int:
         elif arguments.command == "verify":
             result = verify_bundle(arguments.bundle, arguments.sha256)
         else:
-            result = verify_android_runtime(arguments.lock, arguments.runtime_report)
+            if arguments.command == "verify-android-runtime":
+                result = verify_android_runtime(arguments.lock, arguments.runtime_report)
+            else:
+                result = verify_spake2_maven(json.loads(arguments.lock.read_text()), arguments.spake2_repository,
+                                             arguments.spake2_resolution_report, arguments.lock)
             if arguments.output is not None:
                 arguments.output.parent.mkdir(parents=True, exist_ok=True)
                 with arguments.output.open("xb") as output:

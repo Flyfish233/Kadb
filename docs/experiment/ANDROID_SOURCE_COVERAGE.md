@@ -7,7 +7,29 @@ arbitrary Android application's Corresponding Source or a completed legal review
 The previous Native-only package and its hash remain evidence for their original
 commit; they do not acquire Android coverage retroactively.
 
-## Basis and fixed inputs
+## Maven migration inventory
+
+The migrated lock replaces `project ':spake2-legacy'` with the fixed Maven
+Legacy and Primitives Android publications at `0.1.0-dev.59105290820b`.
+The candidate adds two untransformed AARs; the expected graph has **23 external
+archives and one Kadb project artifact**. The existing 21 dependency archive
+hashes are retained. Both root components and Android target components are
+listed; both root components are metadata-only. The old report hash is retained
+as `baseline_runtime_report_sha256`, with the expected migration graph labeled
+explicitly until a fresh `recordRuntimeClasspath` report is verified.
+
+These Maven components bring their complete source/build ZIPs, exact Android
+source classifiers, root/target POM and module metadata, and license companions.
+All fixed SPAKE2 artifacts are also checked against the original candidate's
+inventory. Full collection now contains 213 locked source/metadata/license
+entries; the 123-input figures below describe the historical pre-migration
+package and its original evidence.
+
+The actual M1 execution and any unavailable Android compile/runtime stages are
+recorded in the M1 delivery report. Neither this expected graph nor the earlier
+APK report is presented as a freshly assembled migrated APK.
+
+## Historical baseline and fixed inputs
 
 The consumer added by `2ab85febb3bf98338257d1d5aca0d9e49e552b19` was actually
 assembled and passed D8. Its `debugRuntimeClasspath` contained **21 external
@@ -35,11 +57,11 @@ are distinct from the APK's bundled dependencies. Atomicfu remains in the Native
 source scope; it is not added to the Android binary inventory when absent from
 that actual graph.
 
-The combined lock contains **123 fixed inputs**: **122 fetched archives/metadata
+The pre-migration lock contained **123 fixed inputs**: **122 fetched archives/metadata
 files and one locally assembled DocumentFile context**. These comprise eight
 complete upstream source archives, the DocumentFile context, 42 published source
 JARs, 30 Gradle module files and 42 POM files. The exact Kadb commit is archived
-separately, including the vendored Legacy SPAKE25519 sources, modifications,
+separately; in that baseline it included the vendored Legacy SPAKE25519 sources, modifications,
 Android consumer source, manifest, Gradle configuration and validation drivers.
 The collector requires the consumer files to exist in the selected Git commit;
 an uncommitted file in the working tree cannot satisfy this check.
@@ -87,7 +109,8 @@ After APK assembly, export the **actual** Gradle runtime configuration:
 
 ```sh
 ./gradlew -I validation/android-runtime/runtime-classpath.init.gradle \
-  :validation-android-runtime:recordRuntimeClasspath --no-configuration-cache
+  :validation-android-runtime:recordRuntimeClasspath --no-configuration-cache \
+  -Pspake2Repository="$SPAKE2_REPOSITORY"
 
 python3 scripts/source_bundle.py verify-android-runtime \
   --lock validation/source-bundle/dependencies.lock.json \
@@ -118,8 +141,8 @@ scope is `experimental-native-and-android-validation-runtime`.
 Original third-party files and notices are retained. Source JARs without a
 standalone license still contain their original headers and metadata; complete
 Apache-2.0 text is also present in the Kadb archive and notices directory.
-The BC full archive retains its own license; the vendored Legacy dependency
-retains AGPL-3.0-only. This does not relicense Kadb's original Apache-2.0 source.
+The BC full archive retains its own license; the Maven Legacy and Primitives
+components retain AGPL-3.0-only with the complete original text and notices. This does not relicense Kadb's original Apache-2.0 source.
 
 AndroidX's shared build infrastructure and complete build repositories for the
 small Java annotation/ListenableFuture dependencies are outside this inventory.

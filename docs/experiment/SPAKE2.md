@@ -1,19 +1,33 @@
 # Shared SPAKE25519 integration
 
-## Fixed dependency and fallback
+## Fixed Maven dependency
 
-Runtime source is fixed to `Flyfish233/spake2@b837aba27bebc1050965fa124c2efa54b4e4544a`.
-JitPack consumption failed: it supplied no usable `.module` or platform artifacts,
-and its build log reports a missing `publishToMavenLocal` task. See
-`validation/jitpack/README.md` and retained raw logs. We have not modified that
-repository and do not claim Maven/JitPack integration.
+The production entry is the KMP root coordinate
+`io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b`. Its published metadata
+selects the platform variant and transitively resolves `spake2-primitives` at
+the same version. The immutable producer source is
+`Flyfish233/spake2@59105290820bcbfd4e0336a2e7713006a461527f`.
 
-Kadb composes a small standalone KMP module from six byte-for-byte upstream
-Kotlin files plus the original license. `verifyPinnedSources` checks the complete
-inventory and each SHA-256 before compilation. Build adaptation only supplies
-Kadb's compiler/toolchain and Android/Linux/Darwin target matrix; no arithmetic
-or upstream Legacy protocol source is edited. No RFC protocol implementation or
-unneeded P-256 source is included.
+The candidate is the complete Maven directory from Actions run `40388080222`,
+artifact `12682137388`. A byte-preserving recovery archive and original artifact
+identity are retained under `validation/maven-candidate/`. It is a fixed
+experimental candidate, with no formal Maven or Release publication performed.
+The exclusive `spake2Repository` prevents an unrelated Maven Local or network
+repository from silently supplying this group. The production embedded project
+entry has been removed. The Java BoringSSL oracle remains a test dependency.
+
+`verifySpake2MavenResolution` records actual external components, artifacts,
+variants and attributes. The source collector independently checks those bytes
+against the fixed Maven inventory, original source revision, full source ZIPs
+and license companions; see [SOURCE_BUNDLE.md](SOURCE_BUNDLE.md).
+Primitives contains its published internal implementation, including P-256;
+Kadb continues to invoke only the Legacy public API. Neither production source
+sets nor dependency substitution rebuild SPAKE2 from source.
+
+The earlier JitPack failure and six-file source composition belong to Kadb
+baseline `49a88b14e9b731e4c086c920eb74664450c79d9f` and upstream `b837aba27...`.
+Their logs remain historical evidence in `validation/jitpack/`; they do not
+describe the Maven candidate now selected by this branch.
 
 ## Production boundary
 

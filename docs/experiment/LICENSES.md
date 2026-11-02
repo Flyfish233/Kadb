@@ -5,7 +5,7 @@
 | Component | Exact source | License / notice |
 | --- | --- | --- |
 | Existing Kadb code | Upstream baseline `75678915fd4bdd52345edbb6bc4913ae3415a680` | Apache-2.0, existing root `LICENSE` and file headers retained |
-| New Legacy SPAKE25519 runtime and required primitives | `Flyfish233/spake2@b837aba27bebc1050965fa124c2efa54b4e4544a` | AGPL-3.0-only, no linking exception; full license at `third-party/spake2/upstream/LICENSE` |
+| New Legacy SPAKE25519 runtime and required primitives | `io.github.flyfish233:spake2-legacy` and same-version `spake2-primitives`, version `0.1.0-dev.59105290820b`, source `59105290820bcbfd4e0336a2e7713006a461527f` | AGPL-3.0-only, no linking exception; complete `LICENSE` and third-party notices in both locked `-source-distribution.zip` files and all `-javadoc.jar` companions |
 | Kadb-owned integration and build adaptation | This experiment's commits | Apache-2.0 at the source-file level; distribution of a combined program remains subject to the AGPL component's requirements |
 | Historical test fixture data | `Flyfish233/spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f`, via pinned SPAKE2 | GPLv3, complete original license under `validation/spake2/`; test-only |
 | Native TLS, RSA/X.509, HKDF and AES provider | Pinned BoringSSL recorded by the Native backend | Its original composite license and third-party notices remain required; see Native provenance |
@@ -55,7 +55,7 @@ static framework. The collector records the exact Kadb commit and can associate
 the actual binary files by hash; it does not establish that those binaries were
 built from that commit without the matching CI evidence.
 
-The current package additionally includes the exact Android validation APK's
+The package also retains the Android validation APK source inventory's
 published dependency sources, complete BC 1.86 and HiddenApiBypass 6.1 source
 archives, and the actual consumer sources/build configuration. The
 [Android inventory](ANDROID_SOURCE_COVERAGE.md) explains its fixed runtime
@@ -76,7 +76,7 @@ library source coverage. Original per-component licenses remain unchanged.
 
 - AGPL-3.0 full text (sections 1, 4–6 and 13):
   <https://www.gnu.org/licenses/agpl-3.0.html>, with the complete text retained in
-  `third-party/spake2/upstream/LICENSE`.
+  each fixed SPAKE2 `-source-distribution.zip` and `-javadoc.jar` companion as `LICENSE`.
 - Apache Software Foundation's explanation of GPLv3 compatibility and retention
   of Apache source conditions: <https://www.apache.org/licenses/GPL-compatibility.html>.
 - GNU licensing FAQ, including combined-work and AGPL Corresponding Source:

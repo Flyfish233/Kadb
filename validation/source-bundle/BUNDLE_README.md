@@ -11,7 +11,7 @@ image, or a source package for arbitrary downstream Android applications.
 ## Contents
 
 - `upstream/kadb-*.tar.gz`: the exact `git archive` of the stated Kadb commit,
-  including its six source-pinned Legacy SPAKE25519 files, integration changes,
+  including the fixed Maven candidate recovery archive/manifest, integration changes,
   Gradle wrapper/configuration, CMake/Cinterop sources, Android consumer Java,
   manifest/build scripts, validation drivers and licenses. Creation fails when
   the exact selected commit lacks the consumer's required source files.
@@ -25,24 +25,33 @@ image, or a source package for arbitrary downstream Android applications.
   Its 19 readable files are retained in the exact Kadb commit and checked against
   upstream Git blob IDs and per-file SHA-256 before a fixed plain USTAR is
   assembled and checked by its whole-archive hash. This avoids Gitiles archives'
-  varying request-time tar metadata. Of 123 fixed dependency inputs, 122 are
-  fetched and this one is assembled from committed files.
+  varying request-time tar metadata. Of 213 fixed dependency inputs, 122 retain
+  their previous upstream download sources, 90 are copied from the verified
+  Maven candidate and this one is assembled from committed files.
   This small subtree does not include the AndroidX parent build system.
-- `maven/`: 42 published sources jars, 30 module metadata files and 42 POM files.
-  The library/common, five retained Native targets and the APK's actual 21
-  external runtime artifacts are covered. Thirty-two source jars are checked
-  against their publisher's pinned Gradle module metadata; ten older modules
-  have no published `.module` and use verified POM identity plus fixed source
-  archive size/SHA-256 and source-file inventory. No module metadata is invented.
+- `maven/`: 64 published source JARs, 52 Gradle module metadata files, 64 POMs,
+  22 SPAKE2 license/documentation companions and two full SPAKE2 source/build
+  distribution ZIPs. Legacy and Primitives use the fixed version
+  `0.1.0-dev.59105290820b`, source
+  `59105290820bcbfd4e0336a2e7713006a461527f`, and original GitHub candidate
+  artifact `12682137388` from run `40388080222`. Full ZIPs contain all producer
+  modules, tests/reference tools, wrapper/build files, dependency lock and
+  original notices; individual source JARs do not replace those archives.
+  The source lock fixes all 22 production-related SPAKE2 publications and 124
+  Maven files. The remaining Native/common and Android source classifiers keep
+  their earlier coverage. Fifty-four source JARs are checked against locked
+  Gradle metadata; ten older modules without `.module` use verified POM identity
+  and fixed source size/hash/inventory. No module metadata is invented.
   Metadata-only owners, the coroutines BOM and ListenableFuture's parent POM are
-  retained. See `MANIFEST.json` for exact paths and coordinates.
+  retained. See `MANIFEST.json` for exact paths, candidate identity and coordinates.
 - `notices/`: standalone license, copyright and notice files copied unchanged
   from the source archives and published source jars. Original file headers and
   all remaining source text are retained in the original archives. Some older
   AndroidX source jars only contain license headers and license URLs in their
   POMs; their contents are preserved unchanged. Apache-2.0's full text is present
-  in `notices/kadb/LICENSE`; the full AGPL text is in
-  `notices/kadb/third-party/spake2/upstream/LICENSE`.
+  in `notices/kadb/LICENSE`; the full AGPL text is retained as `LICENSE` in
+  both SPAKE2 source-distribution ZIPs and every license companion, with byte
+  copies under the corresponding `notices/maven/io/github/flyfish233/` paths.
 - `assembly/`: this bundler's source, fixed dependency lock, upstream tag-to-commit
   resolution evidence, Android runtime/source provenance and this README template.
 - `MANIFEST.json` and `SHA256SUMS`: the exact file inventory and hashes. The
@@ -61,9 +70,13 @@ different Square revision. Atomicfu is included because coroutines' Native
 metadata selects it transitively. The resolved version is 0.32.1, not the older
 0.23.1 lower constraint also present in that metadata.
 
-The Android runtime lock comes from the consumer's actual `debugRuntimeClasspath`,
+The Android runtime lock retains the original consumer's 21 external archives,
 including DocumentFile's AndroidX transitives, ListenableFuture, JetBrains
-annotations and JSpecify. It contains no Host Test Conscrypt binary. The CI
+annotations and JSpecify, then replaces the embedded SPAKE2 project with two
+fixed candidate AARs. The expected migrated graph has 23 external archives and
+one Kadb project artifact; it requires a fresh runtime report before binary
+acceptance. The baseline report is labeled separately and contains no Host Test
+Conscrypt binary. The CI
 `verify-android-runtime` command compares the complete resolved module set,
 metadata-only components and actual external archive hashes with this lock. It
 also rehashes the current project classes JARs without fixing their hashes across
@@ -84,8 +97,14 @@ The verifier reads every member without extracting paths. After extraction,
 establishes byte integrity relative to a trusted expected value; it is not a
 signature or proof of authorship.
 
-Extract `upstream/kadb-*.tar.gz` into a working directory and use its documented
-Gradle tasks and Native backend build instructions. The original executable bits
+Extract `upstream/kadb-*.tar.gz` into a working directory, run
+`python3 scripts/prepare_spake2_candidate.py` to recover the fixed Maven repository,
+and use its documented Gradle tasks and Native backend build instructions.
+The Maven group resolves exclusively from that repository. A report generated by
+`:kadb:verifySpake2MavenResolution` records the actual selected binaries/variants;
+`source_bundle.py verify-spake2-maven` rechecks their bytes, version and source
+identity. `MANIFEST.json` labels resolution as `NOT VERIFIED` when source
+collection was run without an actual resolution report. The original executable bits
 and build scripts are retained by Git's archive. Reuse the included BoringSSL
 archive at `kadb/build/native/downloads/boringssl.tar.gz`; the build verifies its
 fixed checksum. The full upstream archives provide their library build scripts,
@@ -108,7 +127,7 @@ were rebuilt or that the final binary is bit-for-bit reproducible.
 ## License and distribution boundaries
 
 The original Kadb source remains under its existing Apache-2.0 notices. The
-Legacy source dependency is AGPL-3.0-only without a linking exception. Other
+Legacy and Primitives Maven dependencies are AGPL-3.0-only without a linking exception. Other
 libraries retain their original, sometimes composite, notices. Providing this
 package does not relicense all original Kadb files as AGPL or establish a final
 license plan for an application that combines them.

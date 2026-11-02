@@ -1,5 +1,11 @@
 # Common and Native architecture review
 
+Historical review scope: the source pins and execution results below belong to
+the original experiment. The current fixed Maven dependency and its separate
+M1 evidence are described in [SPAKE2.md](SPAKE2.md) and
+[SOURCE_BUNDLE.md](SOURCE_BUNDLE.md); this migration does not rerun or relabel the
+historical cryptographic review.
+
 ## Scope and conclusion
 
 This review starts from the complete experimental tree

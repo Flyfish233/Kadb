@@ -1,5 +1,11 @@
 # Targeted review of the pinned Legacy SPAKE25519 integration
 
+Historical review scope: the source pins and execution results below belong to
+the original experiment. The current fixed Maven dependency and its separate
+M1 evidence are described in [SPAKE2.md](SPAKE2.md) and
+[SOURCE_BUNDLE.md](SOURCE_BUNDLE.md); this migration does not rerun or relabel the
+historical cryptographic review.
+
 This is a source review performed during the Kadb experiment, not an independent
 security audit, proof of constant-time execution, cryptographic certification,
 or permission to release the combined library. The examined source is

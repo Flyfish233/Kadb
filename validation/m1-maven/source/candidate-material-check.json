@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "Actual Maven SPAKE2 source/material collection only; no Kadb build or full dependency bundle claimed",
+  "input_count": 90,
+  "source_jars": 22,
+  "source_files": 110,
+  "source_and_license_archives": 24,
+  "module_source_and_pom_identity": "PASS",
+  "candidate_files": 124,
+  "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+}

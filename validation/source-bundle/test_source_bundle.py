@@ -1,6 +1,7 @@
 """Integrity regressions for the source collector; no network or Gradle required."""
 
 import hashlib
+import copy
 import importlib.util
 import json
 from pathlib import Path
@@ -365,6 +366,168 @@ class SourceBundleIntegrityTest(unittest.TestCase):
         with mock.patch.object(bundle, "git", side_effect=read):
             with self.assertRaisesRegex(ValueError, "Size/SHA-256 mismatch"):
                 bundle.write_vendored_context(self.root, "a" * 40, entry, self.root / "out.tar")
+
+
+class MavenCandidateSourceTest(unittest.TestCase):
+    """Mutate the retained CI candidate, rather than inventing matching source/binary fixtures."""
+
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        project = Path(__file__).resolve().parents[2]
+        self.lock_path = project / "validation/source-bundle/dependencies.lock.json"
+        self.lock = json.loads(self.lock_path.read_text())
+        candidate = self.lock["spake2_maven"]
+        archive = project / candidate["source"]["recovery_archive"]
+        self.assertEqual(candidate["source"]["recovery_archive_sha256"], bundle.digest(archive))
+        with tarfile.open(archive) as source:
+            for member in source:
+                name = bundle.relative_name(member.name)
+                if member.isdir():
+                    continue
+                self.assertTrue(member.isfile() and name.startswith("maven/"))
+                target = self.root / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(source.extractfile(member).read())
+        self.repo = self.root / "maven"
+        # Synthetic origin IDs are only fixture data; production reports obtain them
+        # from the actual Gradle resolved component and repository descriptor.
+        origin = {"repository_id": "unit-test-candidate-repository-id", "repository_name": "spake2ValidatedCandidate"}
+        self.report = {"schema": 1, "repository": str(self.repo), "version": candidate["version"], **origin,
+                       "revision": candidate["revision"], "source_lock_sha256": bundle.digest(self.lock_path),
+                       "resolved_components": [], "artifacts": []}
+        for module in ("spake2-legacy-android", "spake2-primitives-android"):
+            coordinate = f"io.github.flyfish233:{module}:{candidate['version']}"
+            fixed = next(item for item in candidate["inventory"] if item["coordinate"] == coordinate and item["path"].endswith(".aar"))
+            path = self.repo / fixed["path"]
+            metadata = json.loads(path.with_suffix(".module").read_text())
+            variant = next(item for item in metadata["variants"] if item["attributes"].get("org.gradle.usage") == "java-api")
+            self.report["resolved_components"].append({"kind": "external-module", "coordinate": coordinate, **origin,
+                                                       "configuration": "androidCompileClasspath"})
+            self.report["artifacts"].append({"kind": "external-module", "coordinate": coordinate, **origin,
+                "component": coordinate, "configuration": "androidCompileClasspath", "file": str(path),
+                "repository_path": fixed["path"], "bytes": fixed["size"], "sha256": fixed["sha256"],
+                "variant": variant["name"], "attributes": {key: str(value) for key, value in variant["attributes"].items()}})
+
+    def verify(self):
+        path = self.root / "resolution.json"
+        path.write_text(json.dumps(self.report))
+        return bundle.verify_spake2_maven(self.lock, self.repo, path)
+
+    def test_actual_candidate_sources_and_external_variants_are_verified(self):
+        result = self.verify()
+        self.assertEqual("verified", result["resolution_status"])
+        self.assertEqual(22, result["publications"])
+        self.assertEqual(2, len(result["source_distributions"]))
+        self.assertEqual(2, len(result["verified_artifacts"]))
+
+    def test_missing_or_mismatched_resolved_repository_origin_is_rejected(self):
+        original = copy.deepcopy(self.report)
+        self.report.pop("repository_id")
+        with self.assertRaisesRegex(ValueError, "lacks the actual repository origin"):
+            self.verify()
+        for section in ("resolved_components", "artifacts"):
+            for field in ("repository_id", "repository_name"):
+                self.report = copy.deepcopy(original)
+                self.report[section][0][field] = "untrusted-repository"
+                with self.subTest(section=section, field=field), self.assertRaisesRegex(ValueError, "repository origin differs"):
+                    self.verify()
+
+    def test_stale_or_missing_source_lock_identity_is_rejected(self):
+        for digest in (None, "0" * 64):
+            self.report["source_lock_sha256"] = digest
+            with self.subTest(digest=digest), self.assertRaisesRegex(ValueError, "source lock is missing, stale or mismatched"):
+                self.verify()
+
+    def test_wrong_version_and_old_vendored_lock_are_rejected(self):
+        self.report["version"] = "0.1.0-dev.wrong"
+        with self.assertRaisesRegex(ValueError, "version/revision/repository mismatch"):
+            self.verify()
+        self.lock.pop("spake2_maven")
+        with self.assertRaisesRegex(ValueError, "lacks the Maven SPAKE2"):
+            self.verify()
+
+    def test_missing_primitives_binary_is_rejected(self):
+        Path(self.report["artifacts"][1]["file"]).unlink()
+        with self.assertRaisesRegex(ValueError, "Size/SHA-256 mismatch"):
+            self.verify()
+
+    def test_missing_transitive_resolution_is_rejected(self):
+        self.report["artifacts"].pop()
+        with self.assertRaisesRegex(ValueError, "omits Legacy or its same-version Primitives"):
+            self.verify()
+
+    def test_project_substitution_is_rejected_even_with_correct_candidate_bytes(self):
+        self.report["artifacts"][0]["kind"] = "project"
+        with self.assertRaisesRegex(ValueError, "substituted"):
+            self.verify()
+        self.report["artifacts"][0]["kind"] = "external-module"
+        self.report["resolved_components"][0].update(kind="project", coordinate="project ':spake2-legacy'")
+        with self.assertRaisesRegex(ValueError, "substituted"):
+            self.verify()
+
+    def test_wrong_selected_variant_and_platform_attributes_are_rejected(self):
+        artifact = self.report["artifacts"][0]
+        original = copy.deepcopy(artifact)
+        artifact["variant"] = "jvmApiElements-published"
+        with self.assertRaisesRegex(ValueError, "variant/attributes"):
+            self.verify()
+        artifact.update(original)
+        artifact["attributes"]["org.jetbrains.kotlin.platform.type"] = "jvm"
+        with self.assertRaisesRegex(ValueError, "variant/attributes"):
+            self.verify()
+
+    def test_stale_resolution_report_cannot_hide_changed_cached_binary(self):
+        artifact = self.report["artifacts"][0]
+        cached = self.root / "cached.aar"
+        cached.write_bytes(Path(artifact["file"]).read_bytes() + b"changed")
+        artifact["file"] = str(cached)
+        with self.assertRaisesRegex(ValueError, "Size/SHA-256 mismatch"):
+            self.verify()
+
+    def test_sources_cannot_masquerade_as_selected_library_binaries(self):
+        artifact = self.report["artifacts"][0]
+        fixed = next(item for item in self.lock["spake2_maven"]["inventory"] if
+                     item["coordinate"] == artifact["coordinate"] and item["path"].endswith("-sources.jar"))
+        metadata_path = next(item["path"] for item in self.lock["spake2_maven"]["inventory"] if
+                             item["coordinate"] == artifact["coordinate"] and item["path"].endswith(".module"))
+        metadata = json.loads((self.repo / metadata_path).read_text())
+        variant = next(item for item in metadata["variants"] if item["attributes"].get("org.gradle.docstype") == "sources")
+        artifact.update(repository_path=fixed["path"], file=str(self.repo / fixed["path"]),
+                        bytes=fixed["size"], sha256=fixed["sha256"], variant=variant["name"],
+                        attributes={key: str(value) for key, value in variant["attributes"].items()})
+        with self.assertRaisesRegex(ValueError, "not a library binary"):
+            self.verify()
+
+    def test_source_collection_cannot_omit_full_distribution_or_license_companion(self):
+        for kind in ("spake2-source-distribution", "spake2-license-companion"):
+            lock = copy.deepcopy(self.lock)
+            entry = next(item for item in lock["entries"] if item["kind"] == kind)
+            lock["entries"].remove(entry)
+            with self.subTest(kind=kind), self.assertRaisesRegex(ValueError, "omits or duplicates"):
+                bundle.verify_spake2_maven(lock, self.repo)
+
+    def test_full_source_zip_requires_wrapper_build_scripts_and_original_license(self):
+        original = next(item for item in self.lock["entries"] if item["kind"] == "spake2-source-distribution")
+        for missing in ("gradle/wrapper/gradle-wrapper.jar", "build.gradle.kts", "LICENSE"):
+            path = self.root / (missing.replace("/", "-") + ".zip")
+            with zipfile.ZipFile(self.repo / original["candidate_path"]) as source, zipfile.ZipFile(path, "w") as target:
+                for member in source.infolist():
+                    if member.filename != missing:
+                        target.writestr(member, source.read(member.filename))
+            entry = {**original, "size": path.stat().st_size, "sha256": bundle.digest(path)}
+            with self.subTest(missing=missing), self.assertRaisesRegex(ValueError, "required build sources or license"):
+                bundle.inspect_spake2_zip(entry, path)
+
+    def test_repository_identity_and_full_revision_must_match(self):
+        self.report["repository"] = str(self.root / "other")
+        with self.assertRaisesRegex(ValueError, "repository mismatch"):
+            self.verify()
+        self.report["repository"] = str(self.repo)
+        self.report["revision"] = "0" * 40
+        with self.assertRaisesRegex(ValueError, "version/revision/repository mismatch"):
+            self.verify()
 
 
 if __name__ == "__main__":

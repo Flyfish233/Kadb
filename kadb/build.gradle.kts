@@ -4,6 +4,7 @@ plugins {
 }
 
 apply(from = "gradle/ios-native.gradle.kts")
+apply(from = rootProject.file("gradle/spake2-maven.gradle"))
 
 kotlin {
     listOf(iosArm64(), iosSimulatorArm64(), macosArm64(), macosX64(), linuxX64()).forEach { target ->
