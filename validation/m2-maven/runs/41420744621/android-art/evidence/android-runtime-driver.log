@@ -1,0 +1,1 @@
+{"status": "failed", "report": "evidence/android-runtime/report.json", "checks_executed": 6, "commands_executed": 16, "error_type": "RuntimeError", "error": "Instrumentation must finish exactly once with RESULT_OK and one JSON report"}

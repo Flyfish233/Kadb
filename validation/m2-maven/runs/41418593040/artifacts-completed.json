@@ -1,0 +1,156 @@
+{
+  "artifacts": [
+    {
+      "id": 13130880122,
+      "name": "m2-darwin-evidence-iosX64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 843347,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13130880122",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13130880122/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:38:47Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:38:47Z",
+      "digest": "sha256:cc702399e090f68870c7c47e54aa1d3c87c7b8fbc08ee0305a8153d1bb2b6d51",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13130077504,
+      "name": "m2-darwin-evidence-iosSimulatorArm64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 1031244,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13130077504",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13130077504/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:36:08Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:36:08Z",
+      "digest": "sha256:c4103e701f26ac8d6d48a3b0769f875684d6aefa0ea80c44d0689ced0ba0819a",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13130060549,
+      "name": "m2-darwin-macosArm64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 499527076,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13130060549",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13130060549/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:24:37Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:24:37Z",
+      "digest": "sha256:26d0642df539da6d8c591cdbfe16b0182048262315006ec6f3aa0a1781493a48",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13129937875,
+      "name": "m2-darwin-iosSimulatorArm64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 414237434,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129937875",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129937875/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:36:18Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:36:18Z",
+      "digest": "sha256:11cc3e8a4fbff8686eba4c21914756714b1311928cbe6b3bf712f6e2a7f94262",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13129737789,
+      "name": "m2-darwin-evidence-macosX64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 1818926,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129737789",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129737789/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:31:08Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:31:08Z",
+      "digest": "sha256:1a34d341e9757847d4fd11de4e5ee2246ae7983cbde9c7e6dd7e63f74fc4b864",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13129503733,
+      "name": "m2-darwin-iosX64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 335834600,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129503733",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129503733/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:39:17Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:39:17Z",
+      "digest": "sha256:3b6f724f6c506cc8eb13372343c7de19908191f09904e9de5039870885565400",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13129468755,
+      "name": "m2-darwin-macosX64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 512981182,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129468755",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129468755/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:31:19Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:31:19Z",
+      "digest": "sha256:5d418d5dcdc783bef4fe7a76ef1c00c573a50303cb2c00694d9de8eecc273328",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    },
+    {
+      "id": 13129139581,
+      "name": "m2-darwin-evidence-macosArm64-0d448840863bbf6735eb879ebc7532c321cfca17",
+      "size_in_bytes": 1841484,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129139581",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13129139581/zip",
+      "expired": false,
+      "created_at": "2026-11-02T09:24:29Z",
+      "expires_at": "2027-01-31T09:11:13Z",
+      "updated_at": "2026-11-02T09:24:29Z",
+      "digest": "sha256:a6729501e7fcde79e2b909cf5692655bfcf3086976c7dcd96b586e0f6608a640",
+      "workflow_run": {
+        "id": 41418593040,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+      }
+    }
+  ]
+}

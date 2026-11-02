@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "commit": "ff5b33262d001204cf5df2c5684e77690af511cf",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41420744621",
+  "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41420744621/artifacts/13129218639",
+  "source_package_sha256": "a7d1835f06c6505536e5bf13aa045f4b2fbcf01e5fc21c3e09b902cd3d4b4792",
+  "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+  "android_runtime_source_gate": {
+    "status": "verified",
+    "report_sha256": "16ca017badf8ea9fe472a04dce729e4d527615f97b106b24f6fe8d26acd49837"
+  },
+  "binary_artifacts": [
+    {
+      "path": "kadb/build/outputs/aar/kadb.aar",
+      "bytes": 318468,
+      "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+    },
+    {
+      "path": "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk",
+      "bytes": 5706201,
+      "sha256": "47fc4f9f2556db224a2e24a6b41fc75630da695aae36cea3d2c18a93f750eb73"
+    }
+  ],
+  "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+}

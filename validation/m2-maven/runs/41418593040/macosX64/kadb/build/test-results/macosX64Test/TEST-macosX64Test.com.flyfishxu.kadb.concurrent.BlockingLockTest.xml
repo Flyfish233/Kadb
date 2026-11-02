@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="macosX64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:29:58.992Z" hostname="iad01-dz249-43519ee7-4b52-402e-a69f-2215973466e3-0A262C23C455.local" time="0.007">
+  <properties/>
+  <testcase name="conditionReleasesAndRestoresAllReentrantAcquisitions[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

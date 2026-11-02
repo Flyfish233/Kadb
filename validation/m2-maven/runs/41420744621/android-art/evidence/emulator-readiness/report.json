@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "serial": "emulator-5554",
+  "adb_server_port": 5038,
+  "timeout_seconds": 120,
+  "started_utc": "2026-11-02T09:30:48.380990+00:00",
+  "attempts": 1,
+  "driver_checks_executed": 0,
+  "last_transport_state": {
+    "label": "transport-state",
+    "command": [
+      "/usr/local/lib/android/sdk/platform-tools/adb",
+      "-P",
+      "5038",
+      "-s",
+      "emulator-5554",
+      "get-state"
+    ],
+    "exit_code": 0,
+    "stdout": "device\n",
+    "stderr": "",
+    "elapsed_seconds": 28.241
+  },
+  "last_boot_state": {
+    "label": "boot-completed",
+    "command": [
+      "/usr/local/lib/android/sdk/platform-tools/adb",
+      "-P",
+      "5038",
+      "-s",
+      "emulator-5554",
+      "shell",
+      "getprop",
+      "sys.boot_completed"
+    ],
+    "exit_code": 0,
+    "stdout": "1\n",
+    "stderr": "",
+    "elapsed_seconds": 28.253
+  },
+  "last_package_manager_state": {
+    "label": "package-manager-ready",
+    "command": [
+      "/usr/local/lib/android/sdk/platform-tools/adb",
+      "-P",
+      "5038",
+      "-s",
+      "emulator-5554",
+      "shell",
+      "pm",
+      "path",
+      "android"
+    ],
+    "exit_code": 0,
+    "stdout": "package:/system/framework/framework-res.apk\n",
+    "stderr": "",
+    "elapsed_seconds": 28.339
+  },
+  "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+  "elapsed_seconds": 28.371
+}

@@ -1,0 +1,305 @@
+{
+  "schema": 1,
+  "milestone": "M2",
+  "recorded_utc": "2026-11-02T09:42:55.671479+00:00",
+  "verdict": "NOT VERIFIED",
+  "reason": "All four Darwin targets PASS at one tested commit; bounded Android environment fix awaits its actual rerun.",
+  "branch": "work/spake2-maven-migration",
+  "latest_code_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+  "recovered_M1_head": "08a4e2ae1ba8aec60382600d72dfc97e2f841a08",
+  "M1_code_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+  "fixed_candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "candidate_bytes_and_original_origin_gates_preserved": true
+  },
+  "platforms": {
+    "macosArm64": {
+      "verdict": "PASS",
+      "tested_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+      "run_id": 41418593040,
+      "phases": {
+        "candidate": "PASS",
+        "environment": "PASS",
+        "compile": "PASS",
+        "link": "PASS",
+        "tests": "PASS",
+        "test_evidence": "PASS",
+        "protocol": "PASS",
+        "api": "PASS",
+        "framework": "PASS",
+        "source": "PASS",
+        "swift": "PASS"
+      },
+      "tests": {
+        "kadb_executed": 65,
+        "mdns_executed": 5,
+        "total_executed": 70,
+        "failures": 0,
+        "non_optional_skips": 0,
+        "optional_skips_counted_as_pass": false
+      },
+      "independent_peer": {
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "total_sessions": 2,
+        "protocol": "TLSv1.3"
+      },
+      "public_api": {
+        "baseline_declarations": 943,
+        "current_declarations": 943,
+        "removed_or_changed": [],
+        "additions": [],
+        "result": "PASS"
+      },
+      "environment": {
+        "runner": "macos-26",
+        "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "image_version": "20261026.0455.2"
+      },
+      "complete_corresponding_source": {
+        "binary_associations": 3,
+        "bundle": "native-source-bundle-0d448840863bbf6735eb879ebc7532c321cfca17.tar.gz",
+        "bytes": 193359759,
+        "files": 630,
+        "kadb_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "112fa0d24dae3e59902ec46b4240407962335ed696be3a113c4c45821a08939a",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "evidence_directory": "runs/41418593040/macosArm64/evidence",
+      "artifact_custody": "runs/41418593040/macosArm64/artifact-custody.json"
+    },
+    "macosX64": {
+      "verdict": "PASS",
+      "tested_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+      "run_id": 41418593040,
+      "phases": {
+        "candidate": "PASS",
+        "environment": "PASS",
+        "compile": "PASS",
+        "link": "PASS",
+        "tests": "PASS",
+        "test_evidence": "PASS",
+        "protocol": "PASS",
+        "api": "PASS",
+        "framework": "PASS",
+        "source": "PASS",
+        "swift": "PASS"
+      },
+      "tests": {
+        "kadb_executed": 65,
+        "mdns_executed": 5,
+        "total_executed": 70,
+        "failures": 0,
+        "non_optional_skips": 0,
+        "optional_skips_counted_as_pass": false
+      },
+      "independent_peer": {
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "total_sessions": 2,
+        "protocol": "TLSv1.3"
+      },
+      "public_api": {
+        "baseline_declarations": 943,
+        "current_declarations": 943,
+        "removed_or_changed": [],
+        "additions": [],
+        "result": "PASS"
+      },
+      "environment": {
+        "runner": "macos-26-intel",
+        "host": "macOS-26.6.1-x86_64-i386-64bit-Mach-O",
+        "image_version": "20260824.0517.1"
+      },
+      "complete_corresponding_source": {
+        "binary_associations": 3,
+        "bundle": "native-source-bundle-0d448840863bbf6735eb879ebc7532c321cfca17.tar.gz",
+        "bytes": 193343617,
+        "files": 630,
+        "kadb_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "fdda9a5bc0a571105fb9e7045a726c25a369db21b70567c4cd72520428da8c98",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "evidence_directory": "runs/41418593040/macosX64/evidence",
+      "artifact_custody": "runs/41418593040/macosX64/artifact-custody.json"
+    },
+    "iosSimulatorArm64": {
+      "verdict": "PASS",
+      "tested_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+      "run_id": 41418593040,
+      "phases": {
+        "candidate": "PASS",
+        "environment": "PASS",
+        "compile": "PASS",
+        "link": "PASS",
+        "tests": "PASS",
+        "test_evidence": "PASS",
+        "protocol": "PASS",
+        "api": "PASS",
+        "framework": "PASS",
+        "source": "PASS",
+        "simulator": "PASS",
+        "ios_device_framework": "PASS"
+      },
+      "tests": {
+        "kadb_executed": 65,
+        "mdns_executed": 5,
+        "total_executed": 70,
+        "failures": 0,
+        "non_optional_skips": 0,
+        "optional_skips_counted_as_pass": false
+      },
+      "independent_peer": {
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "total_sessions": 2,
+        "protocol": "TLSv1.3"
+      },
+      "public_api": {
+        "baseline_declarations": 943,
+        "current_declarations": 943,
+        "removed_or_changed": [],
+        "additions": [],
+        "result": "PASS"
+      },
+      "environment": {
+        "runner": "macos-26",
+        "host": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+        "image_version": "20261026.0455.2"
+      },
+      "complete_corresponding_source": {
+        "binary_associations": 4,
+        "bundle": "native-source-bundle-0d448840863bbf6735eb879ebc7532c321cfca17.tar.gz",
+        "bytes": 193359686,
+        "files": 630,
+        "kadb_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "2a92c8a6a11554722bf8033698e767732f799e4fdd0362d7eff98c7f2ba072aa",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "evidence_directory": "runs/41418593040/iosSimulatorArm64/evidence",
+      "artifact_custody": "runs/41418593040/iosSimulatorArm64/artifact-custody.json"
+    },
+    "iosX64": {
+      "verdict": "PASS",
+      "tested_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+      "run_id": 41418593040,
+      "phases": {
+        "candidate": "PASS",
+        "environment": "PASS",
+        "compile": "PASS",
+        "link": "PASS",
+        "tests": "PASS",
+        "test_evidence": "PASS",
+        "protocol": "PASS",
+        "api": "PASS",
+        "framework": "PASS",
+        "source": "PASS",
+        "simulator": "PASS"
+      },
+      "tests": {
+        "kadb_executed": 65,
+        "mdns_executed": 5,
+        "total_executed": 70,
+        "failures": 0,
+        "non_optional_skips": 0,
+        "optional_skips_counted_as_pass": false
+      },
+      "independent_peer": {
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "total_sessions": 2,
+        "protocol": "TLSv1.3"
+      },
+      "public_api": {
+        "baseline_declarations": 943,
+        "current_declarations": 943,
+        "removed_or_changed": [],
+        "additions": [],
+        "result": "PASS"
+      },
+      "environment": {
+        "runner": "macos-26-intel",
+        "host": "macOS-26.6.1-x86_64-i386-64bit-Mach-O",
+        "image_version": "20260824.0517.1"
+      },
+      "complete_corresponding_source": {
+        "binary_associations": 3,
+        "bundle": "native-source-bundle-0d448840863bbf6735eb879ebc7532c321cfca17.tar.gz",
+        "bytes": 193343526,
+        "files": 630,
+        "kadb_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "4c0ed0f3ea51f9307ff33bec4ffd5ecddbb2c2f1009872e85f7a5311c79c259f",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "evidence_directory": "runs/41418593040/iosX64/evidence",
+      "artifact_custody": "runs/41418593040/iosX64/artifact-custody.json"
+    },
+    "android_ART": {
+      "verdict": "NOT VERIFIED",
+      "pending_tested_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+      "pending_run_id": 41422457772,
+      "reason": "Bounded emulator network-readiness fix pushed; awaiting full ART/source result at this commit. Prior raw failed runs remain FAIL.",
+      "previous_runs": [
+        {
+          "run_id": 41419309545,
+          "verdict": "FAIL",
+          "ART_checks_passed": 9,
+          "peer_sessions": 2,
+          "failure": "Exact Android runtime source-lock file names disagreed with Gradle metadata names; source gate failed."
+        },
+        {
+          "run_id": 41420744621,
+          "verdict": "FAIL",
+          "ART_checks_passed": 6,
+          "peer_sessions": 0,
+          "source_and_APK_provenance": "PASS",
+          "failure": "ENETUNREACH during TCP connect before TLS/SPAKE2; Android default network not ready."
+        }
+      ]
+    }
+  },
+  "counting": {
+    "Darwin_product_executions": 280,
+    "Darwin_independent_peer_sessions": 8,
+    "duplicate_runs_not_added": true,
+    "Host_tests_not_counted_as_ART": true
+  },
+  "source_lock_sha256": {
+    "Darwin_tested_0d448840": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
+    "Android_final_code": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "difference": "Exactly two Android runtime file_name fields. No Native candidate coordinates, versions or hashes changed."
+  },
+  "scope": {
+    "real_physical_devices": "NOT VERIFIED",
+    "full_external_adbd_matrix": "NOT VERIFIED",
+    "oldest_supported_OS_runtime": "NOT VERIFIED",
+    "production_crypto_changed": false,
+    "AOSP_nonce_changed": false,
+    "main_merged_or_released": false
+  },
+  "M1_recheck": {
+    "run_id": 41420744679,
+    "tested_commit": "ff5b33262d001204cf5df2c5684e77690af511cf",
+    "Host": "PASS",
+    "Linux_Native": "PASS"
+  },
+  "failures_preserved": [
+    "runs/41415836057/first-macos-adjudication.json",
+    "runs/41419309545/android-art/evidence/platform-status.json",
+    "runs/41420744621/android-art/evidence/platform-status.json",
+    "android-network-fix/diagnosis.json"
+  ]
+}

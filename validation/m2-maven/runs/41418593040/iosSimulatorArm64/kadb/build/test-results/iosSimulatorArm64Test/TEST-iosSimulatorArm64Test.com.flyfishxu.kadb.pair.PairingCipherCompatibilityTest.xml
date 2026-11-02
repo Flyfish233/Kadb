@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:31:23.539Z" hostname="sjc20-bb661-f919207f-0cbe-4d4d-9455-d59e5fe319fb-AA4BCF917A71.local" time="0.0">
+  <properties/>
+  <testcase name="hkdfAndAesGcmMatchJcaWireVectors[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

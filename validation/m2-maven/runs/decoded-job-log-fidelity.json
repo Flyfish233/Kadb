@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "scope": "Byte fidelity of decoded GitHub job log text; original workflow artifacts and artifact custody were always retained byte-for-byte. This record does not assert identity to a server-side compressed log ZIP.",
+  "logs": [
+    {
+      "run_id": 41415836057,
+      "job_id": 125179331072,
+      "exact_decoded_log_path": "41415836057/job-125179331072.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 235074,
+      "exact_decoded_utf8_sha256": "979ee5c2889cc489c593a4a221c08ad108fcb0148a4710095bd001bf1e4b763d",
+      "stored_gzip_sha256": "476c07b6bf100fc253f3915e6841c364f9521ecbc63de22c235103a56447dacf",
+      "earlier_retained_path": "41415836057/job-125179331072.log.gz",
+      "earlier_uncompressed_sha256": "c07949df4f6370d5d98dbf5a4027a079f113292c69acc26001d61a1d2e5f6cb3",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    },
+    {
+      "run_id": 41415836057,
+      "job_id": 125179330644,
+      "exact_decoded_log_path": "41415836057/job-125179330644.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 234707,
+      "exact_decoded_utf8_sha256": "dbb47a92d47839ff0b2561dc0e23075f8833385e32e1583ea0eb08b908aa84fc",
+      "stored_gzip_sha256": "1ccc5ea6597c8d35e53a99450b76dbbe120400aa8831eb783c6141a09fd69788",
+      "earlier_retained_path": "41415836057/job-125179330644.log.gz",
+      "earlier_uncompressed_sha256": "e4e777f4530df1afb7ab811e828ee207ede1f72ce6ab405f8ea0829db434045f",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    },
+    {
+      "run_id": 41415836057,
+      "job_id": 125179330999,
+      "exact_decoded_log_path": "41415836057/job-125179330999.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 339792,
+      "exact_decoded_utf8_sha256": "c44644fbd9fdb4ccfcd4ef44faf50f1f8a45e344d3a1e8942b4efee817761955",
+      "stored_gzip_sha256": "0d0f8343f2a32f9bb9090dfbd0013edc1f765e32627fff8a4b44d2aaf02af4f7",
+      "earlier_retained_path": "41415836057/job-125179330999.log.gz",
+      "earlier_uncompressed_sha256": "2ee2abfdc258dbb88633db94327d9cf396e00d1b07d8e3e4f2d66655a0ae2f12",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    },
+    {
+      "run_id": 41415836057,
+      "job_id": 125179330997,
+      "exact_decoded_log_path": "41415836057/job-125179330997.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 298197,
+      "exact_decoded_utf8_sha256": "de3e5da3790ee9a033c8fac995fdc4a5bc5a0517903f923c677f67ce84f92e7e",
+      "stored_gzip_sha256": "3ec2ef5197205fd03fbc120ec6d8dbb618337927693be7a1dcd05cdf56c4f5bc",
+      "earlier_retained_path": "41415836057/job-125179330997.log.gz",
+      "earlier_uncompressed_sha256": "dfcfd678ebfd068b67ecd68eea6d78a9b8c928bf7cbfe002e8b060249608ce02",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    },
+    {
+      "run_id": 41418593040,
+      "job_id": 125191623941,
+      "exact_decoded_log_path": "41418593040/job-125191623941.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 243433,
+      "exact_decoded_utf8_sha256": "c03d5e09e909490f774fdf9899f63f0808197b05dfb0561c87e8272d3dbbd9b3",
+      "stored_gzip_sha256": "b5a46bfbf14c80683c7a0384fe79d7fc4e97c70fdcde4002f2451658b93ef6d6",
+      "earlier_retained_path": "41418593040/job-125191623941.log.gz",
+      "earlier_uncompressed_sha256": "3c3212db01fb9fe763602c8b1cb2a214c144eda7b3c8b6241bf2bc7210ec7e9b",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    },
+    {
+      "run_id": 41419309545,
+      "job_id": 125190753041,
+      "exact_decoded_log_path": "41419309545/job-125190753041.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 175914,
+      "exact_decoded_utf8_sha256": "a250dc3e20c1f824b76485f5e94023f8045665aa27d6d22834f3c2d018fb18ff",
+      "stored_gzip_sha256": "e6108db046b76a4261eb53842da6948baa748ba61865159104326fa3fdc531fe",
+      "earlier_retained_path": "41419309545/job-125190753041.log.gz",
+      "earlier_uncompressed_sha256": "6e68b9742f46fbd2a54b3b3d50a1e421a7583d22bc29097505fd8acd1cd39835",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    },
+    {
+      "run_id": 41420744621,
+      "job_id": 125195407559,
+      "exact_decoded_log_path": "41420744621/job-125195407559.decoded-exact.log.gz",
+      "exact_decoded_utf8_bytes": 193684,
+      "exact_decoded_utf8_sha256": "5e96a0d8aae4a74cc567a2a6bcdf9ce938289b7e55b89a19b01b62325c27792c",
+      "stored_gzip_sha256": "e481204faa801852719e60575ad3a05133112fe5b6c41ac1afb19161c8d1b87c",
+      "earlier_retained_path": "41420744621/android-job.log.gz",
+      "earlier_uncompressed_sha256": "3fcb6197f128e403ee777c5621798778ac5eb4a635c09773e5ae24c273c02e25",
+      "earlier_normalization": "Exactly one additional trailing LF from text-file creation; all preceding bytes are identical. Earlier file retained unchanged."
+    }
+  ]
+}

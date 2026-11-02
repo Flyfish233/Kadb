@@ -1,0 +1,575 @@
+{
+  "schema": 1,
+  "collected_utc": "2026-11-02T09:40:00.786001+00:00",
+  "artifact": {
+    "id": 13130880122,
+    "name": "m2-darwin-evidence-iosX64-0d448840863bbf6735eb879ebc7532c321cfca17",
+    "size_in_bytes": 843347,
+    "created_at": "2026-11-02T09:38:47Z",
+    "expires_at": "2027-01-31T09:11:13Z",
+    "digest": "sha256:cc702399e090f68870c7c47e54aa1d3c87c7b8fbc08ee0305a8153d1bb2b6d51",
+    "workflow_run": {
+      "id": 41418593040,
+      "repository_id": 1279060280,
+      "head_repository_id": 1279060280,
+      "head_branch": "work/spake2-maven-migration",
+      "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+    }
+  },
+  "downloaded_zip_bytes": 843347,
+  "downloaded_zip_sha256": "cc702399e090f68870c7c47e54aa1d3c87c7b8fbc08ee0305a8153d1bb2b6d51",
+  "artifact_digest_verified": true,
+  "retained_files": [
+    {
+      "archive_path": "evidence/Kadb-iosX64.h",
+      "retained_path": "evidence/Kadb-iosX64.h",
+      "original_bytes": 119713,
+      "original_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+      "storage": "original bytes",
+      "stored_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078"
+    },
+    {
+      "archive_path": "evidence/cmake.log",
+      "retained_path": "evidence/cmake.log",
+      "original_bytes": 90,
+      "original_sha256": "9e2032657b821ca15fdf749298148b08afc4d86fe8a6f709a8459318fa1c018f",
+      "storage": "original bytes",
+      "stored_sha256": "9e2032657b821ca15fdf749298148b08afc4d86fe8a6f709a8459318fa1c018f"
+    },
+    {
+      "archive_path": "evidence/commit.txt",
+      "retained_path": "evidence/commit.txt",
+      "original_bytes": 41,
+      "original_sha256": "4d2782a66a636ade7a89ba369c1e4146a8d7f3ea8ec82c31e18a55a7109a451f",
+      "storage": "original bytes",
+      "stored_sha256": "4d2782a66a636ade7a89ba369c1e4146a8d7f3ea8ec82c31e18a55a7109a451f"
+    },
+    {
+      "archive_path": "evidence/compile.log",
+      "retained_path": "evidence/compile.log",
+      "original_bytes": 66756,
+      "original_sha256": "c31bf4523d5001713e628109d610de3abefd6aaac3556495473c867575136e59",
+      "storage": "original bytes",
+      "stored_sha256": "c31bf4523d5001713e628109d610de3abefd6aaac3556495473c867575136e59"
+    },
+    {
+      "archive_path": "evidence/corresponding-source/source-bundle-execution.jsonl",
+      "retained_path": "evidence/corresponding-source/source-bundle-execution.jsonl",
+      "original_bytes": 48012,
+      "original_sha256": "217202e8e72664895fbbee06c64e369d78a6c6b2678ea7e4e5f7b91a815a7d45",
+      "storage": "original bytes",
+      "stored_sha256": "217202e8e72664895fbbee06c64e369d78a6c6b2678ea7e4e5f7b91a815a7d45"
+    },
+    {
+      "archive_path": "evidence/corresponding-source/source-bundle-manifest.json",
+      "retained_path": "evidence/corresponding-source/source-bundle-manifest.json",
+      "original_bytes": 383610,
+      "original_sha256": "aa0f89657d4839537831625809817b575920d8b1a612d49c87282fb329c12db8",
+      "storage": "original bytes",
+      "stored_sha256": "aa0f89657d4839537831625809817b575920d8b1a612d49c87282fb329c12db8"
+    },
+    {
+      "archive_path": "evidence/corresponding-source/source-bundle-result.json",
+      "retained_path": "evidence/corresponding-source/source-bundle-result.json",
+      "original_bytes": 405,
+      "original_sha256": "1cfeef67e09b2ee961a468bb2043f73ec3cf3a1755981234eb7d1da68e62754e",
+      "storage": "original bytes",
+      "stored_sha256": "1cfeef67e09b2ee961a468bb2043f73ec3cf3a1755981234eb7d1da68e62754e"
+    },
+    {
+      "archive_path": "evidence/framework-metadata.json",
+      "retained_path": "evidence/framework-metadata.json",
+      "original_bytes": 672,
+      "original_sha256": "df5aa03969c262d5cb2500d141650cdc266ec0beedc80eaff7b6c9a4a0df2835",
+      "storage": "original bytes",
+      "stored_sha256": "df5aa03969c262d5cb2500d141650cdc266ec0beedc80eaff7b6c9a4a0df2835"
+    },
+    {
+      "archive_path": "evidence/framework-metadata.otool.log",
+      "retained_path": "evidence/framework-metadata.otool.log.gz",
+      "original_bytes": 2111350,
+      "original_sha256": "e10b4359cdaafaf19d5515a8e22fee0fd7af9aa35bb66656b0769581fc97b19d",
+      "storage": "gzip",
+      "stored_sha256": "5703e5b5ec0e9a812f27ed8183445373d510dc5b20b84fb302aaca243b17362d"
+    },
+    {
+      "archive_path": "evidence/framework-symbols.log",
+      "retained_path": "evidence/framework-symbols.log.gz",
+      "original_bytes": 5334739,
+      "original_sha256": "57f04010cfec5ff53808793d24437f6e5948c7e6cde19359a5a563211d310147",
+      "storage": "gzip",
+      "stored_sha256": "0e5aaeb56d7964002daa041708e5ea0281f10445eaff592b20131f4b26a31188"
+    },
+    {
+      "archive_path": "evidence/gradle-wrapper.properties",
+      "retained_path": "evidence/gradle-wrapper.properties",
+      "original_bytes": 223,
+      "original_sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e",
+      "storage": "original bytes",
+      "stored_sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e"
+    },
+    {
+      "archive_path": "evidence/gradle.log",
+      "retained_path": "evidence/gradle.log",
+      "original_bytes": 1601,
+      "original_sha256": "494dd19944142a8d3be4167c7409347739d5f20837ab1ba963e72b0ef0eb2f5f",
+      "storage": "original bytes",
+      "stored_sha256": "494dd19944142a8d3be4167c7409347739d5f20837ab1ba963e72b0ef0eb2f5f"
+    },
+    {
+      "archive_path": "evidence/initial-worktree.txt",
+      "retained_path": "evidence/initial-worktree.txt",
+      "original_bytes": 13,
+      "original_sha256": "c1b96317396369bee18f092c9315ac48be4d93ee606829157cfa459e1a95ca2e",
+      "storage": "original bytes",
+      "stored_sha256": "c1b96317396369bee18f092c9315ac48be4d93ee606829157cfa459e1a95ca2e"
+    },
+    {
+      "archive_path": "evidence/java.log",
+      "retained_path": "evidence/java.log",
+      "original_bytes": 191,
+      "original_sha256": "3fc51be00d0c37da2221595b2fa4207abf9cd72d87f51af2579adfc358a52659",
+      "storage": "original bytes",
+      "stored_sha256": "3fc51be00d0c37da2221595b2fa4207abf9cd72d87f51af2579adfc358a52659"
+    },
+    {
+      "archive_path": "evidence/libs.versions.toml",
+      "retained_path": "evidence/libs.versions.toml",
+      "original_bytes": 1614,
+      "original_sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2",
+      "storage": "original bytes",
+      "stored_sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2"
+    },
+    {
+      "archive_path": "evidence/link.log",
+      "retained_path": "evidence/link.log",
+      "original_bytes": 9793,
+      "original_sha256": "5f4474cdb809f6c0599abc38149aefb0846ee62309aef6826c9dfdc321f5f0b2",
+      "storage": "original bytes",
+      "stored_sha256": "5f4474cdb809f6c0599abc38149aefb0846ee62309aef6826c9dfdc321f5f0b2"
+    },
+    {
+      "archive_path": "evidence/macos-sdk.log",
+      "retained_path": "evidence/macos-sdk.log",
+      "original_bytes": 5,
+      "original_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb",
+      "storage": "original bytes",
+      "stored_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb"
+    },
+    {
+      "archive_path": "evidence/macos.log",
+      "retained_path": "evidence/macos.log",
+      "original_bytes": 65,
+      "original_sha256": "65d64dac219c6f8889e5d23ad99d56b412cc9b2d9d82f663de36a69a05c82aa2",
+      "storage": "original bytes",
+      "stored_sha256": "65d64dac219c6f8889e5d23ad99d56b412cc9b2d9d82f663de36a69a05c82aa2"
+    },
+    {
+      "archive_path": "evidence/objc-api.json",
+      "retained_path": "evidence/objc-api.json",
+      "original_bytes": 133,
+      "original_sha256": "34648999f0b3457c766476d74915ddde7fa4ab52ba2a233431515711aef8f816",
+      "storage": "original bytes",
+      "stored_sha256": "34648999f0b3457c766476d74915ddde7fa4ab52ba2a233431515711aef8f816"
+    },
+    {
+      "archive_path": "evidence/objc-api.log",
+      "retained_path": "evidence/objc-api.log",
+      "original_bytes": 86,
+      "original_sha256": "3d8e886be5ad6d425277b0ffa68c2af75ffc17fed899f4a022fc52cb485f67dd",
+      "storage": "original bytes",
+      "stored_sha256": "3d8e886be5ad6d425277b0ffa68c2af75ffc17fed899f4a022fc52cb485f67dd"
+    },
+    {
+      "archive_path": "evidence/pairing/java-peer.log",
+      "retained_path": "evidence/pairing/java-peer.log",
+      "original_bytes": 202,
+      "original_sha256": "ec865ebe82bf2fd90fa64abaaf39db4b4fffc003dc4f4c2065d479fe96de8e32",
+      "storage": "original bytes",
+      "stored_sha256": "ec865ebe82bf2fd90fa64abaaf39db4b4fffc003dc4f4c2065d479fe96de8e32"
+    },
+    {
+      "archive_path": "evidence/pairing/native-consumer.log",
+      "retained_path": "evidence/pairing/native-consumer.log",
+      "original_bytes": 189,
+      "original_sha256": "e5f6782b74236f726a081274e352fbfbad23730496967e6024632c2a1f62bcb2",
+      "storage": "original bytes",
+      "stored_sha256": "e5f6782b74236f726a081274e352fbfbad23730496967e6024632c2a1f62bcb2"
+    },
+    {
+      "archive_path": "evidence/pairing/report.json",
+      "retained_path": "evidence/pairing/report.json",
+      "original_bytes": 5258,
+      "original_sha256": "dbd1a447df335ecc6d76344d0fae6850907f20a928d3c647ffd4a61ff70f0e4b",
+      "storage": "original bytes",
+      "stored_sha256": "dbd1a447df335ecc6d76344d0fae6850907f20a928d3c647ffd4a61ff70f0e4b"
+    },
+    {
+      "archive_path": "evidence/pairing-driver.log",
+      "retained_path": "evidence/pairing-driver.log",
+      "original_bytes": 63,
+      "original_sha256": "9caa51aff1af0ed572a99a38639f80c7e9e5da480bf49f09a76aac90cd3bac19",
+      "storage": "original bytes",
+      "stored_sha256": "9caa51aff1af0ed572a99a38639f80c7e9e5da480bf49f09a76aac90cd3bac19"
+    },
+    {
+      "archive_path": "evidence/platform-status.json",
+      "retained_path": "evidence/platform-status.json",
+      "original_bytes": 13811,
+      "original_sha256": "79e2e0141905cb460a893f72e6a12ba3335f78f57bb08e1f1a10b63f5359050b",
+      "storage": "original bytes",
+      "stored_sha256": "79e2e0141905cb460a893f72e6a12ba3335f78f57bb08e1f1a10b63f5359050b"
+    },
+    {
+      "archive_path": "evidence/simulator-boot.log",
+      "retained_path": "evidence/simulator-boot.log",
+      "original_bytes": 30238,
+      "original_sha256": "2431685d85f40efea94b1c549312e930d272faa515f22944c4d621d11997c42c",
+      "storage": "original bytes",
+      "stored_sha256": "2431685d85f40efea94b1c549312e930d272faa515f22944c4d621d11997c42c"
+    },
+    {
+      "archive_path": "evidence/simulator-inventory.json",
+      "retained_path": "evidence/simulator-inventory.json",
+      "original_bytes": 187871,
+      "original_sha256": "1c60baf6de7d8d6d4ba9ecb2e2df146d0a6122fabf738a77fe954a73e1cd657b",
+      "storage": "original bytes",
+      "stored_sha256": "1c60baf6de7d8d6d4ba9ecb2e2df146d0a6122fabf738a77fe954a73e1cd657b"
+    },
+    {
+      "archive_path": "evidence/simulator-sdk.log",
+      "retained_path": "evidence/simulator-sdk.log",
+      "original_bytes": 5,
+      "original_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb",
+      "storage": "original bytes",
+      "stored_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb"
+    },
+    {
+      "archive_path": "evidence/simulator-udid.txt",
+      "retained_path": "evidence/simulator-udid.txt",
+      "original_bytes": 37,
+      "original_sha256": "84800f06ab369af62987826578246d8839a23989aa0e0fae0f9341da7f551c5c",
+      "storage": "original bytes",
+      "stored_sha256": "84800f06ab369af62987826578246d8839a23989aa0e0fae0f9341da7f551c5c"
+    },
+    {
+      "archive_path": "evidence/simulator.json",
+      "retained_path": "evidence/simulator.json",
+      "original_bytes": 593,
+      "original_sha256": "05ab1e381318e14e64bb1dcbdab545674a001b0d22a055f503c157e67890ee25",
+      "storage": "original bytes",
+      "stored_sha256": "05ab1e381318e14e64bb1dcbdab545674a001b0d22a055f503c157e67890ee25"
+    },
+    {
+      "archive_path": "evidence/source-create.log",
+      "retained_path": "evidence/source-create.log",
+      "original_bytes": 48395,
+      "original_sha256": "85bbd1032b8612ce72fe10cd984419bb8fa74ef51f3f989dd04baaa8114b4fc0",
+      "storage": "original bytes",
+      "stored_sha256": "85bbd1032b8612ce72fe10cd984419bb8fa74ef51f3f989dd04baaa8114b4fc0"
+    },
+    {
+      "archive_path": "evidence/spake2-candidate-integrity.json",
+      "retained_path": "evidence/spake2-candidate-integrity.json",
+      "original_bytes": 1732,
+      "original_sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806",
+      "storage": "original bytes",
+      "stored_sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    {
+      "archive_path": "evidence/spake2-resolution-link.json",
+      "retained_path": "evidence/spake2-resolution-link.json",
+      "original_bytes": 63347,
+      "original_sha256": "1eb8f40bc24fff917d343bd1d8573a084753321cecf5a84858c87b3fbc4b2e33",
+      "storage": "original bytes",
+      "stored_sha256": "1eb8f40bc24fff917d343bd1d8573a084753321cecf5a84858c87b3fbc4b2e33"
+    },
+    {
+      "archive_path": "evidence/spake2-repository.txt",
+      "retained_path": "evidence/spake2-repository.txt",
+      "original_bytes": 58,
+      "original_sha256": "3c937abd021b6144d16a2fd416114e6f480265832e3f1c4ccfd50c850547f184",
+      "storage": "original bytes",
+      "stored_sha256": "3c937abd021b6144d16a2fd416114e6f480265832e3f1c4ccfd50c850547f184"
+    },
+    {
+      "archive_path": "evidence/spake2-resolution-compile.json",
+      "retained_path": "evidence/spake2-resolution-compile.json",
+      "original_bytes": 63347,
+      "original_sha256": "1eb8f40bc24fff917d343bd1d8573a084753321cecf5a84858c87b3fbc4b2e33",
+      "storage": "original bytes",
+      "stored_sha256": "1eb8f40bc24fff917d343bd1d8573a084753321cecf5a84858c87b3fbc4b2e33"
+    },
+    {
+      "archive_path": "evidence/spake2-resolution-tests.json",
+      "retained_path": "evidence/spake2-resolution-tests.json",
+      "original_bytes": 63347,
+      "original_sha256": "1eb8f40bc24fff917d343bd1d8573a084753321cecf5a84858c87b3fbc4b2e33",
+      "storage": "original bytes",
+      "stored_sha256": "1eb8f40bc24fff917d343bd1d8573a084753321cecf5a84858c87b3fbc4b2e33"
+    },
+    {
+      "archive_path": "evidence/spake2-resolved-source-verification.json",
+      "retained_path": "evidence/spake2-resolved-source-verification.json",
+      "original_bytes": 20318,
+      "original_sha256": "f77a348705e142def00ff48752d1014d274ccc32d869ee8fcad770fc06f0900c",
+      "storage": "original bytes",
+      "stored_sha256": "f77a348705e142def00ff48752d1014d274ccc32d869ee8fcad770fc06f0900c"
+    },
+    {
+      "archive_path": "evidence/test-summary.json",
+      "retained_path": "evidence/test-summary.json",
+      "original_bytes": 8189,
+      "original_sha256": "ef34c372c8dd690f940886b31dc5408987624cdfccf4de964b91f7cbdb3766f5",
+      "storage": "original bytes",
+      "stored_sha256": "ef34c372c8dd690f940886b31dc5408987624cdfccf4de964b91f7cbdb3766f5"
+    },
+    {
+      "archive_path": "evidence/tests.log",
+      "retained_path": "evidence/tests.log",
+      "original_bytes": 8839,
+      "original_sha256": "75e8156355c82a9fe8e19c0c5d20e857cf028e421223f89671ca0d93b83f0b45",
+      "storage": "original bytes",
+      "stored_sha256": "75e8156355c82a9fe8e19c0c5d20e857cf028e421223f89671ca0d93b83f0b45"
+    },
+    {
+      "archive_path": "evidence/uname.log",
+      "retained_path": "evidence/uname.log",
+      "original_bytes": 188,
+      "original_sha256": "6f16dbc0331eb38620a92673fb02a1cc757f0095d564a7dd27a0c473ba9c281c",
+      "storage": "original bytes",
+      "stored_sha256": "6f16dbc0331eb38620a92673fb02a1cc757f0095d564a7dd27a0c473ba9c281c"
+    },
+    {
+      "archive_path": "evidence/xcode.log",
+      "retained_path": "evidence/xcode.log",
+      "original_bytes": 34,
+      "original_sha256": "bbe969e3e1760bbc982b73129dcb3b303aa7e410a7a6d7f666d20df96e601bdf",
+      "storage": "original bytes",
+      "stored_sha256": "bbe969e3e1760bbc982b73129dcb3b303aa7e410a7a6d7f666d20df96e601bdf"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "original_bytes": 549,
+      "original_sha256": "cf42ea1f9841123abcb86c2cd4bcec91f17c6fa99a80b92d1d1bd4fbe2eb4e0d",
+      "storage": "original bytes",
+      "stored_sha256": "cf42ea1f9841123abcb86c2cd4bcec91f17c6fa99a80b92d1d1bd4fbe2eb4e0d"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "original_bytes": 1205,
+      "original_sha256": "2af0f524a1f31b4f71e124169030b837bf6f5c02e79ca5740c0be251bcf10692",
+      "storage": "original bytes",
+      "stored_sha256": "2af0f524a1f31b4f71e124169030b837bf6f5c02e79ca5740c0be251bcf10692"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "original_bytes": 739,
+      "original_sha256": "3c4359ea36832d32fa39ce8562a6ed6e2a0869d37f471773efcd25ac4f534dad",
+      "storage": "original bytes",
+      "stored_sha256": "3c4359ea36832d32fa39ce8562a6ed6e2a0869d37f471773efcd25ac4f534dad"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "original_bytes": 742,
+      "original_sha256": "74073eb4a2c78d42e696451b189fa0b4af40516aa21e69120a94a24f23c819ec",
+      "storage": "original bytes",
+      "stored_sha256": "74073eb4a2c78d42e696451b189fa0b4af40516aa21e69120a94a24f23c819ec"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "original_bytes": 1059,
+      "original_sha256": "3c9367c75dc4c9bcf95bce94581a7da604aaa88ae9573a0fe00074ccf7f54486",
+      "storage": "original bytes",
+      "stored_sha256": "3c9367c75dc4c9bcf95bce94581a7da604aaa88ae9573a0fe00074ccf7f54486"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "original_bytes": 1059,
+      "original_sha256": "0ada6e4553e467352f2fe0d18d9273458c2a2aef0683c0bbf9a889a8dba11876",
+      "storage": "original bytes",
+      "stored_sha256": "0ada6e4553e467352f2fe0d18d9273458c2a2aef0683c0bbf9a889a8dba11876"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "original_bytes": 892,
+      "original_sha256": "4b21824905df04845881b2ce4b3ce61911dd18624921e588d2a64a0bca240835",
+      "storage": "original bytes",
+      "stored_sha256": "4b21824905df04845881b2ce4b3ce61911dd18624921e588d2a64a0bca240835"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+      "original_bytes": 565,
+      "original_sha256": "1e1e4483ca00d3831cb1ea2f7f29fd33d7e1d85b133eda4c448b092350a210de",
+      "storage": "original bytes",
+      "stored_sha256": "1e1e4483ca00d3831cb1ea2f7f29fd33d7e1d85b133eda4c448b092350a210de"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "original_bytes": 885,
+      "original_sha256": "2aa64c5a00e54ad4443e7e528e800cf9d2b9103ab199a9b80a8ac5a3772c9e66",
+      "storage": "original bytes",
+      "stored_sha256": "2aa64c5a00e54ad4443e7e528e800cf9d2b9103ab199a9b80a8ac5a3772c9e66"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "original_bytes": 567,
+      "original_sha256": "828172f4ffea7a87ddce1ebc384e8f3164e29491e7091076209567f1bc235711",
+      "storage": "original bytes",
+      "stored_sha256": "828172f4ffea7a87ddce1ebc384e8f3164e29491e7091076209567f1bc235711"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "original_bytes": 1214,
+      "original_sha256": "b77174f553268d3395ecd14e56869cae97ec72432bdefb6f15aa345a1f5ea7cb",
+      "storage": "original bytes",
+      "stored_sha256": "b77174f553268d3395ecd14e56869cae97ec72432bdefb6f15aa345a1f5ea7cb"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "original_bytes": 1036,
+      "original_sha256": "410c2179173e5f7a520830a44451f1d24e60fc0c3f0c200f49da9963181af4db",
+      "storage": "original bytes",
+      "stored_sha256": "410c2179173e5f7a520830a44451f1d24e60fc0c3f0c200f49da9963181af4db"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+      "original_bytes": 549,
+      "original_sha256": "76dd5a6cf0affcafb0a9579019bdf1760e7f6207860b92496f1a86521f737f9e",
+      "storage": "original bytes",
+      "stored_sha256": "76dd5a6cf0affcafb0a9579019bdf1760e7f6207860b92496f1a86521f737f9e"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+      "original_bytes": 570,
+      "original_sha256": "a679427fc55be19fc785de19621c2d8a13a0759646a1a7b4c352c3d764737864",
+      "storage": "original bytes",
+      "stored_sha256": "a679427fc55be19fc785de19621c2d8a13a0759646a1a7b4c352c3d764737864"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "original_bytes": 1294,
+      "original_sha256": "5e901c48c3cd7908dc5a8c89008b9b2b6f8efb4f74a63d606612a3e7f486e500",
+      "storage": "original bytes",
+      "stored_sha256": "5e901c48c3cd7908dc5a8c89008b9b2b6f8efb4f74a63d606612a3e7f486e500"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "original_bytes": 559,
+      "original_sha256": "6972af03ebfc8f60ff0d1d64f034f18756f55ac4f72dbb82944434a03c3b612d",
+      "storage": "original bytes",
+      "stored_sha256": "6972af03ebfc8f60ff0d1d64f034f18756f55ac4f72dbb82944434a03c3b612d"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "original_bytes": 1216,
+      "original_sha256": "c70ef2c1a6f0d751ada5f6294cb5053d84029ac1be41b522eaa77110713679fc",
+      "storage": "original bytes",
+      "stored_sha256": "c70ef2c1a6f0d751ada5f6294cb5053d84029ac1be41b522eaa77110713679fc"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "original_bytes": 726,
+      "original_sha256": "e2801762717c9fe662215ce28c620433831ffdc00c8e5219704527a91c731044",
+      "storage": "original bytes",
+      "stored_sha256": "e2801762717c9fe662215ce28c620433831ffdc00c8e5219704527a91c731044"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "original_bytes": 1159,
+      "original_sha256": "669c7cd71a4552c51cbf4a6455d718c2204ea9aa00829340b43f2ca43e709010",
+      "storage": "original bytes",
+      "stored_sha256": "669c7cd71a4552c51cbf4a6455d718c2204ea9aa00829340b43f2ca43e709010"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "original_bytes": 726,
+      "original_sha256": "273d476f0c0a2297ffa4d9938430361449dff342b67dc0e447bd8da1303f34af",
+      "storage": "original bytes",
+      "stored_sha256": "273d476f0c0a2297ffa4d9938430361449dff342b67dc0e447bd8da1303f34af"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "original_bytes": 869,
+      "original_sha256": "2b2ab8ff2825d0947e9a388b56c0f200b33b5eb1ecab9f5057c38d3c8767f3b7",
+      "storage": "original bytes",
+      "stored_sha256": "2b2ab8ff2825d0947e9a388b56c0f200b33b5eb1ecab9f5057c38d3c8767f3b7"
+    },
+    {
+      "archive_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "original_bytes": 1238,
+      "original_sha256": "27fb14eb743696d6a8937683f99648493f6b7d2ba9c82fa7a0db512f143dee7f",
+      "storage": "original bytes",
+      "stored_sha256": "27fb14eb743696d6a8937683f99648493f6b7d2ba9c82fa7a0db512f143dee7f"
+    },
+    {
+      "archive_path": "kadb-mdns/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "retained_path": "kadb-mdns/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "original_bytes": 824,
+      "original_sha256": "346882075edae7e63cf4767fc67e2fbc09ec13b7fc27c0d92ddcac802403e473",
+      "storage": "original bytes",
+      "stored_sha256": "346882075edae7e63cf4767fc67e2fbc09ec13b7fc27c0d92ddcac802403e473"
+    },
+    {
+      "archive_path": "kadb-mdns/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "retained_path": "kadb-mdns/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "original_bytes": 717,
+      "original_sha256": "80f24e6e088fa864111c5b1e0a329d1bcd8014d4c210227e571737f41dbfda82",
+      "storage": "original bytes",
+      "stored_sha256": "80f24e6e088fa864111c5b1e0a329d1bcd8014d4c210227e571737f41dbfda82"
+    },
+    {
+      "archive_path": "kadb/build/bin/iosX64/debugFramework/Kadb.framework/Headers/Kadb.h",
+      "retained_path": "kadb/build/bin/iosX64/debugFramework/Kadb.framework/Headers/Kadb.h",
+      "original_bytes": 119713,
+      "original_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+      "storage": "original bytes",
+      "stored_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078"
+    }
+  ],
+  "omitted_binary_or_archive_files": [
+    {
+      "path": "evidence/corresponding-source/native-source-bundle-0d448840863bbf6735eb879ebc7532c321cfca17.tar.gz.sha256",
+      "bytes": 135
+    },
+    {
+      "path": "kadb/build/test-results/iosX64Test/binary/output-events.bin",
+      "bytes": 0
+    },
+    {
+      "path": "kadb/build/test-results/iosX64Test/binary/results-generic.bin",
+      "bytes": 15767
+    },
+    {
+      "path": "kadb-mdns/build/test-results/iosX64Test/binary/output-events.bin",
+      "bytes": 0
+    },
+    {
+      "path": "kadb-mdns/build/test-results/iosX64Test/binary/results-generic.bin",
+      "bytes": 1185
+    }
+  ],
+  "scope": "Original text/XML evidence is retained. Large binaries and corresponding-source archives remain in the identified CI artifact."
+}

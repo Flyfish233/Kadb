@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "run_id": 41420744621,
+  "source": "GitHub Actions decoded job log",
+  "uncompressed_bytes": 193685,
+  "uncompressed_sha256": "3fcb6197f128e403ee777c5621798778ac5eb4a635c09773e5ae24c273c02e25",
+  "retained_path": "android-job.log.gz",
+  "stored_sha256": "6ee641d9f35e5d18c155aac594bf5c03d2c483c726c74a096dfcf7cf3f09e47d"
+}

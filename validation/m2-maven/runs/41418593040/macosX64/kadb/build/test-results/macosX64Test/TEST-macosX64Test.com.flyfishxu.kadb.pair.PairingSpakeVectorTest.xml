@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="macosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:30:01.325Z" hostname="iad01-dz249-43519ee7-4b52-402e-a69f-2215973466e3-0A262C23C455.local" time="1.867">
+  <properties/>
+  <testcase name="matchesIndependentBoringSslMessagesAndUnconfirmedKeys[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="1.138"/>
+  <testcase name="operatingSystemEntropyReturnsIndependentOwnedBuffers[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <testcase name="matchesIndependentBoringSslPeerInputSemantics[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.727"/>
+  <testcase name="malformedEntropyFailsTerminallyAndErasesTransferredBuffer[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <testcase name="entropyFailureCannotFallBackToDeterministicBytes[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

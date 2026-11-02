@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "run_id": 41418593040,
+  "job_id": 125191623801,
+  "source": "GitHub Actions decoded job log",
+  "uncompressed_bytes": 303835,
+  "uncompressed_sha256": "9e4c542eea25b8633eab992e3c042ed3eb27adcbcc9dafa7921cbd9bd7ea352d",
+  "retained_path": "job-125191623801.log.gz",
+  "stored_sha256": "16aed3dc1f4652ab954bd532bb55064dfa8dab95ebb3961e1a5008b76e4797da"
+}

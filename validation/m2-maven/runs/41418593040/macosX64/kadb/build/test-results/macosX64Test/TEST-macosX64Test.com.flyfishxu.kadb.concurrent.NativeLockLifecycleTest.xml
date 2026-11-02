@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="macosX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:30:03.207Z" hostname="iad01-dz249-43519ee7-4b52-402e-a69f-2215973466e3-0A262C23C455.local" time="0.0">
+  <properties/>
+  <testcase name="conditionRestoresRecursionAndWorkerExits[macosX64]" classname="macosX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,20 @@
+INSTRUMENTATION_STATUS: stream=PASS identity_generate
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=PASS identity_export_copy_isolation
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=PASS identity_import_certificate
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=PASS identity_file_persistence
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=PASS identity_diagnostic_redaction
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: stream=PASS identity_parse_failure_retains_state
+
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_RESULT: kadb_runtime_json={"schema":1,"status":"failed","checks_executed":6,"checks":["identity_generate","identity_export_copy_isolation","identity_import_certificate","identity_file_persistence","identity_diagnostic_redaction","identity_parse_failure_retains_state"],"elapsed_ms":706,"details":{"sdk_int":35,"fingerprint":"google\/sdk_gphone64_x86_64\/emu64xa:15\/AE3A.240806.043\/12960925:userdebug\/dev-keys","hardware":"ranchu","supported_abis":["x86_64","arm64-v8a"],"vm_name":"Dalvik","vm_version":"2.1.0","pid":2029,"uid":10209,"tls_provider":"AndroidOpenSSL","bundled_conscrypt":false,"peer_host":"10.0.2.2","peer_port":44519},"physical_device":false,"device_kind":"android_emulator","failed_check":"pairing_positive","error_type":"java.net.ConnectException","error":"failed to connect to \/10.0.2.2 (port 44519) from \/:: (port 0): connect failed: ENETUNREACH (Network is unreachable)","stack_frames":["libcore.io.IoBridge.connect(IoBridge.java:187)","java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:142)","java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:390)","java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:230)","java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:212)","java.net.SocksSocketImpl.connect(SocksSocketImpl.java:436)","java.net.Socket.connect(Socket.java:646)","java.net.Socket.connect(Socket.java:595)","com.flyfishxu.kadb.pair.PairingTlsConnection.start(PairingTlsConnection.jvmAndroid.kt:37)","com.flyfishxu.kadb.pair.PairingConnectionCtx.setupTlsConnection(PairingConnectionCtx.kt:74)","com.flyfishxu.kadb.pair.PairingConnectionCtx.start(PairingConnectionCtx.kt:50)","com.flyfishxu.kadb.pair.PairingConnectionCtx.startCancellable$lambda$0(PairingConnectionCtx.kt:40)","com.flyfishxu.kadb.pair.PairingConnectionCtx$$ExternalSyntheticLambda0.invoke(D8$$SyntheticClass:0)","com.flyfishxu.kadb.concurrent.RunClosingOnCancellationKt$runClosingOnCancellation$2$1$2.invokeSuspend(runClosingOnCancellation.kt:29)","kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:34)","kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)","kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)","kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)","kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)","kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:798)","kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)","kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)"]}
+INSTRUMENTATION_CODE: 0

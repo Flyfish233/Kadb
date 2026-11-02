@@ -1,0 +1,8 @@
+Exact source commit: ff5b33262d001204cf5df2c5684e77690af511cf
+Actual source artifact: https://github.com/Flyfish233/Kadb/actions/runs/41420744621/artifacts/13129218639
+Source artifact name: corresponding-source-ff5b33262d001204cf5df2c5684e77690af511cf
+Source package SHA-256: a7d1835f06c6505536e5bf13aa045f4b2fbcf01e5fc21c3e09b902cd3d4b4792
+Dependency-source lock SHA-256: 1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92
+CI run and execution evidence: https://github.com/Flyfish233/Kadb/actions/runs/41420744621
+The source artifact contains actual pinned library source archives and notices.
+Keep it alongside any copied binaries; this CI bundle is not a final distribution-license certification.

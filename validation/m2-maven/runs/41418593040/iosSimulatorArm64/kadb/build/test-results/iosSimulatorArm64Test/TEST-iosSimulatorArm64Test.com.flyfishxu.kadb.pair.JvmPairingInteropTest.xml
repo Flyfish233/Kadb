@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2026-11-02T09:31:25.649Z" hostname="sjc20-bb661-f919207f-0cbe-4d4d-9455-d59e5fe319fb-AA4BCF917A71.local" time="0.001">
+  <properties/>
+  <testcase name="pairsWithJvmPeerAndRejectsWrongCode[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
