@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "milestone": "M4",
+  "status": "IN PROGRESS",
+  "verdict": "NOT VERIFIED",
+  "branch": "work/spake2-maven-migration",
+  "baseline": "895674e5725b2cf328bf427e1500cb8f2e6e231e",
+  "fixed_candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "production_cryptography_modified": false
+  },
+  "M4-A": {"verdict": "NOT VERIFIED"},
+  "M4-B": {"verdict": "NOT VERIFIED"},
+  "M4-C": {"verdict": "NOT VERIFIED", "physical_device_selected": false},
+  "runs": [],
+  "R3_K01": "Inherited bidirectional GCM nonce behavior remains unresolved and unchanged."
+}

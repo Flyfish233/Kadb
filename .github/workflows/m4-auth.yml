@@ -1,0 +1,73 @@
+name: M4 enforced adbd authentication
+
+on:
+  push:
+    branches: [work/spake2-maven-migration]
+    paths:
+      - '.github/workflows/m4-auth.yml'
+      - 'validation/m4-maven/ci/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: m4-auth-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  authenticated-environment:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
+        with:
+          cmdline-tools-version: '16111833'
+          packages: platform-tools
+          accept-android-sdk-licenses: false
+          log-accepted-android-sdk-licenses: false
+      - name: Provision an isolated official API 35 Google Play user image
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          git rev-parse HEAD | tee evidence/commit.txt
+          uname -a > evidence/host.txt
+          test -c /dev/kvm
+          sudo chmod a+rw /dev/kvm
+          sudo apt-get update > evidence/host-packages.txt 2>&1
+          sudo apt-get install -y --no-install-recommends libpulse0 libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxrandr2 libxrender1 libxtst6 libglu1-mesa >> evidence/host-packages.txt 2>&1
+          sdkmanager 'emulator' 'system-images;android-35;google_apis_playstore;x86_64' > evidence/emulator-sdk.txt 2>&1
+          export ANDROID_USER_HOME="$RUNNER_TEMP/kadb-m4-android-user"
+          export ANDROID_AVD_HOME="$RUNNER_TEMP/kadb-m4-avd"
+          export ANDROID_ADB_SERVER_PORT=5038
+          mkdir -p "$ANDROID_USER_HOME" "$ANDROID_AVD_HOME"
+          adb keygen "$ANDROID_USER_HOME/adbkey"
+          export ADB_VENDOR_KEYS="$ANDROID_USER_HOME/adbkey"
+          printf 'no\n' | avdmanager create avd --name kadb_m4_auth --package 'system-images;android-35;google_apis_playstore;x86_64'
+          adb -P 5038 start-server
+          "$ANDROID_HOME/emulator/emulator" -accel-check > evidence/emulator-acceleration.txt 2>&1
+          "$ANDROID_HOME/emulator/emulator" -avd kadb_m4_auth -port 5554 -no-window -no-audio -no-snapshot -no-boot-anim -accel on -gpu swiftshader -memory 4096 -cores 2 -camera-back none -camera-front none > evidence/emulator.txt 2>&1 &
+          printf 'KADB_EMULATOR_PID=%s\nANDROID_USER_HOME=%s\nANDROID_AVD_HOME=%s\nANDROID_ADB_SERVER_PORT=5038\nADB_VENDOR_KEYS=%s\n' "$!" "$ANDROID_USER_HOME" "$ANDROID_AVD_HOME" "$ADB_VENDOR_KEYS" >> "$GITHUB_ENV"
+          cp "$ANDROID_HOME/emulator/source.properties" evidence/emulator-source.properties
+          cp "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64/source.properties" evidence/system-image-source.properties
+          cp "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64/package.xml" evidence/system-image-package.xml
+      - name: Require bounded boot and Android framework readiness
+        run: python3 validation/m2-maven/android/wait_ready.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --timeout 180 --output evidence/emulator-readiness
+      - name: Prove real AUTH and rootless authorization management prerequisites
+        run: python3 validation/m4-maven/ci/probe_environment.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --output evidence/environment
+      - name: Destroy this job's emulator, control identity and AVD
+        if: always()
+        run: |
+          timeout --kill-after=5s 15s adb -P 5038 -s emulator-5554 emu kill || true
+          if [ -n "${KADB_EMULATOR_PID:-}" ]; then kill "$KADB_EMULATOR_PID" 2>/dev/null || true; fi
+          timeout --kill-after=5s 10s adb -P 5038 kill-server || true
+          rm -rf "$RUNNER_TEMP/kadb-m4-android-user" "$RUNNER_TEMP/kadb-m4-avd"
+      - name: Preserve environment investigation and failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: m4-environment-${{ github.sha }}
+          path: evidence/
+          retention-days: 90
+          if-no-files-found: error

@@ -12,6 +12,9 @@ on:
       - '.github/workflows/m3-adbd.yml'
       - 'validation/m3-maven/**'
       - 'validation/native-adbd/**'
+      # M4-only authentication tooling is exercised by its dedicated workflow.
+      - '.github/workflows/m4-auth.yml'
+      - 'validation/m4-maven/**'
   workflow_dispatch:
 
 permissions:

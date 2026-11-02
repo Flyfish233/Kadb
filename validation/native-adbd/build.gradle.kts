@@ -16,6 +16,10 @@ kotlin {
             baseName = "kadb-native-real-pairing"
             entryPoint = "com.flyfishxu.kadb.validation.realpairing.main"
         }
+        target.binaries.executable("auth") {
+            baseName = "kadb-native-auth"
+            entryPoint = "com.flyfishxu.kadb.validation.auth.main"
+        }
     }
     applyDefaultHierarchyTemplate()
     sourceSets {
