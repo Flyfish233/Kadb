@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "recovered_head": "ecc0f358b46a9805d0c102318f211b5e4fe67f14",
+  "branch": "work/spake2-maven-migration",
+  "existing_dirty_checkout_preserved": "/workspace/scratch/f29d8fc3b494/Kadb",
+  "working_copy": "independent clone of clean M2 checkout",
+  "physical_device_selected": false,
+  "local_kvm_available": false,
+  "historical_run_id": 40331404006,
+  "historical_native_checks_executed": 0,
+  "failure": "transport offline after adb tcpip 5556; prior boot, root and package manager succeeded",
+  "separate_M2_issue": "healthy ADB transport; six identity checks ran before ENETUNREACH to 10.0.2.2; default network readiness fixed in M2",
+  "historical_auth_property": "ro.adb.secure=0",
+  "raw_files": [
+    {
+      "source": "/tmp/kadb-baseline-emulator/adbd/commands.jsonl",
+      "retained": "validation/m3-maven/recovery/commands.jsonl.gz",
+      "sha256": "d93430a0c30b885f7601f8d57ca27b444e4c2c452bb49e2762fc37c918df245f",
+      "bytes": 95867
+    },
+    {
+      "source": "/tmp/kadb-baseline-emulator/adbd/report.json",
+      "retained": "validation/m3-maven/recovery/report.json",
+      "sha256": "a9433e29b3c6292409a836c4f8e08c3583bddccb534c335bf3571feb36713b3c",
+      "bytes": 3368
+    }
+  ]
+}

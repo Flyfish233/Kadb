@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "status": "failed",
+  "started_utc": "2026-10-26T13:38:55.030341+00:00",
+  "require_auth": false,
+  "checks_expected": 15,
+  "run_id": "46614d2238fa9422a998e348bc1b989d",
+  "artifacts": {
+    "consumer": {
+      "path": "/home/runner/work/Kadb/Kadb/incoming/linux/validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe",
+      "bytes": 24910768,
+      "sha256": "56778b0c829563dc765eee1151c92dc4129cb02b43cf361e1f15a77d9f032618"
+    },
+    "apk": {
+      "path": "/home/runner/work/Kadb/Kadb/incoming/android/validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk",
+      "bytes": 44851,
+      "sha256": "54edf2c3e9ad8bfd67f3d28804c1db1e52feb917144522191dbc9040be5ccff2"
+    },
+    "adb": {
+      "path": "/usr/local/lib/android/sdk/platform-tools/adb",
+      "bytes": 10642368,
+      "sha256": "a902be8f45c6c62e76c9efaf6947a0fa747c9cabd89a2ac8e0d16ecb30b3ed01"
+    },
+    "aapt2": {
+      "path": "/usr/local/lib/android/sdk/build-tools/37.0.0/aapt2",
+      "bytes": 6274200,
+      "sha256": "0f1c0e560f99db510a76ebc99ad5c3e68438f62e8e8617018a716ca4a589a699"
+    }
+  },
+  "native_binary_format": "ELF",
+  "adb_version": "Android Debug Bridge version 1.0.41\nVersion 37.0.1-15733141\nInstalled as /usr/local/lib/android/sdk/platform-tools/adb\nRunning on Linux 6.17.0-1022-azure (x86_64)",
+  "emulator_version": "Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)\nCopyright (C) 2006-2024 The Android Open Source Project and many others.\nThis program is a derivative of the QEMU CPU emulator (www.qemu.org).\n\n  This software is licensed under the terms of the GNU General Public\n  License version 2, as published by the Free Software Foundation, and\n  may be copied, distributed, and modified under those terms.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.",
+  "commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "tracked_worktree_changes": "",
+  "device_kind": "android_emulator",
+  "serial": "emulator-5554",
+  "properties": {
+    "ro.build.fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+    "ro.build.version.sdk": "35",
+    "ro.product.cpu.abi": "x86_64",
+    "ro.adb.secure": "0",
+    "ro.secure": "1",
+    "ro.debuggable": "1",
+    "service.adb.tcp.port": ""
+  },
+  "cleanup_errors": [
+    {
+      "step": "remove-staging-files",
+      "error": "cleanup-staging-files failed with exit 1: adb: device offline"
+    },
+    {
+      "step": "restore-adbd-tcp-property",
+      "error": "restore-adbd-tcp-property failed with exit 1: adb: device offline"
+    },
+    {
+      "step": "wait-after-tcp-restore",
+      "error": "The selected emulator did not become ready within 120s"
+    },
+    {
+      "step": "restore-adbd-uid",
+      "error": "restore-adbd-uid failed with exit 1: get-state error: device offline"
+    },
+    {
+      "step": "wait-after-unroot",
+      "error": "The selected emulator did not become ready within 120s"
+    }
+  ],
+  "ephemeral_private_key_deleted": true,
+  "error_type": "RuntimeError",
+  "error": "The selected emulator did not become ready within 120s",
+  "commands_executed": 386
+}

@@ -8,6 +8,10 @@ on:
       - '**/*.md'
       - 'validation/m1-maven/runtime/**'
       - 'validation/m1-maven/review/**'
+      # M3-only integration harnesses do not alter M1 production inputs.
+      - '.github/workflows/m3-adbd.yml'
+      - 'validation/m3-maven/**'
+      - 'validation/native-adbd/**'
   workflow_dispatch:
 
 permissions:
