@@ -83,8 +83,29 @@ tasks.register('verifySpake2MavenResolution') {
             }
         }
         def selectedNames = providers.gradleProperty('spake2Configurations').orNull
-        def explicitlyRequested = selectedNames ? selectedNames.split(',').collect { it.trim() } :
-            ['androidCompileClasspath', 'androidRuntimeClasspath']
+        def explicitlyRequested = (selectedNames ? selectedNames.split(',').collect { it.trim() } :
+            ['androidCompileClasspath', 'androidRuntimeClasspath']).toSet()
+        // A prerequisite executes before compilation has necessarily resolved its
+        // classpath. Derive scheduled consumers from the Kotlin plugin model, not
+        // Configuration.state or guessed Native/Android task-name conventions.
+        def scheduledCompilations = []
+        def kotlinExtension = project.extensions.findByName('kotlin')
+        if (kotlinExtension != null && kotlinExtension.hasProperty('targets')) {
+            def scheduledTasks = gradle.taskGraph.allTasks.findAll { it.project == project }
+                .collect { it.name }.toSet()
+            kotlinExtension.targets.each { target ->
+                target.compilations.each { compilation ->
+                    def compileTaskName = compilation.compileTaskProvider.name
+                    if (compileTaskName in scheduledTasks) {
+                        def names = [compilation.compileDependencyConfigurationName,
+                            compilation.runtimeDependencyConfigurationName].findAll { it }.unique()
+                        explicitlyRequested.addAll(names)
+                        scheduledCompilations << [target: target.name, compilation: compilation.name,
+                            compile_task: compileTaskName, configurations: names]
+                    }
+                }
+            }
+        }
         def configurationsToCheck = configurations.findAll {
             it.canBeResolved && (it.state != Configuration.State.UNRESOLVED || it.name in explicitlyRequested)
         }.sort { it.name }
@@ -191,6 +212,8 @@ tasks.register('verifySpake2MavenResolution') {
         def report = [schema: 1, repository: repository.absolutePath, version: version, revision: revision,
             repository_id: repositoryId, repository_name: candidateRepository.name,
             origin_binding: 'gradle-9.6-repository-name-to-unique-descriptor',
+            scheduled_compilations: scheduledCompilations,
+            required_configurations: explicitlyRequested.sort(),
             artifacts: artifacts.unique().sort { a, b -> (a.configuration + a.coordinate + a.file) <=> (b.configuration + b.coordinate + b.file) },
             resolved_components: components.unique(), dependency_edges: edges.unique(),
             source_lock_sha256: digest(lockFile)]

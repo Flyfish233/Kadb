@@ -97,3 +97,15 @@ AAR 时在收集前拒绝。此处增加 AAR 外层 ZIP、manifest、内层 clas
 记录真实 AAR 摘要；任意 ZIP 与损坏 classes.jar 均拒绝。源码测试现为 **42/42 PASS**。
 这是本次新增 AAR 关联路径的集成修复，未改密码学、协议或生产编译输入。
 完整源码包的创建、独立校验及可复现性仍等待修复提交后的实际执行。
+
+## 独立修复：普通构建覆盖实际调度的 main/test 配置
+
+AAR 修复已推送为 `df9a1f1b2b666103f227b8c52af2018c8620eab2`。
+进一步复核发现，不传 `spake2Configurations` 的 Native 构建曾依赖配置何时被解析。
+现改为从实际 KMP compilation 模型及 Gradle task graph 自动取得 main/test 的编译和运行时配置，
+并在编译前逐一检查；显式配置参数保留。
+
+实际普通调用（不显式调用门禁，也不传配置参数）的 Android Host 与 Linux Native 测试通过，
+报告确认 Android main/hostTest、Linux main/test 四组 compilation，以及六个必查配置全部覆盖，
+实际记录 20 次 Maven 制品选择。原始命令、工作树构建输入摘要及报告保存在
+`validation/m1-maven/runtime/resumed/scheduled-default-*`，没有把测试时尚未提交的修改描述成已提交状态。
