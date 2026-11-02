@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "verdict": "PASS",
+  "run_id": 41422457772,
+  "source_sha": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41422457772",
+  "ci_run_attempt": 1,
+  "all_job_steps_succeeded": true,
+  "method": "Downloaded runtime and corresponding-source ZIPs matched GitHub artifact digests. Actual APK/AAR/DEX and source tar bytes were hashed; raw instrumentation/peer/readiness evidence was compared with structured reports. scripts/source_bundle.py verify checked every tar member and checksum. No additional build, emulator or pairing run was performed.",
+  "compile": {
+    "gradle_tasks_executed": 59,
+    "apk_install_exit_code": 0,
+    "instrumentation_invocations": 1
+  },
+  "android_art": {
+    "checks_executed": 9,
+    "checks": [
+      "identity_generate",
+      "identity_export_copy_isolation",
+      "identity_import_certificate",
+      "identity_file_persistence",
+      "identity_diagnostic_redaction",
+      "identity_parse_failure_retains_state",
+      "pairing_positive",
+      "pairing_wrong_code",
+      "identity_clear"
+    ],
+    "raw_result_matches_report": true,
+    "platform": {
+      "sdk_int": 35,
+      "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+      "hardware": "ranchu",
+      "supported_abis": [
+        "x86_64",
+        "arm64-v8a"
+      ],
+      "vm_name": "Dalvik",
+      "vm_version": "2.1.0",
+      "pid": 2890,
+      "uid": 10209,
+      "tls_provider": "AndroidOpenSSL",
+      "bundled_conscrypt": false,
+      "peer_host": "10.0.2.2",
+      "peer_port": 41953
+    },
+    "cleanup_errors": []
+  },
+  "independent_peer": {
+    "status": "passed",
+    "sessions_executed": 2,
+    "positive_sessions": 1,
+    "wrong_code_rejections": 1,
+    "tls": "TLSv1.3",
+    "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+  },
+  "readiness": {
+    "status": "PASS",
+    "attempts": 1,
+    "timeout_seconds": 120,
+    "elapsed_seconds": 47.592,
+    "network_wait_started_seconds": 38.555,
+    "network_wait_seconds": 9.037,
+    "network_readiness": {
+      "active_default_network": 100,
+      "host_alias": "10.0.2.2",
+      "interface": "wlan0",
+      "default_route": "default via 10.0.2.2 dev wlan0 table 1016 proto static",
+      "on_link_route": "10.0.2.0/24 dev wlan0 table 1000000016 proto static scope link"
+    }
+  },
+  "readiness_observed_none_before_default_network": true,
+  "runtime_graph": {
+    "external_modules": 23,
+    "project_artifacts": 1,
+    "all_23_external_modules_have_source_members": true,
+    "source_gate_report_sha256": "16ca017badf8ea9fe472a04dce729e4d527615f97b106b24f6fe8d26acd49837",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "runtime_report_sha256": "ca9aa46f61ee1f585e99933318abeaf4310fade12469e55a3e1c1d38f3f3deaa",
+    "spake2_runtime_origin": {
+      "android_binaries": 2,
+      "components": 4,
+      "configuration": "debugRuntimeClasspath",
+      "dependency_edges": 4,
+      "repository": "/home/runner/work/Kadb/Kadb/build/spake2-candidate/maven",
+      "repository_id": "7e58f1920695606d3f146ed0a8fe2f3b",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_uri": "file:///home/runner/work/Kadb/Kadb/build/spake2-candidate/maven/",
+      "status": "verified"
+    }
+  },
+  "actual_binary_artifacts": [
+    {
+      "path": "kadb/build/outputs/aar/kadb.aar",
+      "bytes": 318468,
+      "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+    },
+    {
+      "path": "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk",
+      "bytes": 5706198,
+      "sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f"
+    }
+  ],
+  "actual_dex_entries_verified": [
+    {
+      "name": "classes.dex",
+      "bytes": 11355924,
+      "sha256": "ea2f89e7009f589025d58479bf93e0af9eeb6b38354cb8ecbcad780ec0fa3905",
+      "class_definitions": 8833
+    },
+    {
+      "name": "classes2.dex",
+      "bytes": 354832,
+      "sha256": "0fee00e4186348a15cb08076c87a81c3ed1365c7f9f0643fcbc0f08f8599ecca",
+      "class_definitions": 198
+    },
+    {
+      "name": "classes3.dex",
+      "bytes": 13896,
+      "sha256": "90fa491d473b104deee7c76f7f0d34709d49fbb8e78fd4d9b2757efab04ef1ca",
+      "class_definitions": 22
+    },
+    {
+      "name": "classes4.dex",
+      "bytes": 15848,
+      "sha256": "b14112ee64e49aa643af69cd40d12721cae93ad69c64590ba2747049df9873d8",
+      "class_definitions": 3
+    },
+    {
+      "name": "classes5.dex",
+      "bytes": 147148,
+      "sha256": "df6a78ecde85ce96f2441d94de8621833795821d009d63001282f2ceab116ac5",
+      "class_definitions": 965
+    },
+    {
+      "name": "classes6.dex",
+      "bytes": 2126336,
+      "sha256": "e5fe52b93fe8f367e6ba615fd44d641f042d534a4bfbf1e522c4af7972b9d509",
+      "class_definitions": 1737
+    }
+  ],
+  "runtime_artifact": {
+    "id": 13130083279,
+    "zip_bytes": 12876515,
+    "zip_sha256": "9d6edd248540247319440f5ec51191706762d596029d561e682e8ac8576464f8",
+    "digest_verified": true
+  },
+  "source_artifact": {
+    "id": 13129699621,
+    "url": "https://github.com/Flyfish233/Kadb/actions/runs/41422457772/artifacts/13129699621",
+    "zip_bytes": 197171177,
+    "zip_sha256": "3b8ecedfa24e6d1e106569497cf0e3d833394d3109297e1a329097e92b94962d",
+    "digest_verified": true,
+    "package": "native-source-bundle-3c9b396a57e1f369cce341b396be7ab15d23b0e2.tar.gz",
+    "package_bytes": 196740901,
+    "package_sha256": "db25bf350e1d0a37338c181535e360a73eb8fd02d4a01a2eb6f60119b57d821b",
+    "package_verify_exit_code": 0,
+    "verified_members": 630,
+    "published_source_jars": 64,
+    "source_archives": 9,
+    "metadata_matches_runtime_artifact": true,
+    "source_lock_matches_archived_kadb": true,
+    "apk_and_aar_association_matches_actual_downloaded_bytes": true,
+    "retention": "Raw APK/AAR remain in the GitHub runtime artifact; full source tar remains in the GitHub source artifact. Downloaded binary ZIP/tar bytes were verified locally and are not duplicated into Git."
+  },
+  "job_log": {
+    "schema": 1,
+    "run_id": 41422457772,
+    "job_id": 125201007563,
+    "source": "GitHub connector fetch_workflow_job_logs structuredContent.content, encoded as UTF-8 with no added newline",
+    "decoded_utf8_bytes": 235506,
+    "decoded_utf8_sha256": "1323c9b03d458b07b2f5815aa9325b5483ed2feca72c02923fb38ac27ae06e14",
+    "retained_path": "job-125201007563.log.gz",
+    "storage": "gzip with zero timestamp",
+    "stored_sha256": "bf268b65b0f4c84f683e4f7685fadd45fc125a88b31c2a68e46bc2d7935f679c",
+    "normalized": false
+  },
+  "scope": {
+    "android_apk_dex_and_art_executed": true,
+    "platform_android_tls_exporter_and_peer_info": true,
+    "independent_legacy_spake_peer": true,
+    "physical_device": false,
+    "real_adbd_pairing": false,
+    "security_or_performance_acceptance": false
+  }
+}

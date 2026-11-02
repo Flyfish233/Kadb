@@ -1,0 +1,2795 @@
+{
+  "schema": 1,
+  "verdict": "PASS",
+  "scope": "iOS Simulator ARM64 static archive external symbol preservation",
+  "inputs": {
+    "baseline": {
+      "source_sha": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+      "artifact_id": 12655313986,
+      "run_id": 40331404006,
+      "zip_bytes": 133596368,
+      "zip_sha256": "d2c0b7733739d97b4291e7d9eaddc4bcb485c1a600ada8cde5c3baffaf60b684",
+      "framework_archive_member": "kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Kadb",
+      "framework_bytes": 78266336,
+      "framework_sha256": "643fb890a807d4828a708f6988234406521e6d6d67ca8a9f35ebb260aba49fd0",
+      "header_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+      "arm64_object_members": 706,
+      "nm_external_definition_entries": 51831
+    },
+    "migrated": {
+      "source_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+      "artifact_id": 13128890597,
+      "run_id": 41415836057,
+      "zip_bytes": 413550609,
+      "zip_sha256": "0c210932ea3e0cc86af7ed281b7e7b1644a6b10b1703e78148870f165d95af5c",
+      "framework_archive_member": "kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Kadb",
+      "framework_bytes": 78404824,
+      "framework_sha256": "e8bb5ee5dbcf7f51c68a7372efb815f44242d8f7124423ae653e423bcb957e53",
+      "header_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+      "arm64_object_members": 708,
+      "nm_external_definition_entries": 51957
+    }
+  },
+  "parser_crosscheck": {
+    "reference_command": "xcrun nm -gU <actual migrated framework>",
+    "nm_log_sha256": "0f176f51ca0bb1600cfa1efd561bf8b25edf6aaf14c01411c1b089697b4e80c6",
+    "retained_gzip_sha256": "a60f297a653b80f81a2cb116e1c9940e7b498c4d8312b20baff57e0c18ade636",
+    "entries_compared": 51957,
+    "compared_fields": [
+      "archive member",
+      "symbol name",
+      "n_value"
+    ],
+    "exact_multiset_match": true,
+    "includes_private_external_and_common": true
+  },
+  "non_private_external_definitions": {
+    "baseline_entries": 227,
+    "migrated_entries": 227,
+    "baseline_unique_names": 220,
+    "migrated_unique_names": 220,
+    "removed": [],
+    "added": [],
+    "attribute_changes": [],
+    "attributes_compared": [
+      "archive member",
+      "n_type",
+      "n_desc",
+      "segment and section names"
+    ],
+    "identical_name_list_sha256": "1e9a28cbc5ac7a9ca2d8361caf8823c67fd8461f01d620df7e7027c4de0ef0ef"
+  },
+  "framework_header": {
+    "byte_identical": true,
+    "declared_classes_excluding_categories": 79,
+    "expected_class_and_metaclass_names": 158,
+    "present_in_both": 156,
+    "absent_in_both_original_and_migrated": [
+      "_OBJC_CLASS_$_KadbNumber",
+      "_OBJC_METACLASS_$_KadbNumber"
+    ],
+    "new_missing_symbols": [],
+    "framework_c_function_declarations": 0,
+    "framework_c_declaration_check": "manual inspection of actual Kadb.h; this script is not a C declaration parser"
+  },
+  "c_bridge": {
+    "declaration_headers": [
+      {
+        "path": "kadb/src/nativeInterop/cinterop/kadb_crypto.h",
+        "sha256": "f81e7755e7dc0deb673e2c3bbb1317b5fe10788b5dae8236193fa14ff2aa2cff",
+        "function_declarations": 16
+      },
+      {
+        "path": "kadb/src/nativeInterop/cinterop/kadb_transport.h",
+        "sha256": "96a9d962c8043787dce087eab1786ba7fc0e5181ac5e4f0a079670fdfb14f345",
+        "function_declarations": 13
+      }
+    ],
+    "declared_functions": 29,
+    "present_in_both": 29,
+    "classification": "Native C bridge; not separately exposed as a C API in framework Kadb.h"
+  },
+  "all_external_names_including_private": {
+    "baseline_unique": 51489,
+    "migrated_unique": 51615,
+    "removed": [],
+    "added_count": 126
+  },
+  "non_private_symbol_inventory": [
+    {
+      "name": "_IsInstance",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugBuffer",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugBufferSize",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugBufferSizeWithObject",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugBufferWithObject",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugGetFieldAddress",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugGetFieldCount",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugGetFieldName",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugGetFieldType",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugGetTypeName",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugIsArray",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugIsInstance",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugObjectToUtf8Array",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_Konan_DebugPrint",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbAuthException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbPairAuthException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbPtyShellSession",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellPacket",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellPacketExit",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellPacketStdError",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellPacketStdOut",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellPacketV2",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellPacketV2Companion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellResponse",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbShellStream",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbStream",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbSyncDirEntry",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbSyncDirEntryV2",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbSyncStat",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbSyncStatV2",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbAdbSyncStream",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbBase",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbBoolean",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbByte",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbDefaultDeviceName_iosKt",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbDelayedAckMode",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbDouble",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbFloat",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbInMemoryPrivateKeyStore",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbInt",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadb",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbApple",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbAppleCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCert",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertExceptionCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertExceptionPolicyViolation",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertExceptionPrivateKeyParseFailed",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertExceptionStoreReadFailed",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertExceptionStoreWriteFailed",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertPolicy",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCertPolicySubject",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbFileCompatibility",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbIdentitySnapshot",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKadbOptions",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinArray",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinByteArray",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinByteIterator",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinCancellationException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinEnum",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinEnumCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinIllegalStateException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinRuntimeException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinSelectorsHolder",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbKotlinThrowable",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbLong",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbMutableDictionary",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbMutableSet",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioBuffer",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioBufferUnsafeCursor",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioByteString",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioByteStringCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioFileHandle",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioFileMetadata",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioFilePrivateKeyStore",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioFileSystem",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioFileSystemCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioIOException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioLock",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioLockCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioPath",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioPathCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioTimeout",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbOkioTimeoutCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbPlatformInterruptedException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbShort",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbTcpKeepAlive",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbUByte",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbUInt",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbULong",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_CLASS_$_KadbUShort",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbAuthException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbPairAuthException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbPtyShellSession",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellPacket",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellPacketExit",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellPacketStdError",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellPacketStdOut",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellPacketV2",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellPacketV2Companion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellResponse",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbShellStream",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbStream",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbSyncDirEntry",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbSyncDirEntryV2",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbSyncStat",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbSyncStatV2",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbAdbSyncStream",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbBase",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbBoolean",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbByte",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbDefaultDeviceName_iosKt",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbDelayedAckMode",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbDouble",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbFloat",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbInMemoryPrivateKeyStore",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbInt",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadb",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbApple",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbAppleCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCert",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertExceptionCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertExceptionPolicyViolation",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertExceptionPrivateKeyParseFailed",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertExceptionStoreReadFailed",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertExceptionStoreWriteFailed",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertPolicy",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCertPolicySubject",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbFileCompatibility",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbIdentitySnapshot",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKadbOptions",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinArray",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinByteArray",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinByteIterator",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinCancellationException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinEnum",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinEnumCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinIllegalStateException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinRuntimeException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinSelectorsHolder",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbKotlinThrowable",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbLong",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbMutableDictionary",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbMutableSet",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioBuffer",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioBufferUnsafeCursor",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioByteString",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioByteStringCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioFileHandle",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioFileMetadata",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioFilePrivateKeyStore",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioFileSystem",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioFileSystemCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioIOException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioLock",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioLockCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioPath",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioPathCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioTimeout",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbOkioTimeoutCompanion",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbPlatformInterruptedException",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbShort",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbTcpKeepAlive",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbUByte",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbUInt",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbULong",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "_OBJC_METACLASS_$_KadbUShort",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 32,
+          "section": "__DATA,__objc_data"
+        }
+      ],
+      "category": "framework-header-objc"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedINS_14OnceExecutableELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedINS_17ParallelProcessorINS_22intrusive_forward_listINS_2gc2GC10ObjectDataENS_33DefaultIntrusiveForwardListTraitsIS5_EEEELm512ELm4096EE10WorkSourceELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedINS_17ParallelProcessorINS_22intrusive_forward_listINS_2gc2GC10ObjectDataENS_33DefaultIntrusiveForwardListTraitsIS5_EEEELm512ELm4096EE5BatchELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedINS_17ParallelProcessorINS_22intrusive_forward_listINS_2gc2GC10ObjectDataENS_33DefaultIntrusiveForwardListTraitsIS5_EEEELm512ELm4096EEELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedINS_2mm10GlobalDataELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedINS_2mm11ObjCBackRefELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIP10objc_classLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIP8TypeInfoLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIP9ObjHeaderLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIPK8TypeInfoLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "Kadb.framework.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIPNS_5alloc11NextFitPageELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIPNS_5alloc14FixedBlockPageELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIPNS_5alloc15ExtraObjectCellELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIPNS_5alloc16SingleObjectPageELb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedIiLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedImLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin14ManuallyScopedItLb0EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZN6kotlin9FlatPImplINS_2gc8barriers25ExternalRCRefReleaseGuard4ImplELm32ELm8EE4implEv",
+      "definitions": [
+        {
+          "member": "libkotlin.native.internal.4fyzlt.a.o",
+          "n_type": 15,
+          "n_desc": 160,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "__ZNSt18bad_variant_accessD1Ev",
+      "definitions": [
+        {
+          "member": "d1_both.cc.o",
+          "n_type": 15,
+          "n_desc": 192,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "extensions.cc.o",
+          "n_type": 15,
+          "n_desc": 192,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "handshake_client.cc.o",
+          "n_type": 15,
+          "n_desc": 192,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "handshake_server.cc.o",
+          "n_type": 15,
+          "n_desc": 192,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "tls13_client.cc.o",
+          "n_type": 15,
+          "n_desc": 192,
+          "section": "__TEXT,__text"
+        },
+        {
+          "member": "tls13_enc.cc.o",
+          "n_type": 15,
+          "n_desc": 192,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "runtime"
+    },
+    {
+      "name": "_kadb_aes_gcm",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_create_listener",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_crypto_free",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_hkdf_sha256",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_adb_public_key",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_certificate_der",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_certificate_valid",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_create_certificate",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_free",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_generate",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_import",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_not_after",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_private_der",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_public_der",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_set_certificate",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_identity_sign_token",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_add_identity",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_adopt",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_close",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_connect",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_connect_to",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_create",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_export_pairing_key",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_free",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_is_open",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_read",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_start_tls",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_io_write",
+      "definitions": [
+        {
+          "member": "kadb_transport.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    },
+    {
+      "name": "_kadb_random_bytes",
+      "definitions": [
+        {
+          "member": "kadb_crypto.c.o",
+          "n_type": 15,
+          "n_desc": 0,
+          "section": "__TEXT,__text"
+        }
+      ],
+      "category": "native-c-bridge"
+    }
+  ],
+  "reproducer_sha256": "9007a7fc0bddac6ae028afdfe8a4660e38534aaab8ce32ee488d620ce705f98b",
+  "format_references": [
+    "https://github.com/apple-oss-distributions/xnu/blob/main/EXTERNAL_HEADERS/mach-o/nlist.h",
+    "https://github.com/apple-oss-distributions/xnu/blob/main/EXTERNAL_HEADERS/mach-o/loader.h"
+  ],
+  "limitations": [
+    "This is a comparison of static archive object symbols, not a dynamic library export-trie or install-name check.",
+    "No claim of arbitrary ABI compatibility: Objective-C method encodings, runtime layouts, calling conventions, and old precompiled consumer relinking were not independently checked.",
+    "The framework header declares KadbNumber but its class and metaclass definitions are absent from both compared archives; no new loss is observed.",
+    "Only exact original and migrated iOS Simulator ARM64 archives are compared here; no x64 historical binary baseline is asserted.",
+    "Symbol addresses are expected to vary; values are checked only to validate the parser against the same migrated artifact's Apple nm output.",
+    "Framework header equality and existing macOS Swift consumer execution are separate evidence; this script runs no Apple compilation or execution."
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks_expected": 9,
+  "started_utc": "2026-11-02T09:44:32.798212+00:00",
+  "commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+  "tracked_worktree_changes": "",
+  "artifacts": {
+    "apk": {
+      "bytes": 5706198,
+      "sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f"
+    },
+    "adb": {
+      "bytes": 10642368,
+      "sha256": "a902be8f45c6c62e76c9efaf6947a0fa747c9cabd89a2ac8e0d16ecb30b3ed01"
+    },
+    "aapt2": {
+      "bytes": 6274200,
+      "sha256": "0f1c0e560f99db510a76ebc99ad5c3e68438f62e8e8617018a716ca4a589a699"
+    },
+    "java": {
+      "bytes": 16264,
+      "sha256": "1bf1aaef01e4f8d7c85d913c60fb2ee4624cbe54d4053254c59657b7ea913b25"
+    }
+  },
+  "apk_dex": {
+    "status": "verified",
+    "apk_sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f",
+    "apk_bytes": 5706198,
+    "dex_files": [
+      {
+        "name": "classes.dex",
+        "bytes": 11355924,
+        "sha256": "ea2f89e7009f589025d58479bf93e0af9eeb6b38354cb8ecbcad780ec0fa3905",
+        "class_definitions": 8833
+      },
+      {
+        "name": "classes2.dex",
+        "bytes": 354832,
+        "sha256": "0fee00e4186348a15cb08076c87a81c3ed1365c7f9f0643fcbc0f08f8599ecca",
+        "class_definitions": 198
+      },
+      {
+        "name": "classes3.dex",
+        "bytes": 13896,
+        "sha256": "90fa491d473b104deee7c76f7f0d34709d49fbb8e78fd4d9b2757efab04ef1ca",
+        "class_definitions": 22
+      },
+      {
+        "name": "classes4.dex",
+        "bytes": 15848,
+        "sha256": "b14112ee64e49aa643af69cd40d12721cae93ad69c64590ba2747049df9873d8",
+        "class_definitions": 3
+      },
+      {
+        "name": "classes5.dex",
+        "bytes": 147148,
+        "sha256": "df6a78ecde85ce96f2441d94de8621833795821d009d63001282f2ceab116ac5",
+        "class_definitions": 965
+      },
+      {
+        "name": "classes6.dex",
+        "bytes": 2126336,
+        "sha256": "e5fe52b93fe8f367e6ba615fd44d641f042d534a4bfbf1e522c4af7972b9d509",
+        "class_definitions": 1737
+      }
+    ],
+    "required_class_definitions": [
+      "Lcom/flyfishxu/kadb/Kadb;",
+      "Lcom/flyfishxu/kadb/cert/KadbCert;",
+      "Lcom/flyfishxu/kadb/validation/runtime/RuntimeInstrumentation;",
+      "Lio/github/flyfish233/spake2/legacy/LegacySpake25519;"
+    ],
+    "host_oracle_classes_present": false,
+    "scope": "APK/DEX packaging only; Android execution is a separate mandatory gate"
+  },
+  "adb_version": "Android Debug Bridge version 1.0.41\nVersion 37.0.1-15733141\nInstalled as /usr/local/lib/android/sdk/platform-tools/adb\nRunning on Linux 7.0.0-1017-azure (x86_64)",
+  "java_version": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)",
+  "serial": "emulator-5554",
+  "device_kind": "android_emulator",
+  "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+  "reference_artifacts": {
+    "spake2-java-1.1.1.jar": "077e52ff5594401cdbfca66f9b4d315676e01dff98eaa8ef302fa748ac508028",
+    "conscrypt-openjdk-uber-2.7.0.jar": "a82c2efe7d75df6cb077cb72a3cbd9bb437fb9624d62b469013f10114b0cffa4",
+    "bcpkix-jdk18on-1.86.jar": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7",
+    "ed25519-elisabeth-0.1.0.jar": "f2b0f1f7353b3b4a41caa230bd203858a4b5844acd022f830b09d347aade3d23",
+    "curve25519-elisabeth-0.1.0.jar": "e3d07e0138b49c5c48ac89ad4f6828af74c4cd70abe495d7515e7c6a0227184c",
+    "bcutil-jdk18on-1.86.jar": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f",
+    "bcprov-jdk18on-1.86.jar": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f"
+  },
+  "reference_classes": {
+    "com/flyfishxu/kadb/validation/peer/IosPairingPeer$1.class": "74dd674fc7bd76e53d861bc4596d4eef3e47ff0ec06f32c41f3e24ccba1f6d7f",
+    "com/flyfishxu/kadb/validation/peer/IosPairingPeer.class": "d1ba307694d71888629bcff18f6103f1bc83ef40675081a2b071bb8465685778"
+  },
+  "peer_command": [
+    "/usr/lib/jvm/temurin-25-jdk-amd64/bin/java",
+    "--enable-native-access=ALL-UNNAMED",
+    "-cp",
+    "/home/runner/work/Kadb/Kadb/validation/pairing-peer/build/classes/java/main:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.Flyfish233/spake2-java/1.1.1/d7a2b95e871e45a40d18ade772bfce0a3690eea0/spake2-java-1.1.1.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.conscrypt/conscrypt-openjdk-uber/2.7.0/bc396edfd5fefe70b7e1f9764edb803e13c6741f/conscrypt-openjdk-uber-2.7.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.86/fb5ea65959db10fe5d61148bb2b77f6e231455b1/bcpkix-jdk18on-1.86.jar:/home/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/534c70f4a52f8c134fc3f84e96fe525390eec270/ed25519-elisabeth-0.1.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/curve25519-elisabeth/0.1.0/5c9a330af3ca88b9788cd92a468b61f5d2e0f834/curve25519-elisabeth-0.1.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.86/2c8e77f5601c2b84c8773af4caf403a34daca357/bcutil-jdk18on-1.86.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.86/830c8467bed8e4c1148262386b09fc42aedcf262/bcprov-jdk18on-1.86.jar",
+    "com.flyfishxu.kadb.validation.peer.IosPairingPeer",
+    "/home/runner/work/Kadb/Kadb/evidence/android-runtime/peer-ready"
+  ],
+  "run_id": "562cdc181b377306f8af927169b34c97",
+  "instrumentation_adb_exit_code": 0,
+  "android": {
+    "schema": 1,
+    "status": "passed",
+    "checks_executed": 9,
+    "checks": [
+      "identity_generate",
+      "identity_export_copy_isolation",
+      "identity_import_certificate",
+      "identity_file_persistence",
+      "identity_diagnostic_redaction",
+      "identity_parse_failure_retains_state",
+      "pairing_positive",
+      "pairing_wrong_code",
+      "identity_clear"
+    ],
+    "elapsed_ms": 3934,
+    "details": {
+      "sdk_int": 35,
+      "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+      "hardware": "ranchu",
+      "supported_abis": [
+        "x86_64",
+        "arm64-v8a"
+      ],
+      "vm_name": "Dalvik",
+      "vm_version": "2.1.0",
+      "pid": 2890,
+      "uid": 10209,
+      "tls_provider": "AndroidOpenSSL",
+      "bundled_conscrypt": false,
+      "peer_host": "10.0.2.2",
+      "peer_port": 41953
+    },
+    "physical_device": false,
+    "device_kind": "android_emulator"
+  },
+  "peer_exit_code": 0,
+  "peer": {
+    "status": "passed",
+    "sessions_executed": 2,
+    "positive_sessions": 1,
+    "wrong_code_rejections": 1,
+    "tls": "TLSv1.3",
+    "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+  },
+  "scope": {
+    "android_apk_dex_and_art_executed": true,
+    "platform_android_tls_exporter_and_peer_info": true,
+    "independent_legacy_spake_peer": true,
+    "physical_device": false,
+    "real_adbd_pairing": false,
+    "security_or_performance_acceptance": false
+  },
+  "cleanup_errors": [],
+  "commands_executed": 16
+}

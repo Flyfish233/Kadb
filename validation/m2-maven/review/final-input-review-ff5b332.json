@@ -1,0 +1,598 @@
+{
+  "schema": 1,
+  "review_date": "2026-11-02",
+  "timezone": "Asia/Singapore",
+  "scope": "Final source identity/inventory review; no new platform execution or cryptographic audit",
+  "refs": {
+    "pre_maven": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+    "m1_code": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+    "m1_head": "08a4e2ae1ba8aec60382600d72dfc97e2f841a08",
+    "darwin_tested": "0d448840863bbf6735eb879ebc7532c321cfca17",
+    "reviewed": "ff5b33262d001204cf5df2c5684e77690af511cf"
+  },
+  "verdict": "PASS",
+  "production_and_peer": [
+    {
+      "path": "kadb/src",
+      "git_object": "59bc6527fd4e893044c366b2b309ce22bde9ff24",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 154
+    },
+    {
+      "path": "kadb-mdns/src",
+      "git_object": "4acbe3b4ae918fc96f734d0b18b63edc98cf9547",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 17
+    },
+    {
+      "path": "third-party/spake2",
+      "git_object": "38a5692b23c861f48a41ff54765be8c0278193ca",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 11
+    },
+    {
+      "path": "kadb/third_party",
+      "git_object": "d930a899352dba4a534d6ef3c28034652d15a2cc",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 2
+    },
+    {
+      "path": "validation/pairing-peer/src",
+      "git_object": "0fc6f156a16e6289b80b24842a27545cf46e2d6b",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "validation/pairing-peer/SHA256SUMS",
+      "git_object": "35d5136b9f4e4e30cb7b4a0824cc14a4f304e9bc",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    }
+  ],
+  "unchanged_M1_evidence": [
+    {
+      "path": "validation/m1-maven",
+      "git_object": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+      "unchanged_against": [
+        "m1_head"
+      ],
+      "tracked_files": 82
+    },
+    {
+      "path": "validation/m1",
+      "git_object": "e816b6d808151329ca89f602a3726fea6b6d9d77",
+      "unchanged_against": [
+        "m1_head"
+      ],
+      "tracked_files": 49
+    },
+    {
+      "path": "docs/experiment/M1-DELIVERY.zh-CN.md",
+      "git_object": "1555f2997d1044e586c06960e926c947040f0a52",
+      "unchanged_against": [
+        "m1_head"
+      ],
+      "tracked_files": 1
+    }
+  ],
+  "unchanged_M1_and_old_workflows": [
+    {
+      "path": ".github/workflows/m1-maven.yml",
+      "git_object": "44b735d5d7634920b33a90e66131601b96e005cb",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": ".github/workflows/experiment-validation.yml",
+      "git_object": "d1a302050066ae1958a491af2730cbeb6fea5812",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": ".github/workflows/experiment-baseline.yml",
+      "git_object": "6a11499013220ab8c698bc5777e6356c02b27886",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    }
+  ],
+  "fixed_maven_inputs": [
+    {
+      "path": "validation/maven-candidate",
+      "git_object": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 3
+    },
+    {
+      "path": "gradle/spake2-maven.gradle",
+      "git_object": "2555db27ec592cf5607bec6dd99bd9258a0c6c43",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "git_object": "98424148b537b2a210199a8bdda1b18321c95267",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "settings.gradle.kts",
+      "git_object": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "scripts/prepare_spake2_candidate.py",
+      "git_object": "15724b8cb897be261fa52e8c0d748e15eb7f47a6",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    }
+  ],
+  "licenses": [
+    {
+      "path": "LICENSE",
+      "git_object": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "kadb/third_party/boringssl/LICENSE",
+      "git_object": "37a5b7439bf6d245179326da069fa561e20067ef",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "third-party/androidx-documentfile-context/LICENSE",
+      "git_object": "e454a52586f29b8ce8a6799163eac1f875e9ac01",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "third-party/spake2/upstream/LICENSE",
+      "git_object": "be3f7b28e564e7dd05eaf59d64adba1a4065ac0e",
+      "unchanged_against": [
+        "pre_maven",
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    },
+    {
+      "path": "docs/experiment/LICENSES.md",
+      "git_object": "5b76f7543d5eeee84f35a1afdf8bf03464cdf2eb",
+      "unchanged_against": [
+        "m1_code",
+        "m1_head"
+      ],
+      "tracked_files": 1
+    }
+  ],
+  "protocol_files": [
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "sha256": "e23250f71f531af1f287ddc8d2f2cf38e71c4182128a661a6b4276aa559ba290",
+      "git_blob": "3f797eb5f3312d4bdec1d6ef730f8c8fb26754a6",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "sha256": "357427ff01f43c66826da9fcdc6d27ce3a48278f4af737679f43613c8594919a",
+      "git_blob": "e3b917e1bd31f3b8faf4b6251b1d9f4b2d90bc9b",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "sha256": "05178fbf53b0896e39813d776003bec1aaa56bb4a16d072e4463fc33e4144778",
+      "git_blob": "a3a87a027dc5ad91b9cd9cf2649b68dd7610a83d",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.kt",
+      "sha256": "73a9d367eb76dd2160cd7720435276eba60880e9e00b64d76f88f9be219a01a3",
+      "git_blob": "8e7fb3794268bcfdb6d80d67d21199c132710d84",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "sha256": "214142c243814a10e57023acf69d113065306a39a085690796b494a2f80a46a9",
+      "git_blob": "2aa37f40e361fd9025a22149d78d997fe0246eb1",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "sha256": "e5428c3f74ec79d13154d0fad5c15bbe561d0d27577b091eb8fe55e1d5c87ec9",
+      "git_blob": "82abf73f26c530a1dfd08cb54d8641089187ca60",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.android.kt",
+      "sha256": "5a3ae3592f291eee6353fe3d6bcc2fbf2dd69f1fb06713ddbd7e3ff299a0cff1",
+      "git_blob": "aa502eef1c0ed39f9593f6c668fb8c4a0b63dd96",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.native.kt",
+      "sha256": "790f137f6100325a04d00b516b60d054fef153f324706c596e736140244fb03e",
+      "git_blob": "9aea367bb0bb5e355af7fb46977a2d2477a9c4ea",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.native.kt",
+      "sha256": "fc1eba6b156264a178f1190b191acd231cd4a2c5b51e87b7ff33b2864dc6be5b",
+      "git_blob": "7e1807a130e1610a02e6f33f677b27ece77d4ce2",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "sha256": "dab28d1a497927821c793a363f85b25967278b8b2d8488e33758745ac62b835e",
+      "git_blob": "276935dee75bb49ec579105436787e64990c215b",
+      "matches_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "sha256": "c7d6df28e09aef776ac26f73f37c9ae6479d5537b2c7afaefc7d96a026d3a7b0",
+      "git_blob": "55fc420906e7d08248d12e8afe1a1aac4984c9af",
+      "matches_pre_maven_baseline": true
+    }
+  ],
+  "protocol_constraints": [
+    {
+      "name": "Legacy mode and role",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "NUL-terminated ADB identities and HKDF label",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "Terminal one-use state and original nonce counters",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "TLS binding and authenticated PeerInfo",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "Android exporter",
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "Native exporter includes trailing NUL",
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "Native HKDF-SHA256",
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "all_original_tokens_preserved": true
+    },
+    {
+      "name": "Android HKDF-SHA256 and AES-GCM",
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "all_original_tokens_preserved": true
+    }
+  ],
+  "approved_changes_from_M1": {
+    "build_paths": [
+      "kadb/build.gradle.kts",
+      "kadb-mdns/build.gradle.kts",
+      "kadb/gradle/ios-native.gradle.kts",
+      "validation/native-adbd/build.gradle.kts"
+    ],
+    "build_change": "Only iosX64 target and C Simulator wiring added; final build bytes equal the exact-replacement review inputs at8923311",
+    "prior_exact_replacement_review": "validation/m2-maven/review/preserved-inputs-8923311.json",
+    "prior_review_sha256": "ad558d2d7865eefa729d8f912fe6eaa974f9dbdacfbb79241ec499358758e599",
+    "source_lock_native_targets": "iosX64 added",
+    "android_runtime_filenames": [
+      {
+        "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "before": "spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+        "after": "legacy-release.aar"
+      },
+      {
+        "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "before": "spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+        "after": "primitives-release.aar"
+      }
+    ],
+    "no_other_source_lock_changes": true
+  },
+  "candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "manifest_git_blob": "bc287d8372af8a61a61bf2d5d2526bbd4877d894",
+    "manifest_sha256": "70569497be5893de9d56983368d2b9050ee9bd642b60a02775f7cd5633c95106",
+    "transport_archive_git_blob": "2ad1c49de40e69f223dfedbff6c7978b4f1f3177",
+    "transport_archive_sha256": "3ea50362515509300850ac2bdb487bc070379d3e40e346250eb228ed2ad47d33",
+    "transport_archive_bytes": 1766332,
+    "all_retained_files_rehashed": 219,
+    "total_file_bytes": 11012660,
+    "legacy_primitives_locked_files_checked": 124,
+    "full_inventory_unchanged_from_M1": true,
+    "source_lock_candidate_block_sha256": "da1925d04efe00d5f8562cf1889073ea3a4e2bc01745fe577cdb62f58a8a3693"
+  },
+  "darwin_tested_to_final": {
+    "tested_commit": "0d448840863bbf6735eb879ebc7532c321cfca17",
+    "reviewed_commit": "ff5b33262d001204cf5df2c5684e77690af511cf",
+    "unchanged_native_inputs": [
+      {
+        "path": "kadb/src",
+        "git_object": "59bc6527fd4e893044c366b2b309ce22bde9ff24",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 154
+      },
+      {
+        "path": "kadb-mdns/src",
+        "git_object": "4acbe3b4ae918fc96f734d0b18b63edc98cf9547",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 17
+      },
+      {
+        "path": "kadb/build.gradle.kts",
+        "git_object": "c8db76336aece08a492330fea124aebc985f19bf",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "kadb-mdns/build.gradle.kts",
+        "git_object": "1d48296162378f0c5d1b4395ff8721777102f41b",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "kadb/gradle/ios-native.gradle.kts",
+        "git_object": "189d5b215e12953e9c475258b92137618ccc46b0",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "kadb/third_party",
+        "git_object": "d930a899352dba4a534d6ef3c28034652d15a2cc",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 2
+      },
+      {
+        "path": "validation/native-adbd",
+        "git_object": "68aedee6061d308fcfe7bad84769b853da6cc262",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 8
+      },
+      {
+        "path": "validation/pairing-peer",
+        "git_object": "b3de363849ec5357c1a404b26a5281c83d518dab",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 6
+      },
+      {
+        "path": "validation/swift",
+        "git_object": "92145b13613652b5dbbbc2e6d7b00902d6134e80",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 2
+      },
+      {
+        "path": "gradle",
+        "git_object": "7ddb09edffdada4a1704f879bd29720ddb12caa7",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 5
+      },
+      {
+        "path": "gradlew",
+        "git_object": "65dcd68d65c82f2a5338fded4af852f9caf93b93",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "gradlew.bat",
+        "git_object": "93e3f59f135dd2dd498de4beb5c64338cc33beeb",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "gradle.properties",
+        "git_object": "d5e3f0f2d0a37139edba1e4ab490f69ca9f0d459",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "settings.gradle.kts",
+        "git_object": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "build.gradle.kts",
+        "git_object": "da6e9c451586548f3c82d27af5155181288ae40d",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "scripts/prepare_spake2_candidate.py",
+        "git_object": "15724b8cb897be261fa52e8c0d748e15eb7f47a6",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "scripts/source_bundle.py",
+        "git_object": "a1fa3ae583965f8d66edc2dc938bc250b7a9abfd",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "validation/maven-candidate",
+        "git_object": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 3
+      },
+      {
+        "path": ".github/workflows/m2-darwin.yml",
+        "git_object": "238970210d20422116cd8c4fd1f134817615d007",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "validation/m2-maven/darwin",
+        "git_object": "f2a9892872936af278986f0e14af7447a96f9aab",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "validation/boot-simulator.py",
+        "git_object": "2b2d4f13fe6b19a43315c60293d073a87886d21c",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "validation/compare-objc-api.py",
+        "git_object": "aa0d392627a39928a3704e058aca1d8f97840e9a",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "validation/inspect-apple-artifact.py",
+        "git_object": "a0dbe4ef2569943c6d42fc61eb842455c4aa6f3b",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      },
+      {
+        "path": "validation/summarize-tests.py",
+        "git_object": "a28a4ba0feb9aefa58f484409e5f99ec9d36cbe5",
+        "unchanged_against": [
+          "darwin_tested"
+        ],
+        "tracked_files": 1
+      }
+    ],
+    "full_source_lock_sha256_tested": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
+    "full_source_lock_sha256_reviewed": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "full_source_lock_identical": false,
+    "lock_changes_only_two_android_runtime_file_names": true,
+    "native_candidate_inventory_and_entries_identical": true,
+    "interpretation": "Native sources/build toolchain/gates/candidate bytes and Darwin workflow are identical. Preserve Darwin execution and source-package identity at the actual tested commit and old whole-lock SHA; this check is not a rerun at the final commit."
+  },
+  "source_lock_sha256_by_checkpoint": {
+    "m1_code": "3d0701f8a9987a048615e27275e10820116055959b86bf447ed7a68df11848a3",
+    "m1_head": "3d0701f8a9987a048615e27275e10820116055959b86bf447ed7a68df11848a3",
+    "darwin_tested": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
+    "reviewed": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92"
+  },
+  "unchanged_protocols": [
+    "HARDENED",
+    "NUL-terminated identities",
+    "TLS exporter label and length",
+    "HKDF",
+    "AES-GCM",
+    "PeerInfo",
+    "one-use state machine",
+    "AOSP nonce sequence"
+  ]
+}

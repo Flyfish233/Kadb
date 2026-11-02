@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "run_id": 41422457772,
+  "job_id": 125201007563,
+  "source": "GitHub connector fetch_workflow_job_logs structuredContent.content, encoded as UTF-8 with no added newline",
+  "decoded_utf8_bytes": 235506,
+  "decoded_utf8_sha256": "1323c9b03d458b07b2f5815aa9325b5483ed2feca72c02923fb38ac27ae06e14",
+  "retained_path": "job-125201007563.log.gz",
+  "storage": "gzip with zero timestamp",
+  "stored_sha256": "bf268b65b0f4c84f683e4f7685fadd45fc125a88b31c2a68e46bc2d7935f679c",
+  "normalized": false
+}

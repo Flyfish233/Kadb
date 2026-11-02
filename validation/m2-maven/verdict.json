@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "milestone": "M2",
-  "recorded_utc": "2026-11-02T09:42:55.671479+00:00",
-  "verdict": "NOT VERIFIED",
-  "reason": "All four Darwin targets PASS at one tested commit; bounded Android environment fix awaits its actual rerun.",
+  "recorded_utc": "2026-11-02T09:50:05.587259+00:00",
+  "verdict": "PASS",
+  "reason": "All four Darwin targets actually compiled, linked and ran required regressions/protocol checks; final Android run passed APK provenance, complete source and exact binary associations, bounded network readiness, all 9 ART checks and 2 independent peer sessions in the same run.",
   "branch": "work/spake2-maven-migration",
   "latest_code_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
   "recovered_M1_head": "08a4e2ae1ba8aec60382600d72dfc97e2f841a08",
@@ -248,10 +248,126 @@
       "artifact_custody": "runs/41418593040/iosX64/artifact-custody.json"
     },
     "android_ART": {
-      "verdict": "NOT VERIFIED",
-      "pending_tested_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
-      "pending_run_id": 41422457772,
-      "reason": "Bounded emulator network-readiness fix pushed; awaiting full ART/source result at this commit. Prior raw failed runs remain FAIL.",
+      "verdict": "PASS",
+      "tested_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+      "run_id": 41422457772,
+      "stages": {
+        "maven_candidate_integrity": "PASS",
+        "compile_and_package": "PASS",
+        "apk_runtime_graph_and_source": "PASS",
+        "complete_corresponding_source": "PASS",
+        "apk_source_association": "PASS",
+        "android_ART_and_protocol": "PASS",
+        "emulator_environment": "PASS"
+      },
+      "compile": "PASS",
+      "link_package_and_ART_load": "PASS",
+      "APK_install_and_execute": "PASS",
+      "instrumentation_checks_executed": 9,
+      "instrumentation_checks": [
+        "identity_generate",
+        "identity_export_copy_isolation",
+        "identity_import_certificate",
+        "identity_file_persistence",
+        "identity_diagnostic_redaction",
+        "identity_parse_failure_retains_state",
+        "pairing_positive",
+        "pairing_wrong_code",
+        "identity_clear"
+      ],
+      "instrumentation_elapsed_ms": 3934,
+      "independent_peer": {
+        "status": "passed",
+        "sessions_executed": 2,
+        "positive_sessions": 1,
+        "wrong_code_rejections": 1,
+        "tls": "TLSv1.3",
+        "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+      },
+      "environment": {
+        "sdk_int": 35,
+        "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+        "hardware": "ranchu",
+        "supported_abis": [
+          "x86_64",
+          "arm64-v8a"
+        ],
+        "vm_name": "Dalvik",
+        "vm_version": "2.1.0",
+        "pid": 2890,
+        "uid": 10209,
+        "tls_provider": "AndroidOpenSSL",
+        "bundled_conscrypt": false,
+        "peer_host": "10.0.2.2",
+        "peer_port": 41953
+      },
+      "readiness": {
+        "status": "PASS",
+        "timeout_seconds": 120,
+        "attempts": 1,
+        "elapsed_seconds": 47.592,
+        "network_wait_started_seconds": 38.555,
+        "network_wait_seconds": 9.037,
+        "network_readiness": {
+          "active_default_network": 100,
+          "host_alias": "10.0.2.2",
+          "interface": "wlan0",
+          "default_route": "default via 10.0.2.2 dev wlan0 table 1016 proto static",
+          "on_link_route": "10.0.2.0/24 dev wlan0 table 1000000016 proto static scope link"
+        }
+      },
+      "APK": {
+        "bytes": 5706198,
+        "sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f",
+        "DEX_files": 6,
+        "host_oracle_classes_present": false
+      },
+      "APK_runtime_source": {
+        "status": "verified",
+        "external_modules": 23,
+        "project_artifacts": 1,
+        "runtime_report_sha256": "ca9aa46f61ee1f585e99933318abeaf4310fade12469e55a3e1c1d38f3f3deaa",
+        "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+        "spake2_runtime_origin": {
+          "android_binaries": 2,
+          "components": 4,
+          "configuration": "debugRuntimeClasspath",
+          "dependency_edges": 4,
+          "repository": "/home/runner/work/Kadb/Kadb/build/spake2-candidate/maven",
+          "repository_id": "7e58f1920695606d3f146ed0a8fe2f3b",
+          "repository_name": "spake2ValidatedCandidate",
+          "repository_uri": "file:///home/runner/work/Kadb/Kadb/build/spake2-candidate/maven/",
+          "status": "verified"
+        }
+      },
+      "complete_corresponding_source": {
+        "binary_associations": 1,
+        "bundle": "native-source-bundle-3c9b396a57e1f369cce341b396be7ab15d23b0e2.tar.gz",
+        "bytes": 196740901,
+        "files": 630,
+        "kadb_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "db25bf350e1d0a37338c181535e360a73eb8fd02d4a01a2eb6f60119b57d821b",
+        "source_archives": 9,
+        "status": "verified"
+      },
+      "binary_source_association": "runs/41422457772/android-art/evidence/binary-source-association.json",
+      "binary_source_associated_artifacts": [
+        {
+          "path": "kadb/build/outputs/aar/kadb.aar",
+          "bytes": 318468,
+          "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+        },
+        {
+          "path": "validation/android-runtime/build/outputs/apk/debug/validation-android-runtime-debug.apk",
+          "bytes": 5706198,
+          "sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f"
+        }
+      ],
+      "cleanup_errors": [],
+      "evidence_directory": "runs/41422457772/android-art/evidence",
+      "artifact_custody": "runs/41422457772/android-art/artifact-custody.json",
       "previous_runs": [
         {
           "run_id": 41419309545,
@@ -268,14 +384,23 @@
           "source_and_APK_provenance": "PASS",
           "failure": "ENETUNREACH during TCP connect before TLS/SPAKE2; Android default network not ready."
         }
-      ]
+      ],
+      "independent_downloaded_binary_and_source_review": "runs/41422457772/android-evidence-review.json",
+      "downloaded_source_verification_log": "runs/41422457772/downloaded-source-verification.log"
     }
   },
   "counting": {
     "Darwin_product_executions": 280,
     "Darwin_independent_peer_sessions": 8,
     "duplicate_runs_not_added": true,
-    "Host_tests_not_counted_as_ART": true
+    "Host_tests_not_counted_as_ART": true,
+    "Android_ART_checks": 9,
+    "Android_independent_peer_sessions": 2,
+    "total_independent_peer_sessions": 10,
+    "source_lock_gate_unit_tests": 48,
+    "network_readiness_gate_unit_tests": 3,
+    "gate_unit_tests_not_counted_as_product_execution": true,
+    "Android_peer_sessions_are_observations_of_two_of_the_nine_ART_checks": true
   },
   "source_lock_sha256": {
     "Darwin_tested_0d448840": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
@@ -288,18 +413,59 @@
     "oldest_supported_OS_runtime": "NOT VERIFIED",
     "production_crypto_changed": false,
     "AOSP_nonce_changed": false,
-    "main_merged_or_released": false
+    "main_merged_or_released": false,
+    "all_architecture_historical_binary_ABI_exhaustive": "NOT VERIFIED"
   },
   "M1_recheck": {
-    "run_id": 41420744679,
-    "tested_commit": "ff5b33262d001204cf5df2c5684e77690af511cf",
+    "run_id": 41422457617,
+    "tested_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
     "Host": "PASS",
-    "Linux_Native": "PASS"
+    "Linux_Native": "PASS",
+    "prior_success_run": 41420744679,
+    "original_M1_product_test_count": 165,
+    "original_M1_counts_not_added_to_M2": true,
+    "run_identity_evidence": "runs/41422457617/run-final.json",
+    "job_evidence": "runs/41422457617/jobs-final.json"
   },
   "failures_preserved": [
     "runs/41415836057/first-macos-adjudication.json",
     "runs/41419309545/android-art/evidence/platform-status.json",
     "runs/41420744621/android-art/evidence/platform-status.json",
     "android-network-fix/diagnosis.json"
-  ]
+  ],
+  "independent_review": {
+    "protected_inputs": {
+      "verdict": "PASS",
+      "reviewed_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+      "evidence": "review/final-input-review-3c9b396.json",
+      "protected_Git_groups": 22,
+      "protocol_files": 11,
+      "unchanged_Darwin_input_scopes": 24,
+      "candidate_archive_files_rehashed": 219,
+      "legacy_primitives_lock_inventory_items": 124
+    },
+    "iOS_Simulator_Arm64_static_archive_symbols": {
+      "verdict": "PASS",
+      "evidence": "review/iosSimulatorArm64-symbol-abi-review.json",
+      "baseline_commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+      "migrated_commit": "677a39e74ef568ac91bec6db2885929003cc709e",
+      "non_private_definition_entries": 227,
+      "non_private_unique_names": 220,
+      "removed_or_added_non_private_names": 0,
+      "header_ObjC_symbols_preserved": 156,
+      "native_C_bridge_symbols_preserved": 29,
+      "Apple_nm_records_crosschecked": 51957,
+      "preexisting_absent_in_both": [
+        "_OBJC_CLASS_$_KadbNumber",
+        "_OBJC_METACLASS_$_KadbNumber"
+      ],
+      "scope": "External symbol names/attributes/multiplicity on the retained Arm64 static archives; arbitrary old precompiled clients, method encodings/object layouts/calling conventions and all-architecture historical binary compatibility were not exhaustively verified."
+    }
+  },
+  "phase_verdicts": {
+    "Darwin": "PASS",
+    "Android_ART_and_Emulator": "PASS",
+    "integration": "PASS"
+  },
+  "acceptance_definition": "PASS for the explicitly tested M2 targets, toolchains and runtimes with actual product/protocol execution, retained source provenance, complete-source/binary association and unchanged production cryptography. Scope exclusions remain explicit and do not imply M3 or arbitrary toolchain/OS ABI acceptance."
 }

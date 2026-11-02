@@ -1,0 +1,695 @@
+{
+  "schema": 1,
+  "platform": "Android Emulator API 35 x86_64 ART",
+  "verdict": "PASS",
+  "source_sha": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+  "run_id": "41422457772",
+  "run_attempt": "1",
+  "recorded_utc": "2026-11-02T09:44:46.113908+00:00",
+  "candidate_version": "0.1.0-dev.59105290820b",
+  "stages": {
+    "maven_candidate_integrity": "PASS",
+    "compile_and_package": "PASS",
+    "apk_runtime_graph_and_source": "PASS",
+    "complete_corresponding_source": "PASS",
+    "apk_source_association": "PASS",
+    "android_ART_and_protocol": "PASS",
+    "emulator_environment": "PASS"
+  },
+  "step_outcomes": {
+    "candidate": "success",
+    "build": "success",
+    "runtime_source": "success",
+    "source": "success",
+    "association": "success",
+    "provision": "success",
+    "ready": "success",
+    "art": "success"
+  },
+  "instrumentation_checks_executed": 9,
+  "independent_peer_sessions": 2,
+  "apk": {
+    "status": "verified",
+    "apk_sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f",
+    "apk_bytes": 5706198,
+    "dex_files": [
+      {
+        "name": "classes.dex",
+        "bytes": 11355924,
+        "sha256": "ea2f89e7009f589025d58479bf93e0af9eeb6b38354cb8ecbcad780ec0fa3905",
+        "class_definitions": 8833
+      },
+      {
+        "name": "classes2.dex",
+        "bytes": 354832,
+        "sha256": "0fee00e4186348a15cb08076c87a81c3ed1365c7f9f0643fcbc0f08f8599ecca",
+        "class_definitions": 198
+      },
+      {
+        "name": "classes3.dex",
+        "bytes": 13896,
+        "sha256": "90fa491d473b104deee7c76f7f0d34709d49fbb8e78fd4d9b2757efab04ef1ca",
+        "class_definitions": 22
+      },
+      {
+        "name": "classes4.dex",
+        "bytes": 15848,
+        "sha256": "b14112ee64e49aa643af69cd40d12721cae93ad69c64590ba2747049df9873d8",
+        "class_definitions": 3
+      },
+      {
+        "name": "classes5.dex",
+        "bytes": 147148,
+        "sha256": "df6a78ecde85ce96f2441d94de8621833795821d009d63001282f2ceab116ac5",
+        "class_definitions": 965
+      },
+      {
+        "name": "classes6.dex",
+        "bytes": 2126336,
+        "sha256": "e5fe52b93fe8f367e6ba615fd44d641f042d534a4bfbf1e522c4af7972b9d509",
+        "class_definitions": 1737
+      }
+    ],
+    "required_class_definitions": [
+      "Lcom/flyfishxu/kadb/Kadb;",
+      "Lcom/flyfishxu/kadb/cert/KadbCert;",
+      "Lcom/flyfishxu/kadb/validation/runtime/RuntimeInstrumentation;",
+      "Lio/github/flyfish233/spake2/legacy/LegacySpake25519;"
+    ],
+    "host_oracle_classes_present": false,
+    "scope": "APK/DEX packaging only; Android execution is a separate mandatory gate"
+  },
+  "runtime_source": {
+    "external_modules": 23,
+    "legal_certification": false,
+    "project_artifacts": 1,
+    "runtime_report_sha256": "ca9aa46f61ee1f585e99933318abeaf4310fade12469e55a3e1c1d38f3f3deaa",
+    "scope": "experimental-native-and-android-validation-runtime",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "spake2_runtime_origin": {
+      "android_binaries": 2,
+      "components": 4,
+      "configuration": "debugRuntimeClasspath",
+      "dependency_edges": 4,
+      "repository": "/home/runner/work/Kadb/Kadb/build/spake2-candidate/maven",
+      "repository_id": "7e58f1920695606d3f146ed0a8fe2f3b",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_uri": "file:///home/runner/work/Kadb/Kadb/build/spake2-candidate/maven/",
+      "status": "verified"
+    },
+    "status": "verified",
+    "verified_artifacts": [
+      {
+        "bytes": 17209,
+        "component": "androidx.annotation:annotation-experimental:1.1.0",
+        "sha256": "0157de61a2064047896a058080f3fd67ba57ad9a94857b3f7a363660243e3f90"
+      },
+      {
+        "bytes": 56126,
+        "component": "androidx.annotation:annotation-jvm:1.8.1",
+        "sha256": "9aab326d9492800991854360ac248f493ce7f7c3183519309b78ace9e240f6f6"
+      },
+      {
+        "bytes": 11257,
+        "component": "androidx.arch.core:core-common:2.1.0",
+        "sha256": "fe1237bf029d063e7f29fe39aeaf73ef74c8b0a3658486fc29d3c54326653889"
+      },
+      {
+        "bytes": 6059,
+        "component": "androidx.arch.core:core-runtime:2.1.0",
+        "sha256": "dd77615bd3dd275afb11b62df25bae46b10b4a117cd37943af45bdcbf8755852"
+      },
+      {
+        "bytes": 41692,
+        "component": "androidx.collection:collection:1.0.0",
+        "sha256": "9c8d117b5c2bc120a1cdfeb857e05b495b16c36013570372a708f7827e3ac9f9"
+      },
+      {
+        "bytes": 25895,
+        "component": "androidx.concurrent:concurrent-futures:1.0.0",
+        "sha256": "5595a40e278a7b39fa78a09490e3d7f3faa95c7b01447148bd38b5ade0605c35"
+      },
+      {
+        "bytes": 980200,
+        "component": "androidx.core:core:1.7.0",
+        "sha256": "aaf6734226fff923784f92f65d78a2984dbf17534138855c5ce2038f18656e0b"
+      },
+      {
+        "bytes": 17070,
+        "component": "androidx.documentfile:documentfile:1.1.0",
+        "sha256": "684e0ffcb21a660c939d1bb814521f42c4bd74816f4a117291fe6a101cf3a822"
+      },
+      {
+        "bytes": 23505,
+        "component": "androidx.lifecycle:lifecycle-common:2.3.1",
+        "sha256": "15848fb56db32f4c7cdc72b324003183d52a4884d6bf09be708ac7f587d139b5"
+      },
+      {
+        "bytes": 11230,
+        "component": "androidx.lifecycle:lifecycle-runtime:2.3.1",
+        "sha256": "dd294f4a689c71ff877fd41f3b67a3a62f7760d44ce420e6130f1fc3569d8f00"
+      },
+      {
+        "bytes": 31061,
+        "component": "androidx.versionedparcelable:versionedparcelable:1.1.1",
+        "sha256": "57e8d93260d18d5b9007c9eed3c64ad159de90c8609ebfc74a347cbd514535a4"
+      },
+      {
+        "bytes": 3149,
+        "component": "com.google.guava:listenablefuture:1.0",
+        "sha256": "e4ad7607e5c0477c6f890ef26a49cb8d1bb4dffb650bab4502afee64644e3069"
+      },
+      {
+        "bytes": 392462,
+        "component": "com.squareup.okio:okio-jvm:3.18.2",
+        "sha256": "681fed549d1d2c63710f42c9eab433d642c71af778babd67035c50f8c425aaff"
+      },
+      {
+        "bytes": 67077,
+        "component": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+        "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036"
+      },
+      {
+        "bytes": 92941,
+        "component": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+        "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232"
+      },
+      {
+        "bytes": 1341621,
+        "component": "org.bouncycastle:bcpkix-jdk18on:1.86",
+        "sha256": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7"
+      },
+      {
+        "bytes": 7224011,
+        "component": "org.bouncycastle:bcprov-jdk18on:1.86",
+        "sha256": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f"
+      },
+      {
+        "bytes": 789287,
+        "component": "org.bouncycastle:bcutil-jdk18on:1.86",
+        "sha256": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f"
+      },
+      {
+        "bytes": 1853314,
+        "component": "org.jetbrains.kotlin:kotlin-stdlib:2.4.20",
+        "sha256": "2226de463d309d4a5500a481320b3dea515a6981dcae1def531fbc158884e25f"
+      },
+      {
+        "bytes": 1577052,
+        "component": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.11.0",
+        "sha256": "d1d75aa01dffbb4d1c520e67e4c4e7f5f6174718e7cb4632412503f2f0e604fa"
+      },
+      {
+        "bytes": 29371,
+        "component": "org.jetbrains:annotations:23.0.0",
+        "sha256": "7b0f19724082cbfcbc66e5abea2b9bc92cf08a1ea11e191933ed43801eb3cd05"
+      },
+      {
+        "bytes": 3819,
+        "component": "org.jspecify:jspecify:1.0.0",
+        "sha256": "1fad6e6be7557781e4d33729d49ae1cdc8fdda6fe477bb0cc68ce351eafdfbab"
+      },
+      {
+        "bytes": 15041,
+        "component": "org.lsposed.hiddenapibypass:hiddenapibypass:6.1",
+        "sha256": "e3161dd21c97a4540b1698a33f7062aeaa1450008e1e2176070e5380f7a6324c"
+      },
+      {
+        "bytes": 704678,
+        "component": "project ':kadb'",
+        "sha256": "a2127bcff5d2e5b6c9d97ea78a8128bb92791fc18c80a1b85abdeea0ff649077"
+      }
+    ]
+  },
+  "runtime": {
+    "schema": 1,
+    "status": "passed",
+    "checks_expected": 9,
+    "started_utc": "2026-11-02T09:44:32.798212+00:00",
+    "commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+    "tracked_worktree_changes": "",
+    "artifacts": {
+      "apk": {
+        "bytes": 5706198,
+        "sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f"
+      },
+      "adb": {
+        "bytes": 10642368,
+        "sha256": "a902be8f45c6c62e76c9efaf6947a0fa747c9cabd89a2ac8e0d16ecb30b3ed01"
+      },
+      "aapt2": {
+        "bytes": 6274200,
+        "sha256": "0f1c0e560f99db510a76ebc99ad5c3e68438f62e8e8617018a716ca4a589a699"
+      },
+      "java": {
+        "bytes": 16264,
+        "sha256": "1bf1aaef01e4f8d7c85d913c60fb2ee4624cbe54d4053254c59657b7ea913b25"
+      }
+    },
+    "apk_dex": {
+      "status": "verified",
+      "apk_sha256": "b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f",
+      "apk_bytes": 5706198,
+      "dex_files": [
+        {
+          "name": "classes.dex",
+          "bytes": 11355924,
+          "sha256": "ea2f89e7009f589025d58479bf93e0af9eeb6b38354cb8ecbcad780ec0fa3905",
+          "class_definitions": 8833
+        },
+        {
+          "name": "classes2.dex",
+          "bytes": 354832,
+          "sha256": "0fee00e4186348a15cb08076c87a81c3ed1365c7f9f0643fcbc0f08f8599ecca",
+          "class_definitions": 198
+        },
+        {
+          "name": "classes3.dex",
+          "bytes": 13896,
+          "sha256": "90fa491d473b104deee7c76f7f0d34709d49fbb8e78fd4d9b2757efab04ef1ca",
+          "class_definitions": 22
+        },
+        {
+          "name": "classes4.dex",
+          "bytes": 15848,
+          "sha256": "b14112ee64e49aa643af69cd40d12721cae93ad69c64590ba2747049df9873d8",
+          "class_definitions": 3
+        },
+        {
+          "name": "classes5.dex",
+          "bytes": 147148,
+          "sha256": "df6a78ecde85ce96f2441d94de8621833795821d009d63001282f2ceab116ac5",
+          "class_definitions": 965
+        },
+        {
+          "name": "classes6.dex",
+          "bytes": 2126336,
+          "sha256": "e5fe52b93fe8f367e6ba615fd44d641f042d534a4bfbf1e522c4af7972b9d509",
+          "class_definitions": 1737
+        }
+      ],
+      "required_class_definitions": [
+        "Lcom/flyfishxu/kadb/Kadb;",
+        "Lcom/flyfishxu/kadb/cert/KadbCert;",
+        "Lcom/flyfishxu/kadb/validation/runtime/RuntimeInstrumentation;",
+        "Lio/github/flyfish233/spake2/legacy/LegacySpake25519;"
+      ],
+      "host_oracle_classes_present": false,
+      "scope": "APK/DEX packaging only; Android execution is a separate mandatory gate"
+    },
+    "adb_version": "Android Debug Bridge version 1.0.41\nVersion 37.0.1-15733141\nInstalled as /usr/local/lib/android/sdk/platform-tools/adb\nRunning on Linux 7.0.0-1017-azure (x86_64)",
+    "java_version": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)",
+    "serial": "emulator-5554",
+    "device_kind": "android_emulator",
+    "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+    "reference_artifacts": {
+      "spake2-java-1.1.1.jar": "077e52ff5594401cdbfca66f9b4d315676e01dff98eaa8ef302fa748ac508028",
+      "conscrypt-openjdk-uber-2.7.0.jar": "a82c2efe7d75df6cb077cb72a3cbd9bb437fb9624d62b469013f10114b0cffa4",
+      "bcpkix-jdk18on-1.86.jar": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7",
+      "ed25519-elisabeth-0.1.0.jar": "f2b0f1f7353b3b4a41caa230bd203858a4b5844acd022f830b09d347aade3d23",
+      "curve25519-elisabeth-0.1.0.jar": "e3d07e0138b49c5c48ac89ad4f6828af74c4cd70abe495d7515e7c6a0227184c",
+      "bcutil-jdk18on-1.86.jar": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f",
+      "bcprov-jdk18on-1.86.jar": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f"
+    },
+    "reference_classes": {
+      "com/flyfishxu/kadb/validation/peer/IosPairingPeer$1.class": "74dd674fc7bd76e53d861bc4596d4eef3e47ff0ec06f32c41f3e24ccba1f6d7f",
+      "com/flyfishxu/kadb/validation/peer/IosPairingPeer.class": "d1ba307694d71888629bcff18f6103f1bc83ef40675081a2b071bb8465685778"
+    },
+    "peer_command": [
+      "/usr/lib/jvm/temurin-25-jdk-amd64/bin/java",
+      "--enable-native-access=ALL-UNNAMED",
+      "-cp",
+      "/home/runner/work/Kadb/Kadb/validation/pairing-peer/build/classes/java/main:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.Flyfish233/spake2-java/1.1.1/d7a2b95e871e45a40d18ade772bfce0a3690eea0/spake2-java-1.1.1.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.conscrypt/conscrypt-openjdk-uber/2.7.0/bc396edfd5fefe70b7e1f9764edb803e13c6741f/conscrypt-openjdk-uber-2.7.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.86/fb5ea65959db10fe5d61148bb2b77f6e231455b1/bcpkix-jdk18on-1.86.jar:/home/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/534c70f4a52f8c134fc3f84e96fe525390eec270/ed25519-elisabeth-0.1.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/curve25519-elisabeth/0.1.0/5c9a330af3ca88b9788cd92a468b61f5d2e0f834/curve25519-elisabeth-0.1.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.86/2c8e77f5601c2b84c8773af4caf403a34daca357/bcutil-jdk18on-1.86.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.86/830c8467bed8e4c1148262386b09fc42aedcf262/bcprov-jdk18on-1.86.jar",
+      "com.flyfishxu.kadb.validation.peer.IosPairingPeer",
+      "/home/runner/work/Kadb/Kadb/evidence/android-runtime/peer-ready"
+    ],
+    "run_id": "562cdc181b377306f8af927169b34c97",
+    "instrumentation_adb_exit_code": 0,
+    "android": {
+      "schema": 1,
+      "status": "passed",
+      "checks_executed": 9,
+      "checks": [
+        "identity_generate",
+        "identity_export_copy_isolation",
+        "identity_import_certificate",
+        "identity_file_persistence",
+        "identity_diagnostic_redaction",
+        "identity_parse_failure_retains_state",
+        "pairing_positive",
+        "pairing_wrong_code",
+        "identity_clear"
+      ],
+      "elapsed_ms": 3934,
+      "details": {
+        "sdk_int": 35,
+        "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+        "hardware": "ranchu",
+        "supported_abis": [
+          "x86_64",
+          "arm64-v8a"
+        ],
+        "vm_name": "Dalvik",
+        "vm_version": "2.1.0",
+        "pid": 2890,
+        "uid": 10209,
+        "tls_provider": "AndroidOpenSSL",
+        "bundled_conscrypt": false,
+        "peer_host": "10.0.2.2",
+        "peer_port": 41953
+      },
+      "physical_device": false,
+      "device_kind": "android_emulator"
+    },
+    "peer_exit_code": 0,
+    "peer": {
+      "status": "passed",
+      "sessions_executed": 2,
+      "positive_sessions": 1,
+      "wrong_code_rejections": 1,
+      "tls": "TLSv1.3",
+      "spake_reference": "spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f"
+    },
+    "scope": {
+      "android_apk_dex_and_art_executed": true,
+      "platform_android_tls_exporter_and_peer_info": true,
+      "independent_legacy_spake_peer": true,
+      "physical_device": false,
+      "real_adbd_pairing": false,
+      "security_or_performance_acceptance": false
+    },
+    "cleanup_errors": [],
+    "commands_executed": 16
+  },
+  "readiness": {
+    "schema": 1,
+    "status": "PASS",
+    "serial": "emulator-5554",
+    "adb_server_port": 5038,
+    "timeout_seconds": 120,
+    "started_utc": "2026-11-02T09:43:45.034451+00:00",
+    "attempts": 1,
+    "driver_checks_executed": 0,
+    "last_transport_state": {
+      "label": "transport-state",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 0,
+      "stdout": "device\n",
+      "stderr": "",
+      "elapsed_seconds": 47.372
+    },
+    "last_boot_state": {
+      "label": "boot-completed",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "getprop",
+        "sys.boot_completed"
+      ],
+      "exit_code": 0,
+      "stdout": "1\n",
+      "stderr": "",
+      "elapsed_seconds": 47.395
+    },
+    "last_package_manager_state": {
+      "label": "package-manager-ready",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "pm",
+        "path",
+        "android"
+      ],
+      "exit_code": 0,
+      "stdout": "package:/system/framework/framework-res.apk\n",
+      "stderr": "",
+      "elapsed_seconds": 47.435
+    },
+    "network_wait_started_seconds": 38.555,
+    "last_connectivity_state": {
+      "label": "android-default-network",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "dumpsys",
+        "connectivity"
+      ],
+      "exit_code": 0,
+      "stdout": "NetworkProviders for:\n  7: RestrictedWifiNetworkFactory\n  1: VcnNetworkProvider\n  8: OemPaidWifiNetworkFactory\n  2: VpnNetworkProvider:0\n  9: MultiInternetWifiNetworkFactory\n  4: TelephonyNetworkFactory[0]\n  6: UntrustedWifiNetworkFactory\n  3: PhoneSwitcherNetworkRequstListener\n  5: WifiNetworkFactory\n\nActive default network: 100\n\nCurrent network preferences: \n  Default requests:\n    Request: [uid/pid:1000/563] - Satisfier: [100] Preference order: 40 Tracked UIDs: {10134-10134}\n\nCurrent Networks:\n  NetworkAgentInfo{network{100}  handle{432902426637}  ni{WIFI CONNECTED extra: } created=2026-11-02T09:44:28.711Z Score(Policies : TRANSPORT_PRIMARY&EVER_EVALUATED&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0)  created 43625 firstValidated 44940 lastValidated 44940  lp{{InterfaceName: wlan0 LinkAddresses: [ fe80::18c1:bfbe:cb3a:11fb/64,10.0.2.16/24,fec0::e7d1:9442:f180:aaa6/64,fec0::83d7:1652:591e:3296/64 ] DnsAddresses: [ /10.0.2.3 ] Domains: null MTU: 0 ServerAddress: /10.0.2.2 TcpBufferSizes: 524288,1048576,2097152,262144,524288,1048576 Routes: [ fe80::/64 -> :: wlan0 mtu 0,::/0 -> fe80::2 wlan0 mtu 0,fec0::/64 -> :: wlan0 mtu 0,10.0.2.0/24 -> 0.0.0.0 wlan0 mtu 0,0.0.0.0/0 -> 10.0.2.2 wlan0 mtu 0 ]}}  nc{[ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=12000Kbps LinkDnBandwidth>=30000Kbps Specifier: <WifiNetworkAgentSpecifier [WifiConfiguration=, SSID=\"AndroidWifi\", BSSID=02:15:b2:00:00:01, band=1, mMatchLocalOnlySpecifiers=false]> TransportInfo: <SSID: \"AndroidWifi\", BSSID: 02:15:b2:00:00:01, MAC: 02:15:b2:00:00:00, IP: /10.0.2.16, Security type: 0, Supplicant state: COMPLETED, Wi-Fi standard: legacy, RSSI: -50, Link speed: 2Mbps, Tx Link speed: 2Mbps, Max Supported Tx Link speed: 54Mbps, Rx Link speed: -1Mbps, Max Supported Rx Link speed: 54Mbps, Frequency: 2437MHz, Net ID: 0, Metered hint: false, score: 60, isUsable: true, CarrierMerged: false, SubscriptionId: -1, IsPrimary: 1, Trusted: true, Restricted: false, Ephemeral: false, OEM paid: false, OEM private: false, OSU AP: false, FQDN: <none>, Provider friendly name: <none>, Requesting package name: <none>\"AndroidWifi\"openMLO Information: , Is TID-To-Link negotiation supported by the AP: false, AP MLD Address: <none>, AP MLO Link Id: <none>, AP MLO Affiliated links: <none>, Vendor Data: <none>> SignalStrength: -50 OwnerUid: 10171 AdminUids: [10171] SSID: \"AndroidWifi\" UnderlyingNetworks: Null]}  factorySerialNumber=5}\n    Nat464Xlat:\n      <not started>\n    Requests: REQUEST:17 LISTEN:23 BACKGROUND_REQUEST:0 total:40\n      NetworkRequest [ REQUEST id=1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=5, [ Capabilities: FOREGROUND RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_DEFAULT id=6, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=8, [ Capabilities: FOREGROUND RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=9, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&FOREGROUND&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=10, [ RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=11, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=13, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_DEFAULT id=14, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_DEFAULT id=16, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1073 RequestorUid: 1073 RequestorPkg: com.google.android.networkstack UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=18, [ Transports: WIFI Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1073 RequestorUid: 1073 RequestorPkg: com.google.android.networkstack UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_DEFAULT id=19, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10134 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_SYSTEM_DEFAULT id=21, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1073 RequestorPkg: com.google.android.networkstack.tethering UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=23, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=24, [ Transports: WIFI Capabilities: NOT_VPN RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=26, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_SYSTEM_DEFAULT id=28, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ TRACK_SYSTEM_DEFAULT id=29, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=30, [ Transports: CELLULAR|WIFI Capabilities: NOT_VPN RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=32, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=34, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=35, [ Transports: WIFI Capabilities: INTERNET&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=38, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=41, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=42, [ Transports: WIFI Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=43, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=45, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=47, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=49, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10137 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=51, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=52, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&FOREGROUND&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=56, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10142 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=57, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.ons UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=59, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10144 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=61, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10144 RequestorUid: 10144 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=63, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=64, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=66, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10165 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]\n      NetworkRequest [ LISTEN id=68, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]\n      NetworkRequest [ REQUEST id=69, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]\n    Inactivity Timers:\n\nStatus for known UIDs:\n  UID=1000 blockedReasons=40\n  UID=1001 blockedReasons=40\n  UID=1073 blockedReasons=40\n  UID=10137 blockedReasons=40\n  UID=10181 blockedReasons=40\n  \nNetwork Requests:\n  uid/pid:1000/563 activeRequest: 1 callbackRequest: 1 [NetworkRequest [ REQUEST id=1, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: false\n  uid/pid:1000/563 activeRequest: null callbackRequest: 2 [NetworkRequest [ BACKGROUND_REQUEST id=2, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: false\n  uid/pid:1000/563 activeRequest: null callbackRequest: 5 [NetworkRequest [ LISTEN id=5, [ Capabilities: FOREGROUND RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: 6 callbackRequest: 6 [NetworkRequest [ TRACK_DEFAULT id=6, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: null callbackRequest: 8 [NetworkRequest [ LISTEN id=8, [ Capabilities: FOREGROUND RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: null callbackRequest: 9 [NetworkRequest [ LISTEN id=9, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&FOREGROUND&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: null callbackRequest: 10 [NetworkRequest [ LISTEN id=10, [ RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: null callbackRequest: 11 [NetworkRequest [ LISTEN id=11, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: null callbackRequest: 12 [NetworkRequest [ LISTEN id=12, [ Transports: CELLULAR Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: null callbackRequest: 13 [NetworkRequest [ LISTEN id=13, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: 14 callbackRequest: 14 [NetworkRequest [ TRACK_DEFAULT id=14, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1073/1036 activeRequest: 16 callbackRequest: 16 [NetworkRequest [ TRACK_DEFAULT id=16, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1073 RequestorUid: 1073 RequestorPkg: com.google.android.networkstack UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1073/1036 activeRequest: null callbackRequest: 18 [NetworkRequest [ LISTEN id=18, [ Transports: WIFI Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1073 RequestorUid: 1073 RequestorPkg: com.google.android.networkstack UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: 19 callbackRequest: 19 [NetworkRequest [ TRACK_DEFAULT id=19, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10134 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ], NetworkRequest [ REQUEST id=20, [ Transports: SATELLITE Capabilities: INTERNET&TRUSTED&NOT_VPN&NOT_VCN_MANAGED Uid: 10134 UnderlyingNetworks: Null] ]] callback flags: 0 order: 40 isUidTracked: false\n  uid/pid:1073/1036 activeRequest: 21 callbackRequest: 21 [NetworkRequest [ TRACK_SYSTEM_DEFAULT id=21, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1073 RequestorPkg: com.google.android.networkstack.tethering UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: 23 callbackRequest: 22 [NetworkRequest [ REQUEST id=23, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: null callbackRequest: 24 [NetworkRequest [ LISTEN id=24, [ Transports: WIFI Capabilities: NOT_VPN RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: 26 callbackRequest: 25 [NetworkRequest [ REQUEST id=26, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: 28 callbackRequest: 28 [NetworkRequest [ TRACK_SYSTEM_DEFAULT id=28, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: 29 callbackRequest: 29 [NetworkRequest [ TRACK_SYSTEM_DEFAULT id=29, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: null callbackRequest: 30 [NetworkRequest [ LISTEN id=30, [ Transports: CELLULAR|WIFI Capabilities: NOT_VPN RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: 32 callbackRequest: 31 [NetworkRequest [ REQUEST id=32, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: 34 callbackRequest: 33 [NetworkRequest [ REQUEST id=34, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 1 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: null callbackRequest: 35 [NetworkRequest [ LISTEN id=35, [ Transports: WIFI Capabilities: INTERNET&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: 38 callbackRequest: 37 [NetworkRequest [ REQUEST id=38, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: null callbackRequest: 39 [NetworkRequest [ LISTEN id=39, [ Transports: VPN RequestorUid: 10181 RequestorPkg: com.android.systemui UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: 41 callbackRequest: 40 [NetworkRequest [ REQUEST id=41, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: null callbackRequest: 42 [NetworkRequest [ LISTEN id=42, [ Transports: WIFI Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: null callbackRequest: 43 [NetworkRequest [ LISTEN id=43, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 activeRequest: 45 callbackRequest: 44 [NetworkRequest [ REQUEST id=45, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 asUid: 10152 activeRequest: 47 callbackRequest: 46 [NetworkRequest [ REQUEST id=47, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 asUid: 10137 activeRequest: 49 callbackRequest: 48 [NetworkRequest [ REQUEST id=49, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10137 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10152/1352 activeRequest: 51 callbackRequest: 50 [NetworkRequest [ REQUEST id=51, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10152/1352 activeRequest: null callbackRequest: 52 [NetworkRequest [ LISTEN id=52, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&FOREGROUND&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 asUid: 10142 activeRequest: 56 callbackRequest: 55 [NetworkRequest [ REQUEST id=56, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10142 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1001/1090 activeRequest: null callbackRequest: 57 [NetworkRequest [ LISTEN id=57, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.ons UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 asUid: 10144 activeRequest: 59 callbackRequest: 58 [NetworkRequest [ REQUEST id=59, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10144 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10144/1526 activeRequest: 61 callbackRequest: 60 [NetworkRequest [ REQUEST id=61, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10144 RequestorUid: 10144 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10143/1238 activeRequest: 63 callbackRequest: 62 [NetworkRequest [ REQUEST id=63, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10143/1238 activeRequest: null callbackRequest: 64 [NetworkRequest [ LISTEN id=64, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:1000/563 asUid: 10165 activeRequest: 66 callbackRequest: 65 [NetworkRequest [ REQUEST id=66, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10165 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10181/923 activeRequest: null callbackRequest: 67 [NetworkRequest [ LISTEN id=67, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&PRIORITIZE_LATENCY&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui SubscriptionIds: {1} UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10143/1238 activeRequest: null callbackRequest: 68 [NetworkRequest [ LISTEN id=68, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  uid/pid:10143/1238 activeRequest: 69 callbackRequest: 69 [NetworkRequest [ REQUEST id=69, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n\nNetwork Offers:\n  NetworkOffer [ Provider Id (1) Score(Policies : TRANSPORT_PRIMARY&EVER_EVALUATED&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: CELLULAR Capabilities: MMS&SUPL&DUN&FOTA&IMS&CBS&IA&RCS&XCAP&EIMS&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&MCX&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED UnderlyingNetworks: Null] Needed by [2]]\n  NetworkOffer [ Provider Id (3) Score(Policies : EVER_EVALUATED&IS_INVINCIBLE&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: CELLULAR|SATELLITE Capabilities: MMS&SUPL&DUN&FOTA&IMS&CBS&IA&RCS&XCAP&EIMS&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&MCX&ENTERPRISE&MMTEL&PRIORITIZE_LATENCY&PRIORITIZE_BANDWIDTH&NOT_BANDWIDTH_CONSTRAINED Specifier: <android.net.MatchAllNetworkSpecifier@0> EnterpriseId: 1&2&3&4&5 UnderlyingNetworks: Null] Needed by []]\n  NetworkOffer [ Provider Id (8) Score(Policies : EVER_EVALUATED&IS_INVINCIBLE&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&NOT_CONGESTED&NOT_SUSPENDED&OEM_PAID&OEM_PRIVATE&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps Specifier: <android.net.MatchAllNetworkSpecifier@0> UnderlyingNetworks: Null] Needed by [66, 1, 51, 47, 63, 41, 38, 49, 34, 23, 59, 45, 56, 32, 26, 61, 69]]\n  NetworkOffer [ Provider Id (9) Score(Policies : EVER_EVALUATED&IS_INVINCIBLE&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps Specifier: <android.net.MatchAllNetworkSpecifier@0> UnderlyingNetworks: Null] Needed by [66, 1, 51, 47, 63, 41, 38, 49, 34, 23, 59, 45, 56, 32, 26, 61, 69]]\n  NetworkOffer [ Provider Id (5) Score(Policies : EVER_EVALUATED&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps Specifier: <android.net.MatchAllNetworkSpecifier@0> SubscriptionIds: {1} UnderlyingNetworks: Null] Needed by [66, 1, 51, 47, 63, 41, 38, 49, 34, 23, 59, 45, 56, 32, 26, 61, 69]]\n  NetworkOffer [ Provider Id (6) Score(Policies : EVER_EVALUATED&IS_INVINCIBLE&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_ROAMING&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps Specifier: <android.net.MatchAllNetworkSpecifier@0> SubscriptionIds: {1} UnderlyingNetworks: Null] Needed by [66, 1, 51, 47, 63, 41, 38, 49, 34, 23, 59, 45, 56, 32, 26, 61, 69]]\n  NetworkOffer [ Provider Id (7) Score(Policies : EVER_EVALUATED&IS_INVINCIBLE&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: WIFI Capabilities: NOT_METERED&INTERNET&TRUSTED&NOT_VPN&NOT_ROAMING&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=1048576Kbps LinkDnBandwidth>=1048576Kbps Specifier: <android.net.MatchAllNetworkSpecifier@0> SubscriptionIds: {1} UnderlyingNetworks: Null] Needed by []]\n  NetworkOffer [ Provider Id (4) Score(Policies : EVER_EVALUATED&IS_UNMETERED&EVER_VALIDATED&IS_VALIDATED ; KeepConnected : 0) Caps [ Transports: CELLULAR|SATELLITE Capabilities: MMS&SUPL&DUN&FOTA&IMS&CBS&IA&RCS&XCAP&EIMS&INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&MCX&NOT_VCN_MANAGED&ENTERPRISE&MMTEL&PRIORITIZE_LATENCY&PRIORITIZE_BANDWIDTH&NOT_BANDWIDTH_CONSTRAINED Specifier: <TelephonyNetworkSpecifier [mSubId = 1]> EnterpriseId: 1&2&3&4&5 UnderlyingNetworks: Null] Needed by [2]]\n\nmLegacyTypeTracker:\n  Supported types: 0 1 2 3 4 5 7 10 11 12 13 14 15 17\n  Current state:\n    1 [100 WIFI]\n\n\nSupported Socket keepalives: [1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0]\nReserved Privileged keepalives: 2\nAllowed Unprivileged keepalives per uid: 2\nSocket keepalives:\nAutomaticOnOff enabled: true\nEvents (most recent first):\n\nKeepaliveStatsTracker enabled: true\n  # android.net.connectivity.com.android.metrics.DailykeepaliveInfoReported@17b49ab7\n  duration_per_num_of_keepalive {\n    duration_for_num_of_keepalive {\n      keepalive_active_durations_msec: 14995\n      keepalive_registered_durations_msec: 14995\n    }\n  }\n  keepalive_lifetime_per_carrier {\n  }\n\nBad Wi-Fi avoidance: unrestricted\n\nDestroySockets:\n  mDestroyFrozenSockets=true\n  mDelayDestroySockets=true\n  mDestroySocketPendingUids:\nBpf Program Status:\n  CGROUP_INET_INGRESS: 14\n  CGROUP_INET_EGRESS: 15\n  CGROUP_INET_SOCK_CREATE: 21\n  CGROUP_INET4_BIND: 33\n  CGROUP_INET6_BIND: 34\n  CGROUP_INET4_CONNECT: 23\n  CGROUP_INET6_CONNECT: 24\n  CGROUP_UDP4_SENDMSG: 27\n  CGROUP_UDP6_SENDMSG: 28\n  CGROUP_UDP4_RECVMSG: 25\n  CGROUP_UDP6_RECVMSG: 26\n  CGROUP_GETSOCKOPT: 29\n  CGROUP_SETSOCKOPT: 30\n  CGROUP_INET_SOCK_RELEASE: 22\n\nCarrierPrivilegeAuthenticator:\nmRequestRestrictedWifiEnabled = false\nLogical slot = 0 : uid = -1 : subId = -1\n\n\nmNetworkRequestInfoLogs (most recent first):\n  2026-11-02T09:44:31.812398 - REGISTER uid/pid:10143/1238 activeRequest: null callbackRequest: 69 [NetworkRequest [ REQUEST id=69, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:31.589421 - REGISTER uid/pid:10143/1238 activeRequest: null callbackRequest: 68 [NetworkRequest [ LISTEN id=68, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:31.558247 - RELEASE uid/pid:10152/1352 activeRequest: 54 callbackRequest: 53 [NetworkRequest [ REQUEST id=54, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: false\n  2026-11-02T09:44:31.335525 - REGISTER uid/pid:10181/923 activeRequest: null callbackRequest: 67 [NetworkRequest [ LISTEN id=67, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&PRIORITIZE_LATENCY&NOT_BANDWIDTH_CONSTRAINED Uid: 10181 RequestorUid: 10181 RequestorPkg: com.android.systemui SubscriptionIds: {1} UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:31.150370 - REGISTER uid/pid:1000/563 asUid: 10165 activeRequest: null callbackRequest: 65 [NetworkRequest [ REQUEST id=66, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10165 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:31.086770 - REGISTER uid/pid:10143/1238 activeRequest: null callbackRequest: 64 [NetworkRequest [ LISTEN id=64, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:31.001076 - REGISTER uid/pid:10143/1238 activeRequest: null callbackRequest: 62 [NetworkRequest [ REQUEST id=63, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10143 RequestorUid: 10143 RequestorPkg: com.google.android.gms UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:28.079028 - REGISTER uid/pid:10144/1526 activeRequest: null callbackRequest: 60 [NetworkRequest [ REQUEST id=61, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10144 RequestorUid: 10144 RequestorPkg: com.google.android.googlequicksearchbox UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:27.723804 - REGISTER uid/pid:1000/563 asUid: 10144 activeRequest: null callbackRequest: 58 [NetworkRequest [ REQUEST id=59, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10144 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:26.292361 - REGISTER uid/pid:1001/1090 activeRequest: null callbackRequest: 57 [NetworkRequest [ LISTEN id=57, [ Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&VALIDATED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.ons UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:25.275429 - REGISTER uid/pid:1000/563 asUid: 10142 activeRequest: null callbackRequest: 55 [NetworkRequest [ REQUEST id=56, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10142 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:25.266616 - REGISTER uid/pid:10152/1352 activeRequest: null callbackRequest: 53 [NetworkRequest [ REQUEST id=54, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:25.123778 - REGISTER uid/pid:10152/1352 activeRequest: null callbackRequest: 52 [NetworkRequest [ LISTEN id=52, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&FOREGROUND&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Forbidden: LOCAL_NETWORK Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:25.100119 - REGISTER uid/pid:10152/1352 activeRequest: null callbackRequest: 50 [NetworkRequest [ REQUEST id=51, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 10152 RequestorPkg: com.google.android.inputmethod.latin UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:25.028800 - REGISTER uid/pid:1000/563 asUid: 10137 activeRequest: null callbackRequest: 48 [NetworkRequest [ REQUEST id=49, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10137 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:24.464738 - REGISTER uid/pid:1000/563 asUid: 10152 activeRequest: null callbackRequest: 46 [NetworkRequest [ REQUEST id=47, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 10152 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:22.932694 - REGISTER uid/pid:1000/563 activeRequest: null callbackRequest: 44 [NetworkRequest [ REQUEST id=45, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1000 RequestorUid: 1000 RequestorPkg: android UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:20.523856 - REGISTER uid/pid:1001/1090 activeRequest: null callbackRequest: 43 [NetworkRequest [ LISTEN id=43, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:20.520 - REGISTER uid/pid:1001/1090 activeRequest: null callbackRequest: 42 [NetworkRequest [ LISTEN id=42, [ Transports: WIFI Capabilities: NOT_RESTRICTED&TRUSTED&NOT_VPN&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n  2026-11-02T09:44:20.470266 - REGISTER uid/pid:1001/1090 activeRequest: null callbackRequest: 40 [NetworkRequest [ REQUEST id=41, [ Capabilities: INTERNET&NOT_RESTRICTED&TRUSTED&NOT_VCN_MANAGED&NOT_BANDWIDTH_CONSTRAINED Uid: 1001 RequestorUid: 1001 RequestorPkg: com.android.phone UnderlyingNetworks: Null] ]] callback flags: 0 order: 2147483647 isUidTracked: true\n\nmNetworkInfoBlockingLogs (most recent first):\n\nNetTransition WakeLock activity (most recent first):\n  total acquisitions: 0\n  total releases: 0\n  cumulative duration: 0s\n  longest duration: 0s\n  \n  bandwidth update requests (by uid):\n\nmOemNetworkPreferencesLogs (most recent first):\n\n\nPermission Monitor:\n  Interface filtering rules:\n  \n  Lockdown filtering rules:\n  \n  Update logs:\n    2026-11-02T09:44:17.730189 - New user(0) added: nPerm uids={1000=2, 1001=2, 1002=1, 1073=2, 2000=2, 10095=2, 10111=2, 10119=2, 10129=2, 10134=2, 10136=1, 10138=1, 10143=2, 10144=1, 10157=1, 10159=2, 10162=1, 10168=1, 10181=1, 10208=2, 20095=2, 20111=2, 20119=2, 20129=2, 20134=2, 20136=1, 20138=1, 20143=2, 20144=1, 20157=1, 20159=2, 20162=1, 20168=1, 20181=1, 20208=2}, tPerm appIds={1000=12, 1001=12, 1002=12, 1027=4, 1068=0, 1073=12, 2000=12, 10000=0, 10001=0, 10002=0, 10003=0, 10004=0, 10005=0, 10006=0, 10007=0, 10008=0, 10009=0, 10010=0, 10011=0, 10012=0, 10013=0, 10014=0, 10015=0, 10016=0, 10017=0, 10018=0, 10019=0, 10020=0, 10021=0, 10022=0, 10023=0, 10024=0, 10025=0, 10026=0, 10027=0, 10028=0, 10029=0, 10030=0, 10031=0, 10032=0, 10033=0, 10034=0, 10035=0, 10036=0, 10037=0, 10038=0, 10039=0, 10040=0, 10041=0, 10042=0, 10043=0, 10044=0, 10045=0, 10046=0, 10047=0, 10048=0, 10049=0, 10050=0, 10051=0, 10052=0, 10053=0, 10054=0, 10055=0, 10056=0, 10057=0, 10058=0, 10059=0, 10060=0, 10061=0, 10062=0, 10063=0, 10064=0, 10065=0, 10066=0, 10067=0, 10068=0, 10069=0, 10070=0, 10071=0, 10072=0, 10073=0, 10074=0, 10075=0, 10076=0, 10077=0, 10078=0, 10079=0, 10080=0, 10081=0, 10082=0, 10083=0, 10084=0, 10085=0, 10086=0, 10087=0, 10088=0, 10089=0, 10090=0, 10091=0, 10092=4, 10093=0, 10094=0, 10095=12, 10096=0, 10097=0, 10098=0, 10099=0, 10100=4, 10101=0, 10102=4, 10103=4, 10104=0, 10105=0, 10106=0, 10107=0, 10108=0, 10109=4, 10110=4, 10111=4, 10112=0, 10113=0, 10114=0, 10115=0, 10116=0, 10117=0, 10118=0, 10119=4, 10120=0, 10121=4, 10122=0, 10123=0, 10124=0, 10125=0, 10126=0, 10127=0, 10128=0, 10129=4, 10130=4, 10131=4, 10132=0, 10133=4, 10134=4, 10135=4, 10136=4, 10137=8, 10138=4, 10139=4, 10140=4, 10141=4, 10142=4, 10143=12, 10144=4, 10145=4, 10146=0, 10147=0, 10148=4, 10149=0, 10150=0, 10151=4, 10152=4, 10153=4, 10154=4, 10155=0, 10156=4, 10157=4, 10158=4, 10159=0, 10161=4, 10162=4, 10163=4, 10164=4, 10165=4, 10166=4, 10167=4, 10168=4, 10169=0, 10170=0, 10171=0, 10172=4, 10173=0, 10174=0, 10175=0, 10176=4, 10177=4, 10178=0, 10179=0, 10180=0, 10181=0, 10182=0, 10183=0, 10184=8, 10185=0, 10186=0, 10187=0, 10188=0, 10189=4, 10190=4, 10191=0, 10192=0, 10193=0, 10194=0, 10195=0, 10196=0, 10197=4, 10198=0, 10199=4, 10200=4, 10201=0, 10202=0, 10203=4, 10204=0, 10205=0, 10206=4, 10207=0, 10208=4, 20000=0, 20001=0, 20002=0, 20003=0, 20004=0, 20005=0, 20006=0, 20007=0, 20008=0, 20009=0, 20010=0, 20011=0, 20012=0, 20013=0, 20014=0, 20015=0, 20016=0, 20017=0, 20018=0, 20019=0, 20020=0, 20021=0, 20022=0, 20023=0, 20024=0, 20025=0, 20026=0, 20027=0, 20028=0, 20029=0, 20030=0, 20031=0, 20032=0, 20033=0, 20034=0, 20035=0, 20036=0, 20037=0, 20038=0, 20039=0, 20040=0, 20041=0, 20042=0, 20043=0, 20044=0, 20045=0, 20046=0, 20047=0, 20048=0, 20049=0, 20050=0, 20051=0, 20052=0, 20053=0, 20054=0, 20055=0, 20056=0, 20057=0, 20058=0, 20059=0, 20060=0, 20061=0, 20062=0, 20063=0, 20064=0, 20065=0, 20066=0, 20067=0, 20068=0, 20069=0, 20070=0, 20071=0, 20072=0, 20073=0, 20074=0, 20075=0, 20076=0, 20077=0, 20078=0, 20079=0, 20080=0, 20081=0, 20082=0, 20083=0, 20084=0, 20085=0, 20086=0, 20087=0, 20088=0, 20089=0, 20090=0, 20091=0, 20092=4, 20093=0, 20094=0, 20095=12, 20096=0, 20097=0, 20098=0, 20099=0, 20100=4, 20101=0, 20102=4, 20103=4, 20104=0, 20105=0, 20106=0, 20107=0, 20108=0, 20109=4, 20110=4, 20111=4, 20112=0, 20113=0, 20114=0, 20115=0, 20116=0, 20117=0, 20118=0, 20119=4, 20120=0, 20121=4, 20122=0, 20123=0, 20124=0, 20125=0, 20126=0, 20127=0, 20128=0, 20129=4, 20130=4, 20131=4, 20132=0, 20133=4, 20134=4, 20135=4, 20136=4, 20137=8, 20138=4, 20139=4, 20140=4, 20141=4, 20142=4, 20143=12, 20144=4, 20145=4, 20146=0, 20147=0, 20148=4, 20149=0, 20150=0, 20151=4, 20152=4, 20153=4, 20154=4, 20155=0, 20156=4, 20157=4, 20158=4, 20159=0, 20161=4, 20162=4, 20163=4, 20164=4, 20165=4, 20166=4, 20167=4, 20168=4, 20169=0, 20170=0, 20171=0, 20172=4, 20173=0, 20174=0, 20175=0, 20176=4, 20177=4, 20178=0, 20179=0, 20180=0, 20181=0, 20182=0, 20183=0, 20184=8, 20185=0, 20186=0, 20187=0, 20188=0, 20189=4, 20190=4, 20191=0, 20192=0, 20193=0, 20194=0, 20195=0, 20196=0, 20197=4, 20198=0, 20199=4, 20200=4, 20201=0, 20202=0, 20203=4, 20204=0, 20205=0, 20206=4, 20207=0, 20208=4}\n\nLegacy network activity:\n  mTrackMultiNetworkActivities=true\n  mIsDefaultNetworkActive=true\n  mDefaultNetwork=100\n  Idle timers:\n    100:\n      timeout=15 type=1\n  WiFi active networks: {100}\n  Cellular active networks: {}\n\nMulticast routing supported: true\n\nBackground firewall chain enabled: true\n",
+      "stderr": "",
+      "elapsed_seconds": 47.544
+    },
+    "last_ipv4_routes": {
+      "label": "android-ipv4-routes",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "ip",
+        "-4",
+        "route",
+        "show",
+        "table",
+        "all"
+      ],
+      "exit_code": 0,
+      "stdout": "10.0.2.0/24 dev wlan0 table 1000000016 proto static scope link \n224.0.0.0/24 dev wlan0 table 1000000016 proto static scope link \ndefault dev dummy0 table 1002 proto static scope link \ndefault via 10.0.2.2 dev wlan0 table 1016 proto static \n10.0.2.0/24 dev wlan0 table 1016 proto static scope link \n10.0.2.0/24 dev wlan0 proto kernel scope link src 10.0.2.16 \nlocal 10.0.2.16 dev wlan0 table local proto kernel scope host src 10.0.2.16 \nbroadcast 10.0.2.255 dev wlan0 table local proto kernel scope link src 10.0.2.16 \nlocal 127.0.0.0/8 dev lo table local proto kernel scope host src 127.0.0.1 \nlocal 127.0.0.1 dev lo table local proto kernel scope host src 127.0.0.1 \nbroadcast 127.255.255.255 dev lo table local proto kernel scope link src 127.0.0.1 \n",
+      "stderr": "",
+      "elapsed_seconds": 47.573
+    },
+    "network_readiness": {
+      "active_default_network": 100,
+      "host_alias": "10.0.2.2",
+      "interface": "wlan0",
+      "default_route": "default via 10.0.2.2 dev wlan0 table 1016 proto static",
+      "on_link_route": "10.0.2.0/24 dev wlan0 table 1000000016 proto static scope link"
+    },
+    "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+    "elapsed_seconds": 47.592,
+    "network_wait_seconds": 9.037
+  },
+  "historical_baseline": {
+    "source_sha": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+    "run_id": 40331404006,
+    "checks_executed": 0,
+    "failure": "ART readiness timeout after earlier Native driver changed adbd to TCP mode; emulator initially booted in about 30 seconds"
+  },
+  "scope": {
+    "physical_device": false,
+    "real_adbd_pairing": false,
+    "host_tests_counted_as_ART": false,
+    "production_crypto_changed": false
+  },
+  "evidence_files": {
+    "SOURCE_LOCATION.txt": {
+      "bytes": 714,
+      "sha256": "10c6ff063cb30a43714c5caf49ce1a73614472310cdd63be24df781caba51328"
+    },
+    "adb-final-devices.log": {
+      "bytes": 140,
+      "sha256": "205661108147245ae4515cbd98723d70a747375eebc5449a1b68f43efed80a9a"
+    },
+    "android-build.log": {
+      "bytes": 17436,
+      "sha256": "6d5bf830a1220eb77def03dfd6b00f1bd00dc02f8410ab7e51bf37fce0548a5a"
+    },
+    "android-runtime/commands.jsonl": {
+      "bytes": 12613,
+      "sha256": "a06fdaa9ba9a58621c2d7c2f4c21294696ca01e1c3b0c6c15055d3686d2f9684"
+    },
+    "android-runtime/instrumentation.log": {
+      "bytes": 1626,
+      "sha256": "79f06c3168130307a46fd20af2a809971d23441ced577331b0c26a7cd61c6a71"
+    },
+    "android-runtime/java-peer.log": {
+      "bytes": 202,
+      "sha256": "ec865ebe82bf2fd90fa64abaaf39db4b4fffc003dc4f4c2065d479fe96de8e32"
+    },
+    "android-runtime/report.json": {
+      "bytes": 7136,
+      "sha256": "07f225b7138665402dfe07694212687197311e15411bf87776fa3f72d5b44092"
+    },
+    "android-runtime-apk.json": {
+      "bytes": 1610,
+      "sha256": "302bfb17d2d43448c4473b0ea79f53e2cc86af941262d55c932f80a3d10b1b9f"
+    },
+    "android-runtime-badging.log": {
+      "bytes": 5919,
+      "sha256": "34a7965cb794cf802a781e6b77d4ac66af4f2a0b08a6c76372b0b18ea8b0db58"
+    },
+    "android-runtime-classpath.log": {
+      "bytes": 11039,
+      "sha256": "63c1ca2b26c884843f98dc41b1bd94eb0db7086f74c728b1d6242b477dcdbeaa"
+    },
+    "android-runtime-driver.log": {
+      "bytes": 153,
+      "sha256": "f8dbfaf4c05e7fffd44b03bdff58c00158cb04b3f4040f300775533f27e0c355"
+    },
+    "android-runtime-gates.log": {
+      "bytes": 1142,
+      "sha256": "156ceca78a8329881c718fd1581b04a38b09ec6bba847e072a6481c8258699d5"
+    },
+    "android-runtime-signature.log": {
+      "bytes": 7470,
+      "sha256": "4090ebba85fe9cd86360ed83b79d62b064da1cbaab25b05070fbc695d94b3327"
+    },
+    "android-runtime-source-verification.json": {
+      "bytes": 5215,
+      "sha256": "16ca017badf8ea9fe472a04dce729e4d527615f97b106b24f6fe8d26acd49837"
+    },
+    "android-runtime-source-verification.log": {
+      "bytes": 4479,
+      "sha256": "76012c4fdabadcb41951e6eeb24f40101ee4e1c765d21c04e656e1b70ac51611"
+    },
+    "android-sdk.log": {
+      "bytes": 349,
+      "sha256": "fea295563d2c308eb1c52d473eee9ed5d6b5d35da1fa053623546b641392a1a1"
+    },
+    "android-source-gates.log": {
+      "bytes": 2951,
+      "sha256": "faac6c23e6a5fcba4080ba2b01ffeca05178a9277f7dcc623322483587cababe"
+    },
+    "binary-source-association.json": {
+      "bytes": 1195,
+      "sha256": "522cc50257941ff7497038cadc3144afbfb314d60da34705100459e7120cdd0c"
+    },
+    "commit.txt": {
+      "bytes": 41,
+      "sha256": "d4901d06d583bb30dcf8a7730c21bb1c6c2ab52894b7d338245d4819bd22ce09"
+    },
+    "corresponding-source/native-source-bundle-3c9b396a57e1f369cce341b396be7ab15d23b0e2.tar.gz.sha256": {
+      "bytes": 135,
+      "sha256": "23cded9617507043b8c722d4cbecf8ab607ccc7417c2edc2feff9b484fe9a82e"
+    },
+    "corresponding-source/source-bundle-execution.jsonl": {
+      "bytes": 48012,
+      "sha256": "58479f6e8a71e07ed36ccca6b432b61b4f41d97fcd24119e63b27411b2e39479"
+    },
+    "corresponding-source/source-bundle-manifest.json": {
+      "bytes": 380794,
+      "sha256": "60982bd4a66c9411681af5e137f55ca29a7c70ce7d11463ff3a6ab60b3b35543"
+    },
+    "corresponding-source/source-bundle-result.json": {
+      "bytes": 405,
+      "sha256": "d9d5e8f39d26612ca373c7dfafab9714dc097101194489bac8fead481a978a45"
+    },
+    "debug-runtime-classpath.json": {
+      "bytes": 33327,
+      "sha256": "ca9aa46f61ee1f585e99933318abeaf4310fade12469e55a3e1c1d38f3f3deaa"
+    },
+    "emulator-acceleration.log": {
+      "bytes": 57,
+      "sha256": "4484bdd6d5e16c817d4dfc5cda05334055c86428c861c1d22e8cf67ce42fee49"
+    },
+    "emulator-final-properties.log": {
+      "bytes": 24806,
+      "sha256": "7899a39c45775d7aa8ce22bab5f552956d4da00bcd8aaa900c974155426eee7f"
+    },
+    "emulator-logcat.log": {
+      "bytes": 5718630,
+      "sha256": "405f84544c20fd61a22d292b4c13eac9e5924b8f6b961335cd2c3176c2b8499f"
+    },
+    "emulator-readiness/commands.jsonl": {
+      "bytes": 181722,
+      "sha256": "f9e34e18136ed626b8ca1e8a1e362790d4b65f6f98f195c4aa6ca16f313de7d3"
+    },
+    "emulator-readiness/report.json": {
+      "bytes": 47277,
+      "sha256": "11fffe71603bcd99a62e1fdbad90e6c8452ed7587b06e907a91966276f943b7c"
+    },
+    "emulator-readiness-gates.log": {
+      "bytes": 554,
+      "sha256": "2948b55138481c25a9e6db11eca95cc97b91c223c1027a8f4b764c76e3135bf9"
+    },
+    "emulator-sdk.log": {
+      "bytes": 596,
+      "sha256": "69c1a15af2dadc786f58592bc77ecf4f0e341678de6eebc8bfbded08e7395deb"
+    },
+    "emulator-source.properties": {
+      "bytes": 103,
+      "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+    },
+    "emulator.log": {
+      "bytes": 8593,
+      "sha256": "f82c4a2a3a6561748652d9195ad713c79de557630d797028392d62ec132a9bde"
+    },
+    "gradle-version.log": {
+      "bytes": 1602,
+      "sha256": "713e13f3b7fa021f4f8ce49b79f6a32c86845ca66890263065fa6add4442c0ce"
+    },
+    "gradle-wrapper.properties": {
+      "bytes": 223,
+      "sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e"
+    },
+    "host-package-versions.log": {
+      "bytes": 351,
+      "sha256": "40baa98a7b27cdf8909aa1d9c9b0adee785d232cbb2899817d2e5d123e55177c"
+    },
+    "host-packages.log": {
+      "bytes": 7351,
+      "sha256": "c7578cfe25d57bc667a64fdd68be04074bbd1796ae35cc503311e026fe19a832"
+    },
+    "host.log": {
+      "bytes": 128,
+      "sha256": "a64b6d81308dc728b286592ae78f6594e185e6db8c474be3c8886f7694f38bb7"
+    },
+    "java-version.log": {
+      "bytes": 190,
+      "sha256": "dc25d4c269605476cbe8abf0a71814a943b1303a7249657c140d7e2878f5fa46"
+    },
+    "libs.versions.toml": {
+      "bytes": 1614,
+      "sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2"
+    },
+    "source-create.log": {
+      "bytes": 48395,
+      "sha256": "7c5a6c5e25ad0582c8a37032e77fe4f60afa3d27fd005d8e9eec2645371b87be"
+    },
+    "spake2-candidate-integrity.json": {
+      "bytes": 1732,
+      "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    "spake2-maven-resolution.json": {
+      "bytes": 56017,
+      "sha256": "e934b46254db0df62586a6a9e6c54d199cbb07d855a204b685ce4f94758f1a7c"
+    },
+    "spake2-repository.txt": {
+      "bytes": 57,
+      "sha256": "97137e64f9de51b8713a4fa7350e981d99ae2218bc30eae2ee3588f3c20e9e0b"
+    },
+    "spake2-resolved-source-verification.json": {
+      "bytes": 18020,
+      "sha256": "916bb9af51adcaaba19632c3980a56975a93851515d9bd074f7a4c75d490731d"
+    },
+    "system-image-package.xml": {
+      "bytes": 19302,
+      "sha256": "ea39b57b01ac04615a0c84e68c85e44f97b2acc2937ee2297ebccaa8d1b44370"
+    },
+    "system-image-source.properties": {
+      "bytes": 357,
+      "sha256": "809a6f5103c048607257f03f18e22dd740137e9009c99d4a496de846b6ee3412"
+    }
+  }
+}

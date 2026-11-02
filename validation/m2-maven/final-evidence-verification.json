@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T09:52:02.252695+00:00",
+  "verdict": "PASS",
+  "scope": "Read-only evidence fidelity and protected-input consistency; not additional product execution.",
+  "artifact_custodies": [
+    {
+      "custody": "runs/41415836057/iosSimulatorArm64/artifact-custody.json",
+      "artifact_id": 13128890597,
+      "archive_sha256": "0c210932ea3e0cc86af7ed281b7e7b1644a6b10b1703e78148870f165d95af5c",
+      "retained_files_verified": 71
+    },
+    {
+      "custody": "runs/41415836057/iosX64/artifact-custody.json",
+      "artifact_id": 13129505389,
+      "archive_sha256": "d302b82f2a95d1768526d9fdf29d6250668b83fd3c4d004c2bcfdcd90500af3b",
+      "retained_files_verified": 66
+    },
+    {
+      "custody": "runs/41415836057/macosArm64/artifact-custody.json",
+      "artifact_id": 13127608520,
+      "archive_sha256": "cca6fd56c45c352da033a643367965928f2ac198eb8ce9ec8758d4c7287d33e9",
+      "retained_files_verified": 37
+    },
+    {
+      "custody": "runs/41418593040/iosSimulatorArm64/artifact-custody.json",
+      "artifact_id": 13130077504,
+      "archive_sha256": "c4103e701f26ac8d6d48a3b0769f875684d6aefa0ea80c44d0689ced0ba0819a",
+      "retained_files_verified": 73
+    },
+    {
+      "custody": "runs/41418593040/iosX64/artifact-custody.json",
+      "artifact_id": 13130880122,
+      "archive_sha256": "cc702399e090f68870c7c47e54aa1d3c87c7b8fbc08ee0305a8153d1bb2b6d51",
+      "retained_files_verified": 66
+    },
+    {
+      "custody": "runs/41418593040/macosArm64/artifact-custody.json",
+      "artifact_id": 13129139581,
+      "archive_sha256": "a6729501e7fcde79e2b909cf5692655bfcf3086976c7dcd96b586e0f6608a640",
+      "retained_files_verified": 65
+    },
+    {
+      "custody": "runs/41418593040/macosX64/artifact-custody.json",
+      "artifact_id": 13129737789,
+      "archive_sha256": "1a34d341e9757847d4fd11de4e5ee2246ae7983cbde9c7e6dd7e63f74fc4b864",
+      "retained_files_verified": 65
+    },
+    {
+      "custody": "runs/41419309545/android-art/artifact-custody.json",
+      "artifact_id": 13130295362,
+      "archive_sha256": "bf03349746ecbd3195e11c051996f4f311f0acb81d86df5ab1ab102eaf096886",
+      "retained_files_verified": 44
+    },
+    {
+      "custody": "runs/41420744621/android-art/artifact-custody.json",
+      "artifact_id": 13130091920,
+      "archive_sha256": "9b49e1d2bc7e62c7e634032fda3af4c22bc7d15209b5d522c6b5530e2c9245d8",
+      "retained_files_verified": 47
+    },
+    {
+      "custody": "runs/41422457772/android-art/artifact-custody.json",
+      "artifact_id": 13130083279,
+      "archive_sha256": "9d6edd248540247319440f5ec51191706762d596029d561e682e8ac8576464f8",
+      "retained_files_verified": 48
+    }
+  ],
+  "retained_files_verified": 582,
+  "protected_paths_equal_recovered_M1_HEAD": [
+    "kadb/src",
+    "kadb-mdns/src",
+    "third-party/spake2",
+    "kadb/third_party",
+    "validation/m1-maven",
+    "validation/m1",
+    "docs/experiment/M1-DELIVERY.zh-CN.md",
+    ".github/workflows/experiment-validation.yml",
+    ".github/workflows/m1-maven.yml",
+    "validation/maven-candidate",
+    "gradle/spake2-maven.gradle",
+    "gradle/libs.versions.toml",
+    "settings.gradle.kts",
+    "scripts/prepare_spake2_candidate.py",
+    "LICENSE",
+    "docs/experiment/LICENSES.md"
+  ],
+  "candidate_version": "0.1.0-dev.59105290820b",
+  "candidate_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "code_commit": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+  "final_platforms": {
+    "Darwin": {
+      "run_id": 41418593040,
+      "source_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+    },
+    "Android_ART": {
+      "run_id": 41422457772,
+      "source_sha": "3c9b396a57e1f369cce341b396be7ab15d23b0e2"
+    }
+  },
+  "original_decoded_log_normalization_documented": "runs/decoded-job-log-fidelity.json",
+  "ignored_path_policy": "Retained files are selected explicitly regardless of Git ignore rules; artifact bytes are checked independently of Git status."
+}

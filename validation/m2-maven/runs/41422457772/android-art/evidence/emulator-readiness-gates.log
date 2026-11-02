@@ -1,0 +1,8 @@
+test_boot_without_active_default_network_cannot_pass (test_readiness.NetworkReadinessTests.test_boot_without_active_default_network_cannot_pass) ... ok
+test_default_network_without_usable_host_routes_cannot_pass (test_readiness.NetworkReadinessTests.test_default_network_without_usable_host_routes_cannot_pass) ... ok
+test_records_actual_default_and_on_link_route (test_readiness.NetworkReadinessTests.test_records_actual_default_and_on_link_route) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

@@ -1,0 +1,30 @@
+{
+  "id": 41422457617,
+  "name": "M1 fixed Maven migration",
+  "head_branch": "work/spake2-maven-migration",
+  "head_sha": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "run_number": 9,
+  "run_attempt": 1,
+  "created_at": "2026-11-02T09:39:29Z",
+  "updated_at": "2026-11-02T09:44:43Z",
+  "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/41422457617",
+  "jobs_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/runs/41422457617/jobs",
+  "artifacts_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/runs/41422457617/artifacts",
+  "head_commit": {
+    "id": "3c9b396a57e1f369cce341b396be7ab15d23b0e2",
+    "tree_id": "51687cb905e4b43654288c7eed22ab7f11674641",
+    "message": "fix(m2): wait for emulator default network before starting finite ART pairing",
+    "timestamp": "2026-11-02T09:39:19Z",
+    "author": {
+      "name": "Flyfish233",
+      "email": "37693645+Flyfish233@users.noreply.github.com"
+    },
+    "committer": {
+      "name": "Flyfish233",
+      "email": "37693645+Flyfish233@users.noreply.github.com"
+    }
+  }
+}

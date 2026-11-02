@@ -2,16 +2,17 @@
 
 日期：2026-11-02（UTC）。工作分支：`work/spake2-maven-migration`。
 
-## 阶段裁决
+## 最终裁决
 
-**Darwin 四个平台 PASS；M2 总体暂为 NOT VERIFIED，等待 Android 网络就绪修复后的完整运行。**
-这份阶段报告对应最新工程提交 `3c9b396a57e1f369cce341b396be7ab15d23b0e2`。
+**M2 总体 PASS：四个 Darwin 目标与 Android ART / Emulator 均完成真实构建、执行、来源及对应源码验证。**
+这份最终报告对应工程提交 `3c9b396a57e1f369cce341b396be7ab15d23b0e2`。
 各项结果绑定实际执行的源码 SHA，不把后续证据提交当成重新执行。
 
 [Darwin CI 41418593040](https://github.com/Flyfish233/Kadb/actions/runs/41418593040)
 在 `0d448840863bbf6735eb879ebc7532c321cfca17` 上完成四个平台的实际验证。
-Android 有界网络就绪修复已推送，
-[CI 41422457772](https://github.com/Flyfish233/Kadb/actions/runs/41422457772) 正在执行。
+Android 在 `3c9b396a57e1f369cce341b396be7ab15d23b0e2` 上的
+[CI 41422457772](https://github.com/Flyfish233/Kadb/actions/runs/41422457772) 也已完整成功。
+其后提交只保留证据、独立复核与交付报告，实际执行 SHA 保持原值。
 
 | 平台 | 编译 | 链接 / 打包 | 产品测试 | 独立 peer 协议 | 来源 / 完整源码 | 裁决 |
 |---|---|---|---|---|---|---|
@@ -19,11 +20,15 @@ Android 有界网络就绪修复已推送，
 | macOS x64 | PASS | PASS | 65 Kadb + 5 mDNS | 正向 1 + 错误码拒绝 1 | PASS | **PASS** |
 | iOS Simulator Arm64 | PASS | PASS | 65 Kadb + 5 mDNS | 正向 1 + 错误码拒绝 1 | PASS | **PASS** |
 | iOS Simulator x64 | PASS | PASS | 65 Kadb + 5 mDNS | 正向 1 + 错误码拒绝 1 | PASS | **PASS** |
-| Android ART / API 35 x86_64 | 既有运行 PASS | APK 构建、安装已有成功记录 | 最终修复重跑中 | 最终修复重跑中 | `ff5b332` 已 PASS | **NOT VERIFIED**（等待最终重跑） |
+| Android ART / API 35 x86_64 | PASS | APK 打包、安装与 ART 加载 PASS | 9 / 9 项实际检查 | 正向 1 + 错误码拒绝 1 | PASS | **PASS** |
 
 Darwin 共 **280 次产品测试执行、0 失败**，另有 **8 个独立 peer 会话**。
 重复 CI 不累加；Simulator 原有可选 `JvmPairingInteropTest` 的跳过不计为执行或通过，
 本轮必需的独立 Native consumer / peer 专项则在四个目标上均真实执行。
+Android 另有 9 项 ART 检查和 2 个独立 peer 会话；五个平台共 10 个 peer 会话。
+Android 的两个 peer 会话对应这 9 项中的 `pairing_positive` / `pairing_wrong_code`，
+是同一协议执行在参考端的观测，不再算作两项额外产品测试。
+来源门禁的 48 项单测、网络就绪的 3 项单测与这些产品执行分开记录。
 
 ## 固定输入与 M1 保留
 
@@ -37,8 +42,9 @@ Maven 候选仍为 **`0.1.0-dev.59105290820b`**，源码仍为
 复核重新计算了候选传输包内 219 个文件的摘要，并核对全部 124 项 Legacy / Primitives
 来源锁 inventory；候选二进制、坐标、版本、发布 URL、长度和摘要均保持原值。
 
-[M1 重跑 41420744679](https://github.com/Flyfish233/Kadb/actions/runs/41420744679)
-在 `ff5b332` 上的 Android Host、Linux Native 均通过。
+[M1 最终重跑 41422457617](https://github.com/Flyfish233/Kadb/actions/runs/41422457617)
+在 `3c9b396` 上的 Android Host、Linux Native 均通过。前一轮 `ff5b332` 的
+[41420744679](https://github.com/Flyfish233/Kadb/actions/runs/41420744679) 同样成功。
 原 M1 的 165 项产品测试不混入本轮 ART 或 Darwin 新执行计数。
 
 ## Darwin 实际结果
@@ -53,6 +59,17 @@ Kotlin 2.4.20、Gradle 9.6.0、Java 25 的版本及 runner / Simulator 状态均
 两个 macOS 外部 Swift consumer 均完成编译、链接及运行。
 各 framework 还经过实际归档架构、部署元数据和符号清单检查；macOS 的部署下限为 12.0，
 iOS 为 15.0。该元数据检查不代表在最低 OS 版本上执行。
+
+另对精确历史 `49a88b1` 与迁移首轮 `677a39e` 的真实 iOS Simulator Arm64 静态归档做了导出比较。
+有界 Mach-O 读取器先与原 CI `xcrun nm -gU` 的 51,957 条记录逐项交叉核对；
+非私有外部定义 **227 条 / 220 个不同符号名**完全保留，名称、链接属性和重复次数无变化，
+其中包含 156 个头文件相关 ObjC class / metaclass 符号及 29 个 Native C bridge 函数。
+两个 `KadbNumber` class / metaclass 符号在迁移前后均不存在，作为历史边界明确保留。
+报告位于 `review/iosSimulatorArm64-symbol-abi-review.json`，附可重现读取器。
+
+ABI 结论覆盖实际公共声明、归档导出和上述 consumer 链接运行。任意旧版预编译客户端、
+全部对象布局 / method encoding / 调用约定，以及所有架构的历史二进制兼容性没有穷举验证。
+`iosX64` 是本轮新增目标，没有同架构迁移前 framework；其本轮公共 API、实际链接和运行均已检查。
 
 iOS Arm64 真机架构 framework 另行完成编译、链接、943 项 API 比较和二进制源码关联；
 本轮未声称在 iPhone 上执行。该构建结果纳入 Simulator Arm64 job 的完整证据。
@@ -98,7 +115,24 @@ Android 文件名修复后的完整锁摘要为 `1c1cbe03c78b4810dd096a589c0cb8d
 通往 `10.0.2.2` 的默认 IPv4 路由及同接口 on-link 路由均存在且未 linkdown。
 原始 `dumpsys connectivity`、路由输出和等待时间被保存；不探测有限会话 peer 的端口，
 不重试已开始的协议，不改 APK 生产代码。三个针对性测试覆盖缺失默认网络、错误网关、
-不完整路由、接口不匹配、linkdown 及成功路径。新的完整运行结果尚待收集。
+不完整路由、接口不匹配、linkdown 及成功路径。
+
+最终运行证实这个等待条件实际生效：boot / package-manager 阶段约 38.555 秒后完成，
+又等待 **9.037 秒**取得默认网络和路由，总计 **47.592 秒、1 次尝试**，没有重启 Emulator 或重试协议。
+实际记录为 default network 100、`wlan0`、默认网关 `10.0.2.2`，与原始路由输出一致。
+随后 APK 安装并完成 **9 / 9** 项 ART 检查（3,934 ms），独立 peer 完成正向 1 次和错误码拒绝 1 次，
+TLS 1.3、平台 `AndroidOpenSSL`、`bundled_conscrypt=false`，退出与清理均正常。
+
+同一最终运行中，APK 的 23 个外部模块 / 1 个项目 artifact、固定 SPAKE2 来源、完整对应源码与
+准确的 AAR / APK 二进制关联全部通过。最终 APK 为 5,706,198 字节，SHA-256：
+`b6d61cac2980e5c164b0e08c6c726952e9a459b6fea03d7a604c25b02831175f`。
+完整源码包为 196,740,901 字节，630 个文件、64 个 source JAR、9 个源码 archive，SHA-256：
+`db25bf350e1d0a37338c181535e360a73eb8fd02d4a01a2eb6f60119b57d821b`。
+源码包内部绑定实际 Kadb AAR，`binary-source-association.json` 另把该源码包、来源锁和
+真实 AAR / APK 的摘要关联起来。还实际下载了最终源码 artifact，验证 GitHub ZIP 摘要、
+内部 tar 摘要及全部 630 个成员，并把 23 个外部 APK 模块逐项对应到实际源码成员。
+独立复核与下载校验原始日志保存在 `runs/41422457772/android-evidence-review.json` 和
+`downloaded-source-verification.log`。此前失败 run 的原始 FAIL 及其归因没有改写。
 
 ## 实际问题与历史归因
 
@@ -108,7 +142,7 @@ Android 文件名修复后的完整锁摘要为 `1c1cbe03c78b4810dd096a589c0cb8d
 | 首轮 macOS 测试 / 配对未启动 | Bash 3.2 在 `set -u` 下展开空数组报错，0 项执行 | 改为始终非空的命令数组；修复后两架构真实通过 |
 | 首轮 API 基线选错 | macOS 误用 iOS 头文件；旧 iOS 基线 921 项，精确恢复基线已有 943 项 | 按平台冻结精确历史头文件；保持严格比较器，未放宽声明检查 |
 | Android 来源锁文件名不符 | 真实 APK runtime graph 与已发布 Gradle metadata 一致，原锁文件名错误 | 仅更正两个文件名；哈希与来源检查保留 |
-| Android boot 早于网络 | 六份 DEX 不变；TCP connect 报 `ENETUNREACH`，未到协议 | 有证据的有界网络就绪等待；等待完整重跑结果 |
+| Android boot 早于网络 | 六份 DEX 不变；TCP connect 报 `ENETUNREACH`，未到协议 | 有证据的有界网络就绪等待；最终完整运行 9 项 ART 与两个 peer 会话均通过 |
 
 迁移前 [49a88b1 / CI 40331404006](https://github.com/Flyfish233/Kadb/actions/runs/40331404006)
 的 iOS Simulator 配对失败发生在 `simctl list devices booted --json` 的 10 秒超时，
@@ -135,3 +169,17 @@ Native consumer 尚未启动。历史协议执行为 **NOT VERIFIED**，原 CI s
 生产 Kotlin / Native C / SPAKE2 密码学没有修改；HARDENED、身份尾部 NUL、TLS exporter、
 HKDF、AES-GCM、PeerInfo、一次性状态机和 AOSP nonce 协议保持原行为。
 没有改动 main、合并 PR、正式发布或修改许可证。
+
+## 增量交付记录
+
+| 提交 | 已交付内容 |
+|---|---|
+| `677a39e` | 首个 M2 Darwin workflow 与 iosX64 接线，启动真实四目标验证 |
+| `6d40e75` / `0d44884` | 修复 Bash 启动与精确 API 基线；冻结首个 Simulator PASS |
+| `8923311` | 独立 Android APK / ART / Emulator workflow |
+| `94a78e5` / `ff5b332` | 两个 Android 发布文件名修复及实际 APK 来源重跑 |
+| `87f5b5e` | 两个首轮 Simulator PASS、修复后 macOS Arm64 与 Android 首轮原始证据 |
+| `3c9b396` | 有依据的 Android 默认网络就绪修复，最终 Android / M1 执行提交 |
+| `20a7e5f` | 同一代码上的四平台 Darwin PASS、第二轮 Android 环境故障与阶段裁决 |
+
+最终 Android PASS、符号 / 输入复核及本报告随最后的证据提交保留；不会触发多余的产品重跑。
