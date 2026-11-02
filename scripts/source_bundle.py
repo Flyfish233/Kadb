@@ -628,6 +628,64 @@ def android_inventory(lock: dict) -> dict:
     return inventory
 
 
+def verify_android_spake2_origin(lock: dict, report: dict, lock_path: Path) -> dict:
+    """Require provenance from the APK's own runtime graph, independent of Kadb's graph."""
+    candidate = spake2_inventory(lock)
+    proof = report.get("spake2_provenance")
+    if not isinstance(proof, dict):
+        raise ValueError("Android runtime lacks APK-specific SPAKE2 origin evidence")
+    if ((proof.get("schema"), proof.get("project"), proof.get("configuration")) !=
+            (1, ":validation-android-runtime", "debugRuntimeClasspath") or
+            (proof.get("version"), proof.get("revision")) != (candidate["version"], candidate["revision"]) or
+            proof.get("gradle_version") != "9.6.0" or
+            proof.get("origin_binding") != "gradle-9.6-repository-name-to-unique-descriptor"):
+        raise ValueError("Android runtime SPAKE2 provenance has wrong scope, candidate or Gradle origin binding")
+    if proof.get("source_lock_sha256") != digest(lock_path):
+        raise ValueError("Android runtime SPAKE2 origin evidence uses a stale source lock")
+    repository = proof.get("repository")
+    if (not isinstance(repository, str) or not Path(repository).is_absolute() or
+            str(Path(repository).resolve()) != repository or
+            proof.get("repository_uri", "").rstrip("/") != Path(repository).as_uri().rstrip("/")):
+        raise ValueError("Android runtime SPAKE2 repository lacks a canonical file URI")
+    origin = (proof.get("repository_id"), proof.get("repository_name"))
+    if not all(isinstance(value, str) and value for value in origin):
+        raise ValueError("Android runtime SPAKE2 lacks actual repository identity")
+    roots = {f"{SPAKE_GROUP}:{base}:{SPAKE_VERSION}" for base in SPAKE_MODULES}
+    binaries = {f"{SPAKE_GROUP}:{base}-android:{SPAKE_VERSION}" for base in SPAKE_MODULES}
+    expected = roots | binaries
+    graph_components = {item for item in report["resolved_components"] if item.startswith(SPAKE_GROUP + ":")}
+    components = proof.get("resolved_components", [])
+    if (graph_components != expected or len(components) != len(expected) or
+            {item.get("coordinate") for item in components} != expected):
+        raise ValueError("Android runtime SPAKE2 origin evidence omits or changes Legacy/Primitives components")
+    selected = [item for item in report["external_modules"] if item["coordinate"].startswith(SPAKE_GROUP + ":")]
+    if len(selected) != 2 or {item["coordinate"] for item in selected} != binaries:
+        raise ValueError("Android runtime must contain both fixed SPAKE2 Android AARs")
+    for item in components + selected:
+        if (item.get("kind") != "external-module" or item.get("configuration") != "debugRuntimeClasspath" or
+                (item.get("repository_id"), item.get("repository_name")) != origin):
+            raise ValueError("Android runtime SPAKE2 component or artifact has missing/mismatched repository origin")
+    required_attributes = {"org.jetbrains.kotlin.platform.type": "androidJvm", "org.gradle.usage": "java-runtime",
+                           "org.gradle.category": "library", "artifactType": "aar"}
+    for item in selected:
+        if not all(item.get("attributes", {}).get(key) == value for key, value in required_attributes.items()):
+            raise ValueError("Android runtime SPAKE2 selection is not an Android runtime AAR variant")
+    edges = proof.get("dependency_edges", [])
+    if not edges or {item.get("selected") for item in edges} != expected:
+        raise ValueError("Android runtime SPAKE2 dependency request evidence is incomplete")
+    for edge in edges:
+        requested = edge.get("requested", {})
+        coordinate = f"{requested.get('group')}:{requested.get('module')}:{requested.get('version')}"
+        if (edge.get("configuration") != "debugRuntimeClasspath" or edge.get("selected_kind") != "external-module" or
+                edge.get("from") not in report["resolved_components"] or coordinate not in expected or
+                edge.get("selected") != coordinate or
+                any(requested.get(key) not in ("", SPAKE_VERSION) for key in ("required", "strictly", "preferred"))):
+            raise ValueError("Android runtime SPAKE2 request is substituted, unpinned or forced from a different version")
+    return {"status": "verified", "configuration": "debugRuntimeClasspath", "repository": repository,
+            "repository_uri": proof["repository_uri"], "repository_id": origin[0], "repository_name": origin[1],
+            "components": len(components), "dependency_edges": len(edges), "android_binaries": len(selected)}
+
+
 def verify_android_runtime(lock_path: Path, report_path: Path) -> dict:
     lock = json.loads(lock_path.read_text())
     inventory = android_inventory(lock)
@@ -662,9 +720,11 @@ def verify_android_runtime(lock_path: Path, report_path: Path) -> dict:
                         (fixed["file_name"], fixed["bytes"], fixed["sha256"])):
                     raise ValueError(f"Android runtime binary differs from the source lock: {record['coordinate']}")
             verified.append({key: record[key] for key in ("component", "bytes", "sha256")})
+    spake2_origin = verify_android_spake2_origin(lock, report, lock_path)
     return {"status": "verified", "scope": lock["scope"], "source_lock_sha256": digest(lock_path),
             "runtime_report_sha256": digest(report_path), "external_modules": len(actual),
             "project_artifacts": len(projects), "verified_artifacts": verified,
+            "spake2_runtime_origin": spake2_origin,
             "legal_certification": False}
 
 

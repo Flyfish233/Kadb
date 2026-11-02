@@ -1,8 +1,12 @@
 // Validation-only provenance export. Invoke after assembleDebug with --no-configuration-cache.
 // Records the actual production APK runtime configuration, not Host Test or Java peer dependencies.
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 import org.gradle.api.artifacts.component.ModuleComponentIdentifier
+import org.gradle.api.artifacts.component.ModuleComponentSelector
 import org.gradle.api.artifacts.component.ProjectComponentIdentifier
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
+import org.gradle.api.artifacts.result.ResolvedDependencyResult
 import org.gradle.api.artifacts.type.ArtifactTypeDefinition
 import java.security.MessageDigest
 
@@ -11,7 +15,80 @@ allprojects { target ->
         target.tasks.register('recordRuntimeClasspath') {
             notCompatibleWithConfigurationCache('Explicit one-off resolved artifact provenance export')
             doLast {
+                def output = target.layout.buildDirectory.file('reports/debug-runtime-classpath.json').get().asFile
+                if (output.exists() && !output.delete()) throw new GradleException(
+                    "Cannot remove stale Android runtime report: ${output}")
                 def configuration = target.configurations.getByName('debugRuntimeClasspath')
+                def version = '0.1.0-dev.59105290820b'
+                def revision = '59105290820bcbfd4e0336a2e7713006a461527f'
+                def group = 'io.github.flyfish233'
+                def modules = ['spake2-legacy', 'spake2-legacy-android',
+                    'spake2-primitives', 'spake2-primitives-android'].toSet()
+                def coordinates = modules.collect { "${group}:${it}:${version}".toString() }.toSet()
+                def lockFile = target.rootProject.file('validation/source-bundle/dependencies.lock.json')
+                def lock = new JsonSlurper().parse(lockFile).spake2_maven
+                if (lock?.version != version || lock?.revision != revision) throw new GradleException(
+                    'Android runtime source lock does not describe the fixed Maven candidate')
+                // Verify the APK graph itself: Kadb's compile graph does not prove
+                // the final application's runtime selections or their origins.
+                if (gradle.gradleVersion != '9.6.0') throw new GradleException(
+                    'Android runtime origin verification requires pinned Gradle 9.6.0')
+                def repository = target.rootProject.file(target.providers.gradleProperty('spake2Repository')
+                    .getOrElse(target.rootProject.file('build/spake2-candidate/maven').absolutePath)).canonicalFile
+                def configured = target.repositories.toList() +
+                    gradle.settings.dependencyResolutionManagement.repositories.toList()
+                def candidates = configured.findAll { candidate ->
+                    candidate instanceof MavenArtifactRepository && candidate.url.scheme == 'file' &&
+                        new File(candidate.url).canonicalFile == repository
+                }
+                if (candidates.size() != 1 || !candidates[0].artifactUrls.isEmpty() ||
+                    configured.count { it.name == candidates[0].name } != 1) throw new GradleException(
+                    'Android runtime requires one unambiguous fixed candidate repository without alternate artifact URLs')
+                def candidateRepository = candidates[0]
+                def repositoryId = candidateRepository.descriptor.id
+                def digest = { File file -> MessageDigest.getInstance('SHA-256').digest(file.bytes).encodeHex().toString() }
+                def checkId = { id ->
+                    if (!(id instanceof ModuleComponentIdentifier) || id.group != group ||
+                        !(id.module in modules) || id.version != version) throw new GradleException(
+                        "Android runtime SPAKE2 selection is substituted or not the fixed Android candidate: ${id}")
+                }
+                def resolution = configuration.incoming.resolutionResult
+                def edges = []
+                resolution.allDependencies.each { dependency ->
+                    def requested = dependency.requested
+                    if (requested instanceof ModuleComponentSelector && requested.group == group) {
+                        def constraint = requested.versionConstraint
+                        if (!(requested.module in modules) || requested.version != version ||
+                            [constraint.requiredVersion, constraint.strictVersion, constraint.preferredVersion]
+                                .any { it && it != version }) throw new GradleException(
+                            "Android runtime SPAKE2 request is not the fixed candidate: ${requested}")
+                        if (!(dependency instanceof ResolvedDependencyResult)) throw new GradleException(
+                            "Unresolved Android runtime SPAKE2 dependency: ${requested}")
+                        checkId(dependency.selected.id)
+                        if (dependency.selected.id.module != requested.module) throw new GradleException(
+                            "Android runtime SPAKE2 module substitution: ${requested} -> ${dependency.selected.id}")
+                        edges << [configuration: configuration.name, from: dependency.from.id.displayName,
+                            requested: [group: requested.group, module: requested.module, version: requested.version,
+                                required: constraint.requiredVersion, strictly: constraint.strictVersion,
+                                preferred: constraint.preferredVersion],
+                            selected: dependency.selected.id.displayName, selected_kind: 'external-module']
+                    }
+                }
+                def components = []
+                resolution.allComponents.each { component ->
+                    def id = component.id
+                    if (id instanceof ModuleComponentIdentifier && id.group == group) {
+                        checkId(id)
+                        if (component.repositoryName != candidateRepository.name) throw new GradleException(
+                            "Android runtime SPAKE2 came from another repository: ${id} ${component.repositoryName}")
+                        components << [kind: 'external-module', coordinate: id.displayName,
+                            configuration: configuration.name, repository_id: repositoryId,
+                            repository_name: component.repositoryName]
+                    }
+                }
+                if (components.collect { it.coordinate }.toSet() != coordinates ||
+                    edges.collect { it.selected }.toSet() != coordinates) throw new GradleException(
+                    'Android runtime graph must resolve both fixed Legacy/Primitives roots and Android targets')
                 // AGP publishes multiple project artifact variants. The unqualified
                 // incoming.artifacts view is ambiguous even though the APK resolves.
                 // Keep external archives untransformed; select the actual Android
@@ -31,7 +108,7 @@ allprojects { target ->
                         [(it.name): String.valueOf(artifact.variant.attributes.getAttribute(it))]
                     }
                     def external = component instanceof ModuleComponentIdentifier
-                    [kind: external ? 'external-module' : 'project',
+                    def entry = [kind: external ? 'external-module' : 'project',
                      component: component.displayName,
                      coordinate: external ? "${component.group}:${component.module}:${component.version}" : null,
                      selection_view: external ? 'original external archives' : 'Android project classes JAR',
@@ -40,18 +117,40 @@ allprojects { target ->
                      attributes: attributes,
                      file: file.canonicalPath,
                      bytes: file.length(),
-                     sha256: MessageDigest.getInstance('SHA-256').digest(file.bytes).encodeHex().toString()]
+                     sha256: digest(file)]
+                    if (external && component.group == group) {
+                        checkId(component)
+                        entry += [configuration: configuration.name, repository_id: repositoryId,
+                                  repository_name: candidateRepository.name]
+                    }
+                    entry
                 }.sort { it.component + ':' + it.artifact }
-                def output = target.layout.buildDirectory.file('reports/debug-runtime-classpath.json').get().asFile
+                def selectedSpake = entries.findAll { it.coordinate?.startsWith(group + ':') }
+                def expectedAndroid = modules.findAll { it.endsWith('-android') }.collect {
+                    "${group}:${it}:${version}".toString()
+                }.toSet()
+                if (selectedSpake.size() != 2 || selectedSpake.collect { it.coordinate }.toSet() != expectedAndroid ||
+                    selectedSpake.any { it.attributes['org.jetbrains.kotlin.platform.type'] != 'androidJvm' ||
+                        it.attributes['org.gradle.usage'] != 'java-runtime' ||
+                        it.attributes['org.gradle.category'] != 'library' || it.attributes['artifactType'] != 'aar' }) {
+                    throw new GradleException('APK runtime must consume both actual Android Maven AARs')
+                }
                 output.parentFile.mkdirs()
                 output.text = JsonOutput.prettyPrint(JsonOutput.toJson([
                     schema: 1, project: target.path, configuration: configuration.name,
                     scope: 'Actual resolved production APK runtime artifacts; no claim of corresponding-source completeness',
-                    resolved_components: configuration.incoming.resolutionResult.allComponents.collect {
+                    resolved_components: resolution.allComponents.collect {
                         it.id.displayName
                     }.sort(),
                     external_modules: entries.findAll { it.kind == 'external-module' },
                     project_artifacts: entries.findAll { it.kind == 'project' },
+                    spake2_provenance: [schema: 1, project: target.path, configuration: configuration.name,
+                        version: version, revision: revision, gradle_version: gradle.gradleVersion,
+                        origin_binding: 'gradle-9.6-repository-name-to-unique-descriptor',
+                        repository: repository.absolutePath, repository_uri: repository.toPath().toUri().toString(),
+                        repository_id: repositoryId, repository_name: candidateRepository.name,
+                        source_lock_sha256: digest(lockFile),
+                        resolved_components: components, dependency_edges: edges],
                 ])) + '\n'
                 println("ANDROID_RUNTIME_CLASSPATH_RECORDED ${output}")
             }

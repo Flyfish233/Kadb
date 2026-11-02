@@ -255,7 +255,11 @@ class SourceBundleIntegrityTest(unittest.TestCase):
         lock_path, report_path = self.root / "lock.json", self.root / "report.json"
         lock_path.write_bytes(bundle.json_bytes(lock))
         report_path.write_bytes(bundle.json_bytes(report))
-        return bundle.verify_android_runtime(lock_path, report_path)
+        # These small fixtures isolate the generic runtime inventory checks.
+        # The mandatory APK origin check is exercised below using the retained
+        # real Maven candidate rather than synthetic candidate bytes.
+        with mock.patch.object(bundle, "verify_android_spake2_origin", return_value={"status": "fixture-isolated"}):
+            return bundle.verify_android_runtime(lock_path, report_path)
 
     def test_android_runtime_verifies_current_files_and_does_not_pin_project_hash(self):
         lock, report, _, project = self.runtime_fixture()
@@ -437,6 +441,120 @@ class MavenCandidateSourceTest(unittest.TestCase):
         path = self.root / "resolution.json"
         path.write_text(json.dumps(self.report))
         return bundle.verify_spake2_maven(self.lock, self.repo, path)
+
+    def android_runtime_fixture(self):
+        lock = copy.deepcopy(self.lock)
+        project = self.root / "runtime-project-classes.jar"
+        project.write_bytes(b"current consumer project")
+        origin = {"repository_id": "fixture-unique-candidate-descriptor",
+                  "repository_name": "spake2ValidatedCandidate"}
+        roots = [f"{bundle.SPAKE_GROUP}:{base}:{bundle.SPAKE_VERSION}" for base in bundle.SPAKE_MODULES]
+        binaries = [f"{bundle.SPAKE_GROUP}:{base}-android:{bundle.SPAKE_VERSION}" for base in bundle.SPAKE_MODULES]
+        coordinates = roots + binaries
+        graph = sorted(coordinates + ["project ':kadb'", "project ':validation-android-runtime'"])
+        inventory = lock["android_runtime"]
+        inventory["resolved_components"] = graph
+        inventory["project_components"] = ["project ':kadb'"]
+        inventory["external_modules"] = [item for item in inventory["external_modules"]
+                                         if item["coordinate"] in binaries]
+        external = []
+        for coordinate in binaries:
+            fixed = next(item for item in lock["spake2_maven"]["inventory"]
+                         if item["coordinate"] == coordinate and item["path"].endswith(".aar"))
+            path = self.repo / fixed["path"]
+            external.append({"kind": "external-module", "component": coordinate, "coordinate": coordinate,
+                "configuration": "debugRuntimeClasspath", **origin, "file": str(path),
+                "bytes": fixed["size"], "sha256": fixed["sha256"],
+                "attributes": {"org.jetbrains.kotlin.platform.type": "androidJvm", "org.gradle.usage": "java-runtime",
+                               "org.gradle.category": "library", "artifactType": "aar"}})
+        lock_path = self.root / "android-lock.json"
+        lock_path.write_bytes(bundle.json_bytes(lock))
+        proof = {"schema": 1, "project": ":validation-android-runtime", "configuration": "debugRuntimeClasspath",
+                 "version": bundle.SPAKE_VERSION, "revision": bundle.SPAKE_REVISION, "gradle_version": "9.6.0",
+                 "origin_binding": "gradle-9.6-repository-name-to-unique-descriptor",
+                 "repository": str(self.repo), "repository_uri": self.repo.as_uri(), **origin,
+                 "source_lock_sha256": bundle.digest(lock_path),
+                 "resolved_components": [{"kind": "external-module", "coordinate": coordinate,
+                                          "configuration": "debugRuntimeClasspath", **origin} for coordinate in coordinates],
+                 "dependency_edges": [{"configuration": "debugRuntimeClasspath", "from": "project ':kadb'",
+                     "requested": {"group": bundle.SPAKE_GROUP, "module": coordinate.split(":")[1],
+                                   "version": bundle.SPAKE_VERSION, "required": bundle.SPAKE_VERSION,
+                                   "strictly": "", "preferred": ""},
+                     "selected": coordinate, "selected_kind": "external-module"} for coordinate in coordinates]}
+        report = {"schema": 1, "project": ":validation-android-runtime", "configuration": "debugRuntimeClasspath",
+                  "resolved_components": graph, "external_modules": external,
+                  "project_artifacts": [{"kind": "project", "component": "project ':kadb'", "file": str(project),
+                                         "bytes": project.stat().st_size, "sha256": bundle.digest(project)}],
+                  "spake2_provenance": proof}
+        return lock_path, report
+
+    def verify_android(self, lock_path, report):
+        path = self.root / "android-report.json"
+        path.write_bytes(bundle.json_bytes(report))
+        return bundle.verify_android_runtime(lock_path, path)
+
+    def test_android_actual_candidate_requires_independent_APK_origin(self):
+        lock_path, report = self.android_runtime_fixture()
+        result = self.verify_android(lock_path, report)
+        self.assertEqual("verified", result["spake2_runtime_origin"]["status"])
+        self.assertEqual(2, result["spake2_runtime_origin"]["android_binaries"])
+        report.pop("spake2_provenance")
+        with self.assertRaisesRegex(ValueError, "lacks APK-specific"):
+            self.verify_android(lock_path, report)
+
+    def test_android_Kadb_graph_or_stale_lock_cannot_supply_APK_origin(self):
+        lock_path, report = self.android_runtime_fixture()
+        original = copy.deepcopy(report)
+        for field, value, error in (("project", ":kadb", "wrong scope"),
+                                    ("configuration", "androidRuntimeClasspath", "wrong scope"),
+                                    ("gradle_version", "9.5.0", "wrong scope"),
+                                    ("source_lock_sha256", "0" * 64, "stale source lock"),
+                                    ("repository_uri", "https://example.invalid/maven", "canonical file URI")):
+            report = copy.deepcopy(original)
+            report["spake2_provenance"][field] = value
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, error):
+                self.verify_android(lock_path, report)
+
+    def test_android_identical_candidate_bytes_with_wrong_origin_are_rejected(self):
+        lock_path, report = self.android_runtime_fixture()
+        original = copy.deepcopy(report)
+        for section in ("components", "artifacts"):
+            for field in ("repository_id", "repository_name"):
+                report = copy.deepcopy(original)
+                selected = (report["spake2_provenance"]["resolved_components"]
+                            if section == "components" else report["external_modules"])
+                selected[0][field] = "different-repository-with-identical-bytes"
+                with self.subTest(section=section, field=field), self.assertRaisesRegex(ValueError, "repository origin"):
+                    self.verify_android(lock_path, report)
+
+    def test_android_forced_wrong_or_dynamic_requests_are_rejected(self):
+        lock_path, report = self.android_runtime_fixture()
+        original = copy.deepcopy(report)
+        for field in ("version", "required", "strictly", "preferred"):
+            for value in ("0.0.0", "+"):
+                report = copy.deepcopy(original)
+                report["spake2_provenance"]["dependency_edges"][0]["requested"][field] = value
+                with self.subTest(field=field, value=value), self.assertRaisesRegex(ValueError, "unpinned or forced"):
+                    self.verify_android(lock_path, report)
+
+    def test_android_substitution_missing_edges_or_platform_mismatch_fail(self):
+        lock_path, report = self.android_runtime_fixture()
+        original = copy.deepcopy(report)
+        report["spake2_provenance"]["dependency_edges"][0]["selected_kind"] = "project"
+        with self.assertRaisesRegex(ValueError, "substituted"):
+            self.verify_android(lock_path, report)
+        report = copy.deepcopy(original)
+        report["spake2_provenance"]["dependency_edges"].pop()
+        with self.assertRaisesRegex(ValueError, "request evidence is incomplete"):
+            self.verify_android(lock_path, report)
+        report = copy.deepcopy(original)
+        report["spake2_provenance"]["resolved_components"].pop()
+        with self.assertRaisesRegex(ValueError, "omits or changes"):
+            self.verify_android(lock_path, report)
+        report = copy.deepcopy(original)
+        report["external_modules"][0]["attributes"]["org.gradle.usage"] = "java-api"
+        with self.assertRaisesRegex(ValueError, "runtime AAR variant"):
+            self.verify_android(lock_path, report)
 
     def test_actual_candidate_sources_and_external_variants_are_verified(self):
         result = self.verify()

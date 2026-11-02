@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T09:01:52.469657+00:00",
+  "checkout_head": "5474c5db5a1084b6334ce2960f112fa90db8a782",
+  "working_tree_inputs": {
+    "scripts/source_bundle.py": "654a6edf1a4c5d06e9d0eae421a4794338620b66b0cfafe664566fd339697c2b",
+    "validation/source-bundle/test_source_bundle.py": "87f680852bb32b77f7f90525e90e84d5c866079c224ac97b0893a955fb513091",
+    "validation/android-runtime/runtime-classpath.init.gradle": "9356f8cf32811674d4ab536e2d229dff16fe4470bd30594fa6462a6207ada3e3"
+  },
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "validation/source-bundle",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "scope": "Python source/provenance verifier regression tests; not actual Gradle/APK/ART execution"
+}
