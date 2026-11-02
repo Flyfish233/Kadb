@@ -10,9 +10,30 @@
     "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
     "production_cryptography_modified": false
   },
-  "M4-A": {"verdict": "NOT VERIFIED"},
-  "M4-B": {"verdict": "NOT VERIFIED"},
-  "M4-C": {"verdict": "NOT VERIFIED", "physical_device_selected": false},
-  "runs": [],
-  "R3_K01": "Inherited bidirectional GCM nonce behavior remains unresolved and unchanged."
+  "M4-A": {
+    "verdict": "NOT VERIFIED"
+  },
+  "M4-B": {
+    "verdict": "NOT VERIFIED"
+  },
+  "M4-C": {
+    "verdict": "NOT VERIFIED",
+    "physical_device_selected": false
+  },
+  "runs": [
+    {
+      "id": 41447772316,
+      "conclusion": "success",
+      "purpose": "Official user-image enforced authentication prerequisite"
+    }
+  ],
+  "R3_K01": "Inherited bidirectional GCM nonce behavior remains unresolved and unchanged.",
+  "environment": {
+    "verdict": "PASS",
+    "run_id": 41447772316,
+    "code_sha": "01220570ce2fc17e819c318d99a57b87e1cf9d43",
+    "ro.adb.secure": "1",
+    "real_AUTH_token": true,
+    "rootless_normal_authorization_management": true
+  }
 }

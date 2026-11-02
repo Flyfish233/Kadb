@@ -1,0 +1,107 @@
+[
+  {
+    "path": "commit.txt",
+    "bytes": 41,
+    "sha256": "69e82415d87d282e950429bc63ab454bc56bce20a68e88c94b5416beaac0fb67"
+  },
+  {
+    "path": "emulator-acceleration.txt",
+    "bytes": 57,
+    "sha256": "4484bdd6d5e16c817d4dfc5cda05334055c86428c861c1d22e8cf67ce42fee49"
+  },
+  {
+    "path": "emulator-readiness/commands.jsonl",
+    "bytes": 117063,
+    "sha256": "0ee8febc86d61b093ad482b403c7e182c4f6260785b20904bfebef8222e2b649"
+  },
+  {
+    "path": "emulator-readiness/report.json",
+    "bytes": 46968,
+    "sha256": "837f201c78fef999594dd7c193bcd2a72c6bde493c9def9d5d3874bd308f2017"
+  },
+  {
+    "path": "emulator-sdk.txt",
+    "bytes": 616,
+    "sha256": "2d87ae92f13d088e4ba1c8e06c690dd15126a323710c4b63b3154ad616edd471"
+  },
+  {
+    "path": "emulator-source.properties",
+    "bytes": 103,
+    "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+  },
+  {
+    "path": "emulator.txt",
+    "bytes": 8998,
+    "sha256": "2dd18e666c80626847239d1f4bfa89c9860a17dde4598bdedb259f620fa795cd"
+  },
+  {
+    "path": "environment/adbd-sha256.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "environment/adbd-version.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "environment/authorized-keys.txt",
+    "bytes": 292,
+    "sha256": "7b24576b959bfb341fe1a5b1f22c12368946e211cfb5a6fc5e3941c888bcb7b4"
+  },
+  {
+    "path": "environment/commands.jsonl",
+    "bytes": 3160044,
+    "sha256": "bfb05bd0854d1a2042778bb7fc8753afab6f3610428253cd410dadf2429f65bf"
+  },
+  {
+    "path": "environment/listeners.txt",
+    "bytes": 172,
+    "sha256": "40746e06b69f082354627da62c92ec19fc700f30ae95ee6aaa7628e6fae59df1"
+  },
+  {
+    "path": "environment/logcat-redacted.txt",
+    "bytes": 3014395,
+    "sha256": "13b0e526f5db91abe5fa15a263764c3a77981bc3e480ce9859d0109681115016"
+  },
+  {
+    "path": "environment/processes.txt",
+    "bytes": 10153,
+    "sha256": "7e13b98715d6fb8d2b1702dcf6df15aa511996291a3514c7136bd0e86b6c1e0b"
+  },
+  {
+    "path": "environment/report.json",
+    "bytes": 1498,
+    "sha256": "26aa84ef5d30520538aaeaa420365ea4ab13df1515c0e0d54510430705f55ac1"
+  },
+  {
+    "path": "environment/shell-permissions.txt",
+    "bytes": 100443,
+    "sha256": "2974dd6cb88a7fedc72c960e272d1a5546f8764aeaac99c4f5030e97c02c7d04"
+  },
+  {
+    "path": "environment/wifi.txt",
+    "bytes": 1214,
+    "sha256": "c2a3fc830c0bbd708db92d7b869746a0f2bda47934b76f49e1f4bd54d5c78a90"
+  },
+  {
+    "path": "host-packages.txt",
+    "bytes": 7309,
+    "sha256": "386a88337c38b6fd6d7779009fbbd979b4b6b39c0ecbb1147e3da4b69965cc73"
+  },
+  {
+    "path": "host.txt",
+    "bytes": 128,
+    "sha256": "a64b6d81308dc728b286592ae78f6594e185e6db8c474be3c8886f7694f38bb7"
+  },
+  {
+    "path": "system-image-package.xml",
+    "bytes": 19322,
+    "sha256": "566035acac35b556b18b02b4a1a39d974bfcf915472a3b468e1ad054bb7f64a8"
+  },
+  {
+    "path": "system-image-source.properties",
+    "bytes": 366,
+    "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+  }
+]

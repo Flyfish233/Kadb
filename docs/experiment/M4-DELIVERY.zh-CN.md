@@ -15,7 +15,12 @@
 系统分区、认证属性或授权文件。A/B 测试身份与 C 分离。
 
 独立 M4 workflow 及环境探针已保存；探针不是 M4-A/B 完成证据。
-实际运行结果将在后续检查点增量加入。
+环境 CI [41447772316](https://github.com/Flyfish233/Kadb/actions/runs/41447772316) 已实际成功。
+镜像 fingerprint 为 `google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys`，
+revision 9；实际 `ro.adb.secure=1`、`ro.debuggable=0`、shell UID 2000。
+新连接返回真实 20 字节 AUTH token，没有 CNXN；授权 dump 确认独立控制身份。
+完整原始证据与下载 digest 已保存在 `validation/m4-maven/runs/41447772316/`。
+用户镜像限制 shell 读取/直接执行 adbd，相关失败原样保留，不伪造二进制摘要。
 
 | 项目 | 当前裁决 |
 | --- | --- |
