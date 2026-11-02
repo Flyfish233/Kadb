@@ -42,3 +42,20 @@ PeerInfo 认证、一次性状态机、失败销毁与异常映射。SPAKE2 生�
 
 基线 CI [40331404006](https://github.com/Flyfish233/Kadb/actions/runs/40331404006) 已在迁移前失败。
 历史 macOS ARM 模拟器集成与 Android Emulator 失败仅记录和归因，不在 M1 无限重试。
+
+## 继续执行检查点 1：实际 Maven 依赖替换
+
+2026-11-02（Asia/Singapore）恢复执行时，远端仍为 `21401b2498bda8ea7b774b74e50c8085ab099c19`。
+找到旧工作树中的未提交迁移成果后，完整复制到新的工作目录；旧目录和有效改动均保留。
+本检查点先交付生产 Gradle 入口及候选实物，后续独立提交消费者来源门禁、对应源码锁和 CI。
+
+- `gradle/libs.versions.toml` 新增严格固定的 KMP 候选版本及 Legacy 坐标，原 Java oracle 别名保留。
+- `kadb/build.gradle.kts` 的生产依赖改为 `implementation(libs.spake2LegacyKmp)`。
+- `settings.gradle.kts` 移除 `:spake2-legacy` 的 include/projectDir，使用 file Maven 仓库和 exclusiveContent 隔离 `io.github.flyfish233`。
+- `validation/maven-candidate/` 保存原 CI 产物的完整 Maven 文件集合；只是重新封装传输压缩包，没有重建二进制。
+- `python3 scripts/prepare_spake2_candidate.py` 逐文件校验并离线恢复候选；本轮 6 个恢复/篡改/缺失/路径测试实际通过。
+- 本轮重新取得 GitHub artifact 元数据，并重算保留的原 ZIP SHA-256，均与上述固定身份一致。
+
+**本检查点为静态迁移已交付、构建待验证；M1 尚未 PASS。**
+它不将候选文件完整性、上游成功构建或旧基线 CI 等同于 Kadb 本轮编译/单测通过。
+后续首先增加实际 Gradle 组件、传递依赖、变体、来源摘要和项目替换门禁，再记录当前工具链的执行结果。

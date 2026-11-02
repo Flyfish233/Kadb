@@ -11,6 +11,7 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 agp = "9.4.0"
 bc = "1.86"
 spake2 = "1.1.1"
+spake2KmpCandidate = { strictly = "0.1.0-dev.59105290820b" }
 kotlin = "2.4.20"
 kotlinxCoroutinesCore = "1.11.0"
 okio = "3.18.2"
@@ -24,6 +25,7 @@ conscrypt-java = "2.7.0"
 bcprov = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bc" }
 bcpkix = { module = "org.bouncycastle:bcpkix-jdk18on", version.ref = "bc" }
 spake2 = { module = "com.github.Flyfish233:spake2-java", version.ref = "spake2" }
+spake2LegacyKmp = { module = "io.github.flyfish233:spake2-legacy", version.ref = "spake2KmpCandidate" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }

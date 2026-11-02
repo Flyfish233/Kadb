@@ -48,7 +48,7 @@ kotlin {
             getByName("iosTest").kotlin.srcDir("src/iosDeviceTest/kotlin")
         }
         commonMain.dependencies {
-            implementation(project(":spake2-legacy"))
+            implementation(libs.spake2LegacyKmp)
             implementation(libs.kotlinx.coroutines.core)
             api(libs.okio)
         }

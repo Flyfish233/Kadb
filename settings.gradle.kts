@@ -7,8 +7,31 @@ pluginManagement {
     }
 }
 
+// Restore the checked-in, byte-pinned CI candidate with:
+// python3 scripts/prepare_spake2_candidate.py
+// An explicit alternative directory must contain the same verified Maven files.
+val spake2CandidateUri = uri(providers.gradleProperty("spake2Repository")
+    .orElse(file("build/spake2-candidate/maven").absolutePath).get())
+require(spake2CandidateUri.scheme == "file") {
+    "SPAKE2 M1 requires a verified local Maven candidate repository"
+}
+require(file(spake2CandidateUri).isDirectory) {
+    "Missing SPAKE2 candidate: run python3 scripts/prepare_spake2_candidate.py " +
+        "or pass -Pspake2Repository=/absolute/path/to/verified/maven"
+}
+
 dependencyResolutionManagement {
     repositories {
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "spake2ValidatedCandidate"
+                    url = spake2CandidateUri
+                    metadataSources { gradleMetadata(); mavenPom() }
+                }
+            }
+            filter { includeGroup("io.github.flyfish233") }
+        }
         mavenLocal()
         google()
         mavenCentral()
@@ -23,10 +46,6 @@ plugins {
 rootProject.name = "Kadb"
 include(":kadb")
 include(":kadb-mdns")
-
-// Fixed-source fallback; this module has no publication configuration.
-include(":spake2-legacy")
-project(":spake2-legacy").projectDir = file("third-party/spake2")
 
 // Executable consumers and a permission-free install fixture; none are published.
 include(":validation-native-adbd", ":validation-android-fixture")
