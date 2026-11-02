@@ -72,7 +72,7 @@ public final class IosPairingPeer {
                 + "\"spake_reference\":\"spake2-java@809ad7aa731f475c07763b1ad2c165ae192dfb5f\"}");
     }
 
-    private static SSLContext createContext() throws Exception {
+    static SSLContext createContext() throws Exception {
         KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
         generator.initialize(2048);
         var keyPair = generator.generateKeyPair();
@@ -159,7 +159,7 @@ public final class IosPairingPeer {
     }
 
     /** AOSP android_pubkey wire representation, independently encoded with JCA BigInteger. */
-    private static byte[] adbPublicKey(RSAPublicKey key, String name) {
+    static byte[] adbPublicKey(RSAPublicKey key, String name) {
         require(key.getModulus().bitLength() == 2048, "ADB requires a 2048-bit RSA key");
         BigInteger modulus = key.getModulus();
         BigInteger r32 = BigInteger.ONE.shiftLeft(32);
@@ -177,7 +177,7 @@ public final class IosPairingPeer {
         for (int i = 0; i < bytes; i++) target.put(value.shiftRight(i * 8).byteValue());
     }
 
-    private static byte[] deriveKey(byte[] material) throws Exception {
+    static byte[] deriveKey(byte[] material) throws Exception {
         var hmac = Mac.getInstance("HmacSHA256");
         hmac.init(new SecretKeySpec(new byte[32], "HmacSHA256"));
         byte[] extracted;
@@ -196,13 +196,13 @@ public final class IosPairingPeer {
         }
     }
 
-    private static byte[] crypt(int mode, byte[] key, byte[] value) throws Exception {
+    static byte[] crypt(int mode, byte[] key, byte[] value) throws Exception {
         var cipher = Cipher.getInstance("AES/GCM/NoPadding");
         cipher.init(mode, new SecretKeySpec(key, "AES"), new GCMParameterSpec(128, new byte[12]));
         return cipher.doFinal(value);
     }
 
-    private static byte[] readFrame(DataInputStream input, int type) throws Exception {
+    static byte[] readFrame(DataInputStream input, int type) throws Exception {
         require(input.readUnsignedByte() == 1 && input.readUnsignedByte() == type, "Incorrect pairing header");
         int size = input.readInt(); // network byte order, including the unsigned size bound
         require(size > 0 && size <= 16384, "Invalid pairing payload size");
@@ -211,7 +211,7 @@ public final class IosPairingPeer {
         return bytes;
     }
 
-    private static void writeFrame(DataOutputStream output, int type, byte[] payload) throws Exception {
+    static void writeFrame(DataOutputStream output, int type, byte[] payload) throws Exception {
         output.writeByte(1);
         output.writeByte(type);
         output.writeInt(payload.length);
@@ -219,15 +219,15 @@ public final class IosPairingPeer {
         output.flush();
     }
 
-    private static byte[] utf8(String text) { return text.getBytes(StandardCharsets.UTF_8); }
+    static byte[] utf8(String text) { return text.getBytes(StandardCharsets.UTF_8); }
 
-    private static byte[] concat(byte[] first, byte[] second) {
+    static byte[] concat(byte[] first, byte[] second) {
         byte[] combined = Arrays.copyOf(first, first.length + second.length);
         System.arraycopy(second, 0, combined, first.length, second.length);
         return combined;
     }
 
-    private static void require(boolean condition, String description) {
+    static void require(boolean condition, String description) {
         if (!condition) throw new IllegalStateException(description);
     }
 }

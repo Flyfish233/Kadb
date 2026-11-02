@@ -102,6 +102,67 @@ retained as baseline reference; it can no longer appear as a successful test
 when no peer was configured. Only the mandatory external run counts as new
 Native pairing evidence.
 
+## M3 supplemental controlled-peer fault injection
+
+The default command still requires the original two M2 sessions. Opt in with
+`--m3-negative-suite` to select `M3PairingPeer` and thirteen public `Kadb.pair`
+checks in one Native process. This is the **independent controlled-peer layer**;
+its result is never evidence of Android adbd pairing or physical-device execution.
+M3 generates a fresh six-digit fixture code in the Python driver and passes it
+only through the two child-process environments. Commands, reports and Git do
+not contain that value. All RSA identities are process-local and ephemeral.
+
+```sh
+python3 validation/pairing-peer/run_interop.py \
+  --m3-negative-suite \
+  --java "$JAVA_HOME/bin/java" \
+  --classpath-file validation/pairing-peer/build/reference-classpath.txt \
+  --consumer validation/native-adbd/build/bin/linuxX64/pairingDebugExecutable/kadb-native-pairing.kexe \
+  --output build/validation/m3-controlled-peer
+```
+
+| Session | Evidence required |
+| --- | --- |
+| Positive seed | TLS 1.3, exact client key/name PeerInfo, successful server PeerInfo, client close. The peer retains this session's exporter only for the replay case. |
+| Wrong code | Native rejection and the peer's actual AES-GCM client-authentication failure. |
+| Stale exporter | Two real TLS exporters differ; the peer deliberately uses the seed session's exporter on a new TLS connection; GCM authentication must fail. |
+| Wrong role | Peer uses Alice while the product client remains unchanged; GCM authentication must fail. |
+| Missing identity NUL | Peer omits the server identity terminator; product identities remain untouched; GCM authentication must fail. |
+| Invalid SPAKE length | Peer sends 31 bytes and keeps its socket open until the client closes. |
+| Invalid header | Peer sends wire version 2 and waits for the client to close. |
+| Bad GCM tag | Peer first authenticates the valid client PeerInfo, corrupts one response tag byte, and waits for client closure. |
+| Invalid PeerInfo | A correctly authenticated response uses the wrong server PeerInfo type; the client must reject it and close. |
+| Network interruption | Peer closes after TLS and receipt of the client SPAKE frame; Native must return a transport error. |
+| Timeout | Peer stalls after client SPAKE; public pairing is wrapped in a 1.5-second coroutine timeout, and the peer observes connection closure. |
+| Cancellation | A separate explicit cancellation after 1.5 seconds must join the pairing coroutine, and the peer observes closure. |
+| Positive recovery | A new session succeeds in the same Native process after all eleven failures. |
+
+The Python report gate requires the complete ordered case lists from both
+processes, both successful exit codes and the expected injection stage for each
+case. It rejects substitution of an ordinary connection error for the GCM
+authentication evidence. JSON records keep actual accepted/completed session
+counts separate on failure. Socket close and successful fresh pairing establish
+observable lifecycle behavior; these checks do **not** inspect secret bytes in
+Native memory and do not claim to measure internal zeroization.
+
+Closure direction is recorded per case. Wrong-code, stale-exporter, wrong-role,
+missing-NUL and interruption sessions are closed by the peer; they establish
+failure propagation, not independently observed client-initiated cleanup.
+Malformed messages, corrupted/invalid responses, timeout and cancellation wait
+for the client to close while the peer stays open. Incremental peer case records
+and any final Native JSON are retained even when one process fails early or the
+other must be terminated. A missing final report remains an explicit error.
+
+The reference keeps the existing AOSP-compatible HKDF/GCM transcript and initial
+nonce behavior. R3-K01, the inherited bidirectional initial GCM nonce risk,
+remains recorded and unchanged. No production SPAKE mathematics are modified.
+
+Run acceptance-gate regressions with:
+
+```sh
+python3 -B -m unittest discover -s validation/pairing-peer -p 'test_*.py' -v
+```
+
 ## Android Host regression migration
 
 The following tests now compile against the retained Android production

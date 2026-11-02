@@ -7,6 +7,7 @@ on:
       - '.github/workflows/m3-adbd.yml'
       - 'validation/m3-maven/ci/**'
       - 'validation/native-adbd/**'
+      - 'validation/pairing-peer/**'
   workflow_dispatch:
 
 permissions:
@@ -62,11 +63,18 @@ jobs:
         id: build
         run: |
           set -euo pipefail
-          ./gradlew :validation-native-adbd:linkDebugExecutableLinuxX64 :validation-native-adbd:linkPairingDebugExecutableLinuxX64 :validation-android-fixture:assembleDebug :kadb:verifySpake2MavenResolution -Pspake2Configurations=linuxX64CompileKlibraries --no-configuration-cache --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/native-build.log
+          ./gradlew :validation-native-adbd:linkDebugExecutableLinuxX64 :validation-native-adbd:linkPairingDebugExecutableLinuxX64 :validation-native-adbd:linkRealPairingDebugExecutableLinuxX64 :validation-android-fixture:assembleDebug :validation-pairing-peer:writePeerClasspath :kadb:verifySpake2MavenResolution -Pspake2Configurations=linuxX64CompileKlibraries --no-configuration-cache --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/native-build.log
           cp kadb/build/reports/spake2-maven-resolution.json evidence/
           python3 scripts/source_bundle.py verify-spake2-maven --spake2-resolution-report evidence/spake2-maven-resolution.json --output evidence/spake2-resolved-source-verification.json
           file validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe | tee evidence/consumer-file.log
           python3 -B -m unittest discover -s validation/native-adbd -p 'test_*.py' -v 2>&1 | tee evidence/driver-tests.log
+          python3 -B -m unittest discover -s validation/pairing-peer -p 'test_m3_*.py' -v 2>&1 | tee evidence/controlled-peer-report-gates.log
+      - name: Execute supplementary controlled-peer negatives with the actual Native binary
+        id: controlled
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python3 validation/pairing-peer/run_interop.py --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --consumer validation/native-adbd/build/bin/linuxX64/pairingDebugExecutable/kadb-native-pairing.kexe --m3-negative-suite --output evidence/controlled-peer 2>&1 | tee evidence/controlled-peer-driver.log
       - name: Collect complete corresponding source for the actual Native binary
         id: source
         if: ${{ !cancelled() && steps.build.outcome == 'success' }}
@@ -130,12 +138,22 @@ jobs:
         run: |
           set -euo pipefail
           python3 validation/native-adbd/run_emulator.py --serial emulator-5554 --adb-server-port 5038 --adb "$ANDROID_HOME/platform-tools/adb" --aapt2 "$ANDROID_HOME/build-tools/37.0.0/aapt2" --emulator "$ANDROID_HOME/emulator/emulator" --consumer validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe --apk validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk --output evidence/adbd 2>&1 | tee evidence/adbd-driver.log
+      - name: Execute public Kadb pairing with the real Android system service
+        id: pairing
+        if: ${{ !cancelled() && steps.adbd.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python3 validation/m3-maven/ci/run_pairing.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --consumer validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe --output evidence/real-pairing 2>&1 | tee evidence/real-pairing-driver.log
       - name: Preserve runtime diagnostics and destroy this job's emulator and keys
         if: always()
         run: |
           timeout --kill-after=5s 15s adb -P 5038 devices -l > evidence/adb-final-devices.log 2>&1 || true
           timeout --kill-after=5s 20s adb -P 5038 -s emulator-5554 shell getprop > evidence/emulator-final-properties.log 2>&1 || true
-          timeout --kill-after=5s 20s adb -P 5038 -s emulator-5554 logcat -d -v threadtime > evidence/emulator-logcat.log 2>&1 || true
+          # The pairing driver preserves the complete log with ephemeral secrets
+          # redacted while they are still in memory. Never upload another raw copy.
+          if [ ! -d evidence/real-pairing ]; then
+            timeout --kill-after=5s 20s adb -P 5038 -s emulator-5554 logcat -d -v threadtime > evidence/emulator-logcat.log 2>&1 || true
+          fi
           timeout --kill-after=5s 15s adb -P 5038 -s emulator-5554 emu kill || true
           if [ -n "${KADB_EMULATOR_PID:-}" ]; then kill "$KADB_EMULATOR_PID" 2>/dev/null || true; fi
           timeout --kill-after=5s 10s adb -P 5038 kill-server || true
@@ -150,6 +168,8 @@ jobs:
           M3_PROVISION: ${{ steps.provision.outcome }}
           M3_READY: ${{ steps.ready.outcome }}
           M3_ADBD: ${{ steps.adbd.outcome }}
+          M3_PAIRING: ${{ steps.pairing.outcome }}
+          M3_CONTROLLED: ${{ steps.controlled.outcome }}
         run: python3 validation/m3-maven/ci/summarize.py --evidence evidence
       - name: Preserve raw M3 evidence and actual executables
         if: always()
