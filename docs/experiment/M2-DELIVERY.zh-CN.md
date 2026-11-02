@@ -1,0 +1,47 @@
+# Kadb SPAKE2 Maven 迁移：M2 跨平台集成验证
+
+日期：2026-11-02（Asia/Singapore）。工作分支：`work/spake2-maven-migration`。
+
+## 当前阶段
+
+M2 从已核实的远端 `08a4e2ae1ba8aec60382600d72dfc97e2f841a08` 继续。
+M1 最终代码 `af6aa42ebb2bd880753600ed43fbe6e49d6f197e` 与
+[CI 41400073710](https://github.com/Flyfish233/Kadb/actions/runs/41400073710)
+的两个成功 job 已再次核对。M1 交付报告、裁决、原始证据和 workflow 保留。
+
+本文件首先作为执行中的恢复检查点提交，随后以实际 CI 证据更新。
+**尚未取得本轮 Darwin / ART 运行结果，当前 M2 裁决为 NOT VERIFIED。**
+workflow 已存在、任务成功排队或依赖解析成功均不等于目标平台执行通过。
+
+## 固定输入与范围
+
+- Maven 候选：`0.1.0-dev.59105290820b`，源码
+  `59105290820bcbfd4e0336a2e7713006a461527f`。
+- 保留 Legacy / Primitives 的固定二进制、完整对应源码与原有解析来源门禁。
+- 优先执行 macOS Arm64 / x64、iOS Simulator Arm64 / x64，再执行 Android ART。
+- 每个平台分别记录依赖来源、编译、链接、测试、framework/API 与协议执行。
+- 完整外部 ADB 正负矩阵与真实设备专项保留给 M3。
+
+现有工程尚未声明 `iosX64`，固定 Maven 候选已经包含该目标的 KLIB。
+本轮补充所需的目标与 C 平台接线，并以实际编译、链接和 Simulator 运行判断支持状态。
+
+## 历史对照
+
+原实验基线 `49a88b14e9b731e4c086c920eb74664450c79d9f` 的
+[CI 40331404006](https://github.com/Flyfish233/Kadb/actions/runs/40331404006)
+已有 iOS Simulator 配对失败记录；此前单元测试成功不代表配对专项成功。
+现有摘录不足以把配对失败直接定性为环境问题。
+
+同一基线的 Android Emulator 曾启动完成，但在 Native 驱动执行 `adb tcpip 5556` 后
+传输变为 offline，随后 ART 驱动在就绪检查阶段停止，运行检查数为 0。
+本轮在独立、未切换 adbd 模式的 Emulator 上执行 ART，保存设备状态、启动日志和有界等待结果。
+冻结的历史证据索引位于 `validation/m2-maven/baseline/`。
+
+## 证据入口
+
+- `validation/m2-maven/recovery/recovered-state.json`：本轮恢复身份及受保护输入摘要。
+- `validation/m2-maven/baseline/`：迁移前历史结果及归因边界。
+- 独立 M2 workflow：按目标保存原始 Gradle 日志、XML 计数、实际解析报告、执行环境及源码身份。
+
+生产密码学与 AOSP nonce 协议不在本轮修改范围内。HARDENED、身份尾部 NUL、
+TLS exporter、HKDF、AES-GCM、PeerInfo 与一次性状态机保持原有实现。

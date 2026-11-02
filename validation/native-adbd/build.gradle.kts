@@ -3,7 +3,7 @@ plugins {
 }
 
 kotlin {
-    listOf(linuxX64(), macosArm64(), macosX64(), iosSimulatorArm64()).forEach { target ->
+    listOf(linuxX64(), macosArm64(), macosX64(), iosSimulatorArm64(), iosX64()).forEach { target ->
         target.binaries.executable {
             baseName = "kadb-native-adbd"
             entryPoint = "com.flyfishxu.kadb.validation.main"

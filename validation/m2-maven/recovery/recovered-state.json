@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-02T08:44:18.551267+00:00",
+  "work_branch": "work/spake2-maven-migration",
+  "recovered_remote_head": "08a4e2ae1ba8aec60382600d72dfc97e2f841a08",
+  "m1_validated_code_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+  "m1_successful_run": 41400073710,
+  "candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+  },
+  "local_environment": {
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]"
+  },
+  "actual_platform_execution": "Pending GitHub-hosted macOS and Android runners; local Linux checkout is not Darwin or ART runtime evidence",
+  "protected_inputs": [
+    {
+      "path": "validation/maven-candidate/spake2-0.1.0-dev.59105290820b-maven.tar.xz",
+      "sha256": "3ea50362515509300850ac2bdb487bc070379d3e40e346250eb228ed2ad47d33",
+      "bytes": 1766332
+    },
+    {
+      "path": "validation/maven-candidate/manifest.json",
+      "sha256": "70569497be5893de9d56983368d2b9050ee9bd642b60a02775f7cd5633c95106",
+      "bytes": 54619
+    },
+    {
+      "path": ".github/workflows/m1-maven.yml",
+      "sha256": "71f7ef404a1a8ae9d5d952b72e2fa0869b32ab678d9f4e5af0f5eb9e0e91a6e2",
+      "bytes": 8409
+    },
+    {
+      "path": ".github/workflows/experiment-validation.yml",
+      "sha256": "16c46f3b43d188e1bc0fa27786d1694185ab4fcd3c6682b95e6801687363071d",
+      "bytes": 27605
+    },
+    {
+      "path": "docs/experiment/M1-DELIVERY.zh-CN.md",
+      "sha256": "4fd7344a0de48747b3af61f2013fa8f4083c67971b9ee9f47fc5af4afc45f786",
+      "bytes": 11819
+    },
+    {
+      "path": "validation/m1-maven/verdict.json",
+      "sha256": "266465c7b7df20f912ea3e80d81b63862139847e55c38802124fba26fadd1d7c",
+      "bytes": 4849
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-02T08:45:00.634690+00:00",
+  "m1_head": "08a4e2ae1ba8aec60382600d72dfc97e2f841a08",
+  "scope": "byte identity only; no new cryptographic audit or runtime claim",
+  "critical_files": [
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "sha256": "e23250f71f531af1f287ddc8d2f2cf38e71c4182128a661a6b4276aa559ba290",
+      "m1_sha256": "e23250f71f531af1f287ddc8d2f2cf38e71c4182128a661a6b4276aa559ba290",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "sha256": "357427ff01f43c66826da9fcdc6d27ce3a48278f4af737679f43613c8594919a",
+      "m1_sha256": "357427ff01f43c66826da9fcdc6d27ce3a48278f4af737679f43613c8594919a",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "sha256": "05178fbf53b0896e39813d776003bec1aaa56bb4a16d072e4463fc33e4144778",
+      "m1_sha256": "05178fbf53b0896e39813d776003bec1aaa56bb4a16d072e4463fc33e4144778",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.kt",
+      "sha256": "73a9d367eb76dd2160cd7720435276eba60880e9e00b64d76f88f9be219a01a3",
+      "m1_sha256": "73a9d367eb76dd2160cd7720435276eba60880e9e00b64d76f88f9be219a01a3",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "sha256": "214142c243814a10e57023acf69d113065306a39a085690796b494a2f80a46a9",
+      "m1_sha256": "214142c243814a10e57023acf69d113065306a39a085690796b494a2f80a46a9",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "sha256": "e5428c3f74ec79d13154d0fad5c15bbe561d0d27577b091eb8fe55e1d5c87ec9",
+      "m1_sha256": "e5428c3f74ec79d13154d0fad5c15bbe561d0d27577b091eb8fe55e1d5c87ec9",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.android.kt",
+      "sha256": "5a3ae3592f291eee6353fe3d6bcc2fbf2dd69f1fb06713ddbd7e3ff299a0cff1",
+      "m1_sha256": "5a3ae3592f291eee6353fe3d6bcc2fbf2dd69f1fb06713ddbd7e3ff299a0cff1",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.native.kt",
+      "sha256": "790f137f6100325a04d00b516b60d054fef153f324706c596e736140244fb03e",
+      "m1_sha256": "790f137f6100325a04d00b516b60d054fef153f324706c596e736140244fb03e",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.native.kt",
+      "sha256": "fc1eba6b156264a178f1190b191acd231cd4a2c5b51e87b7ff33b2864dc6be5b",
+      "m1_sha256": "fc1eba6b156264a178f1190b191acd231cd4a2c5b51e87b7ff33b2864dc6be5b",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "sha256": "dab28d1a497927821c793a363f85b25967278b8b2d8488e33758745ac62b835e",
+      "m1_sha256": "dab28d1a497927821c793a363f85b25967278b8b2d8488e33758745ac62b835e",
+      "equals_m1": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "sha256": "c7d6df28e09aef776ac26f73f37c9ae6479d5537b2c7afaefc7d96a026d3a7b0",
+      "m1_sha256": "c7d6df28e09aef776ac26f73f37c9ae6479d5537b2c7afaefc7d96a026d3a7b0",
+      "equals_m1": true
+    }
+  ],
+  "status": "PASS"
+}

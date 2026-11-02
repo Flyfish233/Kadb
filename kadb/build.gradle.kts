@@ -7,7 +7,7 @@ apply(from = "gradle/ios-native.gradle.kts")
 apply(from = rootProject.file("gradle/spake2-maven.gradle"))
 
 kotlin {
-    listOf(iosArm64(), iosSimulatorArm64(), macosArm64(), macosX64(), linuxX64()).forEach { target ->
+    listOf(iosArm64(), iosSimulatorArm64(), iosX64(), macosArm64(), macosX64(), linuxX64()).forEach { target ->
         val nativeOutput = layout.buildDirectory.dir("native/${target.name}")
         val buildNative = tasks.named("buildNative${target.name.replaceFirstChar(Char::uppercaseChar)}")
         val interop = target.compilations.getByName("main").cinterops.create("kadbNative") {

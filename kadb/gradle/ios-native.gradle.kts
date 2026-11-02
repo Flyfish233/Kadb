@@ -230,6 +230,7 @@ data class NativePlatform(val system: String, val sdk: String, val arch: String,
 val platforms = mapOf(
     "iosArm64" to NativePlatform("iOS", "iphoneos", "arm64", "15.0"),
     "iosSimulatorArm64" to NativePlatform("iOS", "iphonesimulator", "arm64", "15.0"),
+    "iosX64" to NativePlatform("iOS", "iphonesimulator", "x86_64", "15.0"),
     "macosArm64" to NativePlatform("Darwin", "macosx", "arm64", "12.0"),
     "macosX64" to NativePlatform("Darwin", "macosx", "x86_64", "12.0"),
     "linuxX64" to NativePlatform("Linux", "", "x86_64", "")
