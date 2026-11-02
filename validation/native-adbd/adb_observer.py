@@ -52,6 +52,8 @@ class AdbRelay:
         self.target_port = target_port
         self.lock = threading.Lock()
         self.counts = collections.Counter()
+        self.connection_counts = collections.defaultdict(collections.Counter)
+        self.byte_counts = collections.Counter()
         self.events = []
         self.errors = []
         self.connections = 0
@@ -76,9 +78,13 @@ class AdbRelay:
             if "error" in event:
                 self.errors.append(event)
             else:
-                self.counts[f"{direction}:{event['command']}"] += 1
+                name = f"{direction}:{event['command']}"
+                self.counts[name] += 1
+                self.connection_counts[connection][name] += 1
                 if event["command"] == "AUTH":
-                    self.counts[f"{direction}:AUTH:{event['arg0']}"] += 1
+                    name = f"{direction}:AUTH:{event['arg0']}"
+                    self.counts[name] += 1
+                    self.connection_counts[connection][name] += 1
             if len(self.events) < 512:
                 self.events.append(event)
 
@@ -112,6 +118,8 @@ class AdbRelay:
                         continue
                     observers[source].feed(data)
                     peers[source].sendall(data)
+                    with self.lock:
+                        self.byte_counts["host_to_adbd" if source is incoming else "adbd_to_host"] += len(data)
         except (ConnectionError, OSError, ValueError):
             # Peer shutdown/reset is part of the cancellation and close contract.
             # Successful consumer checks, not a relay exit, decide product health.
@@ -142,4 +150,6 @@ class AdbRelay:
     def snapshot(self) -> dict:
         with self.lock:
             return {"connections": self.connections, "counts": dict(self.counts),
+                    "connection_counts": {str(key): dict(value) for key, value in self.connection_counts.items()},
+                    "bytes_forwarded": dict(self.byte_counts),
                     "header_errors": list(self.errors), "first_events": list(self.events)}

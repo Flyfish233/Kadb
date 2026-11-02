@@ -160,10 +160,33 @@ source hashes and the unchanged timestamp/symlink behavior.
 
 The driver independently checks package and directory removal through official
 ADB. It also attempts cleanup after a consumer failure, restores the original
-public-key authorization list and adbd TCP setting, and restores adbd's initial
+public-key authorization list (bytes, owner, group and mode), and restores adbd's initial
 root/non-root state. Cleanup failures make the overall run fail. Only the new
 test public key reaches Android; private keys stay in an automatically removed
 host temporary directory and are not included in reports.
+
+### Preserve the emulator bootstrap listener
+
+The default guest port is **5555**, and must already be listening according to
+the guest's `ss -ltn` output. The driver does not issue `adb tcpip` or change any
+adbd listener/authentication property. Key reloads use bounded `unroot` / `root`
+restarts, with a 45-second readiness deadline after each restart. It verifies
+the original UID, TCP properties and authentication property after cleanup.
+
+The historical `40331404006` run was booted and rootable before `adb tcpip 5556`;
+that command immediately left its bootstrap transport offline and executed zero
+Native checks. In [AOSP Android 15 daemon startup](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/android15-release/daemon/main.cpp),
+an explicit `service.adb.tcp.port` replaces the default TCP/VSOCK 5555 listeners
+when the emulator has no USB transport. Waiting for Android Wi-Fi readiness does
+not restore a listener that was replaced. M2's separate `ENETUNREACH` race was
+an outbound connection from a running Android app before the default route was
+ready; its existing bounded readiness gate can be reused before this driver.
+
+M3 also records the actual adbd executable path, SHA-256, version command result,
+process identity, existing listener output, per-connection ADB header counts,
+and forwarded byte counts. AUTH acceptance requires challenge/signature/CNXN on
+every observed positive connection, including both reconnects; aggregate frame
+counts alone are insufficient. The relay still discards payload contents.
 
 ## AUTH, TLS, and evidence boundaries
 

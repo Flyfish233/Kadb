@@ -15,7 +15,6 @@ import os
 from pathlib import Path
 import re
 import secrets
-import shlex
 import subprocess
 import sys
 import tempfile
@@ -42,6 +41,23 @@ def parse_consumer(stdout: str) -> dict:
     if len(reports) != 1:
         raise RuntimeError(f"Expected exactly one consumer report, observed {len(reports)}")
     return json.loads(reports[0])
+
+
+def has_tcp_listener(output: str, port: int) -> bool:
+    """Read ss LISTEN rows; never confuse a peer port with the local listener."""
+    for line in output.splitlines():
+        fields = line.split()
+        if len(fields) >= 5 and fields[0] == "LISTEN":
+            if fields[3].rsplit(":", 1)[-1] == str(port):
+                return True
+    return False
+
+
+def authenticated_connection_count(observation: dict) -> int:
+    return sum(1 for counts in observation.get("connection_counts", {}).values()
+               if counts.get("adbd_to_host:AUTH:1", 0) > 0
+               and counts.get("host_to_adbd:AUTH:2", 0) > 0
+               and counts.get("adbd_to_host:CNXN", 0) > 0)
 
 
 class Runner:
@@ -80,8 +96,8 @@ class Runner:
     def shell(self, label, command, *, check=True):
         return self.adb(label, "shell", command, check=check)
 
-    def wait_ready(self):
-        deadline = time.monotonic() + 120
+    def wait_ready(self, *, timeout=120, phase="boot"):
+        deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             state = self.adb("wait-for-emulator", "get-state", timeout=10, check=False)
             if state.returncode == 0 and state.stdout.strip() == "device":
@@ -89,7 +105,19 @@ class Runner:
                 if boot.returncode == 0 and boot.stdout.strip() == "1":
                     return
             time.sleep(1)
-        raise RuntimeError("The selected emulator did not become ready within 120s")
+        self.adb("readiness-failure-devices-" + phase, "get-state", timeout=5, check=False)
+        raise RuntimeError(f"The selected emulator did not become ready within {timeout}s ({phase})")
+
+    def reload_authorization(self):
+        # On an emulator without USB, `adb tcpip OTHER_PORT` removes the default
+        # TCP/VSOCK 5555 listeners used by its own bootstrap transport. A bounded
+        # privilege restart reloads keys without changing the listener topology.
+        self.adb("reload-keys-unroot", "unroot")
+        self.wait_ready(timeout=45, phase="reload-keys-unroot")
+        self.adb("reload-keys-root", "root")
+        self.wait_ready(timeout=45, phase="reload-keys-root")
+        if self.shell("verify-root-after-key-reload", "id -u").stdout.strip() != "0":
+            raise RuntimeError("The disposable emulator did not recover root after key reload")
 
     def forward(self) -> int:
         result = self.adb("create-forward", "forward", "tcp:0", f"tcp:{self.arguments.guest_port}")
@@ -147,12 +175,13 @@ def execute(arguments, runner: Runner, report: dict) -> None:
     report["serial"] = arguments.serial
     report["properties"] = {}
     for prop in ("ro.build.fingerprint", "ro.build.version.sdk", "ro.product.cpu.abi",
-                 "ro.adb.secure", "ro.secure", "ro.debuggable", "service.adb.tcp.port"):
+                 "ro.adb.secure", "ro.secure", "ro.debuggable", "service.adb.tcp.port",
+                 "persist.adb.tcp.port", "service.adb.listen_addrs"):
         report["properties"][prop] = runner.shell("get-" + prop, "getprop " + prop).stdout.strip()
-    previous_port = report["properties"]["service.adb.tcp.port"]
-    if previous_port and not re.fullmatch(r"-?\d{1,5}", previous_port):
-        raise RuntimeError("Unexpected original adbd TCP property; refusing to change it")
     original_uid = runner.shell("initial-uid", "id -u").stdout.strip()
+    if original_uid not in ("0", "2000"):
+        raise RuntimeError("Unexpected original adbd UID")
+    report["initial_adbd_uid"] = original_uid
     existing = runner.shell("fixture-must-be-absent", f"pm path {PACKAGE}", check=False)
     if existing.stdout.strip() or existing.returncode not in (0, 1):
         raise RuntimeError("Fixture package already exists or package manager is unavailable")
@@ -161,7 +190,6 @@ def execute(arguments, runner: Runner, report: dict) -> None:
     keys_changed = False
     original_keys_existed = False
     rooted = False
-    tcp_changed = False
     attempted_consumer = False
     primary_error = None
     cleanup_errors = []
@@ -174,13 +202,26 @@ def execute(arguments, runner: Runner, report: dict) -> None:
             key.chmod(0o600)
             runner.adb("root-disposable-emulator", "root")
             rooted = True
-            runner.wait_ready()
+            runner.wait_ready(timeout=45, phase="root")
             if runner.shell("verify-root", "id -u").stdout.strip() != "0":
                 raise RuntimeError("This test requires a rootable, disposable emulator image")
 
-            tcp_changed = True
-            runner.adb("enable-test-tcp-port", "tcpip", str(arguments.guest_port))
-            runner.wait_ready()
+            report["adbd_identity"] = {}
+            for label, command in (
+                ("version", "/apex/com.android.adbd/bin/adbd --version"),
+                ("executable", "readlink -f /apex/com.android.adbd/bin/adbd"),
+                ("sha256", "sha256sum /apex/com.android.adbd/bin/adbd"),
+                ("process", "ps -A -o PID,UID,NAME | grep '[a]dbd'"),
+            ):
+                identity = runner.shell("adbd-identity-" + label, command, check=False)
+                report["adbd_identity"][label] = {"exit_code": identity.returncode,
+                                                    "stdout": identity.stdout, "stderr": identity.stderr}
+            listeners = runner.shell("existing-adbd-tcp-listeners", "ss -ltn").stdout
+            report["listener"] = {"guest_port": arguments.guest_port, "tcp_mode_changed": False,
+                                    "existing_listener_observed": has_tcp_listener(listeners, arguments.guest_port),
+                                    "ss_output": listeners}
+            if not report["listener"]["existing_listener_observed"]:
+                raise RuntimeError("Requested existing adbd TCP listener is absent; refusing to switch bootstrap TCP mode")
             forward = runner.forward()
             auth_denial_verified = False
             if report["properties"]["ro.adb.secure"] == "1":
@@ -209,6 +250,12 @@ def execute(arguments, runner: Runner, report: dict) -> None:
                 "original-public-keys-exist", "test -e /data/misc/adb/adb_keys", check=False).returncode == 0
             if original_keys_existed:
                 runner.adb("backup-public-keys", "pull", "/data/misc/adb/adb_keys", key_backup)
+                key_backup.chmod(0o600)
+                report["initial_public_keys_sha256"] = sha256(key_backup)
+                metadata = runner.shell("original-public-key-file-metadata", "stat -c '%u %g %a' /data/misc/adb/adb_keys").stdout.strip()
+                if not re.fullmatch(r"\d+ \d+ [0-7]{3,4}", metadata):
+                    raise RuntimeError("Unexpected original public-key file ownership or mode")
+                report["initial_public_key_file_metadata"] = metadata
             runner.adb("stage-test-public-key", "push", str(key) + ".pub", remote_public)
             # Only the public key reaches the emulator. Preserve the existing authorization list.
             keys_changed = True
@@ -217,8 +264,7 @@ def execute(arguments, runner: Runner, report: dict) -> None:
                          f"cat '{remote_public}' >> /data/misc/adb/adb_keys && "
                          "chown system:shell /data/misc/adb/adb_keys && chmod 640 /data/misc/adb/adb_keys && "
                          "restorecon /data/misc/adb/adb_keys")
-            runner.adb("reload-test-authorized-key", "tcpip", str(arguments.guest_port))
-            runner.wait_ready()
+            runner.reload_authorization()
             forward = runner.forward()
 
             attempted_consumer = True
@@ -229,6 +275,7 @@ def execute(arguments, runner: Runner, report: dict) -> None:
             report["consumer"] = consumer_report
             report["wire"] = observation
             report["consumer_exit_code"] = result.returncode
+            report["checks_executed"] = consumer_report.get("checks_executed", 0)
             if result.returncode != 0 or consumer_report.get("status") != "passed":
                 raise RuntimeError("Native end-to-end consumer failed; inspect commands.jsonl and consumer report")
             if consumer_report.get("checks") != EXPECTED_CHECKS or consumer_report.get("checks_executed") != len(EXPECTED_CHECKS):
@@ -236,9 +283,9 @@ def execute(arguments, runner: Runner, report: dict) -> None:
             if observation["connections"] < 3 or observation["header_errors"]:
                 raise RuntimeError("Wire evidence does not establish three valid connections/reconnections")
             counts = observation["counts"]
-            auth_positive = (counts.get("adbd_to_host:AUTH:1", 0) >= 3
-                             and counts.get("host_to_adbd:AUTH:2", 0) >= 3
-                             and counts.get("adbd_to_host:CNXN", 0) >= 3)
+            auth_connections = authenticated_connection_count(observation)
+            auth_positive = auth_connections >= 3 and auth_connections == observation["connections"]
+            report["authenticated_connections"] = auth_connections
             report["scope"] = {
                 "native_executable_linked_and_executed": True,
                 "real_android_adbd_interoperability": True,
@@ -250,14 +297,16 @@ def execute(arguments, runner: Runner, report: dict) -> None:
                 "wireless_pairing": False,
                 "security_or_performance_acceptance": False,
             }
-            if arguments.require_auth and not (auth_positive and auth_denial_verified):
-                raise RuntimeError("--require-auth requested, but positive RSA AUTH and negative rejection were not both observed")
+            report["authentication_verdict"] = "PASS" if auth_positive and auth_denial_verified else "NOT VERIFIED"
             absent = runner.shell("independent-uninstall-check", f"pm path {PACKAGE}", check=False)
             if absent.returncode != 1 or absent.stdout.strip() or absent.stderr.strip():
                 raise RuntimeError("Official adb did not confirm fixture removal")
             missing = runner.shell("independent-remote-cleanup-check", f"test ! -e '{remote_root}'", check=False)
             if missing.returncode != 0:
                 raise RuntimeError("Official adb did not confirm remote test-directory removal")
+            report["independent_package_and_files_removed"] = True
+            if arguments.require_auth and not (auth_positive and auth_denial_verified):
+                raise RuntimeError("--require-auth requested, but positive RSA AUTH and negative rejection were not both observed")
         except Exception as error:
             primary_error = error
         finally:
@@ -283,22 +332,44 @@ def execute(arguments, runner: Runner, report: dict) -> None:
                 def restore_keys():
                     if original_keys_existed:
                         runner.adb("stage-original-public-keys", "push", key_backup, remote_backup)
+                        owner, group, mode = report["initial_public_key_file_metadata"].split()
                         runner.shell("restore-original-public-keys", f"cat '{remote_backup}' > /data/misc/adb/adb_keys && "
-                                     "chown system:shell /data/misc/adb/adb_keys && chmod 640 /data/misc/adb/adb_keys && "
+                                     f"chown {owner}:{group} /data/misc/adb/adb_keys && chmod {mode} /data/misc/adb/adb_keys && "
                                      "restorecon /data/misc/adb/adb_keys")
                     else:
                         runner.shell("remove-test-public-keys-file", "rm -f /data/misc/adb/adb_keys")
                 cleanup("restore-public-keys", restore_keys)
+                def verify_keys():
+                    if original_keys_existed:
+                        observed = runner.shell("verify-restored-public-keys", "sha256sum /data/misc/adb/adb_keys").stdout.split()[0]
+                        if observed != report["initial_public_keys_sha256"]:
+                            raise RuntimeError("Restored authorization-list bytes differ from original")
+                        metadata = runner.shell("verify-restored-public-key-file-metadata", "stat -c '%u %g %a' /data/misc/adb/adb_keys").stdout.strip()
+                        if metadata != report["initial_public_key_file_metadata"]:
+                            raise RuntimeError("Restored authorization-list ownership or mode differs from original")
+                    else:
+                        runner.shell("verify-removed-public-keys", "test ! -e /data/misc/adb/adb_keys")
+                    report["public_key_list_restored"] = True
+                cleanup("verify-public-keys-restored", verify_keys)
             if rooted:
                 cleanup("remove-staging-files", lambda: runner.shell(
                     "cleanup-staging-files", f"rm -f '{remote_public}' '{remote_backup}'"))
-            if tcp_changed:
-                cleanup("restore-adbd-tcp-property", lambda: runner.shell(
-                    "restore-adbd-tcp-property", "setprop service.adb.tcp.port " + shlex.quote(previous_port)))
-                cleanup("wait-after-tcp-restore", runner.wait_ready)
             if rooted and original_uid != "0":
                 cleanup("restore-adbd-uid", lambda: runner.adb("restore-adbd-uid", "unroot"))
-                cleanup("wait-after-unroot", runner.wait_ready)
+                cleanup("wait-after-unroot", lambda: runner.wait_ready(timeout=45, phase="cleanup-unroot"))
+            elif rooted and keys_changed:
+                cleanup("reload-restored-authorization", runner.reload_authorization)
+            if rooted:
+                def verify_restored_state():
+                    uid = runner.shell("verify-restored-adbd-uid", "id -u").stdout.strip()
+                    if uid != original_uid:
+                        raise RuntimeError("Original adbd privilege state was not restored")
+                    for prop in ("service.adb.tcp.port", "persist.adb.tcp.port", "service.adb.listen_addrs", "ro.adb.secure"):
+                        value = runner.shell("verify-unchanged-" + prop, "getprop " + prop).stdout.strip()
+                        if value != report["properties"][prop]:
+                            raise RuntimeError("adbd property changed unexpectedly: " + prop)
+                    report["adbd_listener_auth_and_uid_restored"] = True
+                cleanup("verify-restored-adbd-state", verify_restored_state)
     report["cleanup_errors"] = cleanup_errors
     report["ephemeral_private_key_deleted"] = True
     if primary_error is not None:
@@ -317,7 +388,8 @@ def main() -> int:
     parser.add_argument("--emulator", help="Optional SDK emulator executable, to preserve its version output")
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--adb-server-port", type=int, default=5038)
-    parser.add_argument("--guest-port", type=int, default=5556)
+    parser.add_argument("--guest-port", type=int, default=5555,
+                        help="Existing guest adbd listener; this driver never switches TCP mode")
     parser.add_argument("--require-auth", action="store_true")
     arguments = parser.parse_args()
     if not re.fullmatch(r"emulator-[0-9]+", arguments.serial):
