@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "requested_utc": "2026-11-02 11:56:40 UTC",
+  "milestone": "M3",
+  "attempt": 1,
+  "implementation_commit": "12dcab973a828c44d1bd2d40673b768ff45f9c12",
+  "after_real_adbd_checkpoint": "e49405fa42668cde4ff264cb88090d8643f8812b",
+  "scope": [
+    "Native public ADB APIs to stock AOSP adbd",
+    "Real Android system SPAKE2 pairing, wrong-code rejection, and STLS connection",
+    "Supplementary independent controlled-peer 13-session fault injection"
+  ],
+  "physical_device": false
+}
