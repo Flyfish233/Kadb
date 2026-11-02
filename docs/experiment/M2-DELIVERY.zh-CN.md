@@ -9,8 +9,11 @@ M1 最终代码 `af6aa42ebb2bd880753600ed43fbe6e49d6f197e` 与
 [CI 41400073710](https://github.com/Flyfish233/Kadb/actions/runs/41400073710)
 的两个成功 job 已再次核对。M1 交付报告、裁决、原始证据和 workflow 保留。
 
-本文件首先作为执行中的恢复检查点提交，随后以实际 CI 证据更新。
-**尚未取得本轮 Darwin / ART 运行结果，当前 M2 裁决为 NOT VERIFIED。**
+首个 M2 工程提交 `677a39e74ef568ac91bec6db2885929003cc709e` 已推送，
+[Darwin CI 41415836057](https://github.com/Flyfish233/Kadb/actions/runs/41415836057)
+已启动四个真实 macOS runner job，首批观察保存于
+`validation/m2-maven/runs/41415836057/initial-jobs.json`。
+**当前等待本轮 Darwin / ART 的完成证据，M2 裁决仍为 NOT VERIFIED。**
 workflow 已存在、任务成功排队或依赖解析成功均不等于目标平台执行通过。
 
 ## 固定输入与范围

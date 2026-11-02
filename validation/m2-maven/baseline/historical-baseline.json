@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "review_date": "2026-11-02",
+  "timezone": "Asia/Singapore",
+  "scope": "Frozen historical evidence; this file records no new M2 platform execution",
+  "baseline_commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "baseline_run": {
+    "id": 40331404006,
+    "url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006",
+    "conclusion": "failure"
+  },
+  "sources": [
+    {
+      "path": "validation/m1-maven/review/baseline-ci-runs.json",
+      "sha256": "99144adb983a8d27bb146ff35d6af564cab3631a5583b4ba882e5407a78b2c95"
+    },
+    {
+      "path": "validation/m1-maven/review/baseline-failure-excerpts.json",
+      "sha256": "acf658fb4bc2ad4d7b1425b49b5547ffb4d0c1a968581cfa3b8ae80092e33054"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 121601466640,
+      "name": "corresponding-source",
+      "conclusion": "success"
+    },
+    {
+      "id": 121601699744,
+      "name": "linux-native",
+      "conclusion": "success"
+    },
+    {
+      "id": 121601699809,
+      "name": "darwin-native (macos-26, arm64, MacosArm64, macosArm64)",
+      "conclusion": "failure"
+    },
+    {
+      "id": 121601699876,
+      "name": "android-and-protocol",
+      "conclusion": "success"
+    },
+    {
+      "id": 121601699903,
+      "name": "darwin-native (macos-26-intel, x86_64, MacosX64, macosX64)",
+      "conclusion": "success"
+    },
+    {
+      "id": 121603580079,
+      "name": "emulator-adbd",
+      "conclusion": "failure"
+    }
+  ],
+  "darwin_arm": {
+    "compile_and_link": "PASS (historical)",
+    "macos_pairing": "PASS (historical)",
+    "swift_consumer": "PASS (historical)",
+    "ios_simulator_boot": "PASS (historical)",
+    "kadb_and_mdns_combined_tests": {
+      "executed": 140,
+      "failed": 0,
+      "per_target_counts": "Not established by the retained exact-baseline aggregate excerpt; do not divide or infer"
+    },
+    "ios_simulator_pairing": {
+      "status": "FAIL (historical)",
+      "reason": "Unknown from retained exact-baseline step logs; do not classify as an environment-only failure",
+      "job_id": 121601699809
+    },
+    "api_comparison_after_pairing": "Not established by failed combined step; M2 should execute API comparison independently"
+  },
+  "ios_x64": {
+    "status": "NOT VERIFIED (historical)",
+    "reason": "No iosX64 target in original Kadb, mDNS, native build map or external pairing consumer; not exercised by baseline workflow"
+  },
+  "android": {
+    "artifact": {
+      "id": 12656905230,
+      "file": "emulator-40331404006.zip",
+      "bytes": 25634,
+      "sha256": "54266fc0070d36b4f596768ccbbb96eb9d9029570ad7696db4f2e8b7090825fe",
+      "hash_verified": true
+    },
+    "initial_boot": "PASS: emulator log reports boot completed in 29565 ms; command 6 device, command 7 sys.boot_completed=1",
+    "root_transition": "PASS: commands 19-22 completed; UID became 0",
+    "tcpip_transition": "FAIL: adb tcpip 5556 returned 0 at command 23; emulator-5554 became offline/not found starting command 24",
+    "native_product_checks_executed": 0,
+    "art_product_checks_executed": 0,
+    "art_failure": "ART was run after Native driver failure and inherited offline emulator; failed in readiness before installation/instrumentation",
+    "attribution": "Historical harness/adbd mode transition failure precedes Maven migration. This does not establish why adbd became offline. Initial boot timeout is not the observed failure.",
+    "bounded_m2_action": "Run ART against a pristine emulator before any Native/adbd TCP-mode transitions; preserve diagnostics and cap retries."
+  },
+  "earlier_simulator_pairing_successes": [
+    {
+      "commit": "35e002e721d8610dfd08d374fd41cbf666f16c35",
+      "path": "validation/integration/35e-reports/darwin-arm-35e002e/evidence/pairing-simulator/report.json",
+      "sha256": "a11286bb70015b27a956af07df5dfe79b616c79c9af758da7ea465d91ac3fd78",
+      "status": "passed",
+      "checks_executed": 2,
+      "positive_sessions": 1,
+      "wrong_code_rejections": 1,
+      "scope": "Earlier pre-Maven commits; cannot replace exact baseline or M2 execution"
+    },
+    {
+      "commit": "696a85f22f25407f92754361b18ae6fd0c2cdba7",
+      "path": "validation/integration/696-reports/darwin-arm-696/pairing-simulator/report.json",
+      "sha256": "492142a18dc332ebe27d72fcad4136f1fda706068c578ca4680d63f3ec919e79",
+      "status": "passed",
+      "checks_executed": 2,
+      "positive_sessions": 1,
+      "wrong_code_rejections": 1,
+      "scope": "Earlier pre-Maven commits; cannot replace exact baseline or M2 execution"
+    }
+  ]
+}

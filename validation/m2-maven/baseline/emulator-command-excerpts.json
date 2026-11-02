@@ -1,0 +1,278 @@
+{
+  "schema": 1,
+  "origin": {
+    "run_id": 40331404006,
+    "artifact_id": 12656905230,
+    "zip_sha256": "54266fc0070d36b4f596768ccbbb96eb9d9029570ad7696db4f2e8b7090825fe",
+    "commit": "49a88b14e9b731e4c086c920eb74664450c79d9f"
+  },
+  "native_commands": [
+    {
+      "sequence": 6,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 2,
+      "stdout": "device\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 7,
+      "label": "wait-for-boot",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "getprop sys.boot_completed"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 35,
+      "stdout": "1\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 8,
+      "label": "verify-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "getprop ro.kernel.qemu"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 10,
+      "stdout": "1\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 16,
+      "label": "initial-uid",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "id -u"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 16,
+      "stdout": "2000\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 19,
+      "label": "root-disposable-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "root"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 1206,
+      "stdout": "restarting adbd as root\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 20,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 1,
+      "stdout": "device\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 21,
+      "label": "wait-for-boot",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "getprop sys.boot_completed"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 7,
+      "stdout": "1\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 22,
+      "label": "verify-root",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "id -u"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 7,
+      "stdout": "0\n",
+      "stderr": ""
+    },
+    {
+      "sequence": 23,
+      "label": "enable-test-tcp-port",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "tcpip",
+        "5556"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 2,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "sequence": 24,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 1,
+      "stdout": "",
+      "stderr": "error: device offline\n"
+    },
+    {
+      "sequence": 25,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 3,
+      "stdout": "",
+      "stderr": "error: device 'emulator-5554' not found\n"
+    },
+    {
+      "sequence": 26,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 4,
+      "stdout": "",
+      "stderr": "error: device offline\n"
+    },
+    {
+      "sequence": 386,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 1,
+      "stdout": "",
+      "stderr": "error: device offline\n"
+    }
+  ],
+  "art_commands": [
+    {
+      "sequence": 6,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 2,
+      "stdout": "",
+      "stderr": "error: device offline\n"
+    },
+    {
+      "sequence": 7,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 2,
+      "stdout": "",
+      "stderr": "error: device offline\n"
+    },
+    {
+      "sequence": 125,
+      "label": "wait-for-emulator",
+      "command": [
+        "/usr/local/lib/android/sdk/platform-tools/adb",
+        "-P",
+        "5038",
+        "-s",
+        "emulator-5554",
+        "get-state"
+      ],
+      "exit_code": 1,
+      "elapsed_ms": 1,
+      "stdout": "",
+      "stderr": "error: device offline\n"
+    }
+  ],
+  "emulator_boot_log_excerpt": [
+    "INFO         | Boot completed in 29565 ms"
+  ]
+}
