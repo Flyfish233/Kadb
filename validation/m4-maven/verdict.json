@@ -2,7 +2,7 @@
   "schema": 1,
   "milestone": "M4",
   "status": "IN PROGRESS",
-  "verdict": "NOT VERIFIED",
+  "verdict": "CONDITIONAL PASS",
   "branch": "work/spake2-maven-migration",
   "baseline": "895674e5725b2cf328bf427e1500cb8f2e6e231e",
   "fixed_candidate": {
@@ -11,10 +11,22 @@
     "production_cryptography_modified": false
   },
   "M4-A": {
-    "verdict": "NOT VERIFIED"
+    "verdict": "PASS",
+    "run_id": 41449058069,
+    "code_sha": "443211e91262fb021335b168b42fe7f18591b6eb",
+    "native_sessions": 4,
+    "native_checks": 32,
+    "authorized_positive": "PASS",
+    "unauthorized_rejection": "PASS",
+    "current_connection_RSA_signature_independently_verified": true,
+    "authorized_before_after": "PASS",
+    "normal_system_allow_deny": "PASS",
+    "cleanup": "PASS"
   },
   "M4-B": {
-    "verdict": "NOT VERIFIED"
+    "verdict": "NOT VERIFIED",
+    "reason": "Official user image denies shell access to service.adb.tls.port; actual listener started, driver must use normal getAdbWirelessPort Binder API",
+    "run_id": 41449058069
   },
   "M4-C": {
     "verdict": "NOT VERIFIED",
@@ -25,6 +37,12 @@
       "id": 41447772316,
       "conclusion": "success",
       "purpose": "Official user-image enforced authentication prerequisite"
+    },
+    {
+      "id": 41449058069,
+      "code_sha": "443211e91262fb021335b168b42fe7f18591b6eb",
+      "conclusion": "failure",
+      "purpose": "RSA checkpoint passed; TLS listener discovery blocked by rootless property access"
     }
   ],
   "R3_K01": "Inherited bidirectional GCM nonce behavior remains unresolved and unchanged.",

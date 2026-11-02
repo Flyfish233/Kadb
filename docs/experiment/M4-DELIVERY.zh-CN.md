@@ -24,10 +24,22 @@ revision 9；实际 `ro.adb.secure=1`、`ro.debuggable=0`、shell UID 2000。
 
 | 项目 | 当前裁决 |
 | --- | --- |
-| M4-A RSA AUTH | NOT VERIFIED |
+| M4-A RSA AUTH | PASS：实际 4 个会话、32 项检查 |
 | M4-B 无线 TLS 身份强制认证与撤销 | NOT VERIFIED |
 | M4-C 实体设备 | NOT VERIFIED（无设备授权，不执行） |
-| M4 整体 | NOT VERIFIED（执行中） |
+| M4 整体 | CONDITIONAL PASS（TLS 继续执行中） |
 
 固定候选仍为 `0.1.0-dev.59105290820b`，对应源码
 `59105290820bcbfd4e0336a2e7713006a461527f`。生产密码学未修改；R3-K01 保持开放。
+
+## RSA 实际通过检查点
+
+实际代码 `443211e91262fb021335b168b42fe7f18591b6eb`，CI [41449058069](https://github.com/Flyfish233/Kadb/actions/runs/41449058069)。M4-A PASS。
+独立临时 A 首次通过匹配的系统确认授权；新连接真实 AUTH token 和 Kadb 的 256 字节签名经独立公钥验证，随后 CNXN 与 Shell 成功。
+未授权 B 的签名本身有效，但没有授权记录；系统明确记录 `Denying adb confirmation` 与 `adbd_auth: received packet: NO`，没有 CNXN。
+B 经 8179 ms 有界等待结束，随后 A 再次完成 AUTH、CNXN 与 Shell。四个进程各执行八项身份及生命周期检查。
+原授权集合、forward、临时私钥和 shell 状态的清理通过。
+
+该 CI 的总体状态为 failure：无线部分尚未进入配对，原因是普通 shell 读取 `service.adb.tls.port` 被平台拒绝，
+真实 adbd 已记录 listener 在端口 36175 启动。此处只调整测试工具使用正常 Binder 查询，不改动目标系统权限或认证机制。
+原始报告、66 个证据文件、运行日志及两份实际二进制摘要核对保存在 `validation/m4-maven/runs/41449058069/`。

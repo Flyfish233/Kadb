@@ -1,0 +1,23 @@
+{
+  "run_id": 41449058069,
+  "code_sha": "443211e91262fb021335b168b42fe7f18591b6eb",
+  "conclusion": "failure",
+  "artifact_id": 13143508984,
+  "download_digest_verified": true,
+  "original_zip_sha256": "1de975a1c17743f025fb37db0073a7117664faa387952f4bde36aacec265937b",
+  "raw_evidence_archive_sha256": "6eeb5d349c2313f7bf0e262af6e4447610c9cac0cc9833d80122620deed0cb8b",
+  "raw_files": 66,
+  "binary_checks": [
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+      "bytes": 24765440,
+      "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+      "bytes": 25107792,
+      "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+    }
+  ],
+  "secret_scan": "No private key/token pattern in text evidence; temporary pairing codes and public keys redacted by runtime before persistence"
+}

@@ -1,0 +1,332 @@
+[
+  {
+    "path": "SOURCE_LOCATION.txt",
+    "bytes": 714,
+    "sha256": "d4ab10edc0b7d351e4de5d8524c0811d39fd5375f53cb64d81f2498582ac0bb4"
+  },
+  {
+    "path": "auth/commands.jsonl",
+    "bytes": 20490067,
+    "sha256": "90a941d047b264509a8bca405c1f4dbdcf364d4072ae9b28f9f49d9aaa7d11f2"
+  },
+  {
+    "path": "auth/final-logcat-redacted.txt",
+    "bytes": 6380920,
+    "sha256": "cafe431272bdd47d35bd99688291ef1b6dc08fb6d8c9d1468113819ab8764304"
+  },
+  {
+    "path": "auth/report-in-progress.json",
+    "bytes": 113653,
+    "sha256": "733cfef18a97fda641b356cba01f45edb52546f4f690930d5f9f03ac58754e31"
+  },
+  {
+    "path": "auth/report.json",
+    "bytes": 114172,
+    "sha256": "bc289ff1b300c68c6c17ef6ae490cf501be52d6b8f8a065a983c94c8151a8873"
+  },
+  {
+    "path": "auth/rsa-a-authorized-after-logcat-redacted.txt",
+    "bytes": 165360,
+    "sha256": "9ebb4422231cce38b985d4c3cbc724b4330b85c6f044a974ba4ff4063fd3c733"
+  },
+  {
+    "path": "auth/rsa-a-authorized-after-native-stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "auth/rsa-a-authorized-after-native-stdout.txt",
+    "bytes": 704,
+    "sha256": "19d21fb421863ae9918e9dec2f030ef0ae21a37714529cdeea51f66837d4f61d"
+  },
+  {
+    "path": "auth/rsa-a-authorized-after-session.json",
+    "bytes": 8874,
+    "sha256": "bd55fcbb08d77f43d27bb7e6db8927079e78967abeb0bd94cca59ee69b4c3797"
+  },
+  {
+    "path": "auth/rsa-a-authorized-before-logcat-redacted.txt",
+    "bytes": 143142,
+    "sha256": "63dacb265056264a20126fc594c5ab859671840dc84e744458f98f616ee554e6"
+  },
+  {
+    "path": "auth/rsa-a-authorized-before-native-stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "auth/rsa-a-authorized-before-native-stdout.txt",
+    "bytes": 704,
+    "sha256": "7ae871922687e2a6ae765ad3d5420e5e618cbf85a0ee38439e803eda3c20ce66"
+  },
+  {
+    "path": "auth/rsa-a-authorized-before-session.json",
+    "bytes": 8356,
+    "sha256": "c06b5ec7621b226d3077ea79c0429602506ec00321529c44674b1e994a5f53ce"
+  },
+  {
+    "path": "auth/rsa-a-normal-enrollment-logcat-redacted.txt",
+    "bytes": 56786,
+    "sha256": "83cd5890a0eefb8fef5524cc95de95268d9d85a3d10ba6654f09ace574caaaa9"
+  },
+  {
+    "path": "auth/rsa-a-normal-enrollment-native-stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "auth/rsa-a-normal-enrollment-native-stdout.txt",
+    "bytes": 707,
+    "sha256": "bdd51fd1ecd2b565f9c132b74600f7b7631138425f560bd7a36ee8b61df46e58"
+  },
+  {
+    "path": "auth/rsa-a-normal-enrollment-session.json",
+    "bytes": 15993,
+    "sha256": "d6ebc93774103aeef3560e8738b7cfd7a5eb92b51ae452c3db7d720f46728fc4"
+  },
+  {
+    "path": "auth/rsa-b-unapproved-denied-logcat-redacted.txt",
+    "bytes": 1208741,
+    "sha256": "8e01a912ada891d67c82bca0a3538bf253bbd23bb398a10e3e1b435d1697d773"
+  },
+  {
+    "path": "auth/rsa-b-unapproved-denied-native-stderr.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "auth/rsa-b-unapproved-denied-native-stdout.txt",
+    "bytes": 766,
+    "sha256": "d2be06c5eb6ce7653cefa72673c837590b65a2ab9ecb746d5ccdbd789e6913d1"
+  },
+  {
+    "path": "auth/rsa-b-unapproved-denied-session.json",
+    "bytes": 14789,
+    "sha256": "b81e4f13f9038089d9803361e1eccee80fa143bbac0f3d5b49e8d4c975e5a915"
+  },
+  {
+    "path": "auth-driver.txt",
+    "bytes": 106,
+    "sha256": "2532a34e1fdeda90f4745b5917581c9a453f4e8ce9f07cfb64acff2bae1c535e"
+  },
+  {
+    "path": "binary-source-association.json",
+    "bytes": 1198,
+    "sha256": "08cae06384eb2535bb618b3e98c02da278f1aea80e71337a4c6fc31812b05dca"
+  },
+  {
+    "path": "build-sdk.txt",
+    "bytes": 349,
+    "sha256": "fea295563d2c308eb1c52d473eee9ed5d6b5d35da1fa053623546b641392a1a1"
+  },
+  {
+    "path": "cmake.txt",
+    "bytes": 91,
+    "sha256": "f6e81c2559f3ce00c5fdad01d7b226c301f5d6b07ee04f65db6dbfdc1cc5970b"
+  },
+  {
+    "path": "commit.txt",
+    "bytes": 41,
+    "sha256": "96d41d077502663dd73a43b5a4d5e78f623d5976ab92c2036d8d154f152c1c56"
+  },
+  {
+    "path": "consumer-files.txt",
+    "bytes": 644,
+    "sha256": "1e45a0a70e28e6bb9459b54910cee35421534a311335f732ed42d92b46d36c11"
+  },
+  {
+    "path": "corresponding-source/native-source-bundle-443211e91262fb021335b168b42fe7f18591b6eb.tar.gz.sha256",
+    "bytes": 135,
+    "sha256": "ff4db05334246b175431e6e9102bacd31854b299575c62547872bca3ae747028"
+  },
+  {
+    "path": "corresponding-source/source-bundle-execution.jsonl",
+    "bytes": 48012,
+    "sha256": "54c475bf36eca5aefb05c6fd8c7d6f66b04a218cef7f87c5f90331d77e92ce98"
+  },
+  {
+    "path": "corresponding-source/source-bundle-manifest.json",
+    "bytes": 381228,
+    "sha256": "cc3af66b63929e9c5efa9f49ebc0af1d2af94358ee5940645b6edb8af159ec82"
+  },
+  {
+    "path": "corresponding-source/source-bundle-result.json",
+    "bytes": 405,
+    "sha256": "41d355c19b5dd30236a58e39ceb6acce71972298fd7eab3dbcd29dc099ebb204"
+  },
+  {
+    "path": "emulator-acceleration.txt",
+    "bytes": 57,
+    "sha256": "4484bdd6d5e16c817d4dfc5cda05334055c86428c861c1d22e8cf67ce42fee49"
+  },
+  {
+    "path": "emulator-readiness/commands.jsonl",
+    "bytes": 53200,
+    "sha256": "0a5ae805be1e73bfc385fd882fef577ca0a28b0bd365c3d5921150a251bc96ca"
+  },
+  {
+    "path": "emulator-readiness/report.json",
+    "bytes": 46001,
+    "sha256": "a666ed89188c4ec33131ec6d92c3a84414e334b17b3ad41916ff59bd36c42de3"
+  },
+  {
+    "path": "emulator-sdk.txt",
+    "bytes": 616,
+    "sha256": "c04c3f4b50682bfb34793f6a76aca76cc26e594abf9026209a099c3cf8481c51"
+  },
+  {
+    "path": "emulator-source.properties",
+    "bytes": 103,
+    "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+  },
+  {
+    "path": "emulator.txt",
+    "bytes": 11720,
+    "sha256": "99e3598d270c563f8d7e41292c732191393d4206148eb20071eadc1728022e39"
+  },
+  {
+    "path": "environment/adbd-sha256.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "environment/adbd-version.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "environment/authorized-keys.txt",
+    "bytes": 290,
+    "sha256": "c5205d7cc88d25d5a0dc93e48c055381f287f5e8593ba2a802dcfb827b60fe3f"
+  },
+  {
+    "path": "environment/commands.jsonl",
+    "bytes": 2480043,
+    "sha256": "76e426057f5565bfd535784033b2a73b4234757ae5f938e0b7ad42093d9accf4"
+  },
+  {
+    "path": "environment/listeners.txt",
+    "bytes": 172,
+    "sha256": "40746e06b69f082354627da62c92ec19fc700f30ae95ee6aaa7628e6fae59df1"
+  },
+  {
+    "path": "environment/logcat-redacted.txt",
+    "bytes": 2341871,
+    "sha256": "7a05a4056c824dfeb73a94c4c67c467fe201d17e53adc335bfd87b48d02c220d"
+  },
+  {
+    "path": "environment/processes.txt",
+    "bytes": 9911,
+    "sha256": "b07a25dcfcba2d40cf130ded8342a77484abedc56c5bfd02069f23585b94e790"
+  },
+  {
+    "path": "environment/report.json",
+    "bytes": 1498,
+    "sha256": "6c731fc3e3525393912d493dc568e629e6eea805a1d6795cae35a0ef0b1ec8f2"
+  },
+  {
+    "path": "environment/shell-permissions.txt",
+    "bytes": 100438,
+    "sha256": "49c97c5ae883847efe6cd2a124cda218bd1d8e99e332729563526cdc2654f11c"
+  },
+  {
+    "path": "environment/wifi.txt",
+    "bytes": 1216,
+    "sha256": "63404532a57ee2c911737ff8c37b4d2781e597d326a5a8425b54f090679f8898"
+  },
+  {
+    "path": "gradle-version.txt",
+    "bytes": 1602,
+    "sha256": "713e13f3b7fa021f4f8ce49b79f6a32c86845ca66890263065fa6add4442c0ce"
+  },
+  {
+    "path": "gradle-wrapper.properties",
+    "bytes": 223,
+    "sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e"
+  },
+  {
+    "path": "host-packages.txt",
+    "bytes": 7351,
+    "sha256": "e6dc6e63c134e4d464ff4deafd787d88ff39fbefa08e90afb7e012b02d43b02a"
+  },
+  {
+    "path": "host.txt",
+    "bytes": 128,
+    "sha256": "a64b6d81308dc728b286592ae78f6594e185e6db8c474be3c8886f7694f38bb7"
+  },
+  {
+    "path": "initial-worktree.txt",
+    "bytes": 13,
+    "sha256": "c1b96317396369bee18f092c9315ac48be4d93ee606829157cfa459e1a95ca2e"
+  },
+  {
+    "path": "java-version.txt",
+    "bytes": 190,
+    "sha256": "dc25d4c269605476cbe8abf0a71814a943b1303a7249657c140d7e2878f5fa46"
+  },
+  {
+    "path": "libs.versions.toml",
+    "bytes": 1614,
+    "sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2"
+  },
+  {
+    "path": "m4-driver-tests.txt",
+    "bytes": 4280,
+    "sha256": "ac21f6fb67b154b617d29ec43817f457e4e37ccd7d876bb24eb049c38b1a2d31"
+  },
+  {
+    "path": "m4-step-outcomes.json",
+    "bytes": 539,
+    "sha256": "a8bad4a87149915c3419db7d3d9d84565d85004690753c5cb2381ad123103343"
+  },
+  {
+    "path": "native-build.txt",
+    "bytes": 56242,
+    "sha256": "7a373a91037e82652eb216ad8698f53c97f7c3558d5ef7182a6610b894b845fd"
+  },
+  {
+    "path": "official-image-identity.json",
+    "bytes": 1806,
+    "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+  },
+  {
+    "path": "openssl.txt",
+    "bytes": 65,
+    "sha256": "54668ea977da3703d07ac46186e7c727c114a5243657f46b69a83c69ec005f34"
+  },
+  {
+    "path": "source-create.txt",
+    "bytes": 48395,
+    "sha256": "24b93be62f00a9a7bc9c887b342b46b5d5ba20a969b176458ce2a00490e78ede"
+  },
+  {
+    "path": "spake2-candidate-integrity.json",
+    "bytes": 1732,
+    "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+  },
+  {
+    "path": "spake2-maven-resolution.json",
+    "bytes": 56258,
+    "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+  },
+  {
+    "path": "spake2-repository.txt",
+    "bytes": 57,
+    "sha256": "97137e64f9de51b8713a4fa7350e981d99ae2218bc30eae2ee3588f3c20e9e0b"
+  },
+  {
+    "path": "spake2-resolved-source-verification.json",
+    "bytes": 18293,
+    "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+  },
+  {
+    "path": "system-image-package.xml",
+    "bytes": 19322,
+    "sha256": "566035acac35b556b18b02b4a1a39d974bfcf915472a3b468e1ad054bb7f64a8"
+  },
+  {
+    "path": "system-image-source.properties",
+    "bytes": 366,
+    "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+  }
+]

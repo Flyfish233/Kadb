@@ -1,0 +1,2471 @@
+{
+  "schema": 1,
+  "milestone": "M4",
+  "status": "incomplete",
+  "verdict": "CONDITIONAL PASS",
+  "started_utc": "2026-11-02T13:05:29.797714+00:00",
+  "run_id": "0e10377c1b564e07eeb787659387941e",
+  "physical_device": false,
+  "root_used": false,
+  "authorization_files_written_by_driver": false,
+  "M4-A": {
+    "verdict": "PASS",
+    "layer": "Native public API to real authenticated Android adbd",
+    "sessions": [
+      {
+        "label": "rsa-a-normal-enrollment",
+        "identity": "rsa_a",
+        "mode": "positive",
+        "identity_fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+        "approval_requested": "allow",
+        "status": "executed",
+        "checks_executed_known": true,
+        "system": {
+          "adbd_pid": 2009,
+          "system_server_pid": 544,
+          "tls_matched_identity": false,
+          "tls_key_mismatch": false,
+          "tls_certificate_verify_failed": false,
+          "tls_handshake_failed": false,
+          "auth_not_required": false,
+          "framework_no": false,
+          "framework_deny": false,
+          "adbd_logs": "11-02 13:05:31.014  2009  2602 I adbd    : host-23: read thread spawning\n11-02 13:05:31.014  2009  2603 I adbd    : host-23: write thread spawning\n11-02 13:05:31.015  2009  2009 I adbd    : host-23: already offline\n11-02 13:05:31.015  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:31.023  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:31.023  2009  2009 E adbd    : Invalid base64 key \n11-02 13:05:31.023  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:31.025  2009  2009 I adbd    : prompting user to authorize key\n11-02 13:05:31.025  2009  2009 I adbd    : adbd_auth: sending prompt with id 1\n11-02 13:05:31.025  2009  2009 I adbd    : adbd_auth: prompting user for adb authentication\n11-02 13:05:31.025  2009  2028 I adbd    : adbd_auth: marking framework writable\n11-02 13:05:31.459  2009  2028 I adbd    : adbd_auth: received packet: OK\n11-02 13:05:31.459  2009  2028 I adbd    : adb client 1 authorized\n11-02 13:05:31.459  2009  2028 I adbd    : adbd_auth: no prompts to send\n11-02 13:05:31.463  2009  2009 I adbd    : adb client authorized\n11-02 13:05:31.566  2009  2602 I adbd    : host-23: read failed: Success\n11-02 13:05:31.566  2009  2602 I adbd    : host-23: connection terminated: read failed\n11-02 13:05:31.567  2009  2009 I adbd    : host-23: offline\n11-02 13:05:31.567  2009  2009 I adbd    : ADB disconnect\n11-02 13:05:31.567  2009  2009 I adbd    : destroying transport host-23\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopping\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopped\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): destructing\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): already stopped",
+          "framework_auth_logs": "11-02 13:05:31.033   544  2033 D AdbDebuggingManager: Received connected key message: <REDACTED-PUBLIC-KEY:981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a> runner@unknown\n11-02 13:05:31.033   544  2033 D AdbDebuggingManager: Received public key: <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:31.196   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a> runner@unknown, state = 4, alwaysAllow = true, lastConnectionTime = 1793624731196, authWindow = 604800000\n11-02 13:05:31.196   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3, state = 1, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:31.379   544   563 W Looper  : Slow dispatch took 183ms android.fg h=com.android.server.adb.AdbDebuggingManager$AdbDebuggingHandler c=null m=5\n11-02 13:05:31.463   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> runner@runnervm48cm3, state = 2, alwaysAllow = true, lastConnectionTime = 1793624731459, authWindow = 604800000"
+        },
+        "consumer": {
+          "schema": 1,
+          "status": "passed",
+          "mode": "positive",
+          "checks_executed": 8,
+          "checks": [
+            "identity_import",
+            "initially_disconnected",
+            "authenticated_connection",
+            "shell_marker",
+            "attempt_bounded",
+            "connection_closed",
+            "closed_client_reuse_rejected",
+            "temporary_identity_cleared"
+          ],
+          "certificate_fingerprint_sha256": "IkwWPCel6ZaYoDlUDKMpTQd8qHV+MXs7zvEfT93Z0SU=",
+          "adb_handshake_completed": true,
+          "shell_succeeded": true,
+          "rejection_type": null,
+          "rejection_message": null,
+          "rejection_category": null,
+          "rejection_alone_proves_authentication": false,
+          "socket_timeout_ms": 20000,
+          "attempt_elapsed_ms": 555,
+          "closed_reuse_elapsed_ms": 0,
+          "elapsed_ms": 561,
+          "error_type": null,
+          "error": null,
+          "physical_device": false
+        },
+        "peer_before": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        },
+        "native_pid": 6190,
+        "pending_confirmation": {
+          "current_connection_AUTH3_matches_identity": true,
+          "last_key_received_matches_identity": true,
+          "fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+          "action": "allow",
+          "binder_action_completed": true
+        },
+        "exit_code": 0,
+        "wire": {
+          "connections": 1,
+          "counts": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 2,
+            "adbd_to_host:AUTH:1": 2,
+            "host_to_adbd:AUTH": 2,
+            "host_to_adbd:AUTH:2": 1,
+            "host_to_adbd:AUTH:3": 1,
+            "adbd_to_host:CNXN": 1,
+            "host_to_adbd:OPEN": 1,
+            "adbd_to_host:OKAY": 1,
+            "adbd_to_host:WRTE": 1,
+            "adbd_to_host:CLSE": 1,
+            "host_to_adbd:OKAY": 1,
+            "host_to_adbd:CLSE": 1
+          },
+          "connection_counts": {
+            "1": {
+              "host_to_adbd:CNXN": 1,
+              "adbd_to_host:AUTH": 2,
+              "adbd_to_host:AUTH:1": 2,
+              "host_to_adbd:AUTH": 2,
+              "host_to_adbd:AUTH:2": 1,
+              "host_to_adbd:AUTH:3": 1,
+              "adbd_to_host:CNXN": 1,
+              "host_to_adbd:OPEN": 1,
+              "adbd_to_host:OKAY": 1,
+              "adbd_to_host:WRTE": 1,
+              "adbd_to_host:CLSE": 1,
+              "host_to_adbd:OKAY": 1,
+              "host_to_adbd:CLSE": 1
+            }
+          },
+          "bytes_forwarded": {
+            "host_to_adbd": 1243,
+            "adbd_to_host": 625
+          },
+          "header_errors": [],
+          "first_events": [
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 62
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "AUTH",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 20
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "AUTH",
+              "arg0": 2,
+              "arg1": 0,
+              "payload_length": 256
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "AUTH",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 20
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "AUTH",
+              "arg0": 3,
+              "arg1": 0,
+              "payload_length": 720
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 390
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OPEN",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 61
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "OKAY",
+              "arg0": 55,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "WRTE",
+              "arg0": 55,
+              "arg1": 1,
+              "payload_length": 51
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CLSE",
+              "arg0": 55,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OKAY",
+              "arg0": 1,
+              "arg1": 55,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CLSE",
+              "arg0": 1,
+              "arg1": 55,
+              "payload_length": 0
+            }
+          ],
+          "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+          "auth_events": {
+            "1": [
+              {
+                "direction": "adbd_to_host",
+                "auth_type": 1,
+                "payload_length": 20,
+                "payload_sha256": "a8e8547427cd240bf06ecac6762980eea774726ad928afdae7103b1ad2a8fc8c",
+                "challenge_sequence": 1,
+                "valid_token_length": true
+              },
+              {
+                "direction": "host_to_adbd",
+                "auth_type": 2,
+                "payload_length": 256,
+                "payload_sha256": "710bbc267d0b7da5fa433ddfe5a4c4a705111731e8108dcc0ceb0641fdeb844b",
+                "signature_matches_expected_identity": true,
+                "challenge_sequence": 1
+              },
+              {
+                "direction": "adbd_to_host",
+                "auth_type": 1,
+                "payload_length": 20,
+                "payload_sha256": "a266e064b156e146b3cb3967cb0c8e2a53220e7adfe717492f0287bcee190d89",
+                "challenge_sequence": 2,
+                "valid_token_length": true
+              },
+              {
+                "direction": "host_to_adbd",
+                "auth_type": 3,
+                "payload_length": 720,
+                "payload_sha256": "fd982135f6d8206f7860d33fe0f3fba5e9d1fa66077b5a836b163f45d040ae8f",
+                "public_key_matches_expected_identity": true,
+                "supplied_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5"
+              }
+            ]
+          },
+          "auth_verifications": {
+            "1": [
+              {
+                "challenge_sequence": 1,
+                "token_observed_on_this_connection": true,
+                "token_sha256": "a8e8547427cd240bf06ecac6762980eea774726ad928afdae7103b1ad2a8fc8c",
+                "token_length": 20,
+                "signature_sha256": "710bbc267d0b7da5fa433ddfe5a4c4a705111731e8108dcc0ceb0641fdeb844b",
+                "signature_length": 256,
+                "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+                "signature_matches_expected_identity": true,
+                "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+              }
+            ]
+          },
+          "tls": {
+            "1": {
+              "host_to_adbd": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              },
+              "adbd_to_host": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              }
+            }
+          },
+          "transport_events": [
+            {
+              "connection": 1,
+              "event": "client_accepted",
+              "elapsed_ms": 205
+            },
+            {
+              "connection": 1,
+              "event": "target_connected",
+              "elapsed_ms": 207
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 758,
+              "direction": "host_to_adbd"
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 758,
+              "direction": "adbd_to_host"
+            },
+            {
+              "connection": 1,
+              "event": "connection_closed",
+              "elapsed_ms": 759
+            }
+          ],
+          "active_connections": 0,
+          "raw_auth_payloads_persisted": false,
+          "tls_payloads_decrypted": false,
+          "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+        },
+        "elapsed_ms": 812,
+        "native_report_count": 1,
+        "native_lifecycle_checks": "PASS",
+        "peer_after": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        }
+      },
+      {
+        "label": "rsa-a-authorized-before",
+        "identity": "rsa_a",
+        "mode": "positive",
+        "identity_fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+        "approval_requested": null,
+        "status": "executed",
+        "checks_executed_known": true,
+        "system": {
+          "adbd_pid": 2009,
+          "system_server_pid": 544,
+          "tls_matched_identity": false,
+          "tls_key_mismatch": false,
+          "tls_certificate_verify_failed": false,
+          "tls_handshake_failed": false,
+          "auth_not_required": false,
+          "framework_no": false,
+          "framework_deny": false,
+          "adbd_logs": "11-02 13:05:32.313  2009  2691 I adbd    : host-28: write thread spawning\n11-02 13:05:32.315  2009  2690 I adbd    : host-28: read thread spawning\n11-02 13:05:32.317  2009  2009 I adbd    : host-28: already offline\n11-02 13:05:32.317  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:32.326  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:32.326  2009  2009 I adbd    : adb client authorized\n11-02 13:05:32.387  2009  2690 I adbd    : host-28: read failed: Success\n11-02 13:05:32.387  2009  2690 I adbd    : host-28: connection terminated: read failed\n11-02 13:05:32.387  2009  2009 I adbd    : host-28: offline\n11-02 13:05:32.387  2009  2009 I adbd    : destroying transport host-28\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): stopping\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): stopped\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): destructing\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): already stopped",
+          "framework_auth_logs": ""
+        },
+        "consumer": {
+          "schema": 1,
+          "status": "passed",
+          "mode": "positive",
+          "checks_executed": 8,
+          "checks": [
+            "identity_import",
+            "initially_disconnected",
+            "authenticated_connection",
+            "shell_marker",
+            "attempt_bounded",
+            "connection_closed",
+            "closed_client_reuse_rejected",
+            "temporary_identity_cleared"
+          ],
+          "certificate_fingerprint_sha256": "eqrPtzFj+swzIUsr3yYTJ5SXpACIMU55zaRC/+SFMUw=",
+          "adb_handshake_completed": true,
+          "shell_succeeded": true,
+          "rejection_type": null,
+          "rejection_message": null,
+          "rejection_category": null,
+          "rejection_alone_proves_authentication": false,
+          "socket_timeout_ms": 8000,
+          "attempt_elapsed_ms": 72,
+          "closed_reuse_elapsed_ms": 0,
+          "elapsed_ms": 77,
+          "error_type": null,
+          "error": null,
+          "physical_device": false
+        },
+        "peer_before": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        },
+        "native_pid": 6222,
+        "exit_code": 0,
+        "wire": {
+          "connections": 1,
+          "counts": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 1,
+            "adbd_to_host:AUTH:1": 1,
+            "host_to_adbd:AUTH": 1,
+            "host_to_adbd:AUTH:2": 1,
+            "adbd_to_host:CNXN": 1,
+            "host_to_adbd:OPEN": 1,
+            "adbd_to_host:OKAY": 1,
+            "adbd_to_host:WRTE": 1,
+            "adbd_to_host:CLSE": 1,
+            "host_to_adbd:OKAY": 1,
+            "host_to_adbd:CLSE": 1
+          },
+          "connection_counts": {
+            "1": {
+              "host_to_adbd:CNXN": 1,
+              "adbd_to_host:AUTH": 1,
+              "adbd_to_host:AUTH:1": 1,
+              "host_to_adbd:AUTH": 1,
+              "host_to_adbd:AUTH:2": 1,
+              "adbd_to_host:CNXN": 1,
+              "host_to_adbd:OPEN": 1,
+              "adbd_to_host:OKAY": 1,
+              "adbd_to_host:WRTE": 1,
+              "adbd_to_host:CLSE": 1,
+              "host_to_adbd:OKAY": 1,
+              "host_to_adbd:CLSE": 1
+            }
+          },
+          "bytes_forwarded": {
+            "host_to_adbd": 499,
+            "adbd_to_host": 581
+          },
+          "header_errors": [],
+          "first_events": [
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 62
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "AUTH",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 20
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "AUTH",
+              "arg0": 2,
+              "arg1": 0,
+              "payload_length": 256
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 390
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OPEN",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 61
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "OKAY",
+              "arg0": 66,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "WRTE",
+              "arg0": 66,
+              "arg1": 1,
+              "payload_length": 51
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CLSE",
+              "arg0": 66,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OKAY",
+              "arg0": 1,
+              "arg1": 66,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CLSE",
+              "arg0": 1,
+              "arg1": 66,
+              "payload_length": 0
+            }
+          ],
+          "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+          "auth_events": {
+            "1": [
+              {
+                "direction": "adbd_to_host",
+                "auth_type": 1,
+                "payload_length": 20,
+                "payload_sha256": "b6cf565dff25b84fec39b8db228fa29b904d3ad7e4494902f927260bb6fe1b21",
+                "challenge_sequence": 1,
+                "valid_token_length": true
+              },
+              {
+                "direction": "host_to_adbd",
+                "auth_type": 2,
+                "payload_length": 256,
+                "payload_sha256": "ee5b1b3c1f6dbd21ace5eb626923264b1bb40b5f0a56d1a155947b5ec420c9b8",
+                "signature_matches_expected_identity": true,
+                "challenge_sequence": 1
+              }
+            ]
+          },
+          "auth_verifications": {
+            "1": [
+              {
+                "challenge_sequence": 1,
+                "token_observed_on_this_connection": true,
+                "token_sha256": "b6cf565dff25b84fec39b8db228fa29b904d3ad7e4494902f927260bb6fe1b21",
+                "token_length": 20,
+                "signature_sha256": "ee5b1b3c1f6dbd21ace5eb626923264b1bb40b5f0a56d1a155947b5ec420c9b8",
+                "signature_length": 256,
+                "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+                "signature_matches_expected_identity": true,
+                "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+              }
+            ]
+          },
+          "tls": {
+            "1": {
+              "host_to_adbd": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              },
+              "adbd_to_host": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              }
+            }
+          },
+          "transport_events": [
+            {
+              "connection": 1,
+              "event": "client_accepted",
+              "elapsed_ms": 116
+            },
+            {
+              "connection": 1,
+              "event": "target_connected",
+              "elapsed_ms": 116
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 187,
+              "direction": "host_to_adbd"
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 188,
+              "direction": "adbd_to_host"
+            },
+            {
+              "connection": 1,
+              "event": "connection_closed",
+              "elapsed_ms": 188
+            }
+          ],
+          "active_connections": 0,
+          "raw_auth_payloads_persisted": false,
+          "tls_payloads_decrypted": false,
+          "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+        },
+        "elapsed_ms": 317,
+        "native_report_count": 1,
+        "native_lifecycle_checks": "PASS",
+        "peer_after": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        }
+      },
+      {
+        "label": "rsa-b-unapproved-denied",
+        "identity": "rsa_b",
+        "mode": "reject",
+        "identity_fingerprint_md5": "93:72:3D:96:D7:84:ED:F6:F6:3E:2B:5C:F8:50:F2:AB",
+        "approval_requested": "deny",
+        "status": "executed",
+        "checks_executed_known": true,
+        "system": {
+          "adbd_pid": 2009,
+          "system_server_pid": 544,
+          "tls_matched_identity": false,
+          "tls_key_mismatch": false,
+          "tls_certificate_verify_failed": false,
+          "tls_handshake_failed": false,
+          "auth_not_required": false,
+          "framework_no": true,
+          "framework_deny": true,
+          "adbd_logs": "11-02 13:05:33.722  2009  2781 I adbd    : host-22: read thread spawning\n11-02 13:05:33.722  2009  2782 I adbd    : host-22: write thread spawning\n11-02 13:05:33.726  2009  2009 I adbd    : host-22: already offline\n11-02 13:05:33.726  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:33.734  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:33.735  2009  2009 E adbd    : Invalid base64 key \n11-02 13:05:33.735  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:33.736  2009  2009 I adbd    : prompting user to authorize key\n11-02 13:05:33.736  2009  2009 I adbd    : adbd_auth: sending prompt with id 3\n11-02 13:05:33.736  2009  2009 I adbd    : adbd_auth: prompting user for adb authentication\n11-02 13:05:33.736  2009  2028 I adbd    : adbd_auth: marking framework writable\n11-02 13:05:33.967  2009  2028 I adbd    : adbd_auth: received packet: NO\n11-02 13:05:33.967  2009  2028 I adbd    : adbd_auth: no prompts to send\n11-02 13:05:41.741  2009  2781 I adbd    : host-22: read failed: Success\n11-02 13:05:41.741  2009  2781 I adbd    : host-22: connection terminated: read failed\n11-02 13:05:41.741  2009  2009 I adbd    : host-22: offline\n11-02 13:05:41.741  2009  2009 I adbd    : ADB disconnect\n11-02 13:05:41.741  2009  2009 I adbd    : destroying transport host-22\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): stopping\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): stopped\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): destructing\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): already stopped",
+          "framework_auth_logs": "11-02 13:05:33.737   544  2033 D AdbDebuggingManager: Received disconnected message: <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3\n11-02 13:05:33.737   544  2033 D AdbDebuggingManager: Received connected key message: <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> runner@runnervm48cm3\n11-02 13:05:33.737   544  2033 D AdbDebuggingManager: Received public key: <REDACTED-PUBLIC-KEY:54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0> Kadb@runnervm48cm3\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:33.784   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3, state = 7, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:33.784   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> runner@runnervm48cm3, state = 4, alwaysAllow = true, lastConnectionTime = 1793624733784, authWindow = 604800000\n11-02 13:05:33.784   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0> Kadb@runnervm48cm3, state = 1, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:33.967   544   563 W AdbDebuggingManager: Denying adb confirmation\n11-02 13:05:33.967   544   563 D AdbDebuggingManager: Logging key null, state = 3, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:36.844   544   575 D SystemServerTimingAsync: ssm.onUnlockedUser-0_com.android.server.adb.AdbService$Lifecycle\n11-02 13:05:41.994   544  3380 D SystemServerTimingAsync: ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.adb.AdbService$Lifecycle"
+        },
+        "consumer": {
+          "schema": 1,
+          "status": "passed",
+          "mode": "reject",
+          "checks_executed": 8,
+          "checks": [
+            "identity_import",
+            "initially_disconnected",
+            "connection_attempt_rejected",
+            "failed_connection_not_open",
+            "attempt_bounded",
+            "connection_closed",
+            "closed_client_reuse_rejected",
+            "temporary_identity_cleared"
+          ],
+          "certificate_fingerprint_sha256": "DG9svQ1AWyHxwn+R2wIFYuztTI1e+hczsEB421jxptU=",
+          "adb_handshake_completed": false,
+          "shell_succeeded": false,
+          "rejection_type": "IOException",
+          "rejection_message": "Socket operation timed out",
+          "rejection_category": "io_timeout",
+          "rejection_alone_proves_authentication": false,
+          "socket_timeout_ms": 8000,
+          "attempt_elapsed_ms": 8179,
+          "closed_reuse_elapsed_ms": 0,
+          "elapsed_ms": 8185,
+          "error_type": null,
+          "error": null,
+          "physical_device": false
+        },
+        "peer_before": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        },
+        "native_pid": 6245,
+        "pending_confirmation": {
+          "current_connection_AUTH3_matches_identity": true,
+          "last_key_received_matches_identity": true,
+          "fingerprint_md5": "93:72:3D:96:D7:84:ED:F6:F6:3E:2B:5C:F8:50:F2:AB",
+          "action": "deny",
+          "binder_action_completed": true
+        },
+        "exit_code": 0,
+        "wire": {
+          "connections": 1,
+          "counts": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 2,
+            "adbd_to_host:AUTH:1": 2,
+            "host_to_adbd:AUTH": 2,
+            "host_to_adbd:AUTH:2": 1,
+            "host_to_adbd:AUTH:3": 1
+          },
+          "connection_counts": {
+            "1": {
+              "host_to_adbd:CNXN": 1,
+              "adbd_to_host:AUTH": 2,
+              "adbd_to_host:AUTH:1": 2,
+              "host_to_adbd:AUTH": 2,
+              "host_to_adbd:AUTH:2": 1,
+              "host_to_adbd:AUTH:3": 1
+            }
+          },
+          "bytes_forwarded": {
+            "host_to_adbd": 1110,
+            "adbd_to_host": 88
+          },
+          "header_errors": [],
+          "first_events": [
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 62
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "AUTH",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 20
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "AUTH",
+              "arg0": 2,
+              "arg1": 0,
+              "payload_length": 256
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "AUTH",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 20
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "AUTH",
+              "arg0": 3,
+              "arg1": 0,
+              "payload_length": 720
+            }
+          ],
+          "expected_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0",
+          "auth_events": {
+            "1": [
+              {
+                "direction": "adbd_to_host",
+                "auth_type": 1,
+                "payload_length": 20,
+                "payload_sha256": "0c427c2644178ac745551e8a495f41d544c252120a7dcfdfaf67b436e2d5c847",
+                "challenge_sequence": 1,
+                "valid_token_length": true
+              },
+              {
+                "direction": "host_to_adbd",
+                "auth_type": 2,
+                "payload_length": 256,
+                "payload_sha256": "063f61866e66cfa998d024f1de5cb2f79a2b8840d1e72194ac7f71c19cd092fa",
+                "signature_matches_expected_identity": true,
+                "challenge_sequence": 1
+              },
+              {
+                "direction": "adbd_to_host",
+                "auth_type": 1,
+                "payload_length": 20,
+                "payload_sha256": "8bba4c4b127e19e0d4bfe4943a2fb3a5434d048f1ce6a4c1f0a80844d265b1d8",
+                "challenge_sequence": 2,
+                "valid_token_length": true
+              },
+              {
+                "direction": "host_to_adbd",
+                "auth_type": 3,
+                "payload_length": 720,
+                "payload_sha256": "8e0be4579358c6261d4334ccde3c2e41acf769ff3de17f11209162c9bb2432f4",
+                "public_key_matches_expected_identity": true,
+                "supplied_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0"
+              }
+            ]
+          },
+          "auth_verifications": {
+            "1": [
+              {
+                "challenge_sequence": 1,
+                "token_observed_on_this_connection": true,
+                "token_sha256": "0c427c2644178ac745551e8a495f41d544c252120a7dcfdfaf67b436e2d5c847",
+                "token_length": 20,
+                "signature_sha256": "063f61866e66cfa998d024f1de5cb2f79a2b8840d1e72194ac7f71c19cd092fa",
+                "signature_length": 256,
+                "expected_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0",
+                "signature_matches_expected_identity": true,
+                "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+              }
+            ]
+          },
+          "tls": {
+            "1": {
+              "host_to_adbd": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              },
+              "adbd_to_host": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              }
+            }
+          },
+          "transport_events": [
+            {
+              "connection": 1,
+              "event": "client_accepted",
+              "elapsed_ms": 155
+            },
+            {
+              "connection": 1,
+              "event": "target_connected",
+              "elapsed_ms": 155
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 8331,
+              "direction": "host_to_adbd"
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 8331,
+              "direction": "adbd_to_host"
+            },
+            {
+              "connection": 1,
+              "event": "connection_closed",
+              "elapsed_ms": 8331
+            }
+          ],
+          "active_connections": 0,
+          "raw_auth_payloads_persisted": false,
+          "tls_payloads_decrypted": false,
+          "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+        },
+        "elapsed_ms": 8372,
+        "native_report_count": 1,
+        "native_lifecycle_checks": "PASS",
+        "peer_after": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        }
+      },
+      {
+        "label": "rsa-a-authorized-after",
+        "identity": "rsa_a",
+        "mode": "positive",
+        "identity_fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+        "approval_requested": null,
+        "status": "executed",
+        "checks_executed_known": true,
+        "system": {
+          "adbd_pid": 2009,
+          "system_server_pid": 544,
+          "tls_matched_identity": false,
+          "tls_key_mismatch": false,
+          "tls_certificate_verify_failed": false,
+          "tls_handshake_failed": false,
+          "auth_not_required": false,
+          "framework_no": false,
+          "framework_deny": false,
+          "adbd_logs": "11-02 13:05:42.672  2009  3424 I adbd    : host-23: read thread spawning\n11-02 13:05:42.674  2009  2009 I adbd    : host-23: already offline\n11-02 13:05:42.674  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:42.674  2009  3425 I adbd    : host-23: write thread spawning\n11-02 13:05:42.679  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:42.679  2009  2009 I adbd    : adb client authorized\n11-02 13:05:42.742  2009  3424 I adbd    : host-23: read failed: Success\n11-02 13:05:42.742  2009  3424 I adbd    : host-23: connection terminated: read failed\n11-02 13:05:42.742  2009  2009 I adbd    : host-23: offline\n11-02 13:05:42.742  2009  2009 I adbd    : destroying transport host-23\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopping\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopped\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): destructing\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): already stopped",
+          "framework_auth_logs": ""
+        },
+        "consumer": {
+          "schema": 1,
+          "status": "passed",
+          "mode": "positive",
+          "checks_executed": 8,
+          "checks": [
+            "identity_import",
+            "initially_disconnected",
+            "authenticated_connection",
+            "shell_marker",
+            "attempt_bounded",
+            "connection_closed",
+            "closed_client_reuse_rejected",
+            "temporary_identity_cleared"
+          ],
+          "certificate_fingerprint_sha256": "wk2P/1oFJ31H23OnoEqAPGhq/PhL58oKHHtKKyPif3o=",
+          "adb_handshake_completed": true,
+          "shell_succeeded": true,
+          "rejection_type": null,
+          "rejection_message": null,
+          "rejection_category": null,
+          "rejection_alone_proves_authentication": false,
+          "socket_timeout_ms": 8000,
+          "attempt_elapsed_ms": 70,
+          "closed_reuse_elapsed_ms": 0,
+          "elapsed_ms": 76,
+          "error_type": null,
+          "error": null,
+          "physical_device": false
+        },
+        "peer_before": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        },
+        "native_pid": 6291,
+        "exit_code": 0,
+        "wire": {
+          "connections": 1,
+          "counts": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 1,
+            "adbd_to_host:AUTH:1": 1,
+            "host_to_adbd:AUTH": 1,
+            "host_to_adbd:AUTH:2": 1,
+            "adbd_to_host:CNXN": 1,
+            "host_to_adbd:OPEN": 1,
+            "adbd_to_host:OKAY": 1,
+            "adbd_to_host:WRTE": 2,
+            "adbd_to_host:CLSE": 2,
+            "host_to_adbd:OKAY": 2,
+            "host_to_adbd:CLSE": 1
+          },
+          "connection_counts": {
+            "1": {
+              "host_to_adbd:CNXN": 1,
+              "adbd_to_host:AUTH": 1,
+              "adbd_to_host:AUTH:1": 1,
+              "host_to_adbd:AUTH": 1,
+              "host_to_adbd:AUTH:2": 1,
+              "adbd_to_host:CNXN": 1,
+              "host_to_adbd:OPEN": 1,
+              "adbd_to_host:OKAY": 1,
+              "adbd_to_host:WRTE": 2,
+              "adbd_to_host:CLSE": 2,
+              "host_to_adbd:OKAY": 2,
+              "host_to_adbd:CLSE": 1
+            }
+          },
+          "bytes_forwarded": {
+            "host_to_adbd": 523,
+            "adbd_to_host": 629
+          },
+          "header_errors": [],
+          "first_events": [
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 62
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "AUTH",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 20
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "AUTH",
+              "arg0": 2,
+              "arg1": 0,
+              "payload_length": 256
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CNXN",
+              "arg0": 16777217,
+              "arg1": 1048576,
+              "payload_length": 390
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OPEN",
+              "arg0": 1,
+              "arg1": 0,
+              "payload_length": 61
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "OKAY",
+              "arg0": 89,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "WRTE",
+              "arg0": 89,
+              "arg1": 1,
+              "payload_length": 45
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "WRTE",
+              "arg0": 89,
+              "arg1": 1,
+              "payload_length": 6
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CLSE",
+              "arg0": 89,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OKAY",
+              "arg0": 1,
+              "arg1": 89,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "adbd_to_host",
+              "command": "CLSE",
+              "arg0": 89,
+              "arg1": 1,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "OKAY",
+              "arg0": 1,
+              "arg1": 89,
+              "payload_length": 0
+            },
+            {
+              "connection": 1,
+              "direction": "host_to_adbd",
+              "command": "CLSE",
+              "arg0": 1,
+              "arg1": 89,
+              "payload_length": 0
+            }
+          ],
+          "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+          "auth_events": {
+            "1": [
+              {
+                "direction": "adbd_to_host",
+                "auth_type": 1,
+                "payload_length": 20,
+                "payload_sha256": "41684f6811e5a315af8c3952f98f3ee591acc02018b22215af6c22f02fd05c04",
+                "challenge_sequence": 1,
+                "valid_token_length": true
+              },
+              {
+                "direction": "host_to_adbd",
+                "auth_type": 2,
+                "payload_length": 256,
+                "payload_sha256": "7baf0bea93f7262f1e0bc1ee794966574050354114f6210df4d384992d98a37a",
+                "signature_matches_expected_identity": true,
+                "challenge_sequence": 1
+              }
+            ]
+          },
+          "auth_verifications": {
+            "1": [
+              {
+                "challenge_sequence": 1,
+                "token_observed_on_this_connection": true,
+                "token_sha256": "41684f6811e5a315af8c3952f98f3ee591acc02018b22215af6c22f02fd05c04",
+                "token_length": 20,
+                "signature_sha256": "7baf0bea93f7262f1e0bc1ee794966574050354114f6210df4d384992d98a37a",
+                "signature_length": 256,
+                "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+                "signature_matches_expected_identity": true,
+                "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+              }
+            ]
+          },
+          "tls": {
+            "1": {
+              "host_to_adbd": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              },
+              "adbd_to_host": {
+                "stls_observed": false,
+                "tls_record_counts": {},
+                "server_hello": [],
+                "tls_parse_errors": [],
+                "tls_handshake_success_inferred": false
+              }
+            }
+          },
+          "transport_events": [
+            {
+              "connection": 1,
+              "event": "client_accepted",
+              "elapsed_ms": 185
+            },
+            {
+              "connection": 1,
+              "event": "target_connected",
+              "elapsed_ms": 185
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 254,
+              "direction": "host_to_adbd"
+            },
+            {
+              "connection": 1,
+              "event": "eof",
+              "elapsed_ms": 254,
+              "direction": "adbd_to_host"
+            },
+            {
+              "connection": 1,
+              "event": "connection_closed",
+              "elapsed_ms": 254
+            }
+          ],
+          "active_connections": 0,
+          "raw_auth_payloads_persisted": false,
+          "tls_payloads_decrypted": false,
+          "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+        },
+        "elapsed_ms": 386,
+        "native_report_count": 1,
+        "native_lifecycle_checks": "PASS",
+        "peer_after": {
+          "pid": 2009,
+          "guest_port": 5555,
+          "listener_present": true,
+          "ro.adb.secure": "1"
+        }
+      }
+    ],
+    "authorization_method": "normal pending-key IAdbManager.allowDebugging",
+    "rejection_method": "normal IAdbManager.denyDebugging with actual adbd NO",
+    "normal_deny_may_leave_socket_waiting": true,
+    "peer": {
+      "pid": 2009,
+      "guest_port": 5555,
+      "listener_present": true,
+      "ro.adb.secure": "1"
+    },
+    "enrollment_authorization_state": {
+      "count": 2,
+      "public_key_sha256": [
+        "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a",
+        "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5"
+      ],
+      "expected_set_matched": true,
+      "elapsed_ms": 26,
+      "polls": 1
+    },
+    "enrollment": "PASS",
+    "authorized_positive": "PASS",
+    "negative_authorization_state": {
+      "count": 2,
+      "public_key_sha256": [
+        "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a",
+        "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5"
+      ],
+      "expected_set_matched": true,
+      "elapsed_ms": 65,
+      "polls": 1
+    },
+    "unauthorized_rejection": "PASS",
+    "positive_after_rejection": "PASS",
+    "protocol_identity_evidence": "PASS",
+    "revocation_cleanup": {
+      "identity": "rsa_a",
+      "fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+      "normal_api": "IAdbManager.unpairDevice",
+      "originally_authorized": true,
+      "elapsed_ms": 110,
+      "polls": 1,
+      "identity_absent": true,
+      "authorization_state": {
+        "count": 1,
+        "public_key_sha256": [
+          "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a"
+        ],
+        "expected_set_matched": true,
+        "elapsed_ms": 57,
+        "polls": 1
+      }
+    },
+    "cleanup_authorization_state": {
+      "count": 1,
+      "public_key_sha256": [
+        "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a"
+      ],
+      "expected_set_matched": true,
+      "elapsed_ms": 41,
+      "polls": 1
+    },
+    "cleanup": "PASS"
+  },
+  "M4-B": {
+    "verdict": "NOT VERIFIED",
+    "status": "failed",
+    "sessions": [],
+    "pairing_verdict": "NOT VERIFIED",
+    "paired_identity_acceptance": "NOT VERIFIED",
+    "unpaired_identity_rejection": "NOT VERIFIED",
+    "revocation_rejection": "NOT VERIFIED",
+    "physical_device": false,
+    "authorization_api": "android.debug.IAdbManager",
+    "root_used": false,
+    "authorization_files_written_by_driver": false,
+    "revocation_boundary": "Fresh connections after targeted unpair and persisted public-key removal; no adbd restart",
+    "original_wifi_setting": "0",
+    "original_authorized_key_count": 1,
+    "system_server_pid": 544,
+    "error": "Authenticated wireless adbd listener did not become ready",
+    "error_type": "RuntimeError",
+    "cleanup_authorizations": {
+      "count": 1,
+      "public_key_sha256": [
+        "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a"
+      ],
+      "expected_set_matched": true,
+      "elapsed_ms": 20,
+      "polls": 1
+    },
+    "wifi_setting_restored": true,
+    "cleanup_errors": [],
+    "execution_error": "Authenticated wireless adbd listener did not become ready"
+  },
+  "M4-C": {
+    "verdict": "NOT VERIFIED",
+    "reason": "No physical device authorized or selected"
+  },
+  "cleanup_errors": [],
+  "sessions": [
+    {
+      "label": "rsa-a-normal-enrollment",
+      "identity": "rsa_a",
+      "identity_fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+      "mode": "positive",
+      "approval_requested": "allow",
+      "status": "executed",
+      "checks_executed_known": true,
+      "system": {
+        "adbd_pid": 2009,
+        "system_server_pid": 544,
+        "tls_matched_identity": false,
+        "tls_key_mismatch": false,
+        "tls_certificate_verify_failed": false,
+        "tls_handshake_failed": false,
+        "auth_not_required": false,
+        "framework_no": false,
+        "framework_deny": false,
+        "adbd_logs": "11-02 13:05:31.014  2009  2602 I adbd    : host-23: read thread spawning\n11-02 13:05:31.014  2009  2603 I adbd    : host-23: write thread spawning\n11-02 13:05:31.015  2009  2009 I adbd    : host-23: already offline\n11-02 13:05:31.015  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:31.023  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:31.023  2009  2009 E adbd    : Invalid base64 key \n11-02 13:05:31.023  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:31.025  2009  2009 I adbd    : prompting user to authorize key\n11-02 13:05:31.025  2009  2009 I adbd    : adbd_auth: sending prompt with id 1\n11-02 13:05:31.025  2009  2009 I adbd    : adbd_auth: prompting user for adb authentication\n11-02 13:05:31.025  2009  2028 I adbd    : adbd_auth: marking framework writable\n11-02 13:05:31.459  2009  2028 I adbd    : adbd_auth: received packet: OK\n11-02 13:05:31.459  2009  2028 I adbd    : adb client 1 authorized\n11-02 13:05:31.459  2009  2028 I adbd    : adbd_auth: no prompts to send\n11-02 13:05:31.463  2009  2009 I adbd    : adb client authorized\n11-02 13:05:31.566  2009  2602 I adbd    : host-23: read failed: Success\n11-02 13:05:31.566  2009  2602 I adbd    : host-23: connection terminated: read failed\n11-02 13:05:31.567  2009  2009 I adbd    : host-23: offline\n11-02 13:05:31.567  2009  2009 I adbd    : ADB disconnect\n11-02 13:05:31.567  2009  2009 I adbd    : destroying transport host-23\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopping\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopped\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): destructing\n11-02 13:05:31.567  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): already stopped",
+        "framework_auth_logs": "11-02 13:05:31.033   544  2033 D AdbDebuggingManager: Received connected key message: <REDACTED-PUBLIC-KEY:981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a> runner@unknown\n11-02 13:05:31.033   544  2033 D AdbDebuggingManager: Received public key: <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:31.134   544   986 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:31.196   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a> runner@unknown, state = 4, alwaysAllow = true, lastConnectionTime = 1793624731196, authWindow = 604800000\n11-02 13:05:31.196   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3, state = 1, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:31.290   544  1447 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:31.379   544   563 W Looper  : Slow dispatch took 183ms android.fg h=com.android.server.adb.AdbDebuggingManager$AdbDebuggingHandler c=null m=5\n11-02 13:05:31.463   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> runner@runnervm48cm3, state = 2, alwaysAllow = true, lastConnectionTime = 1793624731459, authWindow = 604800000"
+      },
+      "consumer": {
+        "schema": 1,
+        "status": "passed",
+        "mode": "positive",
+        "checks_executed": 8,
+        "checks": [
+          "identity_import",
+          "initially_disconnected",
+          "authenticated_connection",
+          "shell_marker",
+          "attempt_bounded",
+          "connection_closed",
+          "closed_client_reuse_rejected",
+          "temporary_identity_cleared"
+        ],
+        "certificate_fingerprint_sha256": "IkwWPCel6ZaYoDlUDKMpTQd8qHV+MXs7zvEfT93Z0SU=",
+        "adb_handshake_completed": true,
+        "shell_succeeded": true,
+        "rejection_type": null,
+        "rejection_message": null,
+        "rejection_category": null,
+        "rejection_alone_proves_authentication": false,
+        "socket_timeout_ms": 20000,
+        "attempt_elapsed_ms": 555,
+        "closed_reuse_elapsed_ms": 0,
+        "elapsed_ms": 561,
+        "error_type": null,
+        "error": null,
+        "physical_device": false
+      },
+      "peer_before": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      },
+      "native_pid": 6190,
+      "pending_confirmation": {
+        "current_connection_AUTH3_matches_identity": true,
+        "last_key_received_matches_identity": true,
+        "fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+        "action": "allow",
+        "binder_action_completed": true
+      },
+      "exit_code": 0,
+      "wire": {
+        "connections": 1,
+        "counts": {
+          "host_to_adbd:CNXN": 1,
+          "adbd_to_host:AUTH": 2,
+          "adbd_to_host:AUTH:1": 2,
+          "host_to_adbd:AUTH": 2,
+          "host_to_adbd:AUTH:2": 1,
+          "host_to_adbd:AUTH:3": 1,
+          "adbd_to_host:CNXN": 1,
+          "host_to_adbd:OPEN": 1,
+          "adbd_to_host:OKAY": 1,
+          "adbd_to_host:WRTE": 1,
+          "adbd_to_host:CLSE": 1,
+          "host_to_adbd:OKAY": 1,
+          "host_to_adbd:CLSE": 1
+        },
+        "connection_counts": {
+          "1": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 2,
+            "adbd_to_host:AUTH:1": 2,
+            "host_to_adbd:AUTH": 2,
+            "host_to_adbd:AUTH:2": 1,
+            "host_to_adbd:AUTH:3": 1,
+            "adbd_to_host:CNXN": 1,
+            "host_to_adbd:OPEN": 1,
+            "adbd_to_host:OKAY": 1,
+            "adbd_to_host:WRTE": 1,
+            "adbd_to_host:CLSE": 1,
+            "host_to_adbd:OKAY": 1,
+            "host_to_adbd:CLSE": 1
+          }
+        },
+        "bytes_forwarded": {
+          "host_to_adbd": 1243,
+          "adbd_to_host": 625
+        },
+        "header_errors": [],
+        "first_events": [
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 62
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "AUTH",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 20
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "AUTH",
+            "arg0": 2,
+            "arg1": 0,
+            "payload_length": 256
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "AUTH",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 20
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "AUTH",
+            "arg0": 3,
+            "arg1": 0,
+            "payload_length": 720
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 390
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OPEN",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 61
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "OKAY",
+            "arg0": 55,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "WRTE",
+            "arg0": 55,
+            "arg1": 1,
+            "payload_length": 51
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CLSE",
+            "arg0": 55,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OKAY",
+            "arg0": 1,
+            "arg1": 55,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CLSE",
+            "arg0": 1,
+            "arg1": 55,
+            "payload_length": 0
+          }
+        ],
+        "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+        "auth_events": {
+          "1": [
+            {
+              "direction": "adbd_to_host",
+              "auth_type": 1,
+              "payload_length": 20,
+              "payload_sha256": "a8e8547427cd240bf06ecac6762980eea774726ad928afdae7103b1ad2a8fc8c",
+              "challenge_sequence": 1,
+              "valid_token_length": true
+            },
+            {
+              "direction": "host_to_adbd",
+              "auth_type": 2,
+              "payload_length": 256,
+              "payload_sha256": "710bbc267d0b7da5fa433ddfe5a4c4a705111731e8108dcc0ceb0641fdeb844b",
+              "signature_matches_expected_identity": true,
+              "challenge_sequence": 1
+            },
+            {
+              "direction": "adbd_to_host",
+              "auth_type": 1,
+              "payload_length": 20,
+              "payload_sha256": "a266e064b156e146b3cb3967cb0c8e2a53220e7adfe717492f0287bcee190d89",
+              "challenge_sequence": 2,
+              "valid_token_length": true
+            },
+            {
+              "direction": "host_to_adbd",
+              "auth_type": 3,
+              "payload_length": 720,
+              "payload_sha256": "fd982135f6d8206f7860d33fe0f3fba5e9d1fa66077b5a836b163f45d040ae8f",
+              "public_key_matches_expected_identity": true,
+              "supplied_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5"
+            }
+          ]
+        },
+        "auth_verifications": {
+          "1": [
+            {
+              "challenge_sequence": 1,
+              "token_observed_on_this_connection": true,
+              "token_sha256": "a8e8547427cd240bf06ecac6762980eea774726ad928afdae7103b1ad2a8fc8c",
+              "token_length": 20,
+              "signature_sha256": "710bbc267d0b7da5fa433ddfe5a4c4a705111731e8108dcc0ceb0641fdeb844b",
+              "signature_length": 256,
+              "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+              "signature_matches_expected_identity": true,
+              "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+            }
+          ]
+        },
+        "tls": {
+          "1": {
+            "host_to_adbd": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            },
+            "adbd_to_host": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            }
+          }
+        },
+        "transport_events": [
+          {
+            "connection": 1,
+            "event": "client_accepted",
+            "elapsed_ms": 205
+          },
+          {
+            "connection": 1,
+            "event": "target_connected",
+            "elapsed_ms": 207
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 758,
+            "direction": "host_to_adbd"
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 758,
+            "direction": "adbd_to_host"
+          },
+          {
+            "connection": 1,
+            "event": "connection_closed",
+            "elapsed_ms": 759
+          }
+        ],
+        "active_connections": 0,
+        "raw_auth_payloads_persisted": false,
+        "tls_payloads_decrypted": false,
+        "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+      },
+      "elapsed_ms": 812,
+      "native_report_count": 1,
+      "native_lifecycle_checks": "PASS",
+      "peer_after": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      }
+    },
+    {
+      "label": "rsa-a-authorized-before",
+      "identity": "rsa_a",
+      "identity_fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+      "mode": "positive",
+      "approval_requested": null,
+      "status": "executed",
+      "checks_executed_known": true,
+      "system": {
+        "adbd_pid": 2009,
+        "system_server_pid": 544,
+        "tls_matched_identity": false,
+        "tls_key_mismatch": false,
+        "tls_certificate_verify_failed": false,
+        "tls_handshake_failed": false,
+        "auth_not_required": false,
+        "framework_no": false,
+        "framework_deny": false,
+        "adbd_logs": "11-02 13:05:32.313  2009  2691 I adbd    : host-28: write thread spawning\n11-02 13:05:32.315  2009  2690 I adbd    : host-28: read thread spawning\n11-02 13:05:32.317  2009  2009 I adbd    : host-28: already offline\n11-02 13:05:32.317  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:32.326  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:32.326  2009  2009 I adbd    : adb client authorized\n11-02 13:05:32.387  2009  2690 I adbd    : host-28: read failed: Success\n11-02 13:05:32.387  2009  2690 I adbd    : host-28: connection terminated: read failed\n11-02 13:05:32.387  2009  2009 I adbd    : host-28: offline\n11-02 13:05:32.387  2009  2009 I adbd    : destroying transport host-28\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): stopping\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): stopped\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): destructing\n11-02 13:05:32.387  2009  2009 I adbd    : BlockingConnectionAdapter(host-28): already stopped",
+        "framework_auth_logs": ""
+      },
+      "consumer": {
+        "schema": 1,
+        "status": "passed",
+        "mode": "positive",
+        "checks_executed": 8,
+        "checks": [
+          "identity_import",
+          "initially_disconnected",
+          "authenticated_connection",
+          "shell_marker",
+          "attempt_bounded",
+          "connection_closed",
+          "closed_client_reuse_rejected",
+          "temporary_identity_cleared"
+        ],
+        "certificate_fingerprint_sha256": "eqrPtzFj+swzIUsr3yYTJ5SXpACIMU55zaRC/+SFMUw=",
+        "adb_handshake_completed": true,
+        "shell_succeeded": true,
+        "rejection_type": null,
+        "rejection_message": null,
+        "rejection_category": null,
+        "rejection_alone_proves_authentication": false,
+        "socket_timeout_ms": 8000,
+        "attempt_elapsed_ms": 72,
+        "closed_reuse_elapsed_ms": 0,
+        "elapsed_ms": 77,
+        "error_type": null,
+        "error": null,
+        "physical_device": false
+      },
+      "peer_before": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      },
+      "native_pid": 6222,
+      "exit_code": 0,
+      "wire": {
+        "connections": 1,
+        "counts": {
+          "host_to_adbd:CNXN": 1,
+          "adbd_to_host:AUTH": 1,
+          "adbd_to_host:AUTH:1": 1,
+          "host_to_adbd:AUTH": 1,
+          "host_to_adbd:AUTH:2": 1,
+          "adbd_to_host:CNXN": 1,
+          "host_to_adbd:OPEN": 1,
+          "adbd_to_host:OKAY": 1,
+          "adbd_to_host:WRTE": 1,
+          "adbd_to_host:CLSE": 1,
+          "host_to_adbd:OKAY": 1,
+          "host_to_adbd:CLSE": 1
+        },
+        "connection_counts": {
+          "1": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 1,
+            "adbd_to_host:AUTH:1": 1,
+            "host_to_adbd:AUTH": 1,
+            "host_to_adbd:AUTH:2": 1,
+            "adbd_to_host:CNXN": 1,
+            "host_to_adbd:OPEN": 1,
+            "adbd_to_host:OKAY": 1,
+            "adbd_to_host:WRTE": 1,
+            "adbd_to_host:CLSE": 1,
+            "host_to_adbd:OKAY": 1,
+            "host_to_adbd:CLSE": 1
+          }
+        },
+        "bytes_forwarded": {
+          "host_to_adbd": 499,
+          "adbd_to_host": 581
+        },
+        "header_errors": [],
+        "first_events": [
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 62
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "AUTH",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 20
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "AUTH",
+            "arg0": 2,
+            "arg1": 0,
+            "payload_length": 256
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 390
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OPEN",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 61
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "OKAY",
+            "arg0": 66,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "WRTE",
+            "arg0": 66,
+            "arg1": 1,
+            "payload_length": 51
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CLSE",
+            "arg0": 66,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OKAY",
+            "arg0": 1,
+            "arg1": 66,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CLSE",
+            "arg0": 1,
+            "arg1": 66,
+            "payload_length": 0
+          }
+        ],
+        "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+        "auth_events": {
+          "1": [
+            {
+              "direction": "adbd_to_host",
+              "auth_type": 1,
+              "payload_length": 20,
+              "payload_sha256": "b6cf565dff25b84fec39b8db228fa29b904d3ad7e4494902f927260bb6fe1b21",
+              "challenge_sequence": 1,
+              "valid_token_length": true
+            },
+            {
+              "direction": "host_to_adbd",
+              "auth_type": 2,
+              "payload_length": 256,
+              "payload_sha256": "ee5b1b3c1f6dbd21ace5eb626923264b1bb40b5f0a56d1a155947b5ec420c9b8",
+              "signature_matches_expected_identity": true,
+              "challenge_sequence": 1
+            }
+          ]
+        },
+        "auth_verifications": {
+          "1": [
+            {
+              "challenge_sequence": 1,
+              "token_observed_on_this_connection": true,
+              "token_sha256": "b6cf565dff25b84fec39b8db228fa29b904d3ad7e4494902f927260bb6fe1b21",
+              "token_length": 20,
+              "signature_sha256": "ee5b1b3c1f6dbd21ace5eb626923264b1bb40b5f0a56d1a155947b5ec420c9b8",
+              "signature_length": 256,
+              "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+              "signature_matches_expected_identity": true,
+              "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+            }
+          ]
+        },
+        "tls": {
+          "1": {
+            "host_to_adbd": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            },
+            "adbd_to_host": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            }
+          }
+        },
+        "transport_events": [
+          {
+            "connection": 1,
+            "event": "client_accepted",
+            "elapsed_ms": 116
+          },
+          {
+            "connection": 1,
+            "event": "target_connected",
+            "elapsed_ms": 116
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 187,
+            "direction": "host_to_adbd"
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 188,
+            "direction": "adbd_to_host"
+          },
+          {
+            "connection": 1,
+            "event": "connection_closed",
+            "elapsed_ms": 188
+          }
+        ],
+        "active_connections": 0,
+        "raw_auth_payloads_persisted": false,
+        "tls_payloads_decrypted": false,
+        "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+      },
+      "elapsed_ms": 317,
+      "native_report_count": 1,
+      "native_lifecycle_checks": "PASS",
+      "peer_after": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      }
+    },
+    {
+      "label": "rsa-b-unapproved-denied",
+      "identity": "rsa_b",
+      "identity_fingerprint_md5": "93:72:3D:96:D7:84:ED:F6:F6:3E:2B:5C:F8:50:F2:AB",
+      "mode": "reject",
+      "approval_requested": "deny",
+      "status": "executed",
+      "checks_executed_known": true,
+      "system": {
+        "adbd_pid": 2009,
+        "system_server_pid": 544,
+        "tls_matched_identity": false,
+        "tls_key_mismatch": false,
+        "tls_certificate_verify_failed": false,
+        "tls_handshake_failed": false,
+        "auth_not_required": false,
+        "framework_no": true,
+        "framework_deny": true,
+        "adbd_logs": "11-02 13:05:33.722  2009  2781 I adbd    : host-22: read thread spawning\n11-02 13:05:33.722  2009  2782 I adbd    : host-22: write thread spawning\n11-02 13:05:33.726  2009  2009 I adbd    : host-22: already offline\n11-02 13:05:33.726  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:33.734  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:33.735  2009  2009 E adbd    : Invalid base64 key \n11-02 13:05:33.735  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:33.736  2009  2009 I adbd    : prompting user to authorize key\n11-02 13:05:33.736  2009  2009 I adbd    : adbd_auth: sending prompt with id 3\n11-02 13:05:33.736  2009  2009 I adbd    : adbd_auth: prompting user for adb authentication\n11-02 13:05:33.736  2009  2028 I adbd    : adbd_auth: marking framework writable\n11-02 13:05:33.967  2009  2028 I adbd    : adbd_auth: received packet: NO\n11-02 13:05:33.967  2009  2028 I adbd    : adbd_auth: no prompts to send\n11-02 13:05:41.741  2009  2781 I adbd    : host-22: read failed: Success\n11-02 13:05:41.741  2009  2781 I adbd    : host-22: connection terminated: read failed\n11-02 13:05:41.741  2009  2009 I adbd    : host-22: offline\n11-02 13:05:41.741  2009  2009 I adbd    : ADB disconnect\n11-02 13:05:41.741  2009  2009 I adbd    : destroying transport host-22\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): stopping\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): stopped\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): destructing\n11-02 13:05:41.741  2009  2009 I adbd    : BlockingConnectionAdapter(host-22): already stopped",
+        "framework_auth_logs": "11-02 13:05:33.737   544  2033 D AdbDebuggingManager: Received disconnected message: <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3\n11-02 13:05:33.737   544  2033 D AdbDebuggingManager: Received connected key message: <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> runner@runnervm48cm3\n11-02 13:05:33.737   544  2033 D AdbDebuggingManager: Received public key: <REDACTED-PUBLIC-KEY:54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0> Kadb@runnervm48cm3\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:33.778   544   986 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:33.784   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> Kadb@runnervm48cm3, state = 7, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:33.784   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5> runner@runnervm48cm3, state = 4, alwaysAllow = true, lastConnectionTime = 1793624733784, authWindow = 604800000\n11-02 13:05:33.784   544   563 D AdbDebuggingManager: Logging key <REDACTED-PUBLIC-KEY:54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0> Kadb@runnervm48cm3, state = 1, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: Cannot read system keys\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: java.io.FileNotFoundException: /adb_keys: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:574)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat java.io.FileInputStream.<init>(FileInputStream.java:179)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.FileUtils.readTextFile(FileUtils.java:743)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbDebuggingManager.dump(AdbDebuggingManager.java:1828)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat com.android.server.adb.AdbService.dump(AdbService.java:604)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.doDump(Binder.java:1166)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.dump(Binder.java:1156)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.onTransact(Binder.java:1022)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.debug.IAdbManager$Stub.onTransact(IAdbManager.java:358)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransactInternal(Binder.java:1505)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat android.os.Binder.execTransact(Binder.java:1444)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.Linux.open(Native Method)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.ForwardingOs.open(ForwardingOs.java:563)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \tat libcore.io.IoBridge.open(IoBridge.java:560)\n11-02 13:05:33.927   544   986 I AdbDebuggingManager: \t... 10 more\n11-02 13:05:33.967   544   563 W AdbDebuggingManager: Denying adb confirmation\n11-02 13:05:33.967   544   563 D AdbDebuggingManager: Logging key null, state = 3, alwaysAllow = false, lastConnectionTime = 0, authWindow = 604800000\n11-02 13:05:36.844   544   575 D SystemServerTimingAsync: ssm.onUnlockedUser-0_com.android.server.adb.AdbService$Lifecycle\n11-02 13:05:41.994   544  3380 D SystemServerTimingAsync: ssm.onCompletedEventUser-0_{|Unlocked|}_com.android.server.adb.AdbService$Lifecycle"
+      },
+      "consumer": {
+        "schema": 1,
+        "status": "passed",
+        "mode": "reject",
+        "checks_executed": 8,
+        "checks": [
+          "identity_import",
+          "initially_disconnected",
+          "connection_attempt_rejected",
+          "failed_connection_not_open",
+          "attempt_bounded",
+          "connection_closed",
+          "closed_client_reuse_rejected",
+          "temporary_identity_cleared"
+        ],
+        "certificate_fingerprint_sha256": "DG9svQ1AWyHxwn+R2wIFYuztTI1e+hczsEB421jxptU=",
+        "adb_handshake_completed": false,
+        "shell_succeeded": false,
+        "rejection_type": "IOException",
+        "rejection_message": "Socket operation timed out",
+        "rejection_category": "io_timeout",
+        "rejection_alone_proves_authentication": false,
+        "socket_timeout_ms": 8000,
+        "attempt_elapsed_ms": 8179,
+        "closed_reuse_elapsed_ms": 0,
+        "elapsed_ms": 8185,
+        "error_type": null,
+        "error": null,
+        "physical_device": false
+      },
+      "peer_before": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      },
+      "native_pid": 6245,
+      "pending_confirmation": {
+        "current_connection_AUTH3_matches_identity": true,
+        "last_key_received_matches_identity": true,
+        "fingerprint_md5": "93:72:3D:96:D7:84:ED:F6:F6:3E:2B:5C:F8:50:F2:AB",
+        "action": "deny",
+        "binder_action_completed": true
+      },
+      "exit_code": 0,
+      "wire": {
+        "connections": 1,
+        "counts": {
+          "host_to_adbd:CNXN": 1,
+          "adbd_to_host:AUTH": 2,
+          "adbd_to_host:AUTH:1": 2,
+          "host_to_adbd:AUTH": 2,
+          "host_to_adbd:AUTH:2": 1,
+          "host_to_adbd:AUTH:3": 1
+        },
+        "connection_counts": {
+          "1": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 2,
+            "adbd_to_host:AUTH:1": 2,
+            "host_to_adbd:AUTH": 2,
+            "host_to_adbd:AUTH:2": 1,
+            "host_to_adbd:AUTH:3": 1
+          }
+        },
+        "bytes_forwarded": {
+          "host_to_adbd": 1110,
+          "adbd_to_host": 88
+        },
+        "header_errors": [],
+        "first_events": [
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 62
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "AUTH",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 20
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "AUTH",
+            "arg0": 2,
+            "arg1": 0,
+            "payload_length": 256
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "AUTH",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 20
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "AUTH",
+            "arg0": 3,
+            "arg1": 0,
+            "payload_length": 720
+          }
+        ],
+        "expected_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0",
+        "auth_events": {
+          "1": [
+            {
+              "direction": "adbd_to_host",
+              "auth_type": 1,
+              "payload_length": 20,
+              "payload_sha256": "0c427c2644178ac745551e8a495f41d544c252120a7dcfdfaf67b436e2d5c847",
+              "challenge_sequence": 1,
+              "valid_token_length": true
+            },
+            {
+              "direction": "host_to_adbd",
+              "auth_type": 2,
+              "payload_length": 256,
+              "payload_sha256": "063f61866e66cfa998d024f1de5cb2f79a2b8840d1e72194ac7f71c19cd092fa",
+              "signature_matches_expected_identity": true,
+              "challenge_sequence": 1
+            },
+            {
+              "direction": "adbd_to_host",
+              "auth_type": 1,
+              "payload_length": 20,
+              "payload_sha256": "8bba4c4b127e19e0d4bfe4943a2fb3a5434d048f1ce6a4c1f0a80844d265b1d8",
+              "challenge_sequence": 2,
+              "valid_token_length": true
+            },
+            {
+              "direction": "host_to_adbd",
+              "auth_type": 3,
+              "payload_length": 720,
+              "payload_sha256": "8e0be4579358c6261d4334ccde3c2e41acf769ff3de17f11209162c9bb2432f4",
+              "public_key_matches_expected_identity": true,
+              "supplied_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0"
+            }
+          ]
+        },
+        "auth_verifications": {
+          "1": [
+            {
+              "challenge_sequence": 1,
+              "token_observed_on_this_connection": true,
+              "token_sha256": "0c427c2644178ac745551e8a495f41d544c252120a7dcfdfaf67b436e2d5c847",
+              "token_length": 20,
+              "signature_sha256": "063f61866e66cfa998d024f1de5cb2f79a2b8840d1e72194ac7f71c19cd092fa",
+              "signature_length": 256,
+              "expected_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0",
+              "signature_matches_expected_identity": true,
+              "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+            }
+          ]
+        },
+        "tls": {
+          "1": {
+            "host_to_adbd": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            },
+            "adbd_to_host": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            }
+          }
+        },
+        "transport_events": [
+          {
+            "connection": 1,
+            "event": "client_accepted",
+            "elapsed_ms": 155
+          },
+          {
+            "connection": 1,
+            "event": "target_connected",
+            "elapsed_ms": 155
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 8331,
+            "direction": "host_to_adbd"
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 8331,
+            "direction": "adbd_to_host"
+          },
+          {
+            "connection": 1,
+            "event": "connection_closed",
+            "elapsed_ms": 8331
+          }
+        ],
+        "active_connections": 0,
+        "raw_auth_payloads_persisted": false,
+        "tls_payloads_decrypted": false,
+        "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+      },
+      "elapsed_ms": 8372,
+      "native_report_count": 1,
+      "native_lifecycle_checks": "PASS",
+      "peer_after": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      }
+    },
+    {
+      "label": "rsa-a-authorized-after",
+      "identity": "rsa_a",
+      "identity_fingerprint_md5": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+      "mode": "positive",
+      "approval_requested": null,
+      "status": "executed",
+      "checks_executed_known": true,
+      "system": {
+        "adbd_pid": 2009,
+        "system_server_pid": 544,
+        "tls_matched_identity": false,
+        "tls_key_mismatch": false,
+        "tls_certificate_verify_failed": false,
+        "tls_handshake_failed": false,
+        "auth_not_required": false,
+        "framework_no": false,
+        "framework_deny": false,
+        "adbd_logs": "11-02 13:05:42.672  2009  3424 I adbd    : host-23: read thread spawning\n11-02 13:05:42.674  2009  2009 I adbd    : host-23: already offline\n11-02 13:05:42.674  2009  2009 I adbd    : Calling send_auth_request...\n11-02 13:05:42.674  2009  3425 I adbd    : host-23: write thread spawning\n11-02 13:05:42.679  2009  2009 I adbd    : adbd_auth: loading keys from /data/misc/adb/adb_keys\n11-02 13:05:42.679  2009  2009 I adbd    : adb client authorized\n11-02 13:05:42.742  2009  3424 I adbd    : host-23: read failed: Success\n11-02 13:05:42.742  2009  3424 I adbd    : host-23: connection terminated: read failed\n11-02 13:05:42.742  2009  2009 I adbd    : host-23: offline\n11-02 13:05:42.742  2009  2009 I adbd    : destroying transport host-23\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopping\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): stopped\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): destructing\n11-02 13:05:42.742  2009  2009 I adbd    : BlockingConnectionAdapter(host-23): already stopped",
+        "framework_auth_logs": ""
+      },
+      "consumer": {
+        "schema": 1,
+        "status": "passed",
+        "mode": "positive",
+        "checks_executed": 8,
+        "checks": [
+          "identity_import",
+          "initially_disconnected",
+          "authenticated_connection",
+          "shell_marker",
+          "attempt_bounded",
+          "connection_closed",
+          "closed_client_reuse_rejected",
+          "temporary_identity_cleared"
+        ],
+        "certificate_fingerprint_sha256": "wk2P/1oFJ31H23OnoEqAPGhq/PhL58oKHHtKKyPif3o=",
+        "adb_handshake_completed": true,
+        "shell_succeeded": true,
+        "rejection_type": null,
+        "rejection_message": null,
+        "rejection_category": null,
+        "rejection_alone_proves_authentication": false,
+        "socket_timeout_ms": 8000,
+        "attempt_elapsed_ms": 70,
+        "closed_reuse_elapsed_ms": 0,
+        "elapsed_ms": 76,
+        "error_type": null,
+        "error": null,
+        "physical_device": false
+      },
+      "peer_before": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      },
+      "native_pid": 6291,
+      "exit_code": 0,
+      "wire": {
+        "connections": 1,
+        "counts": {
+          "host_to_adbd:CNXN": 1,
+          "adbd_to_host:AUTH": 1,
+          "adbd_to_host:AUTH:1": 1,
+          "host_to_adbd:AUTH": 1,
+          "host_to_adbd:AUTH:2": 1,
+          "adbd_to_host:CNXN": 1,
+          "host_to_adbd:OPEN": 1,
+          "adbd_to_host:OKAY": 1,
+          "adbd_to_host:WRTE": 2,
+          "adbd_to_host:CLSE": 2,
+          "host_to_adbd:OKAY": 2,
+          "host_to_adbd:CLSE": 1
+        },
+        "connection_counts": {
+          "1": {
+            "host_to_adbd:CNXN": 1,
+            "adbd_to_host:AUTH": 1,
+            "adbd_to_host:AUTH:1": 1,
+            "host_to_adbd:AUTH": 1,
+            "host_to_adbd:AUTH:2": 1,
+            "adbd_to_host:CNXN": 1,
+            "host_to_adbd:OPEN": 1,
+            "adbd_to_host:OKAY": 1,
+            "adbd_to_host:WRTE": 2,
+            "adbd_to_host:CLSE": 2,
+            "host_to_adbd:OKAY": 2,
+            "host_to_adbd:CLSE": 1
+          }
+        },
+        "bytes_forwarded": {
+          "host_to_adbd": 523,
+          "adbd_to_host": 629
+        },
+        "header_errors": [],
+        "first_events": [
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 62
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "AUTH",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 20
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "AUTH",
+            "arg0": 2,
+            "arg1": 0,
+            "payload_length": 256
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CNXN",
+            "arg0": 16777217,
+            "arg1": 1048576,
+            "payload_length": 390
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OPEN",
+            "arg0": 1,
+            "arg1": 0,
+            "payload_length": 61
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "OKAY",
+            "arg0": 89,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "WRTE",
+            "arg0": 89,
+            "arg1": 1,
+            "payload_length": 45
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "WRTE",
+            "arg0": 89,
+            "arg1": 1,
+            "payload_length": 6
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CLSE",
+            "arg0": 89,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OKAY",
+            "arg0": 1,
+            "arg1": 89,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "adbd_to_host",
+            "command": "CLSE",
+            "arg0": 89,
+            "arg1": 1,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "OKAY",
+            "arg0": 1,
+            "arg1": 89,
+            "payload_length": 0
+          },
+          {
+            "connection": 1,
+            "direction": "host_to_adbd",
+            "command": "CLSE",
+            "arg0": 1,
+            "arg1": 89,
+            "payload_length": 0
+          }
+        ],
+        "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+        "auth_events": {
+          "1": [
+            {
+              "direction": "adbd_to_host",
+              "auth_type": 1,
+              "payload_length": 20,
+              "payload_sha256": "41684f6811e5a315af8c3952f98f3ee591acc02018b22215af6c22f02fd05c04",
+              "challenge_sequence": 1,
+              "valid_token_length": true
+            },
+            {
+              "direction": "host_to_adbd",
+              "auth_type": 2,
+              "payload_length": 256,
+              "payload_sha256": "7baf0bea93f7262f1e0bc1ee794966574050354114f6210df4d384992d98a37a",
+              "signature_matches_expected_identity": true,
+              "challenge_sequence": 1
+            }
+          ]
+        },
+        "auth_verifications": {
+          "1": [
+            {
+              "challenge_sequence": 1,
+              "token_observed_on_this_connection": true,
+              "token_sha256": "41684f6811e5a315af8c3952f98f3ee591acc02018b22215af6c22f02fd05c04",
+              "token_length": 20,
+              "signature_sha256": "7baf0bea93f7262f1e0bc1ee794966574050354114f6210df4d384992d98a37a",
+              "signature_length": 256,
+              "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+              "signature_matches_expected_identity": true,
+              "scheme": "RSA-2048-PKCS1-v1_5-SHA1-prehashed"
+            }
+          ]
+        },
+        "tls": {
+          "1": {
+            "host_to_adbd": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            },
+            "adbd_to_host": {
+              "stls_observed": false,
+              "tls_record_counts": {},
+              "server_hello": [],
+              "tls_parse_errors": [],
+              "tls_handshake_success_inferred": false
+            }
+          }
+        },
+        "transport_events": [
+          {
+            "connection": 1,
+            "event": "client_accepted",
+            "elapsed_ms": 185
+          },
+          {
+            "connection": 1,
+            "event": "target_connected",
+            "elapsed_ms": 185
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 254,
+            "direction": "host_to_adbd"
+          },
+          {
+            "connection": 1,
+            "event": "eof",
+            "elapsed_ms": 254,
+            "direction": "adbd_to_host"
+          },
+          {
+            "connection": 1,
+            "event": "connection_closed",
+            "elapsed_ms": 254
+          }
+        ],
+        "active_connections": 0,
+        "raw_auth_payloads_persisted": false,
+        "tls_payloads_decrypted": false,
+        "authentication_verdict": "requires_adbd_and_consumer_cross_evidence"
+      },
+      "elapsed_ms": 386,
+      "native_report_count": 1,
+      "native_lifecycle_checks": "PASS",
+      "peer_after": {
+        "pid": 2009,
+        "guest_port": 5555,
+        "listener_present": true,
+        "ro.adb.secure": "1"
+      }
+    }
+  ],
+  "fixed_candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+  },
+  "R3_K01": "Inherited bidirectional GCM nonce risk remains unchanged; no protocol alteration",
+  "production_cryptography_modified": false,
+  "code_sha": "443211e91262fb021335b168b42fe7f18591b6eb",
+  "tracked_worktree_changes": "",
+  "artifacts": {
+    "adb": {
+      "path": "/usr/local/lib/android/sdk/platform-tools/adb",
+      "sha256": "a902be8f45c6c62e76c9efaf6947a0fa747c9cabd89a2ac8e0d16ecb30b3ed01",
+      "bytes": 10642368
+    },
+    "consumer": {
+      "path": "/home/runner/work/Kadb/Kadb/validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+      "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806",
+      "bytes": 24765440
+    },
+    "pairing_consumer": {
+      "path": "/home/runner/work/Kadb/Kadb/validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+      "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31",
+      "bytes": 25107792
+    }
+  },
+  "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+  "adb_version": "Android Debug Bridge version 1.0.41\nVersion 37.0.1-15733141\nInstalled as /usr/local/lib/android/sdk/platform-tools/adb\nRunning on Linux 7.0.0-1017-azure (x86_64)\n",
+  "properties": {
+    "ro.kernel.qemu": "1",
+    "ro.adb.secure": "1",
+    "ro.build.version.sdk": "35",
+    "ro.build.type": "user",
+    "ro.secure": "1",
+    "ro.debuggable": "0",
+    "ro.build.fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys",
+    "ro.product.cpu.abi": "x86_64"
+  },
+  "shell_uid": "2000",
+  "system_server_pid": 544,
+  "original_authorizations": {
+    "count": 1,
+    "public_key_sha256": [
+      "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a"
+    ]
+  },
+  "control_identity": {
+    "fingerprint_md5": "07:10:99:E3:FC:FE:07:C4:22:E0:91:A4:BA:DE:59:43",
+    "authorized_in_baseline": true,
+    "independent_of_test_identities": true
+  },
+  "temporary_identity_directory_created": true,
+  "temporary_identity_fingerprints_md5": {
+    "rsa_a": "23:08:D9:7C:F4:7C:6E:F3:0C:A4:55:88:E0:7C:E8:7E",
+    "rsa_b": "93:72:3D:96:D7:84:ED:F6:F6:3E:2B:5C:F8:50:F2:AB",
+    "tls_a": "62:8C:26:DD:D9:9C:A5:EE:08:F1:17:2A:D5:FD:7A:0B",
+    "tls_b": "EC:2B:A0:27:2F:92:4C:87:89:F3:81:84:06:24:83:78"
+  },
+  "final_authorizations": {
+    "count": 1,
+    "public_key_sha256": [
+      "981d992f0159159a09623e5e8eb927db8cecaa0da26fa2689192c4d703b9c94a"
+    ],
+    "expected_set_matched": true,
+    "elapsed_ms": 77,
+    "polls": 1
+  },
+  "authentication_and_uid_restored": true,
+  "temporary_private_keys_deleted": true,
+  "owned_forwards_remaining": 0,
+  "final_logcat_exit_code": 0,
+  "commands_executed": 154,
+  "checks_executed": 32,
+  "cleanup_verdict": "PASS",
+  "finished_utc": "2026-11-02T13:06:20.722052+00:00"
+}

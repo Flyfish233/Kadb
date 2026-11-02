@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "milestone": "M4-environment",
+  "physical_device": false,
+  "M4_A": "NOT VERIFIED",
+  "M4_B": "NOT VERIFIED",
+  "auth_disabled": false,
+  "image_modified": false,
+  "properties": {
+    "ro.kernel.qemu": "1",
+    "ro.adb.secure": "1",
+    "ro.debuggable": "0",
+    "ro.secure": "1",
+    "ro.build.fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys",
+    "ro.build.version.sdk": "35",
+    "ro.build.type": "user",
+    "ro.product.cpu.abi": "x86_64",
+    "service.adb.tcp.port": "",
+    "service.adb.tls.port": ""
+  },
+  "shell_uid": "2000",
+  "adbd-version": {
+    "exit_code": 127
+  },
+  "adbd-sha256": {
+    "exit_code": 1
+  },
+  "adbd_sha256": null,
+  "processes": {
+    "exit_code": 0
+  },
+  "shell-permissions": {
+    "exit_code": 0
+  },
+  "MANAGE_DEBUGGING_granted": true,
+  "authorized-keys": {
+    "exit_code": 0
+  },
+  "bootstrap_control_key_visible": true,
+  "authorization_dump_structure_valid": true,
+  "listeners": {
+    "exit_code": 0
+  },
+  "wifi": {
+    "exit_code": 0
+  },
+  "wireless_supported": true,
+  "rootless_authorization_dump_available": true,
+  "fresh_unauthorized_connection_response": {
+    "command": "AUTH",
+    "arg0": 1,
+    "arg1": 0,
+    "payload_length": 20,
+    "payload_sha256": "d02d8a97c44670120fe7e8289ba60d58bc266a941ce203bdfc028186a1e85608",
+    "header_valid": true,
+    "successful_session": false
+  },
+  "authentication_enabled_target": true,
+  "cleanup_errors": []
+}
