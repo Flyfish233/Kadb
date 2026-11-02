@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosX64Test.com.flyfishxu.kadb.AdbSessionNativeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:11:39.814Z" hostname="sjc20-cw756-98f8d447-83a1-418e-93c1-fb30ed7d1ebf-7231886D95D1.local" time="0.0">
+  <properties/>
+  <testcase name="commonShellRunsThroughNativeSocketAndClosesCleanly[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.AdbSessionNativeTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

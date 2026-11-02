@@ -1,0 +1,571 @@
+{
+  "schema": 1,
+  "collected_utc": "2026-11-02T09:27:46.743811+00:00",
+  "artifact": {
+    "id": 13129139581,
+    "name": "m2-darwin-evidence-macosArm64-0d448840863bbf6735eb879ebc7532c321cfca17",
+    "size_in_bytes": 1841484,
+    "created_at": "2026-11-02T09:24:29Z",
+    "expires_at": "2027-01-31T09:11:13Z",
+    "digest": "sha256:a6729501e7fcde79e2b909cf5692655bfcf3086976c7dcd96b586e0f6608a640",
+    "workflow_run": {
+      "id": 41418593040,
+      "repository_id": 1279060280,
+      "head_repository_id": 1279060280,
+      "head_branch": "work/spake2-maven-migration",
+      "head_sha": "0d448840863bbf6735eb879ebc7532c321cfca17"
+    }
+  },
+  "downloaded_zip_bytes": 1841484,
+  "downloaded_zip_sha256": "a6729501e7fcde79e2b909cf5692655bfcf3086976c7dcd96b586e0f6608a640",
+  "artifact_digest_verified": true,
+  "retained_files": [
+    {
+      "archive_path": "evidence/cmake.log",
+      "retained_path": "evidence/cmake.log",
+      "original_bytes": 90,
+      "original_sha256": "4d92ce18ddf9889d463ac875608423312823ad89e7fd5178b02a21ea26a2bd3d",
+      "storage": "original bytes",
+      "stored_sha256": "4d92ce18ddf9889d463ac875608423312823ad89e7fd5178b02a21ea26a2bd3d"
+    },
+    {
+      "archive_path": "evidence/commit.txt",
+      "retained_path": "evidence/commit.txt",
+      "original_bytes": 41,
+      "original_sha256": "4d2782a66a636ade7a89ba369c1e4146a8d7f3ea8ec82c31e18a55a7109a451f",
+      "storage": "original bytes",
+      "stored_sha256": "4d2782a66a636ade7a89ba369c1e4146a8d7f3ea8ec82c31e18a55a7109a451f"
+    },
+    {
+      "archive_path": "evidence/compile.log",
+      "retained_path": "evidence/compile.log",
+      "original_bytes": 67832,
+      "original_sha256": "e959857b822db0a3bf844e13445c3c2f2e14fd3878ff5c20e12099bdccd7b94f",
+      "storage": "original bytes",
+      "stored_sha256": "e959857b822db0a3bf844e13445c3c2f2e14fd3878ff5c20e12099bdccd7b94f"
+    },
+    {
+      "archive_path": "evidence/Kadb-macosArm64.h",
+      "retained_path": "evidence/Kadb-macosArm64.h",
+      "original_bytes": 119717,
+      "original_sha256": "caf45c5075187bcab1275fe9f6056c6f8eacd600ae9165b4e31c448cb9fa7740",
+      "storage": "original bytes",
+      "stored_sha256": "caf45c5075187bcab1275fe9f6056c6f8eacd600ae9165b4e31c448cb9fa7740"
+    },
+    {
+      "archive_path": "evidence/corresponding-source/source-bundle-execution.jsonl",
+      "retained_path": "evidence/corresponding-source/source-bundle-execution.jsonl",
+      "original_bytes": 48012,
+      "original_sha256": "fca678a6ae876ee420c44e281c09ee627b0c3568f4171634811d32a37b94d332",
+      "storage": "original bytes",
+      "stored_sha256": "fca678a6ae876ee420c44e281c09ee627b0c3568f4171634811d32a37b94d332"
+    },
+    {
+      "archive_path": "evidence/corresponding-source/source-bundle-manifest.json",
+      "retained_path": "evidence/corresponding-source/source-bundle-manifest.json",
+      "original_bytes": 383726,
+      "original_sha256": "c031c6b6236e1d8039891be2be42af4b7d575d6d4e325ebc338fa3eae6c3ee28",
+      "storage": "original bytes",
+      "stored_sha256": "c031c6b6236e1d8039891be2be42af4b7d575d6d4e325ebc338fa3eae6c3ee28"
+    },
+    {
+      "archive_path": "evidence/corresponding-source/source-bundle-result.json",
+      "retained_path": "evidence/corresponding-source/source-bundle-result.json",
+      "original_bytes": 405,
+      "original_sha256": "e5312eff9d44cf6593638d2e53d41b08db03daaf165ed3e86489ae4c1209114b",
+      "storage": "original bytes",
+      "stored_sha256": "e5312eff9d44cf6593638d2e53d41b08db03daaf165ed3e86489ae4c1209114b"
+    },
+    {
+      "archive_path": "evidence/framework-metadata.json",
+      "retained_path": "evidence/framework-metadata.json",
+      "original_bytes": 682,
+      "original_sha256": "ac9ed930c1f096d454284cd47f90c8b5a68213413dcadb962d2785163239d59a",
+      "storage": "original bytes",
+      "stored_sha256": "ac9ed930c1f096d454284cd47f90c8b5a68213413dcadb962d2785163239d59a"
+    },
+    {
+      "archive_path": "evidence/framework-metadata.otool.log",
+      "retained_path": "evidence/framework-metadata.otool.log.gz",
+      "original_bytes": 2182634,
+      "original_sha256": "aaa548fb01b7a99019ce71e23376256880dda441a1885e67ae78999e417f2db3",
+      "storage": "gzip",
+      "stored_sha256": "7dda6e491d75739b1bce3483191785473237f2d8021e8daedacc52950f3f5981"
+    },
+    {
+      "archive_path": "evidence/framework-symbols.log",
+      "retained_path": "evidence/framework-symbols.log.gz",
+      "original_bytes": 4923125,
+      "original_sha256": "2fb1fad26c9ee93e50e72243f62950f530199f91bcf8e4c1806c58c5a5dd7d78",
+      "storage": "gzip",
+      "stored_sha256": "fddb6f06c873854126abf95e053a9692f00d482031a9d35a4f0daccbb7a13586"
+    },
+    {
+      "archive_path": "evidence/gradle-wrapper.properties",
+      "retained_path": "evidence/gradle-wrapper.properties",
+      "original_bytes": 223,
+      "original_sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e",
+      "storage": "original bytes",
+      "stored_sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e"
+    },
+    {
+      "archive_path": "evidence/gradle.log",
+      "retained_path": "evidence/gradle.log",
+      "original_bytes": 1598,
+      "original_sha256": "c3efc1eb6df227561a31a8d3dacf32e521d53fd07cb481bdd3c15c28f337ddfe",
+      "storage": "original bytes",
+      "stored_sha256": "c3efc1eb6df227561a31a8d3dacf32e521d53fd07cb481bdd3c15c28f337ddfe"
+    },
+    {
+      "archive_path": "evidence/initial-worktree.txt",
+      "retained_path": "evidence/initial-worktree.txt",
+      "original_bytes": 13,
+      "original_sha256": "c1b96317396369bee18f092c9315ac48be4d93ee606829157cfa459e1a95ca2e",
+      "storage": "original bytes",
+      "stored_sha256": "c1b96317396369bee18f092c9315ac48be4d93ee606829157cfa459e1a95ca2e"
+    },
+    {
+      "archive_path": "evidence/java.log",
+      "retained_path": "evidence/java.log",
+      "original_bytes": 190,
+      "original_sha256": "dc25d4c269605476cbe8abf0a71814a943b1303a7249657c140d7e2878f5fa46",
+      "storage": "original bytes",
+      "stored_sha256": "dc25d4c269605476cbe8abf0a71814a943b1303a7249657c140d7e2878f5fa46"
+    },
+    {
+      "archive_path": "evidence/libs.versions.toml",
+      "retained_path": "evidence/libs.versions.toml",
+      "original_bytes": 1614,
+      "original_sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2",
+      "storage": "original bytes",
+      "stored_sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2"
+    },
+    {
+      "archive_path": "evidence/link.log",
+      "retained_path": "evidence/link.log",
+      "original_bytes": 9593,
+      "original_sha256": "fab4c6befa3ca505b8034fc2e747b55d6b6b0197bef551c4f84f326520f1e5ec",
+      "storage": "original bytes",
+      "stored_sha256": "fab4c6befa3ca505b8034fc2e747b55d6b6b0197bef551c4f84f326520f1e5ec"
+    },
+    {
+      "archive_path": "evidence/macos-sdk.log",
+      "retained_path": "evidence/macos-sdk.log",
+      "original_bytes": 5,
+      "original_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb",
+      "storage": "original bytes",
+      "stored_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb"
+    },
+    {
+      "archive_path": "evidence/macos.log",
+      "retained_path": "evidence/macos.log",
+      "original_bytes": 65,
+      "original_sha256": "cd5d6399b3785b04ceaae75045a9ca9f80f0bbc3526eff9d0c36b170ed1ec348",
+      "storage": "original bytes",
+      "stored_sha256": "cd5d6399b3785b04ceaae75045a9ca9f80f0bbc3526eff9d0c36b170ed1ec348"
+    },
+    {
+      "archive_path": "evidence/objc-api.json",
+      "retained_path": "evidence/objc-api.json",
+      "original_bytes": 133,
+      "original_sha256": "34648999f0b3457c766476d74915ddde7fa4ab52ba2a233431515711aef8f816",
+      "storage": "original bytes",
+      "stored_sha256": "34648999f0b3457c766476d74915ddde7fa4ab52ba2a233431515711aef8f816"
+    },
+    {
+      "archive_path": "evidence/objc-api.log",
+      "retained_path": "evidence/objc-api.log",
+      "original_bytes": 86,
+      "original_sha256": "3d8e886be5ad6d425277b0ffa68c2af75ffc17fed899f4a022fc52cb485f67dd",
+      "storage": "original bytes",
+      "stored_sha256": "3d8e886be5ad6d425277b0ffa68c2af75ffc17fed899f4a022fc52cb485f67dd"
+    },
+    {
+      "archive_path": "evidence/pairing/java-peer.log",
+      "retained_path": "evidence/pairing/java-peer.log",
+      "original_bytes": 202,
+      "original_sha256": "ec865ebe82bf2fd90fa64abaaf39db4b4fffc003dc4f4c2065d479fe96de8e32",
+      "storage": "original bytes",
+      "stored_sha256": "ec865ebe82bf2fd90fa64abaaf39db4b4fffc003dc4f4c2065d479fe96de8e32"
+    },
+    {
+      "archive_path": "evidence/pairing/native-consumer.log",
+      "retained_path": "evidence/pairing/native-consumer.log",
+      "original_bytes": 189,
+      "original_sha256": "896216c32d1675fdc04a5d1215c088040fdaa2153a900efa2b64c7f624e79cb5",
+      "storage": "original bytes",
+      "stored_sha256": "896216c32d1675fdc04a5d1215c088040fdaa2153a900efa2b64c7f624e79cb5"
+    },
+    {
+      "archive_path": "evidence/pairing-driver.log",
+      "retained_path": "evidence/pairing-driver.log",
+      "original_bytes": 63,
+      "original_sha256": "9caa51aff1af0ed572a99a38639f80c7e9e5da480bf49f09a76aac90cd3bac19",
+      "storage": "original bytes",
+      "stored_sha256": "9caa51aff1af0ed572a99a38639f80c7e9e5da480bf49f09a76aac90cd3bac19"
+    },
+    {
+      "archive_path": "evidence/platform-status.json",
+      "retained_path": "evidence/platform-status.json",
+      "original_bytes": 13866,
+      "original_sha256": "e4b86a478c4a4e95cf281dccec16fb5ccd620d96d453cb49ee2f52af62c590fe",
+      "storage": "original bytes",
+      "stored_sha256": "e4b86a478c4a4e95cf281dccec16fb5ccd620d96d453cb49ee2f52af62c590fe"
+    },
+    {
+      "archive_path": "evidence/pairing/report.json",
+      "retained_path": "evidence/pairing/report.json",
+      "original_bytes": 3931,
+      "original_sha256": "1e62acad84cccfee3f86868e441f484bfd8cbee46fcc00ccd89136d201ffdc12",
+      "storage": "original bytes",
+      "stored_sha256": "1e62acad84cccfee3f86868e441f484bfd8cbee46fcc00ccd89136d201ffdc12"
+    },
+    {
+      "archive_path": "evidence/simulator-inventory.json",
+      "retained_path": "evidence/simulator-inventory.json",
+      "original_bytes": 193933,
+      "original_sha256": "146d5a72023f56658bdd3bc70e1ea6f847ec7549fa22f73d33f2a6fbcd9eb894",
+      "storage": "original bytes",
+      "stored_sha256": "146d5a72023f56658bdd3bc70e1ea6f847ec7549fa22f73d33f2a6fbcd9eb894"
+    },
+    {
+      "archive_path": "evidence/simulator-sdk.log",
+      "retained_path": "evidence/simulator-sdk.log",
+      "original_bytes": 5,
+      "original_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb",
+      "storage": "original bytes",
+      "stored_sha256": "6fbf4425f969b566d7e910f1de7e701c2542c04b7a02470b5724e529acd3becb"
+    },
+    {
+      "archive_path": "evidence/source-create.log",
+      "retained_path": "evidence/source-create.log",
+      "original_bytes": 48395,
+      "original_sha256": "7021379469152aa914a164009f56e63c1ccbd8b0b5e10f29357b59185f01151b",
+      "storage": "original bytes",
+      "stored_sha256": "7021379469152aa914a164009f56e63c1ccbd8b0b5e10f29357b59185f01151b"
+    },
+    {
+      "archive_path": "evidence/spake2-candidate-integrity.json",
+      "retained_path": "evidence/spake2-candidate-integrity.json",
+      "original_bytes": 1732,
+      "original_sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806",
+      "storage": "original bytes",
+      "stored_sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    {
+      "archive_path": "evidence/spake2-repository.txt",
+      "retained_path": "evidence/spake2-repository.txt",
+      "original_bytes": 58,
+      "original_sha256": "3c937abd021b6144d16a2fd416114e6f480265832e3f1c4ccfd50c850547f184",
+      "storage": "original bytes",
+      "stored_sha256": "3c937abd021b6144d16a2fd416114e6f480265832e3f1c4ccfd50c850547f184"
+    },
+    {
+      "archive_path": "evidence/spake2-resolution-compile.json",
+      "retained_path": "evidence/spake2-resolution-compile.json",
+      "original_bytes": 63721,
+      "original_sha256": "564e6cc89047631703a1f548748a387736480fd9d7e5062ee831b8bb561e3e72",
+      "storage": "original bytes",
+      "stored_sha256": "564e6cc89047631703a1f548748a387736480fd9d7e5062ee831b8bb561e3e72"
+    },
+    {
+      "archive_path": "evidence/spake2-resolution-link.json",
+      "retained_path": "evidence/spake2-resolution-link.json",
+      "original_bytes": 63721,
+      "original_sha256": "564e6cc89047631703a1f548748a387736480fd9d7e5062ee831b8bb561e3e72",
+      "storage": "original bytes",
+      "stored_sha256": "564e6cc89047631703a1f548748a387736480fd9d7e5062ee831b8bb561e3e72"
+    },
+    {
+      "archive_path": "evidence/spake2-resolution-tests.json",
+      "retained_path": "evidence/spake2-resolution-tests.json",
+      "original_bytes": 63721,
+      "original_sha256": "564e6cc89047631703a1f548748a387736480fd9d7e5062ee831b8bb561e3e72",
+      "storage": "original bytes",
+      "stored_sha256": "564e6cc89047631703a1f548748a387736480fd9d7e5062ee831b8bb561e3e72"
+    },
+    {
+      "archive_path": "evidence/swift/swift-consumer-imports.log",
+      "retained_path": "evidence/swift/swift-consumer-imports.log",
+      "original_bytes": 11724,
+      "original_sha256": "c573460d28a1f112227722401d29dddd3b32049fcab8498f106e611f030765d7",
+      "storage": "original bytes",
+      "stored_sha256": "c573460d28a1f112227722401d29dddd3b32049fcab8498f106e611f030765d7"
+    },
+    {
+      "archive_path": "evidence/spake2-resolved-source-verification.json",
+      "retained_path": "evidence/spake2-resolved-source-verification.json",
+      "original_bytes": 20422,
+      "original_sha256": "ef604eb03cb2be769165162235da70d8faf131554bcadb3f402738d07304fe7b",
+      "storage": "original bytes",
+      "stored_sha256": "ef604eb03cb2be769165162235da70d8faf131554bcadb3f402738d07304fe7b"
+    },
+    {
+      "archive_path": "evidence/swift/swift-consumer-libraries.log",
+      "retained_path": "evidence/swift/swift-consumer-libraries.log",
+      "original_bytes": 1928,
+      "original_sha256": "eaa5c487322c48c92b0e381eedd9e13c5593bcb764c5c24d6ae25212e5b60d16",
+      "storage": "original bytes",
+      "stored_sha256": "eaa5c487322c48c92b0e381eedd9e13c5593bcb764c5c24d6ae25212e5b60d16"
+    },
+    {
+      "archive_path": "evidence/swift/swift-consumer.log",
+      "retained_path": "evidence/swift/swift-consumer.log",
+      "original_bytes": 157,
+      "original_sha256": "e0bd6c98323b718047e36967867944fbf68c375cf06438629ade07461ed0fff6",
+      "storage": "original bytes",
+      "stored_sha256": "e0bd6c98323b718047e36967867944fbf68c375cf06438629ade07461ed0fff6"
+    },
+    {
+      "archive_path": "evidence/test-summary.json",
+      "retained_path": "evidence/test-summary.json",
+      "original_bytes": 8151,
+      "original_sha256": "615f341648fdd4dbd22de2f12730c79562e5bdbdb2b63d50d6106e29897b9283",
+      "storage": "original bytes",
+      "stored_sha256": "615f341648fdd4dbd22de2f12730c79562e5bdbdb2b63d50d6106e29897b9283"
+    },
+    {
+      "archive_path": "evidence/tests.log",
+      "retained_path": "evidence/tests.log",
+      "original_bytes": 8383,
+      "original_sha256": "b65f45256f97f24af1fa7390652da0858f33ee7f3e75dba50f780080bc7d3616",
+      "storage": "original bytes",
+      "stored_sha256": "b65f45256f97f24af1fa7390652da0858f33ee7f3e75dba50f780080bc7d3616"
+    },
+    {
+      "archive_path": "evidence/uname.log",
+      "retained_path": "evidence/uname.log",
+      "original_bytes": 194,
+      "original_sha256": "61427f432e7dce0763c528cbedfe47dced82dcd4d5e3c9b4e375130f921fcf99",
+      "storage": "original bytes",
+      "stored_sha256": "61427f432e7dce0763c528cbedfe47dced82dcd4d5e3c9b4e375130f921fcf99"
+    },
+    {
+      "archive_path": "evidence/xcode.log",
+      "retained_path": "evidence/xcode.log",
+      "original_bytes": 34,
+      "original_sha256": "bbe969e3e1760bbc982b73129dcb3b303aa7e410a7a6d7f666d20df96e601bdf",
+      "storage": "original bytes",
+      "stored_sha256": "bbe969e3e1760bbc982b73129dcb3b303aa7e410a7a6d7f666d20df96e601bdf"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "original_bytes": 561,
+      "original_sha256": "f9356255e64f555546c616a25ef32dd7b5d62fb178d6fe4ad226e287d8afe60e",
+      "storage": "original bytes",
+      "stored_sha256": "f9356255e64f555546c616a25ef32dd7b5d62fb178d6fe4ad226e287d8afe60e"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "original_bytes": 1243,
+      "original_sha256": "1f7ee03cf60d39b430f9eb7b0d1a367e165ad727014b95f5c98f469e8f5702d3",
+      "storage": "original bytes",
+      "stored_sha256": "1f7ee03cf60d39b430f9eb7b0d1a367e165ad727014b95f5c98f469e8f5702d3"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "original_bytes": 764,
+      "original_sha256": "37078080f9e70391450b73e6463899e2e154f8cd2211cf2b220262ea1e2e8340",
+      "storage": "original bytes",
+      "stored_sha256": "37078080f9e70391450b73e6463899e2e154f8cd2211cf2b220262ea1e2e8340"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "original_bytes": 757,
+      "original_sha256": "8e5ebab36ee77b3334dcf281675f1d250b12ef49eed495b32e38f20b83508057",
+      "storage": "original bytes",
+      "stored_sha256": "8e5ebab36ee77b3334dcf281675f1d250b12ef49eed495b32e38f20b83508057"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "original_bytes": 1091,
+      "original_sha256": "a21ca7ddb336d734efbe08434be6c18e631a1b3ae7b594d856c82158b07e77cd",
+      "storage": "original bytes",
+      "stored_sha256": "a21ca7ddb336d734efbe08434be6c18e631a1b3ae7b594d856c82158b07e77cd"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "original_bytes": 922,
+      "original_sha256": "395a647cc8e2125fae4763c402a20d1b70119d2c33dd8411bc704d769ec5b5af",
+      "storage": "original bytes",
+      "stored_sha256": "395a647cc8e2125fae4763c402a20d1b70119d2c33dd8411bc704d769ec5b5af"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "original_bytes": 1092,
+      "original_sha256": "8966642117453d33546fe4ad92aac508c59af01e733d9f063b995fa5935814df",
+      "storage": "original bytes",
+      "stored_sha256": "8966642117453d33546fe4ad92aac508c59af01e733d9f063b995fa5935814df"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+      "original_bytes": 575,
+      "original_sha256": "b1305fb0e835987823b9bc3ae6c72e46572b499970097ecd0f1b0b225de1f25e",
+      "storage": "original bytes",
+      "stored_sha256": "b1305fb0e835987823b9bc3ae6c72e46572b499970097ecd0f1b0b225de1f25e"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "original_bytes": 910,
+      "original_sha256": "a9829a8953c2decf91d775ec43bb1e80f4f4c0265931ed01c867e9b286807ea2",
+      "storage": "original bytes",
+      "stored_sha256": "a9829a8953c2decf91d775ec43bb1e80f4f4c0265931ed01c867e9b286807ea2"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "original_bytes": 575,
+      "original_sha256": "0ea3e2fe9d5dbf0b433eea2b21b324b6ecbe9ac1308f2a2cbd28bf0cc2c62843",
+      "storage": "original bytes",
+      "stored_sha256": "0ea3e2fe9d5dbf0b433eea2b21b324b6ecbe9ac1308f2a2cbd28bf0cc2c62843"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "original_bytes": 1260,
+      "original_sha256": "2357ba4fbb37888a3d08f9e57771567cef82714305bbf185284ce8f5e01e2ab2",
+      "storage": "original bytes",
+      "stored_sha256": "2357ba4fbb37888a3d08f9e57771567cef82714305bbf185284ce8f5e01e2ab2"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "original_bytes": 1067,
+      "original_sha256": "a560f08dae4ec15d47c6d940b291802acbd36168c39908384bf7f0d0d43bebae",
+      "storage": "original bytes",
+      "stored_sha256": "a560f08dae4ec15d47c6d940b291802acbd36168c39908384bf7f0d0d43bebae"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+      "original_bytes": 563,
+      "original_sha256": "1a880407d8332faeadd5c9c386cd0158727f80fc1ec3865865e22bc38905a38d",
+      "storage": "original bytes",
+      "stored_sha256": "1a880407d8332faeadd5c9c386cd0158727f80fc1ec3865865e22bc38905a38d"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "original_bytes": 1347,
+      "original_sha256": "d770a92fea11988da8f3dee51ee61ecfc354e51c985957bb8f3e528da16aa28e",
+      "storage": "original bytes",
+      "stored_sha256": "d770a92fea11988da8f3dee51ee61ecfc354e51c985957bb8f3e528da16aa28e"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "original_bytes": 744,
+      "original_sha256": "48a6cdcf9ca706177b0e9f4f3d46e3aebb9c2a33c2a2fe4f67a34842dd682abe",
+      "storage": "original bytes",
+      "stored_sha256": "48a6cdcf9ca706177b0e9f4f3d46e3aebb9c2a33c2a2fe4f67a34842dd682abe"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "original_bytes": 1258,
+      "original_sha256": "a681413ac65bb4b47786a9831da16fd2a39b576e1bc2bddafb323843f7b76d6e",
+      "storage": "original bytes",
+      "stored_sha256": "a681413ac65bb4b47786a9831da16fd2a39b576e1bc2bddafb323843f7b76d6e"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "original_bytes": 569,
+      "original_sha256": "f1cf93e93021e92fcea1bb07e841ac7b573270dbd8843ecb2138170a3276725d",
+      "storage": "original bytes",
+      "stored_sha256": "f1cf93e93021e92fcea1bb07e841ac7b573270dbd8843ecb2138170a3276725d"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "original_bytes": 1201,
+      "original_sha256": "2711beacb9b97c534ad9123d65f2e036ef331edf409d960d8170a65f5455642f",
+      "storage": "original bytes",
+      "stored_sha256": "2711beacb9b97c534ad9123d65f2e036ef331edf409d960d8170a65f5455642f"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "original_bytes": 746,
+      "original_sha256": "f47d14cd0d2b7480d6f5318c8dd01ef52a88985a89a2c98d5054555058ce2162",
+      "storage": "original bytes",
+      "stored_sha256": "f47d14cd0d2b7480d6f5318c8dd01ef52a88985a89a2c98d5054555058ce2162"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "original_bytes": 1284,
+      "original_sha256": "c2420fdb9838261d92c12f91e9cb8f679b4e068d07d9f444fdc2a744614856f1",
+      "storage": "original bytes",
+      "stored_sha256": "c2420fdb9838261d92c12f91e9cb8f679b4e068d07d9f444fdc2a744614856f1"
+    },
+    {
+      "archive_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "retained_path": "kadb/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "original_bytes": 899,
+      "original_sha256": "b7c8de8b5a0ca45a187485d6637a82814a798a2d3b278c8ae4ed0ff84038535c",
+      "storage": "original bytes",
+      "stored_sha256": "b7c8de8b5a0ca45a187485d6637a82814a798a2d3b278c8ae4ed0ff84038535c"
+    },
+    {
+      "archive_path": "kadb-mdns/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "retained_path": "kadb-mdns/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "original_bytes": 850,
+      "original_sha256": "c417a646f6ef5618b8ff200c9f14d3a5d9b4e758c4cd183397f73306bdd1515d",
+      "storage": "original bytes",
+      "stored_sha256": "c417a646f6ef5618b8ff200c9f14d3a5d9b4e758c4cd183397f73306bdd1515d"
+    },
+    {
+      "archive_path": "kadb-mdns/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "retained_path": "kadb-mdns/build/test-results/macosArm64Test/TEST-macosArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "original_bytes": 735,
+      "original_sha256": "46535b8290af1f9e40ad9fb0fa806c7426236168bc20441ecdbd2cd751c71f9c",
+      "storage": "original bytes",
+      "stored_sha256": "46535b8290af1f9e40ad9fb0fa806c7426236168bc20441ecdbd2cd751c71f9c"
+    },
+    {
+      "archive_path": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Headers/Kadb.h",
+      "retained_path": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Headers/Kadb.h",
+      "original_bytes": 119717,
+      "original_sha256": "caf45c5075187bcab1275fe9f6056c6f8eacd600ae9165b4e31c448cb9fa7740",
+      "storage": "original bytes",
+      "stored_sha256": "caf45c5075187bcab1275fe9f6056c6f8eacd600ae9165b4e31c448cb9fa7740"
+    }
+  ],
+  "omitted_binary_or_archive_files": [
+    {
+      "path": "evidence/corresponding-source/native-source-bundle-0d448840863bbf6735eb879ebc7532c321cfca17.tar.gz.sha256",
+      "bytes": 135
+    },
+    {
+      "path": "evidence/swift/swift-consumer.map",
+      "bytes": 10974319
+    },
+    {
+      "path": "kadb/build/test-results/macosArm64Test/binary/output-events.bin",
+      "bytes": 0
+    },
+    {
+      "path": "kadb/build/test-results/macosArm64Test/binary/results-generic.bin",
+      "bytes": 15805
+    },
+    {
+      "path": "kadb-mdns/build/test-results/macosArm64Test/binary/output-events.bin",
+      "bytes": 0
+    },
+    {
+      "path": "kadb-mdns/build/test-results/macosArm64Test/binary/results-generic.bin",
+      "bytes": 1219
+    }
+  ],
+  "scope": "Original text/XML evidence is retained. Large binaries and corresponding-source archives remain in the identified CI artifact."
+}

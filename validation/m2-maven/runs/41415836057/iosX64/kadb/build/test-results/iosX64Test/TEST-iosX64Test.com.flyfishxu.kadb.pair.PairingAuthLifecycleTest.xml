@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:11:27.450Z" hostname="sjc20-cw756-98f8d447-83a1-418e-93c1-fb30ed7d1ebf-7231886D95D1.local" time="2.288">
+  <properties/>
+  <testcase name="cannotEncryptBeforeKeyAgreement[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="1.139"/>
+  <testcase name="invalidPeerMessageConsumesContext[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.0"/>
+  <testcase name="destructionErasesTheOwnedOutboundMessage[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.0"/>
+  <testcase name="repeatedInitializationIsTerminal[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="1.143"/>
+  <testcase name="failedAuthenticationConsumesTheKey[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.0"/>
+  <testcase name="nonceUsesAllSixtyFourBitsWithoutWrapping[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

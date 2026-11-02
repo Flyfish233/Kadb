@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "verdict": "PASS",
+  "review_scope": "Exact two-field Android runtime filename fix after real CI failure; not a replacement for rerun",
+  "before_commit": "892331117cddb6b7a0bd370c29ab2ffb117dd38d",
+  "failing_run_id": 41419309545,
+  "actual_runtime_report_sha256": "65c42200953069748e218c4f05b4e38abd2387b9871a8b3cb0c1d7cb44cafe99",
+  "new_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+  "candidate_inventory_unchanged": true,
+  "only_lock_changes": [
+    {
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "before": "spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+      "after": "legacy-release.aar"
+    },
+    {
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "before": "spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+      "after": "primitives-release.aar"
+    }
+  ],
+  "actual_retained_module_bytes_rehashed": true,
+  "actual_APK_runtime_names_hashes_and_sizes_match": true,
+  "test_fixture": "Uses unchanged real candidate bytes under fixed published metadata name; undeclared alias still rejected",
+  "source_gate_tests": {
+    "executed": 48,
+    "failed": 0,
+    "evidence": "validation/m2-maven/android-fix/source-gate-tests.log",
+    "log_sha256": "650223055fc8050403414dc0fc0bce7869c2de388b586e55c9c93200467f1f13"
+  },
+  "proof_path": "validation/m2-maven/android-fix/filename-proof.json",
+  "proof_sha256": "40c65aa3f0599bba2b0746503f3fb1ede473c0fb36077dafd0e2c03cee99ad21"
+}

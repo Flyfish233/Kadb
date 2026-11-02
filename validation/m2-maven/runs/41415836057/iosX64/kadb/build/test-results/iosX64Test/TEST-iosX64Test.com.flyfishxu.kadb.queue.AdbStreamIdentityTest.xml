@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:11:39.739Z" hostname="sjc20-cw756-98f8d447-83a1-418e-93c1-fb30ed7d1ebf-7231886D95D1.local" time="0.067">
+  <properties/>
+  <testcase name="zeroRemoteIdCannotEstablishAnOpen[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.002"/>
+  <testcase name="wrongRemoteIdCannotSupplyStreamData[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.008"/>
+  <testcase name="wrongRemoteIdCannotSupplyAcknowledgement[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.0"/>
+  <testcase name="wrongRemoteCloseIsIgnoredButLegacyZeroCloseStillWorks[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.0"/>
+  <testcase name="dataBeforeFirstOkayCannotEnterTheStream[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:23:48.501Z" hostname="sjc20-bb710-2d4223d6-edc3-441a-86e1-1e5d14f4f97b-2AFF8D2E81A3.local" time="1.967">
+  <properties/>
+  <testcase name="matchesIndependentBoringSslMessagesAndUnconfirmedKeys[macosArm64]" classname="macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="1.152"/>
+  <testcase name="operatingSystemEntropyReturnsIndependentOwnedBuffers[macosArm64]" classname="macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <testcase name="matchesIndependentBoringSslPeerInputSemantics[macosArm64]" classname="macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.813"/>
+  <testcase name="malformedEntropyFailsTerminallyAndErasesTransferredBuffer[macosArm64]" classname="macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <testcase name="entropyFailureCannotFallBackToDeterministicBytes[macosArm64]" classname="macosArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

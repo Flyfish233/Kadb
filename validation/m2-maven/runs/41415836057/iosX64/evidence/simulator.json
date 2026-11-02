@@ -1,0 +1,14 @@
+{
+  "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-26-5",
+  "initial_state": "Shutdown",
+  "lastBootedAt": "2026-11-02T09:01:27Z",
+  "dataPath": "/Users/runner/Library/Developer/CoreSimulator/Devices/01300204-EEE1-4E9A-B1FB-B1252F166CAB/data",
+  "dataPathSize": 1385644032,
+  "logPath": "/Users/runner/Library/Logs/CoreSimulator/01300204-EEE1-4E9A-B1FB-B1252F166CAB",
+  "udid": "01300204-EEE1-4E9A-B1FB-B1252F166CAB",
+  "isAvailable": true,
+  "logPathSize": 69632,
+  "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-Air",
+  "state": "Booted",
+  "name": "iPhone Air"
+}

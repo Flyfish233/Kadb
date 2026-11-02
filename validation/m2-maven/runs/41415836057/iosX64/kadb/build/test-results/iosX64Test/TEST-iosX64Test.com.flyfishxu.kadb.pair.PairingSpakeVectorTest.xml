@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:11:32.937Z" hostname="sjc20-cw756-98f8d447-83a1-418e-93c1-fb30ed7d1ebf-7231886D95D1.local" time="6.8">
+  <properties/>
+  <testcase name="matchesIndependentBoringSslMessagesAndUnconfirmedKeys[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="3.338"/>
+  <testcase name="operatingSystemEntropyReturnsIndependentOwnedBuffers[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.001"/>
+  <testcase name="matchesIndependentBoringSslPeerInputSemantics[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="3.343"/>
+  <testcase name="malformedEntropyFailsTerminallyAndErasesTransferredBuffer[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.003"/>
+  <testcase name="entropyFailureCannotFallBackToDeterministicBytes[iosX64]" classname="iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

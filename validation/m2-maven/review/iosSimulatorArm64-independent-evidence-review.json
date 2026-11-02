@@ -1,0 +1,388 @@
+{
+  "schema": 1,
+  "review_scope": "Independent raw-artifact/JUnit/header/protocol-log/source-binding check; no platform re-execution",
+  "run_id": 41415836057,
+  "source_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "target": "iosSimulatorArm64",
+  "verdict": "PASS",
+  "artifact": {
+    "id": 13128890597,
+    "bytes": 413550609,
+    "sha256": "0c210932ea3e0cc86af7ed281b7e7b1644a6b10b1703e78148870f165d95af5c",
+    "independently_rehashed": true,
+    "retained_files_rechecked": 71
+  },
+  "tests_by_product": {
+    "kadb": {
+      "suites": 22,
+      "cases": 66,
+      "executed": 65,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1
+    },
+    "kadb-mdns": {
+      "suites": 2,
+      "cases": 5,
+      "executed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "tests_total": {
+    "suites": 24,
+    "cases": 71,
+    "executed": 70,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "junit_suites": [
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "sha256": "d4bc9bb94bbcc29d9271c90d4e7565d84a2c8e2e92f2c652299c935768f80278",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.AdbSessionNativeTest",
+      "cases": 1,
+      "executed": 1,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "sha256": "6c991a249d938f0c44d3a54b0bfe8aa75af2addd5697d71d03e1d4bf9c8559b1",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest",
+      "cases": 5,
+      "executed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "sha256": "bd6c12a942e766b3dbc2d5e71ab637abd0a088e87a8f07c904265a39be8bbc6b",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest",
+      "cases": 2,
+      "executed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "sha256": "7acced388e8ad70304260c1491a05450a42a71d9f510e3e4b28283bfb66d5c8a",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest",
+      "cases": 2,
+      "executed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "sha256": "fa8303db3aa07ac811bac126beb456672e97f4372d1f6e1edbdbd6707e637097",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest",
+      "cases": 4,
+      "executed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "sha256": "f19ce7e9d682326fedd66536e35d74db6b19616300e95c487f000eed68c9fff9",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest",
+      "cases": 4,
+      "executed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "sha256": "157d9ed5673c4ab7cbfdf12cb6a7f82b1bf992426419ec83c9a176a0b7a4f706",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest",
+      "cases": 3,
+      "executed": 3,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+      "sha256": "8e9f15215c35269b39eb263d481c36648b1003005a0712de75d5285d39bf9553",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest",
+      "cases": 1,
+      "executed": 1,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "sha256": "f1523d980c580985108c0f5b2fdba1263270d44d244957ac702b79d96f682da3",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest",
+      "cases": 3,
+      "executed": 3,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "sha256": "a90a8d998181ac54a0674b63180b15d07d6fbadc5ff78176c23681da1d0485cb",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest",
+      "cases": 1,
+      "executed": 1,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "sha256": "33b81af599eecce719eb9df26e41cc8670119c86d95ccba65fe96d8c6454a5c7",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest",
+      "cases": 5,
+      "executed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "sha256": "39293a44e3b654c1894963be233109f3a585681be0f52a638b4ac2881939e051",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest",
+      "cases": 4,
+      "executed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+      "sha256": "1ee2919ce1d7383f8d9306cb8194a394d1856442d658f5eda81628fd0745b6dd",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest",
+      "cases": 1,
+      "executed": 1,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+      "sha256": "ba520c26c7b2540c126851f72587a84d827f7dd300724db02b757c2613b993d8",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest",
+      "cases": 1,
+      "executed": 0,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1,
+      "optional_suite": true
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "sha256": "537fb68067398dff4560b98bec0c07c6421f88bb9df171b77ac83712602fa4f2",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+      "cases": 6,
+      "executed": 6,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "sha256": "ecfec26adb0f4cf4b3fea0deb50736f37a4ab9dce86dee734abd9e9545e770d6",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest",
+      "cases": 1,
+      "executed": 1,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "sha256": "7568849e140bac922862f1669750a19bbeedd91f315d4ba615287d4046c6d6eb",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest",
+      "cases": 2,
+      "executed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "sha256": "adb2f32e3f7970b2221dabc667162e5be9f8e8b0eee7b478f4d1c61998e910f8",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest",
+      "cases": 5,
+      "executed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "sha256": "fe2a8776cbd82b1071fffe2bd6bbf7420b473ae8b7ff4f751facd67d4e5b1f33",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest",
+      "cases": 5,
+      "executed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "sha256": "43ccea54dd17fcc1dda81250af0931ca83b944dc89c67e2ad00c549121d39db3",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest",
+      "cases": 2,
+      "executed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "sha256": "80496b8ddcd4d0a59300d71bfd0025ba6313d02c504d28a0746e247e3c0f5e71",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest",
+      "cases": 5,
+      "executed": 5,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "sha256": "c36c7c01452fd40ef3f438011134bccbb5d4f71415de883cb18915a6145f5713",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest",
+      "cases": 3,
+      "executed": 3,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+      "sha256": "7090d57fb78245aa0e77d29bb580c43cf285c07e7e4320888290e91f9e1cbf0d",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest",
+      "cases": 3,
+      "executed": 3,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    },
+    {
+      "file": "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+      "sha256": "bc947f6932602c87d32f6b0aa255b023ef86599da822e8e0c5877cd844877dd4",
+      "suite": "iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest",
+      "cases": 2,
+      "executed": 2,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "optional_suite": false
+    }
+  ],
+  "api": {
+    "command": [
+      "python3",
+      "validation/compare-objc-api.py",
+      "validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-iosSimulatorArm64.h",
+      "validation/m2-maven/runs/41415836057/iosSimulatorArm64/kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Headers/Kadb.h",
+      "--report",
+      "validation/m2-maven/review/iosSimulatorArm64-exact-baseline-api.json"
+    ],
+    "exit_code": 0,
+    "baseline_header": "validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-iosSimulatorArm64.h",
+    "baseline_source_sha": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+    "baseline_header_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+    "current_header": "validation/m2-maven/runs/41415836057/iosSimulatorArm64/kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Headers/Kadb.h",
+    "current_header_sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078",
+    "headers_byte_identical": true,
+    "baseline_declarations": 943,
+    "current_declarations": 943,
+    "removed_or_changed": [],
+    "additions": [],
+    "result": "PASS"
+  },
+  "protocol": {
+    "native_checks": 2,
+    "peer_sessions": 2,
+    "positive_sessions": 1,
+    "wrong_code_rejections": 1,
+    "native_exit_code": 0,
+    "peer_exit_code": 0,
+    "raw_both_process_log_JSON_matches_report": true,
+    "simulator_udid": "1F0A9C4B-2DFC-444E-B162-696E5078A72B",
+    "physical_device": false,
+    "real_adbd": false
+  },
+  "corresponding_source": {
+    "status": "verified",
+    "kadb_commit": "677a39e74ef568ac91bec6db2885929003cc709e",
+    "sha256": "f1c30f8fd7b0dbb6bf5e5ca6a73ecee6a05c029b6583a1ee65e5f7480408b909",
+    "bytes": 192890200,
+    "actual_archived_source_package_hash_verified": true,
+    "manifest_sha256": "206830e0c0989d9cb1793b6d2758d2f8d54a63883fa29f7183dedbbaf2de6e9f",
+    "source_lock_sha256": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
+    "lock_matches_executed_commit": true,
+    "binary_associations": [
+      {
+        "archive_path": "kadb/build/bin/iosSimulatorArm64/debugFramework/Kadb.framework/Kadb",
+        "kind": "static-archive",
+        "label": "iosSimulatorArm64-framework",
+        "sha256": "e8bb5ee5dbcf7f51c68a7372efb815f44242d8f7124423ae653e423bcb957e53",
+        "size": 78404824,
+        "actual_archived_bytes_match_source_binding": true
+      },
+      {
+        "archive_path": "validation/native-adbd/build/bin/iosSimulatorArm64/pairingDebugExecutable/kadb-native-pairing.kexe",
+        "kind": "Mach-O-or-fat",
+        "label": "iosSimulatorArm64-pairing",
+        "sha256": "184b50d9e2bd19849c1a5a9a3ba3df2635b4e886c78fe19fb7674fa2b435a767",
+        "size": 6248008,
+        "actual_archived_bytes_match_source_binding": true
+      },
+      {
+        "archive_path": "kadb/build/bin/iosSimulatorArm64/debugTest/test.kexe",
+        "kind": "Mach-O-or-fat",
+        "label": "iosSimulatorArm64-test",
+        "sha256": "d711aa74f0d0872baf565bc0bd7851d4928cb0ec9aabe495f376be9b3ce0b265",
+        "size": 9098840,
+        "actual_archived_bytes_match_source_binding": true
+      }
+    ],
+    "binary_associations_count": 3
+  },
+  "review_inputs": {
+    "custody_sha256": "bba3089964eb63180f917aa594294497280e7f100e52d8e0876aefb5f2bcac75",
+    "raw_pair_report_sha256": "c6790c0e570627559822556c366c85b00cad717de121f9d0b1e5559c36785b2f",
+    "ci_test_summary_sha256": "35682cf6f947575e069aa2ff48365332229c0abc7f2e70050fbddee030705f9c",
+    "compare_tool_git_blob": "aa0d392627a39928a3704e058aca1d8f97840e9a"
+  },
+  "limits": [
+    "Header declaration and artifact/consumer evidence; not a blanket ABI/security certification",
+    "Source package hash and binary associations independently checked; collector full-source verification is recorded CI execution, not rerun here"
+  ]
+}

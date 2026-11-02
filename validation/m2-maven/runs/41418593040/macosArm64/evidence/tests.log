@@ -1,0 +1,137 @@
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/Users/runner/.gradle/wrapper/dists/gradle-9.6.0-bin/42k10rwplmzkhuboz9kdazi7s/gradle-9.6.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :kadb
+w: ⚠️ Native task 'iosX64Test' is disabled
+Task 'iosX64Test' for target 'ios_x64' cannot run on the current host (macos-aarch64).
+Reason: architecture mismatch - target requires X64, current host is ARM64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosX64Test' is disabled
+Task 'macosX64Test' for target 'macos_x64' cannot run on the current host (macos_arm64).
+Reason: tests can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'linuxX64Test' is disabled
+Task 'linuxX64Test' for target 'linux_x64' cannot run on the current host (macos_arm64).
+Reason: tests can only run on linux_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+
+> Configure project :validation-android-fixture
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+
+> Configure project :validation-native-adbd
+w: ⚠️ Native task 'runDebugExecutableLinuxX64' is disabled
+Task 'runDebugExecutableLinuxX64' for target 'linux_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on linux_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableLinuxX64' is disabled
+Task 'runReleaseExecutableLinuxX64' for target 'linux_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on linux_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableLinuxX64' is disabled
+Task 'runPairingDebugExecutableLinuxX64' for target 'linux_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on linux_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableLinuxX64' is disabled
+Task 'runPairingReleaseExecutableLinuxX64' for target 'linux_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on linux_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runDebugExecutableMacosX64' is disabled
+Task 'runDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosX64' is disabled
+Task 'runReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosX64' is disabled
+Task 'runPairingDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosX64' is disabled
+Task 'runPairingReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (macos_arm64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+
+> Task :kadb-mdns:serializeSwiftPMDependenciesMetadataForLockFiles UP-TO-DATE
+> Task :validation-native-adbd:serializeSwiftPMDependenciesMetadataForLockFiles UP-TO-DATE
+> Task :kadb:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kadb-mdns:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb-mdns:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kadb:downloadIosBoringSsl UP-TO-DATE
+> Task :kadb-mdns:downloadKotlinNativeDistribution UP-TO-DATE
+> Task :kadb:prepareIosBoringSsl UP-TO-DATE
+> Task :kadb:buildNativeMacosArm64 UP-TO-DATE
+> Task :kadb:cinteropKadbNativeMacosArm64 UP-TO-DATE
+> Task :kadb:downloadKotlinNativeDistribution UP-TO-DATE
+> Task :kadb-mdns:compileKotlinMacosArm64 UP-TO-DATE
+> Task :kadb-mdns:macosArm64ProcessResources NO-SOURCE
+> Task :kadb-mdns:macosArm64MainKlibrary UP-TO-DATE
+> Task :kadb-mdns:compileTestKotlinMacosArm64 UP-TO-DATE
+> Task :kadb-mdns:validateLocalSwiftPMDependencies
+> Task :kadb-mdns:computeLocalPackageDependencyInputFiles UP-TO-DATE
+> Task :kadb-mdns:fingerprintSyntheticPackage UP-TO-DATE
+> Task :kadb-mdns:generateSyntheticLinkageSwiftPMImportProjectForCinteropsAndLdDump SKIPPED
+> Task :kadb-mdns:fingerprintXcodebuildMacosx UP-TO-DATE
+
+> Task :kadb:verifySpake2MavenResolution
+SPAKE2_MAVEN_RESOLUTION_VERIFIED 18 selections: /Users/runner/work/Kadb/Kadb/kadb/build/reports/spake2-maven-resolution.json
+
+> Task :kadb:compileKotlinMacosArm64 UP-TO-DATE
+> Task :kadb:macosArm64ProcessResources NO-SOURCE
+> Task :kadb:macosArm64MainKlibrary UP-TO-DATE
+> Task :kadb:compileTestKotlinMacosArm64 UP-TO-DATE
+> Task :kadb:validateLocalSwiftPMDependencies
+> Task :kadb:computeLocalPackageDependencyInputFiles UP-TO-DATE
+> Task :kadb:fingerprintSyntheticPackage UP-TO-DATE
+> Task :kadb:generateSyntheticLinkageSwiftPMImportProjectForCinteropsAndLdDump SKIPPED
+> Task :kadb:serializeSwiftPMDependenciesMetadataForLockFiles UP-TO-DATE
+> Task :kadb:generateUmbrellaPackageIdentifierBasedResolutionForDefault SKIPPED
+> Task :kadb:fetchUmbrellaPackageIdentifierForDefault SKIPPED
+> Task :kadb:syncPersistedPackageResolvedToSynthetic SKIPPED
+> Task :kadb:fetchSyntheticImportProjectPackages SKIPPED
+> Task :kadb-mdns:syncPersistedPackageResolvedToSynthetic SKIPPED
+> Task :kadb-mdns:fetchSyntheticImportProjectPackages SKIPPED
+> Task :kadb-mdns:dumpXcodebuildArgsMacosx SKIPPED
+> Task :kadb:fingerprintXcodebuildMacosx UP-TO-DATE
+> Task :kadb:dumpXcodebuildArgsMacosx SKIPPED
+> Task :kadb:convertSyntheticImportProjectIntoDefFileMacosx UP-TO-DATE
+> Task :kadb-mdns:convertSyntheticImportProjectIntoDefFileMacosx UP-TO-DATE
+> Task :kadb-mdns:linkDebugTestMacosArm64 UP-TO-DATE
+> Task :kadb:linkDebugTestMacosArm64 UP-TO-DATE
+> Task :kadb-mdns:macosArm64Test
+> Task :kadb:macosArm64Test
+
+[Incubating] Problems report is available at: file:///Users/runner/work/Kadb/Kadb/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 30s
+30 actionable tasks: 7 executed, 23 up-to-date

@@ -1,0 +1,378 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T09:16:07.411255+00:00",
+  "head_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "run_id": "41415836057",
+  "run_attempt": "1",
+  "target": "iosX64",
+  "runner_label": "macos-26-intel",
+  "host_machine": "x86_64",
+  "expected_architecture": "x86_64",
+  "host_platform": "macOS-26.6.1-x86_64-i386-64bit-Mach-O",
+  "image_os": "macos26",
+  "image_version": "20260824.0517.1",
+  "candidate_version": "0.1.0-dev.59105290820b",
+  "phases": {
+    "candidate": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "environment": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "compile": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "link": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "tests": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "test_evidence": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "protocol": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "api": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "framework": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "source": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "simulator": {
+      "outcome": "success",
+      "verdict": "PASS"
+    }
+  },
+  "binaries": [
+    {
+      "path": "kadb/build/bin/iosX64/debugFramework/Kadb.framework/Headers/Kadb.h",
+      "bytes": 119713,
+      "sha256": "ac8b7efd1b6b6978fe3b86f06a3e38358fc75421a9a663e2bf84045272b68078"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugFramework/Kadb.framework/Info.plist",
+      "bytes": 913,
+      "sha256": "142772449264f7c92f69e082eb020e07aa45154161a2bd6bc3ada6a910c90acf"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugFramework/Kadb.framework/Kadb",
+      "bytes": 80634808,
+      "sha256": "af18bcc6485b28e683b3b618b2ff17e3146d0c25c892c945b669a70c046c5fb3"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugFramework/Kadb.framework/Modules/module.modulemap",
+      "bytes": 117,
+      "sha256": "2cdde662e0837a1bd9fc0d94090f6adc6a35ade766c70740ee49771e277ca8d3"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugTest/test.kexe",
+      "bytes": 9484720,
+      "sha256": "9b9c57304c04a7d16a1395300bfe592826f662fab2719a98d4737c8a6cd0b8ad"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugTest/test.kexe.dSYM/Contents/Info.plist",
+      "bytes": 638,
+      "sha256": "54d137a0d910f9ce24da66f7794387f42fc8d1b35f0c65e8e00ffe507cd7a200"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugTest/test.kexe.dSYM/Contents/Resources/DWARF/test.kexe",
+      "bytes": 14617793,
+      "sha256": "16a9775283a49db29ed0ed4d9a33016df0c3b5bf929796b4fe3b49f8265404c2"
+    },
+    {
+      "path": "kadb/build/bin/iosX64/debugTest/test.kexe.dSYM/Contents/Resources/Relocations/x86_64/test.kexe.yml",
+      "bytes": 1333123,
+      "sha256": "0a49c9cd1eaedeb052bb059ed67a39f0ba826a9ecb572ac5d6e8f021619563bb"
+    },
+    {
+      "path": "kadb-mdns/build/bin/iosX64/debugTest/test.kexe",
+      "bytes": 4569744,
+      "sha256": "14fab584ab0e3970c65e974cc5b8c899f48e0cb310298e10dcaccac3f718f6f0"
+    },
+    {
+      "path": "kadb-mdns/build/bin/iosX64/debugTest/test.kexe.dSYM/Contents/Info.plist",
+      "bytes": 638,
+      "sha256": "54d137a0d910f9ce24da66f7794387f42fc8d1b35f0c65e8e00ffe507cd7a200"
+    },
+    {
+      "path": "kadb-mdns/build/bin/iosX64/debugTest/test.kexe.dSYM/Contents/Resources/DWARF/test.kexe",
+      "bytes": 2008193,
+      "sha256": "ae82cee79979435534896c04c4e6c72559d23a63a443a127da9be8924b3aa4f3"
+    },
+    {
+      "path": "kadb-mdns/build/bin/iosX64/debugTest/test.kexe.dSYM/Contents/Resources/Relocations/x86_64/test.kexe.yml",
+      "bytes": 389689,
+      "sha256": "b7663f14658b66a00f6e511e06cb3c5c89f0962ccb080547574c1e7e65af0ea0"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/iosX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+      "bytes": 6467648,
+      "sha256": "2fa54fb9b6071cb367bc17417df65e29a78333c1b63ac031e9f632e778487985"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/iosX64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Info.plist",
+      "bytes": 653,
+      "sha256": "5511d62b2bde09540b4d94d18254b8cbe291c8703832e71c297d6b69812cadda"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/iosX64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Resources/DWARF/kadb-native-pairing.kexe",
+      "bytes": 13012696,
+      "sha256": "a8b1cdcb5ac99965db292665ede5b96538cc9b2d7298e864b85a8615a837f1a8"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/iosX64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Resources/Relocations/x86_64/kadb-native-pairing.kexe.yml",
+      "bytes": 1004896,
+      "sha256": "bb9c51dc0d01c50c9706cf3e1cef4d7263cad71d081c2ebdf13fe0debd170fdb"
+    }
+  ],
+  "verdict": "PASS",
+  "failure_attribution": "Observed stage outcome only. Migration regression attribution requires baseline comparison.",
+  "scope": {
+    "real_device": false,
+    "external_adbd_matrix": false
+  },
+  "test_summary": {
+    "suites": [
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.AdbSessionNativeTest",
+        "cases": 1,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 1
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest",
+        "cases": 5,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 5
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest",
+        "cases": 2,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 2
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest",
+        "cases": 2,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 2
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest",
+        "cases": 4,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 4
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest",
+        "cases": 4,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 4
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest",
+        "cases": 3,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 3
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest",
+        "cases": 1,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 1
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest",
+        "cases": 3,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 3
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest",
+        "cases": 1,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 1
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest",
+        "cases": 5,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 5
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest",
+        "cases": 4,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 4
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest",
+        "cases": 1,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 1
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest",
+        "cases": 1,
+        "failed": 0,
+        "skipped": 1,
+        "opt_in_not_executed": true,
+        "executed": 0
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest",
+        "cases": 6,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 6
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest",
+        "cases": 1,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 1
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest",
+        "cases": 2,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 2
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest",
+        "cases": 5,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 5
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest",
+        "cases": 5,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 5
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest",
+        "cases": 2,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 2
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest",
+        "cases": 5,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 5
+      },
+      {
+        "file": "kadb/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest",
+        "cases": 3,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 3
+      },
+      {
+        "file": "kadb-mdns/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest",
+        "cases": 3,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 3
+      },
+      {
+        "file": "kadb-mdns/build/test-results/iosX64Test/TEST-iosX64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml",
+        "suite": "iosX64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest",
+        "cases": 2,
+        "failed": 0,
+        "skipped": 0,
+        "opt_in_not_executed": false,
+        "executed": 2
+      }
+    ],
+    "executed": 70,
+    "failed": 0,
+    "device_coverage": "Not established by this summary; requires explicit device evidence.",
+    "target": "iosX64",
+    "skipped": 0,
+    "missing_required_test_groups": [],
+    "verdict": "PASS",
+    "scope": "Executed product regressions only; optional baseline interop/device suites do not count."
+  },
+  "tracked_worktree_changes": ""
+}

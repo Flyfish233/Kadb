@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "artifact": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Kadb",
+  "sha256": "8d0aa142424df0d1480394d92813d58be0710549b03b26de003290330a89bf67",
+  "bytes": 75482472,
+  "file": "/Users/runner/work/Kadb/Kadb/kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Versions/A/Kadb: current ar archive",
+  "architectures": [
+    "arm64"
+  ],
+  "deployment_records": [
+    {
+      "platform": "macos",
+      "minimum_os": "12.0",
+      "command": "LC_BUILD_VERSION",
+      "count": 707
+    }
+  ],
+  "declared_deployment_target": "12.0",
+  "scope": {
+    "actual_artifact_inspected": true,
+    "oldest_os_runtime_executed": false
+  }
+}

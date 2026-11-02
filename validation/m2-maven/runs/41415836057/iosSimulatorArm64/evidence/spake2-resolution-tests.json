@@ -1,0 +1,1114 @@
+{
+    "schema": 1,
+    "repository": "/Users/runner/work/Kadb/Kadb/build/spake2-candidate/maven",
+    "version": "0.1.0-dev.59105290820b",
+    "revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+    "repository_name": "spake2ValidatedCandidate",
+    "origin_binding": "gradle-9.6-repository-name-to-unique-descriptor",
+    "scheduled_compilations": [
+        {
+            "target": "iosSimulatorArm64",
+            "compilation": "main",
+            "compile_task": "compileKotlinIosSimulatorArm64",
+            "configurations": [
+                "iosSimulatorArm64CompileKlibraries"
+            ]
+        },
+        {
+            "target": "iosSimulatorArm64",
+            "compilation": "test",
+            "compile_task": "compileTestKotlinIosSimulatorArm64",
+            "configurations": [
+                "iosSimulatorArm64TestCompileKlibraries"
+            ]
+        }
+    ],
+    "required_configurations": [
+        "iosSimulatorArm64CompileKlibraries",
+        "iosSimulatorArm64TestCompileKlibraries"
+    ],
+    "artifacts": [
+        {
+            "configuration": "androidCompileClasspath",
+            "component": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+            "variant": "releaseApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b variant releaseApiElements-published",
+            "attributes": {
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "android",
+                "org.gradle.usage": "java-api",
+                "org.jetbrains.kotlin.platform.type": "androidJvm",
+                "org.gradle.status": "release",
+                "artifactType": "aar"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/31bb6011d2a4c8b78cad8b4c0b2cf73b1e6b3eb0/legacy-release.aar",
+            "repository_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 67077,
+            "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036"
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "component": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+            "variant": "releaseApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b variant releaseApiElements-published",
+            "attributes": {
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "android",
+                "org.gradle.usage": "java-api",
+                "org.jetbrains.kotlin.platform.type": "androidJvm",
+                "org.gradle.status": "release",
+                "artifactType": "aar"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/8f701b3a3bd6e30ca61d7b40efb44d39b0728fb2/primitives-release.aar",
+            "repository_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 92941,
+            "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232"
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+            "variant": "iosArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b variant iosArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/c11e717f6140761bd2cc500dbbcffcdfd3d7d63d/legacy-iosArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-iosarm64/0.1.0-dev.59105290820b/spake2-legacy-iosarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22720,
+            "sha256": "a237e33254e198d39a666b608bcc5e37743da9725755b6b1bd002b01854e9c5a"
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+            "variant": "iosArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b variant iosArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/cb4af700471388b6b76236ae9e9bd51663cc6ed8/primitives-iosArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-iosarm64/0.1.0-dev.59105290820b/spake2-primitives-iosarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77587,
+            "sha256": "c08f0bd0dce3cec452e04f456cdcfa381eb7e215dd235f9980fb748d9f51fc4a"
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "component": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "variant": "iosSimulatorArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b variant iosSimulatorArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/e8038985bbea6eb1a9789da73fcd5a344668b9dd/legacy-iosSimulatorArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22783,
+            "sha256": "f08cb164f08177001d2d61768f75d38c12c63e1f5b1adde3bf2479d0fbc86898"
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "component": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "variant": "iosSimulatorArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b variant iosSimulatorArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/3f236ed2288113858ec1fc6e210084039b5effcf/primitives-iosSimulatorArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77653,
+            "sha256": "420860188e0b521fefb1069396357724743ea76a87530df745444458ec4e4d01"
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "variant": "iosSimulatorArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b variant iosSimulatorArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/e8038985bbea6eb1a9789da73fcd5a344668b9dd/legacy-iosSimulatorArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22783,
+            "sha256": "f08cb164f08177001d2d61768f75d38c12c63e1f5b1adde3bf2479d0fbc86898"
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "variant": "iosSimulatorArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b variant iosSimulatorArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/3f236ed2288113858ec1fc6e210084039b5effcf/primitives-iosSimulatorArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77653,
+            "sha256": "420860188e0b521fefb1069396357724743ea76a87530df745444458ec4e4d01"
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "variant": "iosSimulatorArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b variant iosSimulatorArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/e8038985bbea6eb1a9789da73fcd5a344668b9dd/legacy-iosSimulatorArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-legacy-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22783,
+            "sha256": "f08cb164f08177001d2d61768f75d38c12c63e1f5b1adde3bf2479d0fbc86898"
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "variant": "iosSimulatorArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b variant iosSimulatorArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/3f236ed2288113858ec1fc6e210084039b5effcf/primitives-iosSimulatorArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-iossimulatorarm64/0.1.0-dev.59105290820b/spake2-primitives-iossimulatorarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77653,
+            "sha256": "420860188e0b521fefb1069396357724743ea76a87530df745444458ec4e4d01"
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+            "variant": "iosX64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b variant iosX64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_x64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/d164c5c13a26e733351f1be1e74f0377560ac447/legacy-iosX64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-iosx64/0.1.0-dev.59105290820b/spake2-legacy-iosx64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22707,
+            "sha256": "23923c9d5ac4bc973fa68cea4c57c62ad41f02bea0cfd74f5a6180df7fc14517"
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+            "variant": "iosX64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b variant iosX64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "ios_x64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/f734befc2c02063b85b2f57a6f09ae3bd9fdebd9/primitives-iosX64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-iosx64/0.1.0-dev.59105290820b/spake2-primitives-iosx64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77575,
+            "sha256": "228123f30e1f58a968471021b0fc38e885300664777fbd0c2d2743a713164af7"
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+            "variant": "linuxX64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b variant linuxX64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "linux_x64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/5ae779eb1ad2b04d7cc5d65f8e2b576f009e1f5c/legacy-linuxX64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22721,
+            "sha256": "02671b1ac036bf6088973672c66d3a195b1355a12e046392c6046b54aa94f942"
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+            "variant": "linuxX64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b variant linuxX64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "linux_x64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/c0df7a872a55e8f85cc77c701f232d4344ab1229/primitives-linuxX64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77588,
+            "sha256": "3ff9f5d006209c78440a6bf7653cfa19dca73a20398fb87f5d05a098812e2a6f"
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+            "variant": "macosArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b variant macosArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "macos_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/d29123cc51633d24a7c2e7b9d3067b3440b1cfa/legacy-macosArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-macosarm64/0.1.0-dev.59105290820b/spake2-legacy-macosarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22733,
+            "sha256": "d3e83221e45e169c6bc829381913f8c2b764031ee6ef125f6c1a4f0ca49988a8"
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+            "variant": "macosArm64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b variant macosArm64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "macos_arm64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/b11d8611a865dae53d04ade99b05026e1c38bad4/primitives-macosArm64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-macosarm64/0.1.0-dev.59105290820b/spake2-primitives-macosarm64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77600,
+            "sha256": "94340b7e423d0a45bae2af53a54297bf8feeed26958d7b0adc1ebf2d9809d0e7"
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+            "variant": "macosX64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b variant macosX64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "macos_x64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/6ccbee516a74bb6fb43a88d1876adffd348b06ab/legacy-macosX64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-legacy-macosx64/0.1.0-dev.59105290820b/spake2-legacy-macosx64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 22721,
+            "sha256": "7123cee41c6f8966f8c8efba4ebccea48250fbd359602f36a1ff368b2f9683cb"
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+            "variant": "macosX64ApiElements-published",
+            "variant_display_name": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b variant macosX64ApiElements-published",
+            "attributes": {
+                "artifactType": "org.jetbrains.kotlin.klib",
+                "org.gradle.category": "library",
+                "org.gradle.jvm.environment": "non-jvm",
+                "org.gradle.usage": "kotlin-api",
+                "org.jetbrains.kotlin.native.target": "macos_x64",
+                "org.jetbrains.kotlin.platform.type": "native",
+                "org.gradle.status": "release",
+                "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+            },
+            "file": "/Users/runner/.gradle/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/594aa82a87b1347ba0effe2acce842a5c9e7857d/primitives-macosX64Main-0.1.0-dev.59105290820b.klib",
+            "repository_path": "io/github/flyfish233/spake2-primitives-macosx64/0.1.0-dev.59105290820b/spake2-primitives-macosx64-0.1.0-dev.59105290820b.klib",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "bytes": 77588,
+            "sha256": "06d47faab58c30193a49c90cf34b7816ca9aa864be23ec623275344ee919a295"
+        }
+    ],
+    "resolved_components": [
+        {
+            "configuration": "androidCompileClasspath",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "releaseApiElements-published"
+            ]
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "component": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "releaseApiElements-published"
+            ]
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "releaseApiElements-published"
+            ]
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "component": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "releaseApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "component": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "component": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosSimulatorArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "iosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "linuxX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "linuxX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "linuxX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "linuxX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosArm64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosX64ApiElements-published"
+            ]
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "component": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+            "kind": "external-module",
+            "coordinate": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+            "repository_id": "042c760ebc8025b5ba8201c8eeab0591",
+            "repository_name": "spake2ValidatedCandidate",
+            "version": "0.1.0-dev.59105290820b",
+            "variants": [
+                "macosX64ApiElements-published"
+            ]
+        }
+    ],
+    "dependency_edges": [
+        {
+            "configuration": "androidCompileClasspath",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "from": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "androidCompileClasspath",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-iosarm64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-iosarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "from": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CInterop",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosSimulatorArm64TestCompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-iossimulatorarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-iosx64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "iosX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-iosx64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "linuxX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-macosarm64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosArm64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-macosarm64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "from": "project ':kadb'",
+            "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+            "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-legacy-macosx64:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+        },
+        {
+            "configuration": "macosX64CompileKlibraries",
+            "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+            "requested": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b",
+            "selected": "io.github.flyfish233:spake2-primitives-macosx64:0.1.0-dev.59105290820b"
+        }
+    ],
+    "source_lock_sha256": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd"
+}

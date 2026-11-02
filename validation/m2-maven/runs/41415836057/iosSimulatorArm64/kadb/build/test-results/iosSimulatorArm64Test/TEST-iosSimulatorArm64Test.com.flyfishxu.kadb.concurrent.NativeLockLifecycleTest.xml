@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:01:34.277Z" hostname="sjc22-bm213-38d489f7-cb3c-428f-a74d-bd305a22210c-D6719DCF150E.local" time="0.0">
+  <properties/>
+  <testcase name="conditionRestoresRecursionAndWorkerExits[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

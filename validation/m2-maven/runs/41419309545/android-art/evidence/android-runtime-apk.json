@@ -1,0 +1,51 @@
+{
+  "status": "verified",
+  "apk_sha256": "a24bbebb1f6a7cf1e549954aeafac1431b68cea8e42ed6a8156166b24ddf1d16",
+  "apk_bytes": 5706199,
+  "dex_files": [
+    {
+      "name": "classes.dex",
+      "bytes": 11355924,
+      "sha256": "ea2f89e7009f589025d58479bf93e0af9eeb6b38354cb8ecbcad780ec0fa3905",
+      "class_definitions": 8833
+    },
+    {
+      "name": "classes2.dex",
+      "bytes": 354832,
+      "sha256": "0fee00e4186348a15cb08076c87a81c3ed1365c7f9f0643fcbc0f08f8599ecca",
+      "class_definitions": 198
+    },
+    {
+      "name": "classes3.dex",
+      "bytes": 13896,
+      "sha256": "90fa491d473b104deee7c76f7f0d34709d49fbb8e78fd4d9b2757efab04ef1ca",
+      "class_definitions": 22
+    },
+    {
+      "name": "classes4.dex",
+      "bytes": 15848,
+      "sha256": "b14112ee64e49aa643af69cd40d12721cae93ad69c64590ba2747049df9873d8",
+      "class_definitions": 3
+    },
+    {
+      "name": "classes5.dex",
+      "bytes": 147148,
+      "sha256": "df6a78ecde85ce96f2441d94de8621833795821d009d63001282f2ceab116ac5",
+      "class_definitions": 965
+    },
+    {
+      "name": "classes6.dex",
+      "bytes": 2126336,
+      "sha256": "e5fe52b93fe8f367e6ba615fd44d641f042d534a4bfbf1e522c4af7972b9d509",
+      "class_definitions": 1737
+    }
+  ],
+  "required_class_definitions": [
+    "Lcom/flyfishxu/kadb/Kadb;",
+    "Lcom/flyfishxu/kadb/cert/KadbCert;",
+    "Lcom/flyfishxu/kadb/validation/runtime/RuntimeInstrumentation;",
+    "Lio/github/flyfish233/spake2/legacy/LegacySpake25519;"
+  ],
+  "host_oracle_classes_present": false,
+  "scope": "APK/DEX packaging only; Android execution is a separate mandatory gate"
+}

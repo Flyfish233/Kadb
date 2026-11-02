@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="macosArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:23:47.315Z" hostname="sjc20-bb710-2d4223d6-edc3-441a-86e1-1e5d14f4f97b-2AFF8D2E81A3.local" time="0.001">
+  <properties/>
+  <testcase name="conditionReleasesAndRestoresAllReentrantAcquisitions[macosArm64]" classname="macosArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

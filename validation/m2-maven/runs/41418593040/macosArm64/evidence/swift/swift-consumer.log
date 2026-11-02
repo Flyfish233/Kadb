@@ -1,0 +1,2 @@
+SWIFT_SOCKET_EOF_OK command=CNXN payloadBytes=62 peerJoined=true
+SWIFT_CONSUMER_OK model identity pairing-error-callback shell-io-error-loopback-peer-joined

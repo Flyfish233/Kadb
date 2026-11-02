@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-11-02T09:01:33.852Z" hostname="sjc22-bm213-38d489f7-cb3c-428f-a74d-bd305a22210c-D6719DCF150E.local" time="0.17">
+  <properties/>
+  <testcase name="quitWriteFailureStillRemovesTheStreamListener[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.037"/>
+  <testcase name="quitAndCloseFailuresKeepTheOriginalAndSuppressCleanup[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.0"/>
+  <testcase name="identicalQuitAndCloseFailureCannotCauseSelfSuppression[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.0"/>
+  <testcase name="successfulClosePreservesQuitThenClseWireSequence[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.0"/>
+  <testcase name="clseFailureAfterSuccessfulQuitStillRemovesTheListener[iosSimulatorArm64]" classname="iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

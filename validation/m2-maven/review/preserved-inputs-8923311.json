@@ -1,0 +1,342 @@
+{
+  "schema": 1,
+  "scope": "Source/build identity preservation review; no new cryptographic audit or runtime claim",
+  "m1_head": "08a4e2ae1ba8aec60382600d72dfc97e2f841a08",
+  "reviewed_head": "892331117cddb6b7a0bd370c29ab2ffb117dd38d",
+  "pre_maven_protocol_baseline": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "verdict": "PASS",
+  "unchanged_scopes": [
+    {
+      "path": "kadb/src",
+      "baseline_object": "59bc6527fd4e893044c366b2b309ce22bde9ff24",
+      "reviewed_object": "59bc6527fd4e893044c366b2b309ce22bde9ff24",
+      "tracked_files": 154,
+      "unchanged": true
+    },
+    {
+      "path": "kadb-mdns/src",
+      "baseline_object": "4acbe3b4ae918fc96f734d0b18b63edc98cf9547",
+      "reviewed_object": "4acbe3b4ae918fc96f734d0b18b63edc98cf9547",
+      "tracked_files": 17,
+      "unchanged": true
+    },
+    {
+      "path": "third-party/spake2",
+      "baseline_object": "38a5692b23c861f48a41ff54765be8c0278193ca",
+      "reviewed_object": "38a5692b23c861f48a41ff54765be8c0278193ca",
+      "tracked_files": 11,
+      "unchanged": true
+    },
+    {
+      "path": "kadb/third_party",
+      "baseline_object": "d930a899352dba4a534d6ef3c28034652d15a2cc",
+      "reviewed_object": "d930a899352dba4a534d6ef3c28034652d15a2cc",
+      "tracked_files": 2,
+      "unchanged": true
+    },
+    {
+      "path": "validation/maven-candidate",
+      "baseline_object": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9",
+      "reviewed_object": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9",
+      "tracked_files": 3,
+      "unchanged": true
+    },
+    {
+      "path": "validation/m1-maven",
+      "baseline_object": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+      "reviewed_object": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+      "tracked_files": 82,
+      "unchanged": true
+    },
+    {
+      "path": "validation/m1",
+      "baseline_object": "e816b6d808151329ca89f602a3726fea6b6d9d77",
+      "reviewed_object": "e816b6d808151329ca89f602a3726fea6b6d9d77",
+      "tracked_files": 49,
+      "unchanged": true
+    },
+    {
+      "path": "gradle/spake2-maven.gradle",
+      "baseline_object": "2555db27ec592cf5607bec6dd99bd9258a0c6c43",
+      "reviewed_object": "2555db27ec592cf5607bec6dd99bd9258a0c6c43",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "baseline_object": "98424148b537b2a210199a8bdda1b18321c95267",
+      "reviewed_object": "98424148b537b2a210199a8bdda1b18321c95267",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": "settings.gradle.kts",
+      "baseline_object": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+      "reviewed_object": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/m1-maven.yml",
+      "baseline_object": "44b735d5d7634920b33a90e66131601b96e005cb",
+      "reviewed_object": "44b735d5d7634920b33a90e66131601b96e005cb",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/experiment-validation.yml",
+      "baseline_object": "d1a302050066ae1958a491af2730cbeb6fea5812",
+      "reviewed_object": "d1a302050066ae1958a491af2730cbeb6fea5812",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/experiment-baseline.yml",
+      "baseline_object": "6a11499013220ab8c698bc5777e6356c02b27886",
+      "reviewed_object": "6a11499013220ab8c698bc5777e6356c02b27886",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": "validation/pairing-peer/src",
+      "baseline_object": "0fc6f156a16e6289b80b24842a27545cf46e2d6b",
+      "reviewed_object": "0fc6f156a16e6289b80b24842a27545cf46e2d6b",
+      "tracked_files": 1,
+      "unchanged": true
+    },
+    {
+      "path": "validation/pairing-peer/SHA256SUMS",
+      "baseline_object": "35d5136b9f4e4e30cb7b4a0824cc14a4f304e9bc",
+      "reviewed_object": "35d5136b9f4e4e30cb7b4a0824cc14a4f304e9bc",
+      "tracked_files": 1,
+      "unchanged": true
+    }
+  ],
+  "licenses": [
+    {
+      "path": "LICENSE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/experiment/LICENSES.md",
+      "bytes": 5991,
+      "sha256": "808eb093c04c40a0226778f5f7863f5933739227351b4ef397f16bd923360827",
+      "unchanged": true
+    },
+    {
+      "path": "kadb/third_party/boringssl/LICENSE",
+      "bytes": 13115,
+      "sha256": "827c8d8fc207c2392794eef9e00fe246f9f61fdcc132556c275be3dd8c3cd97f",
+      "unchanged": true
+    },
+    {
+      "path": "third-party/androidx-documentfile-context/LICENSE",
+      "bytes": 10175,
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "unchanged": true
+    },
+    {
+      "path": "third-party/spake2/upstream/LICENSE",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "unchanged": true
+    }
+  ],
+  "protocol_files": [
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "bytes": 2118,
+      "sha256": "e23250f71f531af1f287ddc8d2f2cf38e71c4182128a661a6b4276aa559ba290",
+      "git_blob": "3f797eb5f3312d4bdec1d6ef730f8c8fb26754a6",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "bytes": 5043,
+      "sha256": "357427ff01f43c66826da9fcdc6d27ce3a48278f4af737679f43613c8594919a",
+      "git_blob": "e3b917e1bd31f3b8faf4b6251b1d9f4b2d90bc9b",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "bytes": 9745,
+      "sha256": "05178fbf53b0896e39813d776003bec1aaa56bb4a16d072e4463fc33e4144778",
+      "git_blob": "a3a87a027dc5ad91b9cd9cf2649b68dd7610a83d",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.kt",
+      "bytes": 603,
+      "sha256": "73a9d367eb76dd2160cd7720435276eba60880e9e00b64d76f88f9be219a01a3",
+      "git_blob": "8e7fb3794268bcfdb6d80d67d21199c132710d84",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "bytes": 1660,
+      "sha256": "214142c243814a10e57023acf69d113065306a39a085690796b494a2f80a46a9",
+      "git_blob": "2aa37f40e361fd9025a22149d78d997fe0246eb1",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "bytes": 4334,
+      "sha256": "e5428c3f74ec79d13154d0fad5c15bbe561d0d27577b091eb8fe55e1d5c87ec9",
+      "git_blob": "82abf73f26c530a1dfd08cb54d8641089187ca60",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.android.kt",
+      "bytes": 1070,
+      "sha256": "5a3ae3592f291eee6353fe3d6bcc2fbf2dd69f1fb06713ddbd7e3ff299a0cff1",
+      "git_blob": "aa502eef1c0ed39f9593f6c668fb8c4a0b63dd96",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.native.kt",
+      "bytes": 2155,
+      "sha256": "790f137f6100325a04d00b516b60d054fef153f324706c596e736140244fb03e",
+      "git_blob": "9aea367bb0bb5e355af7fb46977a2d2477a9c4ea",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.native.kt",
+      "bytes": 2285,
+      "sha256": "fc1eba6b156264a178f1190b191acd231cd4a2c5b51e87b7ff33b2864dc6be5b",
+      "git_blob": "7e1807a130e1610a02e6f33f677b27ece77d4ce2",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "bytes": 8767,
+      "sha256": "dab28d1a497927821c793a363f85b25967278b8b2d8488e33758745ac62b835e",
+      "git_blob": "276935dee75bb49ec579105436787e64990c215b",
+      "equals_pre_maven_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "bytes": 25769,
+      "sha256": "c7d6df28e09aef776ac26f73f37c9ae6479d5537b2c7afaefc7d96a026d3a7b0",
+      "git_blob": "55fc420906e7d08248d12e8afe1a1aac4984c9af",
+      "equals_pre_maven_baseline": true
+    }
+  ],
+  "protocol_constraints": [
+    {
+      "name": "Legacy mode and role",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "tokens_present": {
+        "Role.ALICE": true,
+        "LegacyPasswordScalarMode.HARDENED": true,
+        "catch (_: Spake2Exception) { null }": true
+      }
+    },
+    {
+      "name": "NUL-terminated ADB identities and HKDF label",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "tokens_present": {
+        "\"adb pair client\\u0000\"": true,
+        "\"adb pair server\\u0000\"": true,
+        "\"adb pairing_auth aes-128-gcm key\"": true,
+        "HKDF_KEY_LENGTH = 16": true
+      }
+    },
+    {
+      "name": "Terminal one-use state and original nonce counters",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "tokens_present": {
+        "State.MESSAGE_GENERATED": true,
+        "State.CIPHER_READY": true,
+        "State.DESTROYED": true,
+        "private val encryptNonces = PairingNonceSequence()": true,
+        "private val decryptNonces = PairingNonceSequence()": true
+      }
+    },
+    {
+      "name": "TLS binding and authenticated PeerInfo",
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "tokens_present": {
+        "keyMaterial.size != 64": true,
+        "mPwd + keyMaterial": true,
+        "decryptedMsg.size != PeerInfo.MAX_PEER_INFO_SIZE": true,
+        "isValidDeviceGuid()": true,
+        "type == ADB_DEVICE_GUID && data.indexOf(0.toByte()) > 0": true
+      }
+    },
+    {
+      "name": "Android exporter",
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "tokens_present": {
+        "\"adb-label\\u0000\", null, 64": true
+      }
+    },
+    {
+      "name": "Native exporter includes trailing NUL",
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "tokens_present": {
+        "static const char label[] = \"adb-label\";": true,
+        "sizeof(label)": true
+      }
+    },
+    {
+      "name": "Native HKDF-SHA256",
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "tokens_present": {
+        "HKDF(out, 16, EVP_sha256()": true
+      }
+    },
+    {
+      "name": "Android HKDF-SHA256 and AES-GCM",
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "tokens_present": {
+        "HKDFBytesGenerator(SHA256Digest())": true,
+        "HKDFParameters(material, null, info)": true,
+        "GCMBlockCipher.newInstance(AESEngine.newInstance())": true
+      }
+    }
+  ],
+  "approved_build_changes": [
+    {
+      "path": "kadb/build.gradle.kts",
+      "only_change": "Add iosX64 target using existing Native/Simulator implementation",
+      "bytes": 4251,
+      "sha256": "7afd5b7e7ac703adb9581ad383fbfe0c3eb05af1a9ad3a8b27896a9a982044ef",
+      "approved_target_addition_only": true
+    },
+    {
+      "path": "kadb-mdns/build.gradle.kts",
+      "only_change": "Add iosX64 target using existing Native/Simulator implementation",
+      "bytes": 1911,
+      "sha256": "218d00a5cb105746d18ceaee9f898bc15b9edeb823bd1bb0853d4786ab10492e",
+      "approved_target_addition_only": true
+    },
+    {
+      "path": "kadb/gradle/ios-native.gradle.kts",
+      "only_change": "Add iosX64 target using existing Native/Simulator implementation",
+      "bytes": 14394,
+      "sha256": "83429c557197ca541011a2eb230a230ca95b614b8914d84085f2b998c0565c5e",
+      "approved_target_addition_only": true
+    },
+    {
+      "path": "validation/native-adbd/build.gradle.kts",
+      "only_change": "Add iosX64 target using existing Native/Simulator implementation",
+      "bytes": 789,
+      "sha256": "3b3fb81d958488df6a2cde7df09356969746adcf7c9b29a7ae186fc4a8888a27",
+      "approved_target_addition_only": true
+    }
+  ],
+  "source_lock": {
+    "only_change": "native_targets adds iosX64",
+    "before_sha256": "3d0701f8a9987a048615e27275e10820116055959b86bf447ed7a68df11848a3",
+    "after_sha256": "c9ed5ff9910c9963501526ccfe9a99d7a3df3fb9d75e526c677de1f125b393dd",
+    "candidate_block_unchanged": true,
+    "candidate_block_canonical_json_sha256": "da1925d04efe00d5f8562cf1889073ea3a4e2bc01745fe577cdb62f58a8a3693"
+  },
+  "candidate_version": "0.1.0-dev.59105290820b",
+  "candidate_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "cryptography_production_sources_changed": false,
+  "M1_workflows_and_evidence_changed": false,
+  "AOSP_nonce_protocol_changed": false
+}
