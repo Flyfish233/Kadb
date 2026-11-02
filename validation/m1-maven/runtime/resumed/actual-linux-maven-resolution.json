@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "repository": "/workspace/scratch/599883664903/Kadb/build/spake2-candidate/maven",
+  "version": "0.1.0-dev.59105290820b",
+  "revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+  "repository_name": "spake2ValidatedCandidate",
+  "origin_binding": "gradle-9.6-repository-name-to-unique-descriptor",
+  "artifacts": [
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "component": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "kind": "external-module",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "variant": "linuxX64ApiElements-published",
+      "variant_display_name": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b variant linuxX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native",
+        "org.gradle.status": "release",
+        "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+      },
+      "file": "/workspace/scratch/599883664903/gradle-home/caches/modules-2/files-2.1/io.github.flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/5ae779eb1ad2b04d7cc5d65f8e2b576f009e1f5c/legacy-linuxX64Main-0.1.0-dev.59105290820b.klib",
+      "repository_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.klib",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "bytes": 22721,
+      "sha256": "02671b1ac036bf6088973672c66d3a195b1355a12e046392c6046b54aa94f942"
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "component": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "kind": "external-module",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "variant": "linuxX64ApiElements-published",
+      "variant_display_name": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b variant linuxX64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native",
+        "org.gradle.status": "release",
+        "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib"
+      },
+      "file": "/workspace/scratch/599883664903/gradle-home/caches/modules-2/files-2.1/io.github.flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/c0df7a872a55e8f85cc77c701f232d4344ab1229/primitives-linuxX64Main-0.1.0-dev.59105290820b.klib",
+      "repository_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.klib",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "bytes": 77588,
+      "sha256": "3ff9f5d006209c78440a6bf7653cfa19dca73a20398fb87f5d05a098812e2a6f"
+    }
+  ],
+  "resolved_components": [
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "component": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "kind": "external-module",
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "version": "0.1.0-dev.59105290820b",
+      "variants": [
+        "linuxX64ApiElements-published"
+      ]
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "component": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "kind": "external-module",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "version": "0.1.0-dev.59105290820b",
+      "variants": [
+        "linuxX64ApiElements-published"
+      ]
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "component": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "kind": "external-module",
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "version": "0.1.0-dev.59105290820b",
+      "variants": [
+        "linuxX64ApiElements-published"
+      ]
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "component": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "kind": "external-module",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "version": "0.1.0-dev.59105290820b",
+      "variants": [
+        "linuxX64ApiElements-published"
+      ]
+    }
+  ],
+  "dependency_edges": [
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "from": "project ':kadb'",
+      "requested": "io.github.flyfish233:spake2-legacy:{strictly 0.1.0-dev.59105290820b}",
+      "selected": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b"
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "from": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "requested": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "selected": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b"
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "from": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "requested": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "selected": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b"
+    },
+    {
+      "configuration": "linuxX64CompileKlibraries",
+      "from": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "requested": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "selected": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b"
+    }
+  ],
+  "source_lock_sha256": "3d0701f8a9987a048615e27275e10820116055959b86bf447ed7a68df11848a3",
+  "evidence_derivation": {
+    "kind": "filtered view of the raw same-invocation combined report",
+    "source": "actual-spake2-maven-resolution.json",
+    "source_sha256": "87ce0ebaa923a4e30e03c82b607f5bd9451a39f2678461e31c60b8855ffdfebb",
+    "configurations": [
+      "linuxX64CompileKlibraries"
+    ]
+  }
+}

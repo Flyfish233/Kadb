@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "executedAtUtc": "2026-11-02T06:20:44.362880+00:00",
+  "sourceRevision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "version": "0.1.0-dev.59105290820b",
+  "comparison": "ZIP member bytes independently compared against git archive of the immutable source commit",
+  "gitTrackedFiles": 483,
+  "excludedTrackedFiles": [
+    ".gitignore"
+  ],
+  "archives": [
+    {
+      "archive": "io/github/flyfish233/spake2/0.1.0-dev.59105290820b/spake2-0.1.0-dev.59105290820b-source-distribution.zip",
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "comparedFiles": 482,
+      "mismatches": [],
+      "untrackedExtras": [],
+      "sameBytesAsPreviousArchive": null
+    },
+    {
+      "archive": "io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-source-distribution.zip",
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "comparedFiles": 482,
+      "mismatches": [],
+      "untrackedExtras": [],
+      "sameBytesAsPreviousArchive": true
+    },
+    {
+      "archive": "io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-source-distribution.zip",
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "comparedFiles": 482,
+      "mismatches": [],
+      "untrackedExtras": [],
+      "sameBytesAsPreviousArchive": true
+    }
+  ],
+  "limitations": "Source identity and archive completeness only; not a new binary reproducibility, compiler, or cryptographic audit."
+}

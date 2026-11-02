@@ -1,0 +1,11 @@
+test_identical_bytes_from_different_repository (test_gradle_resolution.GradleResolutionGateTests.test_identical_bytes_from_different_repository) ... ok
+test_illegal_project_substitution (test_gradle_resolution.GradleResolutionGateTests.test_illegal_project_substitution) ... ok
+test_missing_primitives_in_one_configuration (test_gradle_resolution.GradleResolutionGateTests.test_missing_primitives_in_one_configuration) ... ok
+test_modified_candidate_binary (test_gradle_resolution.GradleResolutionGateTests.test_modified_candidate_binary) ... ok
+test_real_pinned_platform_binaries (test_gradle_resolution.GradleResolutionGateTests.test_real_pinned_platform_binaries) ... ok
+test_wrong_requested_version_forced_to_candidate (test_gradle_resolution.GradleResolutionGateTests.test_wrong_requested_version_forced_to_candidate) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 35.428s
+
+OK

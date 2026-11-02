@@ -1,0 +1,511 @@
+{
+  "queried_at": "2026-11-01T19:36:32.123208+00:00",
+  "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/runs?head_sha=49a88b14e9b731e4c086c920eb74664450c79d9f&per_page=10",
+  "total_count": 1,
+  "runs": [
+    {
+      "id": 40331404006,
+      "name": "Native-core experiment",
+      "head_sha": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+      "head_branch": "experiment/kmp-native-core",
+      "status": "completed",
+      "conclusion": "failure",
+      "event": "push",
+      "created_at": "2026-10-26T13:32:03Z",
+      "updated_at": "2026-10-26T13:47:33Z",
+      "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006",
+      "run_attempt": 1,
+      "jobs": [
+        {
+          "id": 121601466640,
+          "name": "corresponding-source",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121601466640",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify collector and create the actual pinned source package",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Read verified package identity",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 121601699744,
+          "name": "linux-native",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121601699744",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Compile, link and execute Linux Native",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Require actual Native test reports and executable",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "External Native pairing against independent Java peer",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "C transport regression and sanitizers",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Independent BoringSSL SPAKE oracle",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Associate actual artifacts with the uploaded source package",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 121601699809,
+          "name": "darwin-native (macos-26, arm64, MacosArm64, macosArm64)",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121601699809",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Toolchain identity",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "macOS Native build, execution and framework",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "External macOS pairing against independent Java peer",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "External Swift consumer",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Inspect actual macOS deployment metadata",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Boot iOS Simulator",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "iOS device framework and actual simulator tests",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Actual simulator pairing and exported API comparison",
+              "status": "completed",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Require executed Native reports",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Associate actual artifacts with the uploaded source package",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 121601699876,
+          "name": "android-and-protocol",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121601699876",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Freeze environment and verify upstream source bytes",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Real Android AAR and retained host regressions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Inspect the real Android runtime APK and its source inventory",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Require executed tests",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Compare actual Android public ABI",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Associate actual artifacts with the uploaded source package",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 121601699903,
+          "name": "darwin-native (macos-26-intel, x86_64, MacosX64, macosX64)",
+          "status": "completed",
+          "conclusion": "success",
+          "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121601699903",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Toolchain identity",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "macOS Native build, execution and framework",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "External macOS pairing against independent Java peer",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "External Swift consumer",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Inspect actual macOS deployment metadata",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Boot iOS Simulator",
+              "status": "completed",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "iOS device framework and actual simulator tests",
+              "status": "completed",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Actual simulator pairing and exported API comparison",
+              "status": "completed",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Require executed Native reports",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Associate actual artifacts with the uploaded source package",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 121603580079,
+          "name": "emulator-adbd",
+          "status": "completed",
+          "conclusion": "failure",
+          "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121603580079",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Provision disposable accelerated emulator",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build the independent Android pairing reference on this host",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute public Native API against actual emulator adbd",
+              "status": "completed",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Execute the actual Android APK and platform TLS exporter on ART",
+              "status": "completed",
+              "conclusion": "failure"
+            },
+            {
+              "name": "Preserve emulator VM diagnostics if Android instrumentation fails",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Stop only this job's emulator",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

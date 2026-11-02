@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "recorded_at_utc": "2026-11-02T06:27:29.522317+00:00",
+  "report": "scheduled-default-maven-resolution.json",
+  "report_sha256": "0b44cd6e3838deb285fb06ac515eb7ab9dde753adce3582e04889f10ca59967b",
+  "gate_script_sha256": "6d1a1ad528528e0925b7b3ecb556217399368c604e4c8f53980048b177821af1",
+  "command_did_not_explicitly_request_gate_or_configurations": true,
+  "scheduled_compilations": [
+    {
+      "target": "android",
+      "compilation": "hostTest",
+      "compile_task": "compileAndroidHostTest",
+      "configurations": [
+        "androidHostTestCompileClasspath",
+        "androidHostTestRuntimeClasspath"
+      ]
+    },
+    {
+      "target": "android",
+      "compilation": "main",
+      "compile_task": "compileAndroidMain",
+      "configurations": [
+        "androidCompileClasspath",
+        "androidRuntimeClasspath"
+      ]
+    },
+    {
+      "target": "linuxX64",
+      "compilation": "main",
+      "compile_task": "compileKotlinLinuxX64",
+      "configurations": [
+        "linuxX64CompileKlibraries"
+      ]
+    },
+    {
+      "target": "linuxX64",
+      "compilation": "test",
+      "compile_task": "compileTestKotlinLinuxX64",
+      "configurations": [
+        "linuxX64TestCompileKlibraries"
+      ]
+    }
+  ],
+  "required_configurations": [
+    "androidCompileClasspath",
+    "androidHostTestCompileClasspath",
+    "androidHostTestRuntimeClasspath",
+    "androidRuntimeClasspath",
+    "linuxX64CompileKlibraries",
+    "linuxX64TestCompileKlibraries"
+  ],
+  "required_configurations_each_have_exact_legacy_and_primitives": true,
+  "all_reported_artifact_selections": 20,
+  "additionally_resolved_configurations": [
+    "iosArm64CompileKlibraries",
+    "iosSimulatorArm64CompileKlibraries",
+    "macosArm64CompileKlibraries",
+    "macosX64CompileKlibraries"
+  ],
+  "additional_platform_note": "Additional Darwin Maven variants were resolved by the existing Kotlin model; no Darwin compilation, linking, or test was run.",
+  "tests": {
+    "android_host": {
+      "suites": 30,
+      "executed": 102,
+      "failed": 0,
+      "skipped": 0
+    },
+    "linux_native": {
+      "suites": 19,
+      "executed": 63,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "total_executed": 165,
+  "total_failed": 0,
+  "build_duration": "26s",
+  "tasks_executed": 4,
+  "tasks_up_to_date": 20,
+  "device_or_external_adb_pairing": "NOT EXECUTED"
+}

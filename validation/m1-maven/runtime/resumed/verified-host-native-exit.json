@@ -1,0 +1,30 @@
+{
+  "exit_code": 0,
+  "recorded_at_utc": "2026-11-02T06:23:11.199852+00:00",
+  "git_head": "316c64a9761c16293d7f1f69adc7769393e7a705",
+  "scope": "Actual Maven resolution and Android Host + Linux Native test task reruns in the same invocation; no emulator/device pairing",
+  "command": [
+    "./gradlew",
+    ":kadb:verifySpake2MavenResolution",
+    ":kadb:verifyProductionTargetScope",
+    ":kadb:testAndroidHostTest",
+    "--rerun",
+    ":kadb:bundleAndroidMainAar",
+    ":kadb:linuxX64Test",
+    "--rerun",
+    "-Pspake2Configurations=androidCompileClasspath,androidRuntimeClasspath,linuxX64CompileKlibraries",
+    "--no-build-cache",
+    "--no-configuration-cache",
+    "--no-daemon",
+    "--max-workers=2",
+    "--console=plain",
+    "--stacktrace"
+  ],
+  "build_inputs": {
+    "settings.gradle.kts": "8ec04ffb619d6f14559717bb294b10845476ecfd9e75955b264fbdbde84f8b1d",
+    "build.gradle.kts": "abf2cf067fb2f3d66658ec69871a3a5d0a8cba04e6f034471eeb9956fe229e63",
+    "kadb/build.gradle.kts": "ad59a0c097a5f3d3dd58cc9bd2270223bff0e11c84eba2c13a8f066fd50d5774",
+    "gradle/libs.versions.toml": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2",
+    "gradle/spake2-maven.gradle": "4f0e7fdcf75973834d7479b2bd85806926856ad8112acae92ebd8751357931cd"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-01T19:41:01.074542+00:00",
+  "scope": "Host Android compilation only; no emulator, system image, physical device or M2/M3 execution",
+  "sdk_relative_root": "toolchains/android-sdk",
+  "official_index": {
+    "url": "https://dl.google.com/android/repository/repository2-3.xml",
+    "bytes": 426356,
+    "sha256": "fb1bd2fcd70b6116519563f1ff96cc578381e4e29237ab05ec8920f0864a7955"
+  },
+  "installation": {
+    "method": "Official command-line tools ZIP; sdkmanager --sdk_root=<task-root>/toolchains/android-sdk platforms;android-37.0 build-tools;37.0.0",
+    "exit_code": 0,
+    "java_runtime": "System OpenJDK 21.0.12.1 for SDK bootstrap; Kadb compile uses separately prepared JDK25",
+    "sdkmanager_behavior": "CLI 23.0 delegates to Android CLI 1.1.16717390; --verbose is ignored by that wrapper",
+    "raw_install_log_sha256": "7b3a598435c1ba29238f16174423e038c68dd54e2391ea8ebb21cb72d46739c4",
+    "aapt2_version": "Android Asset Packaging Tool (aapt) 2.20-15087165",
+    "raw_install_log": "toolchains-android-install.log"
+  },
+  "packages": [
+    {
+      "package": "cmdline-tools;23.0",
+      "url": "https://dl.google.com/android/repository/commandlinetools-linux-16111833_latest.zip",
+      "archive_bytes": 181052239,
+      "official_checksum_type": "sha1",
+      "official_checksum": "e025545c62a8e64c7559119566a569fb1dec5f60",
+      "actual_sha1": "e025545c62a8e64c7559119566a569fb1dec5f60",
+      "actual_sha256": "0877a1d048fe4a24efe2eff536ca4223f7adeb58648bb81909d33c446918cfa8",
+      "official_checksum_verified": true,
+      "installed_relative_directory": "cmdline-tools/23.0",
+      "archive_files_checked_against_installed": 139,
+      "installed_content_manifest_sha256": "ebdf198e7991c8753f32213a4ed381addd96526babf0c315d67504457f1281e0",
+      "source_properties": "Pkg.Revision=23.0\nPkg.Path=cmdline-tools;23.0\nPkg.Desc=Android SDK Command-line Tools\n",
+      "source_properties_sha256": "a22ee118ce3bc68e682c16b4ad7a710f00f3ad7c7b01a4c67b63ad5e384d6b64"
+    },
+    {
+      "package": "platforms;android-37.0",
+      "url": "https://dl.google.com/android/repository/platform-37.0_r02.zip",
+      "archive_bytes": 67281901,
+      "official_checksum_type": "sha1",
+      "official_checksum": "ed8ebf7f8822a4de5686d427f237d2fa30ff7410",
+      "actual_sha1": "ed8ebf7f8822a4de5686d427f237d2fa30ff7410",
+      "actual_sha256": "840b23e827f96e64aea4c89a1194aac3dc5f6bad37edb231c5c795d890330e8d",
+      "official_checksum_verified": true,
+      "installed_relative_directory": "platforms/android-37.0",
+      "archive_files_checked_against_installed": 11384,
+      "installed_content_manifest_sha256": "b2a11558768f9b7a5b5d6020796fad1bd4d6934cb54c2e3ed827a0f9b73033cd",
+      "source_properties": "Pkg.Desc=Android SDK Platform 17\nPkg.UserSrc=false\nPlatform.Version=17\nPlatform.CodeName=\nPkg.Revision=2\nAndroidVersion.ApiLevel=37.0\nAndroidVersion.CodeName=\nAndroidVersion.ExtensionLevel=22\nAndroidVersion.IsBaseSdk=true\nAndroidVersion.PreviewSdkInt=0\nAndroidVersion.BetaVersion=\nLayoutlib.Api=15\nLayoutlib.Revision=1\nPlatform.MinToolsRev=22\n",
+      "source_properties_sha256": "fa89029fc0cee414cb5e44a37cd3033771217eeecb5086577bb6d9b1b03b5b5f"
+    },
+    {
+      "package": "build-tools;37.0.0",
+      "url": "https://dl.google.com/android/repository/build-tools_r37_linux.zip",
+      "archive_bytes": 66135704,
+      "official_checksum_type": "sha1",
+      "official_checksum": "70954e99f4c3d9d46ee70fa32624672fe7cd6ebe",
+      "actual_sha1": "70954e99f4c3d9d46ee70fa32624672fe7cd6ebe",
+      "actual_sha256": "01af179347cbcd9c208b7f8171f7b21f6dd1d2f85bcd15e88caa51d5d7b86060",
+      "official_checksum_verified": true,
+      "installed_relative_directory": "build-tools/37.0.0",
+      "archive_files_checked_against_installed": 168,
+      "installed_content_manifest_sha256": "f493eb4ad29d53bbf6bee85d7f2d2cd87977e09304adddaa5728eae972974576",
+      "source_properties": "Pkg.UserSrc=false\nPkg.Revision=37.0.0\n",
+      "source_properties_sha256": "fbd87c8567afbc6dc78e140097fcde234f4a61fa7065e85081d43e442ccd3d24"
+    }
+  ],
+  "status": "VERIFIED"
+}

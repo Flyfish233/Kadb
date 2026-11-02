@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "executedAtUtc": "2026-11-02T06:29:09.766764+00:00",
+  "kadbCommit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+  "createRuns": [
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/source_bundle.py",
+        "create",
+        "--repo",
+        "/workspace/scratch/599883664903/Kadb",
+        "--ref",
+        "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+        "--output",
+        "/tmp/kadb-m1-source-af6aa42-run-1",
+        "--cache",
+        "/tmp/kadb-m1-source-cache",
+        "--offline",
+        "--spake2-resolution-report",
+        "/workspace/scratch/599883664903/Kadb/validation/m1-maven/runtime/resumed/scheduled-default-maven-resolution.json",
+        "--binary",
+        "kadb-android-aar=kadb/build/outputs/aar/kadb.aar",
+        "--binary",
+        "linuxX64-debug-test=kadb/build/bin/linuxX64/debugTest/test.kexe"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/kadb-m1-source-af6aa42-run-1.log",
+      "output": "/tmp/kadb-m1-source-af6aa42-run-1"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "scripts/source_bundle.py",
+        "create",
+        "--repo",
+        "/workspace/scratch/599883664903/Kadb",
+        "--ref",
+        "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+        "--output",
+        "/tmp/kadb-m1-source-af6aa42-run-2",
+        "--cache",
+        "/tmp/kadb-m1-source-cache",
+        "--offline",
+        "--spake2-resolution-report",
+        "/workspace/scratch/599883664903/Kadb/validation/m1-maven/runtime/resumed/scheduled-default-maven-resolution.json",
+        "--binary",
+        "kadb-android-aar=kadb/build/outputs/aar/kadb.aar",
+        "--binary",
+        "linuxX64-debug-test=kadb/build/bin/linuxX64/debugTest/test.kexe"
+      ],
+      "exit_code": 0,
+      "log": "/tmp/kadb-m1-source-af6aa42-run-2.log",
+      "output": "/tmp/kadb-m1-source-af6aa42-run-2"
+    }
+  ],
+  "independentVerify": {
+    "binary_associations": 2,
+    "files": 630,
+    "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+    "legal_certification": false,
+    "sha256": "3262908d831a107ffd1ff479961a4aa43a8b9407fa8d9fab554f264e37286095",
+    "status": "verified"
+  },
+  "sourceResult": {
+    "binary_associations": 2,
+    "bundle": "native-source-bundle-af6aa42ebb2bd880753600ed43fbe6e49d6f197e.tar.gz",
+    "bytes": 192726468,
+    "files": 630,
+    "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+    "legal_certification": false,
+    "published_source_jars": 64,
+    "sha256": "3262908d831a107ffd1ff479961a4aa43a8b9407fa8d9fab554f264e37286095",
+    "source_archives": 9,
+    "status": "verified"
+  },
+  "repeatSourceResult": {
+    "binary_associations": 2,
+    "bundle": "native-source-bundle-af6aa42ebb2bd880753600ed43fbe6e49d6f197e.tar.gz",
+    "bytes": 192726468,
+    "files": 630,
+    "kadb_commit": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+    "legal_certification": false,
+    "published_source_jars": 64,
+    "sha256": "3262908d831a107ffd1ff479961a4aa43a8b9407fa8d9fab554f264e37286095",
+    "source_archives": 9,
+    "status": "verified"
+  },
+  "deterministicSourceSha256Equal": true,
+  "actualResolutionReportSha256": "0b44cd6e3838deb285fb06ac515eb7ab9dde753adce3582e04889f10ca59967b",
+  "scope": "Full source collection with actual Gradle Maven origin/variant verification and AAR/Native-test binary hashes; not a real-device pairing result."
+}

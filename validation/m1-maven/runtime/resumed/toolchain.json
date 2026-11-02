@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-11-02T06:18:09.368249+00:00",
+  "jdk_version": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)",
+  "jdk_release": "IMPLEMENTOR=\"Eclipse Adoptium\"\nIMPLEMENTOR_VERSION=\"Temurin-25.0.5+8\"\nJAVA_RUNTIME_VERSION=\"25.0.5+8-LTS\"\nJAVA_VERSION=\"25.0.5\"\nJAVA_VERSION_DATE=\"2026-10-20\"\nLIBC=\"gnu\"\nMODULES=\"java.base java.compiler java.datatransfer java.xml java.prefs java.desktop java.instrument java.logging java.management java.security.sasl java.naming java.rmi java.management.rmi java.net.http java.scripting java.security.jgss java.transaction.xa java.sql java.sql.rowset java.xml.crypto java.se java.smartcardio jdk.accessibility jdk.internal.jvmstat jdk.attach jdk.charsets jdk.internal.opt jdk.zipfs jdk.compiler jdk.crypto.cryptoki jdk.crypto.ec jdk.dynalink jdk.internal.ed jdk.editpad jdk.internal.vm.ci jdk.graal.compiler jdk.graal.compiler.management jdk.hotspot.agent jdk.httpserver jdk.incubator.vector jdk.internal.le jdk.internal.md jdk.jartool jdk.javadoc jdk.jcmd jdk.management jdk.management.agent jdk.jconsole jdk.jdeps jdk.jdwp.agent jdk.jdi jdk.jfr jdk.jlink jdk.jpackage jdk.jshell jdk.jsobject jdk.jstatd jdk.localedata jdk.management.jfr jdk.naming.dns jdk.naming.rmi jdk.net jdk.nio.mapmode jdk.sctp jdk.security.auth jdk.security.jgss jdk.unsupported jdk.unsupported.desktop jdk.xml.dom\"\nOS_ARCH=\"x86_64\"\nOS_NAME=\"Linux\"\nSOURCE=\".:git:7ec19fb1eda7\"\nBUILD_SOURCE=\"git:1cf43d7a3e77886bfea7d550a902e151a87d724d\"\nBUILD_SOURCE_REPO=\"https://github.com/adoptium/temurin-build.git\"\nSOURCE_REPO=\"https://github.com/adoptium/jdk25u.git\"\nFULL_VERSION=\"25.0.5+8-LTS\"\nSEMANTIC_VERSION=\"25.0.5+8\"\nBUILD_INFO=\"OS: Linux Version: 6.17.0-1022-azure\"\nJVM_VARIANT=\"Hotspot\"\nJVM_VERSION=\"25.0.5+8-LTS\"\nIMAGE_TYPE=\"JDK\"\n",
+  "gradle": "9.6.0",
+  "gradle_embedded_kotlin": "2.3.21",
+  "project_kotlin": "2.4.20",
+  "agp": "9.4.0",
+  "sdk_packages": {
+    "platforms/android-37.0": {
+      "source_properties": "Pkg.Desc=Android SDK Platform 17\nPkg.UserSrc=false\nPlatform.Version=17\nPlatform.CodeName=\nPkg.Revision=2\nAndroidVersion.ApiLevel=37.0\nAndroidVersion.CodeName=\nAndroidVersion.ExtensionLevel=22\nAndroidVersion.IsBaseSdk=true\nAndroidVersion.PreviewSdkInt=0\nAndroidVersion.BetaVersion=\nLayoutlib.Api=15\nLayoutlib.Revision=1\nPlatform.MinToolsRev=22\n",
+      "sha256": "fa89029fc0cee414cb5e44a37cd3033771217eeecb5086577bb6d9b1b03b5b5f"
+    },
+    "build-tools/37.0.0": {
+      "source_properties": "Pkg.UserSrc=false\nPkg.Revision=37.0.0\n",
+      "sha256": "fbd87c8567afbc6dc78e140097fcde234f4a61fa7065e85081d43e442ccd3d24"
+    },
+    "cmdline-tools/23.0": {
+      "source_properties": "Pkg.Revision=23.0\nPkg.Path=cmdline-tools;23.0\nPkg.Desc=Android SDK Command-line Tools\n",
+      "sha256": "a22ee118ce3bc68e682c16b4ad7a710f00f3ad7c7b01a4c67b63ad5e384d6b64"
+    }
+  },
+  "cmake_version": "cmake version 3.31.8\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).",
+  "cmake_official_archive_sha256": "630615d8e98ac33eba7fbe472626dff5c899c85af3c024585ae109166a6909d0",
+  "working_tree_head": "77921027374c7295f65ae82eb1b939a7dae7361e",
+  "build_inputs": {
+    "settings.gradle.kts": "91b9686f24cf94ce2c4cc7d8cbdc8f1b88add151a961f2ece34b89b8ae6b669d",
+    "build.gradle.kts": "abf2cf067fb2f3d66658ec69871a3a5d0a8cba04e6f034471eeb9956fe229e63",
+    "kadb/build.gradle.kts": "ad59a0c097a5f3d3dd58cc9bd2270223bff0e11c84eba2c13a8f066fd50d5774",
+    "gradle/libs.versions.toml": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2"
+  },
+  "working_tree_head_note": "Snapshot recorded before final gate wiring; final checked-in build input identity is in verified-host-native-exit.json."
+}

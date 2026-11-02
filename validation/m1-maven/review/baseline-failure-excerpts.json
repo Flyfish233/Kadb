@@ -1,0 +1,129 @@
+{
+  "scope": "Existing baseline failures; no M1 execution or reproduction",
+  "run_id": 40331404006,
+  "commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "jobs": [
+    {
+      "job_id": 121601699809,
+      "source_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121601699809",
+      "line_count": 3072,
+      "excerpt": [
+        {
+          "line": 2969,
+          "text": "2026-10-26T13:45:10.4468190Z   JAVA_HOME_25_ARM64: /Users/runner/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.4-101.0/arm64/Contents/Home"
+        },
+        {
+          "line": 2970,
+          "text": "2026-10-26T13:45:10.4469840Z ##[endgroup]"
+        },
+        {
+          "line": 2971,
+          "text": "2026-10-26T13:45:22.8389790Z {\"status\": \"failed\", \"report\": \"evidence/pairing-simulator/report.json\"}"
+        },
+        {
+          "line": 2972,
+          "text": "2026-10-26T13:45:22.8493000Z ##[error]Process completed with exit code 1."
+        },
+        {
+          "line": 2973,
+          "text": "2026-10-26T13:45:22.8624290Z ##[group]Run args=(--require kadb/build/test-results/macosArm64Test --require kadb-mdns/build/test-results/macosArm64Test)"
+        },
+        {
+          "line": 2974,
+          "text": "2026-10-26T13:45:22.8626600Z \u001b[36;1margs=(--require kadb/build/test-results/macosArm64Test --require kadb-mdns/build/test-results/macosArm64Test)\u001b[0m"
+        },
+        {
+          "line": 2985,
+          "text": "2026-10-26T13:45:22.8977880Z ##[endgroup]"
+        },
+        {
+          "line": 2986,
+          "text": "2026-10-26T13:45:23.5071780Z {"
+        },
+        {
+          "line": 2987,
+          "text": "2026-10-26T13:45:23.5072430Z   \"executed\": 140,"
+        },
+        {
+          "line": 2988,
+          "text": "2026-10-26T13:45:23.5072780Z   \"failed\": 0,"
+        },
+        {
+          "line": 2989,
+          "text": "2026-10-26T13:45:23.5073370Z   \"device_coverage\": \"Not established by this summary; requires explicit device evidence.\","
+        },
+        {
+          "line": 2990,
+          "text": "2026-10-26T13:45:23.5073830Z   \"missing_required_test_groups\": []"
+        },
+        {
+          "line": 2991,
+          "text": "2026-10-26T13:45:23.5074260Z }"
+        },
+        {
+          "line": 2992,
+          "text": "2026-10-26T13:45:23.5188680Z ##[group]Run python3 validation/record-binary-evidence.py --source-url 'https://github.com/Flyfish233/Kadb/actions/runs/40331404006/artifacts/12653174267' --source-sha256 '0b739eb2b908c1bb64186e185ed14e2d1411fd82d5f5f7cc3cdd860071e05ea5' --source-lock-sha256 '87820248096bd110de6337071bb478405581b5248a88f4af31e685fabc0a1943' --output evidence"
+        },
+        {
+          "line": 2993,
+          "text": "2026-10-26T13:45:23.5190870Z \u001b[36;1mpython3 validation/record-binary-evidence.py --source-url 'https://github.com/Flyfish233/Kadb/actions/runs/40331404006/artifacts/12653174267' --source-sha256 '0b739eb2b908c1bb64186e185ed14e2d1411fd82d5f5f7cc3cdd860071e05ea5' --source-lock-sha256 '87820248096bd110de6337071bb478405581b5248a88f4af31e685fabc0a1943' --output evidence\u001b[0m"
+        }
+      ]
+    },
+    {
+      "job_id": 121603580079,
+      "source_url": "https://github.com/Flyfish233/Kadb/actions/runs/40331404006/job/121603580079",
+      "line_count": 600,
+      "excerpt": [
+        {
+          "line": 487,
+          "text": "2026-10-26T13:38:54.9794620Z   ADB_VENDOR_KEYS: /home/runner/work/_temp/kadb-android-user/adbkey"
+        },
+        {
+          "line": 488,
+          "text": "2026-10-26T13:38:54.9794807Z ##[endgroup]"
+        },
+        {
+          "line": 489,
+          "text": "2026-10-26T13:44:57.5264816Z {\"status\": \"failed\", \"report\": \"evidence/adbd/report.json\", \"checks_executed\": 0, \"commands_executed\": 386, \"error_type\": \"RuntimeError\", \"error\": \"The selected emulator did not become ready within 120s\"}"
+        },
+        {
+          "line": 490,
+          "text": "2026-10-26T13:44:57.5330857Z ##[error]Process completed with exit code 1."
+        },
+        {
+          "line": 491,
+          "text": "2026-10-26T13:44:57.5359588Z ##[group]Run set -o pipefail"
+        },
+        {
+          "line": 492,
+          "text": "2026-10-26T13:44:57.5359773Z \u001b[36;1mset -o pipefail\u001b[0m"
+        },
+        {
+          "line": 506,
+          "text": "2026-10-26T13:44:57.5414672Z   ADB_VENDOR_KEYS: /home/runner/work/_temp/kadb-android-user/adbkey"
+        },
+        {
+          "line": 507,
+          "text": "2026-10-26T13:44:57.5414856Z ##[endgroup]"
+        },
+        {
+          "line": 508,
+          "text": "2026-10-26T13:46:57.9201776Z {\"status\": \"failed\", \"report\": \"evidence/android-runtime/report.json\", \"checks_executed\": 0, \"commands_executed\": 125, \"error_type\": \"RuntimeError\", \"error\": \"The selected emulator did not become ready within 120s\"}"
+        },
+        {
+          "line": 509,
+          "text": "2026-10-26T13:46:57.9271467Z ##[error]Process completed with exit code 1."
+        },
+        {
+          "line": 510,
+          "text": "2026-10-26T13:46:57.9295920Z ##[group]Run timeout --kill-after=5s 20s adb -P 5038 -s emulator-5554 logcat -d -v threadtime -s AndroidRuntime:E System.err:W > evidence/android-runtime-logcat.log 2>&1 || true"
+        },
+        {
+          "line": 511,
+          "text": "2026-10-26T13:46:57.9296553Z \u001b[36;1mtimeout --kill-after=5s 20s adb -P 5038 -s emulator-5554 logcat -d -v threadtime -s AndroidRuntime:E System.err:W > evidence/android-runtime-logcat.log 2>&1 || true\u001b[0m"
+        }
+      ]
+    }
+  ]
+}

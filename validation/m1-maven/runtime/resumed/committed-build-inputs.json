@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "verified_at_utc": "2026-11-02T06:31:04.521434+00:00",
+  "committed_code": "af6aa42ebb2bd880753600ed43fbe6e49d6f197e",
+  "executed_worktree_base": "df9a1f1b2b666103f227b8c52af2018c8620eab2",
+  "evidence": "scheduled-default-exit.json",
+  "checks": [
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "8ec04ffb619d6f14559717bb294b10845476ecfd9e75955b264fbdbde84f8b1d",
+      "matches_executed_input": true
+    },
+    {
+      "path": "build.gradle.kts",
+      "sha256": "abf2cf067fb2f3d66658ec69871a3a5d0a8cba04e6f034471eeb9956fe229e63",
+      "matches_executed_input": true
+    },
+    {
+      "path": "kadb/build.gradle.kts",
+      "sha256": "ad59a0c097a5f3d3dd58cc9bd2270223bff0e11c84eba2c13a8f066fd50d5774",
+      "matches_executed_input": true
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2",
+      "matches_executed_input": true
+    },
+    {
+      "path": "gradle/spake2-maven.gradle",
+      "sha256": "6d1a1ad528528e0925b7b3ecb556217399368c604e4c8f53980048b177821af1",
+      "matches_executed_input": true
+    }
+  ],
+  "meaning": "The tested worktree build inputs are byte-identical to this immutable code commit. The execution record retains its original worktree identity."
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "executedAtUtc": "2026-11-02T06:21:02.767599+00:00",
+  "evidenceKind": "new execution in the resumed session, not a copied prior-run result",
+  "repository": "Flyfish233/spake2",
+  "sourceRevision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "version": "0.1.0-dev.59105290820b",
+  "runId": 40388080222,
+  "artifactId": 12682137388,
+  "originalZip": {
+    "sha256": "29fe208f315ea08c9643d4388df8d832b984b04270fd39e55d00328ed4746ac3",
+    "bytes": 10310865,
+    "entries": 228,
+    "acquisition": "fresh authenticated GitHub connector download; locally rehashed original ZIP"
+  },
+  "transport": {
+    "path": "validation/maven-candidate/spake2-0.1.0-dev.59105290820b-maven.tar.xz",
+    "sha256": "3ea50362515509300850ac2bdb487bc070379d3e40e346250eb228ed2ad47d33",
+    "bytes": 1766332,
+    "mavenFiles": 219,
+    "comparison": "all original ZIP Maven bytes exactly equal transport archive and restored repository; checked against every manifest entry"
+  },
+  "rebuild": false,
+  "fullSourceComparison": "resumed-source-archive-vs-git.json",
+  "limits": "Candidate bytes, publication structure and source identity only; no claim of new crypto audit or binary rebuild.",
+  "publicationGate": {
+    "checkerRepository": "Flyfish233/spake2",
+    "checkerRevision": "0795a4b3d7c8fbdabde8641360717e3e0903f308",
+    "checkerPath": "tools/check_maven_repository.py",
+    "checkerSha256": "ed2b0f4db55bddd144737c4676ffdc2e0e2e70e14e31c8ec9476741b89f9e18e",
+    "exitCode": 0,
+    "publications": 33,
+    "report": "resumed-publication-check.json",
+    "initialSetupFailure": "First copied checker lacked its expected sibling THIRD_PARTY.md. Restored exact immutable checkout and reran successfully; initial failure retained in resumed-publication-check-initial-driver-location.json."
+  }
+}

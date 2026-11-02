@@ -1,0 +1,162 @@
+{
+  "candidate_source": {
+    "artifact_bytes": 10310865,
+    "artifact_id": 12682137388,
+    "artifact_sha256": "29fe208f315ea08c9643d4388df8d832b984b04270fd39e55d00328ed4746ac3",
+    "recovery_archive": "validation/maven-candidate/spake2-0.1.0-dev.59105290820b-maven.tar.xz",
+    "recovery_archive_sha256": "3ea50362515509300850ac2bdb487bc070379d3e40e346250eb228ed2ad47d33",
+    "repository": "Flyfish233/spake2",
+    "run_id": 40388080222,
+    "source_archive_vs_git": "validation/m1-maven/provenance/source-archive-vs-git.json"
+  },
+  "configurations": [
+    "androidCompileClasspath",
+    "androidRuntimeClasspath",
+    "linuxX64CompileKlibraries"
+  ],
+  "fixed_files": 124,
+  "publications": 22,
+  "repository_origin": {
+    "id": "1e81de8f47bf0941e2365ac7758ba49a",
+    "name": "spake2ValidatedCandidate"
+  },
+  "resolution_report_sha256": "87ce0ebaa923a4e30e03c82b607f5bd9451a39f2678461e31c60b8855ffdfebb",
+  "resolution_status": "verified",
+  "revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "source_distributions": [
+    {
+      "coordinate": "io.github.flyfish233:spake2-legacy:0.1.0-dev.59105290820b",
+      "files": 482,
+      "kind": "spake2-source-distribution",
+      "notices": [],
+      "path": "maven/io/github/flyfish233/spake2-legacy/0.1.0-dev.59105290820b/spake2-legacy-0.1.0-dev.59105290820b-source-distribution.zip",
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    {
+      "coordinate": "io.github.flyfish233:spake2-primitives:0.1.0-dev.59105290820b",
+      "files": 482,
+      "kind": "spake2-source-distribution",
+      "notices": [],
+      "path": "maven/io/github/flyfish233/spake2-primitives/0.1.0-dev.59105290820b/spake2-primitives-0.1.0-dev.59105290820b-source-distribution.zip",
+      "sha256": "4a2f3ff76d52b58aae758d83b0600499b5c02d9be8300d9f9fff3c1920519a0c",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    }
+  ],
+  "status": "verified",
+  "verified_artifacts": [
+    {
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "bytes": 67077,
+      "configuration": "androidCompileClasspath",
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+      "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036",
+      "variant": "releaseApiElements-published"
+    },
+    {
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "bytes": 92941,
+      "configuration": "androidCompileClasspath",
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+      "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232",
+      "variant": "releaseApiElements-published"
+    },
+    {
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "bytes": 67077,
+      "configuration": "androidRuntimeClasspath",
+      "coordinate": "io.github.flyfish233:spake2-legacy-android:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_path": "io/github/flyfish233/spake2-legacy-android/0.1.0-dev.59105290820b/spake2-legacy-android-0.1.0-dev.59105290820b.aar",
+      "sha256": "7071d708aa04c5adffddd274f0f1bb76a3fc71a0fd5c48eb68ff6b27b7156036",
+      "variant": "releaseRuntimeElements-published"
+    },
+    {
+      "attributes": {
+        "artifactType": "aar",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "android",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "bytes": 92941,
+      "configuration": "androidRuntimeClasspath",
+      "coordinate": "io.github.flyfish233:spake2-primitives-android:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_path": "io/github/flyfish233/spake2-primitives-android/0.1.0-dev.59105290820b/spake2-primitives-android-0.1.0-dev.59105290820b.aar",
+      "sha256": "7b1045e720844cef91c81dbd5f3bdf9c9d8b8f31c3b3ab1e1df6570228a60232",
+      "variant": "releaseRuntimeElements-published"
+    },
+    {
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "bytes": 22721,
+      "configuration": "linuxX64CompileKlibraries",
+      "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_path": "io/github/flyfish233/spake2-legacy-linuxx64/0.1.0-dev.59105290820b/spake2-legacy-linuxx64-0.1.0-dev.59105290820b.klib",
+      "sha256": "02671b1ac036bf6088973672c66d3a195b1355a12e046392c6046b54aa94f942",
+      "variant": "linuxX64ApiElements-published"
+    },
+    {
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.jvm.environment": "non-jvm",
+        "org.gradle.status": "release",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.cinteropCommonizerArtifactType": "klib",
+        "org.jetbrains.kotlin.native.target": "linux_x64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "bytes": 77588,
+      "configuration": "linuxX64CompileKlibraries",
+      "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+      "repository_id": "1e81de8f47bf0941e2365ac7758ba49a",
+      "repository_name": "spake2ValidatedCandidate",
+      "repository_path": "io/github/flyfish233/spake2-primitives-linuxx64/0.1.0-dev.59105290820b/spake2-primitives-linuxx64-0.1.0-dev.59105290820b.klib",
+      "sha256": "3ff9f5d006209c78440a6bf7653cfa19dca73a20398fb87f5d05a098812e2a6f",
+      "variant": "linuxX64ApiElements-published"
+    }
+  ],
+  "version": "0.1.0-dev.59105290820b"
+}

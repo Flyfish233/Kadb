@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "purpose": "M1 integration invariants only; no new cryptographic audit or runtime claim",
+  "files": [
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "git_blob": "3f797eb5f3312d4bdec1d6ef730f8c8fb26754a6",
+      "sha256": "e23250f71f531af1f287ddc8d2f2cf38e71c4182128a661a6b4276aa559ba290",
+      "bytes": 2118,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "git_blob": "e3b917e1bd31f3b8faf4b6251b1d9f4b2d90bc9b",
+      "sha256": "357427ff01f43c66826da9fcdc6d27ce3a48278f4af737679f43613c8594919a",
+      "bytes": 5043,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "git_blob": "a3a87a027dc5ad91b9cd9cf2649b68dd7610a83d",
+      "sha256": "05178fbf53b0896e39813d776003bec1aaa56bb4a16d072e4463fc33e4144778",
+      "bytes": 9745,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.kt",
+      "git_blob": "8e7fb3794268bcfdb6d80d67d21199c132710d84",
+      "sha256": "73a9d367eb76dd2160cd7720435276eba60880e9e00b64d76f88f9be219a01a3",
+      "bytes": 603,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "git_blob": "2aa37f40e361fd9025a22149d78d997fe0246eb1",
+      "sha256": "214142c243814a10e57023acf69d113065306a39a085690796b494a2f80a46a9",
+      "bytes": 1660,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "git_blob": "82abf73f26c530a1dfd08cb54d8641089187ca60",
+      "sha256": "e5428c3f74ec79d13154d0fad5c15bbe561d0d27577b091eb8fe55e1d5c87ec9",
+      "bytes": 4334,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.android.kt",
+      "git_blob": "aa502eef1c0ed39f9593f6c668fb8c4a0b63dd96",
+      "sha256": "5a3ae3592f291eee6353fe3d6bcc2fbf2dd69f1fb06713ddbd7e3ff299a0cff1",
+      "bytes": 1070,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.native.kt",
+      "git_blob": "9aea367bb0bb5e355af7fb46977a2d2477a9c4ea",
+      "sha256": "790f137f6100325a04d00b516b60d054fef153f324706c596e736140244fb03e",
+      "bytes": 2155,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.native.kt",
+      "git_blob": "7e1807a130e1610a02e6f33f677b27ece77d4ce2",
+      "sha256": "fc1eba6b156264a178f1190b191acd231cd4a2c5b51e87b7ff33b2864dc6be5b",
+      "bytes": 2285,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "git_blob": "276935dee75bb49ec579105436787e64990c215b",
+      "sha256": "dab28d1a497927821c793a363f85b25967278b8b2d8488e33758745ac62b835e",
+      "bytes": 8767,
+      "current_equals_baseline": true
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "git_blob": "55fc420906e7d08248d12e8afe1a1aac4984c9af",
+      "sha256": "c7d6df28e09aef776ac26f73f37c9ae6479d5537b2c7afaefc7d96a026d3a7b0",
+      "bytes": 25769,
+      "current_equals_baseline": true
+    }
+  ],
+  "constraints": [
+    {
+      "name": "Legacy mode and role",
+      "file": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "tokens": [
+        "Role.ALICE",
+        "LegacyPasswordScalarMode.HARDENED",
+        "catch (_: Spake2Exception) { null }"
+      ],
+      "tokens_present": {
+        "Role.ALICE": true,
+        "LegacyPasswordScalarMode.HARDENED": true,
+        "catch (_: Spake2Exception) { null }": true
+      }
+    },
+    {
+      "name": "NUL-terminated ADB identities and HKDF label",
+      "file": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "tokens": [
+        "\"adb pair client\\u0000\"",
+        "\"adb pair server\\u0000\"",
+        "\"adb pairing_auth aes-128-gcm key\"",
+        "HKDF_KEY_LENGTH = 16"
+      ],
+      "tokens_present": {
+        "\"adb pair client\\u0000\"": true,
+        "\"adb pair server\\u0000\"": true,
+        "\"adb pairing_auth aes-128-gcm key\"": true,
+        "HKDF_KEY_LENGTH = 16": true
+      }
+    },
+    {
+      "name": "Terminal one-use state and original nonce counters",
+      "file": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "tokens": [
+        "State.MESSAGE_GENERATED",
+        "State.CIPHER_READY",
+        "State.DESTROYED",
+        "private val encryptNonces = PairingNonceSequence()",
+        "private val decryptNonces = PairingNonceSequence()"
+      ],
+      "tokens_present": {
+        "State.MESSAGE_GENERATED": true,
+        "State.CIPHER_READY": true,
+        "State.DESTROYED": true,
+        "private val encryptNonces = PairingNonceSequence()": true,
+        "private val decryptNonces = PairingNonceSequence()": true
+      }
+    },
+    {
+      "name": "TLS binding and authenticated PeerInfo",
+      "file": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "tokens": [
+        "keyMaterial.size != 64",
+        "mPwd + keyMaterial",
+        "decryptedMsg.size != PeerInfo.MAX_PEER_INFO_SIZE",
+        "isValidDeviceGuid()",
+        "type == ADB_DEVICE_GUID && data.indexOf(0.toByte()) > 0"
+      ],
+      "tokens_present": {
+        "keyMaterial.size != 64": true,
+        "mPwd + keyMaterial": true,
+        "decryptedMsg.size != PeerInfo.MAX_PEER_INFO_SIZE": true,
+        "isValidDeviceGuid()": true,
+        "type == ADB_DEVICE_GUID && data.indexOf(0.toByte()) > 0": true
+      }
+    },
+    {
+      "name": "Android exporter",
+      "file": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "tokens": [
+        "\"adb-label\\u0000\", null, 64"
+      ],
+      "tokens_present": {
+        "\"adb-label\\u0000\", null, 64": true
+      }
+    },
+    {
+      "name": "Native exporter includes trailing NUL",
+      "file": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "tokens": [
+        "static const char label[] = \"adb-label\";",
+        "sizeof(label)"
+      ],
+      "tokens_present": {
+        "static const char label[] = \"adb-label\";": true,
+        "sizeof(label)": true
+      }
+    },
+    {
+      "name": "Native HKDF-SHA256",
+      "file": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "tokens": [
+        "HKDF(out, 16, EVP_sha256()"
+      ],
+      "tokens_present": {
+        "HKDF(out, 16, EVP_sha256()": true
+      }
+    },
+    {
+      "name": "Android HKDF-SHA256 and AES-GCM",
+      "file": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "tokens": [
+        "HKDFBytesGenerator(SHA256Digest())",
+        "HKDFParameters(material, null, info)",
+        "GCMBlockCipher.newInstance(AESEngine.newInstance())"
+      ],
+      "tokens_present": {
+        "HKDFBytesGenerator(SHA256Digest())": true,
+        "HKDFParameters(material, null, info)": true,
+        "GCMBlockCipher.newInstance(AESEngine.newInstance())": true
+      }
+    }
+  ],
+  "verified_commit": "316c64a9761c16293d7f1f69adc7769393e7a705",
+  "verified_at_utc": "2026-11-02T06:23:12.927211+00:00",
+  "status": "PASS",
+  "production_diff_against_baseline": []
+}

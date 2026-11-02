@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "recorded_at_utc": "2026-11-02T06:24:02.326560+00:00",
+  "validated_commit": "316c64a9761c16293d7f1f69adc7769393e7a705",
+  "initial_builds": {
+    "android_host": {
+      "status": "PASS",
+      "duration": "1m 55s",
+      "tasks_executed": 25
+    },
+    "linux_native": {
+      "status": "PASS",
+      "duration": "2m 12s",
+      "tasks_executed": 15
+    }
+  },
+  "same_invocation_resolution_and_test_reruns": {
+    "status": "PASS",
+    "duration": "30s",
+    "tasks_executed": 5,
+    "tasks_up_to_date": 34,
+    "source_report": "actual-spake2-maven-resolution.json",
+    "source_report_sha256": "87ce0ebaa923a4e30e03c82b607f5bd9451a39f2678461e31c60b8855ffdfebb",
+    "verified_artifact_selections": 6,
+    "repository_name": "spake2ValidatedCandidate",
+    "repository_id": "1e81de8f47bf0941e2365ac7758ba49a"
+  },
+  "tests": {
+    "android_host": {
+      "suites": 30,
+      "executed": 102,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed_suites": 0
+    },
+    "linux_native": {
+      "suites": 19,
+      "executed": 63,
+      "failed": 0,
+      "skipped": 0,
+      "opt_in_not_executed_suites": 0
+    }
+  },
+  "total_executed": 165,
+  "total_failed": 0,
+  "binaries": [
+    {
+      "path": "kadb/build/outputs/aar/kadb.aar",
+      "size": 318468,
+      "sha256": "28c4a06b2c7150e02c189c5aab07764db920e5f4af44b21005119c7c511f7a0b"
+    },
+    {
+      "path": "kadb/build/bin/linuxX64/debugTest/test.kexe",
+      "size": 27791088,
+      "sha256": "1742db4415dd494e1a95a092e679dfc4d876ba413f561d9c3f6f6b31d81dedeb"
+    }
+  ],
+  "test_xml": [
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+      "size": 496,
+      "sha256": "506f15386719f70773e3489c1cf7f4035e5035df4de005755b84a634a11a846d"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "size": 1170,
+      "sha256": "b83b62a76c7efcdc78bacd516dc2d06426869ee1136444cc1ec0e4935f505ea6"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+      "size": 699,
+      "sha256": "0cd63d3ada90bab465e5c14f9c1219910bdfc3011d4701b18ffbb6f20650dfb5"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "size": 692,
+      "sha256": "50fc8f0d320dee7569a7d330c7b6bbba4f5b5dc312f53be41e7d1d17f1965f13"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "size": 1014,
+      "sha256": "cc820d04e743a327f79c27f103c71135416298a84fca509bb09ec923e70fbdc6"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+      "size": 1016,
+      "sha256": "1f6d755dd69cd023e6837a7bd6b0084e17c64b023864b782e43cfcbbaf7adc67"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "size": 851,
+      "sha256": "ca2255e9d3263357ff4cf7e52afdcd8be995b096588b7006caec923e93be5ae9"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "size": 839,
+      "sha256": "22a2edfc17570420f51d7fcaa337f79bb8e68c9411ef361b37a0ed0beaadb707"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+      "size": 514,
+      "sha256": "cf12809912352c8bee173edfaa412c1f0f76ce299fffa0ca1e4402ae9276e751"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "size": 1183,
+      "sha256": "1f4ea140ac5c8200543d3b8d0aede977c52268d1610ab8d6029ef3d42cbedc62"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "size": 993,
+      "sha256": "e578d905dac7593a39aebeae4dfef7e32788e8b5986d7b139d88ef807a4f9674"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "size": 1259,
+      "sha256": "6806eebc9af3b23c2a4112465d37b42f4afd3f0fbfcfc718144088e53151d590"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "size": 512,
+      "sha256": "59d2208dd59a3a0c910789ebe81e904eaf815adccc440bc60c2075b17fd2f92b"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "size": 675,
+      "sha256": "ca2f55ebd728277680fd524e7937e86f5c84f4eae45b292528368d6eb7eb343f"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "size": 1181,
+      "sha256": "0adc4f587d4246cdabe62c3bfe0a57d500c5af2ae1143de9a025b54e12c3d9d9"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "size": 1126,
+      "sha256": "7de14c05c7e13ea8e49c0e3113ff2dff45644a9eb297e285d4aff20b9e7d497a"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "size": 681,
+      "sha256": "9983a3290879a94bf1f56416088b1852cbbb7792dc47e259cb6a48e7cb35cc42"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "size": 1207,
+      "sha256": "c01eada12b0247dd79173b7039aaa2276096faa8bf76bf40ebea027df3cc2669"
+    },
+    {
+      "path": "kadb/build/test-results/linuxX64Test/TEST-linuxX64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+      "size": 826,
+      "sha256": "06e226ca929cae07fad9d1ca65d8f2d5b9aaeff4b2d628ead4338d8f390bb063"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+      "size": 1044,
+      "sha256": "4b6c9fe6da0c0bc1c0f297cae73ef96538c3a3d02e39acff54caa7898ea96064"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.InstallSessionWireLifecycleTest.xml",
+      "size": 915,
+      "sha256": "ce947d54063c6ce5c943f87a3dafeb51352f912fdbab7dbe34bccb3015ea216c"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbConnectionAttemptCancellationTest.xml",
+      "size": 813,
+      "sha256": "c4b2d057c5e228fe3c49fe91c54c92345080fcc68b65d04e94f28207211281fe"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbConnectionLifecycleTest.xml",
+      "size": 876,
+      "sha256": "3db9a0dea6cd10091a8542cdad41a8852bfeebe8781bb64ba05dabf655d3ce9f"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbFileBinaryCompatibilityTest.xml",
+      "size": 650,
+      "sha256": "7d8841c668426caab847aa7b12f8eb77743215ab9dfa7e424440310a0ebd0467"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.KadbTransportFailureTest.xml",
+      "size": 716,
+      "sha256": "1cc75211b0f8cce191a629de9cd6edb5ca256911cf277fb01c7dfbc278876f27"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.IdentityCompatibilityTest.xml",
+      "size": 492,
+      "sha256": "e7bde10a3837cdadb5f30cb55dbe37b92016bc1836239e14f4072750b8be5875"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+      "size": 639,
+      "sha256": "0597f22aa6cbdb4044614a98742b804c707331024d9878fdecee8283563832af"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+      "size": 919,
+      "sha256": "7d1b8fdc5a605b55468d5706a53caec775a9d54bb29d1194a0e35765a7266080"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+      "size": 775,
+      "sha256": "83ae8e2d73b27d6fa356aeab1f5c357704a28a2c8c9ae254ef34b995f190b7ea"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+      "size": 763,
+      "sha256": "e73c94c16703d081ee381ffaca72bafd3fe7986506dc7c0d1d7b21b64fb32157"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+      "size": 1061,
+      "sha256": "e6ef937db50393e98077c0077f95bdf68f6cf3d3bf0ad608a319c33a95df62b3"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+      "size": 896,
+      "sha256": "e342f61cf6f77b253fab19b15fbf5870b8347f9003ae6a9deeaae964b64f177a"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.core.AdbWriterLifecycleTest.xml",
+      "size": 478,
+      "sha256": "065dac0c4777f32ee15d1d3f3bcd3d206e551f6988caca01a97820dc0d6a7fd8"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.forwarding.TcpForwarderLifecycleTest.xml",
+      "size": 960,
+      "sha256": "fcfeeb25958f8f7fdb78a2511afb302b4235596c1849e04057c17eb005504c2c"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+      "size": 1119,
+      "sha256": "82b98db69d4875dc4a1e63b08c80651e0d5ab70494aa9f8b8021762ef75c3861"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingCancellationTest.xml",
+      "size": 620,
+      "sha256": "85461db89bd8b478c90c1b218cdde663878eef0d59e0002ba807ee9b3dded313"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+      "size": 476,
+      "sha256": "0a12cae5e4f7e144f2a2095de96e6d62a6c4f11419817964b5fac60c6568bcab"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingCompatibilityTest.xml",
+      "size": 1430,
+      "sha256": "2de58229a09e55c93d92e4ebf0ab6f8376de40f0230a0c29d3709fadee38177a"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+      "size": 621,
+      "sha256": "044a9f4174878ea296e071cb8e21bd12380ffb24a342fb887fa6f36851b2a839"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+      "size": 1056,
+      "sha256": "2c9451233ea5759637b24bc0258ccde29b2242f8f335cbe51ab61b1182cdcb1d"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.queue.AdbMessageQueueTest.xml",
+      "size": 978,
+      "sha256": "db703806ff14ace7784c27522f18d0cbde7054294ac69360412d7a76d116079c"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+      "size": 1004,
+      "sha256": "9a7faae4b875b06fb5a202418546dc8999a64239f24ade322f62750f64e99fad"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+      "size": 626,
+      "sha256": "4d8eb32b5f14ed8814b312c49743d97bc9eac88321bd3807094391dc91b45ae7"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.stream.AdbStreamTransferTest.xml",
+      "size": 621,
+      "sha256": "51ea34efbd0551c68b09c8d8ff30f4b2ac27f19371382385d80b1587dee0a5bd"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+      "size": 1079,
+      "sha256": "0516620b8c0440a6e8b64eb670a619563239e18b74f6ce3c8c40fb42c9ea5ab8"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.PlainBlockingChannelTest.xml",
+      "size": 489,
+      "sha256": "49452a130359f049b3190c487de399f15c83ed2d6859a88c494e612caeed5461"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.TlsFailureLifecycleTest.xml",
+      "size": 663,
+      "sha256": "dd2dbd8692b58ded1a94fa13f2a01c5b6e496c59ea5f10b5262a60e7ea3bd6c8"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.UsbHandshakeTest.xml",
+      "size": 737,
+      "sha256": "1462ef8cf6c52724ebb51f2c69e6d02dbf51e8626c4edddc85ab58c2fc0c4e9a"
+    },
+    {
+      "path": "kadb/build/test-results/testAndroidHostTest/TEST-com.flyfishxu.kadb.transport.UsbPacketChannelTest.xml",
+      "size": 1039,
+      "sha256": "b42fbc6d316856a5f291b13016ed4bd6e6510dadffbfd88e83dd3554f91a402e"
+    }
+  ],
+  "coverage": {
+    "android_host": "PASS",
+    "linux_native_compilation_linking_unit_tests": "PASS",
+    "android_art_or_emulator_integration": "NOT EXECUTED",
+    "darwin": "NOT EXECUTED",
+    "external_adb_pairing": "NOT EXECUTED",
+    "physical_device_pairing": "NOT EXECUTED"
+  }
+}

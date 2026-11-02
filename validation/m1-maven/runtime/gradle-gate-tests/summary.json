@@ -1,0 +1,28 @@
+{
+  "scope": "Real Gradle resolution fixtures only; not Kadb compilation, platform execution or device pairing",
+  "gradle": "9.6.0",
+  "java": "25.0.5+8 (Eclipse Adoptium)",
+  "offline": true,
+  "result": "PASS",
+  "tests": 6,
+  "executed": [
+    "positive JVM/Android/Linux Native variants",
+    "wrong requested version even if forced to fixed version",
+    "missing Primitives in one configuration",
+    "module-to-project substitution",
+    "byte-identical binary from a different configured repository",
+    "modified candidate binary"
+  ],
+  "report_note": "The positive fixture repository was a TemporaryDirectory removed by the test; cache artifact paths and hashes record the actual resolved binaries. Kadb consumer evidence is recorded separately.",
+  "origin_binding": "Actual Gradle 9.6 component repositoryName must map to a unique configured repository whose file URI is the verified candidate. Repository descriptor ID is retained as corroborating configuration identity.",
+  "files": {
+    "missing-primitives.log": "1236450a05398b7fd8f4914618e2f551081d32ec28e5934c76496ec2b8063b86",
+    "modified-binary.log": "d86087905f583f62de868fd1a6fac33d25eaf98261b70d5de00b5972e46d4910",
+    "positive-platforms.log": "8e156c2774db1e3dc019239e9cc0ccccb5e47eb70a16c0dd531d61d5e8efbf26",
+    "positive-resolution.json": "a6d7013370288aa304dead4e4b93ce4356e0ac978eca5d48fe40a9b907f0aa27",
+    "project-substitution.log": "5ac6ace561d89cfe7b46870dc85ae2eaca61d860de0e15abddfd2b64822a92c6",
+    "unittest.log": "fb10a504b8077f42e2e29e7cedef07dbe0ca55e5d75dd5596ba99d252e1962de",
+    "wrong-repository.log": "df5dd72c1a7bf5b6565de182c5a0f4c1beb90b7dfb8c7e3e7e7a3c05fda89764",
+    "wrong-version.log": "616e2f4029736046216004acb235ca883126059f5073c1d607bdca1238abd55d"
+  }
+}

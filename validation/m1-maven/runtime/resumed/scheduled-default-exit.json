@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "recorded_at_utc": "2026-11-02T06:26:50.286945+00:00",
+  "git_head_at_test": "df9a1f1b2b666103f227b8c52af2018c8620eab2",
+  "scope": "Normal host+native task invocation without explicitly requesting verifier or specifying configurations; gate must inspect scheduled main/test compilations",
+  "command": [
+    "./gradlew",
+    ":kadb:testAndroidHostTest",
+    "--rerun",
+    ":kadb:linuxX64Test",
+    "--rerun",
+    "--no-build-cache",
+    "--no-configuration-cache",
+    "--no-daemon",
+    "--max-workers=2",
+    "--console=plain",
+    "--stacktrace"
+  ],
+  "build_inputs": {
+    "settings.gradle.kts": "8ec04ffb619d6f14559717bb294b10845476ecfd9e75955b264fbdbde84f8b1d",
+    "build.gradle.kts": "abf2cf067fb2f3d66658ec69871a3a5d0a8cba04e6f034471eeb9956fe229e63",
+    "kadb/build.gradle.kts": "ad59a0c097a5f3d3dd58cc9bd2270223bff0e11c84eba2c13a8f066fd50d5774",
+    "gradle/libs.versions.toml": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2",
+    "gradle/spake2-maven.gradle": "6d1a1ad528528e0925b7b3ecb556217399368c604e4c8f53980048b177821af1"
+  },
+  "working_tree_diff_from_head_sha256": "ca42c5f2e1d54b0afa9ab6ce89bfdbe77dc3f39700c9644789e87e92af7d385e"
+}

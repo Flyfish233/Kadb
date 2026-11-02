@@ -1,0 +1,188 @@
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnamed module (file:/workspace/scratch/599883664903/gradle-home/wrapper/dists/gradle-9.6.0-bin/42k10rwplmzkhuboz9kdazi7s/gradle-9.6.0/lib/native-platform-0.22-milestone-29.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :kadb
+w: ⚠️ Native task 'iosSimulatorArm64Test' is disabled
+Task 'iosSimulatorArm64Test' for target 'ios_simulator_arm64' cannot run on the current host (linux-x86_64).
+Reason: simulator tests require macOS
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosArm64Test' is disabled
+Task 'macosArm64Test' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'macosX64Test' is disabled
+Task 'macosX64Test' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: tests can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'iosSimulatorArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'iosSimulatorArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'macosArm64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'macosArm64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Cross Compilation with Cinterop Not Supported in Project 'kadb'
+In project 'kadb', cross compilation to target 'macosX64' has been disabled because it contains cinterops: 'kadbNative' which cannot be processed on host 'linux_x64'.
+Cinterop libraries require platform-specific native toolchains that aren't available on the current host system.
+Solutions:
+ * Remove the cinterop dependencies 'kadbNative' from target 'macosX64'
+ * Build on a compatible host platform for this target/cinterop combination
+ * To disable klib cross compilation entirely, add 'kotlin.native.enableKlibsCrossCompilation=false' to your Gradle properties
+
+w: ⚠️ Disabled Kotlin/Native Targets
+The following Kotlin/Native targets cannot be built on this machine and are disabled:
+iosArm64, iosSimulatorArm64, macosArm64, macosX64
+Solution: To hide this message, add 'kotlin.native.ignoreDisabledTargets=true' to the Gradle properties.
+
+
+> Configure project :validation-android-fixture
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+
+> Configure project :validation-native-adbd
+w: ⚠️ Native task 'runDebugExecutableMacosArm64' is disabled
+Task 'runDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosArm64' is disabled
+Task 'runReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosArm64' is disabled
+Task 'runPairingDebugExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosArm64' is disabled
+Task 'runPairingReleaseExecutableMacosArm64' for target 'macos_arm64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_arm64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runDebugExecutableMacosX64' is disabled
+Task 'runDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runReleaseExecutableMacosX64' is disabled
+Task 'runReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingDebugExecutableMacosX64' is disabled
+Task 'runPairingDebugExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+w: ⚠️ Native task 'runPairingReleaseExecutableMacosX64' is disabled
+Task 'runPairingReleaseExecutableMacosX64' for target 'macos_x64' cannot run on the current host (linux_x64).
+Reason: executable can only run on macos_x64
+Solution: To suppress this warning, add 'kotlin.native.ignoreDisabledTargets=true' to gradle.properties.
+
+
+> Task :kadb:verifySpake2MavenResolution
+SPAKE2_MAVEN_RESOLUTION_VERIFIED 6 selections: /workspace/scratch/599883664903/Kadb/kadb/build/reports/spake2-maven-resolution.json
+
+> Task :kadb:verifyProductionTargetScope
+PRODUCTION_TARGET_SCOPE_OK :kadb:verifyProductionTargetScope [android:androidJvm, iosArm64:native, iosSimulatorArm64:native, linuxX64:native, macosArm64:native, macosX64:native, metadata:common]
+
+> Task :kadb:kmpPartiallyResolvedDependenciesChecker
+> Task :kadb:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :kadb:compileAndroidMain UP-TO-DATE
+> Task :kadb:androidPreBuild UP-TO-DATE
+> Task :kadb:preAndroidMainBuild UP-TO-DATE
+> Task :kadb:javaPreCompileAndroidMain UP-TO-DATE
+> Task :kadb:compileAndroidMainJavaWithJavac NO-SOURCE
+> Task :kadb:bundleAndroidMainClassesToRuntimeJar UP-TO-DATE
+> Task :kadb:androidJar UP-TO-DATE
+> Task :kadb:bundleAndroidMainClassesToCompileJar UP-TO-DATE
+> Task :kadb:compileAndroidHostTest UP-TO-DATE
+> Task :kadb:preAndroidHostTestBuild UP-TO-DATE
+> Task :kadb:javaPreCompileAndroidHostTest UP-TO-DATE
+> Task :kadb:compileAndroidHostTestJavaWithJavac NO-SOURCE
+> Task :kadb:processAndroidHostTestJavaRes NO-SOURCE
+> Task :kadb:processAndroidMainJavaRes UP-TO-DATE
+
+> Task :kadb:testAndroidHostTest
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/etc/ssl/certs/java/cacerts
+
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.conscrypt.NativeLibraryUtil in an unnamed module (file:/workspace/scratch/599883664903/gradle-home/caches/modules-2/files-2.1/org.conscrypt/conscrypt-openjdk-uber/2.7.0/bc396edfd5fefe70b7e1f9764edb803e13c6741f/conscrypt-openjdk-uber-2.7.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+> Task :kadb:checkAndroidMainAarMetadata UP-TO-DATE
+> Task :kadb:mergeAndroidMainJniLibFolders UP-TO-DATE
+> Task :kadb:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :kadb:copyAndroidMainJniLibsProjectOnly UP-TO-DATE
+> Task :kadb:extractAndroidMainAnnotations UP-TO-DATE
+> Task :kadb:generateAndroidMainEmptyResourceFiles UP-TO-DATE
+> Task :kadb:mergeAndroidMainGeneratedProguardFiles UP-TO-DATE
+> Task :kadb:mergeAndroidMainConsumerProguardFiles UP-TO-DATE
+> Task :kadb:prepareAndroidMainArtProfile UP-TO-DATE
+> Task :kadb:prepareLintJarForPublish UP-TO-DATE
+> Task :kadb:processAndroidMainManifest UP-TO-DATE
+> Task :kadb:mergeAndroidMainJavaResource UP-TO-DATE
+> Task :kadb:syncAndroidMainLibJars UP-TO-DATE
+> Task :kadb:writeAndroidMainAarMetadata UP-TO-DATE
+> Task :kadb:bundleAndroidMainAar UP-TO-DATE
+> Task :kadb:downloadIosBoringSsl UP-TO-DATE
+> Task :kadb:prepareIosBoringSsl UP-TO-DATE
+> Task :kadb:downloadNativeLinuxLlvm UP-TO-DATE
+> Task :kadb:prepareNativeLinuxLlvm UP-TO-DATE
+> Task :kadb:downloadNativeLinuxToolchain UP-TO-DATE
+> Task :kadb:prepareNativeLinuxToolchain UP-TO-DATE
+> Task :kadb:buildNativeLinuxX64 UP-TO-DATE
+> Task :kadb:cinteropKadbNativeLinuxX64 UP-TO-DATE
+> Task :kadb:downloadKotlinNativeDistribution UP-TO-DATE
+> Task :kadb:compileKotlinLinuxX64 UP-TO-DATE
+> Task :kadb:linuxX64ProcessResources NO-SOURCE
+> Task :kadb:linuxX64MainKlibrary UP-TO-DATE
+> Task :kadb:compileTestKotlinLinuxX64 UP-TO-DATE
+> Task :kadb:linkDebugTestLinuxX64 UP-TO-DATE
+> Task :kadb:linuxX64Test
+
+[Incubating] Problems report is available at: file:///workspace/scratch/599883664903/Kadb/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 30s
+39 actionable tasks: 5 executed, 34 up-to-date

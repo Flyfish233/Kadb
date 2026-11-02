@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "executedAtUtc": "2026-11-02T06:21:02.830071+00:00",
+  "repository": "build/spake2-candidate/maven",
+  "version": "0.1.0-dev.59105290820b",
+  "revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+  "error": "Missing published file: /THIRD_PARTY.md"
+}

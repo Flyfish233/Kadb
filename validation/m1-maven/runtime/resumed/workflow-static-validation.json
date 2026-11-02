@@ -1,0 +1,21 @@
+[
+  {
+    "path": ".github/workflows/m1-maven.yml",
+    "jobs": [
+      "m1-host",
+      "m1-linux-native"
+    ],
+    "validation": "YAML parsed; permissions and bounded timeouts asserted; action revisions are full SHAs"
+  },
+  {
+    "path": ".github/workflows/experiment-validation.yml",
+    "jobs": [
+      "corresponding-source",
+      "android-and-protocol",
+      "linux-native",
+      "darwin-native",
+      "emulator-adbd"
+    ],
+    "validation": "YAML parsed; permissions and bounded timeouts asserted; action revisions are full SHAs"
+  }
+]
