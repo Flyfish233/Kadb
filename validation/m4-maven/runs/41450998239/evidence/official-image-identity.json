@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "sdk_package": "system-images;android-35;google_apis_playstore;x86_64",
+  "properties": {
+    "Pkg.Desc": "System Image x86_64 with Google Play.",
+    "Pkg.Revision": "9",
+    "Pkg.Dependencies": "emulator#33.1.24",
+    "AndroidVersion.ApiLevel": "35",
+    "AndroidVersion.ExtensionLevel": "13",
+    "AndroidVersion.IsBaseSdk": "true",
+    "SystemImage.Abi": "x86_64",
+    "SystemImage.TagId": "google_apis_playstore",
+    "SystemImage.TagDisplay": "Google Play",
+    "SystemImage.GpuSupport": "true",
+    "Addon.VendorId": "google",
+    "Addon.VendorDisplay": "Google Inc."
+  },
+  "files": [
+    {
+      "file": "system.img",
+      "bytes": 2154823680,
+      "sha256": "aea89d76918485c7b3041902682be470f8ee5feed43587cda81719b233d9868a"
+    },
+    {
+      "file": "vendor.img",
+      "bytes": 51380224,
+      "sha256": "1aa7ec8da192342558d1428c28a1626c2e16dd6324c09ccdaddd16d621de84b6"
+    },
+    {
+      "file": "ramdisk.img",
+      "bytes": 1860748,
+      "sha256": "bb8cbb36481f2892c29929ed37bf51b904ddfdc796a76476364cd19aebea843b"
+    },
+    {
+      "file": "kernel-ranchu",
+      "bytes": 19137536,
+      "sha256": "a204606cf2f458540c5437e9ba804b5012acf0a2916d00f099a03e1e553e697e"
+    },
+    {
+      "file": "source.properties",
+      "bytes": 366,
+      "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+    },
+    {
+      "file": "package.xml",
+      "bytes": 19322,
+      "sha256": "566035acac35b556b18b02b4a1a39d974bfcf915472a3b468e1ad054bb7f64a8"
+    }
+  ],
+  "modified": false,
+  "scope": "Hashes identify installed official SDK platform inputs. No claim that AOSP reference tag is exact source of Google Play binaries.",
+  "runtime_adbd_elf_hash": "Unavailable to unprivileged shell on this user image; no root or permissions change attempted."
+}

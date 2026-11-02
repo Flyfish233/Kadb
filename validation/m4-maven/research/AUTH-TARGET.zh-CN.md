@@ -58,6 +58,6 @@ Android 15 [adbd auth.cpp](https://android.googlesource.com/platform/packages/mo
 
 ## 来源和结论范围
 
-本目录的 AOSP 文件元数据固定到 `android-15.0.0_r1`，并记录下载后解码源码的 SHA256，用于核对 API 35 的机制预期。它们没有被宣称为 Google Play revision 9 整个镜像的精确对应源码。实际镜像的 build fingerprint、SDK 包 revision、adbd ELF SHA256 和系统日志由运行证据单独确定。Kadb、固定 Maven 候选及其所链接二进制的对应源码关系继续使用项目既有来源验证流程。
+本目录的 AOSP 文件元数据固定到 `android-15.0.0_r1`，并记录下载后解码源码的 SHA256，用于核对 API 35 的机制预期。它们没有被宣称为 Google Play revision 9 整个镜像的精确对应源码。实际镜像的 build fingerprint、SDK 包 revision、官方 SDK 输入文件 SHA256 和系统日志由运行证据单独确定。这个 `user` 镜像禁止普通 shell 读取或直接执行 adbd，因此单独的运行时 adbd ELF 摘要未取得；原始权限失败也保留在环境证据中。Kadb、固定 Maven 候选及其所链接二进制的对应源码关系继续使用项目既有来源验证流程。
 
 调查本身不判定 M4-A 或 M4-B 通过。只有实际执行的正反连接和撤销证据能够升级对应裁决。

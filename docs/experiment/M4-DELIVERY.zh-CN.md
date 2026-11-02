@@ -25,7 +25,7 @@ revision 9；实际 `ro.adb.secure=1`、`ro.debuggable=0`、shell UID 2000。
 | 项目 | 当前裁决 |
 | --- | --- |
 | M4-A RSA AUTH | PASS：实际 4 个会话、32 项检查 |
-| M4-B 无线 TLS 身份强制认证与撤销 | NOT VERIFIED |
+| M4-B 无线 TLS 身份强制认证与撤销 | NOT VERIFIED：配对及已授权 A 正向已实际通过，B/撤销仍待执行 |
 | M4-C 实体设备 | NOT VERIFIED（无设备授权，不执行） |
 | M4 整体 | CONDITIONAL PASS（TLS 继续执行中） |
 
@@ -43,3 +43,11 @@ B 经 8179 ms 有界等待结束，随后 A 再次完成 AUTH、CNXN 与 Shell�
 该 CI 的总体状态为 failure：无线部分尚未进入配对，原因是普通 shell 读取 `service.adb.tls.port` 被平台拒绝，
 真实 adbd 已记录 listener 在端口 36175 启动。此处只调整测试工具使用正常 Binder 查询，不改动目标系统权限或认证机制。
 原始报告、66 个证据文件、运行日志及两份实际二进制摘要核对保存在 `validation/m4-maven/runs/41449058069/`。
+
+## 无线正向实际通过与阶段隔离修正
+
+代码 `7890db69afa29e9dd29976f72314e853a4d555c8` 的 CI [41450998239](https://github.com/Flyfish233/Kadb/actions/runs/41450998239) 已解决普通 shell 无法读取端口属性的问题：通过 `IAdbManager.getAdbWirelessPort()` 取得实际 TLS listener **42005**，adbd PID **1720**。真实系统 SPAKE2 配对成功，公钥持久化与独立 A 的 STLS、TLS 1.3、adbd `Matched auth_key`、`Handshake succeeded` 和 Shell 均成立。该次实际执行 43 项 Native 检查（RSA 32、配对 3、TLS 正向 8），另有 31 项工具测试通过。
+
+工具在 B 测试前发现授权集合意外增加了先前撤销的 RSA A，严格停止，没有把额外公钥纳入预期白名单。13:18:21.902 系统已接收移除 RSA A 的 `DD`；13:18:25.453 TLS 事件发生时，延后的 RSA `CK` 到达 framework，并再次更新该身份的授权记录。因此本次 B 拒绝与 TLS 撤销都没有执行，M4-B 保持 NOT VERIFIED。TLS 阶段的局部授权恢复检查失败；外层清理随后移除了本轮全部临时身份，最终授权集合、端口、密钥和无线设置恢复通过，AVD 已销毁。
+
+源码调查另外确认正常授权接口应使用当前 AUTH3 的完整公钥字符串；仅保持 RSA key blob 相同而替换注释，会改变 framework 按完整字符串维护的连接状态。修正将使用观察器内存中核实的实际请求串，并将 RSA、TLS 分成独立创建和销毁的 AVD。TLS 自身的已配对、未配对、撤销后重连仍要求同一 adbd PID 和 listener。此次不是关闭认证或改动授权判断。71 个已脱敏证据文件、完整 job 日志、两份实际可执行文件的摘要核对和下载身份保存在 `validation/m4-maven/runs/41450998239/`。

@@ -93,6 +93,15 @@
       "decoded_source_sha256": "869d11124ecf62883d425bbab3a6a8139c33cebf34e5df1d10b01a42e7227b9a",
       "bytes": 13473,
       "purpose": "Server TLS certificate-rejection and handshake log strings; TLS1.3 post-handshake denial semantics"
+    },
+    {
+      "name": "adb.cpp",
+      "bytes": 58062,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "0325ef64115b068aa939c4a06db0d840abd4c5aba9ebc3e2049f141bb3d3a25c",
+      "retrieval_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/adb.cpp?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/adb.cpp",
+      "purpose": "Successful RSA signature dispatch calls notifier; AUTH3 handling retains full submitted string, lines 444-463; supports lifecycle diagnosis, not exact Google Play source attribution."
     }
   ],
   "sdk_image": {

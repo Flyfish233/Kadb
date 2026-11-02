@@ -25,8 +25,16 @@
   },
   "M4-B": {
     "verdict": "NOT VERIFIED",
-    "reason": "Official user image denies shell access to service.adb.tls.port; actual listener started, driver must use normal getAdbWirelessPort Binder API",
-    "run_id": 41449058069
+    "run_id": 41450998239,
+    "code_sha": "7890db69afa29e9dd29976f72314e853a4d555c8",
+    "pairing": "PASS",
+    "paired_identity_acceptance": "PASS",
+    "unpaired_identity_rejection": "NOT VERIFIED",
+    "revocation_rejection": "NOT VERIFIED",
+    "reason": "Delayed RSA CK notification reinserted a previously revoked RSA identity before the B attempt; strict authorization-set gate stopped. Isolate RSA/TLS in separate fresh AVDs and use exact current AUTH3 text for normal RSA allow.",
+    "stage_cleanup": "FAIL",
+    "outer_cleanup": "PASS",
+    "native_checks_executed_in_run": 43
   },
   "M4-C": {
     "verdict": "NOT VERIFIED",
@@ -43,6 +51,12 @@
       "code_sha": "443211e91262fb021335b168b42fe7f18591b6eb",
       "conclusion": "failure",
       "purpose": "RSA checkpoint passed; TLS listener discovery blocked by rootless property access"
+    },
+    {
+      "id": 41450998239,
+      "code_sha": "7890db69afa29e9dd29976f72314e853a4d555c8",
+      "conclusion": "failure",
+      "purpose": "Real RSA, real pairing and paired TLS identity acceptance passed; strict authorization set gate stopped before unpaired and revoked tests"
     }
   ],
   "R3_K01": "Inherited bidirectional GCM nonce behavior remains unresolved and unchanged.",

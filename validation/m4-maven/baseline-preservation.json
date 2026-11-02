@@ -1,0 +1,908 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "generated_utc": "2026-11-02T13:16:54.214865+00:00",
+  "scope": "Git object and exact path-diff preservation review for the tested M4 commit; not a rerun of M1/M2/M3 or a fourth SPAKE2 audit.",
+  "references": {
+    "m3_executed": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+    "user_baseline": "895674e5725b2cf328bf427e1500cb8f2e6e231e",
+    "m4_tested": "7890db69afa29e9dd29976f72314e853a4d555c8"
+  },
+  "tested_ci_run": 41450998239,
+  "method": {
+    "object_identity": "git rev-parse <commit>:<path> for entire trees and individual blobs",
+    "changes": "git diff --name-status --no-renames <baseline> <tested>",
+    "exact_edit_check": "Removing the exact recorded M1 paths-ignore insertion and auth executable insertion reconstructs the prior byte-for-byte files.",
+    "working_tree": "Committed references are compared. Concurrent uncommitted M4 harness edits are excluded from the tested-commit statement."
+  },
+  "unchanged_objects": [
+    {
+      "path": "kadb",
+      "git_objects": {
+        "m3_executed": "5c6e48f5a1891aa4b965b9de84fa06ef612d5bb7",
+        "user_baseline": "5c6e48f5a1891aa4b965b9de84fa06ef612d5bb7",
+        "m4_tested": "5c6e48f5a1891aa4b965b9de84fa06ef612d5bb7"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "kadb-mdns",
+      "git_objects": {
+        "m3_executed": "fb2445b26f4fc64904160969b2496e3c685f48c8",
+        "user_baseline": "fb2445b26f4fc64904160969b2496e3c685f48c8",
+        "m4_tested": "fb2445b26f4fc64904160969b2496e3c685f48c8"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "gradle",
+      "git_objects": {
+        "m3_executed": "7ddb09edffdada4a1704f879bd29720ddb12caa7",
+        "user_baseline": "7ddb09edffdada4a1704f879bd29720ddb12caa7",
+        "m4_tested": "7ddb09edffdada4a1704f879bd29720ddb12caa7"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "build.gradle.kts",
+      "git_objects": {
+        "m3_executed": "da6e9c451586548f3c82d27af5155181288ae40d",
+        "user_baseline": "da6e9c451586548f3c82d27af5155181288ae40d",
+        "m4_tested": "da6e9c451586548f3c82d27af5155181288ae40d"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "settings.gradle.kts",
+      "git_objects": {
+        "m3_executed": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+        "user_baseline": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+        "m4_tested": "3521af526d39d3d31e75dca86307b48f2dca7dcf"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "gradle.properties",
+      "git_objects": {
+        "m3_executed": "d5e3f0f2d0a37139edba1e4ab490f69ca9f0d459",
+        "user_baseline": "d5e3f0f2d0a37139edba1e4ab490f69ca9f0d459",
+        "m4_tested": "d5e3f0f2d0a37139edba1e4ab490f69ca9f0d459"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "versions.properties",
+      "git_objects": {
+        "m3_executed": "841d9533a2ac49b8fdf658cd2e856f5358506e37",
+        "user_baseline": "841d9533a2ac49b8fdf658cd2e856f5358506e37",
+        "m4_tested": "841d9533a2ac49b8fdf658cd2e856f5358506e37"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "LICENSE",
+      "git_objects": {
+        "m3_executed": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "user_baseline": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+        "m4_tested": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "third-party",
+      "git_objects": {
+        "m3_executed": "0fb6562652d8f51346ffeb474732cdf92759da75",
+        "user_baseline": "0fb6562652d8f51346ffeb474732cdf92759da75",
+        "m4_tested": "0fb6562652d8f51346ffeb474732cdf92759da75"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/source-bundle",
+      "git_objects": {
+        "m3_executed": "51416153988e26c22717843c097dc91ca910c1e9",
+        "user_baseline": "51416153988e26c22717843c097dc91ca910c1e9",
+        "m4_tested": "51416153988e26c22717843c097dc91ca910c1e9"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/maven-candidate",
+      "git_objects": {
+        "m3_executed": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9",
+        "user_baseline": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9",
+        "m4_tested": "be57de4abd78fec1388dfb8fd4606b3f44c7fcb9"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/spake2",
+      "git_objects": {
+        "m3_executed": "fd6df9f504ab681a01cdc38027ac22c75280d31a",
+        "user_baseline": "fd6df9f504ab681a01cdc38027ac22c75280d31a",
+        "m4_tested": "fd6df9f504ab681a01cdc38027ac22c75280d31a"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/m1-maven",
+      "git_objects": {
+        "m3_executed": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+        "user_baseline": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+        "m4_tested": "e2d68d790fa29d3102ce12ba19b75426926afc82"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/m2-maven",
+      "git_objects": {
+        "m3_executed": "cdb982f696f90b62be7e9167814c1c64c4c9415a",
+        "user_baseline": "cdb982f696f90b62be7e9167814c1c64c4c9415a",
+        "m4_tested": "cdb982f696f90b62be7e9167814c1c64c4c9415a"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/m3-maven/ci",
+      "git_objects": {
+        "m3_executed": "14873430f8414b30d00d464efb253067489e7043",
+        "user_baseline": "14873430f8414b30d00d464efb253067489e7043",
+        "m4_tested": "14873430f8414b30d00d464efb253067489e7043"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/pairing-peer",
+      "git_objects": {
+        "m3_executed": "19131b01df5e14f4707bff38f3afbf96b01c0bc4",
+        "user_baseline": "19131b01df5e14f4707bff38f3afbf96b01c0bc4",
+        "m4_tested": "19131b01df5e14f4707bff38f3afbf96b01c0bc4"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": ".github/workflows/m2-darwin.yml",
+      "git_objects": {
+        "m3_executed": "238970210d20422116cd8c4fd1f134817615d007",
+        "user_baseline": "238970210d20422116cd8c4fd1f134817615d007",
+        "m4_tested": "238970210d20422116cd8c4fd1f134817615d007"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": ".github/workflows/m2-android.yml",
+      "git_objects": {
+        "m3_executed": "bba9bb496b6e2ec0e15e9559b654ce8dce46b172",
+        "user_baseline": "bba9bb496b6e2ec0e15e9559b654ce8dce46b172",
+        "m4_tested": "bba9bb496b6e2ec0e15e9559b654ce8dce46b172"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": ".github/workflows/m3-adbd.yml",
+      "git_objects": {
+        "m3_executed": "d570603ca4bfbae619553fc30330d08583f5f4b5",
+        "user_baseline": "d570603ca4bfbae619553fc30330d08583f5f4b5",
+        "m4_tested": "d570603ca4bfbae619553fc30330d08583f5f4b5"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "docs/experiment/M1-DELIVERY.zh-CN.md",
+      "git_objects": {
+        "m3_executed": "1555f2997d1044e586c06960e926c947040f0a52",
+        "user_baseline": "1555f2997d1044e586c06960e926c947040f0a52",
+        "m4_tested": "1555f2997d1044e586c06960e926c947040f0a52"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "docs/experiment/M2-DELIVERY.zh-CN.md",
+      "git_objects": {
+        "m3_executed": "6b285dd9db8e1ec8b6f5b62e67b4e25bf5361594",
+        "user_baseline": "6b285dd9db8e1ec8b6f5b62e67b4e25bf5361594",
+        "m4_tested": "6b285dd9db8e1ec8b6f5b62e67b4e25bf5361594"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    }
+  ],
+  "prior_success_evidence": [
+    {
+      "path": "validation/m1-maven",
+      "git_objects": {
+        "m3_executed": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+        "user_baseline": "e2d68d790fa29d3102ce12ba19b75426926afc82",
+        "m4_tested": "e2d68d790fa29d3102ce12ba19b75426926afc82"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/m2-maven",
+      "git_objects": {
+        "m3_executed": "cdb982f696f90b62be7e9167814c1c64c4c9415a",
+        "user_baseline": "cdb982f696f90b62be7e9167814c1c64c4c9415a",
+        "m4_tested": "cdb982f696f90b62be7e9167814c1c64c4c9415a"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "validation/m3-maven",
+      "git_objects": {
+        "m3_executed": "a2ee245e05cbf06864b39d96ee5443530d753bb3",
+        "user_baseline": "02a75a4647a2f22d07a554443053e48fcdde6914",
+        "m4_tested": "02a75a4647a2f22d07a554443053e48fcdde6914"
+      },
+      "all_three_identical": false,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "docs/experiment/M1-DELIVERY.zh-CN.md",
+      "git_objects": {
+        "m3_executed": "1555f2997d1044e586c06960e926c947040f0a52",
+        "user_baseline": "1555f2997d1044e586c06960e926c947040f0a52",
+        "m4_tested": "1555f2997d1044e586c06960e926c947040f0a52"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "docs/experiment/M2-DELIVERY.zh-CN.md",
+      "git_objects": {
+        "m3_executed": "6b285dd9db8e1ec8b6f5b62e67b4e25bf5361594",
+        "user_baseline": "6b285dd9db8e1ec8b6f5b62e67b4e25bf5361594",
+        "m4_tested": "6b285dd9db8e1ec8b6f5b62e67b4e25bf5361594"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    {
+      "path": "docs/experiment/M3-DELIVERY.zh-CN.md",
+      "git_objects": {
+        "m3_executed": null,
+        "user_baseline": "5c4f14a5c399b505dd9aac6b11e4d3c72f01ff18",
+        "m4_tested": "5c4f14a5c399b505dd9aac6b11e4d3c72f01ff18"
+      },
+      "all_three_identical": false,
+      "unchanged_during_m4": true
+    }
+  ],
+  "m3_execution_vs_delivery_boundary": {
+    "explanation": "ef5ae48 is the actual M3 execution code. The sole following M3 closeout commit895674e already added M3 successful run evidence and updated M3 documentation/verdict before M4 began. Their different objects relative to ef5ae48 do not represent M4 rewriting old evidence. All are identical between895674e and this M4 target.",
+    "pre_m4_closeout_commits": [
+      "895674e5725b2cf328bf427e1500cb8f2e6e231e"
+    ],
+    "pre_m4_changes": [
+      {
+        "status": "A",
+        "path": "docs/experiment/M3-DELIVERY.zh-CN.md"
+      },
+      {
+        "status": "M",
+        "path": "validation/m3-maven/README.md"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/recovery/local-preparation/raw-logs.tar.gz"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/recovery/local-preparation/report.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/artifact-custody.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/artifacts.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence-review.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/adbd/report.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/binary-source-association.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/controlled-peer/report.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/corresponding-source/source-bundle-result.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/emulator-source.properties"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/gradle-wrapper.properties"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/libs.versions.toml"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/m3-status.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/real-pairing/report.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/evidence/system-image-source.properties"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/job-125261660556.log.gz"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/jobs.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/raw-evidence.tar.gz"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/raw-file-inventory.json"
+      },
+      {
+        "status": "A",
+        "path": "validation/m3-maven/runs/41440741512/run.json"
+      },
+      {
+        "status": "M",
+        "path": "validation/m3-maven/verdict.json"
+      }
+    ],
+    "m4_changes_under_old_evidence_paths": []
+  },
+  "fixed_candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "version_catalog": {
+      "path": "gradle/libs.versions.toml",
+      "git_objects": {
+        "m3_executed": "98424148b537b2a210199a8bdda1b18321c95267",
+        "user_baseline": "98424148b537b2a210199a8bdda1b18321c95267",
+        "m4_tested": "98424148b537b2a210199a8bdda1b18321c95267"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    "repository_resolution": {
+      "path": "gradle/spake2-maven.gradle",
+      "git_objects": {
+        "m3_executed": "2555db27ec592cf5607bec6dd99bd9258a0c6c43",
+        "user_baseline": "2555db27ec592cf5607bec6dd99bd9258a0c6c43",
+        "m4_tested": "2555db27ec592cf5607bec6dd99bd9258a0c6c43"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    "source_lock": {
+      "path": "validation/source-bundle/dependencies.lock.json",
+      "git_objects": {
+        "m3_executed": "25043070a6cae5f92a7aa2e1e9061e31e4b8e928",
+        "user_baseline": "25043070a6cae5f92a7aa2e1e9061e31e4b8e928",
+        "m4_tested": "25043070a6cae5f92a7aa2e1e9061e31e4b8e928"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "candidate_archive": {
+      "path": "validation/maven-candidate/spake2-0.1.0-dev.59105290820b-maven.tar.xz",
+      "git_objects": {
+        "m3_executed": "2ad1c49de40e69f223dfedbff6c7978b4f1f3177",
+        "user_baseline": "2ad1c49de40e69f223dfedbff6c7978b4f1f3177",
+        "m4_tested": "2ad1c49de40e69f223dfedbff6c7978b4f1f3177"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true
+    },
+    "candidate_archive_sha256_recomputed": "3ea50362515509300850ac2bdb487bc070379d3e40e346250eb228ed2ad47d33",
+    "locked_publication_count": 22,
+    "locked_inventory_file_count": 124
+  },
+  "protected_crypto_and_wire_files": [
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.kt",
+      "git_objects": {
+        "m3_executed": "3f797eb5f3312d4bdec1d6ef730f8c8fb26754a6",
+        "user_baseline": "3f797eb5f3312d4bdec1d6ef730f8c8fb26754a6",
+        "m4_tested": "3f797eb5f3312d4bdec1d6ef730f8c8fb26754a6"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "HARDENED SPAKE2 role and adapter",
+      "literal_markers_present": [
+        "Role.ALICE, myName, theirName, entropy, LegacyPasswordScalarMode.HARDENED"
+      ],
+      "content_sha256": "e23250f71f531af1f287ddc8d2f2cf38e71c4182128a661a6b4276aa559ba290"
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingAuthCtx.kt",
+      "git_objects": {
+        "m3_executed": "e3b917e1bd31f3b8faf4b6251b1d9f4b2d90bc9b",
+        "user_baseline": "e3b917e1bd31f3b8faf4b6251b1d9f4b2d90bc9b",
+        "m4_tested": "e3b917e1bd31f3b8faf4b6251b1d9f4b2d90bc9b"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "NUL identities, HKDF context, one-shot destruction and bidirectional nonce compatibility",
+      "literal_markers_present": [
+        "\"adb pair client\\u0000\"",
+        "\"adb pair server\\u0000\"",
+        "\"adb pairing_auth aes-128-gcm key\"",
+        "internal const val HKDF_KEY_LENGTH = 16",
+        "private val decryptNonces = PairingNonceSequence()",
+        "private val encryptNonces = PairingNonceSequence()"
+      ],
+      "content_sha256": "357427ff01f43c66826da9fcdc6d27ce3a48278f4af737679f43613c8594919a"
+    },
+    {
+      "path": "kadb/src/commonMain/kotlin/com/flyfishxu/kadb/pair/PairingConnectionCtx.kt",
+      "git_objects": {
+        "m3_executed": "a3a87a027dc5ad91b9cd9cf2649b68dd7610a83d",
+        "user_baseline": "a3a87a027dc5ad91b9cd9cf2649b68dd7610a83d",
+        "m4_tested": "a3a87a027dc5ad91b9cd9cf2649b68dd7610a83d"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "PeerInfo and protocol exception flow",
+      "literal_markers_present": [
+        "PeerInfo.ADB_RSA_PUB_KEY",
+        "PeerInfo.MAX_PEER_INFO_SIZE",
+        "isValidDeviceGuid()"
+      ],
+      "content_sha256": "05178fbf53b0896e39813d776003bec1aaa56bb4a16d072e4463fc33e4144778"
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingTlsConnection.jvmAndroid.kt",
+      "git_objects": {
+        "m3_executed": "82abf73f26c530a1dfd08cb54d8641089187ca60",
+        "user_baseline": "82abf73f26c530a1dfd08cb54d8641089187ca60",
+        "m4_tested": "82abf73f26c530a1dfd08cb54d8641089187ca60"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "Android raw TLS exporter label",
+      "literal_markers_present": [
+        "\"adb-label\\u0000\", null, 64"
+      ],
+      "content_sha256": "e5428c3f74ec79d13154d0fad5c15bbe561d0d27577b091eb8fe55e1d5c87ec9"
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_transport.c",
+      "git_objects": {
+        "m3_executed": "55fc420906e7d08248d12e8afe1a1aac4984c9af",
+        "user_baseline": "55fc420906e7d08248d12e8afe1a1aac4984c9af",
+        "m4_tested": "55fc420906e7d08248d12e8afe1a1aac4984c9af"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "Native raw TLS exporter label including terminating NUL",
+      "literal_markers_present": [
+        "static const char label[] = \"adb-label\"",
+        "SSL_export_keying_material"
+      ],
+      "content_sha256": "c7d6df28e09aef776ac26f73f37c9ae6479d5537b2c7afaefc7d96a026d3a7b0"
+    },
+    {
+      "path": "kadb/src/androidMain/kotlin/com/flyfishxu/kadb/pair/PairingCrypto.jvmAndroid.kt",
+      "git_objects": {
+        "m3_executed": "2aa37f40e361fd9025a22149d78d997fe0246eb1",
+        "user_baseline": "2aa37f40e361fd9025a22149d78d997fe0246eb1",
+        "m4_tested": "2aa37f40e361fd9025a22149d78d997fe0246eb1"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "Android HKDF-SHA256 and AES-GCM",
+      "literal_markers_present": [
+        "HKDFBytesGenerator(SHA256Digest())",
+        "GCMBlockCipher.newInstance(AESEngine.newInstance())"
+      ],
+      "content_sha256": "214142c243814a10e57023acf69d113065306a39a085690796b494a2f80a46a9"
+    },
+    {
+      "path": "kadb/src/nativeInterop/cpp/kadb_crypto.c",
+      "git_objects": {
+        "m3_executed": "276935dee75bb49ec579105436787e64990c215b",
+        "user_baseline": "276935dee75bb49ec579105436787e64990c215b",
+        "m4_tested": "276935dee75bb49ec579105436787e64990c215b"
+      },
+      "all_three_identical": true,
+      "unchanged_during_m4": true,
+      "preservation_scope": "Native crypto provider boundary",
+      "literal_markers_present": [
+        "HKDF(out, 16, EVP_sha256()"
+      ],
+      "content_sha256": "dab28d1a497927821c793a363f85b25967278b8b2d8488e33758745ac62b835e"
+    }
+  ],
+  "r3_k01": "The inherited AOSP bidirectional GCM nonce protocol risk is unchanged. This preservation check neither remediates it nor changes release/security gates.",
+  "existing_native_harness_preservation": {
+    "unchanged_existing_file_count_excluding_build_entry": 9,
+    "files": [
+      {
+        "path": "validation/native-adbd/.gitignore",
+        "git_objects": {
+          "m3_executed": "c18dd8d83ceed1806b50b0aaa46beb7e335fff13",
+          "user_baseline": "c18dd8d83ceed1806b50b0aaa46beb7e335fff13",
+          "m4_tested": "c18dd8d83ceed1806b50b0aaa46beb7e335fff13"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/README.md",
+        "git_objects": {
+          "m3_executed": "2f0f84d4d99a0e7b0824ef3b513ea91a19d6c07e",
+          "user_baseline": "2f0f84d4d99a0e7b0824ef3b513ea91a19d6c07e",
+          "m4_tested": "2f0f84d4d99a0e7b0824ef3b513ea91a19d6c07e"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/adb_observer.py",
+        "git_objects": {
+          "m3_executed": "f3526cc5909f8a03b351576149edd2c03684b9e9",
+          "user_baseline": "f3526cc5909f8a03b351576149edd2c03684b9e9",
+          "m4_tested": "f3526cc5909f8a03b351576149edd2c03684b9e9"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/run_emulator.py",
+        "git_objects": {
+          "m3_executed": "4363c5f0fb7b6b00e391649ff772ba0035c9055d",
+          "user_baseline": "4363c5f0fb7b6b00e391649ff772ba0035c9055d",
+          "m4_tested": "4363c5f0fb7b6b00e391649ff772ba0035c9055d"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/Main.kt",
+        "git_objects": {
+          "m3_executed": "8e37eb584ad27cc1e7812aebcd873b2d5078994d",
+          "user_baseline": "8e37eb584ad27cc1e7812aebcd873b2d5078994d",
+          "m4_tested": "8e37eb584ad27cc1e7812aebcd873b2d5078994d"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/pairing/Main.kt",
+        "git_objects": {
+          "m3_executed": "4c789db154a1d1449aa70a2cd32bd9052648f280",
+          "user_baseline": "4c789db154a1d1449aa70a2cd32bd9052648f280",
+          "m4_tested": "4c789db154a1d1449aa70a2cd32bd9052648f280"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/realpairing/Main.kt",
+        "git_objects": {
+          "m3_executed": "0319f2a347420afc08723c37db079436249b34ea",
+          "user_baseline": "0319f2a347420afc08723c37db079436249b34ea",
+          "m4_tested": "0319f2a347420afc08723c37db079436249b34ea"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/test_driver.py",
+        "git_objects": {
+          "m3_executed": "c3ceb47560e6f63bf0455f77d7e64913c890933e",
+          "user_baseline": "c3ceb47560e6f63bf0455f77d7e64913c890933e",
+          "m4_tested": "c3ceb47560e6f63bf0455f77d7e64913c890933e"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      },
+      {
+        "path": "validation/native-adbd/test_observer.py",
+        "git_objects": {
+          "m3_executed": "96594309ee1618d4f7e671996cb10d65431b497f",
+          "user_baseline": "96594309ee1618d4f7e671996cb10d65431b497f",
+          "m4_tested": "96594309ee1618d4f7e671996cb10d65431b497f"
+        },
+        "all_three_identical": true,
+        "unchanged_during_m4": true
+      }
+    ],
+    "new_consumer": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/auth/Main.kt",
+    "build_entry": {
+      "path": "validation/native-adbd/build.gradle.kts",
+      "old_blob": "7e50b945c4d79a50f91067e3bcf31b28db9aee4b",
+      "new_blob": "451f6a1ff827780b71929f3b73c3c1923bb1905d",
+      "exact_added_text": "        target.binaries.executable(\"auth\") {\n            baseName = \"kadb-native-auth\"\n            entryPoint = \"com.flyfishxu.kadb.validation.auth.main\"\n        }\n",
+      "all_other_bytes_identical": true
+    }
+  },
+  "m1_workflow_change": {
+    "path": ".github/workflows/m1-maven.yml",
+    "old_blob": "d60f7f334fbfc1d1c31eaf17a0a503f0811da7b1",
+    "new_blob": "81117477ef654b6f55da25e3636daeda2cd66bf0",
+    "exact_added_text": "      # M4-only authentication tooling is exercised by its dedicated workflow.\n      - '.github/workflows/m4-auth.yml'\n      - 'validation/m4-maven/**'\n",
+    "scope": "Only push.paths-ignore adds the dedicated M4 workflow and M4 validation directory; workflow jobs, permissions, commands, dependencies and manual trigger are unchanged.",
+    "all_other_bytes_identical": true
+  },
+  "m4_change_allowlist": {
+    "new_paths": [
+      ".github/workflows/m4-auth.yml",
+      "docs/experiment/M4-DELIVERY.zh-CN.md",
+      "validation/m4-maven/**",
+      "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/auth/Main.kt"
+    ],
+    "modified_existing_paths": [
+      ".github/workflows/m1-maven.yml",
+      "validation/native-adbd/build.gradle.kts"
+    ],
+    "unexpected_paths": [],
+    "deleted_paths": []
+  },
+  "all_m4_changes": [
+    {
+      "status": "M",
+      "path": ".github/workflows/m1-maven.yml"
+    },
+    {
+      "status": "A",
+      "path": ".github/workflows/m4-auth.yml"
+    },
+    {
+      "status": "A",
+      "path": "docs/experiment/M4-DELIVERY.zh-CN.md"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/README.md"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/auth_observer.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/probe_environment.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/record_image.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/rsa_stage.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/run_auth.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/test_api35_port.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/test_auth_observer.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/test_auth_verdicts.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/ci/tls_stage.py"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/AUTH-TARGET.zh-CN.md"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/README.zh-CN.md"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/artifact-metadata.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/assessment.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/failed-run-jobs.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/failure-pairing-report.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/failure-platform-status.json.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/failure-simulator-boot.log.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/failure-simulator.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/failure-test-summary.json.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/job-125257677041.log.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/legacy-ci/job-log-custody.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/official-play-api35-package.xml"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/primary-sources.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/artifact-custody.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/evidence/emulator-source.properties"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/evidence/environment/report.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/evidence/system-image-source.properties"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/job-125285052331.log.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/raw-evidence.tar.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41447772316/raw-file-inventory.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/artifact-custody.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/artifacts.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence-review.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/auth/report.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/binary-source-association.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/corresponding-source/source-bundle-result.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/emulator-source.properties"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/environment/report.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/m4-step-outcomes.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/official-image-identity.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/spake2-candidate-integrity.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/spake2-maven-resolution.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/spake2-resolved-source-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/evidence/system-image-source.properties"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/job-125289409991.log.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/jobs.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/raw-evidence.tar.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41449058069/raw-file-inventory.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/verdict.json"
+    },
+    {
+      "status": "M",
+      "path": "validation/native-adbd/build.gradle.kts"
+    },
+    {
+      "status": "A",
+      "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/auth/Main.kt"
+    }
+  ],
+  "source_provenance_boundary": "AOSP reference tags document expected Android behavior. They are not asserted to be the exact corresponding source of the Google Play emulator binaries. Official SDK archive/input hashes and runtime fingerprint identify that external test peer separately.",
+  "old_matrices_executed_by_this_review": false,
+  "formal_security_audit_claim": false
+}
