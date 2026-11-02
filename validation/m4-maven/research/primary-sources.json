@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "retrieved_date_utc": "2026-11-02",
+  "scope": "M4 dedicated Android emulator authorization environment research, not a cryptographic audit",
+  "source_note": "These tagged AOSP files document expected Android 15 behavior. Exact official SDK target binary fingerprint and SHA256 must be measured by the runtime probe; this manifest does not claim the SDK archive was compiled from this particular tag.",
+  "aosp_sources": [
+    {
+      "name": "Shell-AndroidManifest.xml",
+      "bytes": 62500,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "270eb225c4cfbde73a45f13db7b48d710ac7e2875f534299811a0119d1a4283a",
+      "retrieval_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/packages/Shell/AndroidManifest.xml?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/packages/Shell/AndroidManifest.xml",
+      "purpose": "Shell MANAGE_DEBUGGING permission; line 522"
+    },
+    {
+      "name": "AdbService.java",
+      "bytes": 23335,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "49561f69cce5d20c2811f81f3450adf70462efe2ac5c3f4df70b58fc18eeb993",
+      "retrieval_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/services/core/java/com/android/server/adb/AdbService.java?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/services/core/java/com/android/server/adb/AdbService.java",
+      "purpose": "Binder management methods enforce MANAGE_DEBUGGING; lines 298-424"
+    },
+    {
+      "name": "AdbDebuggingManager.java",
+      "bytes": 98213,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "f33c8c48754616f187005fa186ffcad6ea881da472a03f8f74ab870a74b860d8",
+      "retrieval_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/services/core/java/com/android/server/adb/AdbDebuggingManager.java?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/services/core/java/com/android/server/adb/AdbDebuggingManager.java",
+      "purpose": "Pending-key fingerprint matching, explicit NO denial, targeted unpair, authorization dumps and asynchronous persistence"
+    },
+    {
+      "name": "IAdbManager.aidl",
+      "bytes": 4074,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "34759f2a5dde1b67874e61d9a1970bdbc1a67c0d14c658213085db6221858ca6",
+      "retrieval_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/core/java/android/debug/IAdbManager.aidl?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/frameworks/base/+/refs/tags/android-15.0.0_r1/core/java/android/debug/IAdbManager.aidl",
+      "purpose": "Exact Android 15 Binder transaction ordering"
+    },
+    {
+      "name": "init.ranchu.adb.setup.sh",
+      "bytes": 270,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "63e619713a9ad479a9d7906676d0b13ccc281f828f03840614781e07b1bcf660",
+      "retrieval_url": "https://android.googlesource.com/device/generic/goldfish/+/refs/tags/android-15.0.0_r1/init.ranchu.adb.setup.sh?format=TEXT",
+      "source_url": "https://android.googlesource.com/device/generic/goldfish/+/refs/tags/android-15.0.0_r1/init.ranchu.adb.setup.sh",
+      "purpose": "Fresh emulator bootstrap control public-key import"
+    },
+    {
+      "name": "init.ranchu.rc",
+      "bytes": 5873,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "b740d8ba9ffd5fadbc31c98611a3f9e10a8caf9c1fc5550672ffde043d59c77b",
+      "retrieval_url": "https://android.googlesource.com/device/generic/goldfish/+/refs/tags/android-15.0.0_r1/init.ranchu.rc?format=TEXT",
+      "source_url": "https://android.googlesource.com/device/generic/goldfish/+/refs/tags/android-15.0.0_r1/init.ranchu.rc",
+      "purpose": "ranchu-adb-setup service startup"
+    },
+    {
+      "name": "auth.cpp",
+      "bytes": 12674,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "3110ba57946b6f08a0b5a27ffe3667006b424dd90557a30822c908e993e11ba6",
+      "retrieval_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/daemon/auth.cpp?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/daemon/auth.cpp",
+      "purpose": "Real RSA verification, TLS public-key match and denied TLS transport closure"
+    },
+    {
+      "name": "main.cpp",
+      "bytes": 12942,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "8859bd17e83afc08923f8225445fd5a4b97682177e1aea1d6009dd765d28fb60",
+      "retrieval_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/daemon/main.cpp?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/daemon/main.cpp",
+      "purpose": "adbd auth_required selection from ro.adb.secure on debug/unlocked builds"
+    },
+    {
+      "name": "adbd_auth.cpp",
+      "bytes": 22175,
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "decoded_source_sha256": "b899b134109afe0fa725b2dac4d18685ebc1cec5da823b70e9db38f619735035",
+      "retrieval_url": "https://android.googlesource.com/platform/frameworks/native/+/refs/tags/android-15.0.0_r1/libs/adbd_auth/adbd_auth.cpp?format=TEXT",
+      "source_url": "https://android.googlesource.com/platform/frameworks/native/+/refs/tags/android-15.0.0_r1/libs/adbd_auth/adbd_auth.cpp",
+      "purpose": "Explicit NO behavior and authorization files reread per key verification"
+    }
+  ],
+  "sdk_image": {
+    "package": "system-images;android-35;google_apis_playstore;x86_64",
+    "api": 35,
+    "revision": 9,
+    "extension_level": 13,
+    "channel": "channel-0",
+    "vendor": "Google Inc.",
+    "official_manifest_url": "https://dl.google.com/android/repository/sys-img/google_apis_playstore/sys-img2-3.xml",
+    "official_manifest_sha256": "515d4f4d418b580db9f48ec0f4dcc3fb1fada378f3a49b289b9adffda3a3d079",
+    "archive_url": "https://dl.google.com/android/repository/sys-img/google_apis_playstore/x86_64-35_r09.zip",
+    "archive_bytes": 1762061559,
+    "archive_checksum": {
+      "algorithm": "sha1",
+      "value": "2f0054868e6aab3c098acd3decba17a82aed4176",
+      "provenance": "official SDK manifest"
+    },
+    "minimum_emulator": "33.1.24",
+    "execution_status": "not established by research; see separately recorded checkpoint A CI evidence"
+  },
+  "official_documentation": [
+    {
+      "url": "https://developer.android.com/studio/run/managing-avds",
+      "claim": "Google Play Store system images are signed with a release key and do not allow adb root."
+    },
+    {
+      "url": "https://developer.android.com/tools/variables",
+      "claim": "ANDROID_EMULATOR_HOME defaults to ANDROID_USER_HOME; ANDROID_AVD_HOME isolates AVD disk state."
+    }
+  ]
+}

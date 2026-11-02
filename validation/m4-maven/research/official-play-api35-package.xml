@@ -1,0 +1,41 @@
+<remotePackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" path="system-images;android-35;google_apis_playstore;x86_64">
+    <type-details xsi:type="sys-img:sysImgDetailsType">
+      <api-level>35</api-level>
+      <extension-level>13</extension-level>
+      <base-extension>true</base-extension>
+      <tag>
+        <id>google_apis_playstore</id>
+        <display>Google Play</display>
+      </tag>
+      <vendor>
+        <id>google</id>
+        <display>Google Inc.</display>
+      </vendor>
+      <abi>x86_64</abi>
+    </type-details>
+    <revision>
+      <major>9</major>
+    </revision>
+    <display-name>Google Play Intel x86_64 Atom System Image</display-name>
+    <uses-license ref="android-sdk-license" />
+    <dependencies>
+      <dependency path="emulator">
+        <min-revision>
+          <major>33</major>
+          <minor>1</minor>
+          <micro>24</micro>
+        </min-revision>
+      </dependency>
+    </dependencies>
+    <channelRef ref="channel-0" />
+    <archives>
+      <archive>
+        <complete>
+          <size>1762061559</size>
+          <checksum type="sha1">2f0054868e6aab3c098acd3decba17a82aed4176</checksum>
+          <url>x86_64-35_r09.zip</url>
+        </complete>
+      </archive>
+    </archives>
+  </remotePackage>
+  

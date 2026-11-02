@@ -39,6 +39,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends libpulse0 libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxrandr2 libxrender1 libxtst6 libglu1-mesa >> evidence/host-packages.txt 2>&1
           sdkmanager 'emulator' 'system-images;android-35;google_apis_playstore;x86_64' > evidence/emulator-sdk.txt 2>&1
           export ANDROID_USER_HOME="$RUNNER_TEMP/kadb-m4-android-user"
+          export ANDROID_EMULATOR_HOME="$ANDROID_USER_HOME"
           export ANDROID_AVD_HOME="$RUNNER_TEMP/kadb-m4-avd"
           export ANDROID_ADB_SERVER_PORT=5038
           mkdir -p "$ANDROID_USER_HOME" "$ANDROID_AVD_HOME"
@@ -48,7 +49,7 @@ jobs:
           adb -P 5038 start-server
           "$ANDROID_HOME/emulator/emulator" -accel-check > evidence/emulator-acceleration.txt 2>&1
           "$ANDROID_HOME/emulator/emulator" -avd kadb_m4_auth -port 5554 -no-window -no-audio -no-snapshot -no-boot-anim -accel on -gpu swiftshader -memory 4096 -cores 2 -camera-back none -camera-front none > evidence/emulator.txt 2>&1 &
-          printf 'KADB_EMULATOR_PID=%s\nANDROID_USER_HOME=%s\nANDROID_AVD_HOME=%s\nANDROID_ADB_SERVER_PORT=5038\nADB_VENDOR_KEYS=%s\n' "$!" "$ANDROID_USER_HOME" "$ANDROID_AVD_HOME" "$ADB_VENDOR_KEYS" >> "$GITHUB_ENV"
+          printf 'KADB_EMULATOR_PID=%s\nANDROID_USER_HOME=%s\nANDROID_EMULATOR_HOME=%s\nANDROID_AVD_HOME=%s\nANDROID_ADB_SERVER_PORT=5038\nADB_VENDOR_KEYS=%s\n' "$!" "$ANDROID_USER_HOME" "$ANDROID_EMULATOR_HOME" "$ANDROID_AVD_HOME" "$ADB_VENDOR_KEYS" >> "$GITHUB_ENV"
           cp "$ANDROID_HOME/emulator/source.properties" evidence/emulator-source.properties
           cp "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64/source.properties" evidence/system-image-source.properties
           cp "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64/package.xml" evidence/system-image-package.xml
@@ -62,6 +63,17 @@ jobs:
           timeout --kill-after=5s 15s adb -P 5038 -s emulator-5554 emu kill || true
           if [ -n "${KADB_EMULATOR_PID:-}" ]; then kill "$KADB_EMULATOR_PID" 2>/dev/null || true; fi
           timeout --kill-after=5s 10s adb -P 5038 kill-server || true
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          key = Path(os.environ['RUNNER_TEMP']) / 'kadb-m4-android-user/adbkey.pub'
+          if key.exists():
+              public = key.read_text().split()[0]
+              for file in Path('evidence').rglob('*'):
+                  if file.is_file() and file.suffix in ('.txt', '.log', '.jsonl', '.json'):
+                      text = file.read_text(errors='replace')
+                      file.write_text(text.replace(public, '<REDACTED-CONTROL-PUBLIC-KEY>'))
+          PY
           rm -rf "$RUNNER_TEMP/kadb-m4-android-user" "$RUNNER_TEMP/kadb-m4-avd"
       - name: Preserve environment investigation and failure evidence
         if: always()

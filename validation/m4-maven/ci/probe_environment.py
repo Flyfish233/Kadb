@@ -41,6 +41,7 @@ def main():
               "physical_device": False, "M4_A": "NOT VERIFIED", "M4_B": "NOT VERIFIED",
               "auth_disabled": False, "image_modified": False}
     forward = None
+    cleanup_errors = []
     try:
         bootstrap = Path(os.environ["ANDROID_USER_HOME"]) / "adbkey.pub"
         if bootstrap.exists():
@@ -74,6 +75,9 @@ def main():
                 report["MANAGE_DEBUGGING_granted"] = "android.permission.MANAGE_DEBUGGING: granted=true" in result.stdout
             if label == "adbd-sha256":
                 report["adbd_sha256"] = result.stdout.split()[0] if result.returncode == 0 else None
+            if label == "authorized-keys":
+                report["bootstrap_control_key_visible"] = bootstrap.read_text().split()[0] in result.stdout
+                report["authorization_dump_structure_valid"] = "user_keys" in result.stdout and "Permission Denial" not in result.stdout
         capability = runner.binder("verify-api35-wireless-binder", 12)
         report["wireless_supported"] = "00000001" in capability
         report["rootless_authorization_dump_available"] = report["authorized-keys"]["exit_code"] == 0
@@ -95,6 +99,7 @@ def main():
             assert header[:4] == b"AUTH" and arg0 == 1 and size == 20, "Real RSA AUTH token required"
             assert magic == command ^ 0xFFFFFFFF
         assert report["MANAGE_DEBUGGING_granted"], "Normal system authorization permission absent"
+        assert report["bootstrap_control_key_visible"] and report["authorization_dump_structure_valid"], "Rootless authorization evidence unavailable"
         assert report["wireless_supported"], "Wireless debugging unsupported"
         report["status"] = "passed"
         report["authentication_enabled_target"] = True
@@ -103,9 +108,18 @@ def main():
         report["error_type"] = type(error).__name__
     finally:
         if forward is not None:
-            runner.adb("remove-owned-forward", "forward", "--remove", f"tcp:{forward}", check=False)
-        logs = runner.adb("environment-logcat", "logcat", "-d", "-v", "threadtime", timeout=15, check=False)
-        (args.output / "logcat-redacted.txt").write_text(runner.redact(logs.stdout))
+            try:
+                runner.adb("remove-owned-forward", "forward", "--remove", f"tcp:{forward}")
+            except Exception as error:
+                cleanup_errors.append(runner.redact(error))
+        try:
+            logs = runner.adb("environment-logcat", "logcat", "-d", "-v", "threadtime", timeout=15, check=False)
+            (args.output / "logcat-redacted.txt").write_text(runner.redact(logs.stdout))
+        except Exception as error:
+            report["logcat_error"] = runner.redact(error)
+        report["cleanup_errors"] = cleanup_errors
+        if cleanup_errors:
+            report["status"] = "failed"
         runner.log.close()
         (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report, indent=2))
