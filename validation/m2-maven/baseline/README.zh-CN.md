@@ -9,10 +9,23 @@
 
 固定基线的 macOS Intel job 成功。ARM job 的 macOS 编译、测试、外部 Java peer、Swift consumer、
 Simulator 启动，以及 iOS 编译／单元测试步骤成功；Kadb 与 mDNS 跨 macOS Arm64／iOS Simulator
-Arm64 的汇总为 **140 个执行、0 失败**。现有精确基线摘录未提供分目标计数，不能擅自平分。
+Arm64 的汇总为 **140 个执行、0 失败**。本轮从原始 artifact 恢复了精确测试汇总：
+
+| 目标 | Kadb | mDNS |
+| --- | --- | --- |
+| macOS Arm64 | 65 个执行、0 失败 | 5 个执行、0 失败 |
+| iOS Simulator Arm64 | 65 个执行、0 失败、1 个 skipped | 5 个执行、0 失败 |
+
+该 skipped 项是需要显式启用的 `JvmPairingInteropTest`；汇总没有把它计入执行数。独立 peer
+流程的结果单独记录如下，不能以这个跳过项替代。
 
 随后 `Actual simulator pairing and exported API comparison` 步骤中的外部配对失败。
-保留的 step 日志只显示 `status: failed`，不能判定内部原因，也不能直接归为环境故障。
+此前保留的 step 日志只有 `status: failed`。本轮重新下载并验证原始 Darwin artifact
+**12655313986** 后，恢复了内部报告：`xcrun simctl list devices booted --json` 在 **10 秒**后
+触发 `TimeoutExpired`，发生在 Native consumer 命令生成／执行之前。Java peer 已就绪，随后被
+driver 清理终止（退出码 143）；报告没有 `native_command` 或 Native 执行结果。
+这将历史故障定位为 **Simulator 清单预检超时**，协议执行应记为 **NOT VERIFIED**，不能声称
+SPAKE2 或 TLS 配对断言失败。为什么该次系统清单查询变慢仍未确定。
 由于 API 比较排在失败命令后，不能从该失败步骤推断 API 比较已通过；M2 应拆分配对与 API 门禁。
 
 更早的 `35e002e721d8610dfd08d374fd41cbf666f16c35` 与
@@ -47,5 +60,9 @@ Arm64 的汇总为 **140 个执行、0 失败**。现有精确基线摘录未提
 - `historical-baseline.json`：固定 SHA、run/job 身份、历史状态及来源文件摘要。
 - `emulator-command-excerpts.json`：未改写原始命令记录的关键序列摘录。
 - `emulator-40331404006.zip`：经摘要验证的完整原始历史 Emulator artifact。
+- `darwin-arm-40331404006/`：从原始 Darwin ZIP 精确提取的 Simulator pairing 报告／peer 日志及
+  测试汇总；原包 133,596,368 bytes，SHA-256 为
+  `d2c0b7733739d97b4291e7d9eaddc4bcb485c1a600ada8cde5c3baffaf60b684`。
+  原始 ZIP 已完整验证，仓库仅保存这些小型必要证据。
 - `validation/m1-maven/review/baseline-ci-runs.json` 和 `baseline-failure-excerpts.json`：既有
   精确基线的 job／step 状态与原始日志行。原文件保持不变。

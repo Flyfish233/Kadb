@@ -1,0 +1,14 @@
+{
+  "job_id": 125179330644,
+  "run_id": 41415836057,
+  "head_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "decoded_log_bytes": 234708,
+  "decoded_log_sha256": "e4e777f4530df1afb7ab811e828ee207ede1f72ce6ab405f8ea0829db434045f",
+  "storage": "lossless gzip",
+  "artifact": {
+    "id": 13128271705,
+    "bytes": 507242428,
+    "sha256": "582507266d536a9c14ef0c63da5de354cc5bfab2172a565eb9a6878a1ce18c25",
+    "zip_downloaded": false
+  }
+}

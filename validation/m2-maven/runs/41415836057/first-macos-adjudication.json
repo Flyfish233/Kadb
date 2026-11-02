@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "head_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "run_id": 41415836057,
+  "scope": "First-run macOS adjudication; raw failed phase outcomes are not overwritten",
+  "macosArm64": {
+    "verdict": "NOT VERIFIED",
+    "compile": "PASS",
+    "link": "PASS",
+    "executed_tests": 0,
+    "protocol_execution": "NOT VERIFIED",
+    "framework_architecture_and_deployment": "PASS",
+    "external_swift_consumer": "PASS",
+    "corresponding_source": "PASS",
+    "corrected_public_api": {
+      "verdict": "PASS",
+      "baseline_declarations": 943,
+      "current_declarations": 943,
+      "removed_or_changed": 0,
+      "additions": 0,
+      "report": "macos-arm-correct-api-comparison.json"
+    },
+    "test_and_protocol_failure": "Workflow Bash3.2 nounset rejects empty simulator array before launching Gradle tests or native pairing driver",
+    "original_api_failure": "iOS-specific baseline used for macOS; real same-platform original header recovered and independently compared"
+  },
+  "macosX64": {
+    "verdict": "NOT VERIFIED",
+    "compile": "PASS",
+    "link": "PASS",
+    "executed_tests": 0,
+    "protocol_execution": "NOT VERIFIED",
+    "framework_architecture_and_deployment": "PASS",
+    "external_swift_consumer": "PASS",
+    "corresponding_source": "PASS",
+    "failure": "Same Bash3.2 empty-array launch error and wrong-platform API baseline; raw job log retained"
+  },
+  "migration_regression_established": false,
+  "next_action": "Execute reviewed workflow fix with unchanged production code; do not replace first-run evidence"
+}

@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/m2-darwin.yml'
       - 'validation/m2-maven/darwin/**'
+      - 'validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-macosArm64.h'
       - 'kadb/**'
       - 'kadb-mdns/**'
       - 'gradle/**'
@@ -88,6 +89,7 @@ jobs:
           key: m2-darwin-sources-${{ hashFiles('validation/source-bundle/dependencies.lock.json') }}
       - name: Record actual Apple toolchain and host
         id: environment
+        timeout-minutes: 8
         run: |
           set -euo pipefail
           test "$(uname -m)" = '${{ matrix.architecture }}'
@@ -129,11 +131,11 @@ jobs:
         timeout-minutes: 10
         run: |
           set -euo pipefail
-          simulator=()
+          kadb_command=(./gradlew :kadb:${{ matrix.directory }}Test :kadb-mdns:${{ matrix.directory }}Test :kadb:verifySpake2MavenResolution -Pspake2Configurations=${{ matrix.directory }}CompileKlibraries --continue --no-build-cache --no-configuration-cache --console=plain --stacktrace)
           if [ '${{ matrix.platform }}' = ios-simulator ]; then
-            simulator=(-PiosSimulatorDevice="$(cat evidence/simulator-udid.txt)")
+            kadb_command+=(-PiosSimulatorDevice="$(cat evidence/simulator-udid.txt)")
           fi
-          ./gradlew :kadb:${{ matrix.directory }}Test :kadb-mdns:${{ matrix.directory }}Test :kadb:verifySpake2MavenResolution -Pspake2Configurations=${{ matrix.directory }}CompileKlibraries "${simulator[@]}" --continue --no-build-cache --no-configuration-cache --console=plain --stacktrace 2>&1 | tee evidence/tests.log
+          "${kadb_command[@]}" 2>&1 | tee evidence/tests.log
           cp kadb/build/reports/spake2-maven-resolution.json evidence/spake2-resolution-tests.json
       - name: Require actual test cases for both products
         id: test_evidence
@@ -145,17 +147,22 @@ jobs:
         timeout-minutes: 4
         run: |
           set -euo pipefail
-          simulator=()
+          kadb_command=(python3 validation/pairing-peer/run_interop.py --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --consumer validation/native-adbd/build/bin/${{ matrix.directory }}/pairingDebugExecutable/kadb-native-pairing.kexe --output evidence/pairing)
           if [ '${{ matrix.platform }}' = ios-simulator ]; then
-            simulator=(--simulator-udid "$(cat evidence/simulator-udid.txt)")
+            kadb_command+=(--simulator-udid "$(cat evidence/simulator-udid.txt)")
           fi
-          python3 validation/pairing-peer/run_interop.py --java "$JAVA_HOME/bin/java" --classpath-file validation/pairing-peer/build/reference-classpath.txt --consumer validation/native-adbd/build/bin/${{ matrix.directory }}/pairingDebugExecutable/kadb-native-pairing.kexe "${simulator[@]}" --output evidence/pairing 2>&1 | tee evidence/pairing-driver.log
+          "${kadb_command[@]}" 2>&1 | tee evidence/pairing-driver.log
       - name: Compare exported Objective-C public API independently of pairing
         id: api
         if: ${{ !cancelled() && steps.link.outcome == 'success' }}
         run: |
           set -euo pipefail
-          python3 validation/compare-objc-api.py validation/baseline/darwin/Kadb-iosSimulatorArm64.h kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Headers/Kadb.h --report evidence/objc-api.json 2>&1 | tee evidence/objc-api.log
+          cp kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Headers/Kadb.h evidence/Kadb-${{ matrix.directory }}.h
+          kadb_api_baseline=validation/baseline/darwin/Kadb-iosSimulatorArm64.h
+          if [ '${{ matrix.platform }}' = macos ]; then
+            kadb_api_baseline=validation/m2-maven/baseline/darwin-arm-40331404006/Kadb-macosArm64.h
+          fi
+          python3 validation/compare-objc-api.py "$kadb_api_baseline" evidence/Kadb-${{ matrix.directory }}.h --report evidence/objc-api.json 2>&1 | tee evidence/objc-api.log
           xcrun nm -gU kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Kadb > evidence/framework-symbols.log
       - name: Inspect actual framework architecture and deployment metadata
         id: framework
@@ -174,12 +181,18 @@ jobs:
           ./gradlew :kadb:linkDebugFrameworkIosArm64 :kadb:verifySpake2MavenResolution -Pspake2Configurations=iosArm64CompileKlibraries --no-build-cache --no-configuration-cache --console=plain --stacktrace 2>&1 | tee evidence/ios-device-framework.log
           cp kadb/build/reports/spake2-maven-resolution.json evidence/spake2-resolution-ios-device.json
           python3 validation/inspect-apple-artifact.py --artifact kadb/build/bin/iosArm64/debugFramework/Kadb.framework/Kadb --architecture arm64 --platform ios --maximum-minimum-os 15.0 --output evidence/ios-device-framework-metadata.json
+          cp kadb/build/bin/iosArm64/debugFramework/Kadb.framework/Headers/Kadb.h evidence/Kadb-iosArm64.h
+          python3 validation/compare-objc-api.py validation/baseline/darwin/Kadb-iosSimulatorArm64.h evidence/Kadb-iosArm64.h --report evidence/ios-device-objc-api.json 2>&1 | tee evidence/ios-device-objc-api.log
       - name: Collect complete corresponding source bound to actual linked binaries
         id: source
         if: ${{ !cancelled() && steps.link.outcome == 'success' }}
         run: |
           set -euo pipefail
-          python3 scripts/source_bundle.py create --repo "$PWD" --ref "$GITHUB_SHA" --output evidence/corresponding-source --cache "$RUNNER_TEMP/kadb-source-cache" --spake2-resolution-report evidence/spake2-resolution-link.json --binary ${{ matrix.directory }}-framework=kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Kadb --binary ${{ matrix.directory }}-pairing=validation/native-adbd/build/bin/${{ matrix.directory }}/pairingDebugExecutable/kadb-native-pairing.kexe --binary ${{ matrix.directory }}-test=kadb/build/bin/${{ matrix.directory }}/debugTest/test.kexe 2>&1 | tee evidence/source-create.log
+          kadb_source_command=(python3 scripts/source_bundle.py create --repo "$PWD" --ref "$GITHUB_SHA" --output evidence/corresponding-source --cache "$RUNNER_TEMP/kadb-source-cache" --spake2-resolution-report evidence/spake2-resolution-link.json --binary ${{ matrix.directory }}-framework=kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Kadb --binary ${{ matrix.directory }}-pairing=validation/native-adbd/build/bin/${{ matrix.directory }}/pairingDebugExecutable/kadb-native-pairing.kexe --binary ${{ matrix.directory }}-test=kadb/build/bin/${{ matrix.directory }}/debugTest/test.kexe)
+          if [ '${{ steps.ios_device_framework.outcome }}' = success ]; then
+            kadb_source_command+=(--binary iosArm64-framework=kadb/build/bin/iosArm64/debugFramework/Kadb.framework/Kadb)
+          fi
+          "${kadb_source_command[@]}" 2>&1 | tee evidence/source-create.log
       - name: Record distinct phase results and binary inventory
         if: always()
         env:
@@ -189,6 +202,22 @@ jobs:
           M2_ARCHITECTURE: ${{ matrix.architecture }}
           M2_PLATFORM: ${{ matrix.platform }}
         run: python3 validation/m2-maven/darwin/summarize.py verdict --output evidence/platform-status.json
+      - name: Preserve compact raw logs and test evidence before large binaries
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: m2-darwin-evidence-${{ matrix.directory }}-${{ github.sha }}
+          retention-days: 90
+          if-no-files-found: error
+          compression-level: 6
+          path: |
+            evidence/
+            !evidence/corresponding-source/*.tar.gz
+            !evidence/corresponding-source/*.partial
+            !evidence/swift/swift-consumer
+            kadb/build/test-results/${{ matrix.directory }}Test/
+            kadb-mdns/build/test-results/${{ matrix.directory }}Test/
+            kadb/build/bin/${{ matrix.directory }}/debugFramework/Kadb.framework/Headers/Kadb.h
       - name: Preserve raw evidence including failed phase logs
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()

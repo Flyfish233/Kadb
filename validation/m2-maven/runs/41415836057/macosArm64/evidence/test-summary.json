@@ -1,0 +1,14 @@
+{
+  "suites": [],
+  "executed": 0,
+  "failed": 0,
+  "device_coverage": "Not established by this summary; requires explicit device evidence.",
+  "target": "macosArm64",
+  "skipped": 0,
+  "missing_required_test_groups": [
+    "kadb/build/test-results/macosArm64Test/",
+    "kadb-mdns/build/test-results/macosArm64Test/"
+  ],
+  "verdict": "FAIL",
+  "scope": "Executed product regressions only; optional baseline interop/device suites do not count."
+}

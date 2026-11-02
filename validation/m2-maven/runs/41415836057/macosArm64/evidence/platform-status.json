@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-11-02T08:55:58.944198+00:00",
+  "head_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "run_id": "41415836057",
+  "run_attempt": "1",
+  "target": "macosArm64",
+  "runner_label": "macos-26",
+  "host_machine": "arm64",
+  "expected_architecture": "arm64",
+  "host_platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "image_os": "macos26",
+  "image_version": "20261026.0455.2",
+  "candidate_version": "0.1.0-dev.59105290820b",
+  "phases": {
+    "candidate": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "environment": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "compile": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "link": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "tests": {
+      "outcome": "failure",
+      "verdict": "FAIL"
+    },
+    "test_evidence": {
+      "outcome": "failure",
+      "verdict": "FAIL"
+    },
+    "protocol": {
+      "outcome": "failure",
+      "verdict": "FAIL"
+    },
+    "api": {
+      "outcome": "failure",
+      "verdict": "FAIL"
+    },
+    "framework": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "source": {
+      "outcome": "success",
+      "verdict": "PASS"
+    },
+    "swift": {
+      "outcome": "success",
+      "verdict": "PASS"
+    }
+  },
+  "binaries": [
+    {
+      "path": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Versions/A/Headers/Kadb.h",
+      "bytes": 119717,
+      "sha256": "caf45c5075187bcab1275fe9f6056c6f8eacd600ae9165b4e31c448cb9fa7740"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Versions/A/Kadb",
+      "bytes": 75482472,
+      "sha256": "8d0aa142424df0d1480394d92813d58be0710549b03b26de003290330a89bf67"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Versions/A/Modules/module.modulemap",
+      "bytes": 117,
+      "sha256": "2cdde662e0837a1bd9fc0d94090f6adc6a35ade766c70740ee49771e277ca8d3"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Versions/A/Resources/Info.plist",
+      "bytes": 726,
+      "sha256": "9c338f887af4549cd441dc88c9b075cfe9de41c51545da8a1f9f9be53c7aab8c"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugTest/test.kexe",
+      "bytes": 8705912,
+      "sha256": "2d971eabcbd589f766154bbbc2a8d68f2dc001f2bb5f1640cdde10901e966f3d"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugTest/test.kexe.dSYM/Contents/Info.plist",
+      "bytes": 638,
+      "sha256": "54d137a0d910f9ce24da66f7794387f42fc8d1b35f0c65e8e00ffe507cd7a200"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugTest/test.kexe.dSYM/Contents/Resources/DWARF/test.kexe",
+      "bytes": 13901982,
+      "sha256": "152ed4430e8b08cd7499c2f56e70d67438dc34d7128078a80f99fd98c1cdaa00"
+    },
+    {
+      "path": "kadb/build/bin/macosArm64/debugTest/test.kexe.dSYM/Contents/Resources/Relocations/aarch64/test.kexe.yml",
+      "bytes": 2026478,
+      "sha256": "630c4ae9350bd2c1fcbaf6fae54d58ec412803f976e47bc0a244152c933b1f4c"
+    },
+    {
+      "path": "kadb-mdns/build/bin/macosArm64/debugTest/test.kexe",
+      "bytes": 4483176,
+      "sha256": "5b3a5480e9c0006c05239a0f79648377ba8298d0c57f0fc33d5ace242cb0fd46"
+    },
+    {
+      "path": "kadb-mdns/build/bin/macosArm64/debugTest/test.kexe.dSYM/Contents/Info.plist",
+      "bytes": 638,
+      "sha256": "54d137a0d910f9ce24da66f7794387f42fc8d1b35f0c65e8e00ffe507cd7a200"
+    },
+    {
+      "path": "kadb-mdns/build/bin/macosArm64/debugTest/test.kexe.dSYM/Contents/Resources/DWARF/test.kexe",
+      "bytes": 1946518,
+      "sha256": "d8371cbcf9c95bb3274d8d61a33408aa7c3a75c7802137fe111f52e4fb15bd13"
+    },
+    {
+      "path": "kadb-mdns/build/bin/macosArm64/debugTest/test.kexe.dSYM/Contents/Resources/Relocations/aarch64/test.kexe.yml",
+      "bytes": 692207,
+      "sha256": "4509578df6d0aa96b89a02153860fa9e08c806a12daddf28694b67007128f068"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosArm64/pairingDebugExecutable/kadb-native-pairing.kexe",
+      "bytes": 5929560,
+      "sha256": "5a0dde48f17e6132b78aa06bc81468e5e272dda8739dfd26d194219642886795"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosArm64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Info.plist",
+      "bytes": 653,
+      "sha256": "5511d62b2bde09540b4d94d18254b8cbe291c8703832e71c297d6b69812cadda"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosArm64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Resources/DWARF/kadb-native-pairing.kexe",
+      "bytes": 12391297,
+      "sha256": "82e5a9f03c6d194943cbabd943c5060df32b3fc6c3ed6b1bfb383a3b43a26280"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/macosArm64/pairingDebugExecutable/kadb-native-pairing.kexe.dSYM/Contents/Resources/Relocations/aarch64/kadb-native-pairing.kexe.yml",
+      "bytes": 1437895,
+      "sha256": "0b25b2bc7caf48a4a4ac639f381d3d28843839942d1022f3c75b920f323ef38b"
+    }
+  ],
+  "verdict": "FAIL",
+  "failure_attribution": "Observed stage outcome only. Migration regression attribution requires baseline comparison.",
+  "scope": {
+    "real_device": false,
+    "external_adbd_matrix": false
+  },
+  "test_summary": {
+    "suites": [],
+    "executed": 0,
+    "failed": 0,
+    "device_coverage": "Not established by this summary; requires explicit device evidence.",
+    "target": "macosArm64",
+    "skipped": 0,
+    "missing_required_test_groups": [
+      "kadb/build/test-results/macosArm64Test/",
+      "kadb-mdns/build/test-results/macosArm64Test/"
+    ],
+    "verdict": "FAIL",
+    "scope": "Executed product regressions only; optional baseline interop/device suites do not count."
+  },
+  "tracked_worktree_changes": ""
+}

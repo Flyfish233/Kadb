@@ -59,14 +59,70 @@
     "kadb_and_mdns_combined_tests": {
       "executed": 140,
       "failed": 0,
-      "per_target_counts": "Not established by the retained exact-baseline aggregate excerpt; do not divide or infer"
+      "per_target_counts": {
+        "kadb/iosSimulatorArm64Test": {
+          "executed": 65,
+          "failed": 0,
+          "skipped": 1,
+          "suites": 22
+        },
+        "kadb/macosArm64Test": {
+          "executed": 65,
+          "failed": 0,
+          "skipped": 0,
+          "suites": 21
+        },
+        "kadb-mdns/iosSimulatorArm64Test": {
+          "executed": 5,
+          "failed": 0,
+          "skipped": 0,
+          "suites": 2
+        },
+        "kadb-mdns/macosArm64Test": {
+          "executed": 5,
+          "failed": 0,
+          "skipped": 0,
+          "suites": 2
+        }
+      }
     },
     "ios_simulator_pairing": {
-      "status": "FAIL (historical)",
-      "reason": "Unknown from retained exact-baseline step logs; do not classify as an environment-only failure",
-      "job_id": 121601699809
+      "status": "NOT VERIFIED (historical protocol execution; CI step failed)",
+      "observed_ci_step": "FAIL",
+      "reason": "xcrun simctl list devices booted --json timed out after 10 seconds before native consumer execution",
+      "error_type": "TimeoutExpired",
+      "native_command_recorded": false,
+      "peer_exit_code": 143,
+      "peer_exit_explanation": "Harness cleanup terminated the ready peer after preflight failure",
+      "attribution": "Host Simulator inventory preflight; no protocol assertion reached",
+      "job_id": 121601699809,
+      "report": "darwin-arm-40331404006/pairing-simulator/report.json"
     },
-    "api_comparison_after_pairing": "Not established by failed combined step; M2 should execute API comparison independently"
+    "api_comparison_after_pairing": "Not established by failed combined step; M2 should execute API comparison independently",
+    "artifact": {
+      "id": 12655313986,
+      "bytes": 133596368,
+      "sha256": "d2c0b7733739d97b4291e7d9eaddc4bcb485c1a600ada8cde5c3baffaf60b684",
+      "hash_verified": true,
+      "retention": "Only exact extracted pairing report/log and test summary kept in Git; full ZIP downloaded for verification"
+    },
+    "retained_artifact_files": [
+      {
+        "path": "darwin-arm-40331404006/darwin-summary.json",
+        "bytes": 16621,
+        "sha256": "08ba9e1c20725bf1752694a6a658c44aebc3570209b2c0161557a226b7246fc8"
+      },
+      {
+        "path": "darwin-arm-40331404006/pairing-simulator/java-peer.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "darwin-arm-40331404006/pairing-simulator/report.json",
+        "bytes": 3223,
+        "sha256": "9673c8bec632958b58805099d18846f02cc735d22728b6a94bd85cd31091f496"
+      }
+    ]
   },
   "ios_x64": {
     "status": "NOT VERIFIED (historical)",

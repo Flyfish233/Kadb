@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "artifact_id": 12655313986,
+  "run_id": 40331404006,
+  "source_commit": "49a88b14e9b731e4c086c920eb74664450c79d9f",
+  "artifact_archive_sha256": "d2c0b7733739d97b4291e7d9eaddc4bcb485c1a600ada8cde5c3baffaf60b684",
+  "archive_member": "kadb/build/bin/macosArm64/debugFramework/Kadb.framework/Headers/Kadb.h",
+  "header_sha256": "caf45c5075187bcab1275fe9f6056c6f8eacd600ae9165b4e31c448cb9fa7740",
+  "header_bytes": 119717,
+  "scope": "Actual pre-Maven macOS Arm64 exported header; macOS x64 uses the same macosMain API and 64-bit pointer model."
+}

@@ -1,0 +1,9 @@
+{
+  "job_id": 125179331072,
+  "run_id": 41415836057,
+  "head_sha": "677a39e74ef568ac91bec6db2885929003cc709e",
+  "download": "GitHub Actions job log API",
+  "decoded_log_bytes": 235075,
+  "decoded_log_sha256": "c07949df4f6370d5d98dbf5a4027a079f113292c69acc26001d61a1d2e5f6cb3",
+  "storage": "lossless gzip"
+}
