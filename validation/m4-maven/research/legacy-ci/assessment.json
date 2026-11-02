@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "scope": "Read-only bounded investigation of historical CI; no rerun or product change",
+  "success": {
+    "run_id": 41418593040,
+    "sha": "0d448840863bbf6735eb879ebc7532c321cfca17",
+    "pairing_status": "passed",
+    "native_checks_executed": 2,
+    "peer_sessions": 2,
+    "evidence_directory": "validation/m2-maven/runs/41418593040/iosSimulatorArm64/evidence"
+  },
+  "failure": {
+    "run_id": 41439551154,
+    "job_id": 125257677041,
+    "sha": "794b69fecdac0d3fd7d7a54d11f944fa944a65f2",
+    "error_type": "TimeoutExpired",
+    "error": "Command '['xcrun', 'simctl', 'list', 'devices', 'booted', '--json']' timed out after 10 seconds",
+    "failure_phase": "simctl_booted_inventory_preflight_before_native_spawn",
+    "native_consumer_started": false,
+    "native_command_record_present": false,
+    "native_log_present": false,
+    "native_exit_code_record_present": false,
+    "peer_exit_code": 143,
+    "peer_log_bytes": 0,
+    "peer_termination_reason": "driver finally block terminates still-running reference peer after preflight exception"
+  },
+  "causal_assessment": {
+    "observed_failure": "CoreSimulator management command did not finish within the existing 10-second deadline; pairing consumer never launched in this step.",
+    "observed_phase_confidence": "high: artifact report, absent native log, historical source ordering",
+    "relevant_product_or_harness_source_regression_supported": false,
+    "source_regression_assessment_confidence": "high for listed identical Git objects; does not assert binary reproducibility or rule out runtime nondeterminism",
+    "root_cause_of_CoreSimulator_delay": "not established from retained logs",
+    "data_migration_log": "Both success and failure bootstrap logs contain Data Migration Failed; this message cannot explain the outcome difference by itself.",
+    "effect_on_M4": "Not an M4 authentication failure; preserve the existing failed run and its scoped uncertainty without rerunning M2.",
+    "separate_harness_issue": "Historical XML summary scans archived validation/m2-maven/runs test reports: 210 reported includes 140 archived + 70 current. Preserve raw evidence but use 70 for the actual current run."
+  },
+  "source_comparison": [
+    {
+      "path": "kadb/src",
+      "success_git_object": "59bc6527fd4e893044c366b2b309ce22bde9ff24",
+      "failure_git_object": "59bc6527fd4e893044c366b2b309ce22bde9ff24",
+      "identical": true
+    },
+    {
+      "path": "kadb-mdns/src",
+      "success_git_object": "4acbe3b4ae918fc96f734d0b18b63edc98cf9547",
+      "failure_git_object": "4acbe3b4ae918fc96f734d0b18b63edc98cf9547",
+      "identical": true
+    },
+    {
+      "path": "kadb/build.gradle.kts",
+      "success_git_object": "c8db76336aece08a492330fea124aebc985f19bf",
+      "failure_git_object": "c8db76336aece08a492330fea124aebc985f19bf",
+      "identical": true
+    },
+    {
+      "path": "validation/native-adbd/build.gradle.kts",
+      "success_git_object": "8813907855cf8f636cbc48ad812d7a150786e1cf",
+      "failure_git_object": "8813907855cf8f636cbc48ad812d7a150786e1cf",
+      "identical": true
+    },
+    {
+      "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/pairing/Main.kt",
+      "success_git_object": "ce9890b60f57ed5cc3d716b018eeae58661005b9",
+      "failure_git_object": "ce9890b60f57ed5cc3d716b018eeae58661005b9",
+      "identical": true
+    },
+    {
+      "path": "validation/pairing-peer",
+      "success_git_object": "b3de363849ec5357c1a404b26a5281c83d518dab",
+      "failure_git_object": "b3de363849ec5357c1a404b26a5281c83d518dab",
+      "identical": true
+    },
+    {
+      "path": "validation/m2-maven/darwin",
+      "success_git_object": "f2a9892872936af278986f0e14af7447a96f9aab",
+      "failure_git_object": "f2a9892872936af278986f0e14af7447a96f9aab",
+      "identical": true
+    },
+    {
+      "path": ".github/workflows/m2-darwin.yml",
+      "success_git_object": "238970210d20422116cd8c4fd1f134817615d007",
+      "failure_git_object": "238970210d20422116cd8c4fd1f134817615d007",
+      "identical": true
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "success_git_object": "98424148b537b2a210199a8bdda1b18321c95267",
+      "failure_git_object": "98424148b537b2a210199a8bdda1b18321c95267",
+      "identical": true
+    },
+    {
+      "path": "settings.gradle.kts",
+      "success_git_object": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+      "failure_git_object": "3521af526d39d3d31e75dca86307b48f2dca7dcf",
+      "identical": true
+    }
+  ],
+  "toolchain_comparison": {
+    "macos.log": {
+      "success": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+      "failure": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+      "identical": true
+    },
+    "xcode.log": {
+      "success": "Xcode 26.4.1\nBuild version 17E202\n",
+      "failure": "Xcode 26.4.1\nBuild version 17E202\n",
+      "identical": true
+    },
+    "java.log": {
+      "success": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)\n",
+      "failure": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)\n",
+      "identical": true
+    },
+    "simulator-sdk.log": {
+      "success": "26.4\n",
+      "failure": "26.4\n",
+      "identical": true
+    },
+    "cmake.log": {
+      "success": "cmake version 4.4.4\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+      "failure": "cmake version 4.4.4\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+      "identical": true
+    }
+  },
+  "test_counts": {
+    "success": {
+      "reported_executed": 70,
+      "current_output_executed": 70,
+      "current_output_failed": 0,
+      "current_output_suites": 24,
+      "archived_output_executed": 0,
+      "archived_output_suites": 0,
+      "current_output_files": [
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+        "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+        "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml"
+      ]
+    },
+    "failure": {
+      "reported_executed": 210,
+      "current_output_executed": 70,
+      "current_output_failed": 0,
+      "current_output_suites": 24,
+      "archived_output_executed": 140,
+      "archived_output_suites": 48,
+      "current_output_files": [
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.AdbSessionNativeTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.InstallSessionLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.CertificateSubjectNativeTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityDiagnosticRedactionTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.IdentityWireCompatibilityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyFileStoreNativeTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.cert.PrivateKeyStoreFailureTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.BlockingLockTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.ClosingOnCancellationTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.concurrent.NativeLockLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbOpenCancellationTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.core.AdbWireGoldenTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.forwarding.TcpForwarderTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.JvmPairingInteropTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingAuthLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingCipherCompatibilityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeCompatibilityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.pair.PairingSpakeVectorTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.queue.AdbStreamIdentityTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.shell.AdbShellEncodingTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.stream.AdbSyncCloseLifecycleTest.xml",
+        "kadb/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.transport.PosixTransportLifecycleTest.xml",
+        "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsRegistryTest.xml",
+        "kadb-mdns/build/test-results/iosSimulatorArm64Test/TEST-iosSimulatorArm64Test.com.flyfishxu.kadb.mdns.MdnsServiceTypeParserTest.xml"
+      ]
+    }
+  },
+  "reference_artifact_hashes_equal": true,
+  "reference_class_hashes_equal": true,
+  "consumer_binary_hashes": {
+    "success": "52c99127feba41da7a1f1525128f96d9a4a34b79794399b656b5dc1742fc6700",
+    "failure": "f742ca5d4ac708f933520627d545450ad88b864dd6ed2bd901856de2734850c3",
+    "identical": false,
+    "note": "Both same 6248008-byte size; binary identity is not asserted."
+  },
+  "artifact_download_sha256": "f90dac8093c4c774944dd2d3d6b9dc53beea6e74b12962f8d7cb120529699535",
+  "artifact_expected_digest": "sha256:f90dac8093c4c774944dd2d3d6b9dc53beea6e74b12962f8d7cb120529699535"
+}

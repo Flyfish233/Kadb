@@ -29,6 +29,30 @@ Primary source references:
 - [Android 15 AdbDebuggingManager authorization and revocation](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android15-release/services/core/java/com/android/server/adb/AdbDebuggingManager.java)
 - [Android 15 shell permissions](https://android.googlesource.com/platform/frameworks/base/+/refs/heads/android15-release/packages/Shell/AndroidManifest.xml)
 
-The dedicated workflow is initially an environment probe; actual Native M4
-acceptance is added once the environment gate executes. Until then M4-A and
-M4-B remain NOT VERIFIED.
+The environment gate passed in run `41447772316` on exact code
+`01220570ce2fc17e819c318d99a57b87e1cf9d43`; its raw evidence is retained under
+`runs/41447772316/`. The dedicated workflow now compiles only the Linux Native
+authentication and real-pairing consumers and executes `ci/run_auth.py`.
+
+The RSA stage enrolls A through a matching pending Android confirmation, then
+requires independently verified signatures and CNXN on new A connections before
+and after B's explicit framework/adbd denial. The TLS stage uses a separate fresh
+A/B pair, real public `Kadb.pair`, accepted A, rejected B, accepted A again,
+targeted removal and rejected revoked A. Authorized control C then proves the
+same wireless listener remains healthy. No wrong-code or cross-platform matrix
+is repeated.
+
+`auth_observer.py` extends the existing M3 byte-transparent relay. RSA token and
+signature are used in memory for independent public-key verification; reports
+retain only hashes, lengths and results. TLS records are not decrypted. System
+logs restricted to the actual adbd PID supply separate key-match and certificate
+verification decisions. A failed consumer or ServerHello alone never satisfies
+the identity rejection criteria.
+
+Every actual `.kexe` is associated with the exact CI commit, fixed Maven binary
+resolution, dependency source lock and complete corresponding-source artifact.
+Installed official Android image files are independently hashed; shell access to
+the platform adbd ELF is restricted on the user image and is not bypassed.
+
+Current stage verdicts and execution references are in `verdict.json` and the
+delivery document; environment success alone does not upgrade M4-A/M4-B.

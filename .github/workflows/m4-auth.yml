@@ -15,29 +15,105 @@ concurrency:
   group: m4-auth-${{ github.ref }}
   cancel-in-progress: false
 
+env:
+  GRADLE_OPTS: -Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2
+
 jobs:
   authenticated-environment:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Restore and verify the unchanged Maven candidate
+        id: candidate
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          git rev-parse HEAD | tee evidence/commit.txt
+          git status --porcelain > evidence/initial-worktree.txt
+          uname -a > evidence/host.txt
+          python3 scripts/prepare_spake2_candidate.py | tee evidence/spake2-repository.txt
+          python3 scripts/source_bundle.py verify-spake2-maven --output evidence/spake2-candidate-integrity.json
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: gradle
       - uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407
         with:
           cmdline-tools-version: '16111833'
           packages: platform-tools
           accept-android-sdk-licenses: false
           log-accepted-android-sdk-licenses: false
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: ${{ runner.temp }}/kadb-source-cache
+          key: m1-sources-${{ hashFiles('validation/source-bundle/dependencies.lock.json') }}
+      - name: Install build inputs and record the actual toolchain
+        id: sdk
+        run: |
+          set -euo pipefail
+          java -version 2>&1 | tee evidence/java-version.txt
+          sdkmanager 'platforms;android-37.0' 'build-tools;37.0.0' 2>&1 | tee evidence/build-sdk.txt
+          ./gradlew --version 2>&1 | tee evidence/gradle-version.txt
+          cmake --version | tee evidence/cmake.txt
+          openssl version | tee evidence/openssl.txt
+          cp gradle/libs.versions.toml gradle/wrapper/gradle-wrapper.properties evidence/
+      - name: Build only the M4 Native authentication and real pairing consumers
+        id: build
+        run: |
+          set -euo pipefail
+          ./gradlew :validation-native-adbd:linkAuthDebugExecutableLinuxX64 :validation-native-adbd:linkRealPairingDebugExecutableLinuxX64 :kadb:verifySpake2MavenResolution -Pspake2Configurations=linuxX64CompileKlibraries --no-configuration-cache --no-build-cache --console=plain --stacktrace 2>&1 | tee evidence/native-build.txt
+          cp kadb/build/reports/spake2-maven-resolution.json evidence/
+          python3 scripts/source_bundle.py verify-spake2-maven --spake2-resolution-report evidence/spake2-maven-resolution.json --output evidence/spake2-resolved-source-verification.json
+          file validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe | tee evidence/consumer-files.txt
+      - name: Verify the focused M4 observation and verdict gates
+        id: harness
+        if: ${{ !cancelled() && steps.sdk.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python3 -B -m unittest discover -s validation/m4-maven/ci -p 'test_*.py' -v 2>&1 | tee evidence/m4-driver-tests.txt
+      - name: Collect exact corresponding source for both executed consumers
+        id: source
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python3 scripts/source_bundle.py create --repo "$PWD" --ref "$GITHUB_SHA" --output evidence/corresponding-source --cache "$RUNNER_TEMP/kadb-source-cache" --spake2-resolution-report evidence/spake2-maven-resolution.json --binary m4-auth=validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe --binary m4-pair=validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe 2>&1 | tee evidence/source-create.txt
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          result = json.loads(Path('evidence/corresponding-source/source-bundle-result.json').read_text())
+          assert result['status'] == 'verified' and result['kadb_commit'] == os.environ['GITHUB_SHA']
+          lock_hash = hashlib.sha256(Path('validation/source-bundle/dependencies.lock.json').read_bytes()).hexdigest()
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f"sha256={result['sha256']}\nlock-sha256={lock_hash}\n")
+          PY
+      - name: Preserve the exact corresponding source
+        id: source-upload
+        if: ${{ !cancelled() && steps.source.outcome == 'success' }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: corresponding-source-${{ github.sha }}
+          path: evidence/corresponding-source/
+          compression-level: 0
+          retention-days: 90
+          if-no-files-found: error
+      - name: Associate the actual M4 binaries with this run's source
+        id: association
+        if: ${{ !cancelled() && steps.source-upload.outcome == 'success' }}
+        run: python3 validation/record-binary-evidence.py --source-url '${{ steps.source-upload.outputs.artifact-url }}' --source-sha256 '${{ steps.source.outputs.sha256 }}' --source-lock-sha256 '${{ steps.source.outputs.lock-sha256 }}' --output evidence
       - name: Provision an isolated official API 35 Google Play user image
+        id: provision
+        if: ${{ !cancelled() && steps.sdk.outcome == 'success' }}
         run: |
           set -euo pipefail
           mkdir -p evidence
-          git rev-parse HEAD | tee evidence/commit.txt
-          uname -a > evidence/host.txt
           test -c /dev/kvm
           sudo chmod a+rw /dev/kvm
           sudo apt-get update > evidence/host-packages.txt 2>&1
           sudo apt-get install -y --no-install-recommends libpulse0 libnss3 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxrandr2 libxrender1 libxtst6 libglu1-mesa >> evidence/host-packages.txt 2>&1
           sdkmanager 'emulator' 'system-images;android-35;google_apis_playstore;x86_64' > evidence/emulator-sdk.txt 2>&1
+          python3 validation/m4-maven/ci/record_image.py --image-dir "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64" --output evidence/official-image-identity.json
           export ANDROID_USER_HOME="$RUNNER_TEMP/kadb-m4-android-user"
           export ANDROID_EMULATOR_HOME="$ANDROID_USER_HOME"
           export ANDROID_AVD_HOME="$RUNNER_TEMP/kadb-m4-avd"
@@ -54,10 +130,21 @@ jobs:
           cp "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64/source.properties" evidence/system-image-source.properties
           cp "$ANDROID_HOME/system-images/android-35/google_apis_playstore/x86_64/package.xml" evidence/system-image-package.xml
       - name: Require bounded boot and Android framework readiness
+        id: ready
+        if: ${{ !cancelled() && steps.provision.outcome == 'success' }}
         run: python3 validation/m2-maven/android/wait_ready.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --timeout 180 --output evidence/emulator-readiness
       - name: Prove real AUTH and rootless authorization management prerequisites
+        id: environment
+        if: ${{ !cancelled() && steps.ready.outcome == 'success' }}
         run: python3 validation/m4-maven/ci/probe_environment.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --output evidence/environment
+      - name: Execute real RSA AUTH and wireless TLS identity acceptance and rejection
+        id: auth
+        if: ${{ !cancelled() && steps.environment.outcome == 'success' && steps.association.outcome == 'success' && steps.harness.outcome == 'success' }}
+        run: |
+          set -euo pipefail
+          python3 validation/m4-maven/ci/run_auth.py --adb "$ANDROID_HOME/platform-tools/adb" --serial emulator-5554 --adb-server-port 5038 --consumer validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe --pairing-consumer validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe --output evidence/auth 2>&1 | tee evidence/auth-driver.txt
       - name: Destroy this job's emulator, control identity and AVD
+        id: cleanup
         if: always()
         run: |
           timeout --kill-after=5s 15s adb -P 5038 -s emulator-5554 emu kill || true
@@ -72,14 +159,49 @@ jobs:
               for file in Path('evidence').rglob('*'):
                   if file.is_file() and file.suffix in ('.txt', '.log', '.jsonl', '.json'):
                       text = file.read_text(errors='replace')
-                      file.write_text(text.replace(public, '<REDACTED-CONTROL-PUBLIC-KEY>'))
+                      if public in text:
+                          file.write_text(text.replace(public, '<REDACTED-CONTROL-PUBLIC-KEY>'))
           PY
           rm -rf "$RUNNER_TEMP/kadb-m4-android-user" "$RUNNER_TEMP/kadb-m4-avd"
-      - name: Preserve environment investigation and failure evidence
+      - name: Preserve actual step outcomes independently of authentication verdicts
+        if: always()
+        env:
+          M4_CANDIDATE: ${{ steps.candidate.outcome }}
+          M4_BUILD: ${{ steps.build.outcome }}
+          M4_HARNESS: ${{ steps.harness.outcome }}
+          M4_SOURCE: ${{ steps.source.outcome }}
+          M4_ASSOCIATION: ${{ steps.association.outcome }}
+          M4_PROVISION: ${{ steps.provision.outcome }}
+          M4_READY: ${{ steps.ready.outcome }}
+          M4_ENVIRONMENT: ${{ steps.environment.outcome }}
+          M4_AUTH: ${{ steps.auth.outcome }}
+          M4_CLEANUP: ${{ steps.cleanup.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          output = Path('evidence')
+          output.mkdir(exist_ok=True)
+          report = {
+              'schema': 1,
+              'commit': os.environ['GITHUB_SHA'],
+              'run_id': os.environ['GITHUB_RUN_ID'],
+              'step_outcomes': {key.removeprefix('M4_').lower(): value for key, value in os.environ.items() if key.startswith('M4_')},
+              'authentication_verdict_source': 'auth/report.json; step completion alone is not an authentication verdict',
+              'physical_devices': 'NOT VERIFIED',
+          }
+          (output / 'm4-step-outcomes.json').write_text(json.dumps(report, indent=2) + '\n')
+          PY
+      - name: Preserve environment, authentication, failure evidence and actual executables
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: m4-environment-${{ github.sha }}
-          path: evidence/
+          name: m4-auth-${{ github.sha }}
+          path: |
+            evidence/
+            !evidence/corresponding-source/*.tar.gz
+            validation/native-adbd/build/bin/linuxX64/authDebugExecutable/*.kexe
+            validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/*.kexe
+          compression-level: 6
           retention-days: 90
           if-no-files-found: error

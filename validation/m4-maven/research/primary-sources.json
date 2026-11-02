@@ -84,6 +84,15 @@
       "retrieval_url": "https://android.googlesource.com/platform/frameworks/native/+/refs/tags/android-15.0.0_r1/libs/adbd_auth/adbd_auth.cpp?format=TEXT",
       "source_url": "https://android.googlesource.com/platform/frameworks/native/+/refs/tags/android-15.0.0_r1/libs/adbd_auth/adbd_auth.cpp",
       "purpose": "Explicit NO behavior and authorization files reread per key verification"
+    },
+    {
+      "name": "tls_connection.cpp",
+      "source_ref": "refs/tags/android-15.0.0_r1",
+      "source_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/tls/tls_connection.cpp",
+      "retrieval_url": "https://android.googlesource.com/platform/packages/modules/adb/+/refs/tags/android-15.0.0_r1/tls/tls_connection.cpp?format=TEXT",
+      "decoded_source_sha256": "869d11124ecf62883d425bbab3a6a8139c33cebf34e5df1d10b01a42e7227b9a",
+      "bytes": 13473,
+      "purpose": "Server TLS certificate-rejection and handshake log strings; TLS1.3 post-handshake denial semantics"
     }
   ],
   "sdk_image": {

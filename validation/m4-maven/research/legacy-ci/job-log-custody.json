@@ -1,0 +1,17 @@
+{
+  "job_id": 125257677041,
+  "run_id": 41439551154,
+  "retrieval": "GitHub plugin fetch_workflow_job_logs structuredContent.content (decoded UTF-8)",
+  "raw_decoded_sha256": "1c3d53e2b6497c68e707b9ff5d90f4eef8fe9739a811e9107ce66bd8cd113f3c",
+  "raw_decoded_bytes": 339831,
+  "sanitized_sha256": "1c3d53e2b6497c68e707b9ff5d90f4eef8fe9739a811e9107ce66bd8cd113f3c",
+  "compressed_sha256": "0c61bc145bd57dfdf6066e01856612435646f867fdd52288edf64cd8216970b8",
+  "sanitized_bytes": 339831,
+  "compressed_bytes": 53035,
+  "redaction_counts": {
+    "PEM private key": 0,
+    "GitHub token": 0,
+    "AWS access key": 0
+  },
+  "existing_GitHub_masked_tokens_preserved": true
+}
