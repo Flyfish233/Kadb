@@ -1,0 +1,9 @@
+{
+  "baseline_declarations": 921,
+  "current_declarations": 943,
+  "result": "FAIL"
+}
+KadbDefaultDeviceName_iosKt + (NSString *)defaultDeviceNameSoftware:(NSString * _Nullable)software __attribute__((swift_name("defaultDeviceName(software:)")));
+KadbDefaultDeviceName_iosKt @interface KadbDefaultDeviceName_iosKt : KadbBase
+KadbDefaultDeviceName_iosKt __attribute__((objc_subclassing_restricted))
+KadbDefaultDeviceName_iosKt __attribute__((swift_name("DefaultDeviceName_iosKt")))
