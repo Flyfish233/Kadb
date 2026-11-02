@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "milestone": "M3",
+  "commit": "794b69fecdac0d3fd7d7a54d11f944fa944a65f2",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41439551227",
+  "recorded_utc": "2026-11-02T11:52:19.482184+00:00",
+  "phases": {
+    "candidate": "success",
+    "build": "success",
+    "source": "success",
+    "association": "success",
+    "provision": "success",
+    "ready": "success",
+    "adbd": "success"
+  },
+  "M3-A": {
+    "verdict": "CONDITIONAL PASS",
+    "layer": "Native public API to actual Android Emulator adbd",
+    "checks_executed": 15,
+    "auth_positive_verified": false,
+    "auth_denial_verified": false,
+    "scope": {
+      "native_executable_linked_and_executed": true,
+      "real_android_adbd_interoperability": true,
+      "physical_device": false,
+      "transport": "loopback relay -> adb forward -> emulator TCP adbd",
+      "rsa_auth_positive_interop_observed": false,
+      "unauthorized_key_rejection_observed": false,
+      "tls_upgrade_observed": false,
+      "wireless_pairing": false,
+      "security_or_performance_acceptance": false
+    },
+    "report_status": "passed"
+  },
+  "M3-B": {
+    "verdict": "NOT VERIFIED",
+    "reason": "This checkpoint runs ADB transport, not wireless SPAKE2 pairing."
+  },
+  "M3-C": {
+    "verdict": "NOT VERIFIED",
+    "reason": "No physical device is selected by this workflow."
+  },
+  "main_goal_verdict": "NOT VERIFIED"
+}

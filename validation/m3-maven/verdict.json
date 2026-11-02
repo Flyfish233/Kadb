@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "milestone": "M3",
+  "status": "IN PROGRESS",
+  "branch": "work/spake2-maven-migration",
+  "baseline": "ecc0f358b46a9805d0c102318f211b5e4fe67f14",
+  "fixed_candidate": {
+    "version": "0.1.0-dev.59105290820b",
+    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+  },
+  "M3-A": {
+    "verdict": "CONDITIONAL PASS",
+    "run_id": 41439551227,
+    "tested_code_sha": "794b69fecdac0d3fd7d7a54d11f944fa944a65f2",
+    "native_public_api_checks": 15,
+    "connections": 3,
+    "cleanup": "PASS",
+    "RSA_AUTH": "NOT VERIFIED",
+    "STLS": "NOT VERIFIED",
+    "blocker": "Stock API35 google_apis image ro.adb.secure=0; no AUTH/STLS frames observed. Authentication was not disabled by the test."
+  },
+  "M3-B": {
+    "verdict": "NOT VERIFIED",
+    "reason": "Actual system pairing execution follows this independent A checkpoint."
+  },
+  "M3-C": {
+    "verdict": "NOT VERIFIED",
+    "reason": "No physical device selected or available to CI."
+  },
+  "main_goal_verdict": "NOT VERIFIED",
+  "R3_K01": "Inherited bidirectional GCM nonce risk unchanged"
+}

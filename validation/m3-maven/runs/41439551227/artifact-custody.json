@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "run_id": 41439551227,
+  "code_commit": "794b69fecdac0d3fd7d7a54d11f944fa944a65f2",
+  "artifact_id": 13139600657,
+  "artifact_zip_sha256": "78930b8ad2d15ae768c3085741e4df501893aada4afcebc9da105f07a4ca302c",
+  "raw_evidence_tar_gz_sha256": "5e4c5039fdbb3a1c552d24d76f4d7c4dfc5d0f82297334a5589a010b1cd66881",
+  "job_log_decoded_sha256": "f53477aa258bd59a81160eb0d80bfbad2be64f4b0a6c1d839abc5bd5d3a17928",
+  "retained_source_artifact_id": 13137449967,
+  "raw_payloads_unchanged": true,
+  "private_keys_retained": false
+}
