@@ -1,0 +1,217 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 125261660556,
+      "run_id": 41440741512,
+      "workflow_name": "M3 real AOSP adbd",
+      "head_branch": "work/spake2-maven-migration",
+      "run_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/runs/41440741512",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOTDzpOM8AAAAdKi1BjA",
+      "head_sha": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/jobs/125261660556",
+      "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/41440741512/job/125261660556",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-02T11:56:45Z",
+      "started_at": "2026-11-02T11:56:47Z",
+      "completed_at": "2026-11-02T12:02:24Z",
+      "name": "native-adbd",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-02T11:56:58Z",
+          "completed_at": "2026-11-02T11:56:59Z"
+        },
+        {
+          "name": "Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-02T11:56:59Z",
+          "completed_at": "2026-11-02T11:57:01Z"
+        },
+        {
+          "name": "Restore and verify the unchanged Maven candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-02T11:57:01Z",
+          "completed_at": "2026-11-02T11:57:02Z"
+        },
+        {
+          "name": "Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-02T11:57:02Z",
+          "completed_at": "2026-11-02T11:57:02Z"
+        },
+        {
+          "name": "Run android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-02T11:57:02Z",
+          "completed_at": "2026-11-02T11:57:07Z"
+        },
+        {
+          "name": "Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-02T11:57:07Z",
+          "completed_at": "2026-11-02T11:57:09Z"
+        },
+        {
+          "name": "Install SDK inputs and record the real toolchain",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-02T11:57:09Z",
+          "completed_at": "2026-11-02T11:57:16Z"
+        },
+        {
+          "name": "Compile the external Native consumer and disposable fixture",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-02T11:57:16Z",
+          "completed_at": "2026-11-02T12:00:14Z"
+        },
+        {
+          "name": "Execute supplementary controlled-peer negatives with the actual Native binary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-02T12:00:14Z",
+          "completed_at": "2026-11-02T12:00:19Z"
+        },
+        {
+          "name": "Collect complete corresponding source for the actual Native binary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-02T12:00:19Z",
+          "completed_at": "2026-11-02T12:00:29Z"
+        },
+        {
+          "name": "Preserve exact corresponding source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-02T12:00:29Z",
+          "completed_at": "2026-11-02T12:00:32Z"
+        },
+        {
+          "name": "Associate actual executed binaries with their source",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-02T12:00:32Z",
+          "completed_at": "2026-11-02T12:00:32Z"
+        },
+        {
+          "name": "Provision one isolated disposable API 35 emulator",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-02T12:00:32Z",
+          "completed_at": "2026-11-02T12:01:15Z"
+        },
+        {
+          "name": "Require bounded boot, package manager and network readiness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-02T12:01:15Z",
+          "completed_at": "2026-11-02T12:01:55Z"
+        },
+        {
+          "name": "Execute Native public API against the real adbd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-02T12:01:55Z",
+          "completed_at": "2026-11-02T12:02:05Z"
+        },
+        {
+          "name": "Execute public Kadb pairing with the real Android system service",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-02T12:02:05Z",
+          "completed_at": "2026-11-02T12:02:13Z"
+        },
+        {
+          "name": "Preserve runtime diagnostics and destroy this job's emulator and keys",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-02T12:02:13Z",
+          "completed_at": "2026-11-02T12:02:13Z"
+        },
+        {
+          "name": "Record actual M3 states independently",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-02T12:02:13Z",
+          "completed_at": "2026-11-02T12:02:13Z"
+        },
+        {
+          "name": "Preserve raw M3 evidence and actual executables",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-02T12:02:13Z",
+          "completed_at": "2026-11-02T12:02:16Z"
+        },
+        {
+          "name": "Post Run actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-11-02T12:02:16Z",
+          "completed_at": "2026-11-02T12:02:16Z"
+        },
+        {
+          "name": "Post Run actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-11-02T12:02:16Z",
+          "completed_at": "2026-11-02T12:02:23Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 38,
+          "started_at": "2026-11-02T12:02:23Z",
+          "completed_at": "2026-11-02T12:02:23Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 39,
+          "started_at": "2026-11-02T12:02:23Z",
+          "completed_at": "2026-11-02T12:02:23Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/Flyfish233/Kadb/check-runs/125261660556",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000000229,
+      "runner_name": "GitHub Actions 1000000229",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "kind": "finite execution-evidence consistency review; not another cryptographic audit",
+  "reviewed_run": 41440741512,
+  "code_sha": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "real_service": "confirmed actual system_server listener and AOSP logs",
+  "negative_counts": "13 actual sessions: 2 positive and 11 negative",
+  "binary_source_association": "4 downloaded binary hashes/lengths match exact association",
+  "cleanup": "raw original/final authorization sets and state restoration verified",
+  "connection_identity_enforcement": "NOT VERIFIED; real adbd log explicitly auth not required",
+  "certificate_fingerprint_note": "KadbIdentitySnapshot fingerprint is certificate DER SHA256; certificates regenerate on import. All three processes read the same unchanged RSA key file. ADB authorization key fingerprint is separately recomputed from the public key.",
+  "issues_requiring_further_test": []
+}

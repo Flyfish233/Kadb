@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "layer": "local_harness_preparation",
+  "native_protocol_sessions_executed": 0,
+  "native_protocol_verdict": "NOT VERIFIED",
+  "java_compilation": "PASS",
+  "reference_jar_checksums": "7 locked JAR checksums verified",
+  "report_gate_tests": 6,
+  "report_gate_test_verdict": "PASS",
+  "failures": [
+    {
+      "kind": "environment",
+      "reason": "JVM trust-store PKIX failure downloading pinned native archive"
+    },
+    {
+      "kind": "environment",
+      "reason": "Offline Gradle could not resolve uncached disabled iOSX64 metadata"
+    }
+  ],
+  "production_crypto_modified": false,
+  "prior_checkouts_modified": false,
+  "recovery_scope": "Bounded cached-archive restoration retained original SHA256 gates; no test bypass",
+  "files": [
+    {
+      "path": "base-commit.txt",
+      "bytes": 41,
+      "sha256": "4b6ebf0bdbbc188bcdb7bc8e5ca4f243d2f5c964116a14e39faf669dac7ffcb2"
+    },
+    {
+      "path": "candidate-prepare.log",
+      "bytes": 66,
+      "sha256": "3ced342314e13aae335b0258fe766ad830bd9ded6af224440fd997e48ab09946"
+    },
+    {
+      "path": "controlled-peer-source.patch",
+      "bytes": 23920,
+      "sha256": "e98d41427232c6754cbf486154425c176d30570612542fa3212845ec94bc4529"
+    },
+    {
+      "path": "execution-source-inventory.json",
+      "bytes": 24109,
+      "sha256": "e7fdca0b99089e29541e263633c8a3b0f127bf5e48ff5114a3772a09c8c898fe"
+    },
+    {
+      "path": "javac.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-build-pinned-archive.log",
+      "bytes": 31400,
+      "sha256": "433e7e39e1cfb92493768ff1b90ffa94acdfe9f92f9edabe320840e1c5386adf"
+    },
+    {
+      "path": "native-build-preseed-after-cleanup.log",
+      "bytes": 72444,
+      "sha256": "de2c76711789507cc669a4b2e9be24acb0d3103004f8f99bc79f7faf63375116"
+    },
+    {
+      "path": "native-build.log",
+      "bytes": 32080,
+      "sha256": "403de02fea1c9acefb1efee443d5ad08bdd7e13828b78a6ff003c77eade962dd"
+    },
+    {
+      "path": "preseed-verified-native.init.gradle",
+      "bytes": 1108,
+      "sha256": "ffc396c8ab636f011d0f0d57eba5fc427c3abb1d887a477af07f4cf8b25fbf89"
+    },
+    {
+      "path": "report-gates.log",
+      "bytes": 1036,
+      "sha256": "5d668b10e8bbf4a1cda2774caa27c7e9c1ab4ab86ff3f8e6a1427d5fef27a6ac"
+    }
+  ],
+  "archive_sha256": "03fce1db9dd57c44bf1fea84ae43ba2c1c3735b699480a8feab9945b8690141c"
+}

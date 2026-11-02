@@ -1,0 +1,442 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "started_utc": "2026-11-02T12:00:14.232200+00:00",
+  "commit": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "tracked_worktree_changes": "",
+  "consumer_sha256": "9fdd2df91ac72859956b2068f1907f8f156f885296a8d19db4fce6b4dcefb30a",
+  "consumer_bytes": 24362544,
+  "java_version": "openjdk version \"25.0.5\" 2026-10-20 LTS\nOpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)\nOpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)",
+  "reference_artifacts": {
+    "spake2-java-1.1.1.jar": "077e52ff5594401cdbfca66f9b4d315676e01dff98eaa8ef302fa748ac508028",
+    "conscrypt-openjdk-uber-2.7.0.jar": "a82c2efe7d75df6cb077cb72a3cbd9bb437fb9624d62b469013f10114b0cffa4",
+    "bcpkix-jdk18on-1.86.jar": "8d8b41a4b149bdae8d331f059a578870954d1e3ff29f8269a9eb3ee19a7e4ef7",
+    "ed25519-elisabeth-0.1.0.jar": "f2b0f1f7353b3b4a41caa230bd203858a4b5844acd022f830b09d347aade3d23",
+    "curve25519-elisabeth-0.1.0.jar": "e3d07e0138b49c5c48ac89ad4f6828af74c4cd70abe495d7515e7c6a0227184c",
+    "bcutil-jdk18on-1.86.jar": "1c268e15f785aafb1e4670d8d6e5f856f69475e96c162dadcd1ff9b350e9139f",
+    "bcprov-jdk18on-1.86.jar": "2af190b300cbb0b35e248ccf5f4a06b6072030aeb3da7a98ec73abe5b4cb371f"
+  },
+  "reference_classes": {
+    "com/flyfishxu/kadb/validation/peer/IosPairingPeer$1.class": "74dd674fc7bd76e53d861bc4596d4eef3e47ff0ec06f32c41f3e24ccba1f6d7f",
+    "com/flyfishxu/kadb/validation/peer/IosPairingPeer.class": "e239d1338541deded96e740e6d177ff371dba9a819bd70769e2d9322271e9e99",
+    "com/flyfishxu/kadb/validation/peer/M3PairingPeer.class": "f2a8becdcb97d336b431e619de3cdda8c85fd6dd5d32b81054717c602554c124"
+  },
+  "peer_command": [
+    "/opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/25.0.5-8/x64/bin/java",
+    "--enable-native-access=ALL-UNNAMED",
+    "-cp",
+    "/home/runner/work/Kadb/Kadb/validation/pairing-peer/build/classes/java/main:/home/runner/.gradle/caches/modules-2/files-2.1/com.github.Flyfish233/spake2-java/1.1.1/d7a2b95e871e45a40d18ade772bfce0a3690eea0/spake2-java-1.1.1.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.conscrypt/conscrypt-openjdk-uber/2.7.0/bc396edfd5fefe70b7e1f9764edb803e13c6741f/conscrypt-openjdk-uber-2.7.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcpkix-jdk18on/1.86/fb5ea65959db10fe5d61148bb2b77f6e231455b1/bcpkix-jdk18on-1.86.jar:/home/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/ed25519-elisabeth/0.1.0/534c70f4a52f8c134fc3f84e96fe525390eec270/ed25519-elisabeth-0.1.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/cafe.cryptography/curve25519-elisabeth/0.1.0/5c9a330af3ca88b9788cd92a468b61f5d2e0f834/curve25519-elisabeth-0.1.0.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcutil-jdk18on/1.86/2c8e77f5601c2b84c8773af4caf403a34daca357/bcutil-jdk18on-1.86.jar:/home/runner/.gradle/caches/modules-2/files-2.1/org.bouncycastle/bcprov-jdk18on/1.86/830c8467bed8e4c1148262386b09fc42aedcf262/bcprov-jdk18on-1.86.jar",
+    "com.flyfishxu.kadb.validation.peer.M3PairingPeer",
+    "/home/runner/work/Kadb/Kadb/evidence/controlled-peer/peer-ready"
+  ],
+  "native_command": [
+    "/home/runner/work/Kadb/Kadb/validation/native-adbd/build/bin/linuxX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+    "--port",
+    "34865",
+    "--m3-negative-suite"
+  ],
+  "native_exit_code": 0,
+  "peer_exit_code": 0,
+  "native": {
+    "status": "passed",
+    "checks_executed": 13,
+    "elapsed_ms": 4397,
+    "physical_device": false,
+    "real_adbd": false,
+    "cases": [
+      "positive_seed",
+      "wrong_code",
+      "stale_exporter",
+      "wrong_role",
+      "missing_identity_nul",
+      "invalid_spake_length",
+      "invalid_header",
+      "bad_gcm_tag",
+      "invalid_peer_info",
+      "network_disconnect",
+      "timeout",
+      "cancellation",
+      "positive_recovery"
+    ]
+  },
+  "process_log_sha256": {
+    "native": "69e71f42dc7559deee4dc2587e7318e00e32fbd49302a088070814917c85bad8",
+    "peer": "b14f36d9419e39033e5e11050efe1a0f46cf8a8af3174addd544bb41638a81bd"
+  },
+  "peer": {
+    "status": "passed",
+    "sessions_executed": 13,
+    "completed_sessions": 13,
+    "positive_sessions": 2,
+    "negative_sessions_completed": 11,
+    "tls_sessions_completed": 13,
+    "expected_negative_sessions": 11,
+    "tls": "TLSv1.3",
+    "real_adbd": false,
+    "cases": [
+      {
+        "case": "positive_seed",
+        "status": "passed",
+        "stage": "valid_peer_info_and_client_close",
+        "closure": "client_initiated",
+        "elapsed_ms": 309
+      },
+      {
+        "case": "wrong_code",
+        "status": "passed",
+        "stage": "peer_gcm_rejected_client_authentication",
+        "closure": "peer_initiated",
+        "elapsed_ms": 123
+      },
+      {
+        "case": "stale_exporter",
+        "status": "passed",
+        "stage": "peer_gcm_rejected_client_authentication",
+        "closure": "peer_initiated",
+        "elapsed_ms": 120
+      },
+      {
+        "case": "wrong_role",
+        "status": "passed",
+        "stage": "peer_gcm_rejected_client_authentication",
+        "closure": "peer_initiated",
+        "elapsed_ms": 117
+      },
+      {
+        "case": "missing_identity_nul",
+        "status": "passed",
+        "stage": "peer_gcm_rejected_client_authentication",
+        "closure": "peer_initiated",
+        "elapsed_ms": 119
+      },
+      {
+        "case": "invalid_spake_length",
+        "status": "passed",
+        "stage": "client_rejected_31_byte_spake",
+        "closure": "client_initiated",
+        "elapsed_ms": 79
+      },
+      {
+        "case": "invalid_header",
+        "status": "passed",
+        "stage": "client_rejected_header_version_2",
+        "closure": "client_initiated",
+        "elapsed_ms": 77
+      },
+      {
+        "case": "bad_gcm_tag",
+        "status": "passed",
+        "stage": "client_rejected_corrupt_gcm_tag",
+        "closure": "client_initiated",
+        "elapsed_ms": 159
+      },
+      {
+        "case": "invalid_peer_info",
+        "status": "passed",
+        "stage": "client_rejected_wrong_peer_info_type",
+        "closure": "client_initiated",
+        "elapsed_ms": 158
+      },
+      {
+        "case": "network_disconnect",
+        "status": "passed",
+        "stage": "peer_closes_after_client_spake",
+        "closure": "peer_initiated",
+        "elapsed_ms": 35
+      },
+      {
+        "case": "timeout",
+        "status": "passed",
+        "stage": "client_closed_stalled_exchange",
+        "closure": "client_initiated",
+        "elapsed_ms": 1500
+      },
+      {
+        "case": "cancellation",
+        "status": "passed",
+        "stage": "client_closed_stalled_exchange",
+        "closure": "client_initiated",
+        "elapsed_ms": 1500
+      },
+      {
+        "case": "positive_recovery",
+        "status": "passed",
+        "stage": "valid_peer_info_and_client_close",
+        "closure": "client_initiated",
+        "elapsed_ms": 158
+      }
+    ]
+  },
+  "peer_completed_case_records": [
+    {
+      "case": "positive_seed",
+      "status": "passed",
+      "stage": "valid_peer_info_and_client_close",
+      "closure": "client_initiated",
+      "elapsed_ms": 309
+    },
+    {
+      "case": "wrong_code",
+      "status": "passed",
+      "stage": "peer_gcm_rejected_client_authentication",
+      "closure": "peer_initiated",
+      "elapsed_ms": 123
+    },
+    {
+      "case": "stale_exporter",
+      "status": "passed",
+      "stage": "peer_gcm_rejected_client_authentication",
+      "closure": "peer_initiated",
+      "elapsed_ms": 120
+    },
+    {
+      "case": "wrong_role",
+      "status": "passed",
+      "stage": "peer_gcm_rejected_client_authentication",
+      "closure": "peer_initiated",
+      "elapsed_ms": 117
+    },
+    {
+      "case": "missing_identity_nul",
+      "status": "passed",
+      "stage": "peer_gcm_rejected_client_authentication",
+      "closure": "peer_initiated",
+      "elapsed_ms": 119
+    },
+    {
+      "case": "invalid_spake_length",
+      "status": "passed",
+      "stage": "client_rejected_31_byte_spake",
+      "closure": "client_initiated",
+      "elapsed_ms": 79
+    },
+    {
+      "case": "invalid_header",
+      "status": "passed",
+      "stage": "client_rejected_header_version_2",
+      "closure": "client_initiated",
+      "elapsed_ms": 77
+    },
+    {
+      "case": "bad_gcm_tag",
+      "status": "passed",
+      "stage": "client_rejected_corrupt_gcm_tag",
+      "closure": "client_initiated",
+      "elapsed_ms": 159
+    },
+    {
+      "case": "invalid_peer_info",
+      "status": "passed",
+      "stage": "client_rejected_wrong_peer_info_type",
+      "closure": "client_initiated",
+      "elapsed_ms": 158
+    },
+    {
+      "case": "network_disconnect",
+      "status": "passed",
+      "stage": "peer_closes_after_client_spake",
+      "closure": "peer_initiated",
+      "elapsed_ms": 35
+    },
+    {
+      "case": "timeout",
+      "status": "passed",
+      "stage": "client_closed_stalled_exchange",
+      "closure": "client_initiated",
+      "elapsed_ms": 1500
+    },
+    {
+      "case": "cancellation",
+      "status": "passed",
+      "stage": "client_closed_stalled_exchange",
+      "closure": "client_initiated",
+      "elapsed_ms": 1500
+    },
+    {
+      "case": "positive_recovery",
+      "status": "passed",
+      "stage": "valid_peer_info_and_client_close",
+      "closure": "client_initiated",
+      "elapsed_ms": 158
+    }
+  ],
+  "peer_session_events": [
+    {
+      "case": "positive_seed",
+      "event": "accepted",
+      "ordinal": 1
+    },
+    {
+      "case": "positive_seed",
+      "event": "tls_completed",
+      "ordinal": 1
+    },
+    {
+      "case": "wrong_code",
+      "event": "accepted",
+      "ordinal": 2
+    },
+    {
+      "case": "wrong_code",
+      "event": "tls_completed",
+      "ordinal": 2
+    },
+    {
+      "case": "stale_exporter",
+      "event": "accepted",
+      "ordinal": 3
+    },
+    {
+      "case": "stale_exporter",
+      "event": "tls_completed",
+      "ordinal": 3
+    },
+    {
+      "case": "wrong_role",
+      "event": "accepted",
+      "ordinal": 4
+    },
+    {
+      "case": "wrong_role",
+      "event": "tls_completed",
+      "ordinal": 4
+    },
+    {
+      "case": "missing_identity_nul",
+      "event": "accepted",
+      "ordinal": 5
+    },
+    {
+      "case": "missing_identity_nul",
+      "event": "tls_completed",
+      "ordinal": 5
+    },
+    {
+      "case": "invalid_spake_length",
+      "event": "accepted",
+      "ordinal": 6
+    },
+    {
+      "case": "invalid_spake_length",
+      "event": "tls_completed",
+      "ordinal": 6
+    },
+    {
+      "case": "invalid_header",
+      "event": "accepted",
+      "ordinal": 7
+    },
+    {
+      "case": "invalid_header",
+      "event": "tls_completed",
+      "ordinal": 7
+    },
+    {
+      "case": "bad_gcm_tag",
+      "event": "accepted",
+      "ordinal": 8
+    },
+    {
+      "case": "bad_gcm_tag",
+      "event": "tls_completed",
+      "ordinal": 8
+    },
+    {
+      "case": "invalid_peer_info",
+      "event": "accepted",
+      "ordinal": 9
+    },
+    {
+      "case": "invalid_peer_info",
+      "event": "tls_completed",
+      "ordinal": 9
+    },
+    {
+      "case": "network_disconnect",
+      "event": "accepted",
+      "ordinal": 10
+    },
+    {
+      "case": "network_disconnect",
+      "event": "tls_completed",
+      "ordinal": 10
+    },
+    {
+      "case": "timeout",
+      "event": "accepted",
+      "ordinal": 11
+    },
+    {
+      "case": "timeout",
+      "event": "tls_completed",
+      "ordinal": 11
+    },
+    {
+      "case": "cancellation",
+      "event": "accepted",
+      "ordinal": 12
+    },
+    {
+      "case": "cancellation",
+      "event": "tls_completed",
+      "ordinal": 12
+    },
+    {
+      "case": "positive_recovery",
+      "event": "accepted",
+      "ordinal": 13
+    },
+    {
+      "case": "positive_recovery",
+      "event": "tls_completed",
+      "ordinal": 13
+    }
+  ],
+  "scope": {
+    "native_executable_linked_and_executed": true,
+    "ios_simulator_executed": false,
+    "independent_legacy_spake_peer": true,
+    "tls_exporter_and_peer_info": true,
+    "real_adbd": false,
+    "physical_device": false,
+    "independent_security_audit": false,
+    "performance_acceptance": false,
+    "test_layer": "supplementary_independent_controlled_peer",
+    "faults_injected_by_peer": true,
+    "fresh_session_recovery": true,
+    "closure_initiator_by_case": {
+      "positive_seed": "client_initiated",
+      "wrong_code": "peer_initiated",
+      "stale_exporter": "peer_initiated",
+      "wrong_role": "peer_initiated",
+      "missing_identity_nul": "peer_initiated",
+      "invalid_spake_length": "client_initiated",
+      "invalid_header": "client_initiated",
+      "bad_gcm_tag": "client_initiated",
+      "invalid_peer_info": "client_initiated",
+      "network_disconnect": "peer_initiated",
+      "timeout": "client_initiated",
+      "cancellation": "client_initiated",
+      "positive_recovery": "client_initiated"
+    },
+    "client_initiated_close_observed_for": [
+      "positive_seed",
+      "invalid_spake_length",
+      "invalid_header",
+      "bad_gcm_tag",
+      "invalid_peer_info",
+      "timeout",
+      "cancellation",
+      "positive_recovery"
+    ],
+    "peer_initiated_close_only_for": [
+      "wrong_code",
+      "stale_exporter",
+      "wrong_role",
+      "missing_identity_nul",
+      "network_disconnect"
+    ],
+    "internal_memory_zeroization_observed": false,
+    "inherited_r3_k01_nonce_risk": "unchanged AOSP-compatible bidirectional nonce 0"
+  }
+}

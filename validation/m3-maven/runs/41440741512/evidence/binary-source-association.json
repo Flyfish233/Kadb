@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "commit": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41440741512",
+  "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41440741512/artifacts/13141210687",
+  "source_package_sha256": "e604bc1851d6632fed08ab5b64b4d7b3d27e2467d2ff3f732a58b3982318fc9c",
+  "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+  "android_runtime_source_gate": {
+    "status": "not verified; runtime APK excluded"
+  },
+  "binary_artifacts": [
+    {
+      "path": "validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk",
+      "bytes": 44853,
+      "sha256": "dbb137966af9175e5f2a82ca5365ee5eba8732dbb3a4327b796b14dec2b4bcba"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe",
+      "bytes": 25002240,
+      "sha256": "7f772f7c3dd712f2392abc3d1405b0d23a2ea36863ed05d3135917cdce7cedbd"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+      "bytes": 24362544,
+      "sha256": "9fdd2df91ac72859956b2068f1907f8f156f885296a8d19db4fce6b4dcefb30a"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+      "bytes": 25107744,
+      "sha256": "b7c66748f36d50aa45d2747229a517e1d296d8969d7f02feaad9c25cf9cd36f8"
+    }
+  ],
+  "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+}

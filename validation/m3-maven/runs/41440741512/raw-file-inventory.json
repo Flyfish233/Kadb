@@ -1,0 +1,237 @@
+[
+  {
+    "path": "SOURCE_LOCATION.txt",
+    "bytes": 714,
+    "sha256": "1c0166e497a43e36b6a70142ff9855b1c1d4773f9b657141bc2eed039279cbf1"
+  },
+  {
+    "path": "adb-final-devices.log",
+    "bytes": 140,
+    "sha256": "54d441009efe1a98a08b9ef2fb9e61d2187a2cce7c6d6077a1e520fcfd6ae36e"
+  },
+  {
+    "path": "adbd/commands.jsonl",
+    "bytes": 21563,
+    "sha256": "bfb11d452621c1f945e7fd86a1d6af6dcea8101bc4c4fbff76bfabca5094e097"
+  },
+  {
+    "path": "adbd/report.json",
+    "bytes": 46435,
+    "sha256": "5127584837d4a09c8d32579bb28b6ed369d92063d0d9c7e1ff2e380ba005e372"
+  },
+  {
+    "path": "adbd-driver.log",
+    "bytes": 108,
+    "sha256": "584ff450d109c6dd201cde7693e92c4e891da4fee8517814da3bb9c4cc01d270"
+  },
+  {
+    "path": "android-sdk.log",
+    "bytes": 349,
+    "sha256": "fea295563d2c308eb1c52d473eee9ed5d6b5d35da1fa053623546b641392a1a1"
+  },
+  {
+    "path": "binary-source-association.json",
+    "bytes": 1645,
+    "sha256": "ee394804cdcffd21046e73f2c43fc21d93801443a3f54d451e04a9bc7bed1fa7"
+  },
+  {
+    "path": "cmake.log",
+    "bytes": 91,
+    "sha256": "f6e81c2559f3ce00c5fdad01d7b226c301f5d6b07ee04f65db6dbfdc1cc5970b"
+  },
+  {
+    "path": "commit.txt",
+    "bytes": 41,
+    "sha256": "cd4cff5ce9c428e0436cea13f7ba8493e7f36a2b7ae3180c9a2280b64097248a"
+  },
+  {
+    "path": "consumer-file.log",
+    "bytes": 303,
+    "sha256": "d51807acf3952e72b2c767c935987d4855a3b29b16b992509b7b7ffeeb21c26a"
+  },
+  {
+    "path": "controlled-peer/java-peer.log",
+    "bytes": 7261,
+    "sha256": "b14f36d9419e39033e5e11050efe1a0f46cf8a8af3174addd544bb41638a81bd"
+  },
+  {
+    "path": "controlled-peer/native-consumer.log",
+    "bytes": 827,
+    "sha256": "69e71f42dc7559deee4dc2587e7318e00e32fbd49302a088070814917c85bad8"
+  },
+  {
+    "path": "controlled-peer/report.json",
+    "bytes": 13446,
+    "sha256": "b8f271fb0bcf4c7f05880774a9e9430d4bd01ca81bb884537018b8583509ee69"
+  },
+  {
+    "path": "controlled-peer-driver.log",
+    "bytes": 71,
+    "sha256": "95ecfbe32ef4cfe0228a64f6b3a77eeec422c42cbf5508d572ede3dd10b2d2e1"
+  },
+  {
+    "path": "controlled-peer-report-gates.log",
+    "bytes": 1036,
+    "sha256": "5d668b10e8bbf4a1cda2774caa27c7e9c1ab4ab86ff3f8e6a1427d5fef27a6ac"
+  },
+  {
+    "path": "corresponding-source/native-source-bundle-ef5ae480e598ec08309fa6bfed12af44996bbfea.tar.gz.sha256",
+    "bytes": 135,
+    "sha256": "d25e28beb919bebe9a96e76f9b40c70346392298d297f400322fd0d210b68c8f"
+  },
+  {
+    "path": "corresponding-source/source-bundle-execution.jsonl",
+    "bytes": 48012,
+    "sha256": "8a172bdce98078feadda1f91061c71249ea78c2a8d529f72d918c130d80d873d"
+  },
+  {
+    "path": "corresponding-source/source-bundle-manifest.json",
+    "bytes": 381065,
+    "sha256": "a8670e03f6425a4446f741d88207204e10eebe1bbd635086c1e30b025ebfc263"
+  },
+  {
+    "path": "corresponding-source/source-bundle-result.json",
+    "bytes": 405,
+    "sha256": "9a6c3b44dcd8bbd471e34c565ba3fe892c605bbc500a2f725195704abf10903c"
+  },
+  {
+    "path": "driver-tests.log",
+    "bytes": 1377,
+    "sha256": "14fbbc43a631dfa2e3e263314e29e9fb7bd82e949f77d07747c3eb03b1ec81d6"
+  },
+  {
+    "path": "emulator-acceleration.log",
+    "bytes": 57,
+    "sha256": "4484bdd6d5e16c817d4dfc5cda05334055c86428c861c1d22e8cf67ce42fee49"
+  },
+  {
+    "path": "emulator-final-properties.log",
+    "bytes": 24865,
+    "sha256": "166b5f2f6f5f7c1dda8cff834a1271e7131806be63a0a9a3b4bb3d26f7d7885c"
+  },
+  {
+    "path": "emulator-readiness/commands.jsonl",
+    "bytes": 144811,
+    "sha256": "2da24040f5c70a2c52bc0d96ffe9fa97676ccf492b99030787d1c337b484b0f8"
+  },
+  {
+    "path": "emulator-readiness/report.json",
+    "bytes": 45050,
+    "sha256": "fcb78c39f2d4b17bff1da2a799bbcca1c530142890ee22f1e5e648a3a6dda370"
+  },
+  {
+    "path": "emulator-sdk.log",
+    "bytes": 596,
+    "sha256": "69c1a15af2dadc786f58592bc77ecf4f0e341678de6eebc8bfbded08e7395deb"
+  },
+  {
+    "path": "emulator-source.properties",
+    "bytes": 103,
+    "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+  },
+  {
+    "path": "emulator.log",
+    "bytes": 9069,
+    "sha256": "c8773ee2074e3fb7000baf0b54376075493d2186f5ea073b6f6d545625ba6907"
+  },
+  {
+    "path": "gradle-version.log",
+    "bytes": 1602,
+    "sha256": "713e13f3b7fa021f4f8ce49b79f6a32c86845ca66890263065fa6add4442c0ce"
+  },
+  {
+    "path": "gradle-wrapper.properties",
+    "bytes": 223,
+    "sha256": "4af3490d6d3cd657e0f7306d0a53ae8240b9a79f317aad8f6abfe87320b3dc7e"
+  },
+  {
+    "path": "host-packages.log",
+    "bytes": 7351,
+    "sha256": "b931d301daee0f9e2f804c93a8d88c201b086c00b4e83d90d86bbe19549bce06"
+  },
+  {
+    "path": "host.log",
+    "bytes": 128,
+    "sha256": "a64b6d81308dc728b286592ae78f6594e185e6db8c474be3c8886f7694f38bb7"
+  },
+  {
+    "path": "initial-worktree.txt",
+    "bytes": 13,
+    "sha256": "c1b96317396369bee18f092c9315ac48be4d93ee606829157cfa459e1a95ca2e"
+  },
+  {
+    "path": "java-version.log",
+    "bytes": 190,
+    "sha256": "dc25d4c269605476cbe8abf0a71814a943b1303a7249657c140d7e2878f5fa46"
+  },
+  {
+    "path": "libs.versions.toml",
+    "bytes": 1614,
+    "sha256": "658ba195bbe1248bace5c7baf209492e0125afcdd706cb23e3b910c62e9820f2"
+  },
+  {
+    "path": "m3-status.json",
+    "bytes": 1970,
+    "sha256": "4609d69fe638ad130ba9012f008195b299ead64dfcd49572c4af37fc5f5f1035"
+  },
+  {
+    "path": "native-build.log",
+    "bytes": 57974,
+    "sha256": "824de368617d33450c0b29738b4c2b0cc1ebc9d6f0c10ce5cfcf24158a1d22dd"
+  },
+  {
+    "path": "real-pairing/commands.jsonl",
+    "bytes": 7313305,
+    "sha256": "c00390077b027c1c5ae870e14cff3e226f3683642a0b12a6161d16a57b7af25a"
+  },
+  {
+    "path": "real-pairing/emulator-logcat-redacted.log",
+    "bytes": 6716935,
+    "sha256": "4279bb83882dbe9a1bdbde5c255c43eac32c6eed99d6895388a9e3942c195c52"
+  },
+  {
+    "path": "real-pairing/report.json",
+    "bytes": 84707,
+    "sha256": "99c7f0ca9fec92aa467e9b92b0dd2af55b11eaaedfed31f034b4ae52e3c983bc"
+  },
+  {
+    "path": "real-pairing-driver.log",
+    "bytes": 111,
+    "sha256": "173050f636710ff33131c16c90e17c2cc44e16daa049b378d224c7fb4231727e"
+  },
+  {
+    "path": "source-create.log",
+    "bytes": 48395,
+    "sha256": "ba1895e6e24aa562d6607a24c935d5590ec96688538e2bcaaac2f13cf3322b20"
+  },
+  {
+    "path": "spake2-candidate-integrity.json",
+    "bytes": 1732,
+    "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+  },
+  {
+    "path": "spake2-maven-resolution.json",
+    "bytes": 56258,
+    "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+  },
+  {
+    "path": "spake2-repository.txt",
+    "bytes": 57,
+    "sha256": "97137e64f9de51b8713a4fa7350e981d99ae2218bc30eae2ee3588f3c20e9e0b"
+  },
+  {
+    "path": "spake2-resolved-source-verification.json",
+    "bytes": 18293,
+    "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+  },
+  {
+    "path": "system-image-package.xml",
+    "bytes": 19302,
+    "sha256": "ea39b57b01ac04615a0c84e68c85e44f97b2acc2937ee2297ebccaa8d1b44370"
+  },
+  {
+    "path": "system-image-source.properties",
+    "bytes": 357,
+    "sha256": "809a6f5103c048607257f03f18e22dd740137e9009c99d4a496de846b6ee3412"
+  }
+]

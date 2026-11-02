@@ -1,5 +1,12 @@
 # M3 — actual Android adbd integration
 
+Final acceptance: **M3-A CONDITIONAL PASS; M3-B PASS; M3-C NOT VERIFIED**.
+The real-pairing main goal passed at `ef5ae480e598ec08309fa6bfed12af44996bbfea`,
+CI [41440741512](https://github.com/Flyfish233/Kadb/actions/runs/41440741512).
+Overall M3 remains conditional because connection identity enforcement was not
+verified on the stock `ro.adb.secure=0` image. See [the delivery report](../../docs/experiment/M3-DELIVERY.zh-CN.md)
+and [machine verdict](verdict.json) for the exact layers and counts.
+
 Recovered baseline: `ecc0f358b46a9805d0c102318f211b5e4fe67f14` on
 `work/spake2-maven-migration`. M1 and M2 remain PASS under their existing scopes.
 The candidate remains `0.1.0-dev.59105290820b`, source

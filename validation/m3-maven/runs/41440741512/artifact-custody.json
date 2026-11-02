@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "run_id": 41440741512,
+  "code_commit": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "artifact_id": 13140836193,
+  "artifact_zip_sha256": "b299777c9574fb1ff774b70a33863223043b4eb86a1e31bcb7a3868930cd3b32",
+  "raw_evidence_tar_gz_sha256": "0fc020ac8c08c1cdac2affba660a92a61214d81f49a930cfe08cf22f2f404dd5",
+  "decoded_job_log_sha256": "603d9f20ada53e098eb7d670844d431fb17d412c226267cffd4ad5885c4775f7",
+  "all_downloaded_binary_sha256_rechecked": true,
+  "source_artifact_id": 13141210687,
+  "source_package_sha256": "e604bc1851d6632fed08ab5b64b4d7b3d27e2467d2ff3f732a58b3982318fc9c",
+  "source_zip_digest": "4dfcf84f047bdb714e6e0d46441756fd97fe2698df12f5229c58d02818da3196",
+  "source_package_verification": "complete collector verification executed in same CI; manifest/result and binary association checked; full source ZIP not downloaded again locally",
+  "raw_files_preserved": 47,
+  "pairing_driver_logs_redacted_before_persistence": true,
+  "private_keys_or_pairing_secrets_retained": false
+}

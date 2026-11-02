@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "milestone": "M3",
+  "commit": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41440741512",
+  "recorded_utc": "2026-11-02T12:02:13.275481+00:00",
+  "phases": {
+    "candidate": "success",
+    "build": "success",
+    "source": "success",
+    "association": "success",
+    "provision": "success",
+    "ready": "success",
+    "adbd": "success",
+    "pairing": "success",
+    "controlled": "success"
+  },
+  "M3-A": {
+    "verdict": "CONDITIONAL PASS",
+    "layer": "Native public API to actual Android Emulator adbd",
+    "checks_executed": 15,
+    "auth_positive_verified": false,
+    "auth_denial_verified": false,
+    "scope": {
+      "native_executable_linked_and_executed": true,
+      "real_android_adbd_interoperability": true,
+      "physical_device": false,
+      "transport": "loopback relay -> adb forward -> emulator TCP adbd",
+      "rsa_auth_positive_interop_observed": false,
+      "unauthorized_key_rejection_observed": false,
+      "tls_upgrade_observed": false,
+      "wireless_pairing": false,
+      "security_or_performance_acceptance": false
+    },
+    "report_status": "passed"
+  },
+  "M3-B": {
+    "verdict": "PASS",
+    "layer": "Actual Android system pairing service; controlled faults are separate",
+    "real_pairing_and_wrong_code_complete": true,
+    "real_checks_executed": 10,
+    "real_pairing_verdict": "PASS",
+    "post_pair_connection_verdict": "PASS",
+    "post_pair_identity_enforcement_verdict": "NOT VERIFIED",
+    "supplementary_controlled_peer_complete": true,
+    "controlled_peer_checks_executed": 13,
+    "controlled_peer_is_real_adbd": false,
+    "real_service_error": null,
+    "controlled_peer_error": null
+  },
+  "M3-C": {
+    "verdict": "NOT VERIFIED",
+    "reason": "No physical device is selected by this workflow."
+  },
+  "main_goal_verdict": "PASS",
+  "R3_K01": "Inherited AOSP-compatible bidirectional GCM nonce behavior remains unchanged"
+}

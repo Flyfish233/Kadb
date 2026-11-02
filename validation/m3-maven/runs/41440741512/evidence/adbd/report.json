@@ -1,0 +1,1996 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "started_utc": "2026-11-02T12:01:55.290854+00:00",
+  "require_auth": false,
+  "checks_expected": 15,
+  "run_id": "4a9541d4980f94c23fb1421499bf7439",
+  "artifacts": {
+    "consumer": {
+      "path": "/home/runner/work/Kadb/Kadb/validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe",
+      "bytes": 25002240,
+      "sha256": "7f772f7c3dd712f2392abc3d1405b0d23a2ea36863ed05d3135917cdce7cedbd"
+    },
+    "apk": {
+      "path": "/home/runner/work/Kadb/Kadb/validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk",
+      "bytes": 44853,
+      "sha256": "dbb137966af9175e5f2a82ca5365ee5eba8732dbb3a4327b796b14dec2b4bcba"
+    },
+    "adb": {
+      "path": "/usr/local/lib/android/sdk/platform-tools/adb",
+      "bytes": 10642368,
+      "sha256": "a902be8f45c6c62e76c9efaf6947a0fa747c9cabd89a2ac8e0d16ecb30b3ed01"
+    },
+    "aapt2": {
+      "path": "/usr/local/lib/android/sdk/build-tools/37.0.0/aapt2",
+      "bytes": 6274200,
+      "sha256": "0f1c0e560f99db510a76ebc99ad5c3e68438f62e8e8617018a716ca4a589a699"
+    }
+  },
+  "native_binary_format": "ELF",
+  "adb_version": "Android Debug Bridge version 1.0.41\nVersion 37.0.1-15733141\nInstalled as /usr/local/lib/android/sdk/platform-tools/adb\nRunning on Linux 7.0.0-1017-azure (x86_64)",
+  "emulator_version": "Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)\nCopyright (C) 2006-2024 The Android Open Source Project and many others.\nThis program is a derivative of the QEMU CPU emulator (www.qemu.org).\n\n  This software is licensed under the terms of the GNU General Public\n  License version 2, as published by the Free Software Foundation, and\n  may be copied, distributed, and modified under those terms.\n\n  This program is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.",
+  "commit": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "tracked_worktree_changes": "",
+  "device_kind": "android_emulator",
+  "serial": "emulator-5554",
+  "properties": {
+    "ro.build.fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+    "ro.build.version.sdk": "35",
+    "ro.product.cpu.abi": "x86_64",
+    "ro.adb.secure": "0",
+    "ro.secure": "1",
+    "ro.debuggable": "1",
+    "service.adb.tcp.port": "",
+    "persist.adb.tcp.port": "",
+    "service.adb.listen_addrs": ""
+  },
+  "initial_adbd_uid": "2000",
+  "adbd_identity": {
+    "version": {
+      "exit_code": 0,
+      "stdout": "Android Debug Bridge Daemon version 1.0.41\n",
+      "stderr": ""
+    },
+    "executable": {
+      "exit_code": 0,
+      "stdout": "/apex/com.android.adbd/bin/adbd\n",
+      "stderr": ""
+    },
+    "sha256": {
+      "exit_code": 0,
+      "stdout": "008accf96d7cf61d63af6c30d9ec60cdb0ae88bed7b09f49967e257ec5bf5893  /apex/com.android.adbd/bin/adbd\n",
+      "stderr": ""
+    },
+    "process": {
+      "exit_code": 0,
+      "stdout": " 2545     0 adbd\n",
+      "stderr": ""
+    }
+  },
+  "listener": {
+    "guest_port": 5555,
+    "tcp_mode_changed": false,
+    "existing_listener_observed": true,
+    "ss_output": "State       Recv-Q Send-Q Local Address:Port               Peer Address:Port              \nLISTEN      0      10     127.0.0.1:8872               0.0.0.0:*                  \nLISTEN      0      4            *:5555                     *:*                  \n"
+  },
+  "unauthorized_probe": {
+    "kind": "not_executed",
+    "product_health_test": false,
+    "reason": "image ro.adb.secure is not 1"
+  },
+  "initial_public_keys_sha256": "2608e9be0d56e5ba171704ea428ec84be4e5672f3ec64b7de88e8004524924b0",
+  "initial_public_key_file_metadata": "1000 2000 640",
+  "consumer": {
+    "schema": 1,
+    "status": "passed",
+    "kind": "native_adbd_e2e",
+    "device_kind": "android_emulator",
+    "checks_executed": 15,
+    "checks": [
+      "identity_import",
+      "feature_negotiation",
+      "shell_v2",
+      "sync_transfer",
+      "sync_stat",
+      "sync_shell_metadata",
+      "sync_directory",
+      "sync_symlink",
+      "sync_empty_file",
+      "install",
+      "uninstall",
+      "reconnect_1",
+      "reconnect_2",
+      "cleanup",
+      "close_terminal"
+    ],
+    "elapsed_ms": 2790,
+    "details": {
+      "features": "shell_v2,stat_v2,ls_v2,sendrecv_v2,cmd",
+      "payload_bytes": "1048589",
+      "payload_sha256": "a1ba713493c2d1502c48e23b3195f02e1d63b1b6c9176e885ce70bf73e28d7ec",
+      "requested_file_mode": "0600",
+      "aosp_reference_file_mode": "0666",
+      "permission_reference": "https://android.googlesource.com/platform/packages/modules/adb/+/1cf2f017d312f73b3dc53bda85ef2610e35a80e9/daemon/file_sync_service.cpp#532",
+      "permission_path": "/data/local/tmp/kadb-native-validation-4a9541d4980f94c23fb1421499bf7439/payload.bin",
+      "permission_reference_scope": "Regular-file SEND under /data/local/tmp; device fs_config can override the reference mode",
+      "observed_file_mode": "0666",
+      "permission_reference_comparison": "matches"
+    }
+  },
+  "wire": {
+    "connections": 3,
+    "counts": {
+      "host_to_adbd:CNXN": 3,
+      "adbd_to_host:CNXN": 3,
+      "host_to_adbd:OPEN": 21,
+      "adbd_to_host:OKAY": 52,
+      "adbd_to_host:WRTE": 34,
+      "adbd_to_host:CLSE": 34,
+      "host_to_adbd:OKAY": 34,
+      "host_to_adbd:CLSE": 21,
+      "host_to_adbd:WRTE": 23
+    },
+    "connection_counts": {
+      "1": {
+        "host_to_adbd:CNXN": 1,
+        "adbd_to_host:CNXN": 1,
+        "host_to_adbd:OPEN": 18,
+        "adbd_to_host:OKAY": 49,
+        "adbd_to_host:WRTE": 29,
+        "adbd_to_host:CLSE": 29,
+        "host_to_adbd:OKAY": 29,
+        "host_to_adbd:CLSE": 18,
+        "host_to_adbd:WRTE": 23
+      },
+      "2": {
+        "host_to_adbd:CNXN": 1,
+        "adbd_to_host:CNXN": 1,
+        "host_to_adbd:OPEN": 1,
+        "adbd_to_host:OKAY": 1,
+        "adbd_to_host:WRTE": 2,
+        "adbd_to_host:CLSE": 1,
+        "host_to_adbd:OKAY": 2,
+        "host_to_adbd:CLSE": 1
+      },
+      "3": {
+        "host_to_adbd:CNXN": 1,
+        "adbd_to_host:CNXN": 1,
+        "host_to_adbd:OPEN": 2,
+        "adbd_to_host:OKAY": 2,
+        "adbd_to_host:WRTE": 3,
+        "adbd_to_host:CLSE": 4,
+        "host_to_adbd:OKAY": 3,
+        "host_to_adbd:CLSE": 2
+      }
+    },
+    "bytes_forwarded": {
+      "host_to_adbd": 1098534,
+      "adbd_to_host": 2102674
+    },
+    "header_errors": [],
+    "first_events": [
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CNXN",
+        "arg0": 16777217,
+        "arg1": 1048576,
+        "payload_length": 62
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CNXN",
+        "arg0": 16777217,
+        "arg1": 1048576,
+        "payload_length": 390
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 1,
+        "arg1": 0,
+        "payload_length": 64
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 4,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 4,
+        "arg1": 1,
+        "payload_length": 16
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 4,
+        "arg1": 1,
+        "payload_length": 22
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 4,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 1,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 1,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 1,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 2,
+        "arg1": 0,
+        "payload_length": 93
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 4,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 4,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 5,
+        "arg1": 2,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 5,
+        "arg1": 2,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 5,
+        "arg1": 2,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 2,
+        "arg1": 5,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 2,
+        "arg1": 5,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 5,
+        "arg1": 2,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 3,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 103
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 1048576
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 157
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 4,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 6,
+        "arg1": 3,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 3,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 99
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 524344
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 524352
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 29
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 4,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 7,
+        "arg1": 4,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 5,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 8,
+        "arg1": 5,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 5,
+        "arg1": 8,
+        "payload_length": 91
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 8,
+        "arg1": 5,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 8,
+        "arg1": 5,
+        "payload_length": 72
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 5,
+        "arg1": 8,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 5,
+        "arg1": 8,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 8,
+        "arg1": 5,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 5,
+        "arg1": 8,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 8,
+        "arg1": 5,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 6,
+        "arg1": 0,
+        "payload_length": 109
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 9,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 9,
+        "arg1": 6,
+        "payload_length": 155
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 9,
+        "arg1": 6,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 9,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 9,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 6,
+        "arg1": 9,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 6,
+        "arg1": 9,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 7,
+        "arg1": 0,
+        "payload_length": 118
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 9,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 9,
+        "arg1": 6,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 10,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 10,
+        "arg1": 7,
+        "payload_length": 28
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 10,
+        "arg1": 7,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 10,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 7,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 7,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 7,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 10,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 8,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 10,
+        "arg1": 7,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 11,
+        "arg1": 8,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 8,
+        "arg1": 11,
+        "payload_length": 79
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 11,
+        "arg1": 8,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 11,
+        "arg1": 8,
+        "payload_length": 318
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 8,
+        "arg1": 11,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 8,
+        "arg1": 11,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 11,
+        "arg1": 8,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 8,
+        "arg1": 11,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 9,
+        "arg1": 0,
+        "payload_length": 192
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 11,
+        "arg1": 8,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 12,
+        "arg1": 9,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 12,
+        "arg1": 9,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 12,
+        "arg1": 9,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 9,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 9,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 10,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 12,
+        "arg1": 9,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 10,
+        "arg1": 13,
+        "payload_length": 92
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 72
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 10,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 10,
+        "arg1": 13,
+        "payload_length": 92
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 72
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 10,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 10,
+        "arg1": 13,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 10,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 11,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 13,
+        "arg1": 10,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 11,
+        "arg1": 14,
+        "payload_length": 100
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 524352
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 11,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 524352
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 11,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 29
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 11,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 11,
+        "arg1": 14,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 11,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 14,
+        "arg1": 11,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 12,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 15,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 12,
+        "arg1": 15,
+        "payload_length": 101
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 15,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 12,
+        "arg1": 15,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 15,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 15,
+        "arg1": 12,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 12,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 12,
+        "arg1": 15,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 15,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 12,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 13,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 15,
+        "arg1": 12,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 16,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 13,
+        "arg1": 16,
+        "payload_length": 97
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 16,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 16,
+        "arg1": 13,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 13,
+        "arg1": 16,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 13,
+        "arg1": 16,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 16,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 13,
+        "arg1": 16,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 14,
+        "arg1": 0,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 16,
+        "arg1": 13,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 17,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 14,
+        "arg1": 17,
+        "payload_length": 89
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 17,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 17,
+        "arg1": 14,
+        "payload_length": 72
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 14,
+        "arg1": 17,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 14,
+        "arg1": 17,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 17,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 14,
+        "arg1": 17,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 15,
+        "arg1": 0,
+        "payload_length": 42
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 17,
+        "arg1": 14,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "WRTE",
+        "arg0": 15,
+        "arg1": 18,
+        "payload_length": 44853
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 8
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 15,
+        "arg1": 18,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 18,
+        "arg1": 15,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 16,
+        "arg1": 0,
+        "payload_length": 59
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 19,
+        "arg1": 16,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 19,
+        "arg1": 16,
+        "payload_length": 122
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 16,
+        "arg1": 19,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 19,
+        "arg1": 16,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 19,
+        "arg1": 16,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 16,
+        "arg1": 19,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 16,
+        "arg1": 19,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 17,
+        "arg1": 0,
+        "payload_length": 81
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 19,
+        "arg1": 16,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 20,
+        "arg1": 17,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 20,
+        "arg1": 17,
+        "payload_length": 13
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 17,
+        "arg1": 20,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 20,
+        "arg1": 17,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 20,
+        "arg1": 17,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 17,
+        "arg1": 20,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 17,
+        "arg1": 20,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 18,
+        "arg1": 0,
+        "payload_length": 59
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 20,
+        "arg1": 17,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 20,
+        "arg1": 17,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 21,
+        "arg1": 18,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 21,
+        "arg1": 18,
+        "payload_length": 6
+      },
+      {
+        "connection": 1,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 21,
+        "arg1": 18,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 18,
+        "arg1": 21,
+        "payload_length": 0
+      },
+      {
+        "connection": 1,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 18,
+        "arg1": 21,
+        "payload_length": 0
+      },
+      {
+        "connection": 2,
+        "direction": "host_to_adbd",
+        "command": "CNXN",
+        "arg0": 16777217,
+        "arg1": 1048576,
+        "payload_length": 62
+      },
+      {
+        "connection": 2,
+        "direction": "adbd_to_host",
+        "command": "CNXN",
+        "arg0": 16777217,
+        "arg1": 1048576,
+        "payload_length": 390
+      },
+      {
+        "connection": 2,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 1,
+        "arg1": 0,
+        "payload_length": 32
+      },
+      {
+        "connection": 2,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 23,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 2,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 23,
+        "arg1": 1,
+        "payload_length": 16
+      },
+      {
+        "connection": 2,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 23,
+        "arg1": 1,
+        "payload_length": 6
+      },
+      {
+        "connection": 2,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 23,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 2,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 1,
+        "arg1": 23,
+        "payload_length": 0
+      },
+      {
+        "connection": 2,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 1,
+        "arg1": 23,
+        "payload_length": 0
+      },
+      {
+        "connection": 2,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 1,
+        "arg1": 23,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "CNXN",
+        "arg0": 16777217,
+        "arg1": 1048576,
+        "payload_length": 62
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "CNXN",
+        "arg0": 16777217,
+        "arg1": 1048576,
+        "payload_length": 390
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 1,
+        "arg1": 0,
+        "payload_length": 32
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 25,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 25,
+        "arg1": 1,
+        "payload_length": 16
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 25,
+        "arg1": 1,
+        "payload_length": 6
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 25,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 1,
+        "arg1": 25,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 1,
+        "arg1": 25,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 1,
+        "arg1": 25,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "OPEN",
+        "arg0": 2,
+        "arg1": 0,
+        "payload_length": 356
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 25,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 25,
+        "arg1": 1,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "OKAY",
+        "arg0": 26,
+        "arg1": 2,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "WRTE",
+        "arg0": 26,
+        "arg1": 2,
+        "payload_length": 6
+      },
+      {
+        "connection": 3,
+        "direction": "adbd_to_host",
+        "command": "CLSE",
+        "arg0": 26,
+        "arg1": 2,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "OKAY",
+        "arg0": 2,
+        "arg1": 26,
+        "payload_length": 0
+      },
+      {
+        "connection": 3,
+        "direction": "host_to_adbd",
+        "command": "CLSE",
+        "arg0": 2,
+        "arg1": 26,
+        "payload_length": 0
+      }
+    ]
+  },
+  "consumer_exit_code": 0,
+  "checks_executed": 15,
+  "authenticated_connections": 0,
+  "scope": {
+    "native_executable_linked_and_executed": true,
+    "real_android_adbd_interoperability": true,
+    "physical_device": false,
+    "transport": "loopback relay -> adb forward -> emulator TCP adbd",
+    "rsa_auth_positive_interop_observed": false,
+    "unauthorized_key_rejection_observed": false,
+    "tls_upgrade_observed": false,
+    "wireless_pairing": false,
+    "security_or_performance_acceptance": false
+  },
+  "authentication_verdict": "NOT VERIFIED",
+  "independent_package_and_files_removed": true,
+  "public_key_list_restored": true,
+  "adbd_listener_auth_and_uid_restored": true,
+  "cleanup_errors": [],
+  "ephemeral_private_key_deleted": true,
+  "commands_executed": 63
+}

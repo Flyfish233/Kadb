@@ -1,32 +1,195 @@
 {
   "schema": 1,
   "milestone": "M3",
-  "status": "IN PROGRESS",
+  "status": "COMPLETED",
+  "verdict": "CONDITIONAL PASS",
+  "main_goal_verdict": "PASS",
+  "reason": "Real Android AOSP wireless pairing and agreed layered negative acceptance passed. Full connection identity enforcement remains unverified on the stock ro.adb.secure=0 emulator.",
+  "recorded_utc": "2026-11-02T12:02:13.275481+00:00",
   "branch": "work/spake2-maven-migration",
   "baseline": "ecc0f358b46a9805d0c102318f211b5e4fe67f14",
+  "latest_execution_sha": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+  "latest_implementation_sha": "12dcab973a828c44d1bd2d40673b768ff45f9c12",
   "fixed_candidate": {
     "version": "0.1.0-dev.59105290820b",
-    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f",
+    "actual_linuxX64_maven_resolution_verified": true,
+    "production_cryptography_modified": false
   },
+  "runs": [
+    {
+      "id": 41439551227,
+      "code_sha": "794b69fecdac0d3fd7d7a54d11f944fa944a65f2",
+      "conclusion": "success",
+      "purpose": "Independent first real adbd checkpoint"
+    },
+    {
+      "id": 41440741512,
+      "code_sha": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+      "conclusion": "success",
+      "purpose": "Real pairing and supplementary negative acceptance"
+    }
+  ],
   "M3-A": {
     "verdict": "CONDITIONAL PASS",
-    "run_id": 41439551227,
-    "tested_code_sha": "794b69fecdac0d3fd7d7a54d11f944fa944a65f2",
+    "layer": "external Linux Native public API to real Android Emulator adbd",
+    "final_run_id": 41440741512,
     "native_public_api_checks": 15,
+    "consumer_exit_code": 0,
     "connections": 3,
+    "reconnections": 2,
     "cleanup": "PASS",
-    "RSA_AUTH": "NOT VERIFIED",
-    "STLS": "NOT VERIFIED",
-    "blocker": "Stock API35 google_apis image ro.adb.secure=0; no AUTH/STLS frames observed. Authentication was not disabled by the test."
+    "RSA_AUTH_positive": "NOT VERIFIED",
+    "RSA_AUTH_unauthorized_rejection": "NOT VERIFIED",
+    "legacy_listener_STLS_observed": false,
+    "wireless_listener_STLS": "PASS",
+    "wireless_STLS_evidence": "runs/41440741512/evidence/real-pairing/report.json#post_pair_connection",
+    "blocker": "Stock image ro.adb.secure=0; real adbd log states auth not required. No authentication setting was disabled by the test."
   },
   "M3-B": {
-    "verdict": "NOT VERIFIED",
-    "reason": "Actual system pairing execution follows this independent A checkpoint."
+    "verdict": "PASS",
+    "layer": "real Android system_server AOSP native pairing service, plus separately identified controlled-peer negatives",
+    "run_id": 41440741512,
+    "real_pairing_endpoint": {
+      "owner": "system_server",
+      "pid": 558,
+      "port": 36803
+    },
+    "real_connection_endpoint": {
+      "owner": "adbd",
+      "pid": 3428,
+      "port": 45249
+    },
+    "real_pairing_sessions": 2,
+    "positive_pairing_sessions": 1,
+    "wrong_code_rejections": 1,
+    "tls_version": "TLSv1.3",
+    "server_hello_version_hex": "0x0304",
+    "cipher_suite_hex": "0x1301",
+    "wrong_code_server_GCM_failure_observed": true,
+    "wrong_code_identity_not_authorized": true,
+    "correct_code_public_Kadb_pair_succeeded": true,
+    "temporary_public_key_persisted_by_Android": true,
+    "post_pair_connection_verdict": "PASS",
+    "post_pair_connection_STLS_directions": 2,
+    "post_pair_shell_and_close": "PASS",
+    "post_pair_identity_enforcement_verdict": "NOT VERIFIED",
+    "real_consumer_processes": 3,
+    "real_consumer_checks": 10,
+    "real_consumer_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "real_endpoint_exporter_fault_injection": "NOT VERIFIED",
+    "session_isolation_acceptance_layer": "Supplementary independent controlled peer; not injected into the real Android service",
+    "supplementary_controlled_peer": {
+      "verdict": "PASS",
+      "real_adbd": false,
+      "native_checks": 13,
+      "tls_sessions": 13,
+      "positive_sessions": 2,
+      "negative_sessions": 11,
+      "native_exit_code": 0,
+      "peer_exit_code": 0,
+      "cases": [
+        "positive_seed",
+        "wrong_code",
+        "stale_exporter",
+        "wrong_role",
+        "missing_identity_nul",
+        "invalid_spake_length",
+        "invalid_header",
+        "bad_gcm_tag",
+        "invalid_peer_info",
+        "network_disconnect",
+        "timeout",
+        "cancellation",
+        "positive_recovery"
+      ],
+      "client_initiated_close_negative_cases": 6,
+      "peer_initiated_close_negative_cases": 5,
+      "fresh_positive_recovery_same_native_process": true,
+      "internal_memory_zeroization_observed": false
+    },
+    "cleanup": "PASS"
   },
   "M3-C": {
     "verdict": "NOT VERIFIED",
-    "reason": "No physical device selected or available to CI."
+    "physical_Android": "NOT VERIFIED",
+    "physical_iOS_to_Android": "NOT VERIFIED",
+    "physical_device_selected": false,
+    "reason": "No explicitly designated physical test device or execution environment was available; emulator results are not physical-device evidence."
   },
-  "main_goal_verdict": "NOT VERIFIED",
-  "R3_K01": "Inherited bidirectional GCM nonce risk unchanged"
+  "peer_identity": {
+    "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.043/12960925:userdebug/dev-keys",
+    "sdk": 35,
+    "abi": "x86_64",
+    "system_image_revision": 9,
+    "emulator_version": "37.2.13",
+    "adbd_version": "1.0.41",
+    "adbd_binary_sha256": "008accf96d7cf61d63af6c30d9ec60cdb0ae88bed7b09f49967e257ec5bf5893",
+    "ro.adb.secure": "0"
+  },
+  "native_tls_provider": {
+    "name": "BoringSSL",
+    "linkage": "static",
+    "source_revision": "5b83e5d1abf0ae0033ae52ab579d906b67633b2c",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "evidence_kind": "pinned_native_build_configuration"
+  },
+  "source_association": {
+    "schema": 1,
+    "commit": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
+    "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41440741512",
+    "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41440741512/artifacts/13141210687",
+    "source_package_sha256": "e604bc1851d6632fed08ab5b64b4d7b3d27e2467d2ff3f732a58b3982318fc9c",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "android_runtime_source_gate": {
+      "status": "not verified; runtime APK excluded"
+    },
+    "binary_artifacts": [
+      {
+        "path": "validation/android-fixture/build/outputs/apk/debug/validation-android-fixture-debug.apk",
+        "bytes": 44853,
+        "sha256": "dbb137966af9175e5f2a82ca5365ee5eba8732dbb3a4327b796b14dec2b4bcba"
+      },
+      {
+        "path": "validation/native-adbd/build/bin/linuxX64/debugExecutable/kadb-native-adbd.kexe",
+        "bytes": 25002240,
+        "sha256": "7f772f7c3dd712f2392abc3d1405b0d23a2ea36863ed05d3135917cdce7cedbd"
+      },
+      {
+        "path": "validation/native-adbd/build/bin/linuxX64/pairingDebugExecutable/kadb-native-pairing.kexe",
+        "bytes": 24362544,
+        "sha256": "9fdd2df91ac72859956b2068f1907f8f156f885296a8d19db4fce6b4dcefb30a"
+      },
+      {
+        "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+        "bytes": 25107744,
+        "sha256": "b7c66748f36d50aa45d2747229a517e1d296d8969d7f02feaad9c25cf9cd36f8"
+      }
+    ],
+    "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+  },
+  "R3_K01": "Inherited bidirectional GCM nonce behavior remains unresolved and unchanged for AOSP interoperability.",
+  "constraints": {
+    "main_unchanged": true,
+    "experiment_baseline_unchanged": true,
+    "spake2_production_implementation_unchanged": true,
+    "license_and_visibility_unchanged": true,
+    "formal_release_performed": false,
+    "fourth_crypto_audit_started": false
+  },
+  "release_recommendation": {
+    "stable_release": "DEFER",
+    "development_candidate": "retain fixed candidate and explicit scope",
+    "remaining_gates": [
+      "Real RSA AUTH acceptance and unauthorized-key rejection on an authentication-enabled test target",
+      "Post-pair unpaired TLS identity rejection",
+      "Dedicated physical Android integration and recovery",
+      "Explicit documented disposition of inherited R3-K01 before a security or stable-release claim"
+    ],
+    "corresponding_source": "Preserve exact complete corresponding source and notices with any eventual distributed binaries; CI artifacts have retention deadlines."
+  }
 }
