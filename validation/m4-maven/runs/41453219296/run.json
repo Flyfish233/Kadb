@@ -1,0 +1,13 @@
+{
+  "id": 41453219296,
+  "name": "M4 enforced adbd authentication",
+  "head_branch": "work/spake2-maven-migration",
+  "head_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "status": "completed",
+  "conclusion": "success",
+  "html_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296",
+  "run_attempt": 1,
+  "event": "push",
+  "created_at": "2026-11-02T13:28:02Z",
+  "updated_at": "2026-11-02T13:35:17Z"
+}

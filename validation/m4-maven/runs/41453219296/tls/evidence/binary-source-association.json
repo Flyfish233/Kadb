@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296",
+  "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296/artifacts/13145139489",
+  "source_package_sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+  "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+  "android_runtime_source_gate": {
+    "status": "not verified; runtime APK excluded"
+  },
+  "binary_artifacts": [
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+      "bytes": 24765440,
+      "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+      "bytes": 25107792,
+      "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+    }
+  ],
+  "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+}

@@ -1,0 +1,551 @@
+{
+  "schema": 1,
+  "scope": "M4 tracked and delivery files; this index excludes itself. Raw archive contents have separate per-run inventories.",
+  "files": [
+    {
+      "path": "docs/experiment/M4-DELIVERY.zh-CN.md",
+      "bytes": 18871,
+      "sha256": "99506814c4421f4d423b39df401153f8b5840d3e3e99f20bf784e7ed623aa81e"
+    },
+    {
+      "path": "validation/m4-maven/README.md",
+      "bytes": 3829,
+      "sha256": "ba4419ee9125becdfc76a33764a8b3a726b5df621e74b8114f08dea159c923fd"
+    },
+    {
+      "path": "validation/m4-maven/baseline-preservation.json",
+      "bytes": 35465,
+      "sha256": "6828355367cc17ab1c6c3eda11f6db0b357be675eb72c09c1f729c755573b160"
+    },
+    {
+      "path": "validation/m4-maven/ci/auth_observer.py",
+      "bytes": 18495,
+      "sha256": "0187774b2c69464fb05ea8d522b76d244622a7393199d929a4cd649923538de7"
+    },
+    {
+      "path": "validation/m4-maven/ci/probe_environment.py",
+      "bytes": 6828,
+      "sha256": "30853fd289472675e35507ec57e3c10b2f0eff5de2bbea68f5896105e3fc4800"
+    },
+    {
+      "path": "validation/m4-maven/ci/record_image.py",
+      "bytes": 1896,
+      "sha256": "7f1f04822b264e03d631d0ef054f00c685a52d5f0b9fa9ab14e60789ffe23273"
+    },
+    {
+      "path": "validation/m4-maven/ci/rsa_stage.py",
+      "bytes": 6514,
+      "sha256": "9dff43d3de1749298d740e01b8e1502176f24cea9dfd9ca16b37a07db6635476"
+    },
+    {
+      "path": "validation/m4-maven/ci/run_auth.py",
+      "bytes": 32753,
+      "sha256": "697712c9c10a1f5da360374e9ca44764d53ee004f01395ed4e30585a779c9c35"
+    },
+    {
+      "path": "validation/m4-maven/ci/test_api35_port.py",
+      "bytes": 2128,
+      "sha256": "f404a4077f600fb68a02ef03f2696423d206896274c2c9ff0bc86c5a9863e6be"
+    },
+    {
+      "path": "validation/m4-maven/ci/test_auth_observer.py",
+      "bytes": 15835,
+      "sha256": "9174d12bf878babcfeeb44d5daf1dcb9e6c64fdff346b97deff231db0762ab66"
+    },
+    {
+      "path": "validation/m4-maven/ci/test_auth_verdicts.py",
+      "bytes": 12857,
+      "sha256": "dd80da872ccfd092200377fd115aa23187769cccca705a47815a087e8597f503"
+    },
+    {
+      "path": "validation/m4-maven/ci/test_run_auth_scope.py",
+      "bytes": 7526,
+      "sha256": "9cd3fd9683d9208c26a4245f65179ec016d511e25edad7f843744fee2fecbe8c"
+    },
+    {
+      "path": "validation/m4-maven/ci/tls_stage.py",
+      "bytes": 18605,
+      "sha256": "b3530318e4635e3feccebbaefd72077c6befb345dc836272a0f732d7780270a0"
+    },
+    {
+      "path": "validation/m4-maven/research/AUTH-TARGET.zh-CN.md",
+      "bytes": 7849,
+      "sha256": "c7e5d85e95a31da415284bf64360c0a312f3aa1407e9961a65f3e1765b344c85"
+    },
+    {
+      "path": "validation/m4-maven/research/auth-notification-lifecycle.zh-CN.md",
+      "bytes": 7443,
+      "sha256": "dd1e3755d4b5584d069065db7bba29ee3bf25944719da1f27f93fb2a1ec9fcf7"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/README.zh-CN.md",
+      "bytes": 3896,
+      "sha256": "919ded0336b15c0412958cc9a43180cdc4d7d99d58a0fadf977a468b1ea0ea4e"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/artifact-metadata.json",
+      "bytes": 793,
+      "sha256": "dbaa384d4bb2e1448a70a935e03569948823da7bb60dadcf8242d481972e0203"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/assessment.json",
+      "bytes": 13618,
+      "sha256": "34c818044f5976d8452cdc781197246f5d968945a6873cf2ff24757958524de3"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/failed-run-jobs.json",
+      "bytes": 18848,
+      "sha256": "1b845ac161379693d4fe2aed8f98198ad267fbc81df44b23ec1193ee8c64595d"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/failure-pairing-report.json",
+      "bytes": 3201,
+      "sha256": "6fcbc0d11384580a2c72a1a6244a4e3a639a21bd0fe2d095ad3a016eef8e3cfb"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/failure-platform-status.json.gz",
+      "bytes": 2729,
+      "sha256": "d7e5986a14cd911a1e9d2f28cf877898bebb6d0c2250e2c3193c7a6992d9ff8e"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/failure-simulator-boot.log.gz",
+      "bytes": 351,
+      "sha256": "ac5303439e4a47ed87613ecc239f99f7c6b76f21bc398e35960930069ec09f74"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/failure-simulator.json",
+      "bytes": 593,
+      "sha256": "fda368a37bc3461b918b064cafb35ba05bda676fa80baea224a7895e78ba77da"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/failure-test-summary.json.gz",
+      "bytes": 1178,
+      "sha256": "d4ec6f30a8e3c121efa9c4c2553def14b1a886959876f47e80aa13e980ce90f9"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/job-125257677041.log.gz",
+      "bytes": 53035,
+      "sha256": "0c61bc145bd57dfdf6066e01856612435646f867fdd52288edf64cd8216970b8"
+    },
+    {
+      "path": "validation/m4-maven/research/legacy-ci/job-log-custody.json",
+      "bytes": 667,
+      "sha256": "b59a5ef7a7c463a6bbda8a89fb170994acfd8c120ca63a52835357aa372e839a"
+    },
+    {
+      "path": "validation/m4-maven/research/official-play-api35-package.xml",
+      "bytes": 1266,
+      "sha256": "104611f5a3a5ff67facfa43f47214530f18509bc7f8db9beb8594b14220b2e04"
+    },
+    {
+      "path": "validation/m4-maven/research/primary-sources.json",
+      "bytes": 8522,
+      "sha256": "1872e41cfe5a9b3d1cd66571aba4c010499529dd951ed173846ce4f3d8484c8a"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/artifact-custody.json",
+      "bytes": 293,
+      "sha256": "52aad57c8da6333fef8ccdd390d2d93463432a9bb781d10c8ebdade40e09daa2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/evidence/emulator-source.properties",
+      "bytes": 103,
+      "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/evidence/environment/report.json",
+      "bytes": 1498,
+      "sha256": "26aa84ef5d30520538aaeaa420365ea4ab13df1515c0e0d54510430705f55ac1"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/evidence/system-image-source.properties",
+      "bytes": 366,
+      "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/job-125285052331.log.gz",
+      "bytes": 14848,
+      "sha256": "0994a5d2ef577ec894f7c66c1555d878a7dfef1b82d84c6d6629f8a8b0081e79"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/raw-evidence.tar.gz",
+      "bytes": 837287,
+      "sha256": "bc4f6efeb94873f44abaa3b7729c7bc3b394db01561333aeef30bf719e255856"
+    },
+    {
+      "path": "validation/m4-maven/runs/41447772316/raw-file-inventory.json",
+      "bytes": 3125,
+      "sha256": "5c9213e14522b1fe6af1fa700ddb4a2c301aadde7f4e73b3d2d07db1a1799f74"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/artifact-custody.json",
+      "bytes": 1022,
+      "sha256": "e4181e757b46053a5f6c2e0b000debbb7908ec723e3b6232bff1cf33f069590a"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/artifacts.json",
+      "bytes": 1722,
+      "sha256": "da0a57befc6a840268cc5933893b4d7925cb184fa047277ad9b18e51e5061edd"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence-review.json",
+      "bytes": 13140,
+      "sha256": "27dbe0f7f5f9f0672a77f7f1343b79c1c26abb35b9a176416f304555e8601f20"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/auth/report.json",
+      "bytes": 114172,
+      "sha256": "bc289ff1b300c68c6c17ef6ae490cf501be52d6b8f8a065a983c94c8151a8873"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/binary-source-association.json",
+      "bytes": 1198,
+      "sha256": "08cae06384eb2535bb618b3e98c02da278f1aea80e71337a4c6fc31812b05dca"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/corresponding-source/source-bundle-result.json",
+      "bytes": 405,
+      "sha256": "41d355c19b5dd30236a58e39ceb6acce71972298fd7eab3dbcd29dc099ebb204"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/emulator-source.properties",
+      "bytes": 103,
+      "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/environment/report.json",
+      "bytes": 1498,
+      "sha256": "6c731fc3e3525393912d493dc568e629e6eea805a1d6795cae35a0ef0b1ec8f2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/m4-step-outcomes.json",
+      "bytes": 539,
+      "sha256": "a8bad4a87149915c3419db7d3d9d84565d85004690753c5cb2381ad123103343"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/official-image-identity.json",
+      "bytes": 1806,
+      "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/spake2-candidate-integrity.json",
+      "bytes": 1732,
+      "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/spake2-maven-resolution.json",
+      "bytes": 56258,
+      "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/spake2-resolved-source-verification.json",
+      "bytes": 18293,
+      "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/evidence/system-image-source.properties",
+      "bytes": 366,
+      "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/job-125289409991.log.gz",
+      "bytes": 44503,
+      "sha256": "37a4ecdb13c751fcdaabeae21875c6674c324716e3173fc29645198ee1548dcf"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/jobs.json",
+      "bytes": 4610,
+      "sha256": "ac84d1605174d891e001aaf5ca5990e715be4f4b5c693a456fa8e2b8f37f38ba"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/raw-evidence.tar.gz",
+      "bytes": 4466141,
+      "sha256": "6eeb5d349c2313f7bf0e262af6e4447610c9cac0cc9833d80122620deed0cb8b"
+    },
+    {
+      "path": "validation/m4-maven/runs/41449058069/raw-file-inventory.json",
+      "bytes": 10230,
+      "sha256": "0db024f1f9cb9ca38c6e431cb3b36b73d5c53f079fb1c7ec89c3ebeef839198f"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/artifact-custody.json",
+      "bytes": 1276,
+      "sha256": "51f8be43c5dbbb539669df62cc1a7cc9ad4b99d56f03aef1e5f23180c6ab1e93"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/artifacts.json",
+      "bytes": 1722,
+      "sha256": "55a2a906e37ad324d8b6997dfdd0a4d5011d987e1e28ec9a8d4398f6df7d033e"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence-review.json",
+      "bytes": 17751,
+      "sha256": "b08de9c707e61effdf50fdac5e36e10c70ac7bc345abd40151673d6e61efb547"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/auth/report.json",
+      "bytes": 136854,
+      "sha256": "c32ea95209b1e31b246a1c02b0e11263a34717530916ace064fa3ab71ec40fae"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/binary-source-association.json",
+      "bytes": 1198,
+      "sha256": "3c42d064879f6d155a6da708b217fa60778d585692e6158cac4d3decd58a069c"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/corresponding-source/source-bundle-result.json",
+      "bytes": 405,
+      "sha256": "f159b846ccd682bcabeb0f8b12b12890c4458af66354c34bd2786d0061b91be2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/emulator-source.properties",
+      "bytes": 103,
+      "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/environment/report.json",
+      "bytes": 1498,
+      "sha256": "bc9870a7bc65841d1f7f1bf99a3e0e0896e5149381a4d07f9799814153a4f9b0"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/m4-step-outcomes.json",
+      "bytes": 539,
+      "sha256": "5f1d6b1825501b39734e19546c5f36ea9d2effd363239f18493f4cdfa85a9df3"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/official-image-identity.json",
+      "bytes": 1806,
+      "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/spake2-candidate-integrity.json",
+      "bytes": 1732,
+      "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/spake2-maven-resolution.json",
+      "bytes": 56258,
+      "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/spake2-resolved-source-verification.json",
+      "bytes": 18293,
+      "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/evidence/system-image-source.properties",
+      "bytes": 366,
+      "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/job-125295885730.log.gz",
+      "bytes": 44694,
+      "sha256": "3722da2bc39a38bf806ef9dcf3d9aa7948da23dfbfc7de2ee697834c9fedd771"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/jobs.json",
+      "bytes": 4610,
+      "sha256": "074ad07248218e821e5455fba943b7c64e446334735ba50b6370eb52be7b62d5"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/raw-evidence.tar.gz",
+      "bytes": 7740853,
+      "sha256": "d3359466ebea5b32f018d359bf79bcd4d914a8948338bec7d093cff04dd9c886"
+    },
+    {
+      "path": "validation/m4-maven/runs/41450998239/raw-file-inventory.json",
+      "bytes": 11060,
+      "sha256": "a5e48b6628a3384b212b05c241118c506a276ffee26f8e18db4901ca923ce535"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/artifacts.json",
+      "bytes": 3436,
+      "sha256": "2e5f39691818a02afa6ee0ea288d818fb2a9914a67128a6b1d664738e041079f"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/combined-verification.json",
+      "bytes": 8891,
+      "sha256": "8bc2ac25d02205bb7423b353e5edff8c19a725ebf890231552197b65f9628055"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/delivery-integrity.json",
+      "bytes": 746,
+      "sha256": "72dfcef6223899977b0cdc91699361b586664fd6a171bc9fecd1181e408d30d1"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/jobs.json",
+      "bytes": 9179,
+      "sha256": "836f7f84e1c9bccb9169d6afc0d8cee16a870ce7289e1fe4e93a5ecbfa0d3f9d"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/artifact-custody.json",
+      "bytes": 1294,
+      "sha256": "3aa31c62a40a094f426045fba0b059078d17aebbc0aec0b2709f0f047707de06"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence-review.json",
+      "bytes": 9367,
+      "sha256": "879377a268297ef53d79f784b2b114b606691bd8a793f88f24db92c2063b8213"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/auth/report.json",
+      "bytes": 110644,
+      "sha256": "5315f9d78a5f30c31abe2673218db9f2d287ee509ffc66b1af56a851b27e3cef"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/binary-source-association.json",
+      "bytes": 1198,
+      "sha256": "b41d694eee3cced696bac11bbc8dc8e0524c522fe2e105dd375ec245ffb6d132"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/corresponding-source/source-bundle-result.json",
+      "bytes": 405,
+      "sha256": "8d0f7a06ea5560117799b1a61355be991b30e76b787c05747b8f1b1636ede744"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/emulator-source.properties",
+      "bytes": 103,
+      "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/environment/report.json",
+      "bytes": 1498,
+      "sha256": "e67f23a67998224cc9fb01ae24103fec69d7cefd0b1669888d7d7f2312a722e8"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/m4-step-outcomes.json",
+      "bytes": 557,
+      "sha256": "bd93c3a56d73538b702472dc45eaf85e5527bbdf9604e5863a76a889d90c6bd7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/official-image-identity.json",
+      "bytes": 1806,
+      "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/spake2-candidate-integrity.json",
+      "bytes": 1732,
+      "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/spake2-maven-resolution.json",
+      "bytes": 56258,
+      "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/spake2-resolved-source-verification.json",
+      "bytes": 18293,
+      "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/evidence/system-image-source.properties",
+      "bytes": 366,
+      "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/job-125303313927.log.gz",
+      "bytes": 45304,
+      "sha256": "fa908c630fa3a4f2263c448f5b093049522f4b76dcb23836a19f1fc82185b2b4"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/raw-evidence.tar.gz",
+      "bytes": 4383404,
+      "sha256": "a6f2888e391511356d00a4f77f1a671ee8ce06f386c91a3022ca1f495ba3e3e1"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/rsa/raw-file-inventory.json",
+      "bytes": 10229,
+      "sha256": "88cb5fb9c4a9d28dab44e3664bd8fd3465aad3ddec43a1cd95e936f37950d4b0"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/run.json",
+      "bytes": 423,
+      "sha256": "e63a8b54114b84d3505c2f4ba6042b0eb7a2fec7b23bd01899a7ee8ec6e24c1b"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/artifact-custody.json",
+      "bytes": 1294,
+      "sha256": "0f80b2e20913332fcb3f2f9e41acd69abe4806834e42b662803fe3bfb6d4b392"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence-review.json",
+      "bytes": 16346,
+      "sha256": "4d97e3ce44c262086b8775e852a9da4a6b043ffeb54456732510c2df39757894"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/auth/report.json",
+      "bytes": 105870,
+      "sha256": "0364e7d29fee5716fce9df44d3a69b47d41a52beaf2b485bab2052f2257a5bd7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/binary-source-association.json",
+      "bytes": 1198,
+      "sha256": "82393c9d0b5bfc65c0488ab5735da71379c9c2c0b7b87b6bfff36a1e53c0a26c"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/corresponding-source/source-bundle-result.json",
+      "bytes": 405,
+      "sha256": "8d0f7a06ea5560117799b1a61355be991b30e76b787c05747b8f1b1636ede744"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/emulator-source.properties",
+      "bytes": 103,
+      "sha256": "f7562ee75ef359fc20b64727a0977c6306c6bac2dab60c8d7ced7c9e372a7cc7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/environment/report.json",
+      "bytes": 1498,
+      "sha256": "4ed310db45cf8b52aea050868d0dd468b5f05e4324d0b9d25bfa188cc6d45d2c"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/m4-step-outcomes.json",
+      "bytes": 557,
+      "sha256": "8ebc14307df5281d0aafd2a3d85c104ada02615e94e7532fcd786714e59f9d0d"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/official-image-identity.json",
+      "bytes": 1806,
+      "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/spake2-candidate-integrity.json",
+      "bytes": 1732,
+      "sha256": "c77c2c3a24c962ad14c7a32a1921df1618ae0bb371673d02dd923c2732ae4806"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/spake2-maven-resolution.json",
+      "bytes": 56258,
+      "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/spake2-resolved-source-verification.json",
+      "bytes": 18293,
+      "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/evidence/system-image-source.properties",
+      "bytes": 366,
+      "sha256": "8b31e5fa5e235ea5779fd5f41611430d6ae9b916cc28135dd2566d271ea3fdc9"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/job-125303313686.log.gz",
+      "bytes": 45569,
+      "sha256": "acc443fc59c319548f8c1d38710e0397fce4a739bdf130272059e9ab8c91d24b"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/raw-evidence.tar.gz",
+      "bytes": 4412705,
+      "sha256": "5b37f5c236e4a3e1a9720d232cd5d60e6f9ceb5fa5b799d69ce00c01299cf888"
+    },
+    {
+      "path": "validation/m4-maven/runs/41453219296/tls/raw-file-inventory.json",
+      "bytes": 11027,
+      "sha256": "77f72313f5e45b538a54fb54c823420e993a5383f4a86a7422d8aac28a88b2da"
+    },
+    {
+      "path": "validation/m4-maven/verdict.json",
+      "bytes": 21738,
+      "sha256": "35d0e8f21706ca93e52d93eb2b91edf33299b7d1144e6a605d3d28edebea47db"
+    }
+  ]
+}

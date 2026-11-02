@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "kind": "independent_RSA_evidence_review",
+  "verdict": "PASS",
+  "milestone_item": "M4-A",
+  "run_id": 41453219296,
+  "job_id": 125303313927,
+  "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296",
+  "job_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296/job/125303313927",
+  "scope": "Review of the saved final RSA job evidence; no additional Android sessions or cryptographic audit were performed.",
+  "actual_native_sessions": 4,
+  "actual_native_checks": 32,
+  "native_exit_codes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "harness_unit_tests": 45,
+  "commands_recorded": 79,
+  "command_sequence_unique_and_complete": true,
+  "sessions": [
+    {
+      "label": "rsa-a-normal-enrollment",
+      "mode": "positive",
+      "native_pid": 5909,
+      "checks": 8,
+      "exit_code": 0,
+      "auth_tokens": 2,
+      "auth_signatures": 1,
+      "auth_public_key_submissions": 1,
+      "device_CNXN": 1,
+      "public_key_sha256": "b8c3a7bb50ca286947140ba745bdd21b1af7ac8d3ac2264991d9c751b553e618",
+      "token_sha256": "d7e3ec5a9fd4a2b1335f34ee76b0cb6739fc7d2fd30801bc94835b302c096cd9",
+      "signature_sha256": "63ff679f7e91c22f7b665bd822f4c51973e3c66447f9c4d51c030d765337293c",
+      "runtime_signature_verified": true,
+      "attempt_elapsed_ms": 174,
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "rsa-a-authorized-before",
+      "mode": "positive",
+      "native_pid": 5939,
+      "checks": 8,
+      "exit_code": 0,
+      "auth_tokens": 1,
+      "auth_signatures": 1,
+      "auth_public_key_submissions": 0,
+      "device_CNXN": 1,
+      "public_key_sha256": "b8c3a7bb50ca286947140ba745bdd21b1af7ac8d3ac2264991d9c751b553e618",
+      "token_sha256": "7f0c3bdbc3e55461e62198125560e6051a55b7e71b982e0a2882edd32fffa7dd",
+      "signature_sha256": "1a9fcbf13597404f84d1b7eee5491ea709d7df35a43dc306d8b3671b895798e5",
+      "runtime_signature_verified": true,
+      "attempt_elapsed_ms": 54,
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "rsa-b-unapproved-denied",
+      "mode": "reject",
+      "native_pid": 5962,
+      "checks": 8,
+      "exit_code": 0,
+      "auth_tokens": 2,
+      "auth_signatures": 1,
+      "auth_public_key_submissions": 1,
+      "device_CNXN": 0,
+      "public_key_sha256": "b06afb76c319cfb0edf0bdfd775ab30a34b05d7816801b5be01e2224e07e025b",
+      "token_sha256": "98c2323894e8fe2fd7ad19c95bbc13b08e066988c3bab45c1ae07d3b3e059964",
+      "signature_sha256": "30360620b90b91129f0f6eeab416e589911338ae94037e64d4fe083edb42edb3",
+      "runtime_signature_verified": true,
+      "attempt_elapsed_ms": 8020,
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "rsa-a-authorized-after",
+      "mode": "positive",
+      "native_pid": 6017,
+      "checks": 8,
+      "exit_code": 0,
+      "auth_tokens": 1,
+      "auth_signatures": 1,
+      "auth_public_key_submissions": 0,
+      "device_CNXN": 1,
+      "public_key_sha256": "b8c3a7bb50ca286947140ba745bdd21b1af7ac8d3ac2264991d9c751b553e618",
+      "token_sha256": "2bea48167b62ab014af64b9684f72d5cb437ff1ad2781966b5c268acd5c09104",
+      "signature_sha256": "c07639453f582d84b3f214690f92d689790ec4c5a29a531ed4bd6d021c703359",
+      "runtime_signature_verified": true,
+      "attempt_elapsed_ms": 46,
+      "closed_reuse_elapsed_ms": 0
+    }
+  ],
+  "peer": {
+    "kind": "official Android 15 API 35 Google Play user emulator",
+    "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys",
+    "adbd_pid": 1730,
+    "system_server_pid": 538,
+    "ro.adb.secure": "1",
+    "shell_uid": 2000,
+    "listener_port": 5555,
+    "same_pid_and_live_listener_before_after_all_sessions": true,
+    "physical_device": false
+  },
+  "identity_separation": {
+    "control_public_key_sha256": "864ed5b43f88ba98401f57963aef12a5b7025a47fb65a3f31d91987ba5a8784c",
+    "rsa_a_public_key_sha256": "b8c3a7bb50ca286947140ba745bdd21b1af7ac8d3ac2264991d9c751b553e618",
+    "rsa_b_public_key_sha256": "b06afb76c319cfb0edf0bdfd775ab30a34b05d7816801b5be01e2224e07e025b",
+    "all_distinct": true,
+    "four_distinct_current_connection_token_hashes": true
+  },
+  "AUTH3_normal_authorization": {
+    "verdict": "PASS",
+    "pending_request": {
+      "current_connection_AUTH3_matches_identity": true,
+      "last_key_received_matches_identity": true,
+      "fingerprint_md5": "8A:DC:5A:3B:B1:57:3A:F5:1A:44:07:58:0C:B9:36:BC",
+      "action": "allow",
+      "request_source": "one-shot verified current-connection AUTH3 from byte-transparent relay",
+      "auth3_payload_sha256": "ded47294e84c6d7109785f767efd2d53d33bb9beb9acdd7886b949d818a07410",
+      "auth3_payload_bytes": 720,
+      "public_key_argument_sha256": "db36fa22fa571d310f70c460db93ab051f32deb7cc06da875e032fadec928b7a",
+      "public_key_argument_bytes": 719,
+      "only_terminal_nul_removed": true,
+      "observed_request_used_verbatim_for_allow": true,
+      "binder_action_completed": true
+    },
+    "observer_request": {
+      "sha256": "db36fa22fa571d310f70c460db93ab051f32deb7cc06da875e032fadec928b7a",
+      "bytes": 719,
+      "source": "verified_current_connection_AUTH3_without_terminal_NUL",
+      "available_in_memory": false,
+      "consumed": true
+    },
+    "hash_and_length_cross_check": true,
+    "redacted_Binder_argument_comment_matches_Android_AUTH3_and_USER_ALLOWED_log": true,
+    "public_key_body_retained": false,
+    "note": "Observer AUTH3 hash and length agree with the separately recorded Binder request hash/length after exactly one terminal NUL is removed. The redacted command and system log both retain the same Kadb comment. Public-key bytes were not reconstructed from hashes."
+  },
+  "authorized_A_before_and_after": {
+    "verdict": "PASS",
+    "fresh_connections": 2,
+    "fresh_AUTH_challenge_and_verified_signature_each": true,
+    "AUTH3_not_needed": true,
+    "CNXN_and_shell_each": true
+  },
+  "unauthorized_B": {
+    "verdict": "PASS",
+    "current_token_signed_with_B": true,
+    "B_AUTH3_reached_pending_confirmation": true,
+    "normal_deny_Binder_exit_code": 0,
+    "system_server_denied": true,
+    "adbd_received_NO": true,
+    "no_device_CNXN": true,
+    "no_successful_handshake_or_shell": true,
+    "B_absent_from_authorization_snapshot": true,
+    "legitimate_A_succeeded_before_and_after": true,
+    "native_rejection_category": "io_timeout",
+    "native_attempt_elapsed_ms": 8020,
+    "server_refusal_log_time": "11-02 13:32:48.069",
+    "explanation": "Timeout is the bounded client termination after Android explicitly denied the pending request and adbd received NO. The timeout alone is not used as identity-refusal proof."
+  },
+  "lifecycle": {
+    "verdict": "PASS",
+    "same_client_closed_reuse_rejected_all_sessions": true,
+    "closed_reuse_elapsed_ms": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "one_relay_connection_each": true,
+    "no_active_relay_connections_after_each": true,
+    "temporary_identity_store_cleared_all_sessions": true
+  },
+  "cleanup": {
+    "verdict": "PASS",
+    "normal_targeted_unpair_used": true,
+    "pre_destruction_authorization_snapshot_matches_initial_control_only": true,
+    "owned_forward_removal_exit_code": 0,
+    "temporary_private_key_directory_deleted": true,
+    "auth_secure_and_shell_uid_preserved": true,
+    "workflow_cleanup_step": "success",
+    "emulator_console_termination_acknowledged": true,
+    "dedicated_control_key_and_AVD_removal_command_completed": true,
+    "boundary": "Authorization restoration is a pre-destruction snapshot. This RSA-only disposable AVD is then terminated and its dedicated AVD/control-key directories removed; it is not reused by TLS. No claim is made that snapshot equality proves all Android framework notification queues were drained."
+  },
+  "source_association": {
+    "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296/artifacts/13145233944",
+    "source_package_sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+    "auth_consumer_sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806",
+    "association_matches_executed_consumer": true,
+    "downloaded_binary_hash_recheck": "Root independently recomputed both binaries; retained artifact-custody.json records 2/2 matches. This review checked that the executed auth consumer agrees with that association."
+  },
+  "raw_report_semantics": {
+    "stage_run_verdict": "PASS",
+    "M4_A": "PASS",
+    "top_level_M4_verdict": "NOT VERIFIED",
+    "reason": "This invocation selected only M4-A. M4-B must be supplied by the independently executed TLS job; M4-C remains NOT VERIFIED."
+  },
+  "reviewed_primary_files_sha256": {
+    "auth/report.json": "5315f9d78a5f30c31abe2673218db9f2d287ee509ffc66b1af56a851b27e3cef",
+    "auth/commands.jsonl": "441738b6dcd5e818754cfb629cb0747dc16080a982509e43f17b53bbd47437ac",
+    "m4-step-outcomes.json": "bd93c3a56d73538b702472dc45eaf85e5527bbdf9604e5863a76a889d90c6bd7",
+    "binary-source-association.json": "b41d694eee3cced696bac11bbc8dc8e0524c522fe2e105dd375ec245ffb6d132"
+  },
+  "raw_job_log_sha256": "ca5a565f7faa88aef08638af6ac3307dc17e3d3376cb4de0ae5e9088b78103e1",
+  "findings": []
+}

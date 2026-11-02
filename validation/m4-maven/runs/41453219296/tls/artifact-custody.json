@@ -1,0 +1,31 @@
+{
+  "run_id": 41453219296,
+  "stage": "tls",
+  "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "conclusion": "success",
+  "artifact_id": 13145184771,
+  "download_digest_verified": true,
+  "original_zip_sha256": "b57559c886a02dca99864b378531aa30fdd0bc296a75e24cf82b38192b34b85c",
+  "raw_evidence_archive_sha256": "5b37f5c236e4a3e1a9720d232cd5d60e6f9ceb5fa5b799d69ce00c01299cf888",
+  "raw_files": 71,
+  "binary_checks": [
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+      "bytes": 24765440,
+      "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+    },
+    {
+      "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+      "bytes": 25107792,
+      "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+    }
+  ],
+  "secret_scan": "No private key/token pattern in text evidence; temporary pairing codes and public keys redacted by runtime before persistence",
+  "job_log": {
+    "job_id": 125303313686,
+    "source": "GitHub decoded job log, preserved as UTF-8 text",
+    "bytes": 259232,
+    "sha256": "9df467aa93e0330023a811f8bb1a7c016e4ef9b2986807334536928625dcf0e5",
+    "path": "job-125303313686.log.gz"
+  }
+}

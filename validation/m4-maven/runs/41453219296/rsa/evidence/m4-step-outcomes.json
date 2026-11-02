@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "run_id": "41453219296",
+  "stage": "rsa",
+  "step_outcomes": {
+    "association": "success",
+    "build": "success",
+    "environment": "success",
+    "candidate": "success",
+    "source": "success",
+    "ready": "success",
+    "harness": "success",
+    "cleanup": "success",
+    "provision": "success",
+    "auth": "success"
+  },
+  "authentication_verdict_source": "auth/report.json; step completion alone is not an authentication verdict",
+  "physical_devices": "NOT VERIFIED"
+}

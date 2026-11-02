@@ -1,0 +1,80 @@
+{
+  "artifacts": [
+    {
+      "id": 13145881635,
+      "name": "m4-auth-03e903ea058e3eb27a36dd047b8af2868d33f7fc-rsa",
+      "size_in_bytes": 22063924,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145881635",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145881635/zip",
+      "expired": false,
+      "created_at": "2026-11-02T13:33:01Z",
+      "expires_at": "2027-01-31T13:28:02Z",
+      "updated_at": "2026-11-02T13:33:01Z",
+      "digest": "sha256:d997e5472bfcd0d9f633cba3431147deaa699f612bad95a08245525ad3215f5e",
+      "workflow_run": {
+        "id": 41453219296,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc"
+      }
+    },
+    {
+      "id": 13145233944,
+      "name": "corresponding-source-03e903ea058e3eb27a36dd047b8af2868d33f7fc-rsa",
+      "size_in_bytes": 217629559,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145233944",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145233944/zip",
+      "expired": false,
+      "created_at": "2026-11-02T13:31:28Z",
+      "expires_at": "2027-01-31T13:28:02Z",
+      "updated_at": "2026-11-02T13:31:28Z",
+      "digest": "sha256:8a5b5467f4da95966d1c90d6cf0e2a38a31ed01dc146a233685bdd4431300b12",
+      "workflow_run": {
+        "id": 41453219296,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc"
+      }
+    },
+    {
+      "id": 13145184771,
+      "name": "m4-auth-03e903ea058e3eb27a36dd047b8af2868d33f7fc-tls",
+      "size_in_bytes": 22094687,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145184771",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145184771/zip",
+      "expired": false,
+      "created_at": "2026-11-02T13:35:09Z",
+      "expires_at": "2027-01-31T13:28:02Z",
+      "updated_at": "2026-11-02T13:35:09Z",
+      "digest": "sha256:b57559c886a02dca99864b378531aa30fdd0bc296a75e24cf82b38192b34b85c",
+      "workflow_run": {
+        "id": 41453219296,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc"
+      }
+    },
+    {
+      "id": 13145139489,
+      "name": "corresponding-source-03e903ea058e3eb27a36dd047b8af2868d33f7fc-tls",
+      "size_in_bytes": 217629559,
+      "url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145139489",
+      "archive_download_url": "https://api.github.com/repos/Flyfish233/Kadb/actions/artifacts/13145139489/zip",
+      "expired": false,
+      "created_at": "2026-11-02T13:33:11Z",
+      "expires_at": "2027-01-31T13:28:02Z",
+      "updated_at": "2026-11-02T13:33:11Z",
+      "digest": "sha256:7a11aa2d8c9fbfdffdb2ccdaf4860e2790c3767be0026fc751b666491b13ef23",
+      "workflow_run": {
+        "id": 41453219296,
+        "repository_id": 1279060280,
+        "head_repository_id": 1279060280,
+        "head_branch": "work/spake2-maven-migration",
+        "head_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc"
+      }
+    }
+  ]
+}

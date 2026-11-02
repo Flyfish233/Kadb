@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "verified_utc": "2026-11-02T13:44:58.957052+00:00",
+  "tested_code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "final_evidence_text_members_scanned": 127,
+  "private_key_and_access_token_pattern_findings": 0,
+  "scope_note": "Pattern scan complements runtime redaction and review; it is not a professional security audit. Pairing secrets are redacted before persistence and private keys are never added to evidence.",
+  "delivery_changes_only": [
+    "docs/experiment/M4-DELIVERY.zh-CN.md",
+    "validation/m4-maven/**"
+  ],
+  "post_CI_test_only_delta": "One stage-exception subscenario in test_run_auth_scope.py; focused 9-test suite passed locally; actual runtime drivers and consumers unchanged from tested code."
+}

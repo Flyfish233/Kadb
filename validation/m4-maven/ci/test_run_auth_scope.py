@@ -51,7 +51,7 @@ class StageScopeTest(unittest.TestCase):
         report = report_for("rsa")
         self.assertEqual(1, aggregate_verdicts(report))
         self.assertEqual("NOT VERIFIED", report["run_verdict"])
-        for problem in ("cleanup_missing", "cleanup_error", "execution_error"):
+        for problem in ("cleanup_missing", "cleanup_error", "execution_error", "stage_error"):
             with self.subTest(problem=problem):
                 report = report_for("rsa")
                 report["M4-A"]["verdict"] = "PASS"
@@ -59,8 +59,11 @@ class StageScopeTest(unittest.TestCase):
                     report["cleanup_verdict"] = "NOT VERIFIED"
                 elif problem == "cleanup_error":
                     report["cleanup_errors"].append({"step": "owned-key-removal"})
-                else:
+                elif problem == "execution_error":
                     report["error"] = "actual execution interrupted"
+                else:
+                    report["M4-A"]["execution_error"] = "stage raised after its nominal verdict"
+                    report["M4-A"]["status"] = "failed"
                 self.assertEqual(1, aggregate_verdicts(report))
                 self.assertNotEqual("PASS", report["run_verdict"])
                 self.assertEqual("NOT VERIFIED", report["verdict"])

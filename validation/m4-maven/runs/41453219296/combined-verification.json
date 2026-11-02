@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "verified_utc": "2026-11-02T13:39:00.530967+00:00",
+  "run_id": 41453219296,
+  "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "verdict": "PASS",
+  "M4-A": "PASS",
+  "M4-B": "PASS",
+  "M4-C": "NOT VERIFIED",
+  "method": "Combine both isolated jobs only after exact code/source/artifact identity, per-connection protocol/system/consumer, cleanup and actual counts agree. Existing strict metadata gates were reapplied offline; this is not a new cryptographic audit or an offline reconstruction of destroyed AUTH payloads.",
+  "fresh_instances_and_control_identities_are_distinct": true,
+  "native_auth_sessions": 9,
+  "real_system_pairing_sessions": 1,
+  "native_checks": 75,
+  "harness_test_definitions": 45,
+  "harness_test_executions": 90,
+  "driver_commands": 187,
+  "evidence": {
+    "rsa": {
+      "job_id": 125303313927,
+      "report": "validation/m4-maven/runs/41453219296/rsa/evidence/auth/report.json",
+      "report_sha256": "5315f9d78a5f30c31abe2673218db9f2d287ee509ffc66b1af56a851b27e3cef",
+      "native_checks": 32,
+      "auth_sessions": 4,
+      "harness_checks": 45,
+      "driver_commands": 79,
+      "raw_evidence_files": 66,
+      "custody": {
+        "run_id": 41453219296,
+        "stage": "rsa",
+        "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+        "conclusion": "success",
+        "artifact_id": 13145881635,
+        "download_digest_verified": true,
+        "original_zip_sha256": "d997e5472bfcd0d9f633cba3431147deaa699f612bad95a08245525ad3215f5e",
+        "raw_evidence_archive_sha256": "a6f2888e391511356d00a4f77f1a671ee8ce06f386c91a3022ca1f495ba3e3e1",
+        "raw_files": 66,
+        "binary_checks": [
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+            "bytes": 24765440,
+            "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+          },
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+            "bytes": 25107792,
+            "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+          }
+        ],
+        "secret_scan": "No private key/token pattern in text evidence; temporary pairing codes and public keys redacted by runtime before persistence",
+        "job_log": {
+          "job_id": 125303313927,
+          "source": "GitHub decoded job log, preserved as UTF-8 text",
+          "bytes": 261256,
+          "sha256": "ca5a565f7faa88aef08638af6ac3307dc17e3d3376cb4de0ae5e9088b78103e1",
+          "path": "job-125303313927.log.gz"
+        }
+      },
+      "run_verdict": "PASS",
+      "required_stage_verdict": "PASS",
+      "single_job_overall_verdict": "NOT VERIFIED"
+    },
+    "tls": {
+      "job_id": 125303313686,
+      "report": "validation/m4-maven/runs/41453219296/tls/evidence/auth/report.json",
+      "report_sha256": "0364e7d29fee5716fce9df44d3a69b47d41a52beaf2b485bab2052f2257a5bd7",
+      "native_checks": 43,
+      "auth_sessions": 5,
+      "harness_checks": 45,
+      "driver_commands": 108,
+      "raw_evidence_files": 71,
+      "custody": {
+        "run_id": 41453219296,
+        "stage": "tls",
+        "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+        "conclusion": "success",
+        "artifact_id": 13145184771,
+        "download_digest_verified": true,
+        "original_zip_sha256": "b57559c886a02dca99864b378531aa30fdd0bc296a75e24cf82b38192b34b85c",
+        "raw_evidence_archive_sha256": "5b37f5c236e4a3e1a9720d232cd5d60e6f9ceb5fa5b799d69ce00c01299cf888",
+        "raw_files": 71,
+        "binary_checks": [
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+            "bytes": 24765440,
+            "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+          },
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+            "bytes": 25107792,
+            "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+          }
+        ],
+        "secret_scan": "No private key/token pattern in text evidence; temporary pairing codes and public keys redacted by runtime before persistence",
+        "job_log": {
+          "job_id": 125303313686,
+          "source": "GitHub decoded job log, preserved as UTF-8 text",
+          "bytes": 259232,
+          "sha256": "9df467aa93e0330023a811f8bb1a7c016e4ef9b2986807334536928625dcf0e5",
+          "path": "job-125303313686.log.gz"
+        }
+      },
+      "run_verdict": "PASS",
+      "required_stage_verdict": "PASS",
+      "single_job_overall_verdict": "NOT VERIFIED"
+    }
+  },
+  "source": {
+    "rsa": {
+      "association": {
+        "schema": 1,
+        "commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+        "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296",
+        "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296/artifacts/13145233944",
+        "source_package_sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+        "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+        "android_runtime_source_gate": {
+          "status": "not verified; runtime APK excluded"
+        },
+        "binary_artifacts": [
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+            "bytes": 24765440,
+            "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+          },
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+            "bytes": 25107792,
+            "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+          }
+        ],
+        "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+      },
+      "bundle_result": {
+        "binary_associations": 2,
+        "bundle": "native-source-bundle-03e903ea058e3eb27a36dd047b8af2868d33f7fc.tar.gz",
+        "bytes": 217198849,
+        "files": 630,
+        "kadb_commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+        "source_archives": 9,
+        "status": "verified"
+      }
+    },
+    "tls": {
+      "association": {
+        "schema": 1,
+        "commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+        "run_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296",
+        "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296/artifacts/13145139489",
+        "source_package_sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+        "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+        "android_runtime_source_gate": {
+          "status": "not verified; runtime APK excluded"
+        },
+        "binary_artifacts": [
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+            "bytes": 24765440,
+            "sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+          },
+          {
+            "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+            "bytes": 25107792,
+            "sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+          }
+        ],
+        "scope": "Commit/lock and actual artifact association. Build/test status is in the job logs and reports; hashes alone do not prove compilation or reproducible binaries."
+      },
+      "bundle_result": {
+        "binary_associations": 2,
+        "bundle": "native-source-bundle-03e903ea058e3eb27a36dd047b8af2868d33f7fc.tar.gz",
+        "bytes": 217198849,
+        "files": 630,
+        "kadb_commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+        "legal_certification": false,
+        "published_source_jars": 64,
+        "sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+        "source_archives": 9,
+        "status": "verified"
+      }
+    }
+  },
+  "restoration_boundary": "Each stage restores observed authorizations/settings, removes owned forwards/private keys, then destroys its dedicated AVD and control identity. TLS revocation is checked without restarting adbd; a final RSA key snapshot is not claimed to drain every platform notification queue.",
+  "formal_security_audit_claim": false
+}

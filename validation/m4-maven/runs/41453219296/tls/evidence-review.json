@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "run_id": 41453219296,
+  "job_id": 125303313686,
+  "stage": "tls",
+  "code_sha": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+  "reviewed_utc": "2026-11-02T13:39:42.268260+00:00",
+  "review_kind": "Independent review of raw per-session logcat, Native stdout, command readbacks, exact tested harness and downloaded binaries; not a rerun or professional security audit.",
+  "M4-B": "PASS",
+  "selected_stage_run_verdict": "PASS",
+  "single_stage_top_level_verdict": "NOT VERIFIED",
+  "single_stage_verdict_interpretation": "Intentional schema2 scope: this invocation selected only M4-B. It proves M4-B; overall M4 requires the separately executed M4-A job, not rewriting this report top-level verdict.",
+  "M4-C": "NOT VERIFIED",
+  "peer": {
+    "sdk_package": "system-images;android-35;google_apis_playstore;x86_64",
+    "revision": 9,
+    "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys",
+    "build_type": "user",
+    "ro.adb.secure": "1",
+    "shell_uid": 2000,
+    "adbd_pid": 1772,
+    "system_server_pid": 539,
+    "tls_listener": 32975,
+    "pairing_listener": 46795,
+    "root_used": false,
+    "authorization_files_written_by_driver": false
+  },
+  "sessions": [
+    {
+      "label": "tls-paired-a-before",
+      "identity": "tls_a",
+      "mode": "positive",
+      "native_pid": 6216,
+      "expected_public_key_sha256": "9a66e63e3c0553f2dc0a996474917b621964e3e25edc6947dce7ce41c2467b38",
+      "current_connection_count": 1,
+      "reciprocal_stls": true,
+      "tls_version": "1.3",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "attempt_elapsed_ms": 248,
+      "consumer_elapsed_ms": 253,
+      "driver_session_elapsed_ms": 470,
+      "checks_executed": 8,
+      "adb_handshake_completed": true,
+      "shell_succeeded": true,
+      "rejection_type": null,
+      "rejection_category": null,
+      "current_adbd_identity_log": [
+        "11-02 13:34:59.038  1772  2853 I adbd    : Matched auth_key=<REDACTED-PUBLIC-KEY:9a66e63e3c0553f2dc0a996474917b621964e3e25edc6947dce7ce41c2467b38> kadb-m3-6dd2aa8ef80000f8e2a1d9939110882e"
+      ],
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "tls-unpaired-b",
+      "identity": "tls_b",
+      "mode": "reject",
+      "native_pid": 6243,
+      "expected_public_key_sha256": "4f269a2e15adefb40e33f7d5f4816e6a113223ca5682eaeb786e2ff7f5bdc6de",
+      "current_connection_count": 1,
+      "reciprocal_stls": true,
+      "tls_version": "1.3",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "attempt_elapsed_ms": 59,
+      "consumer_elapsed_ms": 64,
+      "driver_session_elapsed_ms": 390,
+      "checks_executed": 8,
+      "adb_handshake_completed": false,
+      "shell_succeeded": false,
+      "rejection_type": "AdbPairAuthException",
+      "rejection_category": "tls_authentication_error_mapping",
+      "current_adbd_identity_log": [
+        "11-02 13:34:59.938  1772  2895 E adbd    : [server]: Handshake failed in SSL_accept/SSL_connect [CERTIFICATE_VERIFY_FAILED]"
+      ],
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "tls-paired-a-after",
+      "identity": "tls_a",
+      "mode": "positive",
+      "native_pid": 6267,
+      "expected_public_key_sha256": "9a66e63e3c0553f2dc0a996474917b621964e3e25edc6947dce7ce41c2467b38",
+      "current_connection_count": 1,
+      "reciprocal_stls": true,
+      "tls_version": "1.3",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "attempt_elapsed_ms": 113,
+      "consumer_elapsed_ms": 119,
+      "driver_session_elapsed_ms": 361,
+      "checks_executed": 8,
+      "adb_handshake_completed": true,
+      "shell_succeeded": true,
+      "rejection_type": null,
+      "rejection_category": null,
+      "current_adbd_identity_log": [
+        "11-02 13:35:01.001  1772  2964 I adbd    : Matched auth_key=<REDACTED-PUBLIC-KEY:9a66e63e3c0553f2dc0a996474917b621964e3e25edc6947dce7ce41c2467b38> kadb-m3-6dd2aa8ef80000f8e2a1d9939110882e"
+      ],
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "tls-revoked-a",
+      "identity": "tls_a",
+      "mode": "reject",
+      "native_pid": 6304,
+      "expected_public_key_sha256": "9a66e63e3c0553f2dc0a996474917b621964e3e25edc6947dce7ce41c2467b38",
+      "current_connection_count": 1,
+      "reciprocal_stls": true,
+      "tls_version": "1.3",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "attempt_elapsed_ms": 54,
+      "consumer_elapsed_ms": 58,
+      "driver_session_elapsed_ms": 228,
+      "checks_executed": 8,
+      "adb_handshake_completed": false,
+      "shell_succeeded": false,
+      "rejection_type": "AdbPairAuthException",
+      "rejection_category": "tls_authentication_error_mapping",
+      "current_adbd_identity_log": [
+        "11-02 13:35:02.384  1772  3030 E adbd    : [server]: Handshake failed in SSL_accept/SSL_connect [CERTIFICATE_VERIFY_FAILED]"
+      ],
+      "closed_reuse_elapsed_ms": 0
+    },
+    {
+      "label": "tls-authorized-control-after-revocation",
+      "identity": "control",
+      "mode": "positive",
+      "native_pid": 6329,
+      "expected_public_key_sha256": "7a580454c47681f146a46f9a494567c19ce1a21200fbb1b72b7d15394779934e",
+      "current_connection_count": 1,
+      "reciprocal_stls": true,
+      "tls_version": "1.3",
+      "cipher_suite": "TLS_AES_128_GCM_SHA256",
+      "attempt_elapsed_ms": 99,
+      "consumer_elapsed_ms": 104,
+      "driver_session_elapsed_ms": 338,
+      "checks_executed": 8,
+      "adb_handshake_completed": true,
+      "shell_succeeded": true,
+      "rejection_type": null,
+      "rejection_category": null,
+      "current_adbd_identity_log": [
+        "11-02 13:35:03.263  1772  3078 I adbd    : Matched auth_key=<REDACTED-PUBLIC-KEY:7a580454c47681f146a46f9a494567c19ce1a21200fbb1b72b7d15394779934e> runner@unknown"
+      ],
+      "closed_reuse_elapsed_ms": 0
+    }
+  ],
+  "counts": {
+    "real_system_pairing_connections": 1,
+    "fresh_native_tls_connections": 5,
+    "authorized_successes": 3,
+    "certificate_verification_rejections": 2,
+    "native_auth_checks": 40,
+    "native_pairing_checks": 3,
+    "total_native_checks": 43,
+    "separate_harness_unit_tests": 45
+  },
+  "identity_and_protocol_controls": {
+    "a_b_control_are_distinct": true,
+    "b_absent_from_authorizations_before_and_after_attempt": true,
+    "a_key_stable_across_before_after_and_revoked_attempts": true,
+    "per_process_single_private_key_import_without_additional_keys": true,
+    "per_session_native_json_and_stdout_exactly_agree": true,
+    "per_session_log_marker_unique": true,
+    "raw_logcat_adbd_pid_filtered_lines_exactly_match_report": true,
+    "one_actual_adbd_connection_in_each_log_slice": true,
+    "same_adbd_pid_and_same_listener_before_and_after_every_session": true,
+    "server_hello_not_treated_as_authentication_success": true,
+    "negative_cases_have_exact_certificate_verify_failed_and_no_success_log": true,
+    "negative_cases_are_neither_timeout_nor_network_error": true,
+    "all_negative_native_sessions_never_became_open": true,
+    "closed_clients_rejected_reuse_immediately": true,
+    "post_stls_payloads_not_decrypted": true,
+    "certificate_note": "A certificate is regenerated per import, so certificate fingerprints can differ while the paired RSA public key remains identical. Server matching and authorization assertions use that stable key."
+  },
+  "revocation": {
+    "api": "IAdbManager.unpairDevice transaction7",
+    "target": "tls_a",
+    "elapsed_ms": 329,
+    "polls": 2,
+    "first_removal_poll_still_authorized": true,
+    "second_removal_poll_only_control": true,
+    "separate_persistence_readback_before_reconnect": true,
+    "dd_received_log_time": "11-02 13:35:01.882",
+    "revoked_connection_started_log_time": "11-02 13:35:02.334",
+    "certificate_rejection_log_time": "11-02 13:35:02.384",
+    "same_live_pid_and_port": true,
+    "control_tls_connection_after_refusal_succeeded": true,
+    "authorized_set_after_rejection_equals_initial": true,
+    "scope": "Fresh connections after normal unpair and observable persisted key removal. No adbd restart, no arbitrary delay assumption, no active established-session revocation claim."
+  },
+  "cleanup": {
+    "stage": "PASS",
+    "outer": "PASS",
+    "errors": [],
+    "original_authorized_set_restored": true,
+    "original_authorized_key_count": 1,
+    "temporary_test_private_keys_deleted": true,
+    "temporary_pairing_code_deleted": true,
+    "temporary_identity_store_cleared_every_consumer": true,
+    "owned_forwards_remaining": 0,
+    "wifi_setting_restored": true,
+    "wireless_listener_stopped": true,
+    "binder_port_after_disable": -1,
+    "job_cleanup_step": "success",
+    "emulator_kill_acknowledged_in_raw_job_log": true,
+    "independent_adb_server_stop_command_executed": true,
+    "dedicated_avd_and_user_directory_deletion_command_executed": true,
+    "disposal_boundary": "Dedicated emulator acknowledges shutdown, bounded stop/kill cleanup runs, and disposable AVD/control-key directories are removed by the successful CI cleanup step."
+  },
+  "binary_and_source_association": {
+    "status": "verified metadata consistency and actual binary hashes",
+    "commit": "03e903ea058e3eb27a36dd047b8af2868d33f7fc",
+    "source_bundle_sha256": "82af86fe9bebafc80762c08905ed89a32f819540c1e50f184ab287bf5e1a0b4d",
+    "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41453219296/artifacts/13145139489",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "fixed_candidate": {
+      "version": "0.1.0-dev.59105290820b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    "actual_downloaded_binary_hashes": [
+      {
+        "path": "validation/native-adbd/build/bin/linuxX64/authDebugExecutable/kadb-native-auth.kexe",
+        "bytes": 24765440,
+        "independently_recomputed_sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806"
+      },
+      {
+        "path": "validation/native-adbd/build/bin/linuxX64/realPairingDebugExecutable/kadb-native-real-pairing.kexe",
+        "bytes": 25107792,
+        "independently_recomputed_sha256": "cb9dd1c6e895685308ad6ae9962579dfeecd8b3967a4847aa8ed572b44a13d31"
+      }
+    ],
+    "artifact_zip_sha256_independently_recomputed": "b57559c886a02dca99864b378531aa30fdd0bc296a75e24cf82b38192b34b85c",
+    "artifact_id": 13145184771,
+    "zip_digest_matches_job_upload_log": true,
+    "raw_evidence_archive_hash_verified": true,
+    "raw_job_log_sha256": "9df467aa93e0330023a811f8bb1a7c016e4ef9b2986807334536928625dcf0e5",
+    "maven_resolution_json_rehashed": true,
+    "exact_tested_harness_objects_reviewed": [
+      {
+        "path": "validation/m4-maven/ci/tls_stage.py",
+        "git_blob": "3146db730a9feba4468edb5769d2065c59f8c0fa"
+      },
+      {
+        "path": "validation/m4-maven/ci/run_auth.py",
+        "git_blob": "63ef5918a10e678ac73fd8806e20501ed746d662"
+      },
+      {
+        "path": "validation/m4-maven/ci/auth_observer.py",
+        "git_blob": "f7576f1df2b40d5b6d997e2e5d2068159eb240b4"
+      },
+      {
+        "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/auth/Main.kt",
+        "git_blob": "3517337f8a4d2ea2e2b815435600ad3d79c87019"
+      }
+    ]
+  },
+  "review_limits": [
+    "Overall M4 combines this M4-B proof with separate M4-A proof; this file does not reinterpret a one-stage report as full M4 PASS.",
+    "TLS1.3 encrypted certificate/application payloads were not decrypted or saved. Acceptance/refusal combines current-session server logs, stable identity records, actual Native API behavior and observable STLS/TLS metadata.",
+    "Revocation proof covers fresh connections after persisted removal; termination of an already open authenticated TLS session was not exercised.",
+    "Official SDK image inputs and runtime fingerprint identify the peer. AOSP reference tags are not asserted to be exact Google Play binary source; direct user-shell adbd ELF read remains unavailable.",
+    "Corresponding-source bundle verification metadata is cross-checked and downloaded consumer binaries rehashed; no independent rebuild or new cryptographic audit is claimed."
+  ],
+  "evidence_files": [
+    {
+      "path": "evidence/auth/tls-paired-a-before-session.json",
+      "sha256": "6aee81b933829014b9c0fd4e19fbfaedb458dcaf5f76bbc1786e2b89fda90f3b"
+    },
+    {
+      "path": "evidence/auth/tls-paired-a-before-native-stdout.txt",
+      "sha256": "73f6f2e43a13a62bc61caf5511e05e267215f408624f7e653e02980c3a317013"
+    },
+    {
+      "path": "evidence/auth/tls-paired-a-before-logcat-redacted.txt",
+      "sha256": "7d53a5e5d7af570a91f46e4fd63a6976a05085c9f78fb2ca6222285aa91ed039"
+    },
+    {
+      "path": "evidence/auth/tls-unpaired-b-session.json",
+      "sha256": "2ef02eaea48b85366f95bc59332cd75d7cb814700cb4ae38d42865a9cb46f49d"
+    },
+    {
+      "path": "evidence/auth/tls-unpaired-b-native-stdout.txt",
+      "sha256": "7f01f7c5ce26ee0aec870dc5ddb1fdae3094ef541873906d526942f5dfd87f14"
+    },
+    {
+      "path": "evidence/auth/tls-unpaired-b-logcat-redacted.txt",
+      "sha256": "43c17e2fe39b7d0289118cd7c49c5cc4d222e4e3d78de3f3a93c5db963f05d20"
+    },
+    {
+      "path": "evidence/auth/tls-paired-a-after-session.json",
+      "sha256": "21c584fa436841d8bfd315607d697eda30a519dda54ac2a14f5259fe5ed7986c"
+    },
+    {
+      "path": "evidence/auth/tls-paired-a-after-native-stdout.txt",
+      "sha256": "77b8aa58c5aeeb29b8ff0da1cc53fd0f9c5b14140cf5c34f024a2208fd2baf74"
+    },
+    {
+      "path": "evidence/auth/tls-paired-a-after-logcat-redacted.txt",
+      "sha256": "6e148ac98ec4e97951b72234fc708f6dc65b142494dc87eef7a44bcdea2c6960"
+    },
+    {
+      "path": "evidence/auth/tls-revoked-a-session.json",
+      "sha256": "6e5ae82a10e74800200362b136bb149d6040caf321d9f5952f29b3318afff2b1"
+    },
+    {
+      "path": "evidence/auth/tls-revoked-a-native-stdout.txt",
+      "sha256": "afe39fca925662e2e50f0f43bb3d565cad80b3c09591267cd4271c4e56f7e1c0"
+    },
+    {
+      "path": "evidence/auth/tls-revoked-a-logcat-redacted.txt",
+      "sha256": "53dbccf964f8127b1176902b770f6db9df735bdd19ef1d0ea5321a8a6a9d3663"
+    },
+    {
+      "path": "evidence/auth/tls-authorized-control-after-revocation-session.json",
+      "sha256": "a60bec0e1cb83cef1ec6a74c473862245476db0f77369cf1a12824a49d350ee5"
+    },
+    {
+      "path": "evidence/auth/tls-authorized-control-after-revocation-native-stdout.txt",
+      "sha256": "e0abbfe170c6e9454c24b529be0ce820b2f6af5f995b1fae464ff25e45fd15bb"
+    },
+    {
+      "path": "evidence/auth/tls-authorized-control-after-revocation-logcat-redacted.txt",
+      "sha256": "e58189c001128ef32fcb77b6702985e49e6a234ddc734967e61860299d45941a"
+    },
+    {
+      "path": "evidence/auth/report.json",
+      "sha256": "0364e7d29fee5716fce9df44d3a69b47d41a52beaf2b485bab2052f2257a5bd7"
+    },
+    {
+      "path": "evidence/auth/commands.jsonl",
+      "sha256": "f5071bb0f1eb90739fa0e49fd68ba29df3ddbf47a002e10c2d81fee370eb11fa"
+    },
+    {
+      "path": "evidence/auth/final-logcat-redacted.txt",
+      "sha256": "01021a6c37b2e580fb39fcf8646426f015a7afa49a5c484534045365513a664d"
+    },
+    {
+      "path": "evidence/m4-driver-tests.txt",
+      "sha256": "922712c577279590495332426a1ee33979bfce9ca7f1725137c91dc27d39fbb0"
+    },
+    {
+      "path": "evidence/m4-step-outcomes.json",
+      "sha256": "8ebc14307df5281d0aafd2a3d85c104ada02615e94e7532fcd786714e59f9d0d"
+    },
+    {
+      "path": "evidence/binary-source-association.json",
+      "sha256": "82393c9d0b5bfc65c0488ab5735da71379c9c2c0b7b87b6bfff36a1e53c0a26c"
+    },
+    {
+      "path": "evidence/official-image-identity.json",
+      "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+    },
+    {
+      "path": "evidence/corresponding-source/source-bundle-result.json",
+      "sha256": "8d0f7a06ea5560117799b1a61355be991b30e76b787c05747b8f1b1636ede744"
+    },
+    {
+      "path": "evidence/corresponding-source/source-bundle-manifest.json",
+      "sha256": "99f35e24ee5dc820edc7a76eb7354d42d66f71f47b34f2139eeacb0ebc233cd9"
+    },
+    {
+      "path": "evidence/spake2-maven-resolution.json",
+      "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+    },
+    {
+      "path": "evidence/spake2-resolved-source-verification.json",
+      "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+    }
+  ]
+}

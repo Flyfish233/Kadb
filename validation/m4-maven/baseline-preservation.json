@@ -1,19 +1,20 @@
 {
   "schema": 1,
   "status": "PASS",
-  "generated_utc": "2026-11-02T13:16:54.214865+00:00",
+  "generated_utc": "2026-11-02T13:29:19.163599+00:00",
   "scope": "Git object and exact path-diff preservation review for the tested M4 commit; not a rerun of M1/M2/M3 or a fourth SPAKE2 audit.",
   "references": {
     "m3_executed": "ef5ae480e598ec08309fa6bfed12af44996bbfea",
     "user_baseline": "895674e5725b2cf328bf427e1500cb8f2e6e231e",
-    "m4_tested": "7890db69afa29e9dd29976f72314e853a4d555c8"
+    "m4_tested": "03e903ea058e3eb27a36dd047b8af2868d33f7fc"
   },
-  "tested_ci_run": 41450998239,
+  "tested_ci_run": 41453219296,
   "method": {
     "object_identity": "git rev-parse <commit>:<path> for entire trees and individual blobs",
     "changes": "git diff --name-status --no-renames <baseline> <tested>",
     "exact_edit_check": "Removing the exact recorded M1 paths-ignore insertion and auth executable insertion reconstructs the prior byte-for-byte files.",
-    "working_tree": "Committed references are compared. Concurrent uncommitted M4 harness edits are excluded from the tested-commit statement."
+    "working_tree": "Committed references are compared. Concurrent uncommitted M4 harness edits are excluded from the tested-commit statement.",
+    "stage_combination": "The tested run has isolated rsa and tls jobs. A selected-stage run_verdict PASS is not an overall M4 PASS; delivery must combine actual M4-A and M4-B evidence. This file assesses source preservation only."
   },
   "unchanged_objects": [
     {
@@ -699,6 +700,10 @@
     },
     {
       "status": "A",
+      "path": "validation/m4-maven/baseline-preservation.json"
+    },
+    {
+      "status": "A",
       "path": "validation/m4-maven/ci/auth_observer.py"
     },
     {
@@ -731,11 +736,19 @@
     },
     {
       "status": "A",
+      "path": "validation/m4-maven/ci/test_run_auth_scope.py"
+    },
+    {
+      "status": "A",
       "path": "validation/m4-maven/ci/tls_stage.py"
     },
     {
       "status": "A",
       "path": "validation/m4-maven/research/AUTH-TARGET.zh-CN.md"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/research/auth-notification-lifecycle.zh-CN.md"
     },
     {
       "status": "A",
@@ -888,6 +901,78 @@
     {
       "status": "A",
       "path": "validation/m4-maven/runs/41449058069/raw-file-inventory.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/artifact-custody.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/artifacts.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence-review.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/auth/report.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/binary-source-association.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/corresponding-source/source-bundle-result.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/emulator-source.properties"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/environment/report.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/m4-step-outcomes.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/official-image-identity.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/spake2-candidate-integrity.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/spake2-maven-resolution.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/spake2-resolved-source-verification.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/evidence/system-image-source.properties"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/job-125295885730.log.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/jobs.json"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/raw-evidence.tar.gz"
+    },
+    {
+      "status": "A",
+      "path": "validation/m4-maven/runs/41450998239/raw-file-inventory.json"
     },
     {
       "status": "A",
