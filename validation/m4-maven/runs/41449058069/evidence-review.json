@@ -1,0 +1,305 @@
+{
+  "schema": 1,
+  "run_id": 41449058069,
+  "reviewed_utc": "2026-11-02T13:10:52.181435+00:00",
+  "review_kind": "Independent agent review of preserved real execution evidence and exact tested harness source; no rerun and no independent professional security-audit claim",
+  "code_sha": "443211e91262fb021335b168b42fe7f18591b6eb",
+  "M4-A": "PASS",
+  "M4-B": "NOT VERIFIED",
+  "M4-C": "NOT VERIFIED",
+  "overall": "CONDITIONAL PASS",
+  "reason": "RSA enrollment, fresh authorized A acceptance before and after explicit B denial, same-connection challenge/signature verification, actual framework/adbd denial, and restoration evidence agree. Wireless TLS sessions did not execute in this run.",
+  "peer": {
+    "official_sdk_package": "system-images;android-35;google_apis_playstore;x86_64",
+    "revision": 9,
+    "fingerprint": "google/sdk_gphone64_x86_64/emu64xa:15/AE3A.240806.036/12592187:user/release-keys",
+    "ro.adb.secure": "1",
+    "build_type": "user",
+    "shell_uid": 2000,
+    "root_used": false,
+    "adbd_pid": 2009,
+    "system_server_pid": 544,
+    "guest_rsa_port": 5555
+  },
+  "sessions": [
+    {
+      "label": "rsa-a-normal-enrollment",
+      "identity": "rsa_a",
+      "mode": "positive",
+      "auth_tokens": 2,
+      "signatures": 1,
+      "public_key_submissions": 1,
+      "adbd_cnxn": 1,
+      "shell_open": 1,
+      "signature_matches_current_token_and_expected_identity": true,
+      "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+      "attempt_elapsed_ms": 555,
+      "consumer_elapsed_ms": 561,
+      "driver_session_elapsed_ms": 812,
+      "closed_reuse_elapsed_ms": 0,
+      "socket_timeout_ms": 20000,
+      "native_checks": 8,
+      "adb_handshake_completed": true,
+      "shell_succeeded": true,
+      "rejection_category": null,
+      "framework_deny": false,
+      "adbd_no": false
+    },
+    {
+      "label": "rsa-a-authorized-before",
+      "identity": "rsa_a",
+      "mode": "positive",
+      "auth_tokens": 1,
+      "signatures": 1,
+      "public_key_submissions": 0,
+      "adbd_cnxn": 1,
+      "shell_open": 1,
+      "signature_matches_current_token_and_expected_identity": true,
+      "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+      "attempt_elapsed_ms": 72,
+      "consumer_elapsed_ms": 77,
+      "driver_session_elapsed_ms": 317,
+      "closed_reuse_elapsed_ms": 0,
+      "socket_timeout_ms": 8000,
+      "native_checks": 8,
+      "adb_handshake_completed": true,
+      "shell_succeeded": true,
+      "rejection_category": null,
+      "framework_deny": false,
+      "adbd_no": false
+    },
+    {
+      "label": "rsa-b-unapproved-denied",
+      "identity": "rsa_b",
+      "mode": "reject",
+      "auth_tokens": 2,
+      "signatures": 1,
+      "public_key_submissions": 1,
+      "adbd_cnxn": 0,
+      "shell_open": 0,
+      "signature_matches_current_token_and_expected_identity": true,
+      "expected_public_key_sha256": "54f4d9f03a8678547581c8c6d574463a564c7bb70ac4f128eb47a5547371aef0",
+      "attempt_elapsed_ms": 8179,
+      "consumer_elapsed_ms": 8185,
+      "driver_session_elapsed_ms": 8372,
+      "closed_reuse_elapsed_ms": 0,
+      "socket_timeout_ms": 8000,
+      "native_checks": 8,
+      "adb_handshake_completed": false,
+      "shell_succeeded": false,
+      "rejection_category": "io_timeout",
+      "framework_deny": true,
+      "adbd_no": true
+    },
+    {
+      "label": "rsa-a-authorized-after",
+      "identity": "rsa_a",
+      "mode": "positive",
+      "auth_tokens": 1,
+      "signatures": 1,
+      "public_key_submissions": 0,
+      "adbd_cnxn": 1,
+      "shell_open": 1,
+      "signature_matches_current_token_and_expected_identity": true,
+      "expected_public_key_sha256": "e4c451a581ac569a0f9b355c9f7e40599fc88625254f0488945ca33c4b3345f5",
+      "attempt_elapsed_ms": 70,
+      "consumer_elapsed_ms": 76,
+      "driver_session_elapsed_ms": 386,
+      "closed_reuse_elapsed_ms": 0,
+      "socket_timeout_ms": 8000,
+      "native_checks": 8,
+      "adb_handshake_completed": true,
+      "shell_succeeded": true,
+      "rejection_category": null,
+      "framework_deny": false,
+      "adbd_no": false
+    }
+  ],
+  "totals": {
+    "native_connections": 4,
+    "auth_tokens": 6,
+    "verified_signatures": 4,
+    "public_key_submissions": 2,
+    "successful_adbd_cnxn": 3,
+    "native_checks": 32,
+    "separate_harness_unit_tests": 25
+  },
+  "false_positive_controls": {
+    "exact_session_json_native_stdout_and_report_agree": true,
+    "one_unique_log_marker_per_session": true,
+    "logs_filtered_to_current_adbd_and_system_server_pids": true,
+    "one_connection_per_session_no_header_errors": true,
+    "current_connection_token_not_inherited": true,
+    "fresh_a_reconnects_without_allow_or_auth3": true,
+    "a_b_and_control_keys_distinct": true,
+    "negative_key_absent_from_authorized_set": true,
+    "negative_has_real_challenge_and_valid_b_signature": true,
+    "negative_has_matching_current_auth3_and_pending_fingerprint": true,
+    "negative_framework_deny_and_adbd_no_observed": true,
+    "negative_never_reached_cnxn_or_shell": true,
+    "same_live_adbd_pid_and_listener_before_after": true,
+    "per_process_single_imported_identity_no_additional_keys": true,
+    "all_clients_closed_and_reuse_rejected": true,
+    "certificate_fingerprint_note": "Imported RSA A generates a new certificate on each consumer process; certificate hashes differ as expected. Stable ADB RSA public-key hashes, signature verification and authorization records identify A."
+  },
+  "negative_timeout_interpretation": {
+    "exception": "IOException: Socket operation timed out",
+    "attempt_elapsed_ms": 8179,
+    "configured_timeout_ms": 8000,
+    "adbd_no_time": "11-02 13:05:33.967",
+    "framework_deny_time": "11-02 13:05:33.967",
+    "timeout_alone_is_not_evidence": true,
+    "source_reference": "https://android.googlesource.com/platform/frameworks/native/+/refs/tags/android-15.0.0_r1/libs/adbd_auth/adbd_auth.cpp",
+    "explanation": "DenyUsbDevice clears the pending prompt without a force-disconnect callback in the reference implementation. The observed NO plus no-CNXN state and bounded client timeout are consistent; the actual refusal is independently evidenced before the timeout."
+  },
+  "source_association": {
+    "status": "consistent",
+    "auth_consumer_sha256": "c2969cb0f8d730413603e264660b4b5668f64b73f61fe9af0b8952314a595806",
+    "source_bundle_sha256": "e110a83de6d568edbcb8d2c86b61ef577b1cd57dd465d3ba0add728bf11e53b7",
+    "source_lock_sha256": "1c1cbe03c78b4810dd096a589c0cb8d57ec2a58b5ceb2b54f9171075c1ddfd92",
+    "source_artifact_url": "https://github.com/Flyfish233/Kadb/actions/runs/41449058069/artifacts/13144381866",
+    "fixed_candidate": {
+      "version": "0.1.0-dev.59105290820b",
+      "source_revision": "59105290820bcbfd4e0336a2e7713006a461527f"
+    },
+    "resolution_report_rehashed": true,
+    "linux_compile_klib_artifacts": [
+      {
+        "coordinate": "io.github.flyfish233:spake2-legacy-linuxx64:0.1.0-dev.59105290820b",
+        "sha256": "02671b1ac036bf6088973672c66d3a195b1355a12e046392c6046b54aa94f942"
+      },
+      {
+        "coordinate": "io.github.flyfish233:spake2-primitives-linuxx64:0.1.0-dev.59105290820b",
+        "sha256": "3ff9f5d006209c78440a6bf7653cfa19dca73a20398fb87f5d05a098812e2a6f"
+      }
+    ],
+    "production_source_and_version_catalog_unchanged_since_m3": true,
+    "exact_tested_source_reviewed": [
+      {
+        "path": "validation/m4-maven/ci/auth_observer.py",
+        "git_blob": "0f2e95ae779bae379f9263bcad97ac9b8c4f3e6d"
+      },
+      {
+        "path": "validation/m4-maven/ci/run_auth.py",
+        "git_blob": "8d2fb8cfca519d4362db549b462cea8a197d919b"
+      },
+      {
+        "path": "validation/m4-maven/ci/rsa_stage.py",
+        "git_blob": "258672cb1cadd2ff0ff2f90ece133b5c8fb7d181"
+      },
+      {
+        "path": "validation/native-adbd/src/nativeMain/kotlin/com/flyfishxu/kadb/validation/auth/Main.kt",
+        "git_blob": "3517337f8a4d2ea2e2b815435600ad3d79c87019"
+      }
+    ]
+  },
+  "cleanup": {
+    "verdict": "PASS",
+    "authorization_set_restored": true,
+    "remaining_authorized_keys": 1,
+    "temporary_private_keys_deleted": true,
+    "owned_forwards_remaining": 0,
+    "wifi_setting_restored": true,
+    "errors": []
+  },
+  "tls_blocker": {
+    "stage_verdict": "NOT VERIFIED",
+    "sessions_executed": 0,
+    "listener_actually_started_port": 36175,
+    "listener_log_time": "11-02 13:05:44.499",
+    "cause": "Secure user image denies shell property lookup for service.adb.tls.port; driver therefore missed the running TLS listener. This is not evidence of TLS identity acceptance or rejection.",
+    "next_action": "Read the real wireless port through the permission-protected API35 IAdbManager.getAdbWirelessPort transaction 10, then execute the separate TLS acceptance matrix."
+  },
+  "review_limits": [
+    "AUTH token and signature bytes were intentionally not persisted; cryptographic verification occurred in the observed run. This review inspects the exact modular-exponentiation/PKCS1-SHA1-prehashed verifier and its recorded result, not a second offline signature verification.",
+    "Binary/source association metadata is mutually consistent with successful compilation and actual consumer hash. This review did not download/rebuild the 204 MB corresponding-source archive or rehash an absent executable.",
+    "Official SDK image inputs are identified by hashes; the AOSP reference tag is not asserted to be the exact Google Play binary source and user-shell adbd ELF access remains unavailable.",
+    "RSA cleanup confirms key removal; post-removal reconnection belongs to the pending M4-B revocation matrix."
+  ],
+  "evidence_files": [
+    {
+      "path": "evidence/auth/rsa-a-normal-enrollment-session.json",
+      "sha256": "d6ebc93774103aeef3560e8738b7cfd7a5eb92b51ae452c3db7d720f46728fc4"
+    },
+    {
+      "path": "evidence/auth/rsa-a-normal-enrollment-native-stdout.txt",
+      "sha256": "bdd51fd1ecd2b565f9c132b74600f7b7631138425f560bd7a36ee8b61df46e58"
+    },
+    {
+      "path": "evidence/auth/rsa-a-normal-enrollment-logcat-redacted.txt",
+      "sha256": "83cd5890a0eefb8fef5524cc95de95268d9d85a3d10ba6654f09ace574caaaa9"
+    },
+    {
+      "path": "evidence/auth/rsa-a-authorized-before-session.json",
+      "sha256": "c06b5ec7621b226d3077ea79c0429602506ec00321529c44674b1e994a5f53ce"
+    },
+    {
+      "path": "evidence/auth/rsa-a-authorized-before-native-stdout.txt",
+      "sha256": "7ae871922687e2a6ae765ad3d5420e5e618cbf85a0ee38439e803eda3c20ce66"
+    },
+    {
+      "path": "evidence/auth/rsa-a-authorized-before-logcat-redacted.txt",
+      "sha256": "63dacb265056264a20126fc594c5ab859671840dc84e744458f98f616ee554e6"
+    },
+    {
+      "path": "evidence/auth/rsa-b-unapproved-denied-session.json",
+      "sha256": "b81e4f13f9038089d9803361e1eccee80fa143bbac0f3d5b49e8d4c975e5a915"
+    },
+    {
+      "path": "evidence/auth/rsa-b-unapproved-denied-native-stdout.txt",
+      "sha256": "d2be06c5eb6ce7653cefa72673c837590b65a2ab9ecb746d5ccdbd789e6913d1"
+    },
+    {
+      "path": "evidence/auth/rsa-b-unapproved-denied-logcat-redacted.txt",
+      "sha256": "8e01a912ada891d67c82bca0a3538bf253bbd23bb398a10e3e1b435d1697d773"
+    },
+    {
+      "path": "evidence/auth/rsa-a-authorized-after-session.json",
+      "sha256": "bd55fcbb08d77f43d27bb7e6db8927079e78967abeb0bd94cca59ee69b4c3797"
+    },
+    {
+      "path": "evidence/auth/rsa-a-authorized-after-native-stdout.txt",
+      "sha256": "19d21fb421863ae9918e9dec2f030ef0ae21a37714529cdeea51f66837d4f61d"
+    },
+    {
+      "path": "evidence/auth/rsa-a-authorized-after-logcat-redacted.txt",
+      "sha256": "9ebb4422231cce38b985d4c3cbc724b4330b85c6f044a974ba4ff4063fd3c733"
+    },
+    {
+      "path": "evidence/auth/report.json",
+      "sha256": "bc289ff1b300c68c6c17ef6ae490cf501be52d6b8f8a065a983c94c8151a8873"
+    },
+    {
+      "path": "evidence/binary-source-association.json",
+      "sha256": "08cae06384eb2535bb618b3e98c02da278f1aea80e71337a4c6fc31812b05dca"
+    },
+    {
+      "path": "evidence/official-image-identity.json",
+      "sha256": "ad9938c6c424f75854265e5aee459b1f615494ae88b8e74f648825d273b1dec7"
+    },
+    {
+      "path": "evidence/spake2-resolved-source-verification.json",
+      "sha256": "ea67edd34d4a882be03a594f03c5ae09d06aefb82def97f518b41eb862d8e8a4"
+    },
+    {
+      "path": "evidence/spake2-maven-resolution.json",
+      "sha256": "60398373166109324780be269794db8581f251b5e1883066dc0eeafc3cac5bc2"
+    },
+    {
+      "path": "evidence/corresponding-source/source-bundle-result.json",
+      "sha256": "41d355c19b5dd30236a58e39ceb6acce71972298fd7eab3dbcd29dc099ebb204"
+    },
+    {
+      "path": "evidence/corresponding-source/source-bundle-manifest.json",
+      "sha256": "cc3af66b63929e9c5efa9f49ebc0af1d2af94358ee5940645b6edb8af159ec82"
+    },
+    {
+      "path": "evidence/m4-driver-tests.txt",
+      "sha256": "ac21f6fb67b154b617d29ec43817f457e4e37ccd7d876bb24eb049c38b1a2d31"
+    },
+    {
+      "path": "evidence/native-build.txt",
+      "sha256": "7a373a91037e82652eb216ad8698f53c97f7c3558d5ef7182a6610b894b845fd"
+    }
+  ]
+}

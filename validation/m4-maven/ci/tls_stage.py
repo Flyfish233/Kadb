@@ -35,6 +35,33 @@ def _listener(text, port):
     return False
 
 
+def parse_wireless_port(reply):
+    """Decode API 35 IAdbManager.getAdbWirelessPort's exception + signed int32.
+
+    `service call` prints hexadecimal Parcel words, optionally with addresses
+    and an ASCII column. Empty/denied output must never mean "listener stopped".
+    """
+    parcel = re.search(r"\bParcel\((.*)\)\s*$", reply.strip(), re.DOTALL)
+    _require(parcel is not None, "Wireless-port Binder reply contains no Parcel")
+    words = []
+    for line in parcel.group(1).splitlines():
+        hex_column = line.split("'", 1)[0]
+        hex_column = re.sub(r"^\s*0x[0-9a-fA-F]+:\s*", "", hex_column)
+        words.extend(re.findall(r"(?<![A-Za-z0-9])[0-9a-fA-F]{8}(?![A-Za-z0-9])", hex_column))
+    _require(len(words) == 2 and int(words[0], 16) == 0,
+             "Wireless-port Binder reply is not a successful int32 result")
+    unsigned = int(words[1], 16)
+    port = unsigned - (1 << 32) if unsigned & (1 << 31) else unsigned
+    _require(-1 <= port <= 65535, "Wireless-port Binder result is outside the API's port range")
+    return port
+
+
+def wireless_port(runner, label):
+    # API 35 AIDL declaration order is pinned in the M4 source investigation.
+    # Unlike service.adb.tls.port, this normal Binder getter is shell-readable.
+    return parse_wireless_port(runner.binder(label, 10))
+
+
 def _same_peer(reference, observed):
     return (bool(reference.get("pid")) and observed.get("pid") == reference.get("pid")
             and observed.get("listener_present") is True and observed.get("ro.adb.secure") == "1")
@@ -119,6 +146,7 @@ def run_tls(runner, identities, report):
     stage["original_authorized_key_count"] = len(baseline)
     pairing_started = False
     wifi_changed = False
+    connect_port = None
     error = None
     cleanup_errors = []
     try:
@@ -133,19 +161,18 @@ def run_tls(runner, identities, report):
         # causes an unnecessary untrusted-network prompt/reset race.
         runner.binder("tls-allow-current-network-once", 4, "i32", 0, "s16", bssids[0])
         deadline = time.monotonic() + 30
-        connect_port = None
         reference = None
         while time.monotonic() < deadline:
-            text = runner.shell("tls-await-listener-port", "getprop", "service.adb.tls.port").stdout.strip()
-            if text.isdigit() and 0 < int(text) < 65536:
-                state = runner.peer_state("tls-await-listener-state", int(text))
+            port = wireless_port(runner, "tls-await-listener-port-binder")
+            if port > 0:
+                state = runner.peer_state("tls-await-listener-state", port)
                 if state.get("listener_present") and state.get("pid") and state.get("ro.adb.secure") == "1":
-                    connect_port, reference = int(text), state
+                    connect_port, reference = port, state
                     break
             time.sleep(0.5)
         _require(connect_port is not None, "Authenticated wireless adbd listener did not become ready")
         stage["connection_listener"] = {"port": connect_port, "state": reference,
-                                         "identity_sources": ["service.adb.tls.port", "adbd PID", "ss listener", "per-session adbd auth logs"]}
+                                         "identity_sources": ["IAdbManager.getAdbWirelessPort transaction 10", "adbd PID", "rootless ss listener", "per-session adbd auth logs"]}
         connection_forward = runner.forward(connect_port)
 
         pairing_marker = runner.mark("tls-real-pairing")
@@ -264,9 +291,15 @@ def run_tls(runner, identities, report):
                 deadline = time.monotonic() + 15
                 while time.monotonic() < deadline:
                     setting = runner.shell("tls-cleanup-observe-wifi-setting", "settings", "get", "global", "adb_wifi_enabled").stdout.strip()
-                    port = runner.shell("tls-cleanup-observe-wifi-port", "getprop", "service.adb.tls.port").stdout.strip()
-                    active = port.isdigit() and 0 < int(port) < 65536
-                    if setting == original_wifi and active == (original_wifi == "1"):
+                    port = wireless_port(runner, "tls-cleanup-observe-wifi-port-binder")
+                    listings = runner.shell("tls-cleanup-observe-listeners", "ss", "-ltn").stdout
+                    active = port > 0
+                    tested_listener_present = connect_port is not None and _listener(listings, connect_port)
+                    listener_restored = (_listener(listings, port) if original_wifi == "1"
+                                         else not tested_listener_present)
+                    stage["wireless_cleanup_observation"] = {"setting": setting, "binder_port": port,
+                                                              "tested_listener_present": tested_listener_present}
+                    if setting == original_wifi and active == (original_wifi == "1") and listener_restored:
                         stage["wifi_setting_restored"] = True
                         return
                     time.sleep(0.5)
